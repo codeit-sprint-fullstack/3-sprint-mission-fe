@@ -1,0 +1,32 @@
+@import url('variables.css');
+
+.btn {
+  border-radius: var(--border-radius-lg);
+  color: #ffff;
+  text-align: center;
+  white-space: nowrap;
+}
+.btn-block {
+  display: block;
+  width: 357px;
+  line-height: var(--line-height-xl);
+  padding: var(--padding-12);
+  border-radius: var(--border-radius-xl);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+}
+.btn-full {
+  width: 100%;
+}
+
+.btn-login {
+  line-height: var(--line-height-lg);
+  padding: 11px 43px;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+@media (max-width: 375px) {
+  .btn-block {
+    width: 240px;
+  }
+}

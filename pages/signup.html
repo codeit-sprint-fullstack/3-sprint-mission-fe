@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <link rel="stylesheet" href="../styles/signup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다마켓 - 회원가입</title>
+</head>
+
+<body>
+  <main class="grid min-h-screen align-center justify-center">
+    <article class="grid gap-40">
+      <section class="px-122">
+        <a href="/" aria-label="홈으로">
+          <img src="../images/logo/panda-market-logo.png" alt="판다 마켓" width="396" height="132">
+        </a>
+      </section>
+      <section class="grid gap-24">
+        <form class="grid gap-24">
+          <div class="grid gap-16">
+            <label for="email" class="text-2lg font-bold">이메일</label>
+            <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요.">
+          </div>
+          <div class="grid gap-16">
+            <label for="nickname" class="text-2lg font-bold">닉네임</label>
+            <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요.">
+          </div>
+          <div class="grid gap-16">
+            <label for="password" class="text-2lg font-bold">비밀번호</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+          </div>
+          <div class="grid gap-16">
+            <label for="password" class="text-2lg font-bold">비밀번호 확인</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+          </div>
+          <button type="submit" class="btn btn-block btn-full bg-gray400">회원가입</button>
+        </form>
+
+        <section class="flex space-between align-center bg-main py-16 px-23 rounded-lg">
+          <p class="text-lg gray800">간편 로그인하기</p>
+          <div class="flex gap-16">
+            <a href="https://www.google.com/" aria-label="구글 간편 로그인 버튼">
+              <img src="../images/logo/google-login.png" width="42" alt="">
+            </a>
+            <a href="https://www.kakaocorp.com/page/" aria-label="카카오톡 간편 로그인 버튼">
+              <img src="../images/logo/kakao-login.png" width="42" alt="">
+            </a>
+          </div>
+        </section>
+
+        <section class="text-center">
+          <p class="text-md">이미 회원이신가요? <a class="primary100 underline" href="/pages/login.html">로그인</a></p>
+        </section>
+      </section>
+    </article>
+  </main>
+
+</body>
+
+</html>

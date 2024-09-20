@@ -1,0 +1,13 @@
+@import url('../base/variables.css');
+
+input {
+  background-color: var(--color-gray100);
+  color: var(--color-gray400);
+  padding: 15px 24px;
+  border-radius: var(--border-radius-lg);
+  outline: none;
+}
+
+input:focus {
+  outline: var(--color-primary100) solid 1px;
+}

@@ -1,0 +1,32 @@
+@import url('styles/base/variables.css');
+
+header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: #FFFFFF;
+}
+.header-body {
+  max-width: 1920px;
+  padding: 9.5px var(--padding-200);
+  background: #FFFFFF;
+  .mb-logo {
+    display: none;
+  }
+}
+@media (max-width: 744px) {
+  .header-body {
+    padding: 10px var(--padding-24);
+  }
+}
+@media (max-width: 375px) {
+  .header-body {
+    padding: 10px var(--padding-16);
+    .logo {
+      display: none;
+    }
+    .mb-logo {
+      display: block;
+    }
+  }
+}

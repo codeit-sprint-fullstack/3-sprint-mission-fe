@@ -1,0 +1,66 @@
+/* 모든 요소에 대한 기본 설정 */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* HTML5 디스플레이 정의 */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* 기본 body 스타일 */
+body {
+  line-height: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* 목록 스타일 제거 */
+ol, ul {
+  list-style: none;
+}
+
+/* 인용문 스타일 제거 */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* 테이블 스타일 초기화 */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* 링크 스타일 초기화 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 폼 요소 스타일 초기화 */
+button,
+input,
+select,
+textarea {
+  line-height: 1.15;
+  margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+  border: none;
+}
+
+/* 이미지 최대 너비 설정 */
+img {
+  max-width: 100%;
+  height: auto;
+}
