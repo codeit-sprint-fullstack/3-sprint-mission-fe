@@ -110,14 +110,14 @@ button {
   height: auto;
 }
 
-.create-account {
+.sign-up {
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 2.4rem;
 }
 
-.create-account a {
-  color: var(--login-link-font-color);
+.sign-up a {
+  color: var(--sign-up-link-font-color);
   text-decoration: underline;
 }
 
