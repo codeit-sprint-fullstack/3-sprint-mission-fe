@@ -2,7 +2,7 @@
   --main-ivory-color: #f3f4f6;
   --input-focus-border-color: #3692ff;
   --main-grey-color: #9ca3af;
-  --label-font-color: #1f2937;
+  --main-font-color: #1f2937;
   --social-login-bg-color: #e6f2ff;
   --sign-up-link-font-color: #3182f6;
   --password-visible-button-color: #4b5563;
@@ -53,7 +53,7 @@ label {
   margin-bottom: 1.6rem;
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--label-font-color);
+  color: var(--main-font-color);
 }
 
 input,
@@ -99,6 +99,11 @@ button {
   margin-bottom: 2.4rem;
 }
 
+.social-login > span {
+  font-weight: 500;
+  color: var(--main-font-color);
+}
+
 .login-buttons {
   display: flex;
   gap: 1.6rem;
@@ -110,6 +115,7 @@ button {
 }
 
 .sign-up {
+  color: var(--main-font-color);
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 2.4rem;
