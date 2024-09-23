@@ -2,7 +2,23 @@
 
 @font-face {
   font-family: 'pretendard';
-  src: url('static/font/Pretendard-Regular.subset.woff') format('woff');
+  src: url('../../static/font/Pretendard-Bold.subset.woff2') format('woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('../../static/font/Pretendard-SemiBold.subset.woff2') format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('../../static/font/Pretendard-Medium.subset.woff2') format('woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('../../static/font/Pretendard-Regular.subset.woff2') format('woff2');
+  font-weight: 400;
 }
 
 .underline {
