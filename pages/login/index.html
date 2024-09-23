@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="styleSheet" href="../../reset.css" />
+    <link rel="styleSheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNH254KW2D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-ZNH254KW2D");
+    </script>
+  </head>
+  <body>
+    <main>
+      <section class="logo">
+        <a href="/"><img src="../../images/logo.png" /></a>
+      </section>
+      <form>
+        <label for="email">이메일</label>
+        <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+        <label for="password">비밀번호</label>
+        <div class="password-input">
+          <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
+          <i class="eye-icon fa-regular fa-eye-slash"></i>
+        </div>
+        <button type="submit">로그인</button>
+      </form>
+      <div class="social-login">
+        <span>간편 로그인하기</span>
+        <div class="login-buttons">
+          <a href="https://www.google.com"><img src="../../images/google.png" /></a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="../../images/kakaotalk.png" />
+          </a>
+        </div>
+      </div>
+      <p class="create-account">
+        판다마켓이 처음이신가요? <a href="../signup/index.html">회원가입</a>
+      </p>
+    </main>
+  </body>
+</html>
