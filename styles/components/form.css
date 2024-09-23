@@ -6,6 +6,7 @@ input {
   padding: 15px 24px;
   border-radius: var(--border-radius-lg);
   outline: none;
+  border: none;
 }
 
 input:focus {
