@@ -54,7 +54,7 @@
 
 ## 스크린샷
 
-- <a rel="https://adorable-phoenix-7e2244.netlify.app">배포 링크</a>
+- 배포 링크 https://adorable-phoenix-7e2244.netlify.app
 
 ## 멘토에게
 
