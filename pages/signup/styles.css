@@ -1,12 +1,10 @@
 :root {
-  --input-bg-color: #f3f4f6;
+  --main-ivory-color: #f3f4f6;
   --input-focus-border-color: #3692ff;
-  --button-bg-color: #9ca3af;
-  --button-font-color: #f3f4f6;
+  --main-grey-color: #9ca3af;
   --label-font-color: #1f2937;
   --social-login-bg-color: #e6f2ff;
   --login-link-font-color: #3182f6;
-  --input-placeholder-font-color: #9ca3af;
   --password-visible-button-color: #4b5563;
 }
 
@@ -68,7 +66,8 @@ button {
 
 input {
   border-radius: 1.2rem;
-  background-color: var(--input-bg-color);
+  color: var(--main-grey-color);
+  background-color: var(--main-ivory-color);
   padding: 1.6rem 2.4rem 1.6rem 2.4rem;
 }
 
@@ -78,8 +77,8 @@ input:focus {
 
 button {
   border-radius: 4rem;
-  background-color: var(--button-bg-color);
-  color: var(--button-font-color);
+  background-color: var(--main-grey-color);
+  color: var(--main-ivory-color);
   font-size: 2rem;
   line-height: 3.2rem;
   font-weight: 600;

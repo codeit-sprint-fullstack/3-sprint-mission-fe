@@ -2,6 +2,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --header-bg-color: #ffffff;
+  --login-button-font-color: #f3f4f6;
+  --main-blue-color: #3692ff;
+  --banner-bg-color: #cfe5ff;
+  --main-font-color: #374151;
+  --banner-button-font-color: #f9fafb;
+  --main-content-bg-color: #fcfcfc;
+  --footer-bg-color: #111827;
+  --footer-link-font-color: #e5e7eb;
+  --copyright-font-color: #9ca3af;
+}
+
 html {
   font-size: 62.5%;
   font-family: "Pretendard Variable", Pretendard;
@@ -21,7 +34,7 @@ header {
   justify-content: center;
   position: sticky;
   top: 0;
-  background-color: #ffffff;
+  background-color: var(--header-bg-color);
 }
 
 .header-container {
@@ -46,15 +59,15 @@ header {
   font-weight: 600;
   text-decoration: none;
   line-height: 4.8rem;
-  color: #f3f4f6;
+  color: var(--login-button-font-color);
   text-align: center;
-  background-color: #3692ff;
+  background-color: var(--main-blue-color);
 }
 
 .banner {
   width: 100%;
   height: 54rem;
-  background-color: #cfe5ff;
+  background-color: var(--banner-bg-color);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -78,7 +91,7 @@ header {
 }
 
 .banner-text {
-  color: #374151;
+  color: var(--main-font-color);
   font-family: Pretendard;
   font-size: 4rem;
   font-weight: 700;
@@ -111,8 +124,8 @@ header {
   width: 35.7rem;
   height: 5.6rem;
   border-radius: 4rem;
-  color: #f9fafb;
-  background-color: #3692ff;
+  color: var(--banner-button-font-color);
+  background-color: var(--main-blue-color);
   font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
@@ -149,7 +162,7 @@ header {
 }
 
 .main-content-container {
-  background-color: #fcfcfc;
+  background-color: var(--main-content-bg-color);
   max-width: 98.8rem;
   max-height: 44.4rem;
   display: flex;
@@ -160,7 +173,7 @@ header {
 }
 
 .sub-title {
-  color: #3692ff;
+  color: var(--main-blue-color);
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 2.6rem;
@@ -168,7 +181,7 @@ header {
 }
 
 .main-title {
-  color: #374151;
+  color: var(--main-font-color);
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
@@ -176,7 +189,7 @@ header {
 }
 
 .description {
-  color: #374151;
+  color: var(--main-font-color);
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 3.2rem;
@@ -187,7 +200,7 @@ header {
 }
 
 footer {
-  background-color: #111827;
+  background-color: var(--footer-bg-color);
   width: 100%;
   height: 16rem;
   display: flex;
@@ -209,7 +222,7 @@ footer {
 
 .footer-links {
   display: flex;
-  color: #e5e7eb;
+  color: var(--footer-link-font-color);
   gap: 3rem;
 }
 
@@ -224,7 +237,7 @@ footer {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.909rem;
-  color: #9ca3af;
+  color: var(--copyright-font-color);
 }
 
 .social-media-link {
