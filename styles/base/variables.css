@@ -57,4 +57,9 @@
   --border-radius-lg: 8px;
   --border-radius-md: 6px;
   --border-radius-sm: 4px;
+
+  /* Break Points */
+  --breakpoint-mb: 375px;
+  --breakpoint-tb: 744px;
+  --breakpoint-pc: 1200px;
 }

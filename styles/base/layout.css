@@ -6,7 +6,7 @@
 .flex {
   display: flex;
 }
-.flex-row {
+.flex-col {
   flex-direction: column;
 }
 .flex-1 {
