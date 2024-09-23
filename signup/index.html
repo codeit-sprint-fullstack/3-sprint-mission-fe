@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판다마켓</title>
+    <link rel="icon" href="/images/panda.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F0RMGD7KM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4F0RMGD7KM');
+    </script>
+  </head>
+  <body class="signup">
+    <div id="wrap">
+      <main>
+        <h1 id="logo">
+          <a href="/" role="button" aria-label="판다마켓 홈페이지로 이동">
+            <img class="logo" src="/images/panda-market-logo.svg" alt="판다마켓 로고" />
+          </a>
+        </h1>
+        <form id="signup" name="signup" method="post">
+          <label for="email">
+            <span class="label-title">이메일</span>
+          </label>
+          <input type="email" id="email" name="email" minlength="7" maxlength="254" title="이메일" placeholder="이메일을 입력해주세요" required autocomplete />
+          <label for="nickname">
+            <span class="label-title">닉네임</span>
+          </label>
+          <input type="text" id="nickname" name="nickname" minlength="2" maxlength="16" pattern="(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,16}" title="닉네임은 2~16자 입니다." placeholder="닉네임을 입력해주세요" required />
+          <label for="password">
+            <span class="label-title">비밀번호</span>
+          </label>
+          <div class="password-container">
+            <input type="password" id="password" minlength="8" maxlength="256" name="password" title="비밀번호" placeholder="비밀번호를 입력해주세요" required autocomplete />
+            <div class="password-toggle" role="switch" aria-label="비밀번호 숨김/보임 토글 스위치">
+              <img src="/images/login/eye.slash.svg" alt="비밀번호 표시" />
+            </div>
+          </div>
+          <label for="password-confirm">
+            <span class="label-title">비밀번호 확인</span>
+          </label>
+          <div class="password-container">
+            <input type="password" id="password-confirm" minlength="8" maxlength="256" name="password-confirm" title="비밀번호 수정" placeholder="비밀번호를 다시 한 번 입력해주세요" required autocomplete />
+            <div class="password-toggle" role="switch" aria-label="비밀번호 확인 숨김/보임 토글 스위치">
+              <img src="/images/login/eye.slash.svg" alt="비밀번호 확인 표시" />
+            </div>
+          </div>
+          <button type="submit">회원가입</button>
+        </form>
+        <section class="social-login">
+          <p>간편 로그인하기</p>
+          <div class="via">
+            <a href="https://www.google.com/" class="google">
+              <img src="/images/login/google.svg" alt="구글로 로그인" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/" class="kakao">
+              <img src="/images/login/kakao.svg" alt="카카오로 로그인" />
+            </a>
+          </div>
+        </section>
+        <section class="go-login">
+          <span>이미 회원이신가요? <a href="/login">로그인</a></span>
+        </section>
+      </main>
+    </div>
+    <script src="/scripts/login.js"></script>
+  </body>
+</html>
