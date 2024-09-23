@@ -34,6 +34,7 @@ main {
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  color: var(--main-font-color);
 }
 
 form {
@@ -55,7 +56,6 @@ label {
   margin-bottom: 1.6rem;
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--main-font-color);
 }
 
 input,
@@ -107,7 +107,6 @@ button {
 
 .social-login > span {
   font-weight: 500;
-  color: var(--main-font-color);
 }
 
 .login-buttons {
@@ -121,7 +120,6 @@ button {
 }
 
 .login {
-  color: var(--main-font-color);
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 2.4rem;
