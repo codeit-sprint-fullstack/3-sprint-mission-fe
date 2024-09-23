@@ -118,19 +118,20 @@ header {
   text-decoration: none;
   margin-top: 3.2rem;
 }
-.main-page {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.main-page-section {
+.main-page {
   width: 100%;
   height: 72rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main-page-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-text-container {
