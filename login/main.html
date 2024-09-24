@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다 마켓</title>
+  <link rel="stylesheet" href="..\panda.css">
+  <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>  
+  <main class="login-layer">
+    <section class="login-section1">
+        <a  href="../index.html"
+            target="_self">
+            <img 
+            id="login-panda-logo"
+            src="..\images\logo\panda-market-logo.png"
+            alt="판다로고"
+            />   
+        </a>
+    </section>
+    <section class="login-section2">
+      <form>
+        <label class="login-label" for="usermail">
+          이메일
+        </label>
+        <input  type="email" class="login-input"
+                id="usermail" name="usermail" 
+                placeholder="이메일을 입력해주세요" 
+              />
+        <label class="login-label" for="password">
+          비밀번호
+        </label>
+        <input type="password" class="login-input password-eye" 
+              id="password" name="password" 
+              placeholder="비밀번호를 입력해주세요"
+            />
+        <!-- <div class="eyes">
+          <i class="fa fa-eye fa-lg"></i>
+        </div> -->        
+        <button class="login-button">
+          로그인
+        </button>
+      </form>
+    </section>
+    <section class="login-section3">
+      <div class="login-section3-text">
+        간편 로그인하기
+      </div>
+      <div class="login-section3-sns-layer">
+       <a  href="https://www.google.com/"
+          target="_self">
+          <img 
+          class="login-item"
+          src="..\images\social\google.svg"
+          alt="구글 페이지 연결 버튼"
+          />   
+        </a>          
+        <a  href="https://www.kakaocorp.com/page/"
+          target="_self">
+          <img 
+          class="login-item"
+          src="..\images\social\kakao.svg"
+          alt="카카오 페이지 연결 버튼"
+          />   
+        </a>          
+      </div>      
+    </section>
+    <section class="login-section4">
+      <div class="login-section4-txt">
+        판다마켓이 처음이신가요?
+      </div>
+      <div class="login-section4-link-layer">
+        <a 
+        class="login-section4-signup-membership"
+        href="../membership/signup.html">회원 가입
+      </a>
+      </div>
+    </section>
+  </main>
+  <!-- <script>
+    // 경고창
+      function btn_alert(str) { 
+          alert(str);
+      }
+  </script> -->
+  <script type="text/javascript" src="../javascript/panda.js"></script> 
+</body>
+</html>

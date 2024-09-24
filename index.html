@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- 모바일 브라우저의 뷰를 실제 크기인 1로 설정하는것을 의미한다 써주지 않는다면
+   모바일 브라우저에서 나오는 글자가 매우 작게 표시되어서 읽을 수 없을 것이다 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다 마켓</title>
+  <!-- <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" /> -->
+  <link rel="stylesheet" href="panda.css">
+</head>
+<body>
+  <header>
+    <div>
+      <img
+      id="panda-logo"
+      src="images\logo\panda-market-logo.png"
+      alt="판다로고"
+      />
+    </div>
+      <div>
+        <a 
+          class="login-btn btn-font"
+          href="login/main.html">로그인
+        </a>
+      </div>
+      <!-- <p class="btn-font">로그인</p> -->
+    </div>
+    <!-- <div>
+      <button id="login-btn" onclick="location.href='login/main.html'">
+        <span id="login-font">로그인</span>
+      </button >
+    </div> -->
+  </header>
+  <main>
+    <section class="section1">
+      <div class="section1-title-layer">        
+        <div class="section1-title">일상의 모든 물건을<br />
+          거래해 보세요
+        </div>
+        <div>
+          <a 
+            class="show-btn btn-font"
+            href="items/main.html">구경하러 가기
+          </a>
+        </div>  
+        <!-- <div class="show-btn">
+          <p class="btn-font">구경하러 가기</p>
+        </div> -->
+        <!-- <div>
+          <button id="show-btn" onclick="location.href='items/main.html'">
+            <p id="show-font">구경하러 가기</p>
+          </button >    
+        </div> -->
+      </div>
+      <div class="section1-img-layer">
+        <img 
+          style="width: 100%; height:auto"           
+          src="images\home\hero-image.png"
+          alt="판다 장바구니 든 모습"
+        > <!-- width: 100%; height:auto  부모 width 값의 100%를 적용.  -->
+
+          <!-- <img 
+          style="width: 100%; height:auto"           
+          srcset="images\home\hero-image.png 1920w" 
+          src="images\home\hero-image.png"
+          alt="판다 장바구니 든 모습" -->
+          <!-- srcset이 설정되었다면 src 속성은 무시됨 -->
+          <!-- srcset="images\home\hero-image.png 1920w" 
+               브라우저의 뷰포트 너비에 대한 이미지 소스를 지정.
+               뷰포트 너비가 1920w 이하일 때 해당 png 파일 랜더링 됨.
+               조건에 부합되는 이미지가 없다면 가장 근사치에 있는 조건값의 이미지가
+               랜더링 된다. w는 길이 다누이로 환산하면 px와 동일.-->        
+      </div>
+    </section>
+    <section class="section2">
+      <div class="section2-layer">
+        <div class="section2-img-layer">
+          <img 
+            style="width: 100%; height: auto"         
+            src="images\home\feature1-image.png"
+            alt="2마리의 판다가 인기 상품 보는 모습"
+          />        
+        </div>
+        <div class="section2-title-layer">          
+          <div class="section2-hot-item">Hot Item</div>
+          <div class="section2-title">인기 상품을<br \>
+            확인해 보세요</div>
+          <div class="section2-desc">가장 HOT한 중고거래 물품을<br \>
+            판다 마켓에서 확인해 보세요
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section3">
+      <div class="section3-layer">
+        <div class="section3-title-layer">
+          <div class="section3-search">Search</div>
+          <div class="section3-title">구매를 원하는<br />
+              상품을 검색하세요
+          </div>
+          <div class="section3-desc">구매하고 싶은 물품은 검색해서<br \>
+              쉽게 찾아보세요
+          </div>
+        </div>
+        <div class="section3-img-layer">
+          <img
+            style="width: 100%; height: auto"          
+            src="images\home\feature2-image.png"
+            alt="구매상품 검색화면"
+          />                
+        </div>
+      </div>
+    </section>
+    <section class="section4">
+      <div class="section4-layer">
+        <div class="section4-img-layer">
+          <img 
+            style="width: 100%; height: auto"         
+            src="images\home\feature3-image.png"
+            alt="판매등록 화면"
+          />        
+        </div>
+        <div class="section4-title-layer">
+          <div class="section4-register">Register</div>
+          <div class="section4-title">판매를 원하는<br \>
+            상품을 등록하세요</div>
+          <div class="section4-desc">어떤 물건이든 판매하고 싶은 상품을<br \>
+            쉽게 등록하세요
+          </div>        
+        </div>
+      </div>
+    </section>    
+    <section class="section5">
+      <div class="section5-layer">
+        <div class="section5-title-layer">
+          <div class="section5-Information">믿을 수 있는<br />
+              판다마켓 중고 거래
+          </div>
+        </div>
+        <div class="section5-img-layer">
+          <img 
+            style="width: 100%; height: auto"     
+            src="images\home\bottom-banner-image.png"
+            alt="판다마켓 안내"
+          />        
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-codeit">
+        ©codeit - 2024
+      </div>
+      <div class="footer-link-layer">
+          <a 
+            class="footer-privacy-policy"
+            href="privacy/main.html">Privacy Policy
+          </a>
+          <a 
+            class="footer-faq"
+            href="faq/main.html">FAQ
+          </a>
+      </div>
+      <div class="footer-sns-layer">
+        <div>
+          <a  href="https://www.facebook.com/"
+              target="_blank">
+              <img 
+              class="item"
+              src="images\social\facebook-logo.svg"
+              alt="페이스북 로긴 버튼"
+              />   
+          </a>          
+        </div>
+        <div>
+          <a  href="https://www.twitter.com/"
+              target="_blank">
+              <img 
+              class="item"
+              src="images\social\twitter-logo.svg"
+              alt="트위터 로긴 버튼"
+              />   
+          </a>          
+        </div>
+        <div>
+          <a  href="https://www.youtube.com/"
+          target="_blank">
+          <img 
+          class="item"
+          src="images\social\youtube-logo.svg"
+          alt="유튜브 로긴 버튼"
+          />   
+          </a>          
+        </div>
+        <div>          
+          <a  href="https://www.instagram.com/"
+              target="_blank">
+              <img 
+              class="item"
+              src="images\social\instagram-logo.svg"
+              alt="인스타그램 로긴 버튼"
+              />   
+          </a>          
+        </div>
+      </div>
+    </footer>
+  </main>
+  <footer>
+  </footer>
+</body>
+</html>
