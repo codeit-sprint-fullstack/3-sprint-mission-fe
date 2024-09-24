@@ -81,6 +81,7 @@ header {
   max-width: 111rem;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
 }
 
 .banner-text-container {
@@ -96,10 +97,12 @@ header {
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
+  word-break: keep-all;
+  max-width: 30rem;
 }
 
 .banner-text.bottom {
-  width: 29.5rem;
+  min-width: 30rem;
 }
 
 .banner-text-container.bottom {
@@ -186,6 +189,23 @@ header {
   font-weight: 700;
   line-height: 5.6rem;
   margin-bottom: 2.4rem;
+  word-break: keep-all;
+}
+
+.main-page-text.first {
+  max-width: 28rem;
+}
+
+.main-page-text.second {
+  max-width: 30rem;
+}
+
+.main-page-text.third {
+  max-width: 33rem;
+}
+
+.main-title.third {
+  max-width: 30rem;
 }
 
 .description {
@@ -193,9 +213,13 @@ header {
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 3.2rem;
+  word-break: keep-all;
 }
 
 .align-right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   text-align: right;
 }
 
