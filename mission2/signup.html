@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="s2.css">
+</head>
+<body>
+  <section id="sec_signup">
+    <div class="logo">
+      <a href="/">
+        <img src="img/logo.png" width="396px" height=auto>
+      </a>
+    </div>
+    
+    <form class="signup_box"> 
+      <label for="ID">이메일</label>
+      <input type="text" id="ID" name="ID" placeholder="이메일을 입력해주세요"/>
+      <label for="nickname">닉네임</label>
+      <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요"/>
+      <label for="password">비밀번호</label>
+      <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/ class="eyes">
+      <label for="repassword">비밀번호 확인</label>
+      <input type="password" id="repassword" name="repassword" placeholder="비밀번호를 다시 한 번 입력해주세요"/ class="eyes">
+      <input class="btn" type="button" value="회원가입">
+      <div class="simple_login">
+        <p>간편 로그인하기</p>
+        <div class="sns_box">
+          <a href="https://www.google.com/"><img src="img/google.png" alt="google"></a>
+          <a href="https://www.kakaocorp.com/page/"><img src="img/katalk.png" alt="kakaotalk"></a>
+        </div>
+      </div>
+      <div class="move_box">
+        <div class="move_box_title">이미 회원이신가요?</div>
+        <a href="/login.html">로그인</a>
+      </div>
+    </form>
+  </section>
+</body>
+</html>
