@@ -8,15 +8,11 @@
 }
 .btn-block {
   display: block;
-  width: 357px;
   line-height: var(--line-height-xl);
   padding: var(--padding-3);
   border-radius: var(--border-radius-xl);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-medium);
-}
-.btn-full {
-  width: 100%;
 }
 
 .btn-login {
@@ -27,6 +23,5 @@
 }
 @media (max-width: 375px) {
   .btn-block {
-    width: 240px;
   }
 }

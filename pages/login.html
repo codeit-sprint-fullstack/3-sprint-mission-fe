@@ -24,24 +24,25 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WR6VK2S3" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <main class="grid min-h-screen align-center justify-center">
-    <article class="grid gap-40">
-      <section class="px-122">
+  <main class="min-h-screen">
+    <article class="login-container grid gap-40 justify-center">
+      <section class="logo-section flex justify-center">
         <a href="/" aria-label="홈으로">
-          <img src="../images/logo/panda-market-logo.png" alt="판다 마켓" width="396" height="132">
+          <img class="flex justify-center" src="../images/logo/panda-market-logo.png" alt="판다마켓 로고" width="396"
+            height="132">
         </a>
       </section>
-      <section class="grid gap-24">
-        <form class="grid gap-24">
-          <div class="grid gap-16">
+      <section class="flex justify-center flex-col gap-24">
+        <form class="flex flex-col gap-24">
+          <div class="flex flex-col gap-16">
             <label for="email" class="text-2lg font-bold">이메일</label>
             <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요.">
           </div>
-          <div class="grid gap-16">
+          <div class="flex flex-col gap-16">
             <label for="password" class="text-2lg font-bold">비밀번호</label>
-            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+            <input type="password" autocomplete id="password" name="password" placeholder="비밀번호를 입력해주세요">
           </div>
-          <button type="submit" class="btn btn-block btn-full bg-gray400">로그인</button>
+          <button type="submit" class="flex btn btn-block bg-gray400">로그인</button>
         </form>
 
         <section class="flex space-between align-center bg-main py-16 px-23 rounded-lg">

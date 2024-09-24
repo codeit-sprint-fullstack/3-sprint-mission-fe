@@ -1,2 +1,23 @@
 @import url('common.css');
 @import url('components/form.css');
+
+.login-container {
+  grid-template-columns: minmax(344px, 640px);
+  padding: 60px;
+}
+
+@media (max-width: 744px) {
+  .login-container {
+    padding: 48px 51px;
+  }
+}
+
+@media (max-width: 375px) {
+  .logo-section img {
+    max-width: 198px;
+  }
+  .login-container {
+    padding: 24px 16px;
+  }
+
+}

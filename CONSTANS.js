@@ -3,4 +3,6 @@ const year = new Date().getFullYear();
 
 document.title = SITE_TITLE;
 
-document.getElementById('copyright-year').innerText = `©codeit - ${year}`;
+if (document.getElementById('copyright-year')) {
+  document.getElementById('copyright-year').innerText = `©codeit - ${year}`;
+}
