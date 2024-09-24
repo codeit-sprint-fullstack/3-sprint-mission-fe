@@ -35,34 +35,34 @@
 
 /* Padding */
 .pt-12 {
-  padding-top: var(--padding-12);
+  padding-top: var(--padding-3);
 }
 .pt-200 {
-  padding-top: var(--padding-200);
+  padding-top: var(--padding-50);
 }
 .pt-143 {
   padding-top: 143px;
 }
 .py-16 {
-  padding-top: var(--padding-16);
-  padding-bottom: var(--padding-16);
+  padding-top: var(--padding-4);
+  padding-bottom: var(--padding-4);
 }
 .py-40 {
-  padding: var(--padding-40) 0;
+  padding: var(--padding-10) 0;
 }
 .px-23 {
   padding-left: 23px;
   padding-right: 23px;
 }
 .px-122 {
-  padding-left: var(--padding-122);
-  padding-right: var(--padding-122);
+  padding-left: var(--padding-31);
+  padding-right: var(--padding-31);
 }
 .px-405 {
-  padding: 0 var(--padding-405);
+  padding: 0 var(--padding-101);
 }
 .pb-32 {
-  padding-bottom: var(--padding-32);
+  padding-bottom: var(--padding-8);
 }
 
 /* Margin */

@@ -8,7 +8,7 @@ header {
 }
 .header-body {
   max-width: 1920px;
-  padding: 9.5px var(--padding-200);
+  padding: 9.5px var(--padding-50);
   background: #FFFFFF;
   .mb-logo {
     display: none;
@@ -16,12 +16,12 @@ header {
 }
 @media (max-width: 744px) {
   .header-body {
-    padding: 10px var(--padding-24);
+    padding: 10px var(--padding-6);
   }
 }
 @media (max-width: 375px) {
   .header-body {
-    padding: 10px var(--padding-16);
+    padding: 10px var(--padding-4);
     .logo {
       display: none;
     }

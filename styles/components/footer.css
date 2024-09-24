@@ -2,7 +2,7 @@
 
 footer {
   min-height: 160px;
-  padding: var(--padding-32) var(--padding-200);
+  padding: var(--padding-8) var(--padding-50);
   margin: 0 auto;
   ul {
     max-width: 1520px;
@@ -11,16 +11,16 @@ footer {
 }
 @media (max-width: 744px) {
   footer {
-    padding: var(--padding-32) var(--padding-24);
+    padding: var(--padding-8) var(--padding-6);
   }
 }
 @media (max-width: 375px) {
   footer {
-    padding: var(--padding-32) var(--padding-16);
+    padding: var(--padding-8) var(--padding-4);
   }
   footer ul {
     flex-wrap: wrap;
-    row-gap: var(--padding-24);
+    row-gap: var(--padding-6);
     li:first-child {
       order: 2;
     }
