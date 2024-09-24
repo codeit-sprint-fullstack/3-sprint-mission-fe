@@ -89,6 +89,7 @@ header {
   flex-direction: column;
   justify-content: center;
   margin-bottom: 10rem;
+  max-width: 35.7rem;
 }
 
 .banner-text {
@@ -98,11 +99,10 @@ header {
   font-weight: 700;
   line-height: 5.6rem;
   word-break: keep-all;
-  max-width: 30rem;
 }
 
 .banner-text.bottom {
-  min-width: 30rem;
+  min-width: 29rem;
 }
 
 .banner-text-container.bottom {
