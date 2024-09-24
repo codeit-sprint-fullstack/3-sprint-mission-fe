@@ -101,11 +101,8 @@ header {
   word-break: keep-all;
 }
 
-.banner-text.bottom {
-  min-width: 29rem;
-}
-
 .banner-text-container.bottom {
+  max-width: 33rem;
   margin-bottom: 17.25rem;
 }
 
