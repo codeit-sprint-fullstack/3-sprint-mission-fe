@@ -29,7 +29,7 @@ button{
     justify-content: center;
 }
 
-.login_inner .e_mail, .login_inner .password, .login_bt, .simple_login{
+.login_inner .e_mail, .login_inner .password, .join_bts, .simple_login{
     width: 67.3%;
     min-width: 440px;
 }
@@ -68,7 +68,7 @@ input::placeholder{
 }
 
 input#pass{
-    background-image: url(/img/btn_visibility_on_24px.png);
+    background-image: url(../../img/btn_visibility_on_24px.png);
     background-repeat: no-repeat;
     background-size: 24px;
     background-position: 96% center;
@@ -80,29 +80,34 @@ input#pass{
     position: absolute;
 }
 
-.login_bt{
+.join_bt{
     background-color: var(--cool-gray200);
     justify-content: center;
     color: var(--cool-gray100);
     border-radius: 40px;
     width: 67.3%;
-    padding: 12px 24px;
+    height: 56px;
+    /* padding: 12px 24px; */
     
 }
 
-.login_bt:focus{
+.join_bt:hover{
     background-color: var(--blue200);
     color: var(--cool-gray100);
 }
 
-.login_bt > p{
+.join_bt > a{
     font-size: 20px;
     font-weight: 600;
+    display: block;
+    text-decoration: none;
+    color: var(--cool-gray100);
+    height: 100%;
+    line-height: 56px;
 }
 
 .simple_login{
     background-color: var(--blue100);
-    /* padding: 16px 23px; */
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -122,7 +127,7 @@ input#pass{
     margin: 12px 24px;
 }
 
-.login_inner .txt p{
+.login_inner .txt p, a{
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
