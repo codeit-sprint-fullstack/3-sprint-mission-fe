@@ -4,6 +4,14 @@
 .login-container {
   grid-template-columns: minmax(344px, 640px);
   padding: 60px;
+  gap: 40px;
+}
+
+.login-section {
+  gap: 24px
+}
+.login-section form {
+  gap: 24px;
 }
 
 @media (max-width: 744px) {
@@ -18,6 +26,10 @@
   }
   .login-container {
     padding: 24px 16px;
+    gap: 24px;
   }
+  .login-section form {
+  gap: 16px;
+}
 
 }

@@ -25,29 +25,31 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <main class="min-h-screen">
-    <article class="login-container grid gap-40 justify-center">
+    <article class="login-container grid justify-center">
       <section class="logo-section flex justify-center">
         <a href="/" aria-label="홈으로">
           <img class="flex justify-center" src="../images/logo/panda-market-logo.png" alt="판다마켓 로고" width="396"
             height="132">
         </a>
       </section>
-      <section class="flex justify-center flex-col gap-24">
-        <form class="flex flex-col gap-24">
-          <div class="flex flex-col gap-16">
-            <label for="email" class="text-2lg font-bold">이메일</label>
-            <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요.">
-          </div>
-          <div class="flex flex-col gap-16">
-            <label for="password" class="text-2lg font-bold">비밀번호</label>
-            <input type="password" autocomplete id="password" name="password" placeholder="비밀번호를 입력해주세요">
-          </div>
-          <button type="submit" class="flex btn btn-block bg-gray400">로그인</button>
-        </form>
+      <section class="login-section grid">
+        <div class="flex justify-center flex-col">
+          <form class="flex flex-col">
+            <div class=" flex flex-col">
+              <label for="email" class="text-2lg font-bold">이메일</label>
+              <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요.">
+            </div>
+            <div class="flex flex-col">
+              <label for="password" class="text-2lg font-bold">비밀번호</label>
+              <input type="password" autocomplete id="password" name="password" placeholder="비밀번호를 입력해주세요">
+            </div>
+            <button type="submit" class="flex btn btn-block bg-gray400">로그인</button>
+          </form>
+        </div>
 
-        <section class="flex space-between align-center bg-main py-16 px-23 rounded-lg">
+        <div class="flex space-between align-center bg-main rounded-lg">
           <p class="text-lg gray800">간편 로그인하기</p>
-          <div class="flex gap-16">
+          <div class="flex">
             <a href="https://www.google.com/" aria-label="구글 간편 로그인 버튼">
               <img src="../images/logo/google-login.png" width="42" alt="">
             </a>
@@ -55,11 +57,11 @@
               <img src="../images/logo/kakao-login.png" width="42" alt="">
             </a>
           </div>
-        </section>
+        </div>
 
-        <section class="text-center">
+        <div class="flex justify-center">
           <p class="text-md">판다마켓이 처음이신가요? <a class="primary100 underline" href="signup.html">회원가입</a></p>
-        </section>
+        </div>
       </section>
     </article>
   </main>
