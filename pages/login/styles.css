@@ -119,13 +119,15 @@ button {
   height: auto;
 }
 
-.sign-up {
+.sign-up,
+.login {
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 2.4rem;
 }
 
-.sign-up a {
+.sign-up a,
+.login a {
   color: var(--sign-up-link-font-color);
   text-decoration: underline;
 }
