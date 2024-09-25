@@ -19,7 +19,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 4px;
-  gap: 12px;
 }
 
 @media (max-width: 744px) {
