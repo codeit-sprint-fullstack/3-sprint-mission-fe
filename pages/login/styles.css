@@ -43,11 +43,11 @@ form {
   width: 100%;
 }
 
-.logo {
+header {
   margin-bottom: 4rem;
 }
 
-.logo img {
+header img {
   width: 39.6rem;
   height: auto;
 }
