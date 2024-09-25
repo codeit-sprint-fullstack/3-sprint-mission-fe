@@ -1,0 +1,214 @@
+/*  ---------------- CSS ---------------- */
+body {
+  margin-top: 7rem;
+}
+
+header {
+  width: 100%;
+  height: 7rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 0.1rem solid #dfdfdf;
+  z-index: 999;
+  background: #fff;
+}
+header .gnb {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+  justify-content: space-between;
+  padding: 0.9rem 20rem;
+  margin: auto;
+}
+header .loginBtn {
+  border: 0;
+  display: block;
+  text-align: center;
+  width: 12.8rem;
+  height: 4.8rem;
+  border-radius: 0.8rem;
+  padding: 1.2rem 2.3rem;
+  background-color: var(--primary100);
+  font-size: 2em;
+  font-weight: 600;
+  color: var(--gray50);
+}
+header .logo img {
+  width: 15.3rem;
+}
+
+.visual {
+  height: 54rem;
+  width: 100%;
+}
+.visual .content {
+  height: 100%;
+  width: 100%;
+  background-color: #cfe5ff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.visual .content img {
+  width: 40vw;
+}
+.visual .txtBox {
+  height: 34rem;
+  margin-right: 1rem;
+}
+.visual .txtBox h2 {
+  height: 11.2rem;
+  font-size: 4rem;
+  line-height: 5.6rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 3rem;
+}
+.visual .txtBox a {
+  width: 100%;
+  display: block;
+  max-width: 35.7rem;
+  max-height: 5.6rem;
+  font-size: 2.3rem;
+  line-height: 3.2rem;
+  font-weight: 600;
+  color: var(--gray50);
+  background-color: var(--primary100);
+  text-align: center;
+  padding: 1.6rem 0;
+  border-radius: 4rem;
+}
+
+.section {
+  display: flex;
+  align-items: cneter;
+  justify-content: center;
+  width: 100%;
+  height: 72rem;
+  padding: 13.8rem 34.4rem;
+}
+.section .content {
+  width: 100rem;
+  background-color: #fcfcfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+.section .content img {
+  max-width: 58.8rem;
+  /* width: 100%; */
+}
+.section .content .left {
+  text-align: right;
+}
+.section .content .left.txtBox {
+  margin-right: 6.4rem;
+}
+.section .content .txtBox {
+  position: relative;
+  margin-left: 6.4rem;
+  width: 100%;
+}
+.section .content .txtBox .abs {
+  width: 32rem;
+}
+.section .content .txtBox h4 {
+  color: var(--primary100);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  margin-bottom: 1.5rem;
+}
+.section .content .txtBox h2 {
+  font-size: 4rem;
+  line-height: 5.6rem;
+  font-weight: 700;
+  letter-spacing: 2%;
+  color: #374151;
+  margin-bottom: 3.5rem;
+}
+.section .content .txtBox p {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.bottomVisual {
+  margin-top: 13.8rem;
+}
+.bottomVisual img {
+  width: 64.9rem;
+}
+.bottomVisual .txtBox {
+  margin-right: 6.9rem;
+}
+
+footer {
+  width: 100%;
+  height: 16rem;
+  padding: 3.2rem 20rem;
+  background: #111827;
+}
+footer .content {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+footer .content p {
+  color: #9ca3af;
+  line-height: 1.8rem;
+  font-weight: 400;
+}
+footer .content .link {
+  width: 15.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .link a {
+  color: #e5e7eb;
+}
+footer .content .icon {
+  width: 11.6rem;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .icon img {
+  width: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 5px;
+  }
+}
+
+@media screen and (max-width: 656px) {
+  br {
+    display: none;
+  }
+  .visual .content {
+    padding: 0 3rem;
+  }
+  .section {
+    height: auto;
+  }
+  .section .content {
+    flex-wrap: wrap;
+  }
+  .section .content .txtBox {
+    padding: 3rem 0;
+  }
+  .section .content .left {
+    order: 3;
+  }
+  .sectipn .content img {
+    width: 100%;
+  }
+}
