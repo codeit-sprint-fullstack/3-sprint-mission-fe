@@ -1,6 +1,6 @@
 @import url('common.css');
 @import url('components/form.css');
 
-.login-container {
+.sign-up-container {
   grid-template-columns: minmax(344px, 640px);
 }

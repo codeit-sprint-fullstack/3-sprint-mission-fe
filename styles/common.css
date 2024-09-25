@@ -3,3 +3,7 @@
 @import url('base/font.css');
 @import url('base/layout.css');
 @import url('base/buttonBase.css');
+
+:root {
+  font-family: 'pretendard', sans-serif;
+}

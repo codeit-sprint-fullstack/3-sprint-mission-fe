@@ -8,20 +8,13 @@
 }
 .btn-block {
   display: block;
-  line-height: var(--line-height-xl);
   padding: var(--padding-3);
   border-radius: var(--border-radius-xl);
-  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-medium);
 }
 
 .btn-login {
-  line-height: var(--line-height-lg);
   padding: 11px 43px;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
-}
-@media (max-width: 375px) {
-  .btn-block {
-  }
 }

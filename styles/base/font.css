@@ -26,59 +26,82 @@
 }
 
 .text-4xl {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-4xl); /* 2.5rem */
   line-height: var(--line-height-4xl);
 }
 
 .text-3xl {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-3xl); /* 2rem */
   line-height: var(--line-height-3xl);
 }
 
 .text-2xl {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-2xl); /* 1.5rem */
   line-height: var(--line-height-2xl);
 }
 
 .text-xl {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xl); /* 1.25rem */
   line-height: var(--line-height-xl);
 }
 
 .text-2lg {
-  font-size: var(--font-size-2lg);
+  font-size: var(--font-size-2lg);  /* 1.125rem */
   line-height: var(--line-height-2lg);
 }
 
 .text-lg {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-lg); /* 1rem */
   line-height: var(--line-height-lg);
 }
 
 .text-md {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-md); /* 0.875rem */
   line-height: var(--line-height-md);
 }
 
 .text-sm {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-sm); /* 0.8125rem */
   line-height: var(--line-height-sm);
 }
 
 .text-xs {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-xs); /* 0.75rem */
   line-height: var(--line-height-xs);
 }
 
 .font-medium {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium); /* 500 */
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold); /* 600 */
 }
 
 .font-bold {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold); /* 700 */
 }
 
-@media (min-width: 376px) {
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+@media (min-width: 744px) {
+  .dt-text-4xl {
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-4xl);
+  }
+  .dt-text-2xl {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-2xl);
+  }
+}
+
+@media (max-width: 375px) {
   .sm-text-4xl {
     font-size: var(--font-size-4xl);
     line-height: var(--line-height-4xl);
@@ -91,23 +114,12 @@
     font-size: var(--font-size-2lg);
     line-height: var(--line-height-2lg);
   }
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-@media (min-width: 745px) {
-  .dt-text-4xl {
-    font-size: var(--font-size-4xl);
-    line-height: var(--line-height-4xl);
+  .mb-text-lg {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
   }
-  .dt-text-2xl {
-    font-size: var(--font-size-2xl);
-    line-height: var(--line-height-2xl);
+  .mb-text-md {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
   }
 }

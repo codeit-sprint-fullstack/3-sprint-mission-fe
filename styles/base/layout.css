@@ -112,6 +112,9 @@
   .mb-gap-4 {
     gap: var(--padding-4);
   }
+  .mb-gap-6 {
+    gap: var(--padding-6);
+  }
   .mb-pt-6 {
     padding-top: var(--padding-6);
   }
