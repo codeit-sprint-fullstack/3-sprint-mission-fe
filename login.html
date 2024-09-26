@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 로그인</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <!-- 비밀번호 보기 버튼-->
+    <link
+      rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- 로고 -->
+    <div class="login-section">
+      <div class="login-head">
+        <a href="./index.html" class="logo-button"></a>
+      </div>
+
+      <!-- 로그인 -->
+      <form action="/login" method="post" id="login-form">
+        <div class="form-email">
+          <label for="userEmail">이메일</label>
+          <input
+            type="text"
+            name="userEmail"
+            placeholder="이메일을 입력해주세요"
+          />
+        </div>
+        <div class="form-password">
+          <label for="userPassword">비밀번호</label>
+          <input
+            type="password"
+            id="password"
+            name="userPassword"
+            placeholder="비밀번호를 입력해주세요"
+          />
+          <div class="eyes">
+            <img
+              src="css/eye-icon.png"
+              alt="비밀번호 보기"
+              id="toggle-password"
+            />
+          </div>
+        </div>
+        <input type="submit" value="로그인" />
+      </form>
+
+      <!-- 간편 로그인 -->
+      <div class="login-bottom">
+        <div class="login-bottom-text">간편 로그인하기</div>
+        <div class="login-bottom-icon">
+          <a
+            href="https://www.google.com/"
+            target="_blank"
+            class="icon-image-google"
+          ></a>
+          <a
+            href="https://www.kakaocorp.com/page/"
+            target="_blank"
+            class="icon-image-kakaoTalk"
+          ></a>
+        </div>
+      </div>
+      <p>
+        판다마켓이 처음이신가요?
+        <a href="sign-up.html" class="go-sing-up"> 회원가입</a>
+      </p>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>
