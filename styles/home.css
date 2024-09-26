@@ -6,12 +6,8 @@
 body {
   min-width: var(--breakpoint-mb);
   font-family: 'pretendard', sans-serif;
-}
-
-.main-container {
   word-break: keep-all;
 }
-
 .main-content {
   min-width: var(--breakpoint-mb);
   max-width: 1100px;

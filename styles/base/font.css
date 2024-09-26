@@ -143,4 +143,7 @@
     font-size: var(--font-size-4xl);
     line-height: var(--line-height-4xl);
   }
+  .mb-text-center {
+    text-align: center;
+  }
 }

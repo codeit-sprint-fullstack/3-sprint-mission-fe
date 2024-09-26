@@ -55,6 +55,12 @@
 .pt-50 {
   padding-top: var(--padding-50);
 }
+.pt-35\.5 {
+  padding-top: calc(var(--padding-1) * 35.5);
+}
+.pl-8 {
+  padding-left: var(--padding-8);
+}
 .py-3 {
   padding-top: var(--padding-3);
   padding-bottom: var(--padding-3);
@@ -62,6 +68,10 @@
 .py-4 {
   padding-top: var(--padding-4);
   padding-bottom: var(--padding-4);
+}
+.py-34\.5 {
+  padding-top: calc(var(--padding-1) * 34.5);
+  padding-bottom: calc(var(--padding-1) * 34.5);
 }
 .px-6 {
   padding-left: var(--padding-6);
@@ -80,6 +90,9 @@
   padding-right: var(--padding-31);
 }
 /* Margin */
+.mb-34\.5 {
+  margin-bottom: calc(var(--padding-1) * 34.5);
+}
 .mx-auto {
   margin-right: auto;
   margin-left: auto;
@@ -102,8 +115,14 @@
 .gap-7\.5 {
   gap: var(--padding-7\.5);
 }
+.gap-8 {
+  gap: var(--padding-8);
+}
 .gap-10 {
   gap: var(--padding-10)
+}
+.gap-16 {
+  gap: var(--padding-16);
 }
 
 /* Width */
@@ -133,8 +152,20 @@
 
 /* Media Queries */
 @media (max-width: 744px) {
+  .tb-text-center {
+    text-align: center;
+  }
+  .tb-flex-col {
+    flex-direction: column;
+  }
   .tb-none {
     display: none;
+  }
+  .tb-p-0{
+    padding: 0;
+  }
+  .tb-p-6 {
+    padding: var(--padding-6);
   }
   .tb-pt-4 {
     padding-top: var(--padding-4);
@@ -144,6 +175,22 @@
   }
   .tb-pt-21 {
     padding-top: var(--padding-21);
+  }
+  .tb-pt-50 {
+    padding-top: var(--padding-50);
+  }
+  .tb-py-52 {
+    padding-top: var(--padding-52);
+    padding-bottom: var(--padding-52);
+  }
+  .tb-gap-6 {
+    gap: var(--padding-6);
+  }
+  .tb-gap-53 {
+    gap: calc(var(--padding-1) * 53);
+  }
+  .tb-mb-8 {
+    margin-bottom: var(--padding-8);
   }
 }
 @media (max-width: 375px) {
@@ -159,8 +206,14 @@
   .mb-gap-4 {
     gap: var(--padding-4);
   }
+  .mb-gap-4\.5 {
+    gap: calc(var(--padding-1) * 4.5);
+  }
   .mb-gap-6 {
     gap: var(--padding-6);
+  }
+  .mb-gap-33 {
+    gap: var(--padding-33);
   }
   .mb-pt-2 {
     padding-top: var(--padding-2);
@@ -177,6 +230,24 @@
   .mb-px-4 {
     padding-left: var(--padding-4);
     padding-right: var(--padding-4);
+  }
+  .mb-px-17 {
+    padding-left: var(--padding-17);
+    padding-right: var(--padding-17);
+  }
+  .mb-py-5 {
+    padding-top: var(--padding-5);
+    padding-bottom: var(--padding-5);
+  }
+  .mb-py-31 {
+    padding-top: var(--padding-31);
+    padding-bottom: var(--padding-31);
+  }
+  .mb-mt-8 {
+    margin-top: var(--padding-8);
+  }
+  .mb-mb-15\.5 {
+    margin-bottom: var(--padding-15\.5);
   }
   .mb-w-49\.5 {
     width: calc(var(--padding-1) * 49.5);
