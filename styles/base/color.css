@@ -1,5 +1,8 @@
 @import url('variables.css');
 
+.bg-white {
+  background-color: var(--color-white);
+}
 .bg-none {
   background-color: transparent;
 }
@@ -11,6 +14,9 @@
 }
 .bg-footer {
   background-color: var(--color-bg-footer);
+}
+.bg-label {
+  background-color: var(--color-bg-label);
 }
 .bg-primary {
   background-color: var(--color-bg-primary);

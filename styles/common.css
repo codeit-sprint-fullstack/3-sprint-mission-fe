@@ -6,4 +6,9 @@
 
 :root {
   font-family: 'pretendard', sans-serif;
+  word-break: keep-all;
+}
+body {
+  min-width: var(--breakpoint-mb);
+  scroll-behavior: smooth;
 }
