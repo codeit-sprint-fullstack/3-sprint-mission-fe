@@ -1,0 +1,35 @@
+.button {
+    background: #3692FF;
+    gap: 10px;
+    border-radius: 8px;
+    opacity: 1;
+    color: #F3F4F6;
+    font-family: 'Pretendard';
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 48px;
+    cursor : pointer;
+}
+
+.button-def {
+    width: 128px;
+}
+
+.button-alt {
+    border-radius: 40px;
+    opacity: 0px;
+    line-height: 56px;
+    margin-top: 32px;
+}
+
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor : pointer;
+}
