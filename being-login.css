@@ -1,0 +1,23 @@
+.being-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color:#F3F4F6;
+  margin-top: 50%;
+}
+
+.being-login-font {
+  font-size: 50px;
+  font-weight: 1400px;
+  text-align: center;
+}
+
+.going-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700px;
+}

@@ -1,0 +1,218 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: 'pretendard-Regular';
+  /* border: none; */
+}
+
+.marketlogo {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 231px;
+}
+
+.marketlogo2 {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 640px;
+  height: 448px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 284px;
+}
+
+.email {
+  font-family: 'pretendard-Regular';
+  font-size: 18px;
+  font-weight: 700px;
+  line-height: 26px;
+  
+  /* display: flex;
+  align-items: center;
+  justify-content:center; */
+}
+
+.email:focus-within {
+  border-color: #3692FF;
+}
+
+.putemail {
+  width: 640px;
+  height: 56px;
+  background-color:#F3F4F6;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  margin-top: 11px;
+  margin-bottom: 12px;
+  border-width: 0;
+  padding-left: 10px;
+}
+
+
+.putemail:focus {
+  border-color: #3692FF;
+  outline:2px solid #3692FF
+}
+
+
+/* .emailfont {
+  margin-left: 24px;
+  color: #9CA3AF;
+} */
+
+.password {
+  font-size: 18px;
+  font-weight: 700px;
+  line-height: 26px;
+  margin-top: 24px;
+  border-width: 0;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  position: relative;
+}
+
+
+.password-toggle-button {
+  border: none;
+  position: absolute;
+  right: 20px;
+  
+}
+
+.putpassword {
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  border: 2px  solid transparent;
+  padding-left: 20px;
+}
+
+/* .logo {
+  position: absolute;
+  right: px;
+  bottom: ;
+} */
+
+.putpassword:focus-within {
+  border-color: #3692FF;
+  outline: 2px solid #3692FF
+}
+
+/* 
+.logo1 {
+  margin-right: 24px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  border-width: 0;
+} */
+
+.loginbutton {
+  width: 640px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: #9CA3AF;
+  margin-top: 24px;
+}
+
+.loginbutton:hover {
+  background-color: #3692FF;
+  
+}
+
+.link{
+  text-decoration-line: none;
+}
+
+.loginfont {
+  color: #F3F4F6;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top : 3%;  /* 이거아님 */
+  font-weight: 600px;
+  font-size: 20px;
+
+}
+
+.simplelogin {
+  font-size: 16px;
+  font-weight: 500px;
+  line-height: 26px;
+  margin-left: 23px;
+}
+
+.simplebox {
+  background-color: #E6F2FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+  height: 74px;
+  margin-top: 24px;
+}
+
+.simpleboxlogo {
+  margin-right: 23px;
+}
+
+.underbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+
+.fristtime {
+  font-size: 14px;
+  font-weight: 500px;
+  line-height: 24px;
+}
+
+.signupfont{
+  font-weight: 500px;
+  font-size: 14px;
+  line-height: 16.71px;
+  color: #3182F6;
+}
