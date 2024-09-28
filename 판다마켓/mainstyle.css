@@ -4,6 +4,11 @@
     font-weight: 400;
     font-style: normal;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html{
     font-size: 10px;
@@ -25,20 +30,22 @@ button a{
     text-decoration: none;
     width: 100%;
     display: block;
+    color: #F3F4F6;
 }
 
 header{
     width: 100%;
     background-color: #fff;
-    padding: 0 10%;
+    padding: 0 200PX;
 }
 
 .header_inner{
     display: flex;
     align-items: center;
+    width:100%;
     justify-content: space-between;
-    max-width: 1520px;
-    margin: 0 auto;
+    /* max-width: 1520px; */
+    /* margin: 0 auto; */
     padding: 10px 0;
 }
 
@@ -195,7 +202,7 @@ header .btn_login a{
 }
 
 .bottom_banner .banner_inner img{
-    width: 62%;
+    width: 60%;
     min-width: 200px;
 }
 
