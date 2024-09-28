@@ -1,0 +1,360 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('/assets/font/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rokaf';
+  src: url('/assets/font/ROKAF_Sans_Medium.ttf') format('truetype');
+}
+
+
+/* body */
+body {
+  font-family: Pretendard-Regular;
+}
+
+/* 네비 */
+nav {
+  position: fixed;
+  width:100%;
+  z-index: 1;
+}
+
+.nav {
+  height: 70px;
+  background: #FFFFFF;
+  padding: 0 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #DFDFDF;
+}
+
+.logo {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+}
+
+.logo_img {
+  width:40px;
+  position: relative;
+  /* top: 35px;
+  transform: translateY(-50%); */
+  margin-right: 8px;
+}
+
+.logo_title {
+  font-family: rokaf;
+  font-weight: 700;
+  font-size: 2.56rem;
+  color: #3692FF;
+  display: inline-block;
+}
+
+.login {
+  width: 128px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  display: inline-block;
+  /* font-family: Pretendard-Regular; */
+  font-weight: 600;
+  color:#F3F4F6;
+  background-color: #3692FF;
+  border-radius: 8px;
+  font-size: 1.6rem;
+}
+
+/* 섹션1 */
+
+.section1 {
+  width: 100%;
+  background-color: #CFE5FF;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* position: relative; */
+}
+
+.sc1_box {
+  width: 1110px;
+  height: 340px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-size: 0px;
+  /* position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); */
+}
+
+.sc1_p {
+  width: 357px;
+  height: 260px;
+  margin: auto 0;
+}
+
+.sc1_p > p {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 32px;
+}
+
+.sc1_p .go_button {
+  height:56px;
+  line-height:56px;
+  text-align: center;
+  border-radius: 40px;
+  background-color: #3692FF;
+  color:#F9FAFB;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.sc1_img1 {
+  width: 746px;
+  height: 340px;
+}
+
+
+/* 섹션2 */
+.section2 {
+  background-color: #FFFFFF;
+  height: 720px;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom: 1px solid red; */
+}
+
+.sc2_box {
+  width: 988px;
+  padding: 0 31px;
+  /* position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  gap: 0 5%;
+}
+
+.sc2_box > img{
+  width: 588px;
+  /* display: inline-block; */
+}
+
+.sc2_p {
+  width: 275px
+}
+
+.sc2_p > span {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #3692FF;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sc2_p > p {
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 56px;
+  margin-bottom: 24px;
+  color:#374151;
+}
+
+.sc2_p > div {
+  font-size: 2.4rem;
+  line-height: 32px;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* 섹션3 */
+.section3 {
+  background-color: #FFFFFF;
+  height: 720px;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom: 1px solid red; */
+}
+
+.sc3_box {
+  width: 988px;
+  padding: 0 9.5px;
+  /* position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  gap: 0 5%;
+}
+
+.sc3_box > img{
+  width: 588px;
+  /* display: inline-block; */
+}
+
+.sc3_p {
+  text-align: right;
+  width: 317px;
+}
+
+.sc3_p > span {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #3692FF;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sc3_p > p {
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 56px;
+  margin-bottom: 24px;
+  color:#374151;
+}
+
+.sc3_p > div {
+  font-size: 2.4rem;
+  line-height: 32px;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* 섹션4 */
+.section4 {
+  background-color: #FFFFFF;
+  height: 720px;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom: 1px solid red; */
+}
+
+.sc4_box {
+  width: 988px;
+  /* position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  gap: 0 5%;
+}
+
+.sc4_box > img{
+  width: 588px;
+  /* display: inline-block; */
+}
+
+.sc4_p {
+  width: 336px;
+}
+
+.sc4_p > span {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #3692FF;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sc4_p > p {
+  font-weight: 700;
+  font-size: 4.0rem;
+  line-height: 56px;
+  margin-bottom: 24px;
+  color:#374151;
+}
+
+.sc4_p > div {
+  font-size: 2.4rem;
+  line-height: 32px;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* 섹션5 */
+.section5 {
+  margin-top: 138px;
+  background-color: #CFE5FF;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.sc5_box {
+  width: 1110px;
+  height: 397px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0px;
+}
+
+.sc5_p {
+  width: 297px;
+  height: 172px;
+  font-size: 4.0rem;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+.sc5_img5 {
+  width: 746px;
+}
+
+/* footer */
+footer {
+  height: 160px;
+  background-color: #111827;
+  padding-top: 32px;
+}
+
+.footer_box {
+  /* width: 1520px; */
+  /* width: 79.16%; */
+  padding: 0 200px;
+  height: 20px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 19.09px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_box > div:nth-child(1) {
+  color: #9CA3AF;
+}
+
+.footer_box > div:nth-child(2) {
+  color: #E5E7EB;
+}

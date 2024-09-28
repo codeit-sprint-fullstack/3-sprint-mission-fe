@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('/assets/font/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  --input-bg: #F3F4F6;
+  --input-ph: #9CA3AF;
+  --input-focus-border: #3692FF;
+  --text-label: #1F2937;
+  --button-color: #F3F4F6;
+  --button-bg: #9ca3af;
+  --clear-button: #1F2937;
+  --clear-button-bg: #1F2937;
+  --sns-login-bg: #E6F2FF;
+  --sign-up: #3692FF;
+  --wrong-pw: #ff3636;
+  --right-pw: #2bb31c;
+}
+
+.signup-header {
+  margin-bottom: 40px;
+}
+
+.header-inner {
+  width: 396px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  display: inline-block;
+  width: 396px;
+  height: 142px;
+  background: url(../assets/login-logo.png) no-repeat center / 396px auto;
+  margin-top: 108px;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.signup-wrap {
+  /* width: 640px; */
+  max-width: 640px;
+  /* min-width: 396px; */
+  min-width: 350px;
+  margin: 0 auto 50px;
+  width: 60%;
+}
+
+.signup-box {
+  height: 542px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-item {
+  height: 98px;
+  position: relative;
+}
+
+.text-label {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--text-label);
+}
+
+.wrong-pw {
+  padding-left: 1rem;
+  color: var(--wrong-pw);
+  font-size: 1.6rem;
+}
+
+.right-pw {
+  padding-left: 1rem;
+  color: var(--right-pw);
+  font-size: 1.6rem;
+}
+
+/* .input-item {
+
+} */
+
+.input-id, .input-pw {
+  padding: 16px 24px;
+  width:100%;
+  font-size: 1.6rem;
+  border-radius: 12px;
+  margin: 16px 0 24px;
+  background-color: var(--input-bg);
+  height: 56px;
+  border: none;
+}
+
+.input-id::placeholder, .input-pw::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--input-ph);
+  text-align: left;
+}
+
+.input-id:focus, .input-pw:focus {
+  outline: none;
+  border: 2px solid var(--input-focus-border);
+}
+
+.clear-btn {
+  position: absolute;
+  bottom: 17px;
+  right: 18px;
+  width: 22px;
+  height: 22px;
+  border-radius: 22px;
+  color: var(--input-bg);
+  background: var(--button-bg);
+  border: none;
+  font-weight: 600;
+}
+
+.show-pw {
+  position: absolute;
+  bottom: 15px;
+  right: 53px;
+  width: 22px;
+  height: 22px;
+  background: url('/assets/hide-pw.png') no-repeat center / 100%;
+  border: none;
+}
+
+.btn-signup {
+  display: inline-block;
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  font-weight: 600;
+  font-size: 2rem;
+  border: none;
+}
+
+.sns-login {
+  background: var(--sns-login-bg);
+  width: 100%;
+  height: 74px;
+  border-radius: 8px;
+  padding: 16px 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.sns-login > p {
+  width: 110px;
+  height: 26px;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.sns-link {
+  width: 100px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.google {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background: url(../assets/google.png) no-repeat center / 42px auto;
+}
+
+.kakao {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background: url(../assets/kakao.png) no-repeat center / 100%;
+}
+
+.login {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.login > a {
+  text-decoration: underline;
+  color: var(--sign-up)
+}
