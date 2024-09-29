@@ -1,0 +1,128 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 640px; /* 최대 넓이를 640px로 설정 */
+  margin: 0 auto; /* 중앙 정렬 */
+  padding: 20px; /* 화면 가장자리와의 여백 */
+}
+
+.input-box, .button {
+  width: 100%; /* 요소의 넓이를 100%로 설정 */
+  background-color: #F3F4F6;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 15px 0; /* 입력 필드와 버튼 사이의 여백 */
+}
+
+.button {
+  background-color: #b0b0b0;
+  color: white;
+  text-align: center;
+  border: none;
+  padding: 16px 0;
+  border-radius: 40px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.social-login button {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.social-login button:last-child {
+  margin-right: 0;
+}
+
+p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between; /* 두 버튼 사이 균등한 간격 */
+  align-items: center; /* 수직 정렬 */
+  background-color: #E6F2FF;
+  padding: 16px 23px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.social-login button {
+  display: flex;
+  align-items: center; /* 버튼 안에서 텍스트와 이미지 수직 중앙 정렬 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px; /* 버튼 간 간격 설정 */
+}
+
+.social-login button:last-child {
+  margin-right: 0; /* 마지막 버튼에 오른쪽 여백 제거 */
+}
+
+.social-login button img {
+  width: 24px; /* 아이콘 크기 설정 */
+  height: 24px;
+  /* margin-left: 8px; 텍스트와 아이콘 사이의 간격 설정 */
+}
+
+.social-login-text {
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: auto; /* 텍스트를 왼쪽으로 고정 */
+  line-height: 26px;
+}
+
+.social-login-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social-login-button-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.input-pw {
+  position: relative;
+}
+
+.input-pw .eyes {
+  position: absolute;
+  top: 27px;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+input:focus {
+  outline: 2px solid #3692ff
+}
