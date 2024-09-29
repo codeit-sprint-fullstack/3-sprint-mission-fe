@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Google tag (gtag.js) 구글 애널리스트 코드-->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MNCCD7BP6G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-MNCCD7BP6G');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다 마켓</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="images/logo/favicon.ico" />
+  </head>
+  <body>
+    <!-- 네비게이션 바 -->
+    <header>
+      <nav aria-label="메인 내비게이션">
+        <div>
+          <a href="/">
+            <img
+              src="images/logo/panda-market-logo.png"
+              alt="판다마켓 로고 아이콘"
+              height="51px"
+            />
+          </a>
+          <button
+            aria-label="로그인 버튼"
+            onclick="window.location.href='/login-page/login.html'"
+          >
+            로그인
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- 상단 배너 -->
+    <section class="banner">
+      <figure class="banner-container">
+        <div class="banner-content">
+          <h1 class="banner-title">
+            일상의 모든 물건을 <br />
+            거래해 보세요
+          </h1>
+          <button
+            class="banner-button"
+            onclick="window.location.href='items.html'"
+          >
+            구경하러 가기
+          </button>
+        </div>
+        <div class="banner-image">
+          <img
+            src="images/home/hero-image.png"
+            alt="일상의 모든 물건을 거래해 보세요 배너 이미지"
+          />
+        </div>
+      </figure>
+    </section>
+    <!-- 메인 컨텐츠들 -->
+    <main>
+      <section class="hot-item item">
+        <div class="item-container">
+          <img src="images/home/feature1-image.png" alt="인기 상품 이미지" />
+          <div class="item-content">
+            <strong class="strong">Hot item</strong>
+            <h2 class="item-title">
+              인기 상품을
+              <br />
+              확인해 보세요
+            </h2>
+            <h3 class="item-subtitle">
+              가장 HOT한 중고거래 물품을
+              <br />
+              판다 마켓에서 확인해 보세요
+            </h3>
+          </div>
+        </div>
+      </section>
+      <section class="search item">
+        <div class="item-container">
+          <img
+            src="images/home/feature2-image.png"
+            alt="인기 상품 이미지"
+            width="588px"
+            height="444px"
+          />
+          <div class="item-content">
+            <strong class="strong">Search</strong>
+            <h2 class="item-title">
+              구매를 원하는
+              <br />
+              상품을 검색하세요
+            </h2>
+            <h3 class="item-subtitle">
+              구매하고 싶은 물품은 검색해서
+              <br />
+              쉽게 찾아보세요
+            </h3>
+          </div>
+        </div>
+      </section>
+      <section class="register item">
+        <div class="item-container">
+          <img
+            src="images/home/feature3-image.png"
+            alt="인기 상품 이미지"
+            width="588px"
+            height="444px"
+          />
+          <div class="item-content">
+            <strong class="strong">Register</strong>
+            <h2 class="item-title">
+              판매를 원하는
+              <br />
+              상품을 등록하세요
+            </h2>
+            <h3 class="item-subtitle">
+              어떤 물건이든 판매하고 싶은 상품을
+              <br />
+              쉽게 등록하세요
+            </h3>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 하단 배너 -->
+    <section class="banner">
+      <figure class="banner-container">
+        <div class="banner-content">
+          <h1 class="banner-title">
+            믿을 수 있는 <br />
+            판다마켓 중고 거래
+          </h1>
+        </div>
+        <div class="banner-image">
+          <img
+            src="images/home/bottom-banner-image.png"
+            alt="믿을 수 있는 판다마켓 중고 거래 배너 이미지"
+          />
+        </div>
+      </figure>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+      <div class="footer-container">
+        <p>©codeit - 2024</p>
+        <div class="footer-info">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="images/social/facebook-logo.svg" alt="facebook-logo" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="images/social/twitter-logo.svg" alt="twitter-logo" />
+          </a>
+          <a
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="images/social/youtube-logo.svg" alt="youtube-logo" />
+          </a>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="images/social/instagram-logo.svg" alt="instagram-logo" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
