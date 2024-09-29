@@ -1,0 +1,131 @@
+/* 폰트 입히기 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+body {
+    font-family: pretendard;
+    margin: 0;
+
+    /* display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center; */
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.boldText {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 0px;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 640px;
+}
+
+.pandaLogo {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+}
+
+#pandaLogoImg {
+    width: 100%;
+    height: 100%;
+
+}
+
+input {
+    border: 0;
+    outline: none;
+    background-color: #F3F4F6;
+    color: #1F2937;
+    width: 592px;
+    height: 26px;
+    border-radius: 12px;
+    padding: 16px 24px 16px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+input>placeholder {
+    color: #9CA3AF;
+}
+
+input:focus {
+    border: solid #3692FF;
+
+}
+
+.likeBtA {
+    background-color: #9CA3AF;
+    color: #F3F4F6;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.simpleLogin {
+    display: flex;
+    align-items: center;
+    padding: 0px 24px 0px 24px;
+    background-color: #E6F2FF;
+    border-radius: 8px;
+    height: 74px;
+}
+
+.simpleLoginCon {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.simpleLogoText {
+    display: flex;
+    align-items: center;
+}
+
+.linkImgs {
+    display: flex;
+    gap: 10px;
+}
+
+.smallImg {
+    width: 42px;
+    height: 42px;
+}
+
+.signUpQuestion {
+    text-align: center;
+
+}
+
+.signUpQuestion>a {
+    color: #3182F6;
+}
+
+.inputEye {
+    position: relative;
+
+}
+
+.inputEye>i {
+    position: absolute;
+    left: 93%;
+    top: 20px;
+    cursor: pointer;
+}
