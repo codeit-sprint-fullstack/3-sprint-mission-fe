@@ -38,18 +38,20 @@
       </section>
       <section class="grid gap-6">
         <div class="flex justify-center flex-col">
-          <form class="flex flex-col gap-6 mb-gap-4 text-2lg mb-text-md font-bold">
+          <form class="flex flex-col gap-6 mb-gap-4 text-2lg mb-text-md">
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="email">이메일</label>
-              <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요." autocomplete="email">
+              <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요." autocomplete="email" required>
+              <p class="form-error-msg"></p>
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="password">비밀번호</label>
-              <input type="password" autocomplete="current-password" id="password" name="password"
-                placeholder="비밀번호를 입력해주세요">
+              <input type="password" minlength="8" autocomplete="current-password" id="password" name="password"
+                placeholder="비밀번호를 입력해주세요" required>
+              <p class="form-error-msg"></p>
             </div>
-            <button type="submit"
-              class="flex btn btn-block bg-gray400 text-xl font-semibold rounded-xl py-4">로그인</button>
+            <button type="button"
+              class="flex btn btn-block text-xl font-semibold rounded-xl py-4 bg-gray400">로그인</button>
           </form>
         </div>
 
@@ -73,6 +75,50 @@
       </section>
     </article>
   </main>
+  <script>
+    window.addEventListener('load', () => {
+      const userEmail = document.getElementById('email');
+      const userPassword = document.getElementById('password');
+      const submitBtn = document.querySelector('button[type="button"]');
+
+      submitBtn.onclick = () => {
+        if (userEmail.validity.valid && userPassword.validity.valid) {
+          document.location.pathname = '/pages/items.html';
+        }
+      }
+
+      userEmail.addEventListener('blur', () => {
+
+        const errMsg = userEmail.nextElementSibling;
+        if (userEmail.validity.valid === false) {
+          submitBtn.classList.replace('bg-primary', 'bg-gray400');
+          errMsg.textContent = userEmail.value.length > 0 ? '이메일 형식이 올바르지 않습니다.' : '이메일을 입력해주세요.';
+        } else {
+          errMsg.textContent = '';
+          if (userPassword.validity.valid) {
+            submitBtn.classList.replace('bg-gray400', 'bg-primary');
+          }
+        }
+      });
+
+      userPassword.addEventListener('blur', () => {
+        const errMsg = userPassword.nextElementSibling;
+        if (userPassword.validity.valid === false) {
+          submitBtn.classList.replace('bg-primary', 'bg-gray400');
+          if (userPassword.validity.tooShort) {
+            errMsg.textContent = '비밀번호는 8자 이상이어야 합니다.';
+          } else {
+            errMsg.textContent = '비밀번호를 입력해주세요.';
+          }
+        } else {
+          errMsg.textContent = '';
+          if (userEmail.validity.valid) {
+            submitBtn.classList.replace('bg-gray400', 'bg-primary');
+          }
+        }
+      })
+    });
+  </script>
 </body>
 
 </html>

@@ -39,15 +39,15 @@
           <form class="flex flex-col gap-6 mb-gap-4 text-2lg mb-text-md font-bold">
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="email">이메일</label>
-              <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요." autocomplete="email" />
+              <input required type="email" id="email" name="email" placeholder="이메일을 입력해주세요." autocomplete="email" />
             </div>
-            <div class="flex flex-col gap-4 mb-gap-2"">
+            <div class="flex flex-col gap-4 mb-gap-2">
               <label for=" nickname">닉네임</label>
               <input autocomplete="nickname" type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요.">
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="password">비밀번호</label>
-              <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"
+              <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
                 autocomplete="new-password">
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">

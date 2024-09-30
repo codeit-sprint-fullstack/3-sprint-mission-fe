@@ -1,5 +1,9 @@
 @import url('../base/variables.css');
 
+form label {
+  font-weight: var(--font-weight-bold);
+}
+
 input {
   background-color: var(--color-gray100);
   color: var(--color-gray400);
@@ -11,4 +15,14 @@ input {
 
 input:focus {
   outline: var(--color-primary100) solid 1px;
+}
+
+input:user-invalid {
+  outline: var(--color-error) solid 1px;
+}
+
+.form-error-msg {
+  color: var(--color-error);
+  font-size: 15px;
+  font-weight: var(--font-weight-semibold);
 }
