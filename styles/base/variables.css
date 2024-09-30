@@ -45,6 +45,7 @@
   --color-gray50: #F9FAFB;
   --color-white: #FFFFFF;
   --color-border: #DFDFDF;
+  --color-error: #F74747;
 
   /* Padding */
   --padding-1: 0.25rem; /* 4px */

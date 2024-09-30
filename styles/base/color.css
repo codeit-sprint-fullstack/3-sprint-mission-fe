@@ -25,7 +25,9 @@
 .bg-gray400 {
   background-color: var(--color-gray400);
 }
-
+.error {
+  color: var(--color-error);
+}
 .primary100 {
   color: var(--color-primary100);
 }
