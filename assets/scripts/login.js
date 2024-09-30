@@ -17,6 +17,7 @@ class LoginForm {
     this.setBothInput();
     $("form").addEventListener("submit", (e) => {
       e.preventDefault();
+      window.location.href = "../items/index.html";
     });
   }
 
