@@ -1,44 +1,27 @@
 import $ from "./utils/query.js";
-import { validator } from "./utils/validator.js";
-import toggleInputError from "./utils/toggleInputError.js";
+import { USER_DATA } from "./constants/userData.js";
+import { ERROR_MESSAGES } from "./constants/messages.js";
+import Sign from "./core/sign.js";
 
-const inputs = [$("#email"), $("#password")];
-const validateMethods = [validator.validateEmail, validator.validatePassword];
-
-class LoginForm {
+class LoginForm extends Sign {
   constructor() {
+    super();
     this.inputValidState = {
       email: false,
       password: false,
     };
-  }
-
-  init() {
-    this.setBothInput();
-    $("form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      window.location.href = "../items/index.html";
-    });
-  }
-
-  setState(newState) {
-    this.inputValidState = {
-      ...this.inputValidState,
-      ...newState,
+    this.inputs = {
+      email: $("#email"),
+      password: $("#password"),
     };
-    $("button").disabled = Object.values(this.inputValidState).some((state) => !state);
   }
 
-  setBothInput() {
-    inputs.forEach((input, index) => {
-      input.addEventListener("focusout", (e) => {
-        const { value } = e.target;
-        const message = validateMethods[index](value);
-        toggleInputError(e, message);
-        const keys = Object.keys(this.inputValidState);
-        this.setState({ [keys[index]]: message.length === 0 });
-      });
-    });
+  onSubmit() {
+    const [email, password] = Array.from(Object.values(this.inputs)).map((input) => input.value);
+    const matchingAccount = USER_DATA.find((data) => data.email === email);
+    matchingAccount?.password === password
+      ? (window.location.href = "../items/index.html")
+      : alert(ERROR_MESSAGES.passwordNotMatch);
   }
 }
 
