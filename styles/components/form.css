@@ -6,11 +6,15 @@ form label {
 
 input {
   background-color: var(--color-gray100);
-  color: var(--color-gray400);
+  color: var(--color-gray800);
   padding: 15px 24px;
   border-radius: var(--border-radius-lg);
   outline: none;
   border: none;
+}
+
+input::placeholder {
+  color: var(--color-gray400);
 }
 
 input:focus {

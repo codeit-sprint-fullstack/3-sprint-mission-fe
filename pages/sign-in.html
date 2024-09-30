@@ -76,19 +76,22 @@
     </article>
   </main>
   <script>
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     window.addEventListener('load', () => {
       const userEmail = document.getElementById('email');
       const userPassword = document.getElementById('password');
       const submitBtn = document.querySelector('button[type="button"]');
 
       submitBtn.onclick = () => {
-        if (userEmail.validity.valid && userPassword.validity.valid) {
+        const inputs = document.querySelectorAll('input');
+        if ([...inputs].every(el => el.validity.valid)) {
           document.location.pathname = '/pages/items.html';
         }
       }
 
       userEmail.addEventListener('blur', () => {
-
         const errMsg = userEmail.nextElementSibling;
         if (userEmail.validity.valid === false) {
           submitBtn.classList.replace('bg-primary', 'bg-gray400');
@@ -99,7 +102,7 @@
             submitBtn.classList.replace('bg-gray400', 'bg-primary');
           }
         }
-      });
+      }, { signal: signal });
 
       userPassword.addEventListener('blur', () => {
         const errMsg = userPassword.nextElementSibling;
@@ -116,8 +119,13 @@
             submitBtn.classList.replace('bg-gray400', 'bg-primary');
           }
         }
-      })
+      }, { signal: signal })
     });
+
+    window.addEventListener('unload', () => {
+      controller.abort();
+    });
+
   </script>
 </body>
 
