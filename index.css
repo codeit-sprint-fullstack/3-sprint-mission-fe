@@ -1,9 +1,4 @@
-:root {
-  --main-color: #3692ff;
-  --banner-color: #cfe5ff;
-  --border-color: #dfdfdf;
-  --section-bg-color: #fcfcfc;
-  --footer-bg-color: #111827;
+html {
   font-size: 10px;
 }
 

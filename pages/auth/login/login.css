@@ -1,25 +1,3 @@
-:root {
-  --font-color: #1f2937;
-  --main-color: #3692ff;
-
-  /* 라벨 관련 색상 */
-
-  /* input 관련 색상 */
-  --login-input-bg-color: #f3f4f6;
-  --login-input-placeholder-color: #9ca3af;
-  --login-input-focus-color: #3692ff;
-
-  /* 로그인 버튼 관련 색상 */
-  --login-btn-bg-color: #9ca3af;
-  --login-btn-font-color: #f3f4f6;
-
-  /* 간편 로그인 색상 */
-  --login-social-bg-color: #e6f2ff;
-
-  /* 회원가입 관련 색상 */
-  --login-signup-font-color: #3692ff;
-}
-
 body {
   display: flex;
   justify-content: center;
