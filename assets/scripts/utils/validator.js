@@ -17,6 +17,7 @@ export const validator = {
   },
   validateNickname(nickname) {
     if (!nickname.length) return ERROR_MESSAGES.inputNickname;
+    return "";
   },
 
   validatePasswordConfirm(password, confirmPassword) {
