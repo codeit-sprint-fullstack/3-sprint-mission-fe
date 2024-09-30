@@ -42,7 +42,7 @@ class signupForm {
         const { value } = e.target;
         const message = validateMethods[index](value);
         toggleInputError(e, message);
-        const keys = Object.values(this.inputValidState);
+        const keys = Object.keys(this.inputValidState);
         this.setState({ [keys[index]]: message.length === 0 });
       });
     });
