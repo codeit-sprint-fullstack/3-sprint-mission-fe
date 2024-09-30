@@ -1,7 +1,7 @@
 :root {
   --main-background-color: #fcfcfc;
   --main-ivory-color: #f3f4f6;
-  --input-focus-border-color: #3692ff;
+  --active-blue-color: #3692ff;
   --main-grey-color: #9ca3af;
   --main-font-color: #1f2937;
   --social-login-bg-color: #e6f2ff;
@@ -84,7 +84,7 @@ input.error {
 }
 
 input:focus {
-  outline: 1px solid var(--input-focus-border-color);
+  outline: 1px solid var(--active-blue-color);
 }
 
 ::placeholder {
@@ -93,12 +93,16 @@ input:focus {
 
 button {
   border-radius: 4rem;
-  background-color: var(--main-grey-color);
+  background-color: var(--active-blue-color);
   color: var(--main-ivory-color);
   font-size: 2rem;
   line-height: 3.2rem;
   font-weight: 600;
   margin-bottom: 2.4rem;
+}
+
+button:disabled {
+  background-color: var(--main-grey-color);
 }
 
 .social-login {
