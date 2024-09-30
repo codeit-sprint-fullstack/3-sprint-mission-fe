@@ -2,6 +2,9 @@ import $ from "./utils/query.js";
 import { validator } from "./utils/validator.js";
 import toggleInputError from "./utils/toggleInputError.js";
 
+const inputs = [$("#email"), $("#password")];
+const validateMethods = [validator.validateEmail, validator.validatePassword];
+
 class LoginForm {
   constructor() {
     this.inputValidState = {
@@ -26,14 +29,13 @@ class LoginForm {
   }
 
   setBothInput() {
-    [$("#email"), $("#password")].forEach((input, index) => {
+    inputs.forEach((input, index) => {
       input.addEventListener("focusout", (e) => {
         const { value } = e.target;
-        const message = [validator.validateEmail, validator.validatePassword][index](value);
+        const message = validateMethods[index](value);
         toggleInputError(e, message);
-        const key = ["email", "password"][index];
-        if (!message.length) return this.setState({ [key]: true });
-        this.setState({ [key]: false });
+        const keys = Object.values(this.inputValidState);
+        this.setState({ [keys[index]]: message.length === 0 });
       });
     });
   }
