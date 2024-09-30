@@ -7,6 +7,7 @@
   --social-login-bg-color: #e6f2ff;
   --sign-up-link-font-color: #3182f6;
   --password-visible-button-color: #4b5563;
+  --warning-invalid-color: #f74747;
 }
 
 html {
@@ -52,6 +53,12 @@ header img {
   height: auto;
 }
 
+form > section {
+  margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
 label {
   margin-bottom: 1.6rem;
   font-size: 1.8rem;
@@ -63,7 +70,6 @@ button {
   width: 100%;
   height: 5.6rem;
   border: none;
-  margin-bottom: 2.4rem;
 }
 
 input {
@@ -71,6 +77,10 @@ input {
   background-color: var(--main-ivory-color);
   padding: 1.6rem 2.4rem 1.6rem 2.4rem;
   font-weight: 400;
+}
+
+input.error {
+  border: solid 1px var(--warning-invalid-color);
 }
 
 input:focus {
@@ -88,6 +98,7 @@ button {
   font-size: 2rem;
   line-height: 3.2rem;
   font-weight: 600;
+  margin-bottom: 2.4rem;
 }
 
 .social-login {
@@ -143,4 +154,18 @@ button {
   top: 2rem;
   color: var(--password-visible-button-color);
   cursor: pointer;
+}
+
+.message {
+  display: none;
+}
+
+.message.show {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+  color: var(--warning-invalid-color);
+  padding-left: 16px;
+  padding-top: 8px;
 }
