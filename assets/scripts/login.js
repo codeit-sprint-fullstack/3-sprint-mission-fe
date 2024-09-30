@@ -21,7 +21,7 @@ class LoginForm extends Sign {
     const matchingAccount = USER_DATA.find((data) => data.email === email);
     matchingAccount?.password === password
       ? (window.location.href = "../items/index.html")
-      : alert(ERROR_MESSAGES.passwordNotMatch);
+      : this.showModal(ERROR_MESSAGES.passwordNotMatch);
   }
 }
 

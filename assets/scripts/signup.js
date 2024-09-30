@@ -26,10 +26,10 @@ class signupForm extends Sign {
     );
     const matchingAccount = USER_DATA.find((data) => data.email === email);
     matchingAccount
-      ? alert(ERROR_MESSAGES.emailAlreadyInUse)
+      ? this.showModal(ERROR_MESSAGES.emailAlreadyInUse)
       : password === confirmPassword
       ? (window.location.href = "../items/index.html")
-      : alert(ERROR_MESSAGES.passwordNotMatch);
+      : this.showModal(ERROR_MESSAGES.passwordNotMatch);
   }
 }
 

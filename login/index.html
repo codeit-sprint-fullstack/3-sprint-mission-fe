@@ -29,6 +29,13 @@
   </head>
   <body>
     <main>
+      <div id="modal-container">
+        <div id="modal-background"></div>
+        <div id="modal">
+          <p id="error-message">거짓</p>
+          <button id="modal-close-button">확인</button>
+        </div>
+      </div>
       <header>
         <a href="/"><img src="../assets/images/common/logo.png" /></a>
       </header>
@@ -46,7 +53,7 @@
           </div>
           <p id="invalid-password-message" class="message"></p>
         </section>
-        <button type="submit" disabled>로그인</button>
+        <button id="submit-button" type="submit" disabled>로그인</button>
       </form>
       <div class="social-login">
         <span>간편 로그인하기</span>

@@ -10,10 +10,8 @@ class Sign {
 
   init() {
     this.setInputs();
-    $("form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      this.onSubmit();
-    });
+    this.setFormSubmit();
+    this.setCloseButton();
   }
 
   setState(newState) {
@@ -21,7 +19,7 @@ class Sign {
       ...this.inputValidState,
       ...newState,
     };
-    $("button").disabled = Object.values(this.inputValidState).some((state) => !state);
+    $("#submit-button").disabled = Object.values(this.inputValidState).some((state) => !state);
   }
 
   setInputs() {
@@ -41,6 +39,25 @@ class Sign {
       });
     });
   }
+
+  setFormSubmit() {
+    $("form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.onSubmit();
+    });
+  }
+
+  showModal(message) {
+    $("#modal-container").classList.add("show");
+    $("#error-message").innerText = message;
+  }
+
+  setCloseButton() {
+    $("#modal-close-button").addEventListener("click", () => {
+      $("#modal-container").classList.remove("show");
+    });
+  }
+
   onSubmit() {}
 }
 

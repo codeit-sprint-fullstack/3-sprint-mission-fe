@@ -15,7 +15,7 @@
 
 ### 심화 요구사항
 
-- [ ] 브라우저에 현재 보이는 화면의 영역(viewport) 너비를 기준으로 분기되는 반응형 디자인을 적용합니다. (참고: https://www.codeit.kr/topics/responsive-web-publishing)
+- [x] 브라우저에 현재 보이는 화면의 영역(viewport) 너비를 기준으로 분기되는 반응형 디자인을 적용합니다. (참고: https://www.codeit.kr/topics/responsive-web-publishing)
 
   - PC: 1200px 이상
   - Tablet: 744px 이상 ~ 1199px 이하
@@ -49,7 +49,7 @@
 
 ### 심화 요구사항
 
-- [ ] 오류 메시지 모달을 구현합니다. 모달 내 내용은 alert 메시지와 동일합니다.
+- [x] 오류 메시지 모달을 구현합니다. 모달 내 내용은 alert 메시지와 동일합니다.
 
 ## 랜딩 페이지
 
