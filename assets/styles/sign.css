@@ -210,22 +210,55 @@ button:disabled {
   justify-content: center;
 }
 
-#modal p {
+#error-message {
+  position: absolute;
+  top: 10.8rem;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.92rem;
 }
 
-#modal button {
+#modal-close-button {
   position: absolute;
   width: 12rem;
   height: 4.8rem;
   border-radius: 0.8rem;
-  right: 0;
-  bottom: 0;
-  margin-bottom: 2.8rem;
-  margin-right: 2.8rem;
+  right: 2.8rem;
+  bottom: 2.8rem;
+  margin-bottom: 0;
   font-size: 1.6rem;
   line-height: 1.92rem;
   font-weight: 600;
+}
+
+@media (min-width: 375px) and (max-width: 743px) {
+  main {
+    width: calc(100% - 3.2rem);
+    max-width: 40rem;
+    margin: 0 1.6rem;
+    margin-top: 2.4rem;
+  }
+
+  form > section {
+    margin-bottom: 1.6rem;
+  }
+
+  header img {
+    width: 19.8rem;
+  }
+
+  #modal {
+    width: 32.7rem;
+    height: 22rem;
+    top: calc(50% - 11rem);
+    left: calc(50% - 16.35rem);
+  }
+
+  #modal-close-button {
+    left: calc(50% - 6rem);
+    bottom: 2.3rem;
+  }
+  #error-message {
+    top: 8.1rem;
+  }
 }
