@@ -12,6 +12,7 @@ class Sign {
     this.setInputs();
     this.setFormSubmit();
     this.setCloseButton();
+    this.handleToggleButton();
   }
 
   setState(newState) {
@@ -59,6 +60,22 @@ class Sign {
   }
 
   onSubmit() {}
+
+  togglePasswordVisibility(e) {
+    const { target } = e;
+    target.classList.toggle("fa-eye-slash");
+    target.classList.toggle("fa-eye");
+    const input = target.closest("div").querySelector("input");
+    const TYPES = ["text", "password"];
+    const inputType = input.type;
+    input.type = TYPES[1 - TYPES.indexOf(inputType)];
+  }
+
+  handleToggleButton() {
+    document
+      .querySelectorAll(".eye-icon")
+      .forEach((icon) => icon.addEventListener("click", this.togglePasswordVisibility));
+  }
 }
 
 export default Sign;
