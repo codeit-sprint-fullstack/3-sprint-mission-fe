@@ -231,7 +231,7 @@ button:disabled {
   font-weight: 600;
 }
 
-@media (min-width: 375px) and (max-width: 743px) {
+@media (max-width: 743px) {
   main {
     width: calc(100% - 3.2rem);
     max-width: 40rem;
