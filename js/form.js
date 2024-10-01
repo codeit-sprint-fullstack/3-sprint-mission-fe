@@ -7,7 +7,7 @@ const valueCheck = data.reduce((a, c, i) => {
 
 let bottom = `
     <div>
-        <button class='btn'>로그인</button>
+        <button class='loginBtn btn'>로그인</button>
     </div>
     <div class="simple">
         <p>간편 로그인하기</p>
@@ -21,7 +21,9 @@ let bottom = `
         </div>
     </div>
 `;
-
+const seePwImg = (src) => {
+  return `<img src="${src}" />`;
+};
 const result = data.reduce((a, c, i) => {
   if (i === data.length - 1) {
     if (window.location.pathname.includes("login"))
@@ -43,18 +45,29 @@ const result = data.reduce((a, c, i) => {
     let pwIcon = "";
     let part = `${c}을`;
     let type = "text";
-
+    let idName = "";
+    switch (c) {
+      case "이메일":
+        idName = "email";
+        break;
+      case "비밀번호":
+        idName = "pw";
+        break;
+    }
     if (c.indexOf("비밀번호") !== -1) {
-      pwIcon = `<a href="#"><img src="./img/look.png" /></a>`;
+      pwIcon = `<a href="#" class="seePw">${seePwImg("./img/look.svg")}</a>`;
       type = "password";
-      if (c.indexOf("확인") !== -1) part = "비밀번호를 다시 한 번";
-      else part = `${c}를`;
+      if (c.indexOf("확인") !== -1) {
+        part = "비밀번호를 다시 한 번";
+        idName = "pw2";
+      } else part = `${c}를`;
     }
     a += `
             <div>
-                <label for="${c}">${c}</label>
+                <label for="${idName}">${c}</label>
+                
                 <div class="inputbox">
-                    <input id="${c}" type="${type}" placeholder="${part} 입력해주세요" />
+                    <input id="${idName}" type="${type}" placeholder="${part} 입력해주세요"data-err="${part} 입력해주세요" />
                     ${pwIcon}
                 </div>
             </div>
@@ -67,15 +80,106 @@ forms.innerHTML = result;
 
 const inputBox = document.querySelectorAll(".inputbox");
 const btn = document.querySelector(".btn");
+const pw = document.querySelector('input[id="pw"]');
+
+// input event
 inputBox.forEach((el, i) => {
   const input = el.children[0];
-  input.addEventListener("focus", () => el.classList.add("on"));
-  input.addEventListener("blur", () => el.classList.remove("on"));
-  input.addEventListener("keyup", (e) => {
-    if (!!e.currentTarget.value) valueCheck[i] = true;
-    else valueCheck[i] = false;
 
-    if (!valueCheck.includes(false)) btn.classList.add("on");
+  // Focus
+  input.addEventListener("focus", (e) => {
+    const target = e.target;
+    // target.value = "";
+    const check = [...el.children]
+      .map((v) => {
+        return v.classList.value;
+      })
+      .includes("errMsg");
+    if (check) el.lastElementChild.remove();
+    el.classList.remove("err");
+    el.classList.add("on");
+  });
+
+  // Focus Out
+  input.addEventListener("blur", (e) => {
+    const check = [...el.children]
+      .map((v) => {
+        return v.classList.value;
+      })
+      .includes("errMsg");
+    const target = e.target;
+    const label = target.parentElement.previousSibling.previousSibling;
+    let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    if (!!!target.value) {
+      el.classList.add("err");
+      errMsgs(target.dataset.err, el, !check);
+      valueCheck[i] = false;
+    } else if (
+      !email_regex.test(target.value) &&
+      label.getAttribute("for") === "email"
+    ) {
+      errMsgs("잘못된 이메일 형식입니다.", el, !!!label.children.length);
+      valueCheck[i] = false;
+    } else if (target.value.length <= 8 && label.getAttribute("for") === "pw") {
+      errMsgs("비밀번호를 8자이상 입력해주세요.", el, target.value.length < 8);
+      valueCheck[i] = false;
+    } else if (
+      label.getAttribute("for") === "pw2" &&
+      pw.value !== target.value
+    ) {
+      errMsgs("비밀번호가 다릅니다.", el, target.value.length <= 8);
+      valueCheck[i] = false;
+    } else {
+      valueCheck[i] = true;
+    }
+
+    el.classList.remove("on");
+  });
+
+  // Input
+  input.addEventListener("keyup", (e) => {
+    const errMsgs = document.querySelectorAll(".errMsg");
+    if (!!e.currentTarget.value && !!!errMsgs.length) valueCheck[i] = true;
+    else valueCheck[i] = false;
+    if (!valueCheck.includes(false) && pw.value.length >= 8)
+      btn.classList.add("on");
     else btn.classList.remove("on");
+  });
+});
+
+function errMsgs(text, el, condition) {
+  el.classList.add("err");
+  const errMsg = document.createElement("p");
+  errMsg.classList.add("errMsg");
+  errMsg.innerHTML = text;
+  if (condition) el.append(errMsg);
+}
+
+// btn event
+const loginBtn = document.querySelector(".loginBtn");
+loginBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const target = e.target;
+  if (target.classList.value.includes("on")) {
+    window.location.href = "/items.html";
+  } else {
+    alert("정확히 입력해주세요.");
+  }
+});
+
+//see pw
+const seePw = document.querySelectorAll(".seePw");
+seePw.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = e.target.parentElement;
+    const inputTag = target.previousSibling.previousSibling;
+    if (inputTag.type === "password") {
+      target.innerHTML = seePwImg("./img/look2.svg");
+      inputTag.type = "text";
+    } else {
+      target.innerHTML = seePwImg("./img/look.svg");
+      inputTag.type = "password";
+    }
   });
 });
