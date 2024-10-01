@@ -1,11 +1,11 @@
 import $ from "../utils/query.js";
-import { validator } from "../utils/validator.js";
 import toggleInputError from "../utils/toggleInputError.js";
 
 class Sign {
   constructor() {
     this.inputValidState = {};
     this.inputs = {};
+    this.validateMethods = [];
   }
 
   init() {
@@ -24,18 +24,12 @@ class Sign {
   }
 
   setInputs() {
-    const validateMethods = [
-      validator.validateEmail,
-      validator.validateNickname,
-      validator.validatePassword,
-      validator.validatePassword,
-    ];
     Object.values(this.inputs).forEach((input, index) => {
       input.addEventListener("focusout", (e) => {
         const { value } = e.target;
-        const message = validateMethods[index](value);
+        const message = this.validateMethods[index](value);
         toggleInputError(e, message);
-        const keys = Object.keys(this.inputValidState);
+        const keys = Object.keys(this.inputs);
         this.setState({ [keys[index]]: message.length === 0 });
       });
     });
@@ -59,6 +53,12 @@ class Sign {
     });
   }
 
+  getValues() {
+    return Object.values(this.inputs).reduce((acc, input, index) => {
+      return { ...acc, [object.keys(this.inputs)[index]]: input.value };
+    }, {});
+  }
+
   onSubmit() {}
 
   togglePasswordVisibility(e) {
@@ -68,7 +68,7 @@ class Sign {
     const input = target.closest("div").querySelector("input");
     const TYPES = ["text", "password"];
     const inputType = input.type;
-    input.type = TYPES[1 - TYPES.indexOf(inputType)];
+    input.type = TYPES[Number(inputType === TYPES[0])];
   }
 
   handleToggleButton() {
