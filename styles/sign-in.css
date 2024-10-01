@@ -1,5 +1,6 @@
 @import url('common.css');
 @import url('components/form.css');
+@import url('components/modal.css');
 
 .login-container {
   grid-template-columns: minmax(344px, 640px);
