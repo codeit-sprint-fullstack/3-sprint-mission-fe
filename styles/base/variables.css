@@ -55,7 +55,9 @@
   --padding-4: calc(var(--padding-1) * 4);
   --padding-4\.5: calc(var(--padding-1) * 4.5);
   --padding-5: calc(var(--padding-1) * 5);
+  --padding-5\.5: calc(var(--padding-1) * 5.5);
   --padding-6: calc(var(--padding-1) * 6);
+  --padding-7: calc(var(--padding-1) * 7);
   --padding-7\.5: calc(var(--padding-1) * 7.5);
   --padding-8: calc(var(--padding-1) * 8);
   --padding-10: calc(var(--padding-1) * 10);
@@ -68,6 +70,7 @@
   --padding-17: calc(var(--padding-1) * 17);
   --padding-17\.5: calc(var(--padding-1) * 17.5);
   --padding-21: calc(var(--padding-1) * 21);
+  --padding-30: calc(var(--padding-1) * 30);
   --padding-31: calc(var(--padding-1) * 31);
   --padding-33: calc(var(--padding-1) * 33);
   --padding-33\.5: calc(var(--padding-1) * 33.5);

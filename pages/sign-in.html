@@ -69,35 +69,67 @@
 
         <div class="flex justify-center">
           <p class="font-medium" style="font-size: 15px;">판다마켓이 처음이신가요?
-            <a class=" primary100 underline" href="sign-up.html">회원가입</a>
+            <a class="primary100 underline" href="sign-up.html">회원가입</a>
           </p>
         </div>
       </section>
     </article>
+    <dialog class="m-auto fade-in">
+      <div class="grid items-end gap-4">
+        <p class="text-center font-medium"></p>
+        <div class="text-right mb-text-center">
+          <button class="btn bg-primary min-w-30" autofocus>확인</button>
+        </div>
+      </div>
+    </dialog>
   </main>
   <script>
     const controller = new AbortController();
     const signal = controller.signal;
+    const errMsgType = {
+      email: {
+        invalid: '이메일 형식이 올바르지 않습니다.',
+        empty: '이메일을 입력해주세요.'
+      },
+      password: {
+        invalid: '비밀번호는 8자 이상이어야 합니다.',
+        empty: '비밀번호를 입력해주세요.'
+      }
+    }
 
     window.addEventListener('load', () => {
       const userEmail = document.getElementById('email');
       const userPassword = document.getElementById('password');
       const submitBtn = document.querySelector('button[type="button"]');
+      const dialog = document.querySelector('dialog');
 
       submitBtn.onclick = () => {
         const inputs = document.querySelectorAll('input');
+        inputs.forEach(el => el.reportValidity());
         if ([...inputs].every(el => el.validity.valid)) {
-          document.location.pathname = '/pages/items.html';
+          if (USER_DATA_MAP.has(userEmail.value) && USER_DATA_MAP.get(userEmail.value) === userPassword.value) {
+            document.location.pathname = '/pages/items.html';
+          } else {
+            dialog.querySelector('p').textContent = '비밀번호가 일치하지 않습니다.';
+            dialog.querySelector('button').onclick = () => {
+              dialog.close();
+            }
+            dialog.showModal();
+          }
         }
       }
 
       userEmail.addEventListener('blur', () => {
         const errMsg = userEmail.nextElementSibling;
         if (userEmail.validity.valid === false) {
+          errMsg.classList.add('fade-in');
           submitBtn.classList.replace('bg-primary', 'bg-gray400');
-          errMsg.textContent = userEmail.value.length > 0 ? '이메일 형식이 올바르지 않습니다.' : '이메일을 입력해주세요.';
+          errMsg.textContent = userEmail.value.length > 0 ? errMsgType.email.invalid : errMsgType.email.empty;
         } else {
-          errMsg.textContent = '';
+          errMsg.classList.replace('fade-in', 'fade-out');
+          setTimeout(() => {
+            errMsg.textContent = '';
+          }, 300);
           if (userPassword.validity.valid) {
             submitBtn.classList.replace('bg-gray400', 'bg-primary');
           }
@@ -109,12 +141,16 @@
         if (userPassword.validity.valid === false) {
           submitBtn.classList.replace('bg-primary', 'bg-gray400');
           if (userPassword.validity.tooShort) {
-            errMsg.textContent = '비밀번호는 8자 이상이어야 합니다.';
+            errMsg.classList.add('fade-in');
+            errMsg.textContent = errMsgType.password.invalid;
           } else {
-            errMsg.textContent = '비밀번호를 입력해주세요.';
+            errMsg.textContent = errMsgType.password.empty;
           }
         } else {
-          errMsg.textContent = '';
+          errMsg.classList.replace('fade-in', 'fade-out');
+          setTimeout(() => {
+            errMsg.textContent = '';
+          }, 300);
           if (userEmail.validity.valid) {
             submitBtn.classList.replace('bg-gray400', 'bg-primary');
           }
@@ -125,7 +161,6 @@
     window.addEventListener('unload', () => {
       controller.abort();
     });
-
   </script>
 </body>
 
