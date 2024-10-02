@@ -194,15 +194,15 @@ nav {
   flex-direction: column;
 }
 
-.main-page-text.first {
+.main-page:nth-of-type(1) .main-page-text {
   max-width: 28rem;
 }
 
-.main-page-text.second {
+.main-page:nth-of-type(2) .main-page-text {
   max-width: 30rem;
 }
 
-.main-title.third {
+.main-page:nth-of-type(3) .main-title {
   max-width: 30rem;
 }
 
@@ -331,15 +331,12 @@ footer {
     margin: 0;
   }
 
-  .main-page-text.first {
+  .main-page:nth-of-type(1) .main-page-text {
     max-width: 50rem;
   }
 
-  .main-page-text.second {
-    max-width: 60rem;
-  }
-
-  .main-page-text.third {
+  .main-page:nth-of-type(2) .main-page-text,
+  .main-page:nth-of-type(3) .main-page-text {
     max-width: 60rem;
   }
 
@@ -347,7 +344,7 @@ footer {
     max-width: 30rem;
   }
 
-  .description.third {
+  .main-page:nth-of-type(3) .description {
     max-width: 34rem;
   }
 
@@ -368,8 +365,13 @@ footer {
     flex-direction: column-reverse;
     align-items: end;
   }
-  .main-title.third {
+
+  .main-page:nth-of-type(3) .main-title {
     max-width: 60rem;
+  }
+
+  .banner.bottom {
+    margin-top: 5.6rem;
   }
 
   .footer-container {
@@ -415,14 +417,13 @@ footer {
     line-height: 1.92rem;
   }
 
-  .description.first {
+  .main-page:nth-of-type(1) .description {
     max-width: 18.3rem;
   }
-
-  .description.second {
+  .main-page:nth-of-type(2) .description {
     max-width: 22rem;
   }
-  .description.third {
+  .main-page:nth-of-type(3) .description {
     max-width: 24.7rem;
   }
 
