@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>판다 마켓</title>
-  <link rel="stylesheet" href="..\panda.css">
   <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../styles/global.css" />
+  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="../styles/signup.css" />
 </head>
+
 <body>  
   <main class="signup-layer">
     <section class="signup-section1-layer">      
@@ -38,25 +41,41 @@
         <label class="signup-label" for="password">
           비밀번호
         </label>
-        <input type="password" class="signup-input" 
-              id="password" name="password" 
-              placeholder="비밀번호를 입력해주세요"
-              style=" background-image: url('..\images\login\btn_visibility_on_24px.png');
-                      background-repeat: no-repeat;
-                      background-position: right;                      
-                    "
+        <div class="signup-wrapper">
+          <input type="password" class="signup-input" 
+                id="password" name="password" 
+                placeholder="비밀번호를 입력해주세요"
+              />
+          <button
+            type="button"
+            class="password-toggle-button"
+            aria-label="비밀번호 보기"
+          >
+            <img
+              src="../images/login/btn_visibility_on_24px.svg"
+              alt="비밀번호 숨김 상태 아이콘"
             />
+          </button>  
+        </div>
         <label class="signup-label" for="confirm-password">
           비밀번호 확인
         </label>
-        <input type="password" class="signup-input" 
-              id="confirm-password" name="confirm-password" 
-              placeholder="비밀번호를 다시 한 번 입력해주세요"
-              style=" background-image: url('..\images\login\btn_visibility_on_24px.png');
-                      background-repeat: no-repeat;
-                      background-position: right;                      
-                    "
-            />
+        <div class="signup-wrapper">
+          <input type="password" class="signup-input" 
+                id="confirm-password" name="confirm-password" 
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+              />
+            <button
+              type="button"
+              class="password-toggle-button"
+              aria-label="비밀번호 보기"
+            >
+              <img
+                src="../images/login/btn_visibility_on_24px.svg"
+                alt="비밀번호 숨김 상태 아이콘"
+              />
+            </button>  
+          </div>
         <button class="signup-button">
           회원가입
         </button>      

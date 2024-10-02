@@ -6,16 +6,46 @@
    모바일 브라우저에서 나오는 글자가 매우 작게 표시되어서 읽을 수 없을 것이다 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>판다 마켓</title>
-  <!-- <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" /> -->
-  <link rel="stylesheet" href="panda.css">
+  <!-- 
+  웹사이트를 식별하기 위해 브라우저에 표시하는 작은 아이콘을 '파비콘(Favicon)'이라고 합니다. 
+  일반적으로 16x16px의 .ico 확장자로 되어 있고, 온라인에서 favicon generator를 찾아 사용하면 편리하게 이미지를 파비콘으로 전환할 수 있습니다. 
+  -->
+  <link rel="icon" href="images/logo/favicon.ico" />
+  <!-- 외부 폰트 Pretendard의 스타일시트를 링크해 주세요. -->
+  <link
+  rel="stylesheet"
+  as="style"
+  crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+  />
+  <link rel="stylesheet" href="../styles/global.css" />
+  <link rel="stylesheet" href="styles/home.css">
+
+    <!-- [심화 요구사항] Google Analytics  -->
+    <!-- Google Analytics 계정을 생성해 ) 본인의 Tracking ID(예: G-XXXXXXXXXX)로 변경이 필요합니다. -->
+    <!-- <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-본인의_Tracking_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XXXXXXXXXX"); // 본인의 Tracking ID로 변경
+    </script> -->
+
 </head>
+
 <body>
   <header>
     <div>
       <img
       id="panda-logo"
       src="images\logo\panda-market-logo.png"
-      alt="판다로고"
+      alt="판다마켓 홈"
       />
     </div>
       <div>

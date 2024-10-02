@@ -1,0 +1,97 @@
+  /* 보통 굵기입니다. 숫자 400과 같습니다 */
+  /* font-style:normal; */
+  /* 볼드체입니다. 숫자 700과 같습니다 */
+  /* font-style:bold; */
+  /* 해당 굵기에 어떤 파일을 사용할 지정 */
+  /* font-weight:700;  */
+/* 
+@font-face {
+  font-family: 'ROKAF-Sans-Medium';
+  src: url('../fonts/ROKAF-Sans-Medium.ttf') format('woff');
+}
+@font-face {
+  font-family: 'ROKAF-Sans-Bold';
+  src: url('../fonts/ROKAF-Sans-Bold.ttf') format('woff');
+}
+ */
+/* "공군 서체", 속도를 우선해서 "pretendard variable"을 사용. */
+/* html {
+  font-family: 'ROKAF-Sans-Medium', 'pretendardvariable';
+} */
+
+/* [심화 요구사항] 
+  기본 HTML 폰트 크기를 62.5%로 설정하여, 기본 16rem 대신 10rem이 기본 크기가 되도록 합니다.
+  이로써 1rem = 10rem이 되어, REM 단위를 사용할 때 계산이 편리해집니다.. */
+  /* html {
+    font-size: 62.5%;
+  } */
+  
+  :root {
+    /* Gray scale */
+    --gray-900: #1b1d1f;
+    --gray-800: #26282b;
+    --gray-600: #454c53;
+    --gray-500: #72787f;
+    --gray-400: #9ea4a8;
+    --gray-200: #e5e7eb;
+    --gray-100: #e8ebed;
+    --gray-50: #f7f7f8;
+  
+    /* Primary color */
+    --blue: #3692ff;
+  
+    /* Layout dimensions */
+    --header-height: 7rem;
+  }
+  
+/* 크롬등의 웹브라우저 자체 css 적용을 reset한다. */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;  
+}
+
+/* em:부모요소의 폰트 사이즈에 의해 자식요소의 폰트 사이즈가 결정
+rem: "Root + em" Root의 폰트 사이즈에 의해 결정되는 방식. */
+
+html{
+  font-size:16px;
+  /* width:1920px; */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* form 요소 스타일 리셋: 브라우저 간 스타일 차이를 최소화하기 위해 기본 스타일을 제거하고 부모 요소로부터 속성을 상속 받도록 했어요. */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+body {
+  color: #374151;
+  word-break: keep-all;
+  font-family: "Pretendard", sans-serif;
+}
