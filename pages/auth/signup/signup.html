@@ -22,26 +22,32 @@
         </a>
       </div>
       <!-- 회원가입 폼 -->
-      <form action="">
-        <div class="form-email">
+      <form action="/" id="form">
+        <div class="form-email input-control">
           <label for="email">이메일</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            placeholder="이메일을 입력해주세요"
-          />
+          <div>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+            />
+            <div class="error"></div>
+          </div>
         </div>
-        <div class="form-nickname">
+        <div class="form-nickname input-control">
           <label for="nickname">닉네임</label>
-          <input
-            type="text"
-            id="nickname"
-            name="nickname"
-            placeholder="닉네임을 입력해주세요"
-          />
+          <div>
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              placeholder="닉네임을 입력해주세요"
+            />
+            <div class="error"></div>
+          </div>
         </div>
-        <div class="form-password">
+        <div class="form-password input-control">
           <label for="password">비밀번호</label>
           <div>
             <input
@@ -54,9 +60,10 @@
               src="../../../assets/images/auth/btn_visibility_off_24px.svg"
               alt="btn_visibility_off"
             />
+            <div class="error"></div>
           </div>
         </div>
-        <div class="form-password-confirm">
+        <div class="form-password-confirm input-control">
           <label for="password-confirm">비밀번호 확인</label>
           <div>
             <input
@@ -69,9 +76,12 @@
               src="../../../assets/images/auth/btn_visibility_off_24px.svg"
               alt="btn_visibility_off"
             />
+            <div class="error"></div>
           </div>
         </div>
-        <button class="form-button" type="submit">회원가입</button>
+        <button id="form-button" class="form-button" type="submit" disabled>
+          회원가입
+        </button>
       </form>
       <!-- 간편 로그인 -->
       <div class="sns-container">
@@ -98,4 +108,5 @@
       </div>
     </main>
   </body>
+  <script src="../../../common/js/form-validation.js"></script>
 </html>
