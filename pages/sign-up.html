@@ -40,28 +40,33 @@
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="email">이메일</label>
               <input required type="email" id="email" name="email" placeholder="이메일을 입력해주세요." autocomplete="email" />
+              <p class="form-error-msg"></p>
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
-              <label for=" nickname">닉네임</label>
-              <input autocomplete="nickname" type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요.">
+              <label for="nickname">닉네임</label>
+              <input required autocomplete="nickname" type="text" id="nickname" name="nickname"
+                placeholder="닉네임을 입력해주세요.">
+              <p class="form-error-msg"></p>
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="password">비밀번호</label>
-              <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
+              <input required type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
                 autocomplete="new-password">
+              <p class="form-error-msg"></p>
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="check-password">비밀번호 확인</label>
-              <input type="password" id="check-password" name="check-password" placeholder="비밀번호를 다시 한 번 입력해주세요"
-                autocomplete="new-password">
+              <input required type="password" id="check-password" name="check-password"
+                placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="new-password" minlength="8">
+              <p class="form-error-msg"></p>
             </div>
-            <button type="submit"
+            <button type="button"
               class="btn text-center w-full bg-gray400 text-xl mb-text-lg font-semibold rounded-xl py-4">회원가입</button>
           </form>
         </div>
 
         <div class="flex space-between items-center bg-label rounded-lg py-4 px-6">
-          <p class="text-lg gray800 font-medium ">간편 로그인하기</p>
+          <p class="text-lg gray800 font-medium">간편 로그인하기</p>
           <div class="flex gap-4">
             <a href="https://www.google.com/" aria-label="구글 간편 로그인">
               <img src="../images/logo/google-login.png" width="42" alt="">
@@ -80,6 +85,55 @@
       </section>
     </article>
   </main>
+  <script>
+    const controller = new AbortController();
+    const signal = controller.signal;
+    const errMsgType = {
+      email: {
+        typeMismatch: '잘못된 이메일 형식입니다.'
+      },
+      nickname: {},
+      password: {
+        tooShort: '비밀번호를 8자 이상 입력해주세요'
+      },
+      ['check-password']: {
+        customError: '비밀번호가 일치하지 않습니다.'
+      }
+    }
+    window.addEventListener('load', () => {
+      const inputs = document.querySelectorAll('input');
+
+      const checkValidity = (input) => {
+        const id = input.id;
+        const errMsg = input.nextElementSibling;
+        input.checkValidity();
+        const errType = input.validity;
+        // input.validity가 반환하는 ValidityState 는 특별한 객체로 취급 되어 순회가 불가능하기 때문에 for in 사용
+        // TODO: id === 'check-password'일 경우, 예외처리하여 비밀번호 값이 일치하는지 검사하는 customError를 추가해야함.
+        // TODO: password와 check-password가 일치했더라도 password의 값이 또 변경됬다면 check-password의 유효성 검사를 다시 해야함.
+        // TODO: password의 값이 유효하지 않다면 check-password 값의 일치여부와 상관 없이 유효성 검사에 실패 해야함.
+        for (const key in errType) {
+          if (errType[key] === true) {
+            if (key === 'valid') {
+              errMsg.textContent = '';
+            } else if (key === 'valueMissing') {
+              errMsg.textContent = input.placeholder;
+            } else {
+              errMsg.textContent = errMsgType[id][key];
+            }
+          }
+        }
+      }
+
+      for (const input of inputs) {
+        input.addEventListener('change', () => checkValidity(input), { signal: signal });
+      }
+    }, { signal: signal });
+
+    window.addEventListener('unload', () => {
+      controller.abort();
+    });
+  </script>
 
 </body>
 

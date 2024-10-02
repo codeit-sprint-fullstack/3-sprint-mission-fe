@@ -11,6 +11,8 @@ input {
   border-radius: var(--border-radius-lg);
   outline: none;
   border: none;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-lg);
 }
 
 input::placeholder {
