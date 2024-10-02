@@ -27,7 +27,7 @@ main {
   width: 100%;
 }
 
-header {
+nav {
   width: 100%;
   height: 7rem;
   display: flex;
@@ -37,7 +37,7 @@ header {
   background-color: var(--header-bg-color);
 }
 
-.header-container {
+.nav-container {
   width: 100%;
   max-width: 152rem;
   margin: 0 20rem;
@@ -51,7 +51,7 @@ header {
 }
 
 .login-button {
-  width: 12.8rem;
+  min-width: 12.8rem;
   height: 4.8rem;
   border: none;
   border-radius: 0.8rem;
@@ -277,7 +277,7 @@ footer {
 }
 
 @media (max-width: 1199px) {
-  .header-container {
+  .nav-container {
     margin: 0 2.4rem;
   }
 
@@ -379,7 +379,7 @@ footer {
 }
 
 @media (max-width: 743px) {
-  .header-container {
+  .nav-container {
     margin: 0 1.6rem;
   }
 
@@ -412,6 +412,7 @@ footer {
 
   .description {
     font-size: 1.6rem;
+    line-height: 1.92rem;
   }
 
   .description.first {
