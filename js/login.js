@@ -5,7 +5,7 @@ const USER_DATA = [
   { email: "codeit4@codeit.com", password: "codeit404!" },
   { email: "codeit5@codeit.com", password: "codeit505!" },
   { email: "codeit6@codeit.com", password: "codeit606!" },
-  { email: "test@test.com", password: "sodds1346" },
+  { email: "test@test.com", password: "test1234!" },
 ];
 
 const addEl = (
@@ -47,9 +47,7 @@ const modal = (text, event) => {
   modalBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (event) event();
-    else {
-      modalCover.remove();
-    }
+    else modalCover.remove();
   });
 };
 
@@ -64,7 +62,7 @@ loginBtn.addEventListener("click", (e) => {
     pwPass: false,
     pw2Pass: false,
   };
-  console.log(emailPass, pwPass);
+
   const inputs = [...formInput];
   if (target.classList.value.includes("on")) {
     switch (inputs.length) {
@@ -81,10 +79,10 @@ loginBtn.addEventListener("click", (e) => {
             }
           });
         });
-
-        if (!emailPass || !pwPass)
+        const modalLength = document.querySelectorAll(".modal").length;
+        if (!emailPass || (!pwPass && modalLength === 0)) {
           modal("아이디 또는 비밀번호를 확인해주세요.");
-        else {
+        } else if (emailPass && pwPass) {
           console.log("로그인 성공!~");
           window.location.href = "/items.html";
         }

@@ -63,7 +63,9 @@ const result = data.reduce((a, c, i) => {
         break;
     }
     if (c.indexOf("비밀번호") !== -1) {
-      pwIcon = `<a href="#" class="seePw">${seePwImg("./img/look.svg")}</a>`;
+      pwIcon = `<a href="#" class="seePw">
+                 
+                </a>`;
       type = "password";
       if (c.indexOf("확인") !== -1) {
         part = "비밀번호를 다시 한 번";
@@ -84,7 +86,6 @@ const result = data.reduce((a, c, i) => {
 }, "");
 
 forms.innerHTML = result;
-
 const inputBox = document.querySelectorAll(".inputbox");
 const btn = document.querySelector(".btn");
 const pw = document.querySelector('input[id="password"]');
@@ -95,12 +96,8 @@ inputBox.forEach((el, i) => {
 
   // Focus
   input.addEventListener("focus", (e) => {
-    const target = e.target;
-    // target.value = "";
     const check = [...el.children]
-      .map((v) => {
-        return v.classList.value;
-      })
+      .map((v) => v.classList.value)
       .includes("errMsg");
     if (check) el.lastElementChild.remove();
     el.classList.remove("err");
@@ -110,9 +107,7 @@ inputBox.forEach((el, i) => {
   // Focus Out
   input.addEventListener("blur", (e) => {
     const check = [...el.children]
-      .map((v) => {
-        return v.classList.value;
-      })
+      .map((v) => v.classList.value)
       .includes("errMsg");
     const target = e.target;
     const label = target.parentElement.previousSibling.previousSibling;
@@ -172,16 +167,18 @@ function errMsgs(text, el, condition) {
 //see pw
 const seePw = document.querySelectorAll(".seePw");
 seePw.forEach((el) => {
+  // img
   el.addEventListener("click", (e) => {
     e.preventDefault();
-    const target = e.target.parentElement;
-    const inputTag = target.previousSibling.previousSibling;
+    const target = e.target;
+    const inputTag = target.parentElement.children[0];
+    console.log(target, inputTag);
     if (inputTag.type === "password") {
-      target.innerHTML = seePwImg("./img/look2.svg");
       inputTag.type = "text";
-    } else {
-      target.innerHTML = seePwImg("./img/look.svg");
+      target.classList.add("on");
+    } else {      
       inputTag.type = "password";
+      target.classList.remove("on");
     }
   });
 });

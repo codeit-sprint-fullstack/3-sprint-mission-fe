@@ -62,12 +62,12 @@ main > .content {
 }
 #forms .inputbox .seePw {
   position: relative;
+  width: 22px;
+  height:22px;
+  background:url(../img/look.svg) no-repeat center;
 }
-#forms .inputbox .seePw img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#forms .inputbox .seePw.on {
+  background:url(../img/look2.svg) no-repeat center;
 }
 #forms .inputbox.err {
   border-color: var(--error);
