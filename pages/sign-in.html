@@ -46,8 +46,13 @@
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="password">비밀번호</label>
-              <input type="password" minlength="8" autocomplete="current-password" id="password" name="password"
-                placeholder="비밀번호를 입력해주세요" required>
+              <div class="grid">
+                <input type="password" minlength="8" autocomplete="current-password" id="password" name="password"
+                  placeholder="비밀번호를 입력해주세요" required />
+                <input type="checkbox" class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
+                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked
+                  id="show-password" />
+              </div>
               <p class="form-error-msg"></p>
             </div>
             <button type="button"
@@ -100,13 +105,26 @@
     window.addEventListener('load', () => {
       const userEmail = document.getElementById('email');
       const userPassword = document.getElementById('password');
+      const showPassword = document.getElementById('show-password');
       const submitBtn = document.querySelector('button[type="button"]');
       const dialog = document.querySelector('dialog');
+
+      showPassword.onclick = (e) => {
+        e.target.background = e.target.checked ? 'url("../images/icon/show-off.svg")' : 'url("../images/icon/show-on.svg")';
+
+        if (userPassword.type === 'password') {
+          userPassword.type = 'text';
+          showPassword.style.backgroundImage = 'url("../images/icon/show-on.svg")';
+        } else {
+          userPassword.type = 'password';
+          showPassword.style.backgroundImage = 'url("../images/icon/show-off.svg")';
+        }
+      }
 
       submitBtn.onclick = () => {
         const inputs = document.querySelectorAll('input');
         inputs.forEach(el => el.reportValidity());
-        if ([...inputs].every(el => el.validity.valid)) {
+        if (Array.from(inputs).every(el => el.validity.valid)) {
           if (USER_DATA_MAP.has(userEmail.value) && USER_DATA_MAP.get(userEmail.value) === userPassword.value) {
             document.location.pathname = '/pages/items.html';
           } else {

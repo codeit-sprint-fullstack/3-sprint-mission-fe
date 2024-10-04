@@ -50,14 +50,24 @@
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="password">비밀번호</label>
-              <input required type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
-                autocomplete="new-password">
+              <div class="grid">
+                <input type="password" required id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
+                  autocomplete="new-password">
+                <input type="checkbox" id="show-password"
+                  class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
+                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked />
+              </div>
               <p class="form-error-msg"></p>
             </div>
             <div class="flex flex-col gap-4 mb-gap-2">
               <label for="check-password">비밀번호 확인</label>
-              <input required type="password" id="check-password" name="check-password"
-                placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="new-password" minlength="8">
+              <div class="grid">
+                <input type="password" required id="check-password" name="check-password"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="new-password" minlength="8">
+                <input type="checkbox" class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
+                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked
+                  id="show-check-password" />
+              </div>
               <p class="form-error-msg"></p>
             </div>
             <button type="button"
@@ -84,6 +94,14 @@
         </div>
       </section>
     </article>
+    <dialog class="m-auto fade-in">
+      <div class="grid items-end gap-4">
+        <p class="text-center font-medium"></p>
+        <div class="text-right mb-text-center">
+          <button class="btn bg-primary min-w-30" autofocus>확인</button>
+        </div>
+      </div>
+    </dialog>
   </main>
   <script>
     const controller = new AbortController();
@@ -100,41 +118,83 @@
         customError: '비밀번호가 일치하지 않습니다.'
       }
     }
-    window.addEventListener('load', () => {
-      const inputs = document.querySelectorAll('input');
 
-      const checkValidity = (input) => {
-        const id = input.id;
-        const errMsg = input.nextElementSibling;
-        input.checkValidity();
-        const errType = input.validity;
-        // input.validity가 반환하는 ValidityState 는 특별한 객체로 취급 되어 순회가 불가능하기 때문에 for in 사용
-        // TODO: id === 'check-password'일 경우, 예외처리하여 비밀번호 값이 일치하는지 검사하는 customError를 추가해야함.
-        // TODO: password와 check-password가 일치했더라도 password의 값이 또 변경됬다면 check-password의 유효성 검사를 다시 해야함.
-        // TODO: password의 값이 유효하지 않다면 check-password 값의 일치여부와 상관 없이 유효성 검사에 실패 해야함.
-        for (const key in errType) {
-          if (errType[key] === true) {
-            if (key === 'valid') {
-              errMsg.textContent = '';
-            } else if (key === 'valueMissing') {
-              errMsg.textContent = input.placeholder;
+    window.addEventListener('load', () => {
+      const form = document.querySelector('form');
+      const visibleBtn = form.querySelectorAll('input[type="checkbox"]');
+      const inputs = form.querySelectorAll('input[required]');
+      const button = form.querySelector('button');
+      const userInputs = { email: '', nickname: '', password: '', '[check-password]': '' };
+
+      for (const input of inputs) {
+        userInputs[input.id] = input;
+        input.addEventListener('change', () => {
+          if (input.id === 'check-password') {
+            if (input.value !== userInputs.password.value) {
+              input.setCustomValidity(errMsgType[input.id].customError);
             } else {
-              errMsg.textContent = errMsgType[id][key];
+              input.setCustomValidity('');
             }
+          }
+          if (input.id === 'password') {
+            userInputs['check-password'].value = '';
+          }
+          input.checkValidity();
+          const formData = new FormData(form);
+          const errMsg = input.parentElement.nextElementSibling
+          if (input.validity.valid === true) {
+            errMsg.textContent = '';
+          } else {
+            for (const errType in input.validity) {
+              if (input.validity[errType] === true) {
+                errMsg.textContent = errMsgType[input.id][errType] ?? input.placeholder;
+              }
+            }
+          }
+        }, { signal: signal });
+      }
+
+      for (const btn of visibleBtn) {
+        btn.addEventListener('click', (e) => {
+          e.target.style.backgroundImage = e.target.checked ? 'url(../images/icon/show-off.svg)' : 'url(../images/icon/show-on.svg)';
+          if (e.target.id === 'show-password') {
+            userInputs['password'].type = e.target.checked ? 'password' : 'text';
+          } else {
+            userInputs['check-password'].type = e.target.checked ? 'password' : 'text';
+          }
+        }, { signal: signal });
+      }
+
+      form.addEventListener('formdata', (e) => {
+        Array.from(inputs).every(input => {
+          if (input.validity.valid === true) {
+            button.classList.replace('bg-gray400', 'bg-primary');
+          } else {
+            button.classList.replace('bg-primary', 'bg-gray400');
+          }
+        });
+      }, { signal: signal });
+
+      button.onclick = () => {
+        inputs.forEach(input => input.reportValidity());
+        if ([...inputs].every(input => input.validity.valid)) {
+          if (USER_DATA_MAP.has(userInputs.email.value)) {
+            document.querySelector('dialog p').textContent = '사용 중인 이메일입니다.';
+            document.querySelector('dialog button').onclick = () => {
+              document.querySelector('dialog').close();
+            }
+            document.querySelector('dialog').showModal();
+          } else {
+            window.location.pathname = '/pages/sign-in.html';
           }
         }
       }
-
-      for (const input of inputs) {
-        input.addEventListener('change', () => checkValidity(input), { signal: signal });
-      }
-    }, { signal: signal });
+    });
 
     window.addEventListener('unload', () => {
       controller.abort();
     });
   </script>
-
 </body>
 
 </html>

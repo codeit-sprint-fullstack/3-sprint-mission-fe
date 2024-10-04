@@ -8,6 +8,21 @@
 .sticky {
   position: sticky;
 }
+.absolute {
+  position: absolute;
+}
+.self-center {
+  align-self: center;
+}
+.justify-self-end	{
+  justify-self: end;
+}
+.appearance-none {
+  appearance: none;
+}
+.cursor-pointer	{
+  cursor: pointer;
+}
 .top-0 {
   top: 0;
 }
@@ -90,6 +105,9 @@
 }
 .pt-35\.5 {
   padding-top: var(--padding-35\.5)
+}
+.pr-6 {
+  padding-right: var(--padding-6);
 }
 .pl-8 {
   padding-left: var(--padding-8);
