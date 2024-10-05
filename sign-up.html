@@ -28,9 +28,16 @@
           <label for="userEmail">이메일</label>
           <input
             type="text"
+            id="userEmail"
             name="userEmail"
             placeholder="이메일을 입력해주세요"
           />
+          <div class="userEmail-error hide" id="userEmail-error">
+            잘못된 이메일 형식입니다.
+          </div>
+          <div class="userEmail-empty-error hide" id="userEmail-empty-error">
+            이메일을 입력해주세요.
+          </div>
         </div>
         <div class="form-name">
           <label for="userName">닉네임</label>
@@ -43,39 +50,61 @@
         <!-- form-password -->
         <div class="form-password">
           <label for="userPassword">비밀번호</label>
-          <input
-            type="password"
-            id="password"
-            name="userPassword"
-            placeholder="비밀번호를 입력해주세요"
-          />
-          <div class="eyes-1">
-            <img
-              src="css/eye-icon.png"
-              alt="비밀번호 보기"
-              id="toggle-password-1"
+          <div style="position: relative">
+            <input
+              type="password"
+              id="password"
+              name="userPassword"
+              placeholder="비밀번호를 입력해주세요"
             />
-            <!-- id="toggle-password > js에서 이용"-->
+            <div class="eyes-1">
+              <img
+                src="css/eye-icon.png"
+                alt="비밀번호 보기"
+                id="toggle-password-1"
+              />
+            </div>
           </div>
+
+          <div class="password-error hide" id="password-error">
+            비밀번호를 8자 이상 입력해주세요.
+          </div>
+          <div
+            class="password-empty-error hide"
+            id="password-empty-error"
+          ></div>
+          비밀번호를 입력해 주세요.
         </div>
+
         <!-- form-check-password -->
         <div class="form-check-password">
           <label for="userCheckPassword">비밀번호 확인</label>
-          <input
-            type="password"
-            id="checkPassword"
-            name="userCheckPassword"
-            placeholder="비밀번호를 다시 한 번 입력해주세요"
-          />
-          <div class="eyes-2">
-            <img
-              src="css/eye-icon.png"
-              alt="비밀번호 보기"
-              id="toggle-password-2"
+          <div style="position: relative">
+            <input
+              type="password"
+              id="checkPassword"
+              name="userCheckPassword"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
             />
+            <div class="eyes-2">
+              <img
+                src="css/eye-icon.png"
+                alt="비밀번호 보기"
+                id="toggle-password-2"
+              />
+            </div>
+          </div>
+          <div class="check-password-error hide" id="check-password-error">
+            비밀번호가 일치하지 않습니다.
+          </div>
+          <div
+            class="check-password-empty-error hide"
+            id="check-password-empty-error"
+          >
+            비밀번호를 입력해 주세요.
           </div>
         </div>
-        <input type="submit" value="회원가입" />
+        <input type="submit" value="회원가입" id="sign-up-button" disabled />
       </form>
 
       <!-- 간편 로그인 -->
