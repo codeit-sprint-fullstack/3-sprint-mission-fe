@@ -1,0 +1,134 @@
+.header {
+  width: Fixed (640px)px;
+  height: Hug (618px)px;
+  top: 231px;
+  left: 640px;
+  gap: 40px;
+  opacity: 0px;
+  display: flex;
+  justify-content: center;
+ 
+}
+.wrap{
+  width: 640px;
+  
+}
+
+.logo{
+  margin: 0 auto;
+  display: block;
+  width: 396px;
+}
+
+ .email-1 {
+
+  font-family : pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  
+}
+
+.email-2 {
+  width: 100%;
+  height: Fixed (56px)px;
+  padding: 16px 24px 16px 24px;
+  gap: 10px;
+  border-radius: 12px ;
+  opacity: 0px;
+  background: #F3F4F6;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+  color: #9CA3AF;
+  border: none;
+  box-sizing: border-box;
+}
+
+.pwd-1{
+ 
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  
+
+}
+
+.pwd-2 {
+  background: #F3F4F6;
+  width: 100%;
+  height: Fixed (56px)px;
+  padding: 16px 24px 16px 24px;
+  gap: 10px;
+  border-radius: 12px ;
+  opacity: 0px;
+  justify-content: space-between;
+  display: flex;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+  color: #9CA3AF;
+  border: none;
+  box-sizing: border-box;
+  position: relative;
+
+}
+.login{
+  width: Fixed (640px)px;
+  height: Fixed (56px)px;
+  padding: 16px 124px 16px 124px;
+  gap: 10px;
+  border-radius: 40px;
+  opacity: 0px;
+  background: #9CA3AF;
+  text-align: center;
+  color: #F3F4F6;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+}
+
+.easylogin{
+  width: fixed (640px)px;
+  height: Fixed (74px)px;
+  padding: 16px 23px 16px 23px;
+  gap: 10px;
+  border-radius: 8px 0px 0px 0px;
+  opacity: 0px;
+  background: #E6F2FF;  
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  justify-content: space-between;
+  display: flex;
+  
+  
+
+
+
+}
+.first{
+  
+font-family: Pretendard;
+font-size: 14px;
+font-weight: 500;
+line-height: 24px;
+text-align: center;
+
+}
+
+.pont{
+  color: #3692FF;
+
+}
