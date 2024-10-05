@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다 마켓</title>
+  <link rel="stylesheet" href="..\panda.css">
+  <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>  
+  <main class="signup-layer">
+    <section class="signup-section1-layer">      
+      <a  href="../index.html"
+        target="_self">
+        <img 
+        id="signup-panda-logo"
+        src="..\images\logo\panda-market-logo.png"
+        alt="판다로고"
+        />   
+      </a>
+    </section>
+    <section class="signup-section2-layer">
+      <form>
+        <label class="signup-label" for="signup-usermail">
+          이메일
+        </label>
+        <input  type="email" class="signup-input"
+                id="signup-usermail" name="signup-usermail" 
+                placeholder="이메일을 입력해주세요" 
+          />
+        <label class="signup-label" for="signup-nickname">
+          닉네임
+        </label>
+        <input  type="text" class="signup-input"
+                id="signup-nickname" name="signup-nickname" 
+                placeholder="닉네임을 입력해주세요" 
+          /> 
+        <label class="signup-label" for="password">
+          비밀번호
+        </label>
+        <input type="password" class="signup-input" 
+              id="password" name="password" 
+              placeholder="비밀번호를 입력해주세요"
+              style=" background-image: url('..\images\login\btn_visibility_on_24px.png');
+                      background-repeat: no-repeat;
+                      background-position: right;                      
+                    "
+            />
+        <label class="signup-label" for="confirm-password">
+          비밀번호 확인
+        </label>
+        <input type="password" class="signup-input" 
+              id="confirm-password" name="confirm-password" 
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              style=" background-image: url('..\images\login\btn_visibility_on_24px.png');
+                      background-repeat: no-repeat;
+                      background-position: right;                      
+                    "
+            />
+        <button class="signup-button">
+          회원가입
+        </button>      
+      </form>
+    </section>
+    <section class="signup-section3-layer">
+      <div class="signup-section3-text">
+        간편 로그인하기
+      </div>
+      <div class="signup-section3-sns-layer">
+       <a  href="https://www.google.com/"
+          target="_self">
+          <img 
+          class="signup-item"
+          src="..\images\social\google.svg"
+          alt="구글 페이지 연결 버튼"
+          />   
+        </a>          
+        <a  href="https://www.kakaocorp.com/page/"
+          target="_self">
+          <img 
+          class="signup-item"
+          src="..\images\social\kakao.svg"
+          alt="카카오 페이지 연결 버튼"
+          />   
+        </a>          
+      </div>      
+    </section>
+    <section class="signup-section4-layer">      
+      <div class="signup-section4-txt">
+        이미 회원이신가요?
+      </div>
+      <div class="signup-section4-link-layer">
+        <a 
+        class="signup-section4-login"
+        href="../login\main.html">로그인
+      </a>
+      </div>      
+    </section>
+  </main>
+</body>
+</html>
