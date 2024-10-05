@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다마켓 | 로그인</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/login.css">
+  <link rel="stylesheet" href="styles/media_query.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ7QGPY24N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-BQ7QGPY24N');
+</script>
+
+<body>
+  <header class="login-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <h1 class="blind">판다마켓</h1>
+      </a>
+    </div>
+  </header>
+  <div class="container">
+    <div class="login-wrap">
+      <form action="">
+        <div class="login-box">
+          <div class="input-item id">
+            <label class="text-label">이메일</label>
+            <input type="text" class="input-id" placeholder="이메일을 입력해주세요" autocomplete="off">
+            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none">X</button>
+          </div>
+          <div class="input-item pw">
+            <label class="text-label">비밀번호</label>
+            <input type="password" class="input-pw" placeholder="비밀번호를 입력해주세요" autocomplete="off">
+            <button type="button" class="show-pw" style="display: none"></button>
+            <button type="button" class="clear-btn" id="clear-btn-pw" style="display: none">X</button>
+          </div>
+          <button type="submit" class="btn-login">로그인</button>
+        </div>
+      </form>
+      <div class="sns-login">
+        <p>간편 로그인하기</p>
+        <div class="sns-link">
+          <a href="https://www.google.com/" target="_blank" class="google">
+            <span class="blind">구글</span>
+          </a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank" class="kakao">
+            <span class="blind">카카오</span>
+          </a>
+        </div>
+      </div>
+      <div class="signup">
+        판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
+      </div>
+    </div>
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>
