@@ -1,0 +1,244 @@
+/* 폰트 입히기 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+/* reset.css */
+@import "reset.css";
+
+
+body{
+    /* 전체에 폰트 주기 */
+    font-family: pretendard;
+    /* 화면 크기가 달라질 때 단어 단위로 */
+    word-break: keep-all;
+}
+/* 전체 a 태그 설정 */
+a{
+    text-decoration: none;
+    color: #E5E7EB;
+}
+/* 전체 h1 태그 설정 */
+h1{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    
+    color: #374151;
+    flex: 1;
+    
+}
+
+/* 상단 구분 div */
+.topNav{
+    /* 화면 위에 고정시키기 */
+    position: sticky;
+    top:0;
+    padding: 9px 200px 9px 200px;
+    /* nav 구분하는 선 */
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
+}
+/* 상단 div 안 로고와 로그인 버튼 넣을 div */
+.logoDiv{
+    /* logoDiv 안의 요소 정중앙 정렬 */
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:auto;
+    height:auto;
+    
+}
+/* 로고 이미지 넣을 div 크기 지정 */
+.pandaLogo{
+    width: 153px;
+    height: 51px;
+    
+}
+/* 로그인 버튼(a태그)의 크기 조정 */
+.login{
+    display: flex;
+    width: 128px;
+    height: 48px;
+    line-height: 26px;
+    border-radius: 8px;
+    background-color:#3692FF;
+    color: #F3F4F6;
+    /* 위에 커서 두면 클릭 커서로 바뀜 */
+    cursor: pointer;
+    /* "로그인" div 안에 정중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* div 안의 컨텐츠 배치 조정 세로 방향으로 */
+.main{
+    display: flex;
+    flex-direction: column;
+    background-color:#ffffff;
+    
+    
+}
+.home, .footerImg{
+    width: 100%;
+    height: auto;
+    background-color: #CFE5FF;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.homeContentBox,.footerContentBox{
+    max-width: 1110px;
+    min-width: 340px;
+    /* height: 340px; */
+    background-color: #CFE5FF;
+    display:flex;
+    justify-content: center;
+    /* align-items: flex-end; */
+    padding-top: 200px;
+}
+.homeLeftInner{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+}
+.homeLeftContentBt{
+    display: inline-block;
+    width: 357px;
+    border-radius: 40px;
+    padding: 12px;
+    background-color: #3692FF;
+    margin-top: 32px;
+    margin-bottom: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    color: #ffff;
+    border: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.homeRightContentBox,.footerRightContentBox{
+    
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.homeRightImg{
+    max-width: 100%;
+    height: auto;
+    width: 746px;
+    aspect-ratio: 746 / 340;
+}
+
+.popularItems,.search, .register{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popularItemsBox,.searchBox, .registerBox{
+    background-color: #fcfcfc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 64px;
+    margin-top: 138px;
+}
+.popItemLeftContentImgBox,.searchRightImgBox, .registerLeftContentImgBox{
+    max-width: 588px;
+    height: auto;
+    overflow: hidden;
+    
+}
+.popularItemsImg,.searchImg, .registerImg{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.popItemRightContentText, .registerRightContentBox{
+    display: flex;
+    flex-direction: column;
+    margin-right: 31px;
+    gap: 12px;
+}
+.hotItem,.searchText,.registerText{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    color: #3692FF;
+}
+.hotItemText1, .searchText1,.registerText1{
+    
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 2%;
+    color:#374151;
+}
+.hotItemText2, .searchText2, .registerText2{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #374151;
+}
+
+.searchLeftContentTextBox{
+    text-align: end;
+    margin-left: 31px;
+}
+.footerContentBox{
+    gap: 69px;
+}
+.footerLeftContent{
+    padding-bottom: 172.5px;
+}
+
+.footerRightImg{
+    max-width: 100%;
+    height: auto;
+    width: 746px;
+    aspect-ratio: 746 / 397;
+}
+.footerBanner{
+    bottom: 0;
+    background-color:#111827;
+    width: auto;
+    height: 160px;
+    padding: 32px 200px 32px 200px;
+}
+.footerBannerContent{
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+.footerBannerMiddleContent{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.footerBannerImgs{
+    display: flex;
+    gap: 12px;
+    
+   
+}
+@media (max-width: 750px) {
+    .topNav{
+        padding: 10px 24px;
+        
+    }
+    .logoDiv{
+        justify-content: space-between;
+    }
+    .homeContentBox ,.popularItemsBox, .searchBox, .registerBox, .footerContentBox {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+        gap: 50px;
+    }
+    .homeLeftInner{
+        text-align: center;
+    }
+
+} 
