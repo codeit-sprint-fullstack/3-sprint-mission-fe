@@ -1,0 +1,128 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+
+:root{
+    --input-bg-color:#F3F4F6;
+    --btn-bg-color:#9CA3AF;
+    --simplelogin-bg-color:#E6F2FF;
+    --primary-100-color:#3692FF;
+}
+
+html{
+    font-size:10px;
+}
+
+.main{
+    margin:7rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email{
+    margin-right: 37rem;
+    width: 93%;
+    padding:1.6rem 2.4rem;
+    border-radius: 1.2rem;
+    font-weight: 400;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    color: #000000;
+    background-color:var(--input-bg-color);
+    border: none;
+}
+
+.text{
+    font-family: pretendard;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #1F2937;
+}
+
+.simple{
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.8rem;
+    padding: 1.6rem 2.3rem;
+    gap: 1rem;
+    background-color: var(--simplelogin-bg-color);
+    font-family: pretendard;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #1F2937;
+}
+
+.under{
+    text-align: center;
+    font-family: pretendard;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.color{
+    color:var(--primary-100-color);
+}
+
+input:focus{
+    outline: auto var(--primary-100-color);
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input.pw{
+    background-image: url(images/social/btn_visibility_off_24px.png);
+    background-repeat: no-repeat;
+    background-position: 96% center;
+    padding: 1.6rem 2.4rem;
+    margin-right: 37rem;
+    width: 93%;
+    border-radius: 1.2rem;
+    font-weight: 400;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    color: #000000;
+    background-color:var(--input-bg-color); padding: 1.6rem 2.4rem;
+    border-radius: 1.2rem;
+    font-weight: 400;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    color: #000000;
+    background-color:var(--input-bg-color);
+    border: none;
+}
+
+.flex{
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    width: 100%;
+    border-radius: 4rem;
+    padding: 1.2rem 12.4rem
+    gap: 1rem;
+    background-color: var(--btn-bg-color);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+button:focus{
+    background-color: var(--primary-100-color);
+}
+
+
+
+.log{
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--input-bg-color);
+}
