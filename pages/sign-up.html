@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WR6VK2S3');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="../styles/sign-up.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../CONSTANS.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WR6VK2S3" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <main class="min-h-screen">
+    <article class="sign-up-container grid gap-10 mb-gap-6 justify-center py-15 tb-pt-12 mb-pt-6  px-13 mb-px-4">
+      <section class="flex justify-center">
+        <a href="/" aria-label="홈으로">
+          <img class="flex justify-center mb-w-49.5 mx-auto" src="../images/logo/panda-market-logo.png" alt="판다마켓 로고"
+            width="396" height="132">
+        </a>
+      </section>
+      <section class="grid gap-6">
+        <div class="flex justify-center flex-col">
+          <form class="flex flex-col gap-6 mb-gap-4 text-2lg mb-text-md font-bold">
+            <div class="flex flex-col gap-4 mb-gap-2">
+              <label for="email">이메일</label>
+              <input required type="email" id="email" name="email" placeholder="이메일을 입력해주세요." autocomplete="email" />
+              <p class="form-error-msg"></p>
+            </div>
+            <div class="flex flex-col gap-4 mb-gap-2">
+              <label for="nickname">닉네임</label>
+              <input required autocomplete="nickname" type="text" id="nickname" name="nickname"
+                placeholder="닉네임을 입력해주세요.">
+              <p class="form-error-msg"></p>
+            </div>
+            <div class="flex flex-col gap-4 mb-gap-2">
+              <label for="password">비밀번호</label>
+              <div class="grid">
+                <input type="password" required id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
+                  autocomplete="new-password">
+                <input type="checkbox" id="show-password"
+                  class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
+                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked />
+              </div>
+              <p class="form-error-msg"></p>
+            </div>
+            <div class="flex flex-col gap-4 mb-gap-2">
+              <label for="check-password">비밀번호 확인</label>
+              <div class="grid">
+                <input type="password" required id="check-password" name="check-password"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="new-password" minlength="8">
+                <input type="checkbox" class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
+                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked
+                  id="show-check-password" />
+              </div>
+              <p class="form-error-msg"></p>
+            </div>
+            <button type="button"
+              class="btn text-center w-full bg-gray400 text-xl mb-text-lg font-semibold rounded-xl py-4">회원가입</button>
+          </form>
+        </div>
+
+        <div class="flex space-between items-center bg-label rounded-lg py-4 px-6">
+          <p class="text-lg gray800 font-medium">간편 로그인하기</p>
+          <div class="flex gap-4">
+            <a href="https://www.google.com/" aria-label="구글 간편 로그인">
+              <img src="../images/logo/google-login.png" width="42" alt="">
+            </a>
+            <a href="https://www.kakaocorp.com/page/" aria-label="카카오톡 간편 로그인">
+              <img src="../images/logo/kakao-login.png" width="42" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <p class="font-medium" style="font-size: 15px;">이미 회원이신가요?
+            <a class="primary100 underline" href="/pages/sign-in.html">로그인</a>
+          </p>
+        </div>
+      </section>
+    </article>
+    <dialog class="m-auto fade-in">
+      <div class="grid items-end gap-4">
+        <p class="text-center font-medium"></p>
+        <div class="text-right mb-text-center">
+          <button class="btn bg-primary min-w-30" autofocus>확인</button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+  <script>
+    const controller = new AbortController();
+    const signal = controller.signal;
+    const errMsgType = {
+      email: {
+        typeMismatch: '잘못된 이메일 형식입니다.'
+      },
+      nickname: {},
+      password: {
+        tooShort: '비밀번호를 8자 이상 입력해주세요'
+      },
+      ['check-password']: {
+        customError: '비밀번호가 일치하지 않습니다.'
+      }
+    }
+
+    window.addEventListener('load', () => {
+      const form = document.querySelector('form');
+      const visibleBtn = form.querySelectorAll('input[type="checkbox"]');
+      const inputs = form.querySelectorAll('input[required]');
+      const button = form.querySelector('button');
+      const userInputs = { email: '', nickname: '', password: '', '[check-password]': '' };
+
+      for (const input of inputs) {
+        userInputs[input.id] = input;
+        input.addEventListener('change', () => {
+          if (input.id === 'check-password') {
+            if (input.value !== userInputs.password.value) {
+              input.setCustomValidity(errMsgType[input.id].customError);
+            } else {
+              input.setCustomValidity('');
+            }
+          }
+          if (input.id === 'password') {
+            userInputs['check-password'].value = '';
+          }
+          input.checkValidity();
+          const formData = new FormData(form);
+          const errMsg = input.parentElement.nextElementSibling
+          if (input.validity.valid === true) {
+            errMsg.textContent = '';
+          } else {
+            for (const errType in input.validity) {
+              if (input.validity[errType] === true) {
+                errMsg.textContent = errMsgType[input.id][errType] ?? input.placeholder;
+              }
+            }
+          }
+        }, { signal: signal });
+      }
+
+      for (const btn of visibleBtn) {
+        btn.addEventListener('click', (e) => {
+          e.target.style.backgroundImage = e.target.checked ? 'url(../images/icon/show-off.svg)' : 'url(../images/icon/show-on.svg)';
+          if (e.target.id === 'show-password') {
+            userInputs['password'].type = e.target.checked ? 'password' : 'text';
+          } else {
+            userInputs['check-password'].type = e.target.checked ? 'password' : 'text';
+          }
+        }, { signal: signal });
+      }
+
+      form.addEventListener('formdata', (e) => {
+        Array.from(inputs).every(input => {
+          if (input.validity.valid === true) {
+            button.classList.replace('bg-gray400', 'bg-primary');
+          } else {
+            button.classList.replace('bg-primary', 'bg-gray400');
+          }
+        });
+      }, { signal: signal });
+
+      button.onclick = () => {
+        inputs.forEach(input => input.reportValidity());
+        if ([...inputs].every(input => input.validity.valid)) {
+          if (USER_DATA_MAP.has(userInputs.email.value)) {
+            document.querySelector('dialog p').textContent = '사용 중인 이메일입니다.';
+            document.querySelector('dialog button').onclick = () => {
+              document.querySelector('dialog').close();
+            }
+            document.querySelector('dialog').showModal();
+          } else {
+            window.location.pathname = '/pages/sign-in.html';
+          }
+        }
+      }
+    });
+
+    window.addEventListener('unload', () => {
+      controller.abort();
+    });
+  </script>
+</body>
+
+</html>

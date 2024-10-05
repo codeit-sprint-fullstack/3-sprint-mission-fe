@@ -1,0 +1,37 @@
+
+.card-list {
+  max-width: 988px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+}
+.card-img {
+  display: flex;
+}
+.card-body {
+  display: flex;
+  flex-basis: 360px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px;
+}
+
+@media (max-width: 744px) {
+  .card {
+    flex-direction: column;
+  }
+  .card-img {
+    order: 0;
+    img {
+      display: flex;
+      width: 100%;
+    }
+  }
+  .card-body {
+    flex-basis: auto;
+    justify-content: flex-start;
+    order: 1;
+  }
+}

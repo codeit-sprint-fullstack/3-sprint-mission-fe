@@ -1,0 +1,30 @@
+@import url('../base/variables.css');
+
+dialog {
+  border-radius: var(--border-radius-lg);
+  padding: var(--padding-7);
+  max-width: 540px;
+  max-height: 250px;
+  width: fit-content;
+  height: fit-content;
+  min-width: 327px;
+  min-height: 220px;
+}
+
+dialog[open] {
+  display: grid;
+
+}
+dialog > div {
+  grid-template-rows: 1fr 1fr;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 375px) {
+  dialog {
+    padding: var(--padding-5\.5);
+  }
+}

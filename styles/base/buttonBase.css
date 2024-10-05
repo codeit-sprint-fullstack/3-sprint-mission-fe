@@ -1,0 +1,16 @@
+@import url('variables.css');
+
+.btn {
+  color: var(--color-gray50);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: var(--padding-3);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  transition: background-color 0.3s ease;
+}
+.btn-block {
+  display: block;
+}
