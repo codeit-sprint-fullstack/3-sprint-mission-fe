@@ -55,7 +55,7 @@ class Sign {
 
   getValues() {
     return Object.values(this.inputs).reduce((acc, input, index) => {
-      return { ...acc, [object.keys(this.inputs)[index]]: input.value };
+      return { ...acc, [Object.keys(this.inputs)[index]]: input.value };
     }, {});
   }
 
