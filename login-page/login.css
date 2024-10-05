@@ -1,0 +1,162 @@
+:root {
+  --font-color: #1f2937;
+  --main-color: #3692ff;
+
+  /* 라벨 관련 색상 */
+
+  /* input 관련 색상 */
+  --login-input-bg-color: #f3f4f6;
+  --login-input-placeholder-color: #9ca3af;
+  --login-input-focus-color: #3692ff;
+
+  /* 로그인 버튼 관련 색상 */
+  --login-btn-bg-color: #9ca3af;
+  --login-btn-font-color: #f3f4f6;
+
+  /* 간편 로그인 색상 */
+  --login-social-bg-color: #e6f2ff;
+
+  /* 회원가입 관련 색상 */
+  --login-signup-font-color: #3692ff;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  max-width: 640px;
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+input {
+  font-size: 16px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 2px solid var(--login-input-bg-color);
+  background-color: var(--login-input-bg-color);
+  color: var(--font-color);
+}
+
+input::placeholder {
+  color: var(--login-input-placeholder-color);
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid var(--login-input-focus-color);
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.login-logo-img {
+  max-width: 396px;
+  max-height: 132px;
+}
+
+.form-email,
+.form-password {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.form-password div {
+  position: relative;
+}
+
+.form-password input {
+  width: 100%;
+}
+
+.form-password img {
+  display: none;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 14px;
+  right: 16px;
+}
+
+.form-password:focus-within img {
+  display: block;
+}
+
+/* 로그인 버튼 */
+
+.form-button {
+  width: 100%;
+  padding: 16px 124px;
+  border-radius: 40px;
+  border: none;
+  background-color: var(--login-btn-bg-color);
+  color: var(--login-btn-font-color);
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.form-button:focus {
+  background-color: var(--main-color);
+}
+
+/* 간편 로그인 */
+
+.sns-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--login-social-bg-color);
+  padding: 16px 23px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 24px;
+}
+
+.sns-container p {
+  font-weight: 500;
+}
+
+.sns-container div {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-container a {
+  text-decoration: none;
+}
+
+.sns-container img {
+  max-width: 42px;
+  max-height: 42px;
+}
+
+/* 회원가입 */
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.signup-container a {
+  color: var(--login-signup-font-color);
+}
