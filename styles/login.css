@@ -1,0 +1,230 @@
+:root {
+  --default-color: #1f2937;
+  --default-bg: #fcfcfc;
+  --default-shadow: 0 0 0.25rem rgba(0 0 0 / 25%);
+  --label-color: #1f2937;
+  --input-placeholder-color: #9ca3af;
+  --input-bg: #f3f4f6;
+  --input-border: transparent;
+  --input-invalid-border: #ef4444;
+  --input-valid-border: #22c55e;
+  --input-focus-border: #3692ff;
+  --button-color: #f3f4f6;
+  --button-inactive-bg: #9ca3af;
+  --button-active-bg: #3692ff;
+  --social-login-bg: #e6f2ff;
+  --social-login-color: #1f2937;
+  --link-color: #3692ff;
+}
+
+body {
+  background-color: var(--default-bg);
+  color: var(--default-color);
+}
+
+a,
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  border: 0.0625rem solid var(--input-border);
+}
+
+input:focus {
+  border: 0.0625rem solid var(--input-focus-border);
+}
+
+input:not(:focus):user-invalid {
+  border: 0.0625rem solid var(--input-invalid-border);
+}
+
+input:not(:focus):user-valid {
+  border: 0.0625rem solid var(--input-valid-border);
+}
+
+input[data-invalid]:is(.user-invalid) {
+  border: 0.0625rem solid var(--input-invalid-border) !important;
+}
+
+input[type="password"]:not(:placeholder-shown) {
+  letter-spacing: 0.0625rem;
+  font: large Verdana, sans-serif;
+}
+
+#wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main > * {
+  flex: 0 1 40rem;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo a:focus {
+  filter: saturate(1.25) brightness(1.1) drop-shadow(var(--default-shadow));
+}
+
+main .logo {
+  margin-bottom: 2.5rem;
+}
+
+#login,
+#signup {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 40rem;
+}
+
+#login:invalid button,
+#signup:invalid button {
+  background-color: var(--button-inactive-bg);
+  cursor: not-allowed;
+}
+
+#login:valid button,
+#signup:valid button {
+  background-color: var(--button-active-bg);
+  cursor: pointer;
+}
+
+#login label,
+#signup label {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+#login input,
+#signup input {
+  margin-bottom: 1.5rem;
+  padding: 0.9375rem 1.5rem;
+  outline: none;
+  height: 3.5rem;
+  background-color: var(--input-bg);
+  color: var(--default-color);
+  transition: all 0.2s ease-in-out;
+  border-radius: 0.75rem;
+}
+
+#login input:focus,
+#signup input:focus {
+  /* border: 0.0625rem solid var(--input-focus-border); */
+  filter: drop-shadow(var(--default-shadow));
+}
+
+#login input:focus + .password-toggle,
+#signup input:focus + .password-toggle {
+  filter: invert(45%) sepia(89%) saturate(1690%) hue-rotate(194deg) brightness(101%) contrast(101%);
+}
+
+#login input::placeholder,
+#signup input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+#login button,
+#signup button {
+  height: 3.5rem;
+  background-color: var(--button-inactive-bg);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--button-color);
+  transition: all 0.2s ease-in-out;
+  border-radius: 1.75rem;
+}
+
+#login button:focus,
+#signup button:focus {
+  /* background-color: var(--button-active-bg); */
+  filter: drop-shadow(var(--default-shadow));
+}
+
+/* #login button:hover,
+#signup button:hover {
+  background-color: var(--button-active-bg);
+} */
+
+#login .password-container,
+#signup .password-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+}
+
+#login .password-toggle,
+#signup .password-toggle {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1.4375rem;
+  bottom: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.social-login {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 40rem;
+  margin: 1.5rem auto;
+  padding: 1rem 1.4375rem;
+  background-color: var(--social-login-bg);
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+}
+
+.social-login .via {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-login .via a:hover {
+  filter: drop-shadow(var(--default-shadow));
+}
+
+.go-signup,
+.go-login {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.go-signup a,
+.go-login a {
+  color: var(--link-color);
+}
+
+.go-signup a:hover,
+.go-login a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.25rem;
+}
