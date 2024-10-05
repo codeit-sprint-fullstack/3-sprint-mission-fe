@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Pretendard', sans-serif;
+}
+
+button{
+    border: none;
+    outline: none;
+}
+
+button a{
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    height: 100%;
+    cursor: pointer;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    color: #F3F4F6;
+}
+
+header{
+    width: 100%;
+    background-color: #fff;
+    padding: 0 200PX;
+}
+
+.header_inner{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: space-between;
+    /* max-width: 1520px; */
+    /* margin: 0 auto; */
+    padding: 10px 0;
+}
+
+.header_inner h1{
+    width: 150px;
+    min-width: 150px;
+}
+
+.header_inner h1 > img{
+    width: 100%;
+}
+
+header .btn_login{
+    background-color: #3692FF;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 26px;
+    width: 128px;
+    height: 48px;
+}
+
+header .btn_login a{
+    line-height: 48px;
+}
+
+.main_visual, .bottom_banner{
+    background-color: #CFE5FF;
+    color: #374151;
+    padding: 0px 25%; 
+    
+}
+
+.main_visual .main_inner{
+    display: flex;
+    align-items: flex-end;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 1920px;
+    padding: 20rem 3rem 0;
+}
+
+.main_visual .mv_text{
+    margin-bottom: 10rem;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.main_visual .btn{
+    width: 18.5vw;
+    height: 56px;
+    background-color: #3692FF;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 32px;
+    max-width: 356px;
+    min-width: 300px;
+}
+
+.main_visual .btn a{
+    line-height: 56px;
+}
+
+.main_visual .txt_img{
+    width: 68%;
+    max-width: 754px;
+}
+
+.main_visual .txt_img > img{
+    height: 100%;
+    min-width: 160px;
+}
+
+.con{
+    margin: 0 auto;
+    padding-top: 14rem;
+    display: flex;
+    justify-content: center;
+}
+
+.con .con_inner{
+    width: 51.5%;
+    background-color: #FCFCFC;
+    display: flex;
+    align-items: center;
+    /* margin: 0 auto; */
+    padding: 0 3rem;
+    max-width: 1344px;
+    min-width: 485px;
+    justify-content: space-between;
+}
+
+.con .con_inner > img{
+    width: 50%;
+    max-width: 814px;
+    min-width: 210px;
+}
+
+.con .con_txt{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    width: 40%;
+}
+
+.con .con_txt h6{
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    color: #3692FF;
+    margin: 0;
+}
+
+.con .con_txt span{
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.6rem;
+}
+
+.con .con_txt p{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.con.two{
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+.bottom_banner{
+    margin-top: 140px;
+}
+
+.bottom_banner .banner_inner{
+    display: flex;
+    align-items: flex-end;
+    margin: 0 auto;
+    max-width: 1110px;
+    justify-content: center;
+    padding-top: 14rem;
+    gap: 5%;
+}
+
+.bottom_banner .banner_inner span{
+    margin-bottom: 14rem;
+    min-width: 300px;
+    min-width: 240px;
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.bottom_banner .banner_inner img{
+    width: 60%;
+    min-width: 200px;
+}
+
+footer{
+    margin: 0 auto;
+    background-color: #111827;
+    font-size: 16px;
+    font-weight: 700;
+    color: #9CA3AF;
+    padding: 3.2rem 0 11rem;
+    justify-content: space-around;
+}
+
+footer .footer_inner{
+    display: flex;
+    max-width: 1520px;
+    justify-content: space-between;
+    margin: 0px 11%;
+    gap: 6%;
+}
+
+footer .ft_cen a{
+    color: #E5E7EB;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+footer .sns{
+    display: flex;
+    gap: 12px;
+    min-width: 80px;
+    padding: 0;
+}
+
+

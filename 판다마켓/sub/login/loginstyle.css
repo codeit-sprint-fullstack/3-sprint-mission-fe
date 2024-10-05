@@ -1,0 +1,140 @@
+:root{
+    --cool-gray100: #F3F4F6;
+    --cool-gray200: #9CA3AF;
+    --blue100: #E6F2FF;
+    --blue200: #3692FF;
+}
+
+.inner{
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    border: none;
+    background: none;
+}
+
+.login_inner{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+    align-items: center;
+    min-width: 480px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_inner .e_mail, .login_inner .password, .login_bt, .simple_login{
+    width: 67.3%;
+    min-width: 440px;
+}
+
+.login_inner p{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+}
+
+input{
+    border: none;
+    background-color: var(--cool-gray100);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    margin-top: 16px;
+    width: 90%;
+}
+
+input:focus{
+    outline: 1px solid var(--blue200);
+}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+input::placeholder{
+    color: var(--cool-gray200);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+input#pass{
+    background-image: url(../../img/btn_visibility_on_24px.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 96% center;
+}
+
+.password input img{
+    vertical-align: middle;
+    width: 92%;
+    position: absolute;
+}
+
+.login_bt{
+    background-color: var(--cool-gray200);
+    justify-content: center;
+    color: var(--cool-gray100);
+    border-radius: 40px;
+    width: 67.3%;
+    height: 56px;
+    /* padding: 12px 24px; */
+    
+}
+
+.login_bt:hover{
+    background-color: var(--blue200);
+    color: var(--cool-gray100);
+}
+
+.login_bt > a{
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    color: var(--cool-gray100);
+    height: 100%;
+    line-height: 56px;
+}
+
+.simple_login{
+    background-color: var(--blue100);
+    /* padding: 16px 23px; */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 67.3%;
+}
+
+.simple_login span{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 24px;
+}
+
+.simple_login .bts{
+    display: flex;
+    gap: 10px;
+    margin: 12px 24px;
+}
+
+.login_inner .txt p{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.login_inner .txt a{
+    color: var(--blue200);
+    line-height: 16px;
+}
