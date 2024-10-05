@@ -1,5 +1,4 @@
 import $ from "../utils/query.js";
-import toggleInputError from "../utils/toggleInputError.js";
 
 class Sign {
   constructor() {
@@ -23,12 +22,25 @@ class Sign {
     $("#submit-button").disabled = Object.values(this.inputValidState).some((state) => !state);
   }
 
+  toggleInputError(e, message = "") {
+    const errorMessageNode = e.closest("section").querySelector(".message");
+    errorMessageNode.innerText = message;
+    if (message.length) {
+      e.target.classList.add("error");
+      errorMessageNode.setAttribute("aria-hidden", false);
+      return errorMessageNode.classList.add("show");
+    }
+    e.target.classList.remove("error");
+    errorMessageNode.setAttribute("aria-hidden", true);
+    errorMessageNode.classList.remove("show");
+  }
+
   setInputs() {
     Object.values(this.inputs).forEach((input, index) => {
       input.addEventListener("focusout", (e) => {
         const { value } = e.target;
         const message = this.validateMethods[index](value);
-        toggleInputError(e, message);
+        this.toggleInputError(e, message);
         const keys = Object.keys(this.inputs);
         this.setState({ [keys[index]]: message.length === 0 });
       });
