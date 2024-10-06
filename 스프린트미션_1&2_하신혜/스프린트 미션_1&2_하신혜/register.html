@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>회원가입</title>
-  <link rel="stylesheet" href="join.css">
+  <link rel="stylesheet" href="register.css">
 </head>
 <body>
   <div class="login-container">
@@ -18,29 +18,32 @@
         <div class="input-group1">
             <div class="putemail">
               <input type="email" id="email" placeholder="이메일을 입력해주세요" required>
+              <span class="error-message-mail" id="emailError"></span>
             </div>
         </div>
         <div class="tinyhead">닉네임</div>
         <div class="input-group2">
-            <input type="email" id="email" placeholder="닉네임을 입력해주세요" required>
-              <button type="button" class="toggle-password"></button>
+            <input type="nickname" id="nickname" placeholder="닉네임을 입력해주세요" required>
+          
         </div>
 
         <div class="tinyhead">비밀번호</div>
         <div class="input-group3">
             <input type="password" id="password" placeholder="비밀번호를 입력해주세요" required>
+            <span class="error-message-password" id="passwordError"></span>
             <button type="button" class="toggle-password"> <img src="btn_visibility_on_24px.png" alt="토글패스워드">
             </button>        
           </div>
 
         <div class="tinyhead">비밀번호 확인</div>
         <div class="input-group4">
-            <input type="password" id="password" placeholder="비밀번호를 입력해주세요" required>
+            <input type="password" id="passwordConfirm" placeholder="비밀번호를 입력해주세요" required>
+            <span class="error-message-password" id="passwordConfirmError"></span>
             <button type="button" class="toggle-password"> <img src="btn_visibility_on_24px.png" alt="토글패스워드">
             </button>       
            </div>
     
-        <button type="submit" class="join-btn">회원가입</button>
+        <button type="submit" class="register-btn" disabled>회원가입</button>
 
 
         <!--간편로그인-->
@@ -62,8 +65,19 @@
         </p>
     </form>
 </div>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <p id="modalMessage" class="modal-text">사용 중인 이메일입니다.</p>
+    <div class="modal-footer">
+      <button class="close-modal-btn">확인</button>
+    </div> 
+  </div>
+</div>
 
-<script src="join.js"></script>
+
+
+
+<script src="register2.js"></script>
 
 </body>
 </html>
