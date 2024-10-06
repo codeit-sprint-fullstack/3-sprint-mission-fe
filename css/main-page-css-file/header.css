@@ -1,0 +1,42 @@
+/* 헤더 시작 */
+.header-contain {
+    width: 100%;
+    height: 70px;
+    background: var(--white);
+    display: flex;
+    position: fixed;
+    z-index: 11;
+}
+
+header {
+    width: calc(100% - 400px);
+    margin-top: 9.5px;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 9.5px 200px;
+    box-sizing: border-box;
+    top: 0px;
+    background: var(--white);
+}
+
+.header-1 {
+    width: calc(100%);
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.header-1 img {
+    width: 100%;
+    width: 153px;
+    height: auto;
+    box-sizing: border-box;
+
+}
+
+/* 헤더 끝 */

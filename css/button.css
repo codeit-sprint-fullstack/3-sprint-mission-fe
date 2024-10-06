@@ -1,12 +1,12 @@
+@import "reset.css";
+
 .button {
-    background: #3692FF;
+    background: var(--color5);
     gap: 10px;
     border-radius: 8px;
     opacity: 1;
-    color: #F3F4F6;
-    font-family: 'Pretendard';
-    font-size: 1.25rem;
-    font-weight: 600;
+    color: var(--color1);
+    font-size: 1.25rem; 
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -24,8 +24,6 @@
     line-height: 56px;
     margin-top: 32px;
 }
-
-
 
 .icon {
     width: 20px;
