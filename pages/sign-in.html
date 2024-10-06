@@ -137,7 +137,7 @@
         }
       }
 
-      userEmail.addEventListener('blur', () => {
+      userEmail.addEventListener('change', () => {
         const errMsg = userEmail.nextElementSibling;
         if (userEmail.validity.valid === false) {
           errMsg.classList.add('fade-in');
@@ -154,8 +154,8 @@
         }
       }, { signal: signal });
 
-      userPassword.addEventListener('blur', () => {
-        const errMsg = userPassword.nextElementSibling;
+      userPassword.addEventListener('change', () => {
+        const errMsg = userPassword.parentElement.nextElementSibling;
         if (userPassword.validity.valid === false) {
           submitBtn.classList.replace('bg-primary', 'bg-gray400');
           if (userPassword.validity.tooShort) {
