@@ -5,19 +5,6 @@
   /* 해당 굵기에 어떤 파일을 사용할 지정 */
   /* font-weight:700;  */
 /* 
-@font-face {
-  font-family: 'ROKAF-Sans-Medium';
-  src: url('../fonts/ROKAF-Sans-Medium.ttf') format('woff');
-}
-@font-face {
-  font-family: 'ROKAF-Sans-Bold';
-  src: url('../fonts/ROKAF-Sans-Bold.ttf') format('woff');
-}
- */
-/* "공군 서체", 속도를 우선해서 "pretendard variable"을 사용. */
-/* html {
-  font-family: 'ROKAF-Sans-Medium', 'pretendardvariable';
-} */
 
 /* [심화 요구사항] 
   기본 HTML 폰트 크기를 62.5%로 설정하여, 기본 16rem 대신 10rem이 기본 크기가 되도록 합니다.
@@ -42,6 +29,9 @@
   
     /* Layout dimensions */
     --header-height: 7rem;
+
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;    
   }
   
 /* 크롬등의 웹브라우저 자체 css 적용을 reset한다. */

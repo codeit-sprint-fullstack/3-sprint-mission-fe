@@ -1,6 +1,3 @@
-
-
-/******* Signup Page 만들기 *******/
 .signup-layer{  
   /* background-color: #f10d0d;  */
   width: 640px;
@@ -15,6 +12,7 @@
   /* background-color: #f1cf0d;  */  
   width:100%;
   height: 172px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;   
@@ -37,97 +35,137 @@
 .signup-section2-layer{  
   /* background-color: #33f10d;  */
   width:100%;
-  height: 548px;
+  /* height: 548px; */
 }
 
-form {
-  /* margin: 16px auto; */
+.form {
+  /* background-color:burlywood; */  
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap:24px; 
+  
   /* justify-content:space-around; */
   /* align-items:center; */
-  gap:24px; 
+  margin: 16px auto;
 }
 
-.signup-label{
+.signup-form-control {
+  /* background-color: blueviolet; */
   width:100%;
+  display: flex;
+  flex-direction: column;
+  gap:12px; 
+}
+
+.signup-form-control label{    
+  color: #1F2937;  
+  font-size: 1.125rem;  
+  line-height: 1.2rem;  
+  font-weight: 700;
+  text-align:start;
+
+  /* width:100%; */
   /* height: 42px; */
   /* gap:10px; */
-  color: #1F2937;
-  font-weight: 700;
   /* font-size: 18px;
   line-height: 21.48px; */
-  font-size: 1.125rem;
-  /* line-height: 1.343rem; */
-  line-height: 1.2rem;
-  text-align:start;
+  /* line-height: 1.343rem; */  
   /* display: block; */  
+  /* background-color: yellow; */
 }
+
 .signup-wrapper {
   position: relative;
   display: flex;
   align-items: center;
+  /* background-color: red; */
 }
 
 .password-toggle-button {
   position: absolute;
   right: 24px;
+  /* background-color: green; */
 }
 
-.signup-input {  
-  width: 100%;
-  /* height: 56px; */
+.signup-form-control input {  
+  width: 100%;  
   border-radius:12px;
   padding:16px 24px 16px 24px;
-  /* gap:10px; */
   background-color: #F3F4F6;
   color: #9CA3AF;
-  /* display: block; */
-  /* font-size: 16px;
-  line-height: 26px; */
   font-weight: 400;
   font-size: 1rem;
-  /* line-height: 1.3rem;   */
   line-height: 1.2rem;
   text-align:start;
   border-width:0;  
+
+  /* height: 56px; */
+  /* gap:10px; */
+  /* display: block; */
+  /* font-size: 16px;
+  line-height: 26px; */
+  /* line-height: 1.3rem;*/
 }
 
 /* .signup-input:placeholder-shown + .signup-button{
     background-color: #9CA3AF;
   }   */
 
-.signup-input:focus {
+.signup-form-control input:focus {
   border-width: 1px;
   border-color: #3692FF;
   outline: none;  
 }
 
+.signup-form-control.success input {
+  border-color: var(--success-color);
+}
+
+.signup-form-control.error input {
+  border-color: var(--error-color);
+}
+
+.signup-form-control small {
+  color: var(--error-color);
+  position: relative;
+  bottom: 8px;
+  left: 0;
+  visibility: hidden;
+  /* visibility: visible; */
+}
+
+.signup-form-control.error small {
+  visibility: visible;
+}
+
+
 .signup-button {  
-  width: 100%;
-  /* height: 56px; */
+  width: 100%;  
   border-radius:40px;
   padding:16px 124px 16px 124px;
-  /* gap:10px;   */
-  /* background-color: #9CA3AF; */
-  background-color: #3692FF;
+  background-color: #9CA3AF;
   outline: none;    
   color: #F3F4F6;
-  /* display: block; */
-  /* font-size: 20px;
-  line-height: 24px; */
-  /* font-weight: 600; */
   font-size: 1.25rem;
   /* 버튼이 섹션을 넘어가서 1.2rem으로 줄임 */  
   line-height: 1.2rem;
   text-align:center;
   border-width:0;
   cursor:pointer;
+
+  /* height: 56px; */
+  /* gap:10px;   */  
+  /* background-color: #3692FF; */
+  /* display: block; */
+  /* font-size: 20px;
+  line-height: 24px; */
+  /* font-weight: 600; */
 }
 
 .signup-button:hover { 
-  background-color: #1967d6;
+  background-color: #3692FF;
+  /* background-color: #1967d6; 더 진한 파랑색 */  
   outline: none;
 }
 

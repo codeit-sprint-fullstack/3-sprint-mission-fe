@@ -58,26 +58,6 @@ header {
   white-space: nowrap;
 }
 
-/* 아래 login-btn, login-font는 onclick 때 사용. */
-/* #login-btn {
-  width: 128px;
-  height: 48px;
-  border-radius: 8px;
-  padding: 12px 23px 12px 23px;
-  gap: 10px;
-  background-color: #3692ff;
-  cursor:pointer;  
-}
-
-#login-font {
-  width: 42px;
-  height: 26px; 
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
-  color: #f3f4f6;
-} */
-
 /* CSS는 유효한 숫자 표기를 따라야 한다.
   유효한 CSS 숫자 표기에는 소수점 앞에 0이 없는 경우, 
   소수점 뒤에 0으로 끝나지 않는 경우 등이 포함된다.
@@ -134,31 +114,6 @@ header {
   align-items: flex-end;
 }
 
-/* 아래 show-btn, show-font는 onclick 때 사용. */
-/* #show-btn {
-  background-color: #3692FF;
-  width:357px;
-  height:56px;  
-  border-radius: 40px;
-  padding: 16px 124px 16px 124px;
-*/
-  /* gap: 10px; */
-
-  /*
-  cursor:pointer;
-} */
-
-/* 질문 1. font-size가 20px이면 문제 발생. */
-/* #show-font {
-  width: 109px;
-  height: 32px; */
-  /* font:pretendardvariable; */
- /* font-weight: 600;
-  font-size: 18px;
-  line-height: 32px;
-  color: #F9FAFB;
-  text-align: center;
-} */
 
 /* gap 은 요소들 사이의 여백을 만들어 주는 속성 */
 .section2 {  

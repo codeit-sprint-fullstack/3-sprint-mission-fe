@@ -5,7 +5,7 @@
   <!-- 모바일 브라우저의 뷰를 실제 크기인 1로 설정하는것을 의미한다 써주지 않는다면
    모바일 브라우저에서 나오는 글자가 매우 작게 표시되어서 읽을 수 없을 것이다 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>판다 마켓</title>
+  <title>판다마켓</title>
   <!-- 
   웹사이트를 식별하기 위해 브라우저에 표시하는 작은 아이콘을 '파비콘(Favicon)'이라고 합니다. 
   일반적으로 16x16px의 .ico 확장자로 되어 있고, 온라인에서 favicon generator를 찾아 사용하면 편리하게 이미지를 파비콘으로 전환할 수 있습니다. 
@@ -21,25 +21,36 @@
   <link rel="stylesheet" href="../styles/global.css" />
   <link rel="stylesheet" href="styles/home.css">
 
-    <!-- [심화 요구사항] Google Analytics  -->
-    <!-- Google Analytics 계정을 생성해 ) 본인의 Tracking ID(예: G-XXXXXXXXXX)로 변경이 필요합니다. -->
-    <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-본인의_Tracking_ID"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+  <!-- [심화 요구사항] Google Analytics  -->
+  <!-- Google Analytics 계정을 생성해 ) 본인의 Tracking ID(예: G-XXXXXXXXXX)로 변경이 필요합니다. -->
+  <!-- <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-본인의_Tracking_ID"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-      gtag("config", "G-XXXXXXXXXX"); // 본인의 Tracking ID로 변경
-    </script> -->
+    gtag("config", "G-XXXXXXXXXX"); // 본인의 Tracking ID로 변경
+  </script> -->
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TFWB8BBP');</script>
+  <!-- End Google Tag Manager -->
 </head>
 
-<body>
+<body>  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFWB8BBP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div>
       <img
@@ -51,16 +62,11 @@
       <div>
         <a 
           class="login-btn btn-font"
-          href="login/main.html">로그인
+          href="login.html">로그인
         </a>
       </div>
       <!-- <p class="btn-font">로그인</p> -->
     </div>
-    <!-- <div>
-      <button id="login-btn" onclick="location.href='login/main.html'">
-        <span id="login-font">로그인</span>
-      </button >
-    </div> -->
   </header>
   <main>
     <section class="section1">
@@ -71,17 +77,9 @@
         <div>
           <a 
             class="show-btn btn-font"
-            href="items/main.html">구경하러 가기
+            href="items.html">구경하러 가기
           </a>
         </div>  
-        <!-- <div class="show-btn">
-          <p class="btn-font">구경하러 가기</p>
-        </div> -->
-        <!-- <div>
-          <button id="show-btn" onclick="location.href='items/main.html'">
-            <p id="show-font">구경하러 가기</p>
-          </button >    
-        </div> -->
       </div>
       <div class="section1-img-layer">
         <img 
@@ -184,11 +182,11 @@
       <div class="footer-link-layer">
           <a 
             class="footer-privacy-policy"
-            href="privacy/main.html">Privacy Policy
+            href="privacy.html">Privacy Policy
           </a>
           <a 
             class="footer-faq"
-            href="faq/main.html">FAQ
+            href="faq.html">FAQ
           </a>
       </div>
       <div class="footer-sns-layer">
