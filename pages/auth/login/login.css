@@ -161,6 +161,9 @@ input:focus {
 }
 
 @media (max-width: 743px) {
+  main {
+    max-width: 400px;
+  }
   .login-logo {
     margin-bottom: 16px;
   }
