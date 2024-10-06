@@ -1,3 +1,5 @@
+import { USER_DATA } from '../../data/users.js';
+
 const form = document.getElementById('form');
 const email = document.getElementById('email');
 const nickname = document.getElementById('nickname');
@@ -5,14 +7,30 @@ const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
 const formButton = document.getElementById('form-button');
 
+const isEmailRegistered = (email) => {
+  return USER_DATA.find((user) => user.email === email.value.trim());
+};
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // 유효성 검사
   setSubmitButtonState();
 
+  // 회원 가입 처리
   if (!formButton.disabled) {
-    window.location.href = '/pages/auth/login/login.html'; // 페이지 이동
+    // 이미 가입된 이메일인지 확인
+    if (isEmailRegistered(email)) {
+      alert('이미 가입된 이메일입니다.');
+    } else {
+      // 회원가입 완료
+      USER_DATA.push({
+        email: email.value.trim(),
+        password: password.value.trim(),
+      });
+      alert('회원가입이 완료되었습니다.');
+      window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
+    }
   }
 });
 
@@ -29,8 +47,9 @@ form.addEventListener('focusout', (e) => {
     password: () => validatePassword(),
     'password-confirm': () => validatePasswordConfirmation(),
   };
-
-  validationHandlers[elementId]();
+  if (validationHandlers[elementId]) {
+    validationHandlers[elementId]();
+  }
 });
 
 const setError = (element, message) => {
