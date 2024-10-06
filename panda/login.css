@@ -1,0 +1,157 @@
+@font-face {
+  font-family:'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Pretendard-Regular', sans-serif;
+  width: 100%;
+}
+
+main {
+  padding: 231px 0 284px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPaageLogoDiv {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 640px;
+  min-height: 618px;
+  flex-direction: column;
+}
+
+.loginPageLogo { 
+  width: 100%;
+  max-width: 396px;
+  min-height: 132px;
+}
+
+.loginDiv {
+  width: 100%;
+  max-width: 640px;
+  min-height: 446px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.emailPassWordText {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.emailAndPassWord {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  padding: 16px 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+input[type="password"], 
+input[type="text"], 
+input[type="email"] {
+  color: #1f2937;
+}
+
+
+.emailAndPassWord:focus {
+  border: 2px solid #3692FF; 
+  outline: none;
+}
+
+.emailAndPassWord:focus:not(:focus) {
+  border: none; 
+}
+
+.loginPageLoginBtn {
+  width: 100%;
+  max-width: 640px;
+  min-height: 56px;
+  text-decoration: none;
+  background-color: #9ca3af;
+  color: #f3f4f6;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+
+input:valid ~ .loginPageLoginBtn {
+  background-color: #3692FF;
+}
+
+input:invalid ~ .loginPageLoginBtn {
+  background-color: #9ca3af;
+}
+
+.ezLogin {
+  width: 100%;
+  max-width: 640px;
+  min-height: 74px;
+  background-color: #E6f2ff;
+  border-radius: 8px;
+  color: #1f2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ezLoginDiv {
+  width: 100%;
+  max-width: 594px;
+  min-height: 42px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginPageSns {
+  width: 100%;
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.yourFirstPandaMarket {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.goSingup {
+  color: #3692ff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.71px;
+}
