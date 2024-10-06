@@ -179,7 +179,7 @@ button:focus{
     background-color: var(--primary-100-color);
     color: #ffffff;
     margin-top: 1rem;
-    transform: translate(70%, 150%);
+    transform: translate(50%, 150%);
 }
 
 
