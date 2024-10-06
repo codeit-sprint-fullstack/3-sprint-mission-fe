@@ -8,9 +8,8 @@ dialog::backdrop {
   padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 90%;
   max-width: 540px;
-  min-width: 327px;
   max-height: 250px;
   height: 100%;
   border: none;
@@ -37,4 +36,12 @@ dialog::backdrop {
   border: none;
   background-color: var(--main-color);
   color: white;
+}
+
+@media (max-width: 743px) {
+  .error-message-modal button {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

@@ -16,6 +16,7 @@ const isEmailRegistered = (email) => {
 };
 
 // 폼 제출 시 이벤트 처리
+modal.showModal();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
