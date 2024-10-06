@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/fo/nt-awesome.min.css">
     <title>로그인 페이지</title>
 
+    <meta property="og:title" content="판다마켓">
+    <meta property="og:description" content="일상에서 모든 물건을 거래해보세요">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://celebrated-axolotl-089cd1.netlify.app/index.html">
+    <meta property="og:image" content="https://celebrated-axolotl-089cd1.netlify.app/image/sprint2_로고.png">
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY9YG74E74"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -24,35 +31,37 @@
         <a href="../index.html">
             <img src="../image/sprint2_로고.png" alt="">
         </a>
-        <div class="box1">
-            <div class="box2">
-                <div class="box3">
+        <div class="main">
+            <div class="main-login">
+                <div class="main-login-email">
                     이메일
-                    <div>
-                        <input type="text" name="Email" placeholder="이메일을 입력해주세요" maxlength='30'>
+                    <div class="email-contain">
+                        <input type="text" class="input-Email" name="Email" placeholder="이메일을 입력해주세요" maxlength='30'>
                     </div>
+                    <div class="email-err"></div>
                 </div>
-                <div class="box4">
+                <div class="main-login-password">
                     패스워드
-                    <div>
-                        <input type="password" name="password" class="input-password" placeholder="비밀번호를 입력해주세요" maxlength='16'>
+                    <div class="password-contain">
+                        <input type="password" name="password" class="input-password" placeholder="비밀번호를 입력해주세요"
+                            maxlength='16'>
+                        <div class="password-typechange-icon"></div>
                     </div>
+                    <div class="pw-err"></div>
                 </div>
-                <a href="./login.html">
-                    <div class="button1">
-                        로그인
-                    </div>
-                </a>
+                <div>
+                    <button type="button" class="login-btn" disabled>로그인</button>
+                </div>
             </div>
 
 
-            <div class="box5">
-                <div class="box6">
-                    <div class="box7">
+            <div class="main-footer">
+                <div class="main-footer-inner">
+                    <div class="main-footer-inner-text">
                         간편 로그인하기
                     </div>
 
-                    <div class="box8">
+                    <div class="main-footer-inner-icon">
                         <a href="https://www.google.com" target="_blank" title="google">
                             <img class="icon" src="../icon/google1.svg" alt="google">
                         </a>
@@ -63,17 +72,24 @@
                 </div>
             </div>
 
-            <div class="box9">
-                <div class="box10">
+            <div class="dir-signup">
+                <div class="dir-signup-text">
                     판다마켓이 처음이신가요?
                 </div>
-                <div class="box11">
+                <div class="dir-signup-link">
                     <a href="./signup.html" class="underline">회원가입</a>
                 </div>
             </div>
 
         </div>
     </div>
+    <div class="overlay hidden"></div>
+    <div class="customAlert custom-alert hidden">
+        <p class="alertText"></p>
+        <button class="closeAlert">확인</button>
+    </div>
+
+    <script async src="../js/login.js"></script>
 </body>
 
 </html>

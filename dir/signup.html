@@ -8,6 +8,13 @@
 
     <title>회원가입 페이지</title>
 
+    <meta property="og:title" content="판다마켓">
+    <meta property="og:description" content="일상에서 모든 물건을 거래해보세요">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VY9YG74E74"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,51 +30,55 @@
         <a href="../index.html">
             <img src="../image/sprint2_로고.png" alt="">
         </a>
-        <div class="box1">
-            <div class="box2">
-                <div class="box3">
+        <div class="main">
+            <div class="main-login">
+                <div class="main-login-email">
                     이메일
-                    <div>
-                        <input type="text" name="Email" placeholder="이메일을 입력해주세요" maxlength='30'>
+                    <div class="Email_box">
+                        <input type="text" class="input-Email" name="Email" placeholder="이메일을 입력해주세요" maxlength='30'>
                     </div>
+                    <div class="email-err"></div>
                 </div>
 
-                <div class="box3">
+                <div class="main-login-nickname">
                     닉네임
-                    <div>
-                        <input type="text" name="Username" placeholder="닉네임을 입력해주세요" maxlength='10'>
+                    <div class="Username_box">
+                        <input type="text" class="User-name" name="Username" placeholder="닉네임을 입력해주세요" maxlength='10'>
                     </div>
+                    <div class="nick-err"></div>
                 </div>
 
-                <div class="box3">
+                <div class="main-login-password">
                     비밀번호
-                    <div>
+                    <div class="Password_box">
                         <input type="password" name="password" class="input-password" placeholder="비밀번호를 입력해주세요" maxlength='16'>
+                        <div class="password-typechange-icon"></div>
                     </div>
+                    <div class="password_err"></div>
                 </div>
 
-                <div class="box3">
+                <div class="main-login-password-re">
                     비밀번호 확인
-                    <div>
-                        <input type="password" name="password" class="input-password" placeholder="비밀번호를 다시 한 번 입력해주세요" maxlength='16'>
+                    <div class="Password_box">
+                        <input type="password" name="password" class="input-password-re" placeholder="비밀번호를 다시 한 번 입력해주세요" maxlength='16'>
+                        <div class="password-typechange-icon"></div>
                     </div>
+                    <div class="password_re_err"></div>
                 </div>
 
-                <a href="./login.html">
-                    <div class="button1">
-                        회원가입
-                    </div>
-                </a>
+                <div>
+                    <button type="button" class="login-btn" disabled>회원가입</button>
+                </div>
             </div>
 
 
-            <div class="box5">
-                <div class="box6">
-                    <div class="box7">
+            <div class="main-footer">
+                <div class="main-footer-inner">
+                    <div class="main-footer-inner-text">
                         간편 로그인하기
                     </div>
 
-                    <div class="box8">
+                    <div class="main-footer-inner-icon">
                         <a href="https://www.google.com" target="_blank" title="google">
                             <img class="icon" src="../icon/google1.svg" alt="google">
                         </a>
@@ -78,17 +89,25 @@
                 </div>
             </div>
 
-            <div class="box9">
-                <div class="box10">
+            <div class="dir-login">
+                <div class="dir-login-text">
                     이미 회원이신가요?
                 </div>
-                <div class="box11">
+                <div class="dir-login-link">
                     <a href="./login.html" class="underline">로그인</a>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="overlay hidden"></div>
+    <div class="customAlert custom-alert hidden">
+        <p class="alertText"></p>
+        <button class="closeAlert">확인</button>
+    </div>
+    
+    <script src="../js/sign.js"></script>
 </body>
 
 </html>
