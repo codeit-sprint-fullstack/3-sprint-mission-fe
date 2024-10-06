@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="main">
+    <main class="main">
         <a href="../index.html" class="img"><img src="../images/logo/panda-market-logo.png" alt="logoimg" width="100%"></a>
         <div>
             <div>
@@ -24,12 +24,16 @@
                     이메일
                 </p>
                 <input type="email" class="email" placeholder="이메일을 입력해주세요"/>
+                <div class="enterIdMsg hide">이메일을 입력해주세요.</div>
+                <div class="wrongIdMsg hide">잘못된 이메일 형식입니다.</div>
             </div>
             <div>
                 <p class="text">
                     비밀번호
                 </p>   
                 <input type="password" class="pw" placeholder="비밀번호를 입력해주세요"/>
+                <div class="enterPwMsg hide">비밀번호를 입력해주세요.</div>
+                <div class="wrongPwMsg hide">비밀번호를 8자 이상 입력해주세요.</div>
             </div>
             <div>
                 <button class="loginbtn">
@@ -51,7 +55,13 @@
                 </p>
             </div>
         </div>
+    </main>
+    <div class="modal hide">
+        <div class="modal_popup">
+            <p class="modal-line">비밀번호가 일치하지 않습니다.</p>
+            <button type="button" class="close_btn">확인</button>
+        </div>
     </div>
-
+    <script src="login.js"></script>
 </body>
 </html>
