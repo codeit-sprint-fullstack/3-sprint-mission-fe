@@ -237,6 +237,9 @@ button:focus{
         max-width: 400px;
         padding: 0 16px;
     }
+    .modal{
+        width:100%;
+    }
 }
 
 @media(max-width:1199px){

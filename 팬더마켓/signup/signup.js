@@ -121,11 +121,13 @@ const USER_DATA = [
 ];
 
 button.addEventListener('click',function(event){
+  event.preventDefault();
+
   var users = USER_DATA.find(userdata=> userdata.email===mId.value);
 
-  if(users){
+  if(users && Nick.value.length!=0 && mId.value.length !=0 && password.value.length!=0 && reEnter.value.length!=0){
     modal.classList.remove('hide');
-  }else{
+  }if(!users && Nick.value.length!=0 && mId.value.length !=0 && password.value.length!=0 && reEnter.value.length!=0){
     alert('회원가입 성공');
     window.location.href="../login/login.html";
   }
@@ -135,18 +137,3 @@ close.addEventListener('click',function(){
   modal.style.display='none';
 });
 
-const see = document.querySelector('.see')
-const blind = document.querySelector('.blind');
-
-blind.addEventListener('click',function(e){
-  e.preventDefault():
-  if(password.type ==="password"){
-    password.type ="text";
-    password.classList.remove('blind');
-    password.classList.add('see');
-  }else{
-    password.type = "password";
-    password.classList.add('blind');
-    password.classList.remove('see');
-  }
-})

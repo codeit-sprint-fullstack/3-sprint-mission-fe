@@ -197,10 +197,29 @@ footer{
     text-align: right;
 }
 
-@media(min-width:743px){
+@media(max-width:743px){
 
+    .login{
+        padding-right: 16px;
+        margin: auto;
+    }
+
+    .logo{
+        margin: auto;
+        padding-left: 16px;
+    }
 }
 
-@media(min-width:1199px){
+@media(max-width:1199px){
+
+    .login{
+        padding-right: 24px;
+        margin: auto;
+    }
+
+    .logo{
+        margin: auto;
+        padding-left: 24px;;
+    }
     
 }

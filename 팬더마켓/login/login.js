@@ -88,9 +88,9 @@ button.addEventListener('click',function(event){
 
   var users = USER_DATA.find(userdata => userdata.email ===id.value && userdata.password ===pw.value);
 
-  if(!users){
+  if(!users && pw.value.length !=0 && id.value.length!=0){
     modal.classList.remove('hide');
-  }else{
+  }if(users && pw.value.lenght !=0&&id.value.length!=0){
     alert('로그인 성공');
     window.location.href ="../itmes/itmes.html";
   }
