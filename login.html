@@ -31,18 +31,20 @@
   </header>
   <div class="container">
     <div class="login-wrap">
-      <form action="">
+      <form id="login-form">
         <div class="login-box">
           <div class="input-item id">
             <label class="text-label">이메일</label>
             <input type="text" class="input-id" placeholder="이메일을 입력해주세요" autocomplete="off">
-            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none">X</button>
+            <label class="label-alert" id="label-alert-id" style="display: inline"></label>
+            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none" tabindex="-1">X</button>
           </div>
           <div class="input-item pw">
             <label class="text-label">비밀번호</label>
             <input type="password" class="input-pw" placeholder="비밀번호를 입력해주세요" autocomplete="off">
-            <button type="button" class="show-pw" style="display: none"></button>
-            <button type="button" class="clear-btn" id="clear-btn-pw" style="display: none">X</button>
+            <label class="label-alert" id="label-alert-pw" style="display: inline"></label>
+            <button type="button" class="show-pw" style="display: none" tabindex="-1"></button>
+            <button type="button" class="clear-btn" id="clear-btn-pw" style="display: none" tabindex="-1">X</button>
           </div>
           <button type="submit" class="btn-login">로그인</button>
         </div>
@@ -62,7 +64,15 @@
         판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
       </div>
     </div>
-  <script src="scripts/script.js"></script>
+    <!-- 모달 오버레이 -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <!-- 모달 콘텐츠 -->
+    <div class="modal-content" id="modalContent">
+      <h2 class="sr-only">확인창</h2>
+      <p>비밀번호가 일치하지 않습니다.</p>
+      <span class="modal-button" id="modalButton">확인</span>
+    </div>
+    <script src="scripts/login.js"></script>
 </body>
 
 </html>

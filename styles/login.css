@@ -12,10 +12,15 @@
   --text-label: #1F2937;
   --button-color: #F3F4F6;
   --button-bg: #9ca3af;
+  --button-active-bg: #3692FF;
   --clear-button: #1F2937;
   --clear-button-bg: #1F2937;
   --sns-login-bg: #E6F2FF;
   --sign-up: #3692FF;
+  --validate-alert: #F74747;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --modal-content-bg: #FFFFFF;
+  --modal-button: #3692FF;
 }
 
 .login-header {
@@ -58,7 +63,7 @@
 }
 
 .login-box {
-  height: 300px;
+  height: 342px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,10 +79,6 @@
   font-size: 1.8rem;
   color: var(--text-label);
 }
-
-/* .input-item {
-
-} */
 
 .input-id, .input-pw {
   padding: 16px 24px;
@@ -100,6 +101,20 @@
 .input-id:focus, .input-pw:focus {
   outline: none;
   border: 2px solid var(--input-focus-border);
+}
+
+.input-id.alert, .input-pw.alert {
+  border: 2px solid var(--validate-alert)
+}
+
+.label-alert {
+  color: var(--validate-alert);
+  font-size: 1.5rem;
+  line-height: 1.79rem;
+  font-weight: 600;
+  position: absolute;
+  bottom:-23px;
+  left:16px;
 }
 
 .clear-btn {
@@ -130,11 +145,17 @@
   width: 100%;
   height: 56px;
   border-radius: 40px;
-  background-color: var(--button-bg);
   color: var(--button-color);
   font-weight: 600;
   font-size: 2rem;
   border: none;
+  cursor: default;
+  background-color: var(--button-bg);
+}
+
+.btn-login.active {
+  cursor: pointer;
+  background-color: var(--button-active-bg);
 }
 
 .sns-login {
@@ -150,7 +171,7 @@
 }
 
 .sns-login > p {
-  width: 110px;
+  width: 120px;
   height: 26px;
   font-weight: 500;
   font-size: 1.6rem;
@@ -187,3 +208,65 @@
   text-decoration: underline;
   color: var(--sign-up)
 }
+
+/* 모달 배경 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-overlay); 
+  display: none;
+  z-index: 2;
+}
+
+/* 모달 콘텐츠 */
+.modal-content {
+  position: fixed;
+  width: 540px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--modal-content-bg);
+  box-sizing: border-box;
+  z-index: 3;
+  display: none;
+  border-radius: 8px;
+}
+
+/* 접근성 screen-reader-only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.modal-content > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+}
+
+.modal-button {
+  font-size: 1.6rem;
+  background-color: var(--modal-button);
+  color: var(--modal-content-bg);
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 120px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+};

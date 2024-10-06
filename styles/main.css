@@ -10,7 +10,6 @@
   src: url('/assets/font/ROKAF_Sans_Medium.ttf') format('truetype');
 }
 
-
 /* body */
 body {
   font-family: Pretendard-Regular;
@@ -357,4 +356,14 @@ footer {
 
 .footer_box > div:nth-child(2) {
   color: #E5E7EB;
+}
+
+.coming-soon {
+  height: 500px; /* 높이 설정 */
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  font-size: 5rem; /* 글자 크기 설정 */
+  font-weight: 700; /* 글자 두께 설정 */
+  color: #3692FF; /* 글자 색상 설정 */
 }
