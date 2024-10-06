@@ -199,7 +199,7 @@ main .logo {
   margin-top: -1rem;
   margin-bottom: 1.5rem;
   color: red;
-  transition: opacity 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .show {
@@ -225,7 +225,6 @@ main .logo {
   background-color: rgba(51 51 51 / 60%);
   backdrop-filter: blur(0.5rem);
   padding: 1rem;
-  /* transition: all 0.5s ease-in-out; */
 }
 
 .modal {
