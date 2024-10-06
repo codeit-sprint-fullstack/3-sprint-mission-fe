@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.first-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 200px;
+  margin-bottom: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+.login-button {
+  width: 128px;
+  height: 48px;
+  background-color: #3692FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.second-section {
+  background: #CFE5FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 988px;
+  margin-top: 70px;
+}
+
+.second-section-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-section-2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  color: #374151;
+  padding-bottom: 60px;
+}
+
+.second-section-3 {
+  width: 357px;
+  height: 56px;
+  background-color: #3692FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  color: #ffffff;
+}
+
+/* .second-section-4 {
+  background-size: cover;
+} */
+
+.third-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  background: #fcfcfc;
+  margin: 140px 600px; 
+  min-width: 988px;
+}
+
+.third-section-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;  
+  gap: 20px;
+  padding: 0 auto;
+}
+
+.third-section-2{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  color: #3692FF;
+}
+
+.third-section-3{
+  font-size: 40px;
+  font-weight: 700;
+  line-height:  56px;
+  text-align: left;
+}
+
+.third-section-4{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
+}
+
+
+.fourth-section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  background: #fcfcfc;
+  margin: 140px 600px; 
+  min-width: 988px;
+  padding: 0 auto;
+}
+
+.fourth-section-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;  
+  gap: 20px;
+  padding: 0 auto;
+}
+
+.fourth-section-2{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  color: #3692FF;
+}
+
+.fourth-section-3{
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: left;
+}
+
+.fourth-section-4{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
+}
+
+
+.fifth-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+  gap: 70px;
+  margin: 140px 600px;
+  background-color: #fcfcfc;
+  min-width: 988px;
+}
+
+.fifth-section-1 {
+ 
+}
+
+.fifth-section-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;  
+  gap: 20px;
+}
+
+.fifth-section-3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  color: #3692FF;
+}
+
+.fifth-section-4 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.fifth-section-5 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: flex-start;
+}
+
+.sixth-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #CFE5FF;
+  width: 100%;
+  height: 540px;
+  min-width: 988px;
+}
+
+.sixth-section-1 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  color: #374151;
+  padding-bottom: 60px;
+}
+
+.sixth-section-2 {
+
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #111827;
+  padding: 32px 200px;
+  min-width: 988px;
+}
+
+#privacyPolicy {
+  color: #E5E7EB;
+}
+
+#faq {
+  color: #E5E7EB;
+}
+
+#codeit {
+  color: #9CA3AF;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
