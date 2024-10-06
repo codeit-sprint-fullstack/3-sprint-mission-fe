@@ -3,6 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0px 16px;
 }
 
 main {
@@ -41,9 +42,11 @@ input:focus {
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
+  padding: 0px 70px;
 }
 
 .login-logo-img {
+  width: 100%;
   max-width: 396px;
   max-height: 132px;
 }
@@ -148,4 +151,23 @@ input:focus {
 
 .signup-container a {
   color: var(--login-signup-font-color);
+}
+
+@media (min-width: 744px) and (max-width: 1199px) {
+  .form-email,
+  .form-password {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 743px) {
+  .login-logo {
+    margin-bottom: 16px;
+  }
+
+  .form-email,
+  .form-password {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
 }
