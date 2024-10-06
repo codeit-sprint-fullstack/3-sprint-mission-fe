@@ -23,7 +23,7 @@ class Sign {
   }
 
   toggleInputError(e, message = "") {
-    const errorMessageNode = e.closest("section").querySelector(".message");
+    const errorMessageNode = e.target.closest("section").querySelector(".message");
     errorMessageNode.innerText = message;
     if (message.length) {
       e.target.classList.add("error");
