@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9RELG30HMF"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-9RELG30HMF");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="sinup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <form class="login">
+      <div class="logo">
+        <a href="index.html">
+          <img class="login-title" src="logo-3.png" art="판다마켓"
+        /></a>
+      </div>
+
+      <label>이메일</label>
+      <input name="email" type="text" placeholder="이메일을 입력해주세요" />
+      <label>닉네임</label>
+      <input name="username" type="text" placeholder="닉네임을 입력해주세요" />
+      <label>비밀번호</label>
+      <div class="input-pw">
+        <input
+          name="password"
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+        />
+        <div class="eyes">
+          <i class="fa-regular fa-eye-slash"></i>
+        </div>
+      </div>
+
+      <label>비밀번호 확인</label>
+      <div class="input-pw">
+        <input
+          name="password"
+          type="password"
+          placeholder="비밀번호를 다시 한 번 입력해주세요"
+        />
+        <div class="eyes">
+          <i class="fa-regular fa-eye-slash"></i>
+        </div>
+      </div>
+      <button>로그인</button>
+      <div class="sns">
+        간편로그인하기
+        <div id="sns-icon">
+          <a href="https://www.google.com" target="_blank">
+            <img src="google.png"
+          /></a>
+
+          <a href="https://www.kakaocorp.com/page" target="_blank">
+            <img src="kakao.png"
+          /></a>
+        </div>
+      </div>
+      <div class="sinup">
+        이미 회원이신가요?
+        <a class="login-link" href="login.html">로그인</a>
+      </div>
+    </form>
+  </body>
+</html>
