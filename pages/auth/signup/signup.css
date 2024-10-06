@@ -84,11 +84,7 @@ input:focus {
   position: absolute;
   top: 14px;
   right: 16px;
-}
-
-.form-password:focus-within img,
-.form-password-confirm:focus-within img {
-  display: block;
+  cursor: pointer;
 }
 
 .error > .error {

@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="../../../styles/common.css" />
     <link rel="stylesheet" href="signup.css" />
     <link rel="stylesheet" href="../../../common/css/modal.css" />
+    <script
+      defer
+      type="module"
+      src="../../../common/js/form-validation.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="../../../common/js/password-visibility.js"
+    ></script>
   </head>
   <body>
     <main>
@@ -54,10 +64,12 @@
             <input
               type="password"
               id="password"
+              class="password-field"
               name="password"
               placeholder="비밀번호를 입력해주세요"
             />
             <img
+              class="password-visibility-image"
               src="../../../assets/images/auth/btn_visibility_off_24px.svg"
               alt="btn_visibility_off"
             />
@@ -70,10 +82,12 @@
             <input
               type="password"
               id="password-confirm"
+              class="password-field"
               name="password-confirm"
               placeholder="비밀번호를 다시 한 번 입력해주세요"
             />
             <img
+              class="password-visibility-image"
               src="../../../assets/images/auth/btn_visibility_off_24px.svg"
               alt="btn_visibility_off"
             />
@@ -108,12 +122,10 @@
         <a href="../login/login.html">로그인</a>
       </div>
     </main>
+    <!-- 모달 -->
     <dialog id="error-message-modal" class="error-message-modal">
       <p>사용 중인 이메일입니다.</p>
       <button class="close-modal-button">확인</button>
     </dialog>
-
-    <script></script>
   </body>
-  <script type="module" src="../../../common/js/form-validation.js"></script>
 </html>

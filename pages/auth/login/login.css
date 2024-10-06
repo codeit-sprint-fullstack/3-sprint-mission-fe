@@ -56,6 +56,10 @@ input:focus {
   margin-bottom: 28px;
 }
 
+.form-email div input {
+  width: 100%;
+}
+
 .form-password div {
   position: relative;
 }
@@ -73,8 +77,10 @@ input:focus {
   right: 16px;
 }
 
-.form-password:focus-within img {
-  display: block;
+.error > .error {
+  color: var(--input-error-color);
+  padding-top: 8px;
+  padding-left: 8px;
 }
 
 /* 로그인 버튼 */
@@ -92,6 +98,11 @@ input:focus {
 
 .form-button:focus {
   background-color: var(--main-color);
+}
+
+.form-button:disabled {
+  background-color: var(--login-btn-disabled-bg-color);
+  cursor: not-allowed;
 }
 
 /* 간편 로그인 */

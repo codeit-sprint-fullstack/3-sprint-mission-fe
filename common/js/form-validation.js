@@ -11,13 +11,7 @@ const formButton = document.getElementById('form-button');
 const modal = document.getElementById('error-message-modal');
 const closeModalButton = document.querySelector('.close-modal-button');
 
-const isEmailRegistered = (email) => {
-  return USER_DATA.find((user) => user.email === email.value.trim());
-};
-
 // 폼 제출 시 이벤트 처리
-modal.showModal();
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -26,17 +20,33 @@ form.addEventListener('submit', (e) => {
 
   // 회원 가입 처리
   if (!formButton.disabled) {
-    // 이미 가입된 이메일인지 확인
-    if (isEmailRegistered(email)) {
-      modal.showModal();
-    } else {
-      // 회원가입 완료
-      USER_DATA.push({
-        email: email.value.trim(),
-        password: password.value.trim(),
-      });
-      alert('회원가입이 완료되었습니다.');
-      window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
+    const currentPage = window.location.pathname;
+    if (currentPage.includes('signup.html')) {
+      // 이미 가입된 이메일인지 확인
+      if (isEmailRegistered(email)) {
+        modal.showModal();
+      } else {
+        // 회원가입 완료
+        USER_DATA.push({
+          email: email.value.trim(),
+          password: password.value.trim(),
+        });
+        alert('회원가입이 완료되었습니다.');
+        window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
+      }
+    } else if (currentPage.includes('login.html')) {
+      // 로그인 처리
+      const user = USER_DATA.find(
+        (user) =>
+          user.email === email.value.trim() &&
+          user.password === password.value.trim()
+      );
+      if (user) {
+        // alert('로그인 되었습니다.');
+        window.location.href = '../../../items.html'; // 아이템 페이지 이동
+      } else {
+        modal.showModal();
+      }
     }
   }
 });
@@ -76,6 +86,10 @@ modal.addEventListener('click', (e) => {
     modal.close();
   }
 });
+
+const isEmailRegistered = (email) => {
+  return USER_DATA.find((user) => user.email === email.value.trim());
+};
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
@@ -147,14 +161,25 @@ const validatePasswordConfirmation = () => {
 };
 
 const setSubmitButtonState = () => {
-  const isValid =
-    email.value.trim() !== '' &&
-    isValidEmail(email.value.trim()) &&
-    nickname.value.trim() !== '' &&
-    password.value.trim() !== '' &&
-    password.value.trim().length >= 8 &&
-    passwordConfirm.value.trim() !== '' &&
-    passwordConfirm.value.trim() === password.value.trim();
+  const currentPage = window.location.pathname;
+
+  let isValid = '';
+  if (currentPage.includes('login.html')) {
+    isValid =
+      email.value.trim() !== '' &&
+      isValidEmail(email.value.trim()) &&
+      password.value.trim() !== '' &&
+      password.value.trim().length >= 8;
+  } else if (currentPage.includes('signup.html')) {
+    isValid =
+      email.value.trim() !== '' &&
+      isValidEmail(email.value.trim()) &&
+      nickname.value.trim() !== '' &&
+      password.value.trim() !== '' &&
+      password.value.trim().length >= 8 &&
+      passwordConfirm.value.trim() !== '' &&
+      passwordConfirm.value.trim() === password.value.trim();
+  }
 
   formButton.disabled = !isValid;
 };
