@@ -15,9 +15,11 @@
   --login-input-bg-color: #f3f4f6;
   --login-input-placeholder-color: #9ca3af;
   --login-input-focus-color: #3692ff;
+  --input-error-color: #f74747;
 
   /* 로그인 버튼 관련 색상 */
-  --login-btn-bg-color: #9ca3af;
+  --login-btn-bg-color: #3692ff;
+  --login-btn-disabled-bg-color: #9ca3af;
   --login-btn-font-color: #ffffff;
 
   /* 간편 로그인 색상 */

@@ -10,6 +10,15 @@ form.addEventListener('submit', (e) => {
 
   // 유효성 검사
   setSubmitButtonState();
+
+  if (!formButton.disabled) {
+    window.location.href = '/pages/auth/login/login.html'; // 페이지 이동
+  }
+});
+
+form.addEventListener('input', () => {
+  // 유효성 검사
+  setSubmitButtonState();
 });
 
 form.addEventListener('focusout', (e) => {
