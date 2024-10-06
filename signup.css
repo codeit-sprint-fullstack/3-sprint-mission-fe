@@ -39,30 +39,38 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 284px;
+  flex-direction: column;
+}
+
+.email-container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  position: relative;
+  flex-direction: column;
 }
 
 .email {
+  font-family: 'pretendard-Regular';
   font-size: 18px;
   font-weight: 700px;
   line-height: 26px;
-  /* display: flex;
-  align-items: center;
-  justify-content:center; */
 }
 
 .putemail {
   width: 640px;
   height: 56px;
-  background-color:#F3F4F6;
   border-radius: 12px;
+  background-color: #F3F4F6;
   font-size: 16px;
   font-weight: 400px;
   line-height: 26px;
   display: flex;
+  justify-content: space-between;
+  flex-flow: row;
   align-items: center;
-  margin-top: 11px;
-  padding-left: 10px;
-}
+  flex-direction: column;
+} 
 
 .putemail:focus {
   border-color: #3692FF;
@@ -75,6 +83,7 @@
   font-size: 16px;
   font-weight: 400px;
   line-height: 26px;
+  
 }
 
 .nickname {
@@ -124,9 +133,9 @@
 .password-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   border-radius: 12px;
   position: relative;
+  flex-direction: column;
 }
 
 
@@ -134,10 +143,11 @@
   border: none;
   position: absolute;
   right: 20px;
+  top: 20px;
 }
 
 .putpassword {
-  width: 100%;
+  width: 640px;
   height: 56px;
   border-radius: 12px;
   background-color: #F3F4F6;
@@ -148,17 +158,9 @@
   justify-content: space-between;
   flex-flow: row;
   align-items: center;
-  border: 2px  solid transparent;
-  padding-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
 }
 
-/* .logo {
-  position: absolute;
-  right: px;
-  bottom: ;
-} */
 
 .putpassword:focus-within {
   border-color: #3692FF;
@@ -242,3 +244,52 @@
   color: #3182F6;
 }
 
+.error {
+  border: 2px solid red; 
+}
+
+.error-message {
+  color: red; 
+  font-size: 12px; 
+    margin-top: 5px; 
+}
+
+.body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+@media (max-width: 1199px) and (min-width: 744px) {
+  .box {
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+    
+  }
+
+  .putemail, .putpassword, .signupbutton {
+    width: 100%;
+  }
+  .box {
+    width: 80%; 
+  }
+}
+
+@media (max-width: 743px) and (min-width: 375px) {
+  .box {
+    width: 100%; 
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .putemail, .putpassword, .signupbutton {
+    width: 100%;
+  }
+
+  body {
+    font-size: 16px; 
+  }
+} 

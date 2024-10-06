@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-216NRRQ43V"></script>
@@ -27,10 +27,11 @@
     <section class="marketlogo2">
       <section class="section">
         <div class="email">이메일</div>
-        <div class="putemail">
-          <input type="text" id="Username" class="putemail" placeholder="이메일을 입력해주세요">
-          </input>
+        <div class="pute-container">
+          <input type="text" id="email" class="putemail" placeholder="이메일을 입력해주세요">
+          <div id="emailError" class="error-message" style="display: none;">잘못된 이메일 형식입니다.</div>
         </div>
+  
 
         <div class="nickname">닉네임</div>
         <div class="putnickname">
@@ -45,41 +46,42 @@
             id="password" 
             class="putpassword" 
             placeholder="비밀번호를 입력해주세요"/>
+            <div id="passwordError" 
+            class="error-message" 
+            style="display: none;">비밀번호를 입력해주세요.</div>
 
-          <button 
-            type="button"
-            class="password-toggle-button"
-            aria-label="비밀번호 보기">
-            <img 
-              src="secret.png"
-              alt="비밀번호 숨긴 상태 아이콘">
-        </button>
-
+            <button 
+              type="button"
+              class="password-toggle-button"
+              aria-label="비밀번호 보기">
+              <img 
+                src="secret.png"
+                alt="비밀번호 숨긴 상태 아이콘">
+            </button>
           </div>
-        </div>
-
+    
+            
         <label class="password">비밀번호 확인</label>
         <div class="password-container">
           <input 
             type="password" 
-            id="password" 
+            id="password-retype" 
             class="putpassword" 
-            placeholder="비밀번호를 다시 한 번 입력해주세요"/>
+            placeholder="비밀번호를 입력해주세요"/>
+        
+          <div id="passwordRetypeError" class="error-message" style="display: none;">비밀번호를 다시 입력해주세요.</div>
 
           <button 
             type="button"
             class="password-toggle-button"
             aria-label="비밀번호 보기">
-            <img 
-              src="secret.png"
-              alt="비밀번호 숨긴 상태 아이콘">
-        </button>
-
-          </div>
+            <img src="secret.png" alt="비밀번호 숨긴 상태 아이콘">
+          </button>
         </div>
-        <div class="signupbutton">
-          <a href="being-signup.html">
-            <p class="signup2font">회원가입</p>
+    
+          <div class="signupbutton">
+            <a href="being-signup.html">
+              <p class="signup2font">회원가입</p>
           </a>
           </div>
       <section class="simplebox">
@@ -101,5 +103,6 @@
       </section>
     </section>
   </main>
+  <script src="signup.js"></script>
 </body>
 </html>
