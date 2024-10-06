@@ -415,9 +415,15 @@ footer {
     width: 24rem;
   }
 
+  .sub-title {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    margin-bottom: 0.8rem;
+  }
+
   .main-title {
     font-size: 2.4rem;
-    line-height: 3.36rem;
+    line-height: 3.2rem;
     margin-bottom: 1.6rem;
   }
 
