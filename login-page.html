@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <link rel="stylesheet" href="login-page.css">
+  <link rel="stylesheet" href="main-page.html">
+
+</head>
+  <body>
+    <main>
+      <a href="main-page.html" > 
+        <img class="panda-logo" src="logo.png">
+      </a>    
+      <div class="main-login">
+        <div class="main-loginset-idpw">
+          <div class="main-loginset-email-skin">
+            <p class="email">이메일</p>
+            <input type="text" id="chkeamil" placeholder="이메일을 입력해주세요"> 
+            <div class="email_message" id="email_message">잘못된 이메일형식입니다.</div> 
+          </div>
+          <div class="main-loginset-pw-skin">
+            <p class="pw">비밀번호</p>
+             <div class="pw-icon-skin">
+              <input type="password" id="chkpw" placeholder="비밀번호를 입력해주세요">
+              <div class="pw_message" id="pw_message">비밀번호를 8자 이상 입력해주세요.</div>
+                <img class="pw-icon" src="btn_visibility_on_24px.png">                              
+             </div>                
+          </div>
+        </div>
+        <div class="btn-login-skin" id="btn-login-skin">
+          <a href="#" class="btn-login" id="btn-login">로그인</a>
+        </div> 
+         </div> 
+          </div>
+        <div class="main-simplelogin-skin">
+          <div class="main-simplelogin-skin-3set">
+            <div class="simplelogin">간편 로그인하기</div>
+            <div class="logo">
+              <a href="https://www.google.com/" class="gogle-logo"> 
+                <img src="Component 2.png">
+              </a>  
+              <a href="https://www.kakaocorp.com/page/" class="kakao-logo"  >
+                <img src="Component 3.png">
+              </a>  
+            </div> 
+          </div>  
+        </div>
+        <div class="word-btn">
+          <p>판다마켓 처음이신가요?</p>
+          <a href="signup.html" class="btn">회원가입</a>
+        </div>
+      </div>  
+      <div class="modal-background" id="modal-background">
+        <div class="modal-content"id="modal-content">
+          <div class="modal-word" id="modal-word">비밀번호가 일치하지 않습니다.</div>
+          <button class="modal-ok" id="modal-ok">확인</button>
+    </main>
+
+    <script src="login-page.js">
+      
+    </script>
+  </body> 
+</html>
