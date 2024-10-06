@@ -1,0 +1,20 @@
+:root {
+  --default-color: #1f2937;
+  --default-bg: #fcfcfc;
+  --default-shadow: 0 0 0.25rem rgba(0 0 0 / 25%);
+  --label-color: #1f2937;
+  --input-placeholder-color: #9ca3af;
+  --input-bg: #f3f4f6;
+  --input-border: transparent;
+  --input-invalid-border: #ef4444;
+  --input-valid-border: #22c55e;
+  --input-focus-border: #3692ff;
+  --button-color: #f3f4f6;
+  --button-inactive-bg: #9ca3af;
+  --button-active-bg: #3692ff;
+  --social-login-bg: #e6f2ff;
+  --social-login-color: #1f2937;
+  --link-color: #3692ff;
+  --modal-bg: #fff;
+  --button-color: #fff;
+}

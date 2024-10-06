@@ -1,21 +1,4 @@
-:root {
-  --default-color: #1f2937;
-  --default-bg: #fcfcfc;
-  --default-shadow: 0 0 0.25rem rgba(0 0 0 / 25%);
-  --label-color: #1f2937;
-  --input-placeholder-color: #9ca3af;
-  --input-bg: #f3f4f6;
-  --input-border: transparent;
-  --input-invalid-border: #ef4444;
-  --input-valid-border: #22c55e;
-  --input-focus-border: #3692ff;
-  --button-color: #f3f4f6;
-  --button-inactive-bg: #9ca3af;
-  --button-active-bg: #3692ff;
-  --social-login-bg: #e6f2ff;
-  --social-login-color: #1f2937;
-  --link-color: #3692ff;
-}
+@import "/styles/variables.css";
 
 body {
   background-color: var(--default-bg);
@@ -70,7 +53,10 @@ main {
   flex-wrap: wrap;
 }
 
-main > * {
+main > #logo,
+main > .auth-form,
+main > .social-login,
+main > .auth-prompt {
   flex: 0 1 40rem;
 }
 
@@ -88,35 +74,30 @@ main .logo {
   margin-bottom: 2.5rem;
 }
 
-#login,
-#signup {
+.auth-form {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   max-width: 40rem;
 }
 
-#login:invalid button,
-#signup:invalid button {
+.auth-form:invalid button {
   background-color: var(--button-inactive-bg);
   cursor: not-allowed;
 }
 
-#login:valid button,
-#signup:valid button {
+.auth-form:valid button {
   background-color: var(--button-active-bg);
   cursor: pointer;
 }
 
-#login label,
-#signup label {
+.auth-form label {
   margin-bottom: 1rem;
   font-size: 1.125rem;
   font-weight: 700;
 }
 
-#login input,
-#signup input {
+.auth-form input {
   margin-bottom: 1.5rem;
   padding: 0.9375rem 1.5rem;
   outline: none;
@@ -127,24 +108,20 @@ main .logo {
   border-radius: 0.75rem;
 }
 
-#login input:focus,
-#signup input:focus {
+.auth-form input:focus {
   /* border: 0.0625rem solid var(--input-focus-border); */
   filter: drop-shadow(var(--default-shadow));
 }
 
-#login input:focus + .password-toggle,
-#signup input:focus + .password-toggle {
+.auth-form input:focus + .password-toggle {
   filter: invert(45%) sepia(89%) saturate(1690%) hue-rotate(194deg) brightness(101%) contrast(101%);
 }
 
-#login input::placeholder,
-#signup input::placeholder {
+.auth-form input::placeholder {
   color: var(--input-placeholder-color);
 }
 
-#login button,
-#signup button {
+.auth-form button {
   height: 3.5rem;
   background-color: var(--button-inactive-bg);
   font-size: 1.25rem;
@@ -154,27 +131,18 @@ main .logo {
   border-radius: 1.75rem;
 }
 
-#login button:focus,
-#signup button:focus {
-  /* background-color: var(--button-active-bg); */
+.auth-form button:focus {
   filter: drop-shadow(var(--default-shadow));
 }
 
-/* #login button:hover,
-#signup button:hover {
-  background-color: var(--button-active-bg);
-} */
-
-#login .password-container,
-#signup .password-container {
+.auth-form .password-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   position: relative;
 }
 
-#login .password-toggle,
-#signup .password-toggle {
+.auth-form .password-toggle {
   display: flex;
   align-items: center;
   position: absolute;
@@ -210,21 +178,84 @@ main .logo {
   filter: drop-shadow(var(--default-shadow));
 }
 
-.go-signup,
-.go-login {
+.auth-prompt {
   font-size: 0.875rem;
   font-weight: 500;
   text-align: center;
 }
 
-.go-signup a,
-.go-login a {
+.auth-prompt a {
   color: var(--link-color);
 }
 
-.go-signup a:hover,
-.go-login a:hover {
+.auth-prompt a:hover {
   text-decoration: underline;
   text-decoration-thickness: 0.0625rem;
   text-underline-offset: 0.25rem;
+}
+
+.toast-message {
+  margin-left: 1.5rem;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  color: red;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  backdrop-filter: blur(0.5rem);
+  transition: all 0.5s ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+  backdrop-filter: blur(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(51 51 51 / 60%);
+  backdrop-filter: blur(0.5rem);
+  padding: 1rem;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 33.75rem;
+  height: 15.625rem;
+  background-color: var(--modal-bg);
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.modal .close-button {
+  position: absolute;
+  width: 7.5rem;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--button-active-bg);
+  font-weight: 600;
+  color: var(--button-color);
+  border: 0.0625rem solid var(--input-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal .close-button:hover {
+  filter: saturate(1.25) brightness(1.1);
+  border: 0.0625rem solid #2f3ea9;
 }

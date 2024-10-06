@@ -8,15 +8,7 @@
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/login.css">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F0RMGD7KM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4F0RMGD7KM');
-    </script>
+    <script src="/scripts/common.js"></script>
   </head>
   <body class="signup">
     <div id="wrap">
@@ -26,7 +18,7 @@
             <img class="logo" src="/images/panda-market-logo.svg" alt="판다마켓 로고" />
           </a>
         </h1>
-        <form id="signup" name="signup" method="post">
+        <form id="signup" name="signup" class="auth-form" method="post">
           <label for="email">
             <span class="label-title">이메일</span>
           </label>
@@ -66,11 +58,11 @@
             </a>
           </div>
         </section>
-        <section class="go-login">
+        <section class="auth-prompt">
           <span>이미 회원이신가요? <a href="/login">로그인</a></span>
         </section>
       </main>
     </div>
-    <script src="/scripts/login.js"></script>
+    <script src="/scripts/validation.js"></script>
   </body>
 </html>

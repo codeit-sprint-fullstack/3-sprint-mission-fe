@@ -239,7 +239,11 @@ footer {
   gap: 0 0.75rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 744px) and (max-width: 1199px) {
+
+}
+
+@media only screen and (min-width: 375px) and (max-width: 743px) {
   .hero,
   .banner {
     height: fit-content;
@@ -252,14 +256,16 @@ footer {
     padding: 0;
   }
 
-  .hero-desc,
-  .banner-desc {
-    padding-bottom: 2rem;
-    text-align: center;
+  .hero-container {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .hero-figure {
-    display: none;
+  .hero-desc,
+  .banner-desc {
+    max-width: 15rem;
+    padding-bottom: 2rem;
+    text-align: center;
   }
 
   .banner-desc {
@@ -268,11 +274,8 @@ footer {
 
   .hero-desc h1,
   .banner-desc h1 {
-    font-size: 1.25rem;
-  }
-
-  .go-items {
-    font-size: 0.9375rem;
+    font-size: 2rem;
+    margin-bottom: 1.125rem;
   }
 
   main > section:is(.features):first-child {
@@ -283,38 +286,65 @@ footer {
     margin-bottom: 2rem;
   }
 
-  .feature-container {
+  .feature-container,
+  .banner-container {
+    flex-wrap: wrap;
     height: fit-content;
     margin: 1rem auto 0;
     background-color: unset;
+    padding: 0 1rem;
   }
 
-  .feature-figure {
+  .feature-container:nth-child(odd) {
+    justify-content: flex-start;
+  }
+
+  .feature-container:nth-child(even) {
+    justify-content: flex-end;
+  }
+
+  .feature-figure,
+  .banner-figure {
     flex-basis: max(100%, 22.05rem);
   }
 
   .features:nth-child(odd) > .feature-container > .feature-desc > * {
-    padding-right: 1rem;
+    padding-right: 0;
   }
 
   .features:nth-child(even) > .feature-container > .feature-desc > * {
-    padding-left: 1rem;
+    padding-left: 0;
   }
 
   .feature-desc {
+    flex-basis: clamp(75%, 15rem, 87.5%);
     padding: 1rem 0;
   }
 
+  .feature-desc:nth-child(odd) {
+    justify-content: flex-start;
+  }
+
+  .feature-desc:nth-child(even) {
+    justify-content: flex-end;
+   }
+
   .feature-desc h4 {
-    font-size: 0.84375rem;
+    font-size: 1rem;
   }
 
   .feature-desc h2 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .feature-desc p {
-    font-size: 0.875rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .banner-container {
+    justify-content: center;
+    padding: 0;
   }
 
   footer {
