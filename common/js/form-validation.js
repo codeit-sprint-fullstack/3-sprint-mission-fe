@@ -7,9 +7,15 @@ const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
 const formButton = document.getElementById('form-button');
 
+/* 모달 관련 */
+const modal = document.getElementById('error-message-modal');
+const closeModalButton = document.querySelector('.close-modal-button');
+
 const isEmailRegistered = (email) => {
   return USER_DATA.find((user) => user.email === email.value.trim());
 };
+
+// 폼 제출 시 이벤트 처리
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -21,7 +27,7 @@ form.addEventListener('submit', (e) => {
   if (!formButton.disabled) {
     // 이미 가입된 이메일인지 확인
     if (isEmailRegistered(email)) {
-      alert('이미 가입된 이메일입니다.');
+      modal.showModal();
     } else {
       // 회원가입 완료
       USER_DATA.push({
@@ -49,6 +55,24 @@ form.addEventListener('focusout', (e) => {
   };
   if (validationHandlers[elementId]) {
     validationHandlers[elementId]();
+  }
+});
+
+// 모달 닫기 이벤트 처리
+
+closeModalButton.addEventListener('click', () => {
+  modal.close();
+});
+
+modal.addEventListener('click', (e) => {
+  const dialogDimensions = modal.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    modal.close();
   }
 });
 
