@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,26 +14,29 @@
         </div>
         <div class="section-box">
             <div class="panda-txt">
-                <p> 이메일</p>
-                <input type="text" placeholder="이메일을 입력해주세요">
+                <label> 이메일</label>
+                <input type="text" id="email" placeholder="이메일을 입력해주세요">
+                <div id="error-message" class="error-message">잘못된 이메일 형식입니다</div>
             </div>
             <div class="panda-txt">
-                <p>닉네임</p>
+                <label>닉네임</label>
                 <input type="text" placeholder="닉네임을 입력해주세요">
             </div>
             <div class="panda-txt">
-                <p>비밀번호</p>
+                <label>비밀번호</label>
                 <input type="password" placeholder="비밀번호를 입력해주세요" id="pass">
+                <div id="password-error-message" class="error-message"></div>
             </div>
             <div class="panda-txt">
-                <p>비밀번호 확인</p>
-                <input type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" id="pass">
+                <label>비밀번호 확인</label>
+                <input type="password" class="confirm-pass" placeholder="비밀번호를 다시 한 번 입력해주세요" id="confirm-pass">
+                <div id="confirm-password-error-message" class="error-message">비밀번호가 일치하지 않습니다.</div>
             </div>
-            <button class="login-btn">
-                <a class="login-font">회원가입</a>
+            <button class="login-btn" id="loginButton">
+                <span class="login-font">회원가입</span>
             </button>
             <div class="login-box">
-                <p class="easy-login">간편 로그인하기</p>
+                <label class="easy-login">간편 로그인하기</label>
                 <div>
                     <a href="https://www.google.com/"><img src="images/구글.png"></a>
                     <a href="https://www.kakaocorp.com/page/"><img src="images/카톡.png"></a>
@@ -45,5 +48,6 @@
             </div>
         </div>
     </main>
+    <script src="signup.js"></script>
 </body>
 </html>

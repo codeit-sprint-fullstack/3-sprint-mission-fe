@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,19 @@
             <a href="index.html"><img src="images/logo/panda-market-logo.png"
                 alt="판다마켓 로고"></a>
         </div>
-        <div  class="section-box">
+        <form  class="section-box">
             <div class="panda-txt">
-                <p> 이메일</p>
-                <input type="text" placeholder="이메일을 입력해주세요">
-            </div>
+                <label>이메일</label>
+                <input type="text" id="email" placeholder="이메일을 입력해주세요">
+                <div id="error-message" class="error-message">잘못된 이메일 형식입니다</div>
+             </div>
             <div class="panda-txt">
-                <p>비밀번호</p>
-                <input type="password" placeholder="비밀번호를 입력해주세요" id="pass">
+                <label>비밀번호</label>
+                <input type="password" class="password" placeholder="비밀번호를 입력해주세요" id="pass">
+                <div id="password-error-message" class="error-message">비밀번호를 입력해주세요</div>
             </div>
-            <button class="login-btn">
-                <a class="login-font">로그인</a>
+            <button class="login-btn" id="loginButton">
+                <span class="login-font">로그인</span>
             </button>
             <div class="login-box">
                 <p class="easy-login">간편 로그인하기</p>
@@ -35,7 +37,8 @@
                 <a class="first">판다마켓이 처음이신가요?&nbsp; </a>
                 <a class="login-signup" href="signup.html">회원가입</a>
             </div>
-        </div>
+        </form>
     </main>
+    <script src="login.js"></script>
 </body>
 </html>

@@ -26,7 +26,8 @@ main {
     border-radius: 12px;
     font-size: 16px;
     line-height: 26px;
-    border: none;
+    border: 2px solid transparent;
+    margin-top: 12px;
   }
   input:focus {
     outline-color: #3692FF;
@@ -36,6 +37,16 @@ main {
     background-repeat: no-repeat;
     background-size: 24px;
     background-position: 95% center;
+  }
+  input.error {
+    border-color: red;
+  }
+  .error-message {
+    color: red;
+    display: none; 
+    margin-top: 5px;
+    margin-left: 12px;
+    font-size: 17px;
   }
 .login-btn {
     width: 95%;
