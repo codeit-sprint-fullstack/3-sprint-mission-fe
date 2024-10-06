@@ -340,12 +340,20 @@ footer {
     max-width: 60rem;
   }
 
+  .main-title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    margin-bottom: 2.4rem;
+  }
+
   .description {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
     max-width: 30rem;
   }
 
   .main-page:nth-of-type(3) .description {
-    max-width: 34rem;
+    max-width: 27rem;
   }
 
   .sub-title {
@@ -409,7 +417,8 @@ footer {
 
   .main-title {
     font-size: 2.4rem;
-    margin: 0;
+    line-height: 3.36rem;
+    margin-bottom: 1.6rem;
   }
 
   .description {
