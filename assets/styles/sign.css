@@ -103,6 +103,7 @@ button {
 
 button:disabled {
   background-color: var(--main-grey-color);
+  cursor: not-allowed;
 }
 
 .social-login {
