@@ -27,4 +27,7 @@
 
   /* 회원가입 관련 색상 */
   --login-signup-font-color: #3692ff;
+
+  /* 메인 페이지 모바일 footer 색상 */
+  --mobile-footer-font-color: #9ca3af;
 }
