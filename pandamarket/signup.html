@@ -16,14 +16,23 @@
     
     <form class="signup_box"> 
       <label for="ID">이메일</label>
-      <input type="text" id="ID" name="ID" placeholder="이메일을 입력해주세요"/>
+      <input type="text" id="email" name="email" placeholder="이메일을 입력해주세요"/>
+      <div id="emailError"></div>
+
       <label for="nickname">닉네임</label>
       <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요"/>
+      
+      
       <label for="password">비밀번호</label>
       <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/ class="eyes">
-      <label for="repassword">비밀번호 확인</label>
-      <input type="password" id="repassword" name="repassword" placeholder="비밀번호를 다시 한 번 입력해주세요"/ class="eyes">
-      <input class="btn" type="button" value="회원가입">
+      <div id="passwordError"></div>
+      
+      <label for="confirmPassword">비밀번호 확인</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호를 다시 한 번 입력해주세요"/ class="eyes">
+      <div id="confirmError"></div>
+      
+      <input class="btn" id="signUpButton" type="button" value="회원가입" disabled>
+      
       <div class="simple_login">
         <p>간편 로그인하기</p>
         <div class="sns_box">
@@ -37,5 +46,14 @@
       </div>
     </form>
   </section>
+
+  <div class="modal">
+    <div class="modal_popup">
+      <div>사용 중인 이메일입니다.</div>
+      <button type="button" class="ok_btn">확인</button>
+    </div>
+  </div>
+
+  <script src="user.js"></script>
 </body>
 </html>

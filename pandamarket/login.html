@@ -17,10 +17,15 @@
 
     <form class="login_box">
       <label for="ID">이메일</label>
-      <input type="text" id="ID" name="ID" placeholder="이메일을 입력해주세요"/>
+      <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요"/>
+      <div id="emailError"></div>
+
       <label for="password">비밀번호</label>
       <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/ class="eyes">
-      <input class="btn" type="button" value="로그인">
+      <div id="passwordError"></div>
+
+      <input class="btn" type="button" id = "loginButton" value="로그인" disabled>
+
       <div class="simple_login">
         <p>간편 로그인하기</p>
         <div class="sns_box">
@@ -28,6 +33,7 @@
           <a href="https://www.kakaocorp.com/page/"><img src="img/katalk.png" alt="kakaotalk"></a>
         </div>
       </div>
+
       <div class="move_box">
         <div class="move_box_title">판다마켓이 처음이신가요?</div>
         <a href="/signup.html">회원가입</a>
@@ -35,5 +41,14 @@
     </form>
 
   </section>
+
+  <div class="modal">
+    <div class="modal_popup">
+      <div>비밀번호가 일치하지 않습니다.</div>
+      <button type="button" class="ok_btn">확인</button>
+    </div>
+  </div>
+
+  <script src="user.js"></script>
 </body>
 </html>
