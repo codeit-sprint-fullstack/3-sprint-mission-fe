@@ -271,7 +271,8 @@ footer {
 
   .feature-figure,
   .banner-figure {
-    flex-basis: max(100%, 22.05rem);
+    width: 100%;
+    /* flex-basis: max(100%, 22.05rem); */
   }
 
   .features:nth-child(odd) > .feature-container > .feature-desc > * {
