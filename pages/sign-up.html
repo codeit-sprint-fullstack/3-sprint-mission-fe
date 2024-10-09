@@ -118,14 +118,12 @@
         customError: '비밀번호가 일치하지 않습니다.'
       }
     }
-
     window.addEventListener('load', () => {
       const form = document.querySelector('form');
       const visibleBtn = form.querySelectorAll('input[type="checkbox"]');
       const inputs = form.querySelectorAll('input[required]');
       const button = form.querySelector('button');
       const userInputs = { email: '', nickname: '', password: '', '[check-password]': '' };
-
       for (const input of inputs) {
         userInputs[input.id] = input;
         input.addEventListener('change', () => {
@@ -141,19 +139,20 @@
           }
           input.checkValidity();
           const formData = new FormData(form);
-          const errMsg = input.parentElement.nextElementSibling
+          const errMsg = input.nextElementSibling.tagName === 'P' ? input.nextElementSibling : input.parentElement.nextElementSibling;
+          errMsg.classList.add('fade-in');
           if (input.validity.valid === true) {
             errMsg.textContent = '';
           } else {
             for (const errType in input.validity) {
-              if (input.validity[errType] === true) {
+              if (errType !== 'valid' && input.validity[errType] === true) {
                 errMsg.textContent = errMsgType[input.id][errType] ?? input.placeholder;
+
               }
             }
           }
         }, { signal: signal });
       }
-
       for (const btn of visibleBtn) {
         btn.addEventListener('click', (e) => {
           e.target.style.backgroundImage = e.target.checked ? 'url(../images/icon/show-off.svg)' : 'url(../images/icon/show-on.svg)';
@@ -164,17 +163,13 @@
           }
         }, { signal: signal });
       }
-
       form.addEventListener('formdata', (e) => {
-        Array.from(inputs).every(input => {
-          if (input.validity.valid === true) {
-            button.classList.replace('bg-gray400', 'bg-primary');
-          } else {
-            button.classList.replace('bg-primary', 'bg-gray400');
-          }
-        });
+        if (Array.from(inputs).every(input => input.validity.valid)) {
+          button.classList.replace('bg-gray400', 'bg-primary');
+        } else {
+          button.classList.replace('bg-primary', 'bg-gray400');
+        }
       }, { signal: signal });
-
       button.onclick = () => {
         inputs.forEach(input => input.reportValidity());
         if ([...inputs].every(input => input.validity.valid)) {
@@ -183,14 +178,17 @@
             document.querySelector('dialog button').onclick = () => {
               document.querySelector('dialog').close();
             }
-            document.querySelector('dialog').showModal();
           } else {
-            window.location.pathname = '/pages/sign-in.html';
+            document.querySelector('dialog p').textContent = '회원가입이 완료되었습니다.';
+            document.querySelector('dialog button').onclick = () => {
+              document.querySelector('dialog').close();
+              window.location.pathname = '/pages/sign-in.html';
+            }
           }
+          document.querySelector('dialog').showModal();
         }
       }
     });
-
     window.addEventListener('unload', () => {
       controller.abort();
     });
