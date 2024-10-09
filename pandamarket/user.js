@@ -6,6 +6,7 @@ const confirmPassword = document.querySelector('#confirmPassword');
 const confirmError = document.querySelector('#confirmError');
 const loginBtn = document.querySelector('#loginButton');
 const signUpBtn = document.querySelector('#signUpButton');
+const eyesBtn = document.querySelector('.eyes');
 
 const USER_DATA = [
   {email:'codeit1@codeit.com',password:'codeit101!'},
@@ -15,6 +16,11 @@ const USER_DATA = [
   {email:'codeit5@codeit.com',password:'codeit505!'},
   {email:'codeit6@codeit.com',password:'codeit606!'},
 ]
+
+eyesBtn.addEventListener('click', function() {
+  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+  password.setAttribute('type',type);
+})
 
 email.addEventListener('keydown',function(event){
   if(event.key === 'Enter'){

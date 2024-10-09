@@ -81,6 +81,7 @@ input:focus {
   background-position: right 24px center;
   background-repeat: no-repeat;
   background-size: 24px;
+  cursor: pointer;
 }
 
 .btn {
