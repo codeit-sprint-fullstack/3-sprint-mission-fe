@@ -24,44 +24,41 @@
 
             <section class="email">
                 <h1 class="boldText">이메일</h1>
-
-                <input type="text" placeholder="이메일을 입력해주세요">
-
+                <input class="inputStyle" id="emailInput" type="text" placeholder="이메일을 입력해주세요">
+                <span class= "errorText" id="emailError"></span>
             </section>
 
             <section class="nickname">
                 <h1 class="boldText">닉네임</h1>
-
-                <input type="text" placeholder="닉네임을 입력해주세요">
-
+                <input class="inputStyle" id="nicknameInput" type="text" placeholder="닉네임을 입력해주세요">
+                <span class= "errorText" id="nicknameError"></span>
             </section>
 
             <section class="password">
                 <h1 class="boldText">비밀번호</h1>
 
                 <div class="inputEye">
-                    <input type="password" placeholder="비밀번호를 입력해주세요">
-
-                    <i class="fa fa-solid fa-eye-slash"></i>
+                    <input class="inputStyle" id="pwInput" type="password" placeholder="비밀번호를 입력해주세요">
+                    <i id="eyeIcon" class="fa fa-solid fa-eye-slash"></i>
+                    <span class= "errorText" id="pwError"></span>
                 </div>
 
             </section>
 
             <section class="passwordCheck">
                 <h1 class="boldText">비밀번호 확인</h1>
-
                 <div class="inputEye">
-                    <input type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-
+                    <input class="inputStyle" id="pwCheckInput" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
                     <i class="fa fa-solid fa-eye-slash"></i>
+                    <span class= "errorText" id="pwCheckError"></span>
                 </div>
 
             </section>
 
 
-            <section class="loginBt">
-                <a>
-                    <div class="likeBtA">
+            <section>
+                <a id="signUpBt">
+                    <div id="likeBtA">
                         회원가입
                     </div>
                 </a>
@@ -86,6 +83,18 @@
                 <a href="login.html">로그인</a>
             </section>
         </div>
+
+        <div id="modal">
+            <div class="modalPopup">
+                <span id="modalText">fafasfasdfasdsf</span>
+                <button  id="modalBt" class="smallBt">
+                    확인
+                </button>
+            </div>
+        </div>
+
+        <!-- js파일 불러오기 -->
+        <script src="signUp.js"></script>
 </body>
 
 </html>

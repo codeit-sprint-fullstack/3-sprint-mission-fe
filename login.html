@@ -12,7 +12,13 @@
 </head>
 
 <body>
+    <!-- 화면 중앙에 놓기 위해 큰 틀 만들기 -->
+    <!-- flex 속성 줘서 안의 요소가 가로 세로 center로 오게 함 -->
     <div class="wrap">
+
+        <!-- 로그인 요소들을 감싸는 박스 -->
+        <!-- flex, width 값을 줌 -->
+        <!-- 안에는 section 별로 이메일, 비밀번호, 로그인 버튼, 간편 로그인, 회원가입 나눔 -->
         <div class="loginContainer">
             <section class="pandaLogo">
                 <div class="pandaLogoCon">
@@ -23,23 +29,24 @@
             </section>
             <section class="email">
                 <h1 class="boldText">이메일</h1>
-                <input type="text" placeholder="이메일을 입력해주세요">
-
+                <input class="inputStyle" id="emailInput" type="text" placeholder="이메일을 입력해주세요">
+                <span class= "errorText" id="emailError"></span>
             </section>
             <section class="password">
                 <h1 class="boldText">비밀번호</h1>
                 <div class="inputEye">
-                    <input type="password" placeholder="비밀번호를 입력해주세요">
-
-                    <i class="fa fa-solid fa-eye-slash"></i>
+                    <input class="inputStyle" id="pwInput" type="password" placeholder="비밀번호를 입력해주세요">
+                    <i id="eyeIcon" class="fa fa-solid fa-eye-slash"></i>
+                    <span class= "errorText" id="pwError"></span>
                 </div>
             </section>
-            <section class="loginBt">
-                <a>
-                    <div class="likeBtA">
+            <section>
+                <a id="loginBt">
+                    <div id="likeBtA">
                         로그인
                     </div>
                 </a>
+                <!-- <button class="loginBtStyle" id="loginBt" disabled> 로그인</button> -->
             </section>
             <section class="simpleLogin">
                 <div class="simpleLoginCon">
@@ -62,6 +69,20 @@
             </section>
         </div>
     </div>
+
+    <div id="modal">
+        <div class="modalPopup">
+            <div id="modalText">fafasfasdfasdsf</div>
+            <button id="modalBt" class="smallBt">
+                확인
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- js 파일 불러오기 -->
+    <script src="login.js"></script>
 </body>
 
 </html>
