@@ -29,7 +29,7 @@ html{
     font-size: 1.6rem;
     color: #000000;
     background-color:var(--input-bg-color);
-    border: none;
+    border:none;
 }
 
 .text{
@@ -65,7 +65,7 @@ html{
 }
 
 input:focus{
-    outline: auto var(--primary-100-color);
+    outline-color: var(--primary-100-color);
 }
 
 .img{
@@ -74,8 +74,8 @@ input:focus{
     align-items: center;
 }
 
-input.pw{
-    background-image: url(images/social/btn_visibility_off_24px.png);
+.pw{
+    background-image: url(../images/social/btn_visibility_off.png);
     background-repeat: no-repeat;
     background-position: 96% center;
     padding: 1.6rem 2.4rem;
@@ -86,13 +86,8 @@ input.pw{
     font-family: pretendard;
     font-size: 1.6rem;
     color: #000000;
-    background-color:var(--input-bg-color); padding: 1.6rem 2.4rem;
-    border-radius: 1.2rem;
-    font-weight: 400;
-    font-family: pretendard;
-    font-size: 1.6rem;
-    color: #000000;
-    background-color:var(--input-bg-color);
+    background-color:var(--input-bg-color); 
+    padding: 1.6rem 2.4rem;
     border: none;
 }
 
@@ -105,7 +100,7 @@ input.pw{
 button{
     width: 100%;
     border-radius: 4rem;
-    padding: 1.2rem 12.4rem
+    padding: 1.2rem 10rem;
     gap: 1rem;
     background-color: var(--btn-bg-color);
     margin-top: 2rem;
@@ -117,12 +112,99 @@ button:focus{
     background-color: var(--primary-100-color);
 }
 
-
-
 .log{
     font-family: pretendard;
     font-weight: 600;
     font-size: 2rem;
     text-align: center;
     color: var(--input-bg-color);
+}
+
+.hide{
+    display: none;
+}
+
+.invalid{
+    border: 1px solid red;
+}
+
+.outline{
+    outline: red;
+}
+
+.enterIdMsg, .enterPwMsg, .wrongIdMsg, .wrongPwMsg{
+    font-family: pretendard;
+    color: red;
+    font-size: 150%;
+    margin-top: 1rem;
+}
+
+.modal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.modal_popup{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: #ffffff;
+   padding: 7rem 12rem;
+   border-radius: 1rem;
+   text-align: center;
+}
+
+.modal-line{
+    width: 100%;
+    top: 10.8rem;
+    left: 17.4rem;
+    font-family: pretendard;
+    font-size:1.6rem;
+    text-align: center;
+    color: #1F2937;
+}
+
+.close_btn{
+    display: block;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background-color: var(--primary-100-color);
+    color: #ffffff;
+    margin-top: 1rem;
+    transform: translate(50%, 150%);
+}
+
+
+
+@media(max-width:743px){
+   .main{
+        max-width: 400px;
+        padding: 0 16px;
+    }
+    .img{
+        max-width: 400px;
+        padding: 0 16px;
+    }
+    .modal{
+        max-width: 400px;
+        width: 100%;
+        height: 100%;
+    }
+    .modal-line{
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width:1199px){
+    .img{
+        width: 50%;
+    }
 }

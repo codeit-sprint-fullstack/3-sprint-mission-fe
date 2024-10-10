@@ -81,13 +81,13 @@ h1{
     cursor: pointer;
 }
 
-.so{
+.first{
     height: 54rem;
     background-color: #CFE5FF; 
     display: flex;
 }
 
-.soin{
+.infirst{
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -161,7 +161,7 @@ footer{
     height: 5.1rem;
 }
 
-.test{
+.firstline{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -195,4 +195,31 @@ footer{
     margin-top:24px;
     font-family: pretendard;
     text-align: right;
+}
+
+@media(max-width:743px){
+
+    .login{
+        padding-right: 16px;
+        margin: auto;
+    }
+
+    .logo{
+        margin: auto;
+        padding-left: 16px;
+    }
+}
+
+@media(max-width:1199px){
+
+    .login{
+        padding-right: 24px;
+        margin: auto;
+    }
+
+    .logo{
+        margin: auto;
+        padding-left: 24px;;
+    }
+    
 }

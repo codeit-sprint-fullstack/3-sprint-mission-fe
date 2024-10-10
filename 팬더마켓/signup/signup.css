@@ -61,7 +61,7 @@ html{
     color: var(--primary-100-color);
 }
 
-input{
+.email{
     padding: 1.6rem 2.4rem;
     margin-right: 37rem;
     width: 93%;
@@ -74,15 +74,62 @@ input{
     border: none;
 }
 
+.pass{
+    padding: 1.6rem 2.4rem;
+    margin-right: 37rem;
+    width: 93%;
+    border-radius: 1.2rem;
+    font-weight: 400;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    color: #000000;
+    background-color:var(--input-bg-color);
+    border: none;
+}
+
+.passcheck{
+    padding: 1.6rem 2.4rem;
+    margin-right: 37rem;
+    width: 93%;
+    border-radius: 1.2rem;
+    font-weight: 400;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    color: #000000;
+    background-color:var(--input-bg-color);
+    border: none;
+}
+
+.nickname{
+    padding: 1.6rem 2.4rem;
+    margin-right: 37rem;
+    width: 93%;
+    border-radius: 1.2rem;
+    font-weight: 400;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    color: #000000;
+    background-color:var(--input-bg-color);
+    border: none;
+}
+
+
 input:focus{
     outline: auto var(--primary-100-color);
 }
 
-.pass{
-    background-image: url(images/social/btn_visibility_off_24px.png);
+.blind{
+    background-image: url(../images/social/btn_visibility_off.png);
     background-repeat: no-repeat;
     background-position: 96% center;
 }
+
+.see{ 
+    background-image: url(../images/social/btn_visibility_on.png);
+    background-repeat: no-repeat;
+    background-position: 96% center;
+}
+
 
 .logoimg{
     display: flex;
@@ -109,10 +156,94 @@ button:focus{
     background-color: var(--primary-100-color);
 }
 
+.modal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.modal_popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 7rem 12rem;
+    border-radius: 1rem;
+    text-align: center;
+ }
+
+ .modal-line{
+    width: 100%;
+    top: 10.8rem;
+    left: 17.4rem;
+    font-family: pretendard;
+    font-size:1.6rem;
+    text-align: center;
+    color: #1F2937;
+}
+
+.close_btn{
+    display: block;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background-color: var(--primary-100-color);
+    color: #ffffff;
+    transform: translate(250%, 150%);
+}
+
+
 .sign{
     font-family: pretendard;
     font-weight: 600;
     font-size: 2rem;
     text-align: center;
     color: var(--input-bg-color);
+}
+
+.hide{
+    display: none;
+}
+
+.lMsg, .matchMsg, .formMsg, .noneMsg, .noPw, .recheck, .nickMsg{
+    font-family: pretendard;
+    color: red;
+    font-size: 150%;
+    margin-top: 1rem;
+}
+
+.border{
+    border: 1px solid red;
+}
+
+.redborder{
+    border: 1px solid red;
+}
+
+
+
+@media(max-width:743px){
+    div{
+        max-width: 400px;
+        padding: 0 16px;
+    }
+    .logoimg{
+        max-width: 400px;
+        padding: 0 16px;
+    }
+    .modal{
+        width:100%;
+    }
+}
+
+@media(max-width:1199px){
+    .img{
+        width: 50%;
+    }
 }
