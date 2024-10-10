@@ -1,4 +1,5 @@
 import { USER_DATA } from '../../data/users.js';
+import { EMAIL_PATTERN } from './regex.js';
 
 const form = document.getElementById('form');
 const email = document.getElementById('email');
@@ -110,10 +111,7 @@ const setSuccess = (element) => {
 };
 
 const isValidEmail = (email) => {
-  const regex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  return regex.test(String(email).toLowerCase());
+  return EMAIL_PATTERN.test(String(email).toLowerCase());
 };
 
 // ----------유효성 검사 함수들-----------
