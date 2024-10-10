@@ -16,15 +16,27 @@ class LoginForm extends Sign {
       [KEYS.email]: $("#email"),
       [KEYS.password]: $("#password"),
     };
-    this.validateMethods = [validator.validateEmail, validator.validatePassword];
+    this.validateMethods = {
+      [KEYS.email]: validator.validateEmail,
+      [KEYS.password]: validator.validatePassword,
+    };
   }
 
   onSubmit() {
     const values = this.getValues();
     const matchingAccount = USER_DATA.find((data) => data.email === values.email);
     matchingAccount?.password === values.password
-      ? (window.location.href = "../items/index.html")
-      : this.showModal(ERROR_MESSAGES.passwordNotMatch);
+      ? this.handleLoginSuccess()
+      : this.handleLoginFailure(ERROR_MESSAGES.passwordNotMatch);
+  }
+
+  handleLoginSuccess() {
+    super.handleSubmitSuccess();
+    // 이후 추가 로직 작성
+  }
+  handleLoginFailure(message) {
+    super.handleSubmitFailure(message);
+    // 이후 추가 로직 작성
   }
 }
 

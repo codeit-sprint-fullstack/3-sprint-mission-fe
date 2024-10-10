@@ -20,22 +20,32 @@ class signupForm extends Sign {
       [KEYS.password]: $("#password"),
       [KEYS.confirmPassword]: $("#confirm-password"),
     };
-    this.validateMethods = [
-      validator.validateEmail,
-      validator.validateNickname,
-      validator.validatePassword,
-      validator.validatePassword,
-    ];
+    this.validateMethods = {
+      [KEYS.email]: validator.validateEmail,
+      [KEYS.nickname]: validator.validateNickname,
+      [KEYS.password]: validator.validatePassword,
+      [KEYS.confirmPassword]: validator.validatePassword,
+    };
   }
 
   onSubmit() {
     const values = this.getValues();
-    const matchingAccount = USER_DATA.find((data) => data.email === values.email);
-    matchingAccount
-      ? this.showModal(ERROR_MESSAGES.emailAlreadyInUse)
-      : values.password === values.confirmPassword
-      ? (window.location.href = "../items/index.html")
-      : this.showModal(ERROR_MESSAGES.passwordNotMatch);
+    const emailAlreadyInUse = USER_DATA.find((data) => data.email === values.email);
+    const passwordMatch = values.password === values.confirmPassword;
+    emailAlreadyInUse
+      ? this.handleSignupFailure(ERROR_MESSAGES.emailAlreadyInUse)
+      : !passwordMatch
+      ? this.handleSignupFailure(ERROR_MESSAGES.passwordNotMatch)
+      : this.handleSignupSuccess();
+  }
+
+  handleSignupSuccess() {
+    super.handleSubmitSuccess();
+    // 이후 추가 로직 작성
+  }
+  handleSignupFailure(message) {
+    super.handleSubmitFailure(message);
+    // 이후 추가 로직 작성
   }
 }
 
