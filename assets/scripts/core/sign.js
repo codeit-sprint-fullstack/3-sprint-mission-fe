@@ -2,13 +2,16 @@ import $ from "../utils/query.js";
 
 class Sign {
   constructor() {
+    // 인풋 값의 유효성 상태를 저장하는 객체
     this.inputValidState = {};
+    // 페이지의 인풋 DOM요소
     this.inputs = {};
-    this.validateMethods = [];
+    // 인풋 값의 유효성검사 메소드
+    this.validateMethods = {};
   }
 
   init() {
-    this.setInputs();
+    this.handleInputFocusout();
     this.setFormSubmit();
     this.setCloseButton();
     this.handleToggleButton();
@@ -35,16 +38,15 @@ class Sign {
     errorMessageNode.classList.remove("show");
   }
 
-  setInputs() {
-    Object.values(this.inputs).forEach((input, index) => {
-      input.addEventListener("focusout", (e) => {
+  handleInputFocusout() {
+    for (const key in this.inputs) {
+      this.inputs[key].addEventListener("focusout", (e) => {
         const { value } = e.target;
-        const message = this.validateMethods[index](value);
+        const message = this.validateMethods[key](value);
         this.toggleInputError(e, message);
-        const keys = Object.keys(this.inputs);
-        this.setState({ [keys[index]]: message.length === 0 });
+        this.setState({ [key]: message.length === 0 });
       });
-    });
+    }
   }
 
   setFormSubmit() {
