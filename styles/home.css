@@ -1,0 +1,473 @@
+
+/* width:1920px; */
+/* vw: 웹 브라우저의 너비를 기준으로 값을 백분율로 지정 */
+header {
+  width:100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;  
+  color:#FFFFFF;
+  border:0px,0px,1px,0px;
+  border-color: #DFDFDF;
+  padding: 9px 200px 9px 200px; /* 위 | 오른쪽 | 아래 | 왼쪽 */
+  gap: 10px;
+  position: fixed;
+  /* z-index: 2; */
+  top:9.5;
+  left:200;
+  /* background-color:#CFE5FF;   */ 
+  background-color: #FCFCFC; 
+}
+/* align-items stretch가 기본 항상 큰 size를 유지하려고 한다. */
+/* z-index 잘 작동한다. 하지만 꺼도 잘 작동. */
+
+#panda-logo {
+  width: 153px;  
+  /* width: 100%;   */
+  height:51px;
+  top:5.02px;
+  border-radius:11.18px;
+}
+
+.login-btn {
+  width: 128px;
+  /* width: 100%;   */
+  height: 48px;
+  color: #F3F4F6;
+  background-color: #3692ff;
+  border-radius: 8px;
+  padding: 12px 23px 10px 23px;
+  gap:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;  
+}
+
+.btn-font {
+  width: 100%;
+  color: #f3f4f6;
+  font-weight: 600;
+  /* font-size: 16px; */
+  /* line-height: 26px; */
+  font-size: 1rem;
+  line-height: 1.63rem;  
+  text-align:center;
+  white-space: nowrap;
+}
+
+/* CSS는 유효한 숫자 표기를 따라야 한다.
+  유효한 CSS 숫자 표기에는 소수점 앞에 0이 없는 경우, 
+  소수점 뒤에 0으로 끝나지 않는 경우 등이 포함된다.
+  예를 들어, 0.5는 유효한 숫자이지만 .5는 유효하지 않은 숫자이다.
+ */
+.section1 {
+  width:100%;
+  height:540px;
+  background-color:#CFE5FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: flex-end;
+  gap:7px;
+}
+
+.section1-title-layer {
+  display:flex;
+  flex-direction:column;
+  padding-bottom: 90px;
+  gap:30px;  
+  /* z-index: 1; */
+}
+
+.section1-title {
+  /* width:295px;
+  height:112px; */
+  width:100%;
+  height:auto;
+  font-weight: 700;
+  /* font-size: 40px;
+  line-height: 56px; */
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  color:#374151;  
+}
+
+.show-btn {
+  /* width: 357px; */  
+   width: 100%;  
+   height: 56px;
+  color: #F9FAFB;
+  background-color: #3692ff;  
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section1-img-layer{
+  width:746px;
+  height:340px;  
+  display: flex;
+  align-items: flex-end;
+}
+
+
+/* gap 은 요소들 사이의 여백을 만들어 주는 속성 */
+.section2 {  
+  width:100%;  
+  height:720px;  
+  background-color:#FFFFFF;   
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;
+  padding: 0 31 0 31;
+}
+
+.section2-layer{
+  width:988px;
+  height:444px;
+  background-color: #FCFCFC;
+  /* background-color:cornflowerblue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;  
+  gap:64px;
+}
+
+.section2-img-layer{
+  /* width:588px; */
+  width:64%;
+  height:auto;
+  /* padding-left: 31px; */
+  display: flex;
+  align-items: flex-end;
+  /* background-color: aqua; */
+}
+
+.section2-title-layer {  
+  /* width:312px; */
+  width:36%;
+  height:auto;
+  /* background-color: burlywood; */
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.section2-hot-item {
+  font-weight: 700;  
+  /* font-size: 18px;
+  line-height: 26px; */
+  font-size: 1.125rem;
+  line-height: 1.63rem;
+  color:#3692FF;
+}
+
+/* letter-spacing 글자 간격 */
+.section2-title {
+  font-weight: 700;  
+  /* font-size: 40px;
+  line-height: 56px;     */
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  color:#374151;  
+}
+
+.section2-desc {
+  font-weight: 500;  
+  /* font-size: 24px;
+  line-height: 32px; */
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color:#374151;
+}
+
+.section3 {
+  width:100%;
+  height:720px;
+  /* min-width:20rem; */
+  background-color:#FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;
+  /* padding: 0 9.5 0 0;
+  gap:64px; */
+}
+
+.section3-layer{
+  width:988px;
+  height:444px;
+  background-color: #FCFCFC;
+  /* background-color:cornflowerblue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;  
+  gap:64px;
+}
+
+.section3-img-layer{
+  /* width:588px; */
+  width:64%;
+  /* height:444px; */
+  height:auto;
+  /* padding-left: 31px; */
+  display: flex;
+  align-items: flex-end;
+  /* background-color: aqua; */
+}
+
+.section3-title-layer {  
+  /* width: 317px; */
+  width:36%;
+  /* height:238px;  */
+  height:auto;
+  /* background-color: #FCFCFC; */
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.section3-search {
+  font-weight: 700;  
+  /* font-size: 18px;
+  line-height: 26px; */
+  font-size: 1.125rempx;
+  line-height: 1.63rem;
+  text-align: right;
+  color:#3692FF;
+  /* padding-bottom: 12px; */
+}
+
+.section3-title {
+  font-weight: 700;  
+  /* font-size: 40px;
+  line-height: 56px; */
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  /* letter-spacing:2%; */  
+  text-align: right;
+  color:#374151;  
+  /* padding-bottom: 24px; */
+}
+
+.section3-desc {
+  font-weight: 500;  
+  /* font-size: 24px;
+  line-height: 32px; */
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-align: right;
+  color:#374151;
+}
+
+.section4 {
+  width:100%;
+  height:720px;  
+  background-color:#FFFFFF;  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;
+  /* padding: 0 31 0 31; */
+}
+
+.section4-layer{
+  width:988px;
+  height:444px;
+  background-color: #FCFCFC;
+  /* background-color:cornflowerblue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;  
+  gap:64px;
+}
+
+.section4-img-layer{
+  /* width:588px; */
+  width:64%;
+  /* height:444px; */
+  height:auto;
+  /* padding-left: 31px; */
+  display: flex;
+  align-items: flex-end;
+  /* background-color: aqua; */
+}
+
+.section4-title-layer {  
+  /* width:364px; */
+  width:36%;
+  /* height: 444px;   */
+  height:auto;
+  /* background-color: #FCFCFC; */
+  display:flex;
+  flex-direction:column;  
+  justify-content: center;
+  gap: 24px;
+}
+
+.section4-register {
+  font-weight: 700;  
+  /*font-size: 18px; */
+  /* line-height: 26px; */
+  font-size: 1.125rem;
+  line-height: 1.63rem;
+  color:#3692FF;
+}
+
+/* letter-spacing 글자 간격 */
+.section4-title {
+  font-weight: 700;  
+  /* font-size: 40px;
+  line-height: 56px;  */
+  font-size: 2.5rem;
+  line-height: 3.5rem; 
+  /* letter-spacing:2%; */
+  color:#374151;  
+}
+
+.section4-desc {
+  font-weight: 500;  
+  /* font-size: 24px;
+  line-height: 32px; */
+  font-size: 1.4rem;
+  line-height: 2rem; 
+  color:#374151;
+}
+
+.section5 {
+  width:100%;
+  height:540px;  
+  background-color:#CFE5FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: flex-end;
+  /* padding: 0 9.5 0 0;
+  gap:10px; */
+}
+
+.section5-layer{
+  width:1110px;
+  height:397px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  align-items: center;  
+  gap:69px;
+}
+/* 강사님이 반올림해서 사용하라고 하심.  */
+.section5-img-layer {
+  /* width:746px; */
+  width:67.207%;
+  height:397px;  
+  display: flex;
+  align-items: flex-end;
+}
+
+.section5-title-layer {  
+  /* width:364px; */
+  width:32.792%;
+  height:172px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.section5-Information {  
+  font-weight: 700;  
+  /* font-size: 40px;
+  line-height: 56px; */
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  color:#374151;
+}
+
+.footer {
+  width:100%;
+  height:160px;
+  /* min-width:20rem; */
+  padding: 32px 200px 32px 200px;
+  background-color:#111827;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;  
+  gap:10px;
+}
+
+.footer-codeit {
+  /* width:112px; */
+  height: 19px;
+  font-weight: 400;  
+  /* font-size: 16px; */
+  font-size: 1rem;
+  /* line-height: 19.09px; */
+  line-height: 1.2rem;
+  text-align: center;
+  color:#9CA3AF;
+}
+
+.footer-link-layer {
+  width:200px;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  /* align-items: flex-start;   */ 
+  gap:30px;
+  /* margin:0 30 0 30; */
+}
+
+.footer-privacy-policy {
+  /* width:100px;
+  height: 19px; */
+  font-weight: 400;
+  /* font-size: 16px; */
+  font-size: 1rem;
+  /* line-height: 19.09px;   */
+  line-height: 1.2rem;
+  text-align: center;  
+  color:#E5E7EB;
+  cursor:pointer;
+}
+
+.footer-faq {
+  /* width: 29px;
+  height: 19px; */
+  font-weight: 400;  
+  /* font-size: 16px; */
+  font-size: 1rem;
+  /* line-height: 19.09px; */
+  line-height: 1.2rem;
+  text-align: center;
+  color:#E5E7EB;
+  cursor:pointer;
+}
+
+.footer-sns-layer {
+  width:116px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;  
+  gap:12px;
+}
+
+.item {
+  width: 20px;
+  height: 20px;
+}
+
+.item:hover {
+  /* background-color: #ffffff;
+  color: #000000; */
+  cursor:pointer;
+}
