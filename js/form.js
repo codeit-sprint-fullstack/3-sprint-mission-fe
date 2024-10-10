@@ -5,42 +5,50 @@ const valueCheck = data.reduce((a, c, i) => {
   return a;
 }, []);
 
-let bottom = `
-    <div>
-        <button class='loginBtn btn'>로그인</button>
-    </div>
-    <div class="simple">
-        <p>간편 로그인하기</p>
-        <div class="icon_box">
-            <a href="https://www.google.com/">
-                <img src="./img/google_icon.png" alt="google_login" />
-            </a>
-            <a href="https://www.kakaocorp.com/page/">
-                <img src="./img/kakao_icon.png" alt="kakao_login" />
-            </a>
-        </div>
-    </div>
-`;
+const bottom = (btn) => {
+  return `
+      <div class="">
+          <button class='${btn.className} btn'>${btn.text}</button>
+      </div>
+      <div class="simple">
+          <p>간편 로그인하기</p>
+          <div class="icon_box">
+              <a href="https://www.google.com/">
+                  <img src="./img/google_icon.png" alt="google_login" />
+              </a>
+              <a href="https://www.kakaocorp.com/page/">
+                  <img src="./img/kakao_icon.png" alt="kakao_login" />
+              </a>
+          </div>
+      </div>
+  `;
+};
 const seePwImg = (src) => {
   return `<img src="${src}" />`;
 };
+
 const result = data.reduce((a, c, i) => {
   if (i === data.length - 1) {
-    if (window.location.pathname.includes("login"))
-      bottom += `
+    if (window.location.pathname.includes("login")) {
+      let btn = bottom({ className: "login_btn", text: "로그인" });
+      btn += `
         <p class="link">
             판다마켓이 처음이신가요?
             <a href="./signup.html"> 회원가입 </a>
         </p>
         `;
-    else
-      bottom += `
+      a += btn;
+    } else {
+      let btn = bottom({ className: "signup_btn", text: "회원가입" });
+      btn += `
         <p class="link">
             이미 회원이신가요?
             <a href="./login.html"> 로그인 </a>
         </p>
         `;
-    a += bottom;
+
+      a += btn;
+    }
   } else {
     let pwIcon = "";
     let part = `${c}을`;
@@ -51,21 +59,22 @@ const result = data.reduce((a, c, i) => {
         idName = "email";
         break;
       case "비밀번호":
-        idName = "pw";
+        idName = "password";
         break;
     }
     if (c.indexOf("비밀번호") !== -1) {
-      pwIcon = `<a href="#" class="seePw">${seePwImg("./img/look.svg")}</a>`;
+      pwIcon = `<a href="#" class="seePw">
+                 
+                </a>`;
       type = "password";
       if (c.indexOf("확인") !== -1) {
         part = "비밀번호를 다시 한 번";
-        idName = "pw2";
+        idName = "password2";
       } else part = `${c}를`;
     }
     a += `
-            <div>
+            <div class="conBox">
                 <label for="${idName}">${c}</label>
-                
                 <div class="inputbox">
                     <input id="${idName}" type="${type}" placeholder="${part} 입력해주세요"data-err="${part} 입력해주세요" />
                     ${pwIcon}
@@ -77,10 +86,9 @@ const result = data.reduce((a, c, i) => {
 }, "");
 
 forms.innerHTML = result;
-
 const inputBox = document.querySelectorAll(".inputbox");
 const btn = document.querySelector(".btn");
-const pw = document.querySelector('input[id="pw"]');
+const pw = document.querySelector('input[id="password"]');
 
 // input event
 inputBox.forEach((el, i) => {
@@ -88,12 +96,8 @@ inputBox.forEach((el, i) => {
 
   // Focus
   input.addEventListener("focus", (e) => {
-    const target = e.target;
-    // target.value = "";
     const check = [...el.children]
-      .map((v) => {
-        return v.classList.value;
-      })
+      .map((v) => v.classList.value)
       .includes("errMsg");
     if (check) el.lastElementChild.remove();
     el.classList.remove("err");
@@ -103,9 +107,7 @@ inputBox.forEach((el, i) => {
   // Focus Out
   input.addEventListener("blur", (e) => {
     const check = [...el.children]
-      .map((v) => {
-        return v.classList.value;
-      })
+      .map((v) => v.classList.value)
       .includes("errMsg");
     const target = e.target;
     const label = target.parentElement.previousSibling.previousSibling;
@@ -120,14 +122,21 @@ inputBox.forEach((el, i) => {
     ) {
       errMsgs("잘못된 이메일 형식입니다.", el, !!!label.children.length);
       valueCheck[i] = false;
-    } else if (target.value.length <= 8 && label.getAttribute("for") === "pw") {
-      errMsgs("비밀번호를 8자이상 입력해주세요.", el, target.value.length < 8);
+    } else if (
+      target.value.length < 8 &&
+      label.getAttribute("for") === "password"
+    ) {
+      errMsgs("비밀번호를 8자이상 입력해주세요.", el, target.value.length <= 8);
       valueCheck[i] = false;
     } else if (
-      label.getAttribute("for") === "pw2" &&
+      label.getAttribute("for") === "password2" &&
       pw.value !== target.value
     ) {
-      errMsgs("비밀번호가 다릅니다.", el, target.value.length <= 8);
+      errMsgs(
+        "비밀번호가 다릅니다.",
+        el,
+        target.value !== document.querySelector("#password").value
+      );
       valueCheck[i] = false;
     } else {
       valueCheck[i] = true;
@@ -155,31 +164,21 @@ function errMsgs(text, el, condition) {
   if (condition) el.append(errMsg);
 }
 
-// btn event
-const loginBtn = document.querySelector(".loginBtn");
-loginBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  const target = e.target;
-  if (target.classList.value.includes("on")) {
-    window.location.href = "/items.html";
-  } else {
-    alert("정확히 입력해주세요.");
-  }
-});
-
 //see pw
 const seePw = document.querySelectorAll(".seePw");
 seePw.forEach((el) => {
+  // img
   el.addEventListener("click", (e) => {
     e.preventDefault();
-    const target = e.target.parentElement;
-    const inputTag = target.previousSibling.previousSibling;
+    const target = e.target;
+    const inputTag = target.parentElement.children[0];
+    console.log(target, inputTag);
     if (inputTag.type === "password") {
-      target.innerHTML = seePwImg("./img/look2.svg");
       inputTag.type = "text";
-    } else {
-      target.innerHTML = seePwImg("./img/look.svg");
+      target.classList.add("on");
+    } else {      
       inputTag.type = "password";
+      target.classList.remove("on");
     }
   });
 });
