@@ -6,7 +6,7 @@ export const get = async (path) => {
     if (!response.ok) {
       throw new Error('Network response was not ok: ', response.status);
     }
-    return response.json();
+    return response;
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
   }
@@ -25,7 +25,7 @@ export const fetchReq = async (method, path, payload) => {
     if (!response.ok) {
       throw new Error('Network response was not ok:', response.status);
     }
-    return response.json();
+    return response;
   } catch (error) {
     console.error('There was a problem with the fetch operation:', method, error);
   }

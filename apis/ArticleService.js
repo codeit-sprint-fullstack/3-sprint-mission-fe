@@ -2,7 +2,7 @@ import { BASE_URL, get, fetchReq } from './api.js';
 
 const path = new URL('/articles', BASE_URL);
 
-const getArticleList = async (page, pageSize, keyword) => {
+const getArticleList = async (page = 1, pageSize = 100, keyword = '') => {
   const query = new URLSearchParams({ page, pageSize, keyword });
   return await get(`${path}?${query.toString()}`);
 };
