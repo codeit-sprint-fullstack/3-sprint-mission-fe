@@ -1,15 +1,16 @@
 // Selector
 const emailBox = document.querySelector('.inputEmail');
-const emailInputBox = emailBox.children[2];
+const emailInputBox = emailBox.children[2]; // 이걸 어떤 식으로 Select 해야하는지
 const passwordBox = document.querySelector('.inputPassword');
 const passwordInputBox = passwordBox.children[2];
-const loginButtn = document.querySelector('.loginButtn');
+const loginButton = document.querySelector('.loginButton');
 
 // addEvent
 emailInputBox.addEventListener('focusout', errorEventBoxEmail);
 passwordInputBox.addEventListener('focusout', errorEventBoxPassword);
 emailInputBox.addEventListener('input', checkEmail);
 passwordInputBox.addEventListener('input', checkPassword);
+loginButton.addEventListener('click', checkLoginButton);
 
 // errorBorder & errorText
 function createErrorMessageElement(errorMessage, elementer) {
@@ -77,26 +78,53 @@ function errorEventBoxPassword(e) {
   }
 }
 
-// checkEmail & checkPassword
+// loginButton activate
 function checkEmail(e) {
   if (emailValidChk(e.target.value) === false) {
     return false;
   } else {
-    return true;
+    if (passwordInputBox.value.length > 8) return true;
   }
 }
 
 function checkPassword(e) {
   if (e.target.value.length > 8) {
+    if (emailValidChk(emailInputBox.value)) {
+      loginButton.style.backgroundColor = 'var(--mainColor)';
+    }
     return true;
   } else {
     return false;
   }
 }
 
-if(checkEmail === true && checkPassword === true){
-  () => {
-    console.log(9999)
-    loginButtn.style.backgroundColor= 'var(--mainColor)';
+// checking login
+const USER_DATA = [
+  { email: 'codeit1@codeit.com', password: "codeit101!" },
+  { email: 'codeit2@codeit.com', password: "codeit202!" },
+  { email: 'codeit3@codeit.com', password: "codeit303!" },
+  { email: 'codeit4@codeit.com', password: "codeit404!" },
+  { email: 'codeit5@codeit.com', password: "codeit505!" },
+  { email: 'codeit6@codeit.com', password: "codeit606!" },
+]
+
+function checkLoginButton(e) {
+  for (let i = 0; i < USER_DATA.length; i++) {
+    if (USER_DATA[i].email === emailInputBox.value && USER_DATA[i].password === passwordInputBox.value) {
+      // a태그 생성
+      const aTag = document.createElement('a');
+      aTag.href = '/items';
+      // a태그를 부모요소로 지정
+      loginButton.parentNode.insertBefore(aTag, loginButton)
+      aTag.appendChild(loginButton);
+      alert('로그인')
+      return true;
+    } else if (USER_DATA[i].email === emailInputBox.value || false) {
+      alert('비밀번호가 틀렸습니다.')
+      return false;
+    } else {
+      alert('비밀번호가 틀렸습니다.')
+      return false;
+    }
   }
 }

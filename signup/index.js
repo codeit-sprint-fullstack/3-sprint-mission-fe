@@ -92,12 +92,7 @@ function errorEventBoxPassword(e) {
     createErrorMessageElement("비밀번호를 8자 이상 입력해주세요.", inputPassword.children[1]);
     return;
   }
-  
-
-
 }
-
-console.log('check2');
 
 // inputPasswordCheck errorBorder & errorText
 function errorEventBoxPasswordCheck(e) {
@@ -106,7 +101,6 @@ function errorEventBoxPasswordCheck(e) {
   } else {
     console.log(e.target.value, inputPasswordValue.value)
     createErrorMessageElement("비밀번호가 일치하지 않습니다.", inputPasswordCheck.children[1]);
-
     e.target.classList.add('errorBox');
     let errorMessaage = document.querySelector('.errorText');
 
@@ -116,7 +110,6 @@ function errorEventBoxPasswordCheck(e) {
       }, 900)
     } 
   }
-
 }
 
 

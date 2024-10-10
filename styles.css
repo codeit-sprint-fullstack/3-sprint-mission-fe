@@ -73,7 +73,6 @@
  }
 
  .skyColorContent {
-   width: 110rem;
    height: 34rem;
    display: flex;
    justify-content: space-between;
@@ -82,12 +81,14 @@
 
  .skyColorContent .imgBox {
    display: flex;
-   height: 100%;
+   max-width: 74.6rem;
+   max-height: 39.7rem;
    margin-left: 0.7rem;
  }
 
  .skyColorContent .imgBox img {
    display: flex;
+   height: 100%;
    width: 100%;
    height: auto;
    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
@@ -330,7 +331,7 @@
    height: auto;
  }
 
- ..content4 .textBox .register {
+ .content4 .textBox .register {
    width: 7.2rem;
    height: 2.6rem;
    color: #3692FF;
@@ -373,9 +374,9 @@
  /* section5 */
  .skyColorSection .skyColorContent .textBox5 {
    display: flex;
+   width: 29.5rem;
    min-width: 29.5rem;
    margin-bottom: 11.25rem;
-   margin-right: 6.9rem;
 
    font-size: 4rem;
    font-weight: 700;
@@ -404,7 +405,7 @@
  }
 
  .year {
-   width: 11.2rem;
+   width: 12.2rem;
    height: 1.9rem;
    font-size: 1.6rem;
    font-weight: 400;

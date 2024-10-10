@@ -286,6 +286,8 @@ right: 2.4rem;
 
 /* loginButtn */
 .loginButtn {
+  cursor: pointer;
+  border:none;
   width: 100%;
   height: 5.6rem;
   padding: 1.6rem 12.4rem 1.6rem 12.4rem;
