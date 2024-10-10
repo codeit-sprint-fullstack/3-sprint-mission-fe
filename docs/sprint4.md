@@ -8,8 +8,8 @@
 
 - [ ] 'https://sprint-mission-api.vercel.app/articles' API를 이용하여 아래 함수들을 구현해 주세요.
 
-- [ ] getArticleList() : GET 메서드를 사용해 주세요.
-- [ ] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
+- [x] getArticleList() : GET 메서드를 사용해 주세요.
+- [x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 - [ ] getArticle() : GET 메서드를 사용해 주세요.
 - [ ] createArticle() : POST 메서드를 사용해 주세요.
 - [ ] request body에 title, content, image 를 포함해 주세요.
