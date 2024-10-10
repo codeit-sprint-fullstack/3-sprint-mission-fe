@@ -11,7 +11,7 @@
  }
 
  /* header/ */
- header {
+ #gnb {
    height: 7rem;
    width: 100%;
    display: flex;
@@ -45,7 +45,8 @@
    background-color: #3692FF;
    display: flex;
    justify-content: center;
-   align-items: center;filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+   align-items: center;
+   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
  }
 
  header .loginButn a {
@@ -61,17 +62,17 @@
    text-decoration: none;
  }
 
- /* section1 */
- .section1 {
-   background-color: #CFE5FF;
+ /* 하늘색 배경 공통 */
+ .skyColorSection {
    width: 100%;
    height: 54rem;
+   background-color: #CFE5FF;
    display: flex;
    justify-content: center;
    align-items: flex-end;
  }
 
- .content1 {
+ .skyColorContent {
    width: 110rem;
    height: 34rem;
    display: flex;
@@ -79,30 +80,36 @@
    align-items: flex-end;
  }
 
- .content1 .imgBox {
+ .skyColorContent .imgBox {
    display: flex;
    height: 100%;
    margin-left: 0.7rem;
-   margin-top: auto;
  }
 
- .content1 .imgBox img {
+ .skyColorContent .imgBox img {
    display: flex;
    width: 100%;
    height: auto;
-   margin-top: auto;
    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
  }
 
+ /* 흰 색 배경 공통 */
+ .whiteColorSection {
+   width: 100%;
+   height: 72rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
 
- .content1 .textBox {
+ /* section1 */
+ .skyColorContent .textBox {
    display: flex;
    flex-direction: column;
    padding-bottom: 100px;
-
  }
 
- .content1 .textBox .text {
+ .skyColorContent .textBox .text {
    width: 29.5rem;
    height: 11.2rem;
    color: #374151;
@@ -110,19 +117,28 @@
    font-weight: 700;
    text-align: left;
    margin-bottom: 3.2rem;
+   flex-wrap: wrap;
  }
 
- .content1 .textBox .button {
+ .skyColorContent .textBox .text .text1 {
+   color: #374151;
+   font-size: 4rem;
+   font-weight: 700;
+   text-align: left;
+ }
+
+ .skyColorContent .textBox .button {
    background-color: #3692FF;
    border-radius: 4rem;
    width: 35.7rem;
    height: 5.6rem;
    display: flex;
    justify-content: center;
-   align-items: center;filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+   align-items: center;
+   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
  }
 
- .content1 .textBox .button a {
+ .skyColorContent .textBox .button a {
    display: block;
    color: #F9FAFB;
    font-size: 2rem;
@@ -136,15 +152,7 @@
  }
 
  /* section2 */
- .section2 {
-   width: 100%;
-   height: 72rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
-
- .section2 .content2 {
+ .whiteColorSection .content2 {
    height: 44.4rem;
    display: flex;
    justify-content: space-around;
@@ -157,7 +165,7 @@
    min-width: 50.8rem;
  }
 
- .section2 .textBox {
+ .whiteColorSection .textBox {
    width: 27.4rem;
    height: 100%;
    padding-top: 10.3rem;
@@ -166,17 +174,17 @@
    margin-left: 6.4rem;
  }
 
- .section2 .imgBox {
-   max-width: 58.8rem;filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
-
+ .content2 .imgBox {
+   max-width: 58.8rem;
+   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
  }
 
- .section2 .imgBox img {
+ .content2 .imgBox img {
    width: 100%;
    height: auto;
  }
 
- .section2 .textBox .hotItem {
+ .content2 .textBox .hotItem {
    width: 7.2rem;
    height: 2.6rem;
    color: #3692FF;
@@ -184,22 +192,34 @@
    font-size: 1.8rem;
  }
 
- .section2 .textBox .text {
+ .content2 .textBox .text {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
  }
 
- .section2 .textBox .text .bigtext {
+ .content2 .textBox .text .bigtext {
    font-size: 4rem;
    font-weight: 700;
    line-height: 5.6rem;
    text-align: left;
    color: #374151;
    margin-bottom: 2.4rem;
+   flex-wrap: wrap;
  }
 
- .section2 .textBox .text .smalltext {
+ .content2 .textBox .text .bigtext .text1 {
+   color: #374151;
+   font-size: 4rem;
+   font-weight: 700;
+   text-align: left;
+ }
+
+ .content2 .textBox .text .smalltext {
+   flex-wrap: wrap;
+ }
+
+ .content2 .textBox .smalltext .text1 {
    font-size: 2.4rem;
    font-weight: 500;
    line-height: 3.2rem;
@@ -208,17 +228,7 @@
  }
 
  /* section3 */
- .section3 {
-   width: 100%;
-   height: 72rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   /* padding-top:138px;
-  padding-bottom: 138px; */
- }
-
- .section3 .content3 {
+ .content3 {
    width: 98.8rem;
    height: 72rem;
    display: flex;
@@ -229,15 +239,16 @@
    background-color: #FCFCFC;
  }
 
- .section3 .content3 .imgBox {
+ .content3 .imgBox {
    height: 44.4rem;
-   margin-left: 6.4rem;filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+   margin-left: 6.4rem;
+   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
    display: flex;
    justify-content: center;
    align-items: center;
  }
 
- .section3 .content3 .imgBox img {
+ .content3 .imgBox img {
    width: 100%;
  }
 
@@ -251,7 +262,7 @@
    color: #3692FF;
  }
 
- .section3 .content3 .textBox {
+ .content3 .textBox {
    width: 31.7rem;
    height: 23.8rem;
    gap: 1.2rem;
@@ -264,33 +275,35 @@
    min-width: 31.7rem;
  }
 
- .section3 .content3 .text .bigtext {
+ .content3 .text .bigtext {
+   margin-bottom: 2.4rem;
+   flex-wrap: wrap;
+ }
+
+ .content3 .textBox .text .bigtext .text1 {
    font-size: 4rem;
    font-weight: 700;
    line-height: 5.6rem;
    text-align: right;
    color: #374151;
-   margin-bottom: 2.4rem;
  }
 
- .section3 .content3 .text .smalltext {
+ .content3 .text .smalltext {
+   flex-wrap: wrap;
+ }
+
+ .content3 .smalltext .text1 {
    font-size: 2.4rem;
    font-weight: 500;
    line-height: 3.2rem;
    text-align: right;
    color: #374151;
+   flex-wrap: wrap;
  }
 
  /* section4 */
- .section4 {
-   width: 100%;
-   height: 72rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
 
- .section4 .content4 {
+ .content4 {
    height: 44.4rem;
    display: flex;
    justify-content: space-around;
@@ -302,21 +315,22 @@
    max-width: 98.8rem;
  }
 
- .section4 .textBox {
+ .content4 .textBox {
    min-width: 33.5rem;
    margin-left: 6.4rem;
  }
 
- .section4 .imgBox {
-   max-width: 58.8rem;filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+ .content4 .imgBox {
+   max-width: 58.8rem;
+   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
  }
 
- .section4 .imgBox img {
+ .content4 .imgBox img {
    width: 100%;
    height: auto;
  }
 
- .section4 .textBox .register {
+ ..content4 .textBox .register {
    width: 7.2rem;
    height: 2.6rem;
    color: #3692FF;
@@ -325,22 +339,30 @@
    margin-bottom: 1.2rem;
  }
 
- .section4 .textBox .text {
+ .content4 .textBox .text {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
  }
 
- .section4 .textBox .text .bigtext {
+ .content4 .textBox .text .bigtext {
+   margin-bottom: 2.4rem;
+   flex-wrap: wrap;
+ }
+
+ .content4 .textBox .text .bigtext .text1 {
    font-size: 4.0rem;
    font-weight: 700;
    line-height: 5.6rem;
    text-align: left;
    color: #374151;
-   margin-bottom: 2.4rem;
  }
 
- .section4 .textBox .text .smalltext {
+ .content4 .textBox .text .smalltext {
+   flex-wrap: wrap;
+ }
+
+ .content4 .textBox .smalltext .text1 {
    font-size: 2.4rem;
    font-weight: 500;
    line-height: 3.2rem;
@@ -349,27 +371,8 @@
  }
 
  /* section5 */
- .section5 {
-   width: 100%;
-   height: 54rem;
-   background-color: #CFE5FF;
+ .skyColorSection .skyColorContent .textBox5 {
    display: flex;
-   justify-content: center;
-   align-items: flex-end;
- }
-
- .section5 .content5 {
-   width: 111rem;
-   height: 39.7rem;
-   display: flex;
-   justify-content: center;
-   align-items: flex-end;
- }
-
- .section5 .content5 .textBox5 {
-   display: flex;
-   flex: 1;
-   height: 17.2rem;
    min-width: 29.5rem;
    margin-bottom: 11.25rem;
    margin-right: 6.9rem;
@@ -378,18 +381,7 @@
    font-weight: 700;
    line-height: 5.6rem;
    text-align: left;
- }
-
- .section5 .content5 .imgBox {
-   display: flex;
-   height: auto;
- }
-
- .section5 .content5 .imgBox img {
-   display: flex;
-   width: 100%;
-   height: auto;
-   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+   flex-wrap: wrap;
  }
 
  /* footer */
