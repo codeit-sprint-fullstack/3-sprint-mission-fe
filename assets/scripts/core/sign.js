@@ -75,14 +75,20 @@ class Sign {
 
   onSubmit() {}
 
+  handleSubmitSuccess() {
+    window.location.href = "../items/index.html";
+  }
+
+  handleSubmitFailure(message) {
+    this.showModal(message);
+  }
+
   togglePasswordVisibility(e) {
     const { target } = e;
     target.classList.toggle("fa-eye-slash");
     target.classList.toggle("fa-eye");
     const input = target.closest("div").querySelector("input");
-    const TYPES = ["text", "password"];
-    const inputType = input.type;
-    input.type = TYPES[Number(inputType === TYPES[0])];
+    input.type === "text" ? (input.type = "password") : (input.type = "text");
   }
 
   handleToggleButton() {
