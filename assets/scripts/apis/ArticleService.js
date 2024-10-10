@@ -18,3 +18,9 @@ export const getArticleList = async (page = 1, pageSize = 100, keyword = "") => 
   const data = getData(async () => await fetch(URL));
   return data;
 };
+
+export const getArticle = async (id = 0) => {
+  const URL = `${URLS.articles}/${id}`;
+  const data = getData(async () => await fetch(URL));
+  return data;
+};
