@@ -118,7 +118,7 @@
         customError: '비밀번호가 일치하지 않습니다.'
       }
     }
-    window.addEventListener('load', () => {
+    window.addEventListener('DOMContentLoaded', () => {
       const form = document.querySelector('form');
       const visibleBtn = form.querySelectorAll('input[type="checkbox"]');
       const inputs = form.querySelectorAll('input[required]');
@@ -189,7 +189,7 @@
         }
       }
     });
-    window.addEventListener('unload', () => {
+    window.addEventListener('beforeunload', () => {
       controller.abort();
     });
   </script>

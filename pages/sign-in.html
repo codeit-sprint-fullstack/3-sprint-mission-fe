@@ -102,7 +102,7 @@
       }
     }
 
-    window.addEventListener('load', () => {
+    window.addEventListener('DOMContentLoaded', () => {
       const userEmail = document.getElementById('email');
       const userPassword = document.getElementById('password');
       const showPassword = document.getElementById('show-password');
@@ -176,7 +176,7 @@
       }, { signal: signal })
     });
 
-    window.addEventListener('unload', () => {
+    window.addEventListener('beforeunload', () => {
       controller.abort();
     });
   </script>
