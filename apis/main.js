@@ -2,5 +2,6 @@ import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle 
 import { getProductList, getProduct, createProduct, patchProduct, deleteProduct } from './ProductService.js';
 import { formattedDate } from './util.js';
 
-await getArticleList();
+// await getArticleList();
 console.log('---------------------------------');
+await getArticle(90);
