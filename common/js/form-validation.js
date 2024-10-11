@@ -1,5 +1,6 @@
 import { USER_DATA } from '../../data/users.js';
-import { EMAIL_PATTERN } from './regex.js';
+import { EMAIL_REGEX } from './regex.js';
+import { showModal, closeModal } from './modal.js';
 
 const form = document.getElementById('form');
 const email = document.getElementById('email');
@@ -7,10 +8,6 @@ const nickname = document.getElementById('nickname');
 const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
 const formButton = document.getElementById('form-button');
-
-/* 모달 관련 */
-const modal = document.getElementById('error-message-modal');
-const closeModalButton = document.querySelector('.close-modal-button');
 
 // 폼 제출 시 이벤트 처리
 form.addEventListener('submit', (e) => {
@@ -38,6 +35,7 @@ form.addEventListener('input', () => {
   setSubmitButtonState();
 });
 
+// 폼 제출 버튼 활성화 상태 설정
 const setSubmitButtonState = () => {
   const currentPage = window.location.pathname;
 
@@ -101,26 +99,6 @@ const isUserExist = (email, password) => {
   );
 };
 
-// 모달 닫기 이벤트 처리
-
-closeModalButton.addEventListener('click', () => {
-  closeModal();
-});
-
-modal.addEventListener('click', (e) => {
-  if (isModalOutSideClicked) {
-    closeModal();
-  }
-});
-
-const showModal = () => {
-  modal.showModal();
-};
-
-const closeModal = () => {
-  modal.close();
-};
-
 form.addEventListener('focusout', (e) => {
   const validateElementId = e.target.id;
   validateForm(validateElementId);
@@ -136,18 +114,6 @@ const validateForm = (validateElementId) => {
   if (validationHandlers[validateElementId]) {
     validationHandlers[validateElementId]();
   }
-};
-
-// 모달 외부 클릭 시 닫기
-const isModalOutSideClicked = (e) => {
-  const dialogDimensions = modal.getBoundingClientRect();
-
-  return (
-    e.clientX < dialogDimensions.left ||
-    e.clientX > dialogDimensions.right ||
-    e.clientY < dialogDimensions.top ||
-    e.clientY > dialogDimensions.bottom
-  );
 };
 
 // ----------유효성 검사 함수들-----------
@@ -183,7 +149,7 @@ const validateEmail = () => {
 };
 
 const isValidEmail = (email) => {
-  return EMAIL_PATTERN.test(String(email).toLowerCase());
+  return EMAIL_REGEX.test(String(email).toLowerCase());
 };
 
 const validateNickname = () => {
