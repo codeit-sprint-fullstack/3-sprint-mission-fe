@@ -13,34 +13,41 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
-      console.log(
+      throw new Error(
         HTTP_ERROR_MESSAGE[error.response.status] ??
           `${HTTP_ERROR_MESSAGE.else} : ${error.response.status}`
       );
-    } else if (error.request) {
-      console.log(HTTP_ERROR_MESSAGE.requestError);
     }
-    return Promise.reject(error);
+    if (error.request) {
+      throw new Error(HTTP_ERROR_MESSAGE.requestError);
+    }
+    throw new Error(HTTP_ERROR_MESSAGE.else);
   }
 );
 
-export const getArticleList = async (page = 1, pageSize = 100, keyword = "") => {
+const getData = async (url) => {
+  return api
+    .get(url)
+    .then((response) => response.data)
+    .catch((e) => console.log(e.message));
+};
+
+export const getArticleList = (page = 1, pageSize = 100, keyword = "") => {
   const URL = `${URLS.articles}?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
-  const { data } = await api.get(URL);
+  const data = getData(URL);
   return data;
 };
 
-export const getArticle = async (id = 0) => {
+export const getArticle = (id = 0) => {
   const URL = `${URLS.articles}/${id}`;
-  const { data } = await api.get(URL);
+  const data = getData(URL);
   return data;
 };
 
-export const createArticle = async (title, content, image) => {
-  const response = await api.post(URLS.articles, {
-    title,
-    content,
-    image,
-  });
-  return response.data;
+export const createArticle = (body) => {
+  const data = api
+    .post(URLS.articles, body)
+    .then((response) => response.data)
+    .catch((e) => console.log(e.message));
+  return data;
 };
