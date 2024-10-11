@@ -1,6 +1,5 @@
 import api from "./common.js";
 import URLS from "../constants/url.js";
-import { getData } from "./common.js";
 
 const getData = async (url) => {
   return api
