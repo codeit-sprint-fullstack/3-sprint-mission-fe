@@ -59,3 +59,11 @@ export const patchArticle = async (id, body) => {
     .catch((e) => console.log(e.message));
   return data;
 };
+
+export const deleteArticle = async (id) => {
+  const data = await api
+    .delete(`${URLS.articles}/${id}`)
+    .then((response) => response.data)
+    .catch((e) => console.log(e.message));
+  return data;
+};

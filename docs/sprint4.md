@@ -14,7 +14,7 @@
 - [x] createArticle() : POST 메서드를 사용해 주세요.
 - [x] request body에 title, content, image 를 포함해 주세요.
 - [x] patchArticle() : PATCH 메서드를 사용해 주세요.
-- [ ] deleteArticle() : DELETE 메서드를 사용해 주세요.
+- [x] deleteArticle() : DELETE 메서드를 사용해 주세요.
 - [x] fetch 혹은 axios 를 이용해 주세요.
 
 - [x] 응답의 상태 코드가 2XX가 아닐 경우, 에러메시지를 콘솔에 출력해 주세요.
