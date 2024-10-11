@@ -6,11 +6,11 @@ import {
   patchArticle,
 } from "./apis/ArticleService.js";
 
-console.table(await getArticleList(1, 100, "a"));
-console.table(await getArticle(569));
-console.table(await createArticle({ title: "test", content: "content", image: "image" }));
+const newArticle = await createArticle({ title: "test", content: "content", image: "image" });
+console.table(await getArticleList(1, 100, "test"));
+console.table(await getArticle(newArticle.id));
 console.table(
-  await patchArticle(691, {
+  await patchArticle(newArticle.id, {
     title: "patched title",
     content: "patched content",
     image: "patched image",
