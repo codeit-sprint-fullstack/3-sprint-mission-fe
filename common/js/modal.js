@@ -1,17 +1,21 @@
 const modal = document.getElementById('error-message-modal');
 const closeModalButton = document.querySelector('.close-modal-button');
 
-// 모달 닫기 버튼 이벤트
-closeModalButton.addEventListener('click', () => {
-  closeModal();
-});
+export const closeModal = () => {
+  modal.close();
+};
 
-// 모달 외부 클릭 시 닫기
-modal.addEventListener('click', (e) => {
-  if (isModalOutSideClicked) {
+// -----모달 닫기 버튼 이벤트-----
+closeModalButton.addEventListener('click', closeModal);
+
+// -----모달 외부 클릭 시 닫기-----
+
+const handleCloseModal = (e) => {
+  if (isModalOutSideClicked(e)) {
     closeModal();
   }
-});
+};
+modal.addEventListener('click', handleCloseModal);
 
 // 모달 외부 클릭 했는지 확인
 const isModalOutSideClicked = (e) => {
@@ -27,8 +31,4 @@ const isModalOutSideClicked = (e) => {
 
 export const showModal = () => {
   modal.showModal();
-};
-
-export const closeModal = () => {
-  modal.close();
 };

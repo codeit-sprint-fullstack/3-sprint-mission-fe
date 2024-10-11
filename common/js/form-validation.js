@@ -10,7 +10,6 @@ const passwordConfirm = document.getElementById('password-confirm');
 const formButton = document.getElementById('form-button');
 
 // -----폼 제출 시 이벤트 처리-----
-form.addEventListener('submit', handleFormSubmit);
 
 const handleFormSubmit = (e) => {
   e.preventDefault();
@@ -32,12 +31,15 @@ const handleFormSubmit = (e) => {
   }
 };
 
+form.addEventListener('submit', handleFormSubmit);
+
 // -----입력 시 제출 버튼 상태 업데이트-----
-form.addEventListener('input', updateSubmitButtonState);
 
 const updateSubmitButtonState = () => {
   setSubmitButtonState();
 };
+
+form.addEventListener('input', updateSubmitButtonState);
 
 // 제출 버튼 활성화 상태 설정 함수
 const setSubmitButtonState = () => {
@@ -107,12 +109,12 @@ const isUserExist = (email, password) => {
 };
 
 // -----포커스 아웃 시 유효성 검사-----
-form.addEventListener('focusout', handleFocusOut);
-
 const handleFocusOut = (e) => {
   const validateElementId = e.target.id;
   validateForm(validateElementId);
 };
+
+form.addEventListener('focusout', handleFocusOut);
 
 const validateForm = (validateElementId) => {
   const validationHandlers = {
