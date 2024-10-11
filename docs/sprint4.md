@@ -26,12 +26,12 @@
 
 - [x] getProductList() : GET 메서드를 사용해 주세요.
 - [x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
-- [ ] getProduct() : GET 메서드를 사용해 주세요.
-- [ ] createProduct() : POST 메서드를 사용해 주세요.
-- [ ] request body에 name, description, price, tags, images 를 포함해 주세요.
-- [ ] patchProduct() : PATCH 메서드를 사용해 주세요.
-- [ ] deleteProduct() : DELETE 메서드를 사용해 주세요.
-- [ ] async/await 을 이용하여 비동기 처리를 해주세요.
+- [x] getProduct() : GET 메서드를 사용해 주세요.
+- [x] createProduct() : POST 메서드를 사용해 주세요.
+- [x] request body에 name, description, price, tags, images 를 포함해 주세요.
+- [x] patchProduct() : PATCH 메서드를 사용해 주세요.
+- [x] deleteProduct() : DELETE 메서드를 사용해 주세요.
+- [x] async/await 을 이용하여 비동기 처리를 해주세요.
 
 - [x] try/catch 를 이용하여 오류 처리를 해주세요.
 
