@@ -11,11 +11,11 @@
 - [x] getArticleList() : GET 메서드를 사용해 주세요.
 - [x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 - [x] getArticle() : GET 메서드를 사용해 주세요.
-- [ ] createArticle() : POST 메서드를 사용해 주세요.
-- [ ] request body에 title, content, image 를 포함해 주세요.
+- [x] createArticle() : POST 메서드를 사용해 주세요.
+- [x] request body에 title, content, image 를 포함해 주세요.
 - [ ] patchArticle() : PATCH 메서드를 사용해 주세요.
 - [ ] deleteArticle() : DELETE 메서드를 사용해 주세요.
-- [ ] fetch 혹은 axios 를 이용해 주세요.
+- [x] fetch 혹은 axios 를 이용해 주세요.
 
 - [x] 응답의 상태 코드가 2XX가 아닐 경우, 에러메시지를 콘솔에 출력해 주세요.
 - [x] .then() 메서드를 이용하여 비동기 처리를 해주세요.

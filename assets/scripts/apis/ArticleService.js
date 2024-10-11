@@ -35,3 +35,12 @@ export const getArticle = async (id = 0) => {
   const { data } = await api.get(URL);
   return data;
 };
+
+export const createArticle = async (title, content, image) => {
+  const response = await api.post(URLS.articles, {
+    title,
+    content,
+    image,
+  });
+  return response.data;
+};
