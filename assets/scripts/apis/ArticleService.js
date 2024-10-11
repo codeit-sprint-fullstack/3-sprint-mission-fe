@@ -1,26 +1,37 @@
 import URLS from "../constants/url.js";
+import axios from "axios";
+import { HTTP_ERROR_MESSAGE } from "../constants/messages.js";
 
-const getData = (fetchFunction) => {
-  const data = fetchFunction()
-    .then((response) => {
-      if (response.status >= 300 || response.status < 200) {
-        if (response.status === 404) throw new Error("게시글을 찾을 수 없음");
-        throw new Error("에러가 발생했습니다.");
-      }
-      return response.json();
-    })
-    .catch((e) => console.log(e.message));
-  return data;
-};
+const api = axios.create({
+  baseURL: URLS.baseUrl,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export const getArticleList = (page = 1, pageSize = 100, keyword = "") => {
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response) {
+      console.log(
+        HTTP_ERROR_MESSAGE[error.response.status] ??
+          `${HTTP_ERROR_MESSAGE.else} : ${error.response.status}`
+      );
+    } else if (error.request) {
+      console.log(HTTP_ERROR_MESSAGE.requestError);
+    }
+    return Promise.reject(error);
+  }
+);
+
+export const getArticleList = async (page = 1, pageSize = 100, keyword = "") => {
   const URL = `${URLS.articles}?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
-  const data = getData(() => fetch(URL));
+  const { data } = await api.get(URL);
   return data;
 };
 
-export const getArticle = (id = 0) => {
+export const getArticle = async (id = 0) => {
   const URL = `${URLS.articles}/${id}`;
-  const data = getData(() => fetch(URL));
+  const { data } = await api.get(URL);
   return data;
 };

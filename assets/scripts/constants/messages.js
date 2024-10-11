@@ -9,3 +9,9 @@ export const ERROR_MESSAGES = {
   emailAlreadyInUse: "사용 중인 이메일입니다",
   inputNickname: "닉네임을 입력해주세요.",
 };
+
+export const HTTP_ERROR_MESSAGE = {
+  404: "문서를 찾을 수 없습니다.",
+  requestError: "서버로부터 응답이 없습니다.",
+  else: "예기치 않은 오류가 발생했습니다.",
+};
