@@ -394,7 +394,7 @@ function goToSignup(e) {
   const doPasswordsMatch = password1 === password2;
 
   // 입력한 이메일이 데이터베이스에 없는지 체크
-  const doNotExists = !USER_DATA.some(data => data.email == email);
+  const doNotExists = !USER_DATA.some(data => data.email === email);
 
   if (isEmailValid && isNickValid && isPassword1Valid && isPassword2Valid && doPasswordsMatch && doNotExists) {
     signupButton.classList.add('active');

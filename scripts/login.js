@@ -1,4 +1,4 @@
-// 클리어 버튼
+import { USER_DATA } from "./userdata.js";
 
 // 이메일 input과 clear 버튼
 const emailInput = document.querySelector('.input-id');
@@ -187,18 +187,75 @@ function goToLogin(e) {
 }
 
 // 이벤트 리스너
-emailInput.addEventListener('input', goToLogin);
-passwordInput.addEventListener('input', goToLogin);
-
+[emailInput, passwordInput].forEach(element => {
+  element.addEventListener('input', goToLogin);
+});
 
 
 // 로그인 버튼 클릭 이벤트 핸들러
 const form = document.querySelector('#login-form');
 
+
 form.addEventListener('submit', function (e) {
   e.preventDefault(); // 1. 비활성화된 버튼 클릭 시 기본 동작 방지, 2. 고정된 기본 페이지로 새로고침 되는 것 방지
+
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  // 로그인 버튼이 활성화 상태인지 확인
   if (loginButton.classList.contains('active')) {
-    console.log('로그인 성공') //확인용 콘솔
-    window.location.href = 'items.html'; // items 페이지로 이동
+    console.log('active 상태에서 submit'); // 확인용 콘솔
+
+    // validateUser 함수 호출
+    validateUser(email, password);
+  }
+});
+
+function validateUser(inputEmail, inputPassword) {
+  const user = USER_DATA.find(data => data.email === inputEmail); // 입력된 이메일 찾아 객체 담기
+
+  if (user) {
+    if (user.password === inputPassword) {
+      console.log("비밀번호가 일치합니다.");
+      window.location.href = 'items.html'; // items 페이지로 이동
+    } else {
+      console.log("비밀번호가 일치하지 않습니다.");
+      openModal();
+    }
+  } else {
+    console.log("존재하지 않는 이메일입니다.");
+    openModal();
+  }
+}
+
+// 모달
+const modalOverlay = document.querySelector('#modalOverlay')
+const modalContent = document.querySelector('#modalContent')
+const modalButton = document.querySelector('#modalButton')
+
+// 모달창 띄우기
+function openModal() {
+  modalOverlay.style.display = 'inline'
+  modalContent.style.display = 'inline'
+  modalButton.focus();
+
+}
+
+// 모달창 닫기
+function closeModal() {
+  modalOverlay.style.display = 'none'
+  modalContent.style.display = 'none'
+  emailInput.focus();
+}
+
+[modalOverlay, modalButton].forEach(element => {
+  element.addEventListener('click', closeModal)
+});
+
+// 키 입력 이벤트 리스너 추가
+modalButton.addEventListener('keydown', (event) => {
+  if (event.key === ' ' || event.key === 'Enter') {
+      event.preventDefault(); // 스페이스나 엔터의 기본동작 막기
+      closeModal();
   }
 });
