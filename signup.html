@@ -31,35 +31,35 @@
   </header>
   <div class="container">
     <div class="signup-wrap">
-      <form action="">
+      <form action="" id="signup-form">
         <div class="signup-box">
           <div class="input-item id">
             <label class="text-label">이메일</label>
             <input type="text" class="input-id" id="id" placeholder="이메일을 입력해주세요" autocomplete="off">
-            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none">X</button>
+            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none" tabindex="-1">X</button>
             <label class="label-alert" id="label-alert-id" style="display: inline"></label>
           </div>
           <div class="input-item nick">
             <label class="text-label">닉네임</label>
             <input type="text" class="input-id" id="nick" placeholder="닉네임을 입력해주세요" autocomplete="off">
-            <button type="button" class="clear-btn" id="clear-btn-nick" style="display: none">X</button>
+            <button type="button" class="clear-btn" id="clear-btn-nick" style="display: none" tabindex="-1">X</button>
             <label class="label-alert" id="label-alert-nick" style="display: inline"></label>
           </div>
           <div class="input-item pw">
             <label class="text-label">비밀번호</label>
             <input type="password" class="input-pw" id="pw1" placeholder="비밀번호를 입력해주세요" autocomplete="off">
-            <button type="button" class="show-pw" id="show-pw1" style="display: none"></button>
-            <button type="button" class="clear-btn" id="clear-btn-pw1" style="display: none">X</button>
-            <label class="label-alert" id="label-alert-pw" style="display: inline"></label>
+            <button type="button" class="show-pw" id="show-pw1" style="display: none" tabindex="-1"></button>
+            <button type="button" class="clear-btn" id="clear-btn-pw1" style="display: none" tabindex="-1">X</button>
+            <label class="label-alert" id="label-alert-pw1" style="display: inline"></label>
           </div>
           <div class="input-item pw">
             <label class="text-label">비밀번호 확인</label>
-            <label class="text-label wrong-pw" style="display: none">비밀번호가 일치하지 않습니다.</label>
-            <label class="text-label right-pw" style="display: none">✅ 비밀번호가 일치합니다.</label>
+            <label class="text-label wrong-pw" style="display: none">두 개의 비밀번호가 서로 일치하지 않습니다.</label>
+            <label class="text-label right-pw" style="display: none">✅ 두 개의 비밀번호가 서로 일치합니다.</label>
             <input type="password" class="input-pw" id="pw2" placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="off">
-            <button type="button" class="show-pw" id="show-pw2" style="display: none"></button>
-            <button type="button" class="clear-btn" id="clear-btn-pw2" style="display: none">X</button>
-            <label class="label-alert" id="label-alert-pw" style="display: inline"></label>
+            <button type="button" class="show-pw" id="show-pw2" style="display: none" tabindex="-1"></button>
+            <button type="button" class="clear-btn" id="clear-btn-pw2" style="display: none" tabindex="-1">X</button>
+            <label class="label-alert" id="label-alert-pw2" style="display: inline"></label>
           </div>
           <button type="submit" class="btn-signup">회원가입</button>
         </div>
@@ -80,7 +80,7 @@
       </div>
     </div>
   </div>
-  <script src="scripts/signup.js?ver=1.1"></script>
+  <script type="module" src="scripts/signup.js"></script>
 </body>
 
 </html>

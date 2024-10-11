@@ -1,4 +1,4 @@
-// 클리어 버튼
+import { USER_DATA } from "./userdata.js";
 
 // 이메일 input과 clear 버튼
 const emailInput = document.querySelector('#id');
@@ -184,6 +184,12 @@ function validateEmailInput(e) {
     e.target.classList.add('alert');
     emailAlert.textContent = "잘못된 이메일 형식입니다.";
   }
+  // 이메일이 이미 데이터베이스에 존재하는 경우
+  else if (USER_DATA.some(data => data.email === email)) {
+    e.target.classList.add('alert');
+    emailAlert.textContent = "사용 중인 이메일입니다.";
+    // alert("사용 중인 이메일입니다")
+  }
   // 이메일 형식이 올바를 경우
   else {
     emailInput.classList.remove('alert'); // 클래스 제거
@@ -211,6 +217,18 @@ emailInput.addEventListener('input', function (e) {
       e.target.classList.add('alert'); // 빨간색 보더 클래스 추가
       emailAlert.textContent = "잘못된 이메일 형식입니다.";
     } else if (emailPattern.test(email)) {
+      e.target.classList.remove('alert'); // 클래스 제거
+      emailAlert.textContent = ""; // 라벨 메시지 지우기
+    }
+  }
+  // 사용 중인 이메일을 입력했을 때
+  else if (USER_DATA.some(data => data.email === email)) {
+    e.target.classList.add('alert'); // 빨간색 보더 클래스 추가
+    emailAlert.textContent = "사용 중인 이메일입니다.";
+  }
+  // 사용 중인 이메일입니다 메시지가 있을 때
+  else if (emailAlert.textContent === "사용 중인 이메일입니다.") {
+    if (!USER_DATA.some(data => data.email === email)) {
       e.target.classList.remove('alert'); // 클래스 제거
       emailAlert.textContent = ""; // 라벨 메시지 지우기
     }
@@ -375,7 +393,10 @@ function goToSignup(e) {
   // 비밀번호가 동일한지 체크
   const doPasswordsMatch = password1 === password2;
 
-  if (isEmailValid && isNickValid && isPassword1Valid && isPassword2Valid && doPasswordsMatch) {
+  // 입력한 이메일이 데이터베이스에 없는지 체크
+  const doNotExists = !USER_DATA.some(data => data.email == email);
+
+  if (isEmailValid && isNickValid && isPassword1Valid && isPassword2Valid && doPasswordsMatch && doNotExists) {
     signupButton.classList.add('active');
   } else {
     signupButton.classList.remove('active');
