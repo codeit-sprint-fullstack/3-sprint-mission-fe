@@ -51,3 +51,11 @@ export const createArticle = (body) => {
     .catch((e) => console.log(e.message));
   return data;
 };
+
+export const patchArticle = async (id, body) => {
+  const data = api
+    .patch(`${URLS.articles}/${id}`, body)
+    .then((response) => response.data)
+    .catch((e) => console.log(e.message));
+  return data;
+};
