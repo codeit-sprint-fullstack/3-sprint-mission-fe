@@ -176,7 +176,7 @@ seePw.forEach((el) => {
     if (inputTag.type === "password") {
       inputTag.type = "text";
       target.classList.add("on");
-    } else {      
+    } else {
       inputTag.type = "password";
       target.classList.remove("on");
     }

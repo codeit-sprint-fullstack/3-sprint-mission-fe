@@ -1,9 +1,43 @@
 import { typeConfirm } from "./lib.mjs";
+const { products } = {
+  products: "/products",
+};
+/** instance */
+export const instanceObject = {
+  baseURL: "https://sprint-mission-api.vercel.app",
+  headers: {
+    Authorization: "I can't speak korean",
+  },
+};
+// 토큰 및 그런 코드 많이봄
+const instance = axios.create(instanceObject);
+instance.interceptors.request.use(
+  (config) => {
+    console.log("request config", config);
+    return config;
+  },
+  (error) => {
+    console.error("request error", error);
+  }
+);
 
-/** Get Products */
-const getProductsBody = { page: 1, pageSize: 1, keyword: "string" };
+//상태코드를 많이봄
+instance.interceptors.response.use(
+  (response) => {
+    response.statusText = "성공";
+    console.log("reponse", response);
+    return response;
+  },
+  (error) => {
+    console.error("response error", error);
+    return Promise.reject(error);
+  }
+);
+
+/** Get */
+export const getProductsBody = { page: 1, pageSize: 1, keyword: "string" };
 export async function getProducts(body = getProductsBody) {
-  const typeCheck = typeConfirm(getArticleBody, body);
+  const typeCheck = typeConfirm(getProductsBody, body);
   try {
     if (!typeCheck.result) throw console.error(typeCheck.message);
     const url = `${products}?page=${body.page}&pageSize=${body.pageSize}&keyword=${body.keyword}`;
@@ -14,8 +48,8 @@ export async function getProducts(body = getProductsBody) {
   }
 }
 
-/** Create Products */
-const createProductsBody = {
+/** Create */
+export const createProductsBody = {
   name: "string",
   description: "string",
   price: 0,
@@ -24,7 +58,7 @@ const createProductsBody = {
   images: ["string"],
 };
 export async function createProducts(body = createProductsBody) {
-  const typeCheck = typeConfirm(getArticleBody, body);
+  const typeCheck = typeConfirm(createProductsBody, body);
   try {
     if (!typeCheck.result) throw console.error(typeCheck.message);
     const response = await instance.post(products, body);
@@ -34,12 +68,45 @@ export async function createProducts(body = createProductsBody) {
   }
 }
 
-// const status = await createProdcuts({
+// const status = await createProducts({
 //   name: "테스트 상품입니다.2222",
 //   description: "test_설명",
 //   price: 10000,
 //   manufacturer: "이게뭔데",
 //   tags: ["잡동사니", "쓸모없는"],
-//   images:["없음"]
+//   images: ["없음"],
 // });
 // console.log(status);
+
+/** Patch */
+export const patchProductsBody = {
+  id: 0,
+  ...createProductsBody,
+};
+export async function patchProducts(body = patchProductsBody) {
+  const typeCheck = typeConfirm(patchProductsBody, body);
+  try {
+    if (!typeCheck.result) throw console.error(typeCheck.message);
+    const id = body.id;
+    delete body.id;
+    const response = await instance.patch(`${products}/${id}`, body);
+    return response.data;
+  } catch (error) {
+    if (!!error) console.error("Delete Products Error", error);
+  }
+}
+
+/** Delete */
+export const deleteProductsBody = {
+  id: 0,
+};
+export async function deleteProducts(body = deleteProductsBody) {
+  const typeCheck = typeConfirm(deleteProductsBody, body);
+  try {
+    if (!typeCheck.result) throw console.error(typeCheck.message);
+    const response = await instance.delete(`${products}/${body.id}`);
+    return response.data;
+  } catch (error) {
+    if (!!error) console.error("Delete Products Error", error);
+  }
+}
