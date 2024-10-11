@@ -2,6 +2,13 @@ import api from "./common.js";
 import URLS from "../constants/url.js";
 import { getData } from "./common.js";
 
+const getData = async (url) => {
+  return api
+    .get(url)
+    .then((response) => response.data)
+    .catch((e) => console.log(e.message));
+};
+
 export const getArticleList = (page = 1, pageSize = 100, keyword = "") => {
   const URL = `${URLS.articles}?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   const data = getData(URL);

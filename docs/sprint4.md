@@ -4,9 +4,9 @@
 
 ### 공통
 
-- [ ] Github에 스프린트 미션 PR을 만들어 주세요.
+- [x] Github에 스프린트 미션 PR을 만들어 주세요.
 
-- [ ] 'https://sprint-mission-api.vercel.app/articles' API를 이용하여 아래 함수들을 구현해 주세요.
+- [x] 'https://sprint-mission-api.vercel.app/articles' API를 이용하여 아래 함수들을 구현해 주세요.
 
 - [x] getArticleList() : GET 메서드를 사용해 주세요.
 - [x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
@@ -22,10 +22,10 @@
 
 - [x] .catch() 를 이용하여 오류 처리를 해주세요.
 
-- [ ] 'https://sprint-mission-api.vercel.app/products' API를 이용하여 아래 함수들을 구현해 주세요.
+- [x] 'https://sprint-mission-api.vercel.app/products' API를 이용하여 아래 함수들을 구현해 주세요.
 
-- [ ] getProductList() : GET 메서드를 사용해 주세요.
-- [ ] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
+- [x] getProductList() : GET 메서드를 사용해 주세요.
+- [x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 - [ ] getProduct() : GET 메서드를 사용해 주세요.
 - [ ] createProduct() : POST 메서드를 사용해 주세요.
 - [ ] request body에 name, description, price, tags, images 를 포함해 주세요.
@@ -33,12 +33,12 @@
 - [ ] deleteProduct() : DELETE 메서드를 사용해 주세요.
 - [ ] async/await 을 이용하여 비동기 처리를 해주세요.
 
-- [ ] try/catch 를 이용하여 오류 처리를 해주세요.
+- [x] try/catch 를 이용하여 오류 처리를 해주세요.
 
-- [ ] 구현한 함수들을 아래와 같이 파일을 분리해 주세요.
+- [x] 구현한 함수들을 아래와 같이 파일을 분리해 주세요.
 
 - [x] export를 활용해 주세요.
-- [ ] ProductService.js 파일 Product API 관련 함수들을 작성해 주세요.
+- [x] ProductService.js 파일 Product API 관련 함수들을 작성해 주세요.
 - [x] ArticleService.js 파일에 Article API 관련 함수들을 작성해 주세요.
 - [x] 이외의 코드들은 모두 main.js 파일에 작성해 주세요.
 

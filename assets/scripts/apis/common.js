@@ -25,11 +25,4 @@ api.interceptors.response.use(
   }
 );
 
-export const getData = async (url) => {
-  return api
-    .get(url)
-    .then((response) => response.data)
-    .catch((e) => console.log(e.message));
-};
-
 export default api;
