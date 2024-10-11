@@ -1,6 +1,6 @@
 import axios from "axios";
-import URLS from "../constants/url";
-import { HTTP_ERROR_MESSAGE } from "../constants/messages";
+import URLS from "../constants/url.js";
+import { HTTP_ERROR_MESSAGE } from "../constants/messages.js";
 
 const api = axios.create({
   baseURL: URLS.baseUrl,

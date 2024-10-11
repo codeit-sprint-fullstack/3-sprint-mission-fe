@@ -1,6 +1,6 @@
-import api from "./axios";
-import URLS from "../constants/url";
-import { getData } from "./common";
+import api from "./common.js";
+import URLS from "../constants/url.js";
+import { getData } from "./common.js";
 
 export const getArticleList = (page = 1, pageSize = 100, keyword = "") => {
   const URL = `${URLS.articles}?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
