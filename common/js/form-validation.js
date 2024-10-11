@@ -20,35 +20,16 @@ form.addEventListener('submit', (e) => {
   setSubmitButtonState();
 
   // 회원 가입 처리
-  if (!formButton.disabled) {
-    const currentPage = window.location.pathname;
-    if (currentPage.includes('signup.html')) {
-      // 이미 가입된 이메일인지 확인
-      if (isEmailRegistered(email)) {
-        modal.showModal();
-      } else {
-        // 회원가입 완료
-        USER_DATA.push({
-          email: email.value.trim(),
-          password: password.value.trim(),
-        });
-        alert('회원가입이 완료되었습니다.');
-        window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
-      }
-    } else if (currentPage.includes('login.html')) {
-      // 로그인 처리
-      const user = USER_DATA.find(
-        (user) =>
-          user.email === email.value.trim() &&
-          user.password === password.value.trim()
-      );
-      if (user) {
-        // alert('로그인 되었습니다.');
-        window.location.href = '../../../items.html'; // 아이템 페이지 이동
-      } else {
-        modal.showModal();
-      }
-    }
+  if (formButton.disabled) return;
+
+  const currentPage = window.location.pathname;
+
+  if (currentPage.includes('signup.html')) {
+    handleSignupProcess();
+  } else if (currentPage.includes('login.html')) {
+    handleLoginProcess();
+  } else {
+    alert('페이지를 찾을 수 없습니다.');
   }
 });
 
@@ -57,40 +38,119 @@ form.addEventListener('input', () => {
   setSubmitButtonState();
 });
 
+const setSubmitButtonState = () => {
+  const currentPage = window.location.pathname;
+
+  let isValid = '';
+  if (currentPage.includes('login.html')) {
+    isValid =
+      email.value.trim() !== '' &&
+      isValidEmail(email.value.trim()) &&
+      password.value.trim() !== '' &&
+      password.value.trim().length >= 8;
+  } else if (currentPage.includes('signup.html')) {
+    isValid =
+      email.value.trim() !== '' &&
+      isValidEmail(email.value.trim()) &&
+      nickname.value.trim() !== '' &&
+      password.value.trim() !== '' &&
+      password.value.trim().length >= 8 &&
+      passwordConfirm.value.trim() !== '' &&
+      passwordConfirm.value.trim() === password.value.trim();
+  }
+
+  formButton.disabled = !isValid;
+};
+
+// 회원 가입 페이지 폼 제출 이벤트 처리
+const handleSignupProcess = () => {
+  // 이미 가입된 이메일인지 확인
+  if (isEmailRegistered(email)) {
+    showModal();
+  } else {
+    // 회원가입 완료
+    USER_DATA.push({
+      email: email.value.trim(),
+      password: password.value.trim(),
+    });
+    alert('회원가입이 완료되었습니다.');
+    window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
+  }
+};
+
+const isEmailRegistered = (email) => {
+  return USER_DATA.find((user) => user.email === email.value.trim());
+};
+
+// 로그인 페이지 폼 제출 이벤트 처리
+const handleLoginProcess = () => {
+  // 로그인 처리
+  if (isUserExist(email, password)) {
+    // alert('로그인 되었습니다.');
+    window.location.href = '../../../items.html'; // 아이템 페이지 이동
+  } else {
+    showModal();
+  }
+};
+
+const isUserExist = (email, password) => {
+  return USER_DATA.find(
+    (user) =>
+      user.email === email.value.trim() &&
+      user.password === password.value.trim()
+  );
+};
+
+// 모달 닫기 이벤트 처리
+
+closeModalButton.addEventListener('click', () => {
+  closeModal();
+});
+
+modal.addEventListener('click', (e) => {
+  if (isModalOutSideClicked) {
+    closeModal();
+  }
+});
+
+const showModal = () => {
+  modal.showModal();
+};
+
+const closeModal = () => {
+  modal.close();
+};
+
 form.addEventListener('focusout', (e) => {
-  const elementId = e.target.id;
+  const validateElementId = e.target.id;
+  validateForm(validateElementId);
+});
+
+const validateForm = (validateElementId) => {
   const validationHandlers = {
     email: () => validateEmail(),
     nickname: () => validateNickname(),
     password: () => validatePassword(),
     'password-confirm': () => validatePasswordConfirmation(),
   };
-  if (validationHandlers[elementId]) {
-    validationHandlers[elementId]();
+  if (validationHandlers[validateElementId]) {
+    validationHandlers[validateElementId]();
   }
-});
+};
 
-// 모달 닫기 이벤트 처리
-
-closeModalButton.addEventListener('click', () => {
-  modal.close();
-});
-
-modal.addEventListener('click', (e) => {
+// 모달 외부 클릭 시 닫기
+const isModalOutSideClicked = (e) => {
   const dialogDimensions = modal.getBoundingClientRect();
-  if (
+
+  return (
     e.clientX < dialogDimensions.left ||
     e.clientX > dialogDimensions.right ||
     e.clientY < dialogDimensions.top ||
     e.clientY > dialogDimensions.bottom
-  ) {
-    modal.close();
-  }
-});
-
-const isEmailRegistered = (email) => {
-  return USER_DATA.find((user) => user.email === email.value.trim());
+  );
 };
+
+// ----------유효성 검사 함수들-----------
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
@@ -110,10 +170,6 @@ const setSuccess = (element) => {
   inputControl.classList.add('success');
 };
 
-const isValidEmail = (email) => {
-  return EMAIL_PATTERN.test(String(email).toLowerCase());
-};
-
 // ----------유효성 검사 함수들-----------
 const validateEmail = () => {
   const emailValue = email.value.trim();
@@ -124,6 +180,10 @@ const validateEmail = () => {
   } else {
     setSuccess(email);
   }
+};
+
+const isValidEmail = (email) => {
+  return EMAIL_PATTERN.test(String(email).toLowerCase());
 };
 
 const validateNickname = () => {
@@ -156,28 +216,4 @@ const validatePasswordConfirmation = () => {
   } else {
     setSuccess(passwordConfirm);
   }
-};
-
-const setSubmitButtonState = () => {
-  const currentPage = window.location.pathname;
-
-  let isValid = '';
-  if (currentPage.includes('login.html')) {
-    isValid =
-      email.value.trim() !== '' &&
-      isValidEmail(email.value.trim()) &&
-      password.value.trim() !== '' &&
-      password.value.trim().length >= 8;
-  } else if (currentPage.includes('signup.html')) {
-    isValid =
-      email.value.trim() !== '' &&
-      isValidEmail(email.value.trim()) &&
-      nickname.value.trim() !== '' &&
-      password.value.trim() !== '' &&
-      password.value.trim().length >= 8 &&
-      passwordConfirm.value.trim() !== '' &&
-      passwordConfirm.value.trim() === password.value.trim();
-  }
-
-  formButton.disabled = !isValid;
 };
