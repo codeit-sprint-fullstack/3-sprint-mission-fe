@@ -32,7 +32,7 @@ export const createProduct = async (body) => {
 
 export const patchProduct = async (id, body) => {
   try {
-    const response = await api.patch(URLS.products, id, body);
+    const response = await api.patch(`${URLS.products}/${id}`, id, body);
     return response.data;
   } catch (e) {
     console.log(e.message);
