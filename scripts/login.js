@@ -196,9 +196,8 @@ passwordInput.addEventListener('input', goToLogin);
 const form = document.querySelector('#login-form');
 
 form.addEventListener('submit', function (e) {
-  if (!loginButton.classList.contains('active')) {
-    e.preventDefault(); // 비활성화된 버튼 클릭 시 기본 동작 방지
-  } else {
+  e.preventDefault(); // 1. 비활성화된 버튼 클릭 시 기본 동작 방지, 2. 고정된 기본 페이지로 새로고침 되는 것 방지
+  if (loginButton.classList.contains('active')) {
     console.log('로그인 성공') //확인용 콘솔
     window.location.href = 'items.html'; // items 페이지로 이동
   }
