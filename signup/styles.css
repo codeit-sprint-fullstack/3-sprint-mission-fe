@@ -284,8 +284,8 @@ bottom: 1.6rem;
 right: 2.4rem;
 }
 
-/* loginButtn */
-.loginButtn {
+/* signupButton */
+.signupButton {
   cursor: pointer;
   border:none;
   width: 100%;
@@ -303,7 +303,7 @@ right: 2.4rem;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
 }
 
-.loginButtn:hover {
+.signupButton:hover {
   background-color: var(--mainColor);
 }
 

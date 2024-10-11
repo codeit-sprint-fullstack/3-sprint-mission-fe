@@ -1,17 +1,20 @@
 // errorBoxMessage
 // Selector
 const inputEmail = document.querySelector('.inputEmail');
+const inputEmailBox = document.querySelector('#box');
 const inputNickname = document.querySelector('.inputNickname');
 const inputPassword = document.querySelector('.inputPassword');
 const inputPasswordCheck = document.querySelector('.inputPasswordCheck');
-const inputPasswordValue = document.querySelector('#box2')
-const inputPasswordCheckValue = document.querySelector('#box3')
+const inputPasswordValue = document.querySelector('#box2');
+const inputPasswordCheckValue = document.querySelector('#box3');
+const signupButton = document.querySelector('.signupButton');
 
 //addEventListener
 inputEmail.children[1].addEventListener('focusout', errorEventBoxEmail);
 inputNickname.children[1].addEventListener('focusout', errorEventBoxNickname);
 inputPassword.children[1].addEventListener('focusout', errorEventBoxPassword);
 inputPasswordCheck.children[1].addEventListener('focusout', errorEventBoxPasswordCheck);
+signupButton.addEventListener('click', checkSignupButton);
 
 // error message & boxBorder function
 function createErrorMessageElement(errorMessage, elementer) {
@@ -64,13 +67,13 @@ function errorEventBoxEmail(e) {
 }
 
 // errorEventBoxNickname
-function errorEventBoxNickname(e){
-  if(e.target.value.length === 0){
+function errorEventBoxNickname(e) {
+  if (e.target.value.length === 0) {
     e.target.classList.add('errorBox');
     createErrorMessageElement("닉네임을 입력해주세요.", inputNickname.children[1]);
-    setTimeout(()=>{
+    setTimeout(() => {
       e.target.classList.remove('errorBox');
-    },900)
+    }, 900)
     return;
   }
 }
@@ -78,7 +81,6 @@ function errorEventBoxNickname(e){
 // inputPassword errorBorder & errorText
 function errorEventBoxPassword(e) {
 
-  console.log(e.target.classList)
   setTimeout(() => {
     e.target.classList.remove('errorBox');
   }, 900)
@@ -108,12 +110,36 @@ function errorEventBoxPasswordCheck(e) {
       setTimeout(() => {
         e.target.classList.remove('errorBox');
       }, 900)
-    } 
+    }
   }
 }
 
+// signupButton activate
+const USER_DATA = [
+  { email: 'codeit1@codeit.com', password: "codeit101!" },
+  { email: 'codeit2@codeit.com', password: "codeit202!" },
+  { email: 'codeit3@codeit.com', password: "codeit303!" },
+  { email: 'codeit4@codeit.com', password: "codeit404!" },
+  { email: 'codeit5@codeit.com', password: "codeit505!" },
+  { email: 'codeit6@codeit.com', password: "codeit606!" },
+]
 
-console.log('check3');
+console.log(inputEmailBox.value)
 
+function checkSignupButton(e) {
 
-console.log('check4');
+  for (let i = 0; i < USER_DATA.length; i++) {
+
+    if (USER_DATA[i].email === inputEmailBox.value) {
+      // 사용 중인 이메일입니다
+      alert('사용 중인 이메일 입니다.')
+      return;
+    } else if(USER_DATA[i].email !== inputEmailBox.value ){
+      // login 페이지로 이동
+      const aTag = document.createElement('a');
+      aTag.href = "/login";
+      signupButton.parentNode.insertBefore(aTag, signupButton);
+      aTag.appendChild(signupButton);
+    }
+  }
+}

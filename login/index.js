@@ -1,8 +1,8 @@
 // Selector
 const emailBox = document.querySelector('.inputEmail');
-const emailInputBox = emailBox.children[2]; // 이걸 어떤 식으로 Select 해야하는지
+const emailInputBox = document.querySelector('#box')
 const passwordBox = document.querySelector('.inputPassword');
-const passwordInputBox = passwordBox.children[2];
+const passwordInputBox = document.querySelector('#box1');
 const loginButton = document.querySelector('.loginButton');
 
 // addEvent
