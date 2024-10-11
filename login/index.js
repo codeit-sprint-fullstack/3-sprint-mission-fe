@@ -11,7 +11,6 @@ passwordInputBox.addEventListener('focusout', errorEventBoxPassword);
 emailInputBox.addEventListener('input', checkEmail);
 passwordInputBox.addEventListener('input', checkPassword);
 loginButton.addEventListener('click', checkLoginButton);
-
 // errorBorder & errorText
 function createErrorMessageElement(errorMessage, elementer) {
   const errorText = document.createElement('div');
@@ -48,7 +47,6 @@ function errorEventBoxEmail(e) {
       return;
 
     } else if (e.target.value.length > 0) {
-      console.log(808)
       if (emailValidChk(e.target.value) === false) {
         e.target.classList.add('errorBox');
         createErrorMessageElement("이메일 형식이 아닙니다.", emailInputBox);
@@ -128,3 +126,5 @@ function checkLoginButton(e) {
     }
   }
 }
+
+// 로그인 모달
