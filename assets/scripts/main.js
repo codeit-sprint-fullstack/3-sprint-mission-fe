@@ -44,4 +44,3 @@ console.table(
   })
 );
 await deleteProduct(newProduct.id);
-console.table(await getProduct(newProduct.id));
