@@ -32,7 +32,7 @@ export const createProduct = async (body) => {
 
 export const patchProduct = async (id, body) => {
   try {
-    const response = await api.patch(`${URLS.products}/${id}`, id, body);
+    const response = await api.patch(`${URLS.products}/${id}`, body);
     return response.data;
   } catch (e) {
     console.log(e.message);
@@ -41,7 +41,7 @@ export const patchProduct = async (id, body) => {
 
 export const deleteProduct = async (id) => {
   try {
-    await api.delete(URLS.products, id);
+    await api.delete(`${URLS.products}/${id}`);
   } catch (e) {
     console.log(e.message);
   }
