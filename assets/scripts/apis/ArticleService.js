@@ -14,7 +14,7 @@ export const getArticleList = (page = 1, pageSize = 100, keyword = "") => {
   return data;
 };
 
-export const getArticle = (id = 0) => {
+export const getArticle = (id) => {
   const URL = `${URLS.articles}/${id}`;
   const data = getData(URL);
   return data;
