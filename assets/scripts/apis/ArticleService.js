@@ -28,5 +28,5 @@ export const patchArticle = (id, body) => {
 };
 
 export const deleteArticle = (id) => {
-  handleResponse(api.delete(`${URLS.articles}/${id}`));
+  return handleResponse(api.delete(`${URLS.articles}/${id}`));
 };
