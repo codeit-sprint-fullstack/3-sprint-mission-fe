@@ -22,7 +22,7 @@ export const createArticle = (body) => {
   return data;
 };
 
-export const patchArticle = async (id, body) => {
+export const patchArticle = (id, body) => {
   const data = handleResponse(api.patch(`${URLS.articles}/${id}`, body));
   return data;
 };
