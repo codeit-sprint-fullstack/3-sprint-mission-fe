@@ -1,10 +1,10 @@
 import URLS from "../constants/url.js";
 import api from "./common.js";
 
-const getData = async (url) => {
+const handleResponse = async (apiMethod) => {
   try {
-    const response = await api.get(url);
-    return response.data;
+    const { data } = await apiMethod();
+    return data;
   } catch (e) {
     console.log(e.message);
   }
@@ -12,37 +12,25 @@ const getData = async (url) => {
 
 export const getProductList = async (page = 1, pageSize = 100, keyword = "") => {
   const URL = `${URLS.products}?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
-  const data = getData(URL);
+  const data = await handleResponse(() => api.get(URL));
   return data;
 };
 
 export const getProduct = async (id) => {
-  const data = getData(`${URLS.products}/${id}`);
+  const data = await handleResponse(() => api.get(`${URLS.products}/${id}`));
   return data;
 };
 
 export const createProduct = async (body) => {
-  try {
-    const response = await api.post(URLS.products, body);
-    return response.data;
-  } catch (e) {
-    console.log(e.message);
-  }
+  const data = await handleResponse(() => api.post(URLS.products, body));
+  return data;
 };
 
 export const patchProduct = async (id, body) => {
-  try {
-    const response = await api.patch(`${URLS.products}/${id}`, body);
-    return response.data;
-  } catch (e) {
-    console.log(e.message);
-  }
+  const data = await handleResponse(() => api.patch(`${URLS.products}/${id}`, body));
+  return data;
 };
 
 export const deleteProduct = async (id) => {
-  try {
-    await api.delete(`${URLS.products}/${id}`);
-  } catch (e) {
-    console.log(e.message);
-  }
+  await handleResponse(() => api.delete(`${URLS.products}/${id}`));
 };
