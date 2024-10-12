@@ -110,7 +110,6 @@ function checkPassword(e) {
 }
 
 // checking login
-
 function checkLoginButton() {
   let loginStatus = false;
   let errorMessage = '';
