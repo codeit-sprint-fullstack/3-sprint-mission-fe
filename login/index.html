@@ -29,18 +29,31 @@
   </head>
   <body>
     <main>
+      <div id="modal-container">
+        <div id="modal-background"></div>
+        <div id="modal">
+          <p id="error-message"></p>
+          <button id="modal-close-button">확인</button>
+        </div>
+      </div>
       <header>
         <a href="/"><img src="../assets/images/common/logo.png" /></a>
       </header>
       <form>
-        <label for="email">이메일</label>
-        <input id="email" type="email" placeholder="이메일을 입력해주세요" />
-        <label for="password">비밀번호</label>
-        <div class="password-input">
-          <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
-          <i class="eye-icon fa-regular fa-eye-slash"></i>
-        </div>
-        <button type="submit">로그인</button>
+        <section>
+          <label for="email">이메일</label>
+          <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+          <p id="invalid-email-message" class="message" aria-hidden="true"></p>
+        </section>
+        <section>
+          <label for="password">비밀번호</label>
+          <div class="password-input">
+            <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
+            <i class="eye-icon fa-regular fa-eye-slash"></i>
+          </div>
+          <p id="invalid-password-message" class="message" aria-hidden="true"></p>
+        </section>
+        <button id="submit-button" type="submit" disabled>로그인</button>
       </form>
       <div class="social-login">
         <span>간편 로그인하기</span>
@@ -55,5 +68,6 @@
       </div>
       <p class="sign-up">판다마켓이 처음이신가요? <a href="../signup/index.html">회원가입</a></p>
     </main>
+    <script type="module" src="../assets/scripts/login.js"></script>
   </body>
 </html>

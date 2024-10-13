@@ -21,25 +21,44 @@
   </head>
   <body>
     <main>
+      <div id="modal-container">
+        <div id="modal-background"></div>
+        <div id="modal">
+          <p id="error-message"></p>
+          <button id="modal-close-button">확인</button>
+        </div>
+      </div>
       <header>
         <a href="/"><img src="../assets/images/common/logo.png" /></a>
       </header>
       <form>
+        <section>
         <label for="email">이메일</label>
         <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+        <p id="invalid-email-message" class="message" aria-hidden="true"></p>
+      </section>
+      <section>
         <label for="nickname">닉네임</label>
         <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" />
+        <p id="invalid-nickname-message" class="message" aria-hidden="true"></p>
+        </section>
+        <section>
         <label for="password">비밀번호</label>
         <div class="password-input">
           <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
             <i class="eye-icon fa-regular fa-eye-slash"></i>
         </div>
+        <p id="invalid-password-message" class="message" aria-hidden="true"></p>
+      </section>
+      <section>
         <label for="confirm-password">비밀번호 확인</label>
         <div class="password-input">
           <input id="confirm-password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
             <i class="eye-icon fa-regular fa-eye-slash"></i>
         </div>
-        <button type="submit">회원가입</button>
+        <p id="invalid-password-confirm-message" class="message" aria-hidden="true"></p>
+      </section>
+        <button id="submit-button" type="submit" disabled>회원가입</button>
       </form>
       <div class="social-login">
         <span>간편 로그인하기</span>
@@ -52,5 +71,6 @@
       </div>
       <p class="login">이미 회원이신가요? <a href="../login/index.html">로그인</a></ㅔ>
     </main>
+    <script type="module" src="../assets/scripts/signup.js"></script>
   </body>
 </html>

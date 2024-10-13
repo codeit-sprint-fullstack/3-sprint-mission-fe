@@ -27,7 +27,7 @@ main {
   width: 100%;
 }
 
-header {
+nav {
   width: 100%;
   height: 7rem;
   display: flex;
@@ -37,10 +37,10 @@ header {
   background-color: var(--header-bg-color);
 }
 
-.header-container {
+.nav-container {
   width: 100%;
   max-width: 152rem;
-  padding: 0 20rem;
+  margin: 0 20rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,7 +51,7 @@ header {
 }
 
 .login-button {
-  width: 12.8rem;
+  min-width: 12.8rem;
   height: 4.8rem;
   border: none;
   border-radius: 0.8rem;
@@ -189,19 +189,20 @@ header {
   word-break: keep-all;
 }
 
-.main-page-text.first {
+.main-page-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-page:nth-of-type(1) .main-page-text {
   max-width: 28rem;
 }
 
-.main-page-text.second {
+.main-page:nth-of-type(2) .main-page-text {
   max-width: 30rem;
 }
 
-.main-page-text.third {
-  max-width: 33rem;
-}
-
-.main-title.third {
+.main-page:nth-of-type(3) .main-title {
   max-width: 30rem;
 }
 
@@ -213,9 +214,12 @@ header {
   word-break: keep-all;
 }
 
-.align-right {
-  display: flex;
-  flex-direction: column;
+.main-page-text.align-left {
+  align-items: start;
+  text-align: left;
+}
+
+.main-page-text.align-right {
   align-items: end;
   text-align: right;
 }
@@ -232,7 +236,7 @@ footer {
 .footer-container {
   width: 100%;
   max-width: 152rem;
-  padding: 0 20rem;
+  margin: 0 20rem;
   font-size: 1.6rem;
   font-weight: 400;
   margin-top: 3.2rem;
@@ -270,4 +274,183 @@ footer {
   cursor: pointer;
   width: 1.8rem;
   height: 1.8rem;
+}
+
+@media (max-width: 1199px) {
+  .nav-container {
+    margin: 0 2.4rem;
+  }
+
+  .banner {
+    height: 77.1rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .banner.bottom {
+    height: 92.7rem;
+    margin: 0;
+  }
+
+  .banner-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 100%;
+  }
+  .banner-text-container {
+    font-size: 4rem;
+    max-width: 100%;
+    align-items: center;
+    margin-bottom: 21rem;
+  }
+
+  .banner-text {
+    text-align: center;
+  }
+
+  .image-container,
+  .image-container.bottom {
+    width: auto;
+  }
+
+  .main-page-section {
+    gap: 5.2rem;
+  }
+
+  .main-page {
+    height: auto;
+    align-items: start;
+  }
+
+  .main-page-image {
+    width: 100%;
+  }
+
+  .main-page-text {
+    margin: 0;
+  }
+
+  .main-page:nth-of-type(1) .main-page-text {
+    max-width: 50rem;
+  }
+
+  .main-page:nth-of-type(2) .main-page-text,
+  .main-page:nth-of-type(3) .main-page-text {
+    max-width: 60rem;
+  }
+
+  .main-title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .description {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    max-width: 30rem;
+  }
+
+  .main-page:nth-of-type(3) .description {
+    max-width: 27rem;
+  }
+
+  .sub-title {
+    margin-bottom: 1.6rem;
+  }
+
+  .main-content-container {
+    flex-direction: column;
+    width: 69.6rem;
+    max-height: 100%;
+    max-width: 100%;
+    gap: 2.4rem;
+    align-items: start;
+  }
+
+  .main-content-container.align-right {
+    flex-direction: column-reverse;
+    align-items: end;
+  }
+
+  .main-page:nth-of-type(3) .main-title {
+    max-width: 60rem;
+  }
+
+  .banner.bottom {
+    margin-top: 5.6rem;
+  }
+
+  .footer-container {
+    margin: 3.2rem 2.4rem;
+    padding: 0;
+  }
+}
+
+@media (max-width: 743px) {
+  .nav-container {
+    margin: 0 1.6rem;
+  }
+
+  .banner,
+  .banner.bottom {
+    width: 100%;
+    height: 144vw;
+  }
+
+  .banner-text {
+    font-size: 3.2rem;
+    line-height: 4.48rem;
+  }
+
+  .banner-button {
+    padding: 1.2rem 7.1rem;
+    width: 24rem;
+    font-size: 1.6rem;
+  }
+
+  .banner-text-container {
+    margin-bottom: 13.2rem;
+    width: 24rem;
+  }
+
+  .sub-title {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .main-title {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .description {
+    font-size: 1.6rem;
+    line-height: 1.92rem;
+  }
+
+  .main-page:nth-of-type(1) .description {
+    max-width: 18.3rem;
+  }
+  .main-page:nth-of-type(2) .description {
+    max-width: 22rem;
+  }
+  .main-page:nth-of-type(3) .description {
+    max-width: 24.7rem;
+  }
+
+  .main-page {
+    width: calc(100% - 3.2rem);
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    margin-bottom: 2.4rem;
+  }
 }

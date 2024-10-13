@@ -1,12 +1,13 @@
 :root {
   --main-background-color: #fcfcfc;
   --main-ivory-color: #f3f4f6;
-  --input-focus-border-color: #3692ff;
+  --active-blue-color: #3692ff;
   --main-grey-color: #9ca3af;
   --main-font-color: #1f2937;
   --social-login-bg-color: #e6f2ff;
   --sign-up-link-font-color: #3182f6;
   --password-visible-button-color: #4b5563;
+  --warning-invalid-color: #f74747;
 }
 
 html {
@@ -52,6 +53,12 @@ header img {
   height: auto;
 }
 
+form > section {
+  margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
 label {
   margin-bottom: 1.6rem;
   font-size: 1.8rem;
@@ -63,7 +70,6 @@ button {
   width: 100%;
   height: 5.6rem;
   border: none;
-  margin-bottom: 2.4rem;
 }
 
 input {
@@ -73,8 +79,12 @@ input {
   font-weight: 400;
 }
 
+input.error {
+  border: solid 1px var(--warning-invalid-color);
+}
+
 input:focus {
-  outline: 1px solid var(--input-focus-border-color);
+  outline: 1px solid var(--active-blue-color);
 }
 
 ::placeholder {
@@ -83,11 +93,17 @@ input:focus {
 
 button {
   border-radius: 4rem;
-  background-color: var(--main-grey-color);
+  background-color: var(--active-blue-color);
   color: var(--main-ivory-color);
   font-size: 2rem;
   line-height: 3.2rem;
   font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+
+button:disabled {
+  background-color: var(--main-grey-color);
+  cursor: not-allowed;
 }
 
 .social-login {
@@ -143,4 +159,107 @@ button {
   top: 2rem;
   color: var(--password-visible-button-color);
   cursor: pointer;
+}
+
+.message {
+  display: none;
+}
+
+.message.show {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+  color: var(--warning-invalid-color);
+  padding-left: 16px;
+  padding-top: 8px;
+}
+
+#modal-container {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 50;
+}
+
+#modal-container.show {
+  display: block;
+}
+
+#modal-background {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.7;
+  z-index: 51;
+}
+
+#modal {
+  position: absolute;
+  top: calc(50% - 12.5rem);
+  left: calc(50% - 27rem);
+  width: 54rem;
+  height: 25rem;
+  border-radius: 0.8rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#error-message {
+  position: absolute;
+  top: 10.8rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.92rem;
+}
+
+#modal-close-button {
+  position: absolute;
+  width: 12rem;
+  height: 4.8rem;
+  border-radius: 0.8rem;
+  right: 2.8rem;
+  bottom: 2.8rem;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  line-height: 1.92rem;
+  font-weight: 600;
+}
+
+@media (max-width: 743px) {
+  main {
+    width: calc(100% - 3.2rem);
+    max-width: 40rem;
+    margin: 0 1.6rem;
+    margin-top: 2.4rem;
+  }
+
+  form > section {
+    margin-bottom: 1.6rem;
+  }
+
+  header img {
+    width: 19.8rem;
+  }
+
+  #modal {
+    width: 32.7rem;
+    height: 22rem;
+    top: calc(50% - 11rem);
+    left: calc(50% - 16.35rem);
+  }
+
+  #modal-close-button {
+    left: calc(50% - 6rem);
+    bottom: 2.3rem;
+  }
+  #error-message {
+    top: 8.1rem;
+  }
 }
