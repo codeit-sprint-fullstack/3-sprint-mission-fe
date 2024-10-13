@@ -1,0 +1,295 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: 'pretendard-Regular';
+  text-decoration-line: none;
+  border: none;
+}
+
+.marketlogo {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 60px;
+}
+
+.marketlogo2 {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 640px;
+  height: 448px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 284px;
+  flex-direction: column;
+}
+
+.email-container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  position: relative;
+  flex-direction: column;
+}
+
+.email {
+  font-family: 'pretendard-Regular';
+  font-size: 18px;
+  font-weight: 700px;
+  line-height: 26px;
+}
+
+.putemail {
+  width: 640px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  flex-direction: column;
+} 
+
+.putemail:focus {
+  border-color: #3692FF;
+  outline:2px solid #3692FF
+}
+
+.emailfont {
+  margin-left: 24px;
+  color: #9CA3AF;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 26px;
+  
+}
+
+.nickname {
+  font-size: 18px;
+  font-weight: 700px;
+  line-height: 26px;
+  margin-top: 24px;
+  margin-bottom: 20px
+}
+
+.putnickname {
+  width: 640px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.putnickname:focus {
+  border-color: #3692FF;
+  outline:2px solid #3692FF
+}
+
+.nicknamefont {
+  margin-left: 24px;
+  color: #9CA3AF;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.password {
+  font-size: 18px;
+  font-weight: 700px;
+  line-height: 26px;
+  margin-top: 24px;
+  border-width: 0;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  position: relative;
+  flex-direction: column;
+}
+
+
+.password-toggle-button {
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.putpassword {
+  width: 640px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.putpassword:focus-within {
+  border-color: #3692FF;
+  outline: 2px solid #3692FF
+}
+
+.logo1 {
+  margin-right: 24px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.signupbutton {
+  width: 640px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: #9CA3AF;
+  margin-top: 24px; 
+}
+
+.signupbutton:hover {
+  background-color: #3692FF;
+}
+
+.signup2font {
+  color: #F3F4F6;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top : 3%;  
+  font-size: 20px;
+  font-weight: 600px;
+  line-height: 24px;
+}
+
+.simplelogin {
+  font-size: 16px;
+  font-weight: 500px;
+  line-height: 26px;
+  margin-left: 23px;
+}
+
+.simplebox {
+  background-color: #E6F2FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+  height: 74px;
+  margin-top: 24px;
+}
+
+.simpleboxlogo {
+  margin-right: -390px;
+  input:foccus {outline: 2px solid #3692Ff}
+}
+
+.underbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+
+.fristtime {
+  font-size: 14px;
+  font-weight: 500px;
+  line-height: 24px;
+}
+
+.signupfont{
+  font-weight: 500px;
+  font-size: 14px;
+  line-height: 16.71px;
+  color: #3182F6;
+}
+
+.error {
+  border: 2px solid red; 
+}
+
+.error-message {
+  color: red; 
+  font-size: 12px; 
+    margin-top: 5px; 
+}
+
+.body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+@media (max-width: 1199px) and (min-width: 744px) {
+  .box {
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+    
+  }
+
+  .putemail, .putpassword, .signupbutton {
+    width: 100%;
+  }
+  .box {
+    width: 80%; 
+  }
+}
+
+@media (max-width: 743px) and (min-width: 375px) {
+  .box {
+    width: 100%; 
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .putemail, .putpassword, .signupbutton {
+    width: 100%;
+  }
+
+  body {
+    font-size: 16px; 
+  }
+} 
