@@ -15,6 +15,7 @@ inputEmailBox.addEventListener('focusout', errorEventBoxEmail);
 inputNicknameBox.addEventListener('focusout', errorEventBoxNickname);
 inputPasswordBox.addEventListener('focusout', errorEventBoxPassword);
 inputPasswordCheckBox.addEventListener('focusout', errorEventBoxPasswordCheck);
+inputPasswordCheckBox.addEventListener('input', errorEventBoxPasswordCheck);
 signupButton.addEventListener('click', checkSignupButton);
 
 // error message & boxBorder function
@@ -25,7 +26,7 @@ function createErrorMessageElement(errorMessage, elementer) {
   elementer.after(errorText);
   setTimeout(() => {
     errorText.remove();
-  }, 1000)
+  }, 900)
 }
 
 // email형식 확인
@@ -52,7 +53,7 @@ function errorEventBoxEmail(e) {
 
     const errorMessaage = document.querySelector('.errorText');
     if (e.target.value.length === 0) {
-      createErrorMessageElement("이메일을 입력해주세요.", inputEmail.children[1]);
+      createErrorMessageElement("이메일을 입력해주세요.", inputEmailBox);
       return false;
     }
 
@@ -60,7 +61,7 @@ function errorEventBoxEmail(e) {
       errorMessaage.remove();
       return;
     } else {
-      createErrorMessageElement("잘못된 이메일 형식입니다.", inputEmail.children[1]);
+      createErrorMessageElement("잘못된 이메일 형식입니다.", inputEmailBox);
       return false;
     }
 
@@ -71,7 +72,7 @@ function errorEventBoxEmail(e) {
 function errorEventBoxNickname(e) {
   if (e.target.value.length === 0) {
     e.target.classList.add('errorBox');
-    createErrorMessageElement("닉네임을 입력해주세요.", inputNickname.children[1]);
+    createErrorMessageElement("닉네임을 입력해주세요.", inputNicknameBox);
     setTimeout(() => {
       e.target.classList.remove('errorBox');
     }, 900)
@@ -82,17 +83,19 @@ function errorEventBoxNickname(e) {
 // inputPassword errorBorder & errorText
 function errorEventBoxPassword(e) {
 
-  setTimeout(() => {
-    e.target.classList.remove('errorBox');
-  }, 900)
-
   if (e.target.value.length === 0) {
     e.target.classList.add('errorBox');
-    createErrorMessageElement("비밀번호를 입력해주세요.", inputPassword.children[1]);
+    createErrorMessageElement("비밀번호를 입력해주세요.", inputPasswordBox);
+    setTimeout(() => {
+      e.target.classList.remove('errorBox');
+    }, 900)
     return;
   } else if (e.target.value.length < 8) {
     e.target.classList.add('errorBox');
-    createErrorMessageElement("비밀번호를 8자 이상 입력해주세요.", inputPassword.children[1]);
+    createErrorMessageElement("비밀번호를 8자 이상 입력해주세요.", inputPasswordBox);
+    setTimeout(() => {
+      e.target.classList.remove('errorBox');
+    }, 900)
     return;
   }
 }
@@ -102,8 +105,7 @@ function errorEventBoxPasswordCheck(e) {
   if (e.target.value === inputPasswordBox.value) {
     return;
   } else {
-    console.log(e.target.value, inputPasswordBox.value)
-    createErrorMessageElement("비밀번호가 일치하지 않습니다.", inputPasswordCheck.children[1]);
+    createErrorMessageElement("비밀번호가 일치하지 않습니다.", inputPasswordCheckBox);
     e.target.classList.add('errorBox');
     let errorMessaage = document.querySelector('.errorText');
 
@@ -125,8 +127,7 @@ const USER_DATA = [
   { email: 'codeit6@codeit.com', password: "codeit606!" },
 ]
 
-console.log(inputEmailBox.value)
-
+// Vaild
 function checkSignupButton() {
 
   for (let a of USER_DATA) {

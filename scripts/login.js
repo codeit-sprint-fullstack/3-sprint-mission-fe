@@ -12,7 +12,7 @@ emailInputBox.addEventListener('focusout', errorEventBoxEmail);
 passwordInputBox.addEventListener('focusout', errorEventBoxPassword);
 emailInputBox.addEventListener('input', checkEmail);
 passwordInputBox.addEventListener('input', checkPassword);
-loginButton.addEventListener('click', checkLoginButton);
+loginButton.addEventListener('click', loginButtonPasswordChk);
 
 // errorBorder & errorText
 function createErrorMessageElement(errorMessage, elementer) {
@@ -106,19 +106,18 @@ function checkPassword(e) {
       aTag.appendChild(loginButton);
     }
   }
-
 }
 
 // checking login
-function checkLoginButton() {
+function loginButtonPasswordChk() {
   let loginStatus = false;
   let errorMessage = '';
 
-  for (let i = 0; i < USER_DATA.length; i++) {
+  for (let i of USER_DATA) {
     // false => 밑의 else 작동
-    if (USER_DATA[i].email === emailInputBox.value || USER_DATA[i].password !== passwordInputBox.value) {
+    if (i.email === emailInputBox.value || i.password !== passwordInputBox.value) {
       errorMessage = '비밀번호가 일치하지 않습니다.'
-    } else if (USER_DATA[i].email !== emailInputBox.value && USER_DATA[i].password === passwordInputBox.value) {
+    } else if (i.email !== emailInputBox.value && i.password === passwordInputBox.value) {
       errorMessage = '비밀번호가 일치하지 않습니다.'
     }
   }
