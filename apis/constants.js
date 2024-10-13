@@ -13,8 +13,22 @@ export const getArticleListParams = (
   keyword = ""
 ) => ({ page, pageSize, keyword });
 
+// 게시글 등록 POST(/article)에 들어갈 파라미터 기본값 생성
+export const articleParams = (title = "", content = "", image = "") => ({
+  title,
+  content,
+  image,
+});
+
+// 상품 목록 조회 GET(/products)에 들어갈 파라미터 기본값 생성
+export const getProductListParams = (
+  page = 1,
+  pageSize = 20,
+  keyword = ""
+) => ({ page, pageSize, keyword });
+
 // 상품 등록 POST(/products)에 들어갈 파라미터 기본값 생성
-export const createProductParams = (
+export const productParams = (
   name = "",
   description = "",
   price = 0,
@@ -34,39 +48,48 @@ const createAxiosClient = () => {
   if (!axiosClient) {
     axiosClient = axios.create({
       baseURL: BASE_URL,
-      timeout: 1000,
+      timeout: 5000,
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
   }
 
   // 요청 인터셉터 추가(토큰 전처리, 로깅 등에 많이 사용함)
   axiosClient.interceptors.request.use(
-    (config) => {
+    function (config) {
       // FIXME: 현재는 백엔드 서버가 없어서 프론트에서 토큰을 생성해서 동작을 확인할 수 있도록 함
-
-      // 요청을 보내기 전에 수행할 작업
-      console.log("Request Interceptor:", config);
-
-      // 예: 인증 토큰 추가(토큰 없이 요청 시 401 에러 발생)
-      const httpMethod = config.method.toUpperCase();
-      const service = config.url.split("/").pop();
-      const message = responseMessages(service)[httpMethod][200];
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token")
+        ? localStorage.getItem("token")
+        : createJwt({
+            sub: "CodeitSprint4",
+            name: "HyeonWoo Lee",
+            iat: 1728620345,
+          });
       if (!token) {
         console.log(message);
         return Promise.reject(message);
       }
 
+      // 요청을 보내기 전에 수행할 작업
+      console.log("Request Interceptor:", config);
+
+      // 예: 인증 토큰 추가(토큰 없이 요청 시 401 에러 발생)
+      const method = config.method.toUpperCase();
+      const service = config.url.split("/").pop();
+      const message = responseMessages(service)[method][200];
+
       config.headers.Authorization = `Bearer ${token}`;
       config.headers["X-Powered-By"] = `HyeonWoo's Sprint Mission API`;
       console.log(`요청 보냄: ${config.url}`);
-      console.log(`요청 크리덴셜: ${config.headers.Authorization}`);
+      console.log(`요청 토큰 크리덴셜: ${config.headers.Authorization}`);
       return config;
     },
-    (error) => {
+    function (error) {
       // 요청 에러가 발생했을 때 수행할 작업
       console.error(`요청 에러: ${error}`);
-      const httpMethod = error.config.method.toUpperCase();
-      const httpStatus = error.response.status;
+      const method = error.config.method.toUpperCase();
+      const status = error.response.status;
       const service = error.config.url.split("/").pop();
       const message = error.response.data.message;
       console.log(message);
@@ -76,26 +99,24 @@ const createAxiosClient = () => {
 
   // 응답 인터셉터 추가
   axiosClient.interceptors.response.use(
-    (response) => {
+    function (response) {
       // 응답 시 응답 메시지 출력
-      const httpMethod = response.config.method.toUpperCase();
-      const httpStatus = response.status;
+      const method = response.config.method.toUpperCase();
+      const status = response.status;
       const service = response.config.url.split("/").pop();
-      const message = responseMessages(service)[httpMethod][httpStatus];
-      console.log(message);
+      const message = responseMessages(service)[method][status];
+      console.log(`응답 결과[${method} 요청/${status} 코드]: ${message}`);
       console.log(`응답 URL: ${response.config.url}`);
       return response;
     },
-    (error) => {
+    function (error) {
       // 응답 에러가 발생했을 때 수행할 작업
-      // console.error(`응답 에러: ${error}`);
-      const httpMethod = error.config.method.toUpperCase();
-      const httpStatus = error.response.status;
+      console.error(`응답 에러: ${error}`);
+      const method = error.config.method.toUpperCase();
+      const status = error.response?.status;
       const service = error.config.url.split("/").pop();
-      const message = responseMessages(service)[httpMethod][httpStatus];
-      console.log(
-        `응답 에러[${httpMethod} 요청/${httpStatus} 코드]: ${message}`
-      );
+      const message = responseMessages(service)[method][status];
+      console.log(`응답 에러[${method} 요청/${status} 코드]: ${message}`);
       return Promise.reject(error);
     }
   );
@@ -103,14 +124,15 @@ const createAxiosClient = () => {
 };
 export const API = createAxiosClient();
 
-// const removeInterceptors = () => {
-//   API.interceptors.request.eject(requestInterceptor);
-//   API.interceptors.response.eject(responseInterceptor);
-// }
+// 인터셉터 제거
+const removeInterceptors = () => {
+  API.interceptors.request.eject(requestInterceptor);
+  API.interceptors.response.eject(responseInterceptor);
+};
 
 // JWT 토큰 생성
 export const createJwt = (payload) => {
-  // 검증용 encoded jwt 데이터
+  // 검증용 encoded jwt 샘플 데이터
   /* eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDb2RlaXRTcHJpbnQ0IiwibmFtZSI6Ikh5ZW9uV29vIExlZSIsImlhdCI6MTcyODYyMDM0NX0.gNl1tFknVxAKAdO2cdO3hHL3KqiVa24ibg4kKrboTWk */
   const header = { alg: "HS256", typ: "JWT" };
   const secret = `codeit-sprint-mission-4`;
@@ -128,6 +150,7 @@ export const responseMessages = (service) => ({
     200: `정상적으로 ${service} 데이터를 불러왔습니다.`,
     401: `인증이 필요한 ${service} 데이터입니다.`,
     404: `요청하신 ${service} 데이터를 찾을 수 없습니다.`,
+    408: `요청 시간이 초과되어 ${service} 데이터를 불러오지 못했습니다.`,
     500: `서버에 문제가 있어 ${service} 데이터를 가져오지 못했습니다.`,
   },
   POST: {

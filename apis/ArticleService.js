@@ -1,9 +1,15 @@
-import { API, ARTICLES, getArticleListParams, ARTICLE } from './constants.js';
+import {
+  API,
+  ARTICLES,
+  ARTICLE,
+  getArticleListParams,
+  articleParams,
+} from "./constants.js";
 
-export const getArticleList = async () => {
+export const getArticleList = async (page, pageSize, keyword) => {
   console.log(`게시물 목록 조회`);
   const response = await API.get(ARTICLES, {
-    params: getArticleListParams(),
+    params: getArticleListParams(page, pageSize, keyword),
   });
   console.log(response);
 };
@@ -12,14 +18,21 @@ export const getArticle = async (id) => {
   const response = await API.get(ARTICLE(id));
   console.log(response);
 };
-export const createArticle = async (article) => {
+
+export const createArticle = async ({ title, content, image }) => {
   console.log(`게시물 생성`);
-  const response = await API.post(ARTICLES, article);
+  const response = await API.post(
+    ARTICLES,
+    articleParams(title, content, image)
+  );
   console.log(response);
 };
-export const patchArticle = async (id, article) => {
+export const patchArticle = async (id, { title, content, image }) => {
   console.log(`게시물 수정`);
-  const response = await API.patch(ARTICLE(id), article);
+  const response = await API.patch(
+    ARTICLE(id),
+    articleParams(title, content, image)
+  );
   console.log(response);
 };
 export const deleteArticle = async (id) => {
