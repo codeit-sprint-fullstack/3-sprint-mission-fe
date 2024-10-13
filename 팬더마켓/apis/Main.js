@@ -7,9 +7,3 @@ async function getArt(idNum) {
     console.log(get);
     return get;
 }
-
-const tag = [1, 2, 3];
-const img = [4,5,6];
-
-const pat = await patchProduct(19, "이름", "내용", "99", tag, img);
-console.log(pat);
