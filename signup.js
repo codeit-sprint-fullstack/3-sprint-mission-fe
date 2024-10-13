@@ -64,7 +64,7 @@ function signupbutton() {
      password.value.length >= 8 &&
      passwordcheck.value.length >= 8) {
     submit.style.backgroundcolor = '#3692ff';
-    submit.style.borderRadius = '40px';
+    // submit.style.borderRadius = '40px';
   }else{
     submit.style.backgroundcolor = '#9ca3af';
   }
@@ -86,6 +86,7 @@ submit.addEventListener('click', function(e) {
 
 modal_check.addEventListener('click', function() {
   modal_background.style.display = 'none';
+  modal_background.style.zIndex = '998';
 });
 
 // function validateForm() {
