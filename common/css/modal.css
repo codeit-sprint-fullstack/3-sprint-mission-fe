@@ -1,0 +1,47 @@
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.error-message-modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 90%;
+  max-width: 540px;
+  max-height: 250px;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.error-message-modal p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--font-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-message-modal button {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 120px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+}
+
+@media (max-width: 743px) {
+  .error-message-modal button {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

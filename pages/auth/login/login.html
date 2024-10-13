@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="icon" href="../../../assets/images/logo/favicon.ico" />
+    <link rel="stylesheet" href="../../../styles/reset.css" />
+    <link rel="stylesheet" href="../../../styles/common.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../../../common/css/modal.css" />
+    <script
+      defer
+      type="module"
+      src="../../../common/js/form-validation.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="../../../common/js/password-visibility.js"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <!-- 로고 이미지 -->
+      <div class="login-logo">
+        <a href="/index.html">
+          <img
+            class="login-logo-img"
+            src="../../../assets/images/logo/panda-market-logo.svg"
+            alt="판다마켓 로고 아이콘"
+          />
+        </a>
+      </div>
+      <!-- 로그인 폼 -->
+      <form action="/" id="form">
+        <div class="form-email">
+          <label for="email">이메일</label>
+          <div>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+            />
+            <div class="error"></div>
+          </div>
+        </div>
+        <div class="form-password">
+          <label for="password">비밀번호</label>
+          <div>
+            <input
+              type="password"
+              id="password"
+              class="password-field"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <img
+              class="password-visibility-image"
+              src="../../../assets/images/auth/btn_visibility_off_24px.svg"
+              alt="btn_visibility_off"
+            />
+            <div class="error"></div>
+          </div>
+        </div>
+        <button id="form-button" class="form-button" type="submit" disabled>
+          로그인
+        </button>
+      </form>
+      <!-- 간편 로그인 -->
+      <div class="sns-container">
+        <p>간편 로그인하기</p>
+        <div>
+          <a href="https://www.google.com/">
+            <img
+              src="../../../assets/images/auth/google.png"
+              alt="구글 SNS 로그인"
+            />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img
+              src="../../../assets/images/auth/kakao.png"
+              alt="카카오 SNS 로그인"
+            />
+          </a>
+        </div>
+      </div>
+      <!-- 회원가입 -->
+      <div class="signup-container">
+        <p>판다마켓이 처음이신가요?</p>
+        <a href="../signup/signup.html">회원가입</a>
+      </div>
+      <!-- 모달 -->
+      <dialog id="error-message-modal" class="error-message-modal">
+        <p>비밀번호가 일치하지 않습니다.</p>
+        <button class="close-modal-button">확인</button>
+      </dialog>
+    </main>
+  </body>
+</html>

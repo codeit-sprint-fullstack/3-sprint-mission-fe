@@ -1,10 +1,6 @@
-:root {
-  --main-color: #3692ff;
-  --banner-color: #cfe5ff;
-  --border-color: #dfdfdf;
-  --section-bg-color: #fcfcfc;
-  --footer-bg-color: #111827;
+html {
   font-size: 10px;
+  font-family: 'Pretendard-Regular', sans-serif;
 }
 
 nav {
@@ -23,7 +19,6 @@ nav > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
   padding: 1rem 20rem;
 }
 
@@ -60,9 +55,16 @@ nav > div > button {
   min-width: fit-content;
   margin-bottom: 9rem;
   white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner-title {
+  max-width: 35rem;
+  text-wrap: wrap;
+  word-break: keep-all;
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
@@ -71,6 +73,7 @@ nav > div > button {
 
 .banner-button {
   width: 100%;
+  max-width: 36rem;
   height: 5.6rem;
   border: none;
   border-radius: 4rem;
@@ -120,6 +123,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: start;
   word-break: keep-all;
   height: 23.8rem;
   margin: auto 0;
@@ -138,6 +142,11 @@ button {
   font-weight: 700;
   line-height: 5.6rem;
   margin-bottom: 3rem;
+  max-width: 32rem;
+}
+
+.first-item-title {
+  max-width: 22rem;
 }
 
 .item-subtitle {
@@ -153,6 +162,7 @@ button {
 
 .search .item-content {
   text-align: right;
+  align-items: end;
 }
 
 figure {
@@ -167,6 +177,7 @@ footer {
   color: white;
   min-height: 16rem;
   padding: 3.2rem 20rem;
+  font-size: 1.6rem;
 }
 
 .footer-container {
@@ -174,6 +185,10 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.mobile-footer-container {
+  display: none;
 }
 
 .footer-info {
@@ -189,4 +204,168 @@ footer {
 .footer-info a {
   color: white;
   text-decoration: none;
+}
+
+@media (min-width: 744px) and (max-width: 1199px) {
+  nav > div {
+    padding: 1rem 2.4rem;
+  }
+
+  .banner {
+    height: 77rem;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .banner-title {
+    max-width: 100%;
+    text-wrap: nowrap;
+  }
+
+  .item {
+    max-height: none;
+    padding: 5.2rem 0rem;
+  }
+
+  .item-container {
+    max-width: 100%;
+    flex-wrap: wrap;
+    margin: 0 2.4rem;
+    background-color: white;
+  }
+
+  .item-container img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .item-content {
+    width: 100%;
+    justify-content: initial;
+  }
+
+  .item-title {
+    max-width: none;
+  }
+
+  .banner-title {
+    text-align: center;
+  }
+
+  footer {
+    padding: 3.2rem 2.4rem;
+  }
+}
+
+@media (max-width: 743px) {
+  * {
+    font-family: 'Pretendard-Regular', sans-serif;
+  }
+
+  nav > div {
+    padding: 1rem 1.6rem;
+  }
+
+  .banner {
+    height: 54rem;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    padding-top: 4.8rem;
+  }
+
+  .banner-content {
+    margin-bottom: 4.8rem;
+  }
+
+  .banner-title {
+    margin-top: 0rem;
+    max-width: 24rem;
+    line-height: 4rem;
+    text-wrap: wrap;
+    word-break: keep-all;
+    margin-bottom: 1.8rem;
+  }
+
+  .banner-button {
+    max-width: 24rem;
+    padding: 1rem 7rem;
+    font-size: 1.8rem;
+  }
+
+  .item {
+    max-height: none;
+    padding: 2rem 0rem;
+  }
+
+  .item-container {
+    max-width: 100%;
+    flex-wrap: wrap;
+    margin: 0 2.4rem;
+    background-color: white;
+    gap: 2.4rem;
+  }
+
+  .item-container img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .item-content {
+    width: 100%;
+    justify-content: initial;
+    height: auto;
+  }
+
+  .strong {
+    margin-bottom: 0rem;
+  }
+
+  .item-title {
+    max-width: none;
+    font-size: 2.4rem;
+    margin-bottom: 0rem;
+  }
+
+  .item-subtitle {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .banner-title {
+    text-align: center;
+    font-size: 3.2rem;
+  }
+
+  footer {
+    padding: 3.2rem 2.4rem;
+    word-wrap: break-word;
+  }
+
+  .footer-container {
+    display: none;
+  }
+
+  .mobile-footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .mobile-footer-container div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-footer-container p {
+    color: var(--mobile-footer-font-color);
+  }
 }

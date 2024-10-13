@@ -1,0 +1,33 @@
+:root {
+  /* -----index 페이지 css----- */
+  --main-color: #3692ff;
+  --banner-color: #cfe5ff;
+  --border-color: #dfdfdf;
+  --section-bg-color: #fcfcfc;
+  --footer-bg-color: #111827;
+
+  /* -----auth 관련 페이지 css----- */
+
+  --font-color: #1f2937;
+  --main-color: #3692ff;
+
+  /* input 관련 색상 */
+  --login-input-bg-color: #f3f4f6;
+  --login-input-placeholder-color: #9ca3af;
+  --login-input-focus-color: #3692ff;
+  --input-error-color: #f74747;
+
+  /* 로그인 버튼 관련 색상 */
+  --login-btn-bg-color: #3692ff;
+  --login-btn-disabled-bg-color: #9ca3af;
+  --login-btn-font-color: #ffffff;
+
+  /* 간편 로그인 색상 */
+  --login-social-bg-color: #e6f2ff;
+
+  /* 회원가입 관련 색상 */
+  --login-signup-font-color: #3692ff;
+
+  /* 메인 페이지 모바일 footer 색상 */
+  --mobile-footer-font-color: #9ca3af;
+}

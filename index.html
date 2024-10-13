@@ -17,10 +17,25 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="판다마켓" />
+    <meta
+      property="og:description"
+      content="일상에서 모든 물건을 거래해보세요"
+    />
+    <meta
+      property="og:url"
+      content="https://daewon-panda-market.netlify.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://daewon-panda-market.netlify.app/assets/images/logo/panda-market-logo.png"
+    />
+    <meta property="og:type" content="website" />
     <title>판다 마켓</title>
     <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/common.css" />
     <link rel="stylesheet" href="index.css" />
-    <link rel="icon" href="images/logo/favicon.ico" />
+    <link rel="icon" href="assets/images/logo/favicon.ico" />
   </head>
   <body>
     <!-- 네비게이션 바 -->
@@ -29,14 +44,14 @@
         <div>
           <a href="/">
             <img
-              src="images/logo/panda-market-logo.png"
+              src="assets/images/logo/panda-market-logo.png"
               alt="판다마켓 로고 아이콘"
               height="51px"
             />
           </a>
           <button
             aria-label="로그인 버튼"
-            onclick="window.location.href='/login-page/login.html'"
+            onclick="window.location.href='/pages/auth/login/login.html'"
           >
             로그인
           </button>
@@ -47,10 +62,7 @@
     <section class="banner">
       <figure class="banner-container">
         <div class="banner-content">
-          <h1 class="banner-title">
-            일상의 모든 물건을 <br />
-            거래해 보세요
-          </h1>
+          <h1 class="banner-title">일상의 모든 물건을 거래해 보세요</h1>
           <button
             class="banner-button"
             onclick="window.location.href='items.html'"
@@ -60,7 +72,7 @@
         </div>
         <div class="banner-image">
           <img
-            src="images/home/hero-image.png"
+            src="assets/images/home/hero-image.png"
             alt="일상의 모든 물건을 거래해 보세요 배너 이미지"
           />
         </div>
@@ -70,13 +82,14 @@
     <main>
       <section class="hot-item item">
         <div class="item-container">
-          <img src="images/home/feature1-image.png" alt="인기 상품 이미지" />
+          <img
+            src="assets/images/home/feature1-image.png"
+            alt="인기 상품 이미지"
+          />
           <div class="item-content">
             <strong class="strong">Hot item</strong>
-            <h2 class="item-title">
-              인기 상품을
-              <br />
-              확인해 보세요
+            <h2 class="item-title first-item-title">
+              인기 상품을 확인해 보세요
             </h2>
             <h3 class="item-subtitle">
               가장 HOT한 중고거래 물품을
@@ -89,18 +102,14 @@
       <section class="search item">
         <div class="item-container">
           <img
-            src="images/home/feature2-image.png"
+            src="assets/images/home/feature2-image.png"
             alt="인기 상품 이미지"
             width="588px"
             height="444px"
           />
           <div class="item-content">
             <strong class="strong">Search</strong>
-            <h2 class="item-title">
-              구매를 원하는
-              <br />
-              상품을 검색하세요
-            </h2>
+            <h2 class="item-title">구매를 원하는 상품을 검색하세요</h2>
             <h3 class="item-subtitle">
               구매하고 싶은 물품은 검색해서
               <br />
@@ -112,18 +121,14 @@
       <section class="register item">
         <div class="item-container">
           <img
-            src="images/home/feature3-image.png"
+            src="assets/images/home/feature3-image.png"
             alt="인기 상품 이미지"
             width="588px"
             height="444px"
           />
           <div class="item-content">
             <strong class="strong">Register</strong>
-            <h2 class="item-title">
-              판매를 원하는
-              <br />
-              상품을 등록하세요
-            </h2>
+            <h2 class="item-title">판매를 원하는 상품을 등록하세요</h2>
             <h3 class="item-subtitle">
               어떤 물건이든 판매하고 싶은 상품을
               <br />
@@ -145,7 +150,7 @@
         </div>
         <div class="banner-image">
           <img
-            src="images/home/bottom-banner-image.png"
+            src="assets/images/home/bottom-banner-image.png"
             alt="믿을 수 있는 판다마켓 중고 거래 배너 이미지"
           />
         </div>
@@ -166,30 +171,93 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="images/social/facebook-logo.svg" alt="facebook-logo" />
+            <img
+              src="assets/images/social/facebook-logo.svg"
+              alt="facebook-logo"
+            />
           </a>
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="images/social/twitter-logo.svg" alt="twitter-logo" />
+            <img
+              src="assets/images/social/twitter-logo.svg"
+              alt="twitter-logo"
+            />
           </a>
           <a
             href="https://www.youtube.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="images/social/youtube-logo.svg" alt="youtube-logo" />
+            <img
+              src="assets/images/social/youtube-logo.svg"
+              alt="youtube-logo"
+            />
           </a>
           <a
             href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="images/social/instagram-logo.svg" alt="instagram-logo" />
+            <img
+              src="assets/images/social/instagram-logo.svg"
+              alt="instagram-logo"
+            />
           </a>
         </div>
+      </div>
+      <div class="mobile-footer-container">
+        <div>
+          <div class="footer-info">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/social/facebook-logo.svg"
+                alt="facebook-logo"
+              />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/social/twitter-logo.svg"
+                alt="twitter-logo"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/social/youtube-logo.svg"
+                alt="youtube-logo"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/social/instagram-logo.svg"
+                alt="instagram-logo"
+              />
+            </a>
+          </div>
+        </div>
+        <p>©codeit - 2024</p>
       </div>
     </footer>
   </body>

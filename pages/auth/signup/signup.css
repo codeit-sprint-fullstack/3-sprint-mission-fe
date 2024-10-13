@@ -1,30 +1,9 @@
-:root {
-  --font-color: #1f2937;
-  --main-color: #3692ff;
-
-  /* 라벨 관련 색상 */
-
-  /* input 관련 색상 */
-  --login-input-bg-color: #f3f4f6;
-  --login-input-placeholder-color: #9ca3af;
-  --login-input-focus-color: #3692ff;
-
-  /* 로그인 버튼 관련 색상 */
-  --login-btn-bg-color: #9ca3af;
-  --login-btn-font-color: #f3f4f6;
-
-  /* 간편 로그인 색상 */
-  --login-social-bg-color: #e6f2ff;
-
-  /* 회원가입 관련 색상 */
-  --login-signup-font-color: #3692ff;
-}
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0px 16px;
 }
 
 main {
@@ -63,40 +42,55 @@ input:focus {
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
+  padding: 0px 70px;
 }
 
 .login-logo-img {
+  width: 100%;
   max-width: 396px;
   max-height: 132px;
 }
 
 .form-email,
-.form-password {
+.form-nickname,
+.form-password,
+.form-password-confirm {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.form-password div {
-  position: relative;
-}
-
-.form-password input {
+.form-email div input,
+.form-nickname div input {
   width: 100%;
 }
 
-.form-password img {
+.form-password div,
+.form-password-confirm div {
+  position: relative;
+}
+
+.form-password input,
+.form-password-confirm input {
+  width: 100%;
+}
+
+.form-password img,
+.form-password-confirm img {
   display: none;
   width: 24px;
   height: 24px;
   position: absolute;
   top: 14px;
   right: 16px;
+  cursor: pointer;
 }
 
-.form-password:focus-within img {
-  display: block;
+.error > .error {
+  color: var(--input-error-color);
+  padding-top: 8px;
+  padding-left: 8px;
 }
 
 /* 로그인 버튼 */
@@ -114,6 +108,11 @@ input:focus {
 
 .form-button:focus {
   background-color: var(--main-color);
+}
+
+.form-button:disabled {
+  background-color: var(--login-btn-disabled-bg-color);
+  cursor: not-allowed;
 }
 
 /* 간편 로그인 */
@@ -159,4 +158,27 @@ input:focus {
 
 .signup-container a {
   color: var(--login-signup-font-color);
+}
+
+@media (min-width: 744px) and (max-width: 1199px) {
+  .form-email,
+  .form-nickname,
+  .form-password,
+  .form-password-confirm {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 743px) {
+  .login-logo {
+    margin-bottom: 16px;
+  }
+
+  .form-email,
+  .form-nickname,
+  .form-password,
+  .form-password-confirm {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
 }
