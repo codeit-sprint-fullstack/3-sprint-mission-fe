@@ -1,61 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <title>API Documentation: </title>
-
-  <link type="text/css" rel="stylesheet" href="styles/vendor/prism-tomorrow-night.css">
-
-  <link type="text/css" rel="stylesheet" href="styles/styles.css">
-
+    <meta charset="utf-8">
+    <title>API Documentation: </title>
+    
+      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-tomorrow-night.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    
 </head>
-
 <body>
 
-  <header class="layout-header">
-
-    <h1>
-      <a href="./index.html">
-        API Documentation
-      </a>
-    </h1>
-    <nav class="layout-nav">
-      <li class="nav-heading"><a href="global.html">Globals</a></li>
-      <li class="nav-item"><span class="nav-item-type type-typedef" title="typedef">T</span><span
-          class="nav-item-name is-typedef"><a href="global.html#Article">Article</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-typedef" title="typedef">T</span><span
-          class="nav-item-name is-typedef"><a href="global.html#Product">Product</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#createArticle">createArticle</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#createProduct">createProduct</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#deleteProduct">deleteProduct</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#getArticle">getArticle</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#getProduct">getProduct</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#getProductList">getProductList</a></span></li>
-      <li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span
-          class="nav-item-name is-function"><a href="global.html#patchProduct">patchProduct</a></span></li>
-    </nav>
-  </header>
+<header class="layout-header">
+  
+  <h1>
+    <a href="./index.html">
+      API Documentation
+    </a>
+  </h1>
+  <nav class="layout-nav">
+    <li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-typedef" title="typedef">T</span><span class="nav-item-name is-typedef"><a href="global.html#Article">Article</a></span></li><li class="nav-item"><span class="nav-item-type type-typedef" title="typedef">T</span><span class="nav-item-name is-typedef"><a href="global.html#Product">Product</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#createArticle">createArticle</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#createProduct">createProduct</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#deleteProduct">deleteProduct</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#getArticle">getArticle</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#getProduct">getProduct</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#getProductList">getProductList</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="global.html#patchProduct">patchProduct</a></span></li>
+  </nav>
+</header>
 
 
-  <main class="layout-main ">
-    <div class="container">
-      <p class="page-kind"></p>
-      <h1 class="page-title"></h1>
+<main class="layout-main ">
+  <div class="container">
+    <p class="page-kind"></p>
+    <h1 class="page-title"></h1>
+    
 
 
 
+    
 
 
-
-
-      <h3> </h3>
+    <h3> </h3>
 
 
 
@@ -66,92 +46,128 @@
 
 
 
+    
+
+
+
+
+    <section class="readme">
+        <article><p>스프린트 미션 4의 요구사항은 두 가지 주요 API(Article API와 Product API)를 사용하여 다양한 CRUD(생성, 읽기, 업데이트, 삭제) 기능을 구현하는 것입니다.</p>
+<ul>
+<li><a href="https://sprint-mission-api.vercel.app/docs/">API 명세 확인하러 가기</a></li>
+</ul>
+<p>위 명세를 참고해 아래 요구사항에 따라 함수들을 구현하세요.</p>
+<h1>요구사항</h1>
+<h2>기본 요구사항</h2>
+<p><strong>공통</strong></p>
+<ul>
+<li>
+<p>[X] Github에 스프린트 미션 PR을 만들어 주세요.</p>
+</li>
+<li>
+<p>[X] '<a href="https://sprint-mission-api.vercel.app/articles">https://sprint-mission-api.vercel.app/articles</a>' API를 이용하여 아래 함수들을 구현해 주세요.</p>
+<ul>
+<li>
+<p>[X] <code>getArticleList()</code> : GET 메서드를 사용해 주세요.</p>
+<ul>
+<li>[X] <code>page</code>, <code>pageSize</code>, <code>keyword</code> 쿼리 파라미터를 이용해 주세요.</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>getArticle()</code> : GET 메서드를 사용해 주세요.</p>
+</li>
+<li>
+<p>[X] <code>createArticle()</code> : POST 메서드를 사용해 주세요.</p>
+<ul>
+<li>[X] request body에 <code>title</code>, <code>content</code>, <code>image</code> 를 포함해 주세요.</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>patchArticle()</code> : PATCH 메서드를 사용해 주세요.</p>
+</li>
+<li>
+<p>[X] <code>deleteArticle()</code> : DELETE 메서드를 사용해 주세요.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>fetch</code> 혹은 <code>axios</code> 를 이용해 주세요.</p>
+<ul>
+<li>[X] 응답의 상태 코드가 2XX가 아닐 경우, 에러메시지를 콘솔에 출력해 주세요.</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>.then()</code> 메서드를 이용하여 비동기 처리를 해주세요.</p>
+</li>
+<li>
+<p>[X] <code>.catch()</code> 를 이용하여 오류 처리를 해주세요.</p>
+</li>
+<li>
+<p>[X] '<a href="https://sprint-mission-api.vercel.app/products">https://sprint-mission-api.vercel.app/products</a>' API를 이용하여 아래 함수들을 구현해 주세요.</p>
+<ul>
+<li>
+<p>[X] <code>getProductList()</code> : GET 메서드를 사용해 주세요.</p>
+<ul>
+<li>[X] <code>page</code>, <code>pageSize</code>, <code>keyword</code> 쿼리 파라미터를 이용해 주세요.</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>getProduct()</code> : GET 메서드를 사용해 주세요.</p>
+</li>
+<li>
+<p>[X] <code>createProduct()</code> : POST 메서드를 사용해 주세요.</p>
+<ul>
+<li>[X] request body에 <code>name</code>, <code>description</code>, <code>price</code>, <code>tags</code>, <code>images</code> 를 포함해 주세요.</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>patchProduct()</code> : PATCH 메서드를 사용해 주세요.</p>
+</li>
+<li>
+<p>[X] <code>deleteProduct()</code> : DELETE 메서드를 사용해 주세요.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>[X] <code>async/await</code> 을 이용하여 비동기 처리를 해주세요.</p>
+</li>
+<li>
+<p>[X] <code>try/catch</code> 를 이용하여 오류 처리를 해주세요.</p>
+</li>
+<li>
+<p>[X] 구현한 함수들을 아래와 같이 파일을 분리해 주세요.</p>
+<ul>
+<li>[X] <code>export</code>를 활용해 주세요.</li>
+<li>[X] <code>ProductService.js</code> 파일 Product API 관련 함수들을 작성해 주세요.</li>
+<li>[X] <code>ArticleService.js</code> 파일에 Article API 관련 함수들을 작성해 주세요.</li>
+</ul>
+</li>
+<li>
+<p>[X] 이외의 코드들은 모두 <code>main.js</code> 파일에 작성해 주세요.</p>
+<ul>
+<li>[X] <code>import</code>를 활용해 주세요.</li>
+<li>[X] 각 함수를 실행하는 코드를 작성하고, 제대로 동작하는지 확인해 주세요.</li>
+</ul>
+</li>
+</ul></article>
+    </section>
 
 
 
 
 
-      <section class="readme">
-        <article>
-          <h1>🐼 판다마켓 프로젝트</h1>
-          <blockquote>
-            <p><em>이 저장소는 판다마켓 프로젝트의 프론트엔드 코드를 관리하는 곳입니다. 프로젝트를 클론하여 개발 환경을 설정하고, 각 브랜치에서 해당 스프린트 미션을 수행해 주세요!</em> 🛠️
-            </p>
-          </blockquote>
-          <h2>소개</h2>
-          <p>안녕하세요! 판다마켓 프로젝트에 오신 것을 환영합니다! 🥳<br>
-            판다마켓은 따뜻한 중고거래를 위한 커뮤니티 플랫폼이에요. 여러분은 이곳에서 상품을 등록하고, 다른 사용자들과 소통하며, 자유롭게 이야기를 나눌 수 있어요. 매주 스프린트 미션을 통해 기능을
-            하나씩 만들어 가며 성장해 나가는 여정을 함께해요. 🚀</p>
-          <p><img src="https://github.com/user-attachments/assets/3784b99f-73c9-4349-a9a9-92b2a7563574"
-              alt="PandaMarket"><br>
-            <em>위 이미지는 판다마켓의 대표 이미지입니다.</em> 📸
-          </p>
-          <h2>스프린트 미션이란? 🤔</h2>
-          <p>스프린트 미션은 <strong>하나의 개인 프로젝트를 길게 진행하면서, 그 과정에서 주기적으로 피드백을 받을 수 있는 시스템</strong>이에요. 각 스프린트마다 배운 이론을 적용해 보고,
-            <strong>멘토님께 코드 리뷰를 받아가며 실력을 쑥쑥 키워갈 수 있는 중요한 개인 과제</strong>랍니다. 💪
-          </p>
-          <h2>주요 기능 ✨</h2>
-          <ol>
-            <li><strong>상품 등록</strong>: 내가 가진 물건을 올리고, 사진과 설명을 추가해 직접 판매할 수 있어요!</li>
-            <li><strong>문의 댓글</strong>: 상품에 대한 궁금한 점이나 의견을 자유롭게 남길 수 있답니다. 📝</li>
-            <li><strong>자유게시판</strong>: 다양한 주제로 친구들과 이야기를 나누고, 정보를 공유할 수 있는 공간이에요! 🗣️</li>
-          </ol>
-          <h2>프로젝트 브랜치 구조 🏗️</h2>
-          <p>프로젝트는 단계별로 나뉘어 있고, 각 스프린트 미션에 맞는 브랜치가 있어요. 각 브랜치를 통해 체계적으로 개발하며 학습할 수 있어요. 🎯</p>
-          <h3>브랜치 설명</h3>
-          <ol>
-            <li>
-              <p><strong>basic (part1): 스프린트 미션 1 ~ 4 FE 요구사항</strong></p>
-              <ul>
-                <li>기본적인 웹 애플리케이션 기능 구현을 위한 초기 브랜치입니다. HTML, CSS, JavaScript 등을 사용해 기본을 다집니다.</li>
-                <li><strong>스프린트 미션 1부터 4까지</strong>의 프론트엔드 내용을 포함하고 있어요.</li>
-              </ul>
-            </li>
-            <li>
-              <p><strong>react (part2): 스프린트 미션 5 ~ 7 FE 요구사항</strong></p>
-              <ul>
-                <li>React 라이브러리를 사용해 프론트엔드 기능을 구현하는 브랜치입니다. 컴포넌트 기반 아키텍처와 상태 관리를 배웁니다.</li>
-                <li><strong>스프린트 미션 5부터 7까지, 그 이후</strong>의 프론트엔드 내용을 포함하고 있어요.</li>
-                <li>만약 스프린트 미션 9부터 프론트엔드 코드를 Next가 아닌 React로 구현하고 싶다면 react 브랜치를 사용해요.</li>
-              </ul>
-            </li>
-            <li>
-              <p><strong>next (part3,4): 스프린트 미션 8 FE 요구사항~</strong></p>
-              <ul>
-                <li>Next.js를 사용해 서버 사이드 렌더링(SSR)과 정적 사이트 생성(SSG) 등 고급 기능을 구현합니다.</li>
-                <li><strong>스프린트 미션 8부터</strong> 시작하는 프론트엔드 내용을 포함하고 있어요.</li>
-                <li>만약 스프린트 미션 9부터 프론트엔드 코드를 React가 아닌 Next로 구현하고 싶다면 next 브랜치를 사용해요.</li>
-              </ul>
-            </li>
-          </ol>
-          <blockquote>
-            <p><em>스프린트 미션 내 백엔드 요구사항은 <a href="https://github.com/codeit-sprint-fullstack/3-sprint-mission-be">백엔드
-                  레포지토리</a>의 브랜치에서 관리해주세요</em></p>
-          </blockquote>
-          <hr>
-          <p>본 프로젝트는 <a href="https://www.codeit.kr">코드잇</a>의 소유이며, 교육 목적으로만 사용됩니다. © 2024 Codeit. All rights reserved.
-          </p>
-        </article>
-      </section>
+
+  </div>
+</main>
+
+<footer class="layout-footer">
+  <div class="container">
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sun Oct 13 2024 21:04:17 GMT+0900 (대한민국 표준시)
+  </div>
+</footer>
 
 
 
-
-
-
-    </div>
-  </main>
-
-  <footer class="layout-footer">
-    <div class="container">
-      Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sun Oct 13 2024 19:53:07
-      GMT+0900 (대한민국 표준시)
-    </div>
-  </footer>
-
-
-
-  <script src="scripts/prism.dev.js"></script>
+<script src="scripts/prism.dev.js"></script>
 </body>
-
 </html>
