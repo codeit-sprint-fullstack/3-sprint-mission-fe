@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-216NRRQ43V"></script>
@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-216NRRQ43V');
   </script>
   <meta charset="UTF-8">
@@ -27,31 +26,31 @@
     <section class="marketlogo2">
       <section>
         <label class="email">이메일</label>
-        <div class="putemail">
-          <input 
-            type="text" 
-            id="Username" 
-            class="putemail" 
-            placeholder="이메일을 입력해주세요">
-          </input>
-        </div>
+        <div class="email-container">
+          <input type="text" id="email" class="putemail" placeholder="이메일을 입력해주세요">
+          <div id="emailError" class="error-message" style="display: none;">잘못된 이메일 형식입니다.</div>
+        </div>>
+
         <label class="password">비밀번호</label>
         <div class="password-container">
           <input 
             type="password" 
             id="password" 
-            name="password" 
-            class="putpassword"
+            class="putpassword" 
             placeholder="비밀번호를 입력해주세요"/>
-            
-          <button
-            type="button"
-            class="password-toggle-button"
-            aria-label="비밀번호 보기">
-            <img
-              src="secret.png"
-              alt="비밀번호 숨긴 상태 아이콘"/>
-          </button>
+            <div id="passwordError" 
+            class="error-message" 
+            style="display: none;">비밀번호를 입력해주세요.</div>
+
+            <button 
+              type="button"
+              class="password-toggle-button"
+              aria-label="비밀번호 보기">
+              <img 
+                src="secret.png"
+                alt="비밀번호 숨긴 상태 아이콘">
+            </button>
+          </div>
           
         </div>
         <div class="loginbutton">
@@ -77,5 +76,6 @@
       </section>
     </section>
   </main>
+  <script src="login.js"></script>
 </body>
 </html>
