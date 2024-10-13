@@ -17,7 +17,6 @@
   },
   "opts": {
     "encoding": "utf8",
-    "readme": "./docs/README.md",
     "recurse": true,
     "destination": "./docs/",
     "template": "./node_modules/tidy-jsdoc"
