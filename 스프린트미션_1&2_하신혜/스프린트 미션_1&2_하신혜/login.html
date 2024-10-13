@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,19 +19,21 @@
         <div class="input-group1">
             <div class="putemail">
               <input type="email" id="email" placeholder="이메일을 입력해주세요" required>
+              <span class="error-message-mail" id="emailError"></span>
             </div>
         </div>
         <div class="tinyhead">비밀번호</div>
         <div class="input-group2">
             <input type="password" id="password" placeholder="비밀번호를 입력해주세요" required>
+            <span class="error-message-password" id="passwordError"></span>
             <button type="button" class="toggle-password"> <img src="btn_visibility_on_24px.png" alt="토글패스워드">
             </button>
-        </div>
 
-        <button type="submit" class="login-btn">로그인</button>
+          </div>
 
+        <button type="submit" class="login-btn" disabled>로그인</button>
         <div class="easylogin">
-          
+      
         </div>
 
         <div class="social-login">
@@ -43,11 +45,22 @@
           
         </div>
 
+        
+
         <p class="signup-link">
-            판다마켓 처음이신가요? <a href="join.html">회원가입</a>
+            판다마켓 처음이신가요? <a href="register.html">회원가입</a>
         </p>
     </form>
 </div>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <p id="modalMessage" class="modalmessage">모달 내용</p>
+    <div class="modal-footer">
+      <button class="close-modal-btn">확인</button> 
+    </div>
+  </div>
+</div>
+
 
 <script src="login.js"></script>
 </body>
