@@ -210,31 +210,17 @@
   color: var(--sign-up)
 }
 
-/* 모달 배경 */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--modal-overlay); 
-  display: none;
-  z-index: 2;
-}
 
 /* 모달 콘텐츠 */
 .modal-content {
-  position: fixed;
   width: 540px;
   height: 250px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: var(--modal-content-bg);
-  box-sizing: border-box;
-  z-index: 3;
-  display: none;
   border-radius: 8px;
+}
+
+.modal-content::backdrop {
+  background-color: var(--modal-overlay);
 }
 
 /* 접근성 screen-reader-only */

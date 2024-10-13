@@ -64,14 +64,12 @@
         판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
       </div>
     </div>
-    <!-- 모달 오버레이 -->
-    <div class="modal-overlay" id="modalOverlay"></div>
     <!-- 모달 콘텐츠 -->
-    <div class="modal-content" id="modalContent">
+    <dialog class="modal-content" id="modalContent">
       <h2 class="sr-only">확인창</h2>
       <p>비밀번호가 일치하지 않습니다.</p>
-      <span class="modal-button" id="modalButton" tabindex="1">확인</span>
-    </div>
+      <button class="modal-button" id="modalButton" autofocus>확인</button>
+    </dialog>
     <script type="module" src="scripts/login.js"></script>
 </body>
 

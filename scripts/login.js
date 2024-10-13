@@ -220,42 +220,44 @@ function validateUser(inputEmail, inputPassword) {
       window.location.href = 'items.html'; // items 페이지로 이동
     } else {
       console.log("비밀번호가 일치하지 않습니다.");
-      openModal();
+      // openModal();
+      modal.showModal();
     }
   } else {
     console.log("존재하지 않는 이메일입니다.");
-    openModal();
+    // openModal();
+    modal.showModal();
   }
 }
 
 // 모달
-const modalOverlay = document.querySelector('#modalOverlay')
-const modalContent = document.querySelector('#modalContent')
+const modal = document.querySelector("#modalContent");
 const modalButton = document.querySelector('#modalButton')
 
-// 모달창 띄우기
-function openModal() {
-  modalOverlay.style.display = 'inline'
-  modalContent.style.display = 'inline'
-  modalButton.focus();
-
-}
 
 // 모달창 닫기
 function closeModal() {
-  modalOverlay.style.display = 'none'
-  modalContent.style.display = 'none'
+  modal.close();
   emailInput.focus();
 }
+modalButton.addEventListener('click', closeModal)
 
-[modalOverlay, modalButton].forEach(element => {
-  element.addEventListener('click', closeModal)
-});
+// dialog::backdrop 영역 click하여 모달 닫기
+modal.addEventListener('click', (e) => {
+  const rect = modal.getBoundingClientRect();
+  console.log(rect.left);
+  console.log(rect.right);
+  console.log(rect.top);
+  console.log(rect.bottom);
+  console.log(`X: ${e.clientX}, Y: ${e.clientY}`);
 
-// 키 입력 이벤트 리스너 추가
-modalButton.addEventListener('keydown', (event) => {
-  if (event.key === ' ' || event.key === 'Enter') {
-      event.preventDefault(); // 스페이스나 엔터의 기본동작 막기
-      closeModal();
+  // 클릭한 위치가 모달 창 내부가 아니라면 닫기
+  if (
+    e.clientX < rect.left ||
+    e.clientX > rect.right ||
+    e.clientY < rect.top ||
+    e.clientY > rect.bottom
+  ) {
+    closeModal()
   }
 });
