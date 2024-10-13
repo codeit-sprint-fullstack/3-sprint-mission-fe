@@ -1,4 +1,9 @@
 {
   "type": "module",
-  "name": "3-sprint-mission-fe"
+  "name": "3-sprint-mission-fe",
+  "packageManager": "yarn@4.5.0",
+  "dependencies": {
+    "global": "^4.4.0",
+    "jsdoc": "^4.0.3"
+  }
 }
