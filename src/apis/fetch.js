@@ -4,7 +4,7 @@ export const get = async (path) => {
   try {
     const response = await fetch(path);
     if (!response.ok) {
-      throw new Error('Network response was not ok: ', response.status);
+      throw new Error('Network response was not ok: ', response.json());
     }
     return response;
   } catch (error) {
@@ -18,12 +18,12 @@ export const fetchReq = async (method, path, payload) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    payload: payload ? JSON.stringify(payload) : null,
+    body: payload ? JSON.stringify(payload) : null,
   };
   try {
     const response = await fetch(path, options);
     if (!response.ok) {
-      throw new Error('Network response was not ok:', response.status);
+      throw new Error('Network response was not ok:', response.json());
     }
     return response;
   } catch (error) {

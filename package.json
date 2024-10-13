@@ -2,11 +2,12 @@
   "type": "module",
   "name": "3-sprint-mission-fe",
   "scripts": {
-    "doc": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc -c jsdoc.json",
+    "test": "node ./src/apis/main.js"
   },
   "packageManager": "yarn@4.5.0",
-  "dependencies": {
-    "global": "^4.4.0",
-    "jsdoc": "^4.0.3"
+  "devDependencies": {
+    "jsdoc": "^4.0.3",
+    "tidy-jsdoc": "^1.4.1"
   }
 }

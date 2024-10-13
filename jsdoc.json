@@ -8,9 +8,9 @@
   "sourceType": "module",
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": ["jsdoc","closure"]
+    "dictionaries": ["jsdoc", "closure"]
   },
-  "plugins": ["plugins/markdown"],
+  "plugins": ["plugins/markdown", "plugins/summarize"],
   "templates": {
     "cleverLinks": true,
     "monospaceLinks": true
@@ -19,6 +19,10 @@
     "encoding": "utf8",
     "readme": "./README.md",
     "recurse": true,
-    "destination": "./docs/"
+    "destination": "./docs/",
+    "template": "./node_modules/tidy-jsdoc"
+  },
+  "metadata": {
+    "title": "API Documentation"
   }
 }
