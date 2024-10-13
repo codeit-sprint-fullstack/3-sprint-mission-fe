@@ -12,12 +12,17 @@
   --text-label: #1F2937;
   --button-color: #F3F4F6;
   --button-bg: #9ca3af;
+  --button-active-bg: #3692FF;
   --clear-button: #1F2937;
   --clear-button-bg: #1F2937;
   --sns-login-bg: #E6F2FF;
   --sign-up: #3692FF;
   --wrong-pw: #ff3636;
   --right-pw: #2bb31c;
+  --validate-alert: #F74747;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --modal-content-bg: #FFFFFF;
+  --modal-button: #3692FF;
 }
 
 .signup-header {
@@ -60,7 +65,8 @@
 }
 
 .signup-box {
-  height: 542px;
+  /* height: 542px; */
+  height: 602px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -89,9 +95,7 @@
   font-size: 1.6rem;
 }
 
-/* .input-item {
 
-} */
 
 .input-id, .input-pw {
   padding: 16px 24px;
@@ -114,6 +118,20 @@
 .input-id:focus, .input-pw:focus {
   outline: none;
   border: 2px solid var(--input-focus-border);
+}
+
+.input-id.alert, .input-pw.alert {
+  border: 2px solid var(--validate-alert)
+}
+
+.label-alert {
+  color: var(--validate-alert);
+  font-size: 1.5rem;
+  line-height: 1.79rem;
+  font-weight: 600;
+  position: absolute;
+  bottom:-23px;
+  left:16px;
 }
 
 .clear-btn {
@@ -144,12 +162,19 @@
   width: 100%;
   height: 56px;
   border-radius: 40px;
-  background-color: var(--button-bg);
   color: var(--button-color);
   font-weight: 600;
   font-size: 2rem;
   border: none;
+  cursor: default;
+  background-color: var(--button-bg);
 }
+
+.btn-signup.active {
+  cursor: pointer;
+  background-color: var(--button-active-bg);
+}
+
 
 .sns-login {
   background: var(--sns-login-bg);

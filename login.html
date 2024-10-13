@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>판다마켓 | 로그인</title>
+  <meta property="og:title" content="판다마켓">
+  <meta property="og:description" content="일상에서 모든 물건을 거래해보세요">
+  <meta property="og:url" content="https://yousuk-sprint.netlify.app/">
+  <meta property="og:image" content="https://yousuk-sprint.netlify.app/assets/og-image.jpg">
+  <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/login.css">
@@ -31,18 +36,20 @@
   </header>
   <div class="container">
     <div class="login-wrap">
-      <form action="">
+      <form id="login-form">
         <div class="login-box">
           <div class="input-item id">
             <label class="text-label">이메일</label>
             <input type="text" class="input-id" placeholder="이메일을 입력해주세요" autocomplete="off">
-            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none">X</button>
+            <button type="button" class="clear-btn" id="clear-btn-id" style="display: none" tabindex="-1">X</button>
+            <label class="label-alert" id="label-alert-id" style="display: inline"></label>
           </div>
           <div class="input-item pw">
             <label class="text-label">비밀번호</label>
             <input type="password" class="input-pw" placeholder="비밀번호를 입력해주세요" autocomplete="off">
-            <button type="button" class="show-pw" style="display: none"></button>
-            <button type="button" class="clear-btn" id="clear-btn-pw" style="display: none">X</button>
+            <button type="button" class="show-pw" style="display: none" tabindex="-1"></button>
+            <button type="button" class="clear-btn" id="clear-btn-pw" style="display: none" tabindex="-1">X</button>
+            <label class="label-alert" id="label-alert-pw" style="display: inline"></label>
           </div>
           <button type="submit" class="btn-login">로그인</button>
         </div>
@@ -62,7 +69,13 @@
         판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
       </div>
     </div>
-  <script src="scripts/script.js"></script>
+    <!-- 모달 콘텐츠 -->
+    <dialog class="modal-content" id="modalContent">
+      <h2 class="sr-only">확인창</h2>
+      <p>비밀번호가 일치하지 않습니다.</p>
+      <button class="modal-button" id="modalButton" autofocus>확인</button>
+    </dialog>
+    <script type="module" src="scripts/login.js"></script>
 </body>
 
 </html>

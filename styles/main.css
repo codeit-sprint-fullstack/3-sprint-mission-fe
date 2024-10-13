@@ -10,7 +10,6 @@
   src: url('/assets/font/ROKAF_Sans_Medium.ttf') format('truetype');
 }
 
-
 /* body */
 body {
   font-family: Pretendard-Regular;
@@ -71,7 +70,7 @@ nav {
 
 /* 섹션1 */
 
-.section1 {
+.hero-section {
   width: 100%;
   background-color: #CFE5FF;
   height: 540px;
@@ -81,7 +80,7 @@ nav {
   /* position: relative; */
 }
 
-.sc1_box {
+.hero_box {
   width: 1110px;
   height: 340px;
   /* border: 1px solid red; */
@@ -95,20 +94,20 @@ nav {
   transform: translateX(-50%); */
 }
 
-.sc1_p {
+.hero_p {
   width: 357px;
   height: 260px;
   margin: auto 0;
 }
 
-.sc1_p > p {
+.hero_p > p {
   font-size: 4rem;
   font-weight: 700;
   line-height: 56px;
   margin-bottom: 32px;
 }
 
-.sc1_p .go_button {
+.hero_p .go_button {
   height:56px;
   line-height:56px;
   text-align: center;
@@ -119,14 +118,14 @@ nav {
   font-weight: 600;
 }
 
-.sc1_img1 {
+.hero_img1 {
   width: 746px;
   height: 340px;
 }
 
 
 /* 섹션2 */
-.section2 {
+.popular-products {
   background-color: #FFFFFF;
   height: 720px;
   /* border: 1px solid blue; */
@@ -136,7 +135,7 @@ nav {
   /* border-bottom: 1px solid red; */
 }
 
-.sc2_box {
+.popular_box {
   width: 988px;
   padding: 0 31px;
   /* position: relative;
@@ -151,16 +150,16 @@ nav {
   gap: 0 5%;
 }
 
-.sc2_box > img{
+.popular_box > img{
   width: 588px;
   /* display: inline-block; */
 }
 
-.sc2_p {
+.popular_p {
   width: 275px
 }
 
-.sc2_p > span {
+.popular_p > span {
   display: inline-block;
   font-size: 1.8rem;
   color: #3692FF;
@@ -168,7 +167,7 @@ nav {
   margin-bottom: 12px;
 }
 
-.sc2_p > p {
+.popular_p > p {
   font-weight: 700;
   font-size: 4rem;
   line-height: 56px;
@@ -176,7 +175,7 @@ nav {
   color:#374151;
 }
 
-.sc2_p > div {
+.popular_p > div {
   font-size: 2.4rem;
   line-height: 32px;
   color: #374151;
@@ -184,7 +183,7 @@ nav {
 }
 
 /* 섹션3 */
-.section3 {
+.search-section {
   background-color: #FFFFFF;
   height: 720px;
   /* border: 1px solid blue; */
@@ -194,7 +193,7 @@ nav {
   /* border-bottom: 1px solid red; */
 }
 
-.sc3_box {
+.search_box {
   width: 988px;
   padding: 0 9.5px;
   /* position: relative;
@@ -209,17 +208,17 @@ nav {
   gap: 0 5%;
 }
 
-.sc3_box > img{
+.search_box > img{
   width: 588px;
   /* display: inline-block; */
 }
 
-.sc3_p {
+.search_p {
   text-align: right;
   width: 317px;
 }
 
-.sc3_p > span {
+.search_p > span {
   display: inline-block;
   font-size: 1.8rem;
   color: #3692FF;
@@ -227,7 +226,7 @@ nav {
   margin-bottom: 12px;
 }
 
-.sc3_p > p {
+.search_p > p {
   font-weight: 700;
   font-size: 4rem;
   line-height: 56px;
@@ -235,7 +234,7 @@ nav {
   color:#374151;
 }
 
-.sc3_p > div {
+.search_p > div {
   font-size: 2.4rem;
   line-height: 32px;
   color: #374151;
@@ -243,7 +242,7 @@ nav {
 }
 
 /* 섹션4 */
-.section4 {
+.register-product {
   background-color: #FFFFFF;
   height: 720px;
   /* border: 1px solid blue; */
@@ -253,7 +252,7 @@ nav {
   /* border-bottom: 1px solid red; */
 }
 
-.sc4_box {
+.register_box {
   width: 988px;
   /* position: relative;
   left: 50%;
@@ -267,16 +266,16 @@ nav {
   gap: 0 5%;
 }
 
-.sc4_box > img{
+.register_box > img{
   width: 588px;
   /* display: inline-block; */
 }
 
-.sc4_p {
+.register_p {
   width: 336px;
 }
 
-.sc4_p > span {
+.register_p > span {
   display: inline-block;
   font-size: 1.8rem;
   color: #3692FF;
@@ -284,7 +283,7 @@ nav {
   margin-bottom: 12px;
 }
 
-.sc4_p > p {
+.register_p > p {
   font-weight: 700;
   font-size: 4.0rem;
   line-height: 56px;
@@ -292,7 +291,7 @@ nav {
   color:#374151;
 }
 
-.sc4_p > div {
+.register_p > div {
   font-size: 2.4rem;
   line-height: 32px;
   color: #374151;
@@ -300,7 +299,7 @@ nav {
 }
 
 /* 섹션5 */
-.section5 {
+.we_are {
   margin-top: 138px;
   background-color: #CFE5FF;
   height: 540px;
@@ -309,7 +308,7 @@ nav {
   align-items: end;
 }
 
-.sc5_box {
+.we_are_box {
   width: 1110px;
   height: 397px;
   display: flex;
@@ -318,7 +317,7 @@ nav {
   font-size: 0px;
 }
 
-.sc5_p {
+.we_are_p {
   width: 297px;
   height: 172px;
   font-size: 4.0rem;
@@ -357,4 +356,14 @@ footer {
 
 .footer_box > div:nth-child(2) {
   color: #E5E7EB;
+}
+
+.coming-soon {
+  height: 500px; /* 높이 설정 */
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  font-size: 5rem; /* 글자 크기 설정 */
+  font-weight: 700; /* 글자 두께 설정 */
+  color: #3692FF; /* 글자 색상 설정 */
 }
