@@ -8,12 +8,14 @@
 
 /* color palette */
 :root {
-  --color-background: #ffffff;
+  --color-white: #ffffff;
   --color-label: #1f2937;
   --color-light-gray: #f3f4f6;
   --color-gray: #9ca3af;
   --color-blue: #3692ff;
   --color-bottom-banner: #e6f2ff;
+  --color-red: #f74747;
+  --color-cool-gray: #1f2937;
 }
 
 body {
@@ -21,7 +23,7 @@ body {
   justify-content: center;
   padding-top: 50px;
   font-family: "Pretendard Variable", sans-serif;
-  background-color: var(--color-background);
+  background-color: var(--color-white);
 }
 
 main {
@@ -34,7 +36,7 @@ main {
   display: flex;
   flex-direction: column;
   max-width: 640px;
-  height: 842px;
+  height: auto;
   width: 100%;
   gap: 24px;
 }
@@ -58,7 +60,7 @@ main {
 
 form {
   width: 100%;
-  height: 524px;
+  height: auto;
 }
 
 #sign-up-form > div {
@@ -78,7 +80,7 @@ label {
 .form-check-password {
   display: flex;
   flex-direction: column;
-  height: 98px;
+  height: auto;
   gap: 16px;
 }
 
@@ -138,6 +140,24 @@ label {
   color: var();
 }
 
+#sign-up-form .input-error {
+  border: 1px solid var(--color-red);
+}
+
+/* 잘못된 이메일, 비밀번호 입력 시 */
+.hide {
+  display: none;
+}
+
+.userEmail-error,
+.userEmail-empty-error,
+.password-error,
+.password-empty-error .check-password-error .check-password-empty-error {
+  padding-left: 16px;
+  color: var(--color-red);
+  min-height: 18px;
+}
+
 /* 회원가입 버튼 */
 #sign-up-form > input[type="submit"] {
   width: 100%;
@@ -158,12 +178,11 @@ label {
   background-color: var(--color-blue);
 }
 
-/* :focus 버튼이 클릭되거나 포커스 되었을 때
-#sign-up-form > input[type="submit"]:focus {
+#sign-up-form > input[type="submit"].active {
   background-color: var(--color-blue);
-  outline: none;
+  color: var(--color-white);
+  cursor: pointer;
 }
-*/
 
 /* 간편 로그인 하기 */
 .sign-up-bottom {
@@ -222,4 +241,51 @@ p {
 
 .go-log-in {
   color: var(--color-blue);
+}
+
+.confirm-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 540px;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+}
+.confirm-button {
+  align-self: flex-end; /*오른쪽으로 정렬*/
+  margin-top: auto; /* 아래로 정렬 */
+  margin-bottom: 28px;
+  margin-right: 28px;
+  width: 120px;
+  height: 48px;
+}
+
+.confirm-button button {
+  all: unset;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  width: 120px;
+  height: 48px;
+  background-color: var(--color-blue);
+  border-radius: 8px;
+  color: var(--color-white);
+  padding: 12px 23px;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.confirm-box p {
+  color: var(--color-cool-gray);
+  font-size: 16px;
+  text-align: center;
+  margin-top: 108px;
+  font-weight: bold;
 }

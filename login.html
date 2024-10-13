@@ -29,27 +29,43 @@
           <label for="userEmail">이메일</label>
           <input
             type="text"
+            id="userEmail"
             name="userEmail"
             placeholder="이메일을 입력해주세요"
           />
+          <div class="userEmail-error hide" id="userEmail-error">
+            잘못된 이메일 형식입니다.
+          </div>
+          <div class="userEmail-empty-error hide" id="userEmail-empty-error">
+            이메일을 입력해주세요.
+          </div>
         </div>
         <div class="form-password">
           <label for="userPassword">비밀번호</label>
-          <input
-            type="password"
-            id="password"
-            name="userPassword"
-            placeholder="비밀번호를 입력해주세요"
-          />
-          <div class="eyes">
-            <img
-              src="css/eye-icon.png"
-              alt="비밀번호 보기"
-              id="toggle-password"
+          <div style="position: relative">
+            <input
+              type="password"
+              id="password"
+              name="userPassword"
+              placeholder="비밀번호를 입력해주세요"
             />
+            <div class="eyes">
+              <img
+                src="css/eye-icon.png"
+                alt="비밀번호 보기"
+                id="toggle-password"
+              />
+            </div>
+          </div>
+
+          <div class="password-error hide" id="password-error">
+            비밀번호를 8자 이상 입력해주세요.
+          </div>
+          <div class="password-empty-error hide" id="password-empty-error">
+            비밀번호를 입력해 주세요.
           </div>
         </div>
-        <input type="submit" value="로그인" />
+        <input type="submit" value="로그인" id="login-button" disabled />
       </form>
 
       <!-- 간편 로그인 -->
@@ -68,11 +84,12 @@
           ></a>
         </div>
       </div>
-      <p>
+      <p id="footer-message">
         판다마켓이 처음이신가요?
         <a href="sign-up.html" class="go-sing-up"> 회원가입</a>
       </p>
     </div>
+
     <script src="login.js"></script>
   </body>
 </html>
