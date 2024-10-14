@@ -1,8 +1,8 @@
-const id = document.querySelector('.email');
+const id = document.querySelector('.wrap');
 const enterId=document.querySelector('.enterIdMsg');
 const wrongId = document.querySelector('.wrongIdMsg');
 const button=document.querySelector('.loginbtn');
-const pw = document.querySelector('.pw');
+const pw = document.querySelector('.wrap-pw');
 const enterPw=document.querySelector('.enterPwMsg');
 const wrongPw = document.querySelector('.wrongPwMsg');
 const close=document.querySelector('.close_btn');

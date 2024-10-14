@@ -34,22 +34,32 @@
                 <input type="text" class="nickname" placeholder="닉네임을 입력해주세요"/>
                 <div class="nickMsg hide">닉네임을 입력해주세요.</div>
             </div>
-            <div>
+            <div class="input">
                 <p class="stext">
                     비밀번호
                 </p>
-                <input type="password" class="pass blind" placeholder="비밀번호를 입력해주세요"/>
-                <div class="noPw hide">비밀번호를 입력해주세요.</div>
-                <div class="lMsg hide">비밀번호를 8자 이상 입력해주세요.</div>
+                <div class="wrap pw">
+                    <input type="password" class="pass" placeholder="비밀번호를 입력해주세요"/>
+                    <button type="button" class="password-toggle" aria-label="비밀번호 보기">
+                    <img class="eye" src="../images/social/btn_visibility_on.png"/>
+                    </button>
+                </div>
             </div>
-            <div>
+            <div class="noPw hide">비밀번호를 입력해주세요.</div>
+            <div class="lMsg hide">비밀번호를 8자 이상 입력해주세요.</div>
+            <div class="input">
                 <p class="stext">
                     비밀번호 확인
                 </p>
-                <input type="password" class="passcheck blind" placeholder="비밀번호를 다시 한 번 입력해주세요"/>
-                <div class="recheck hide">비밀번호를 다시 입력해주세요.</div>
-                <div class="matchMsg hide">비밀번호가 일치하지 않습니다.</div>
+                <div class="wrap re">
+                    <input type="password" class="check" placeholder="비밀번호를 다시 한 번 입력해주세요"/>
+                    <button type="button" class="password-toggle" aria-label="비밀번호 보기">
+                    <img class="eye" src="../images/social/btn_visibility_on.png"/>
+                    </button>
+                </div>
             </div>
+            <div class="recheck hide">비밀번호를 다시 입력해주세요.</div>
+            <div class="matchMsg hide">비밀번호가 일치하지 않습니다.</div>
             <div>
                 <button class="btn">
                     <p class="sign">회원가입</p>

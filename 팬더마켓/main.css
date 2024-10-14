@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
-@import "reset.css";
+@import url(reset.css);
+@import url(root.css);
 
 html{
     font-size:10px;
@@ -17,7 +18,7 @@ html{
     align-items: center;
     justify-content: space-around;
     gap:5%;
-    background-color: #FCFCFC;
+    background-color: var(--feature-bg-color);
 }
 
 .feature-content{
@@ -30,7 +31,7 @@ html{
 }
 
 .feature-tag{
-    color: #3692FF;
+    color: var(--primary-100-color);
     font-size: 1.8rem;
     line-height: 100%;
     margin-bottom:12px;
@@ -55,7 +56,7 @@ header{
     left: 0;
     right:0;
     height:7rem;
-    background-color: #FFFFFF;
+    background-color: var(--basic-100-color);
 }
 
 h1{
@@ -70,7 +71,7 @@ h1{
     margin-right: 20rem;
     border-radius: 0.8rem;
     height: 4.8rem;
-    background-color:#3692FF ;
+    background-color:var(--primary-100-color) ;
     font-weight: 600;
     font-size: 1.6rem;
     display:flex;
@@ -83,7 +84,7 @@ h1{
 
 .first{
     height: 54rem;
-    background-color: #CFE5FF; 
+    background-color: var(--line-bg-color); 
     display: flex;
 }
 
@@ -99,7 +100,7 @@ footer{
     height: 15.2rem;
     padding: 3.2rem 20rem;
     gap: rem;
-    background-color: #111827;
+    background-color: var(--footer-bg-color);
 }
 
 .seebtn{
@@ -109,7 +110,7 @@ footer{
     cursor: pointer;
     padding: 1.6rem 12.4rem;
     border-radius:4rem;
-    background-color: #3692FF;
+    background-color: var(--primary-100-color);
     cursor: pointer;
     gap:rem;
 }
@@ -137,7 +138,7 @@ footer{
     text-decoration: none;
     font-weight: 400;
     font-size: 1.6rem;
-    color:#E5E7EB;
+    color: var(--text-100-color);
     cursor: pointer; 
 }
 
@@ -176,7 +177,7 @@ footer{
 }
 
 .feature-tag1{
-    color: #3692FF;
+    color: var(--primary-100-color);
     font-size: 1.8rem;
     line-height: 100%;
     margin-bottom:12px;

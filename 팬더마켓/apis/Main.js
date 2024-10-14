@@ -5,5 +5,9 @@ import { getProduct, getProductList, createProduct, patchProduct, deleteProduct}
 async function getArt(idNum) {
     const get = await getArticle(idNum);
     console.log(get);
-    return get;
 }
+
+// const getPro = await getProduct(7);
+// console.log(getPro);
+
+getArt(2);

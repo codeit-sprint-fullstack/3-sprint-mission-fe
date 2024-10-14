@@ -37,7 +37,7 @@ function Idvalidate(e){
   }
 }
   
-const password= document.querySelector('.pass');
+const password= document.querySelector('.pw');
 const leng = document.querySelector('.lMsg');
 const noPw = document.querySelector('.noPw');
 const rePwMsg = document.querySelector('.recheck');
@@ -67,7 +67,7 @@ function lengPassword(d){
     }
 }
 
-const reEnter = document.querySelector('.passcheck');
+const reEnter = document.querySelector('.re');
 const same = document.querySelector('.matchMsg');
 const Nick = document.querySelector('.nickname');
 const enterNick = document.querySelector('.nickMsg');

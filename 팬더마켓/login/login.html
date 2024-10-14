@@ -19,22 +19,29 @@
     <div class="main">
         <a href="../index.html" class="img"><img src="../images/logo/panda-market-logo.png" alt="logoimg" width="150%"></a>
         <div>
-            <div>
+            <div class="input">
                 <p class="text">
                     이메일
                 </p>
+                <div class="wrap">
                 <input type="email" class="email" placeholder="이메일을 입력해주세요"/>
-                <div class="enterIdMsg hide">이메일을 입력해주세요.</div>
-                <div class="wrongIdMsg hide">잘못된 이메일 형식입니다.</div>
+                </div>
             </div>
-            <div>
+            <div class="enterIdMsg hide">이메일을 입력해주세요.</div>
+            <div class="wrongIdMsg hide">잘못된 이메일 형식입니다.</div>
+            <div class="input">
                 <p class="text">
                     비밀번호
                 </p>   
-                <input type="password" class="pw" placeholder="비밀번호를 입력해주세요"/>
-                <div class="enterPwMsg hide">비밀번호를 입력해주세요.</div>
-                <div class="wrongPwMsg hide">비밀번호를 8자 이상 입력해주세요.</div>
+                <div class="wrap-pw">
+                    <input type="password" class="pw" placeholder="비밀번호를 입력해주세요"/>
+                    <button type="button" class="password-toggle" aria-label="비밀번호 보기">
+                    <img class="eye" src="../images/social/btn_visibility_on.png"/>
+                    </button>
+                </div>
             </div>
+            <div class="enterPwMsg hide">비밀번호를 입력해주세요.</div>
+            <div class="wrongPwMsg hide">비밀번호를 8자 이상 입력해주세요.</div>
             <div>
                 <button class="loginbtn">
                     <p class="log">로그인</p>
