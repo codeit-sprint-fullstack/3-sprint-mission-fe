@@ -13,10 +13,22 @@ export function showError(infoInput, message) {
 
 export function showSuccess(infoInput) {
   
+  
+// 메모리 공간은 재사용되기 때문에 초기 할당을 하지 않으면 이전의 값이 남아 있을 수 있다.
+// 이를 쓰레기값 이라고 하는데, 자바스크립트 엔진이 변수 선언시 기본적으로 undefined를 할당해주므로
+// 값을 할당하지 않은 변수를 참조했을 때 쓰레기값이 나오는 위험을 방지할 수 있다.
+
+// 언제 undefined를 쓰고 언제 null을 쓰면 되는가?
+// undefined는 자바스크립트 엔진이 사용하는 자료형이다.
+// 그렇기 때문에, '언제 undefined를 써야 하나요?' 라는 질문에는 '쓰지 마세요.'가 적절할 수 있겠다.
+// 그렇지만 변수에 값이 없다는 것을 명시하고 싶다면, null을 쓰는 것이 맞다.
+// null은 개발자가 '값이 없음'을 명시하기 위해 사용하는 자료형이기 때문이다.
+
+  let formControl;
+
   // input의 부모 요소 가져오기 - closest() 메소드를 이용해서 div를 얻어온다. 
   // closest() 메소드는 DOM 요소에서 가장 가까운 상위 요소를 찾는 데 사용한다.
-  // 이 메소드는 주어진 셀렉터 또는 요소와 가장 가까운 상위 요소를 반환합니다.
-  let formControl = undefined;
+  // 이 메소드는 주어진 셀렉터 또는 요소와 가장 가까운 상위 요소를 반환합니다.  
   formControl = infoInput.closest('.form-control');
   formControl.className = 'form-control success'; // formControl의 클래스 이름 변경
   return true;
