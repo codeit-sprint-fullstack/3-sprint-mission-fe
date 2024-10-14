@@ -49,6 +49,7 @@ function checkPassword(e){
   if(e.target.value.length===0){
     noPw.classList.remove('hide');
     password.classList.add('border');
+
   }else{
     noPw.classList.add('hide');
     password.classList.remove('border');
@@ -72,6 +73,7 @@ const same = document.querySelector('.matchMsg');
 const Nick = document.querySelector('.nickname');
 const enterNick = document.querySelector('.nickMsg');
 const button = document.querySelector('.btn');
+const inputPw = document.querySelector('.pass')
 
 reEnter.addEventListener('focusout',recheckPw);
 reEnter.addEventListener('input',samePass);
@@ -99,7 +101,7 @@ function recheckPw(a){
 }
 
 function samePass(){
-    if(password.value ===reEnter.value){
+    if(password.value ===inputRePw.value){
       rePwMsg.classList.add('hide');
       same.classList.add('hide');
       reEnter.classList.remove('border');
@@ -137,3 +139,19 @@ close.addEventListener('click',function(){
   modal.style.display='none';
 });
 
+const toggleBtn = document.querySelector('.password-togle');
+const inputRePw = document.querySelector('.check');
+const eyeBtn = document.querySelector('.eye')
+
+toggleBtn.addEventListener('click', passwordTogle);
+
+function passwordTogle(e){
+  const input = inputRePw.previousElementSibling
+  if(input.target.value.type==='password'){
+    input.type = 'text';
+    eyeBtn.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+  }else {
+    input.type = 'password';
+    eyeBtn.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+  }
+}
