@@ -1,5 +1,5 @@
 
-export const getArticleList = async (page, pageSize, keyword) => {
+export const getArticleList = async (page=1, pageSize=100, keyword ='') => {
     const url = new URL(`https://sprint-mission-api.vercel.app/articles/${page}&${pageSize}&${keyword}`);
     fetch(url)
         .then((response)=>response.json())

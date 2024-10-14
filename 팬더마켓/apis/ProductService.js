@@ -1,4 +1,4 @@
-export const getProductList = async (page, pageSize, keyword) => {
+export const getProductList = async (page=1 , pageSize= 100, keyword= '') => {
     try {
     const url = new URL (`https://sprint-mission-api.vercel.app/products/${page}&${pageSize}&${keyword}`);
     const response = await fetch(url);
