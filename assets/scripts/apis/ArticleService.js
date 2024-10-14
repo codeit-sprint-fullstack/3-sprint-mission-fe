@@ -2,7 +2,7 @@ import api from "./common.js";
 import URLS from "../constants/url.js";
 
 const handleResponse = (apiMethod) => {
-  return apiMethod.then((response) => response.data).catch((e) => console.log(e.message));
+  return apiMethod.then((response) => response.data);
 };
 
 export const getArticleList = (page = 1, pageSize = 100, keyword = "") => {
@@ -28,5 +28,5 @@ export const patchArticle = (id, body) => {
 };
 
 export const deleteArticle = (id) => {
-  return handleResponse(api.delete(`${URLS.articles}/${id}`));
+  api.delete(`${URLS.articles}/${id}`);
 };
