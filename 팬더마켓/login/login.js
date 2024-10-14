@@ -109,7 +109,7 @@ function seePassword(){
   const input = Pwtoggle.previousElementSibling;
   if(input.type === 'password'){
     input.type = 'text';
-    Pwtoggle.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    eyeImg.style.backgroundImage = "url('../images/social/btn_visibility_on')";
     enterPw.classList.add('hide');
   }else{
     input.type = 'password';
@@ -117,3 +117,4 @@ function seePassword(){
     enterPw.classList.add('hide');
   }
 }
+
