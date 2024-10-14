@@ -1,0 +1,264 @@
+:root {
+  --mainColor: #3692FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Pretendard';
+}
+
+html {
+  font-size: 10px;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 64rem;
+  height: 61.8rem;
+  justify-content: space-between;
+  padding-top: 6rem;
+  min-height: 48.1rem;
+}
+
+.contentBox{
+  max-width: 64rem;
+  max-height: 66.4rem;
+  min-width: 34.4rem;
+  min-height: 67.5rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+}
+
+/* logo img */
+.content .imgbox {
+  width: 39.6rem;
+  height: 13.2rem;
+  margin: auto;
+  margin-bottom: 4rem;
+}
+
+.content .imgbox img {
+  width: 100%;
+  height: 100%;
+}
+
+/* email */
+.inputEmail {
+  width: 100%;
+  height: 12.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.inputEmail .text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  margin-bottom: 1.6rem;
+  text-align: left;
+}
+
+.inputEmail .box {
+  width: 100%;
+  height: 5.6rem;
+  padding: 1.6rem 2.4rem 1.6rem 2.4rem;
+  gap: 1rem;
+  border-radius: 1.2rem;
+  background-color: #F3F4F6;
+  font-size: 1.6rem;
+  font-weight: 40rem;
+  line-height: 2.6rem;
+  text-align: left;
+  border: none;
+  outline: none;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+}
+
+.inputEmail input::placeholder{
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  text-align: left;
+  color: #9CA3AF;
+}
+
+.inputEmail .box:focus {
+  border: 0.1rem solid var(--mainColor);
+  color: #1F2937;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+/* password */
+.inputPassword {
+  width: 100%;
+  height: 12.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column;/ */
+  position: relative;
+  margin-top: 2.4rem;
+}
+
+.inputPassword .text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  text-align: left;
+}
+
+.inputPassword .box {
+  width: 100%;
+  height: 5.6rem;
+  padding: 1.6rem 2.4rem 1.6rem 2.4rem;
+  gap: 1rem;
+  border-radius: 1.2rem;
+  background-color: #F3F4F6;
+  font-size: 1.6rem;
+  font-weight: 40rem;
+  line-height: 2.6rem;
+  text-align: left;
+  border: none;
+  outline: none;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+}
+
+.inputPassword input::placeholder{
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  text-align: left;
+  color: #9CA3AF;
+}
+
+.inputPassword .box:focus {
+  border: 0.1rem solid var(--mainColor);
+  outline-color: var(--mainColor);
+  color: #1F2937;
+  font-weight: 500;
+}
+
+.inputPassword img {
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.349rem 0.174rem 0.244rem 0.179rem;
+  position: absolute;
+  bottom: 3.6rem;
+  right: 2.4rem;
+}
+
+/* loginButton */
+.loginButton {
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  height: 5.6rem;
+  padding: 1.6rem 12.4rem 1.6rem 12.4rem;
+  gap: 1rem;
+  border-radius: 4rem;
+  background-color: #9CA3AF;
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  color: #F3F4F6;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+}
+
+.loginButton:hover {
+  background-color: var(--mainColor);
+}
+
+/* simpleLogin */
+.simpleLogin {
+  width: 100%;
+  height: 7.4rem;
+  padding: 1.6rem 2.3rem 1.6rem 2.3rem;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  background-color: #E6F2FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+.simpleLogin .simpleContentBox {
+  width: 100%;
+  height: 4.2rem;
+  display: flex;
+  justify-content: space-between;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+}
+
+.simpleLogin .simpleContentBox .text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.6rem;
+  text-align: center;
+  color: #1F2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simpleLogin .simpleContentBox .logo {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+  height: 100%;
+}
+
+.simpleLogin .simpleContentBox .logo img {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+/* newMember */
+.newMember {
+  height: 2.4rem;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  color: #1F2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newMember a {
+  color: var(--mainColor);
+}
+
+/* errorBox */
+.errorBox {
+  border: 0.1rem solid #F74747 !important;
+  margin-top: 1.4rem;
+}
+
+.errorText {
+  font-size: 1.5rem;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.79rem;
+  text-align: left;
+  margin-top: 0.8rem;
+  margin-left: 1.6rem;
+  height: 1.8rem;
+  color: #F74747;
+}
