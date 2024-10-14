@@ -48,14 +48,40 @@ export async function createArticle(ArticleTitle, ArticleContent, ArticleImage) 
   try {
     const response = await fetch(BASE_URL, {
       method: 'POST',
-      body: JSON.stringify(articleData),
       headers: {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
+      body: JSON.stringify(articleData),
     });
 
     if (!response.ok) {
       throw new Error(`지정 에러: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data
+  } catch (error) {
+    console.error("기타 에러:", error);
+  }
+}
+
+
+
+export async function patchArticle(id, updateData) {
+  const url = `${BASE_URL}/${id}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updateData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
