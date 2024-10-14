@@ -14,21 +14,20 @@ const USER_DATA = [
 ];
 
 // Show input error message
-function showError(infoInput, message) {
-
-  //goFlag = false;
+function showError(infoInput, message) {  
 
   let formControl = undefined;  
+  formControl = infoInput.closest('.login-form-control');
 
   // input의 부모 요소 가져오기
   //if(infoInput === 'input#password') // formControl 값이 'div.input-wrapper' 여서 하드코딩. ㅠ.ㅠ
-  if(infoInput.type === "password")
-  {
-    formControl = infoInput.parentElement.parentElement; // div    
-  }
-  else{
-    formControl = infoInput.parentElement; // div
-  }
+  // if(infoInput.type === "password")
+  // {
+  //   formControl = infoInput.parentElement.parentElement; // div    
+  // }
+  // else{
+  //   formControl = infoInput.parentElement; // div
+  // }
 
   formControl.className = 'login-form-control error'; // formControl의 클래스 이름 변경
   const small = formControl.querySelector('small'); // formControl 내부에서 small이라는 태그 가져오기
@@ -40,15 +39,20 @@ function showError(infoInput, message) {
 // Show success outline
 function showSuccess(infoInput) {
   
-  // input의 부모 요소 가져오기
+  // input의 부모 요소 가져오기 - closest() 메소드를 이용해서 div를 얻어온다. 
+  // closest() 메소드는 DOM 요소에서 가장 가까운 상위 요소를 찾는 데 사용한다.
+  // 이 메소드는 주어진 셀렉터 또는 요소와 가장 가까운 상위 요소를 반환합니다.
+  let formControl = undefined;
+  formControl = infoInput.closest('.login-form-control');
+
   //if(infoInput === 'input#password') // formControl 값이 'div.input-wrapper' 여서 하드코딩. ㅠ.ㅠ
-  if(infoInput.type === "password")
-    {
-      formControl = infoInput.parentElement.parentElement; // div    
-    }
-    else{
-      formControl = infoInput.parentElement; // div
-    }
+  // if(infoInput.type === "password")
+  //   {
+  //     formControl = infoInput.parentElement.parentElement; // div    
+  //   }
+  //   else{
+  //     formControl = infoInput.parentElement; // div
+  //   }
 
   formControl.className = 'login-form-control success'; // formControl의 클래스 이름 변경
   return true;
