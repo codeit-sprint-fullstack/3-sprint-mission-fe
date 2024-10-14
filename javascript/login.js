@@ -13,15 +13,10 @@ const USER_DATA = [
   { email: 'codeit6@codeit.com', password: "codeit606!" },
 ];
 
-// 로그인 버튼 누를때 발생 하는 이벤트 흐름 제어.
-// showError 에서 false
-// 로그인 버튼 누를때 checkRequired() 함수에서 true 초기화.
-let goFlag = false;
-
 // Show input error message
 function showError(infoInput, message) {
 
-  goFlag = false;
+  //goFlag = false;
 
   let formControl = undefined;  
 
@@ -39,6 +34,7 @@ function showError(infoInput, message) {
   const small = formControl.querySelector('small'); // formControl 내부에서 small이라는 태그 가져오기
   small.innerText = message; // small 태그의 텍스트 변경
   alert(message);
+  return false;
 }
 
 // Show success outline
@@ -55,6 +51,7 @@ function showSuccess(infoInput) {
     }
 
   formControl.className = 'login-form-control success'; // formControl의 클래스 이름 변경
+  return true;
 }
 
 
@@ -74,32 +71,34 @@ function getFieldName(infoInput) {
 // Check required fields
 function checkRequired(inputArray) {
 
-  goFlag = true;  // 로그인 버튼 누를 때 마다 최초 여기로 들어온다. true로 초기화.
+  let goFlag = true; // 로그인 버튼 누를때 발생 하는 이벤트 흐름 제어. e.g. 이메일 빈칸 이고, 패스워드 빈칸이었을때 이메일 빈칸 에러에서 멈춤다.
 
   inputArray.forEach(function (infoInput) {
-
-    if(goFlag === false)
-      return;
 
     if (infoInput.value.trim() === '') { // 공백을 제거했더니 값이 없다.
       console.log(infoInput.id);
 
-      if(infoInput.name === "usermail"){showError(infoInput, `이메일을 입력해주세요`);}      
-      else if(infoInput.name === "password"){showError(infoInput, `비밀번호를 입력해주세요`);}            
-      else{showError(infoInput, `${getFieldName(infoInput)} is required`);}
-
-    } else {
-      showSuccess(infoInput);
+      if(infoInput.name === "usermail"){
+        goFlag = showError(infoInput, `이메일을 입력해주세요`);        
+      }      
+      else if(infoInput.name === "password"){
+        goFlag = showError(infoInput, `비밀번호를 입력해주세요`);        
+      }            
+      else{
+        goFlag = showError(infoInput, `${getFieldName(infoInput)} is required`);        
+      }
+    } 
+    else {
+      goFlag = showSuccess(infoInput);
     }
-
   });
+
+  return goFlag;
 }
 
 function checkEmail(usermailInfo) {
 
-  if(goFlag === false) {
-    return;
-  }
+  let goFlag = true;
 
   // const infoInput = document.getElementById("usermailInfo").value
   // const valueInput = usermailInfo.value.trim();
@@ -110,39 +109,38 @@ function checkEmail(usermailInfo) {
   // String 값의 trim() 메서드는 문자열 양 끝의 공백을 제거하면서 
   // 원본 문자열을 수정하지 않고 새로운 문자열을 반환합니다.
   if (regex.test(usermailInfo.value.trim()))   
-    showSuccess(usermailInfo);
+    goFlag = showSuccess(usermailInfo);
   else 
-    showError(usermailInfo, '잘못된 이메일 형식입니다.');
+    goFlag = showError(usermailInfo, '잘못된 이메일 형식입니다.');
+
+  return goFlag;
 }
 
 
 // Check input length
 function checkLength(infoInput, min, max) {
   
-  if(goFlag === false) {
-    return;
-  }
+  let goFlag = true;
 
   if (infoInput.value.length < min) { 
     if(infoInput.type === "password")
-      showError(infoInput, `비밀번호를 ${min}자 이상 입력해 주세요.`);  
+      goFlag = showError(infoInput, `비밀번호를 ${min}자 이상 입력해 주세요.`);  
     else
-      showError(infoInput, `${getFieldName(infoInput)} must be at least ${min} characters`);
+      goFlag = showError(infoInput, `${getFieldName(infoInput)} must be at least ${min} characters`);
   } 
   else if (infoInput.value.length > max) {    
-    showError(infoInput, `${getFieldName(infoInput)} must be less than ${max} characters`);
+    goFlag = showError(infoInput, `${getFieldName(infoInput)} must be less than ${max} characters`);
   } 
   else {
-    showSuccess(infoInput);    
+    goFlag = showSuccess(infoInput);
   }
+  return goFlag;
 }
 
 
 function loginUser(usermailInfo, passwordInfo) {
 
-  if(goFlag === false) {
-    return;
-  }
+  let goFlag = true;
 
 
   const mailValue = usermailInfo.value;
@@ -165,7 +163,7 @@ function loginUser(usermailInfo, passwordInfo) {
 
     if (userData2 !== undefined) {
           // 유저가 있고 비밀번호도 맞다. /items 로 이동.
-          showSuccess(usermailInfo);
+          goFlag = showSuccess(usermailInfo);
 
           // 페이지 이동하는 것. 뒤로가기 버튼을 누른 경우 이전 페이지로 이동 가능
           // window.location.href = "../items.html"; 
@@ -176,12 +174,14 @@ function loginUser(usermailInfo, passwordInfo) {
           window.location.replace("items.html");
       }
       else {
-        showError(passwordInfo, '비밀번호가 일치하지 않습니다.');
+        goFlag = showError(passwordInfo, '비밀번호가 일치하지 않습니다.');
       }
   }
   else {
-    showError(usermailInfo, '이메일을 찾을 수 없습니다. 입력 정보를 다시 확인해 주세요.');
+    goFlag = showError(usermailInfo, '이메일을 찾을 수 없습니다. 입력 정보를 다시 확인해 주세요.');
   }
+
+  return true;
 }
 
 
@@ -203,12 +203,17 @@ function loginUser(usermailInfo, passwordInfo) {
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // submit시 자동 새로고침을 막음
 
-  checkRequired([usermail, password]);
+  let result = checkRequired([usermail, password]);
+  if(result === false) return;
   
-  checkEmail(usermail);    
-  checkLength(password, 8, 25);
+  result = checkEmail(usermail);
+  if(result === false) return;
 
-  loginUser(usermail, password);
+  result = checkLength(password, 8, 25);
+  if(result === false) return;
+
+  result = loginUser(usermail, password);
+  if(result === false) return;
 });
 
 // 버튼 클릭시 처리하려고 했으나, 이벤트 발생 취지에 맞게 작업하려고.
