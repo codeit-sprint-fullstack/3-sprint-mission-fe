@@ -7,3 +7,4 @@ async function getArt(idNum) {
     console.log(get);
 }
 
+getArt(98);
