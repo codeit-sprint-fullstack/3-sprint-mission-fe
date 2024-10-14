@@ -11,7 +11,7 @@ const formButton = document.getElementById('form-button');
 
 // -----폼 제출 시 이벤트 처리-----
 
-const handleFormSubmit = (e) => {
+export const handleFormSubmit = (e) => {
   e.preventDefault();
 
   // 유효성 검사
@@ -35,7 +35,7 @@ form.addEventListener('submit', handleFormSubmit);
 
 // -----입력 시 제출 버튼 상태 업데이트-----
 
-const updateSubmitButtonState = () => {
+export const updateSubmitButtonState = () => {
   setSubmitButtonState();
 };
 
@@ -65,6 +65,13 @@ const setSubmitButtonState = () => {
   formButton.disabled = !isValid;
 };
 
+const checkFormButtonDisabled = () => !formButton;
+
+export const validates = {
+  setSubmitButtonState,
+  checkFormButtonDisabled,
+};
+
 // 유효성 검사 함수
 const isValidInput = (input) => input.value.trim() !== '';
 const isValidPassword = (password) => password.value.trim().length >= 8;
@@ -72,44 +79,38 @@ const isValidPassword = (password) => password.value.trim().length >= 8;
 // 회원 가입 페이지 폼 제출 이벤트 처리
 const handleSignupProcess = () => {
   // 이미 가입된 이메일인지 확인
-  if (isEmailRegistered(email)) {
-    showModal();
-  } else {
-    // 회원가입 완료
-    USER_DATA.push({
-      email: email.value.trim(),
-      password: password.value.trim(),
-    });
-    alert('회원가입이 완료되었습니다.');
-    window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
-  }
+  if (isEmailRegistered(email)) return showModal();
+  // 회원가입 완료
+  USER_DATA.push({
+    email: email.value.trim(),
+    password: password.value.trim(),
+  });
+  alert('회원가입이 완료되었습니다.');
+  window.location.href = '/pages/auth/login/login.html'; // 로그인 페이지 이동
 };
 
-const isEmailRegistered = (email) => {
-  return USER_DATA.find((user) => user.email === email.value.trim());
-};
+const isEmailRegistered = (email) =>
+  USER_DATA.find((user) => user.email === email.value.trim());
 
 // 로그인 페이지 폼 제출 이벤트 처리
 const handleLoginProcess = () => {
   // 로그인 처리
-  if (isUserExist(email, password)) {
-    // alert('로그인 되었습니다.');
+  if (isUserExist(email, password))
     window.location.href = '../../../items.html'; // 아이템 페이지 이동
-  } else {
-    showModal();
-  }
+  else showModal();
 };
 
 const isUserExist = (email, password) => {
-  return USER_DATA.find(
+  const result = USER_DATA.find(
     (user) =>
       user.email === email.value.trim() &&
       user.password === password.value.trim()
   );
+  return result;
 };
 
 // -----포커스 아웃 시 유효성 검사-----
-const handleFocusOut = (e) => {
+export const handleFocusOut = (e) => {
   const validateElementId = e.target.id;
   validateForm(validateElementId);
 };
@@ -126,6 +127,13 @@ const validateForm = (validateElementId) => {
   if (validationHandlers[validateElementId]) {
     validationHandlers[validateElementId]();
   }
+};
+
+export const validationHandlersA = {
+  email: () => validateEmail(),
+  nickname: () => validateNickname(),
+  password: () => validatePassword(),
+  'password-confirm': () => validatePasswordConfirmation(),
 };
 
 // input 요소에 에러 메시지와 상태를 설정하는 함수
@@ -168,37 +176,29 @@ const setSuccess = (element) => {
 // 유효성 검사 함수들
 const validateEmail = () => {
   const emailValue = email.value.trim();
-  if (emailValue === '') {
-    setError(email, '이메일을 입력해주세요.', 'email');
-  } else if (!isValidEmail(emailValue)) {
-    setError(email, '잘못된 이메일 형식입니다.', 'email');
-  } else {
-    setSuccess(email);
-  }
+  if (emailValue === '')
+    return setError(email, '이메일을 입력해주세요.', 'email');
+  if (!isValidEmail(emailValue))
+    return setError(email, '잘못된 이메일 형식입니다.', 'email');
+  setSuccess(email);
 };
 
-const isValidEmail = (email) => {
-  return EMAIL_REGEX.test(String(email).toLowerCase());
-};
+const isValidEmail = (email) => EMAIL_REGEX.test(String(email).toLowerCase());
 
 const validateNickname = () => {
   const nicknameValue = nickname.value.trim();
-  if (nicknameValue === '') {
+  if (nicknameValue === '')
     setError(nickname, '닉네임을 입력해주세요.', 'nickname');
-  } else {
-    setSuccess(nickname);
-  }
+  else setSuccess(nickname);
 };
 
 const validatePassword = () => {
   const passwordValue = password.value.trim();
-  if (passwordValue === '') {
-    setError(password, '비밀번호를 입력해주세요.', 'password');
-  } else if (passwordValue.length < 8) {
-    setError(password, '비밀번호를 8자 이상 입력해주세요', 'password');
-  } else {
-    setSuccess(password);
-  }
+  if (passwordValue === '')
+    return setError(password, '비밀번호를 입력해주세요.', 'password');
+  if (passwordValue.length < 8)
+    return setError(password, '비밀번호를 8자 이상 입력해주세요', 'password');
+  setSuccess(password);
 };
 
 const validatePasswordConfirmation = () => {
