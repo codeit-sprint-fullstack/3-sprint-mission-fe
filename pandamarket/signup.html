@@ -22,14 +22,19 @@
       <label for="nickname">닉네임</label>
       <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요"/>
       
+      <div class="password-div">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/>
+        <img src="/pandamarket/img/btn_visibility_off_24px.png" class="eyes"/>
+        <div id="passwordError"></div>
+      </div>
       
-      <label for="password">비밀번호</label>
-      <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"/ class="eyes">
-      <div id="passwordError"></div>
-      
-      <label for="confirmPassword">비밀번호 확인</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호를 다시 한 번 입력해주세요"/ class="eyes">
-      <div id="confirmError"></div>
+      <div class="password-div">
+        <label for="confirmPassword">비밀번호 확인</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호를 다시 한 번 입력해주세요"/>
+        <img src="/pandamarket/img/btn_visibility_off_24px.png" class="eyes"/>
+        <div id="confirmError"></div>
+      </div>
       
       <input class="btn" id="signUpButton" type="button" value="회원가입" disabled>
       
@@ -42,7 +47,7 @@
       </div>
       <div class="move_box">
         <div class="move_box_title">이미 회원이신가요?</div>
-        <a href="/login.html">로그인</a>
+        <a href="/pandamarket/login.html">로그인</a>
       </div>
     </form>
   </section>
