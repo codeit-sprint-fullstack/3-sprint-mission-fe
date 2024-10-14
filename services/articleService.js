@@ -91,3 +91,24 @@ export async function patchArticle(id, updateData) {
     console.error("기타 에러:", error);
   }
 }
+
+
+
+export async function deleteArticle(id) {
+  const url = `${BASE_URL}/${id}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
+    }
+
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.error("기타 에러:", error);
+  }
+}
