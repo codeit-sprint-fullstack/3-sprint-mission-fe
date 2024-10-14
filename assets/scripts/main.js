@@ -17,7 +17,6 @@ import { DOCUMENT_ERROR_MESSAGES } from "./constants/messages.js";
 let newArticle;
 createArticle({ title: "test", content: "content", image: "image" })
   .then((response) => {
-    console.log("New article created:", response);
     newArticle = response;
     return getArticleList(1, 100, "test");
   })
@@ -50,7 +49,7 @@ createArticle({ title: "test", content: "content", image: "image" })
     console.error(DOCUMENT_ERROR_MESSAGES, e.message);
   })
   .then(() => {
-    console.log("삭제 성공");
+    console.log(DOCUMENT_ERROR_MESSAGES.succededDeletingDocument);
   });
 
 let newProduct;
