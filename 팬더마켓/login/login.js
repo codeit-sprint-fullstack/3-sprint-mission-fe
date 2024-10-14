@@ -99,3 +99,19 @@ button.addEventListener('click',function(event){
 close.addEventListener('click',function(){
   modal.style.display='none';
 });
+
+const Pwtoggle = document.querySelector('.password-toggle');
+const eyeImg = document.querySelector('.eye');
+
+Pwtoggle.addEventListener('click', seePassword);
+
+function seePassword(){
+  const input = Pwtoggle.previousElementSibling;
+  if(input.type === 'password'){
+    input.type = 'text';
+    Pwtoggle.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+  }else{
+    input.type = 'password';
+    eyeImg.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+  }
+}

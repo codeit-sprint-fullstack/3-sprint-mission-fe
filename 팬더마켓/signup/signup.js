@@ -139,19 +139,32 @@ close.addEventListener('click',function(){
   modal.style.display='none';
 });
 
-const toggleBtn = document.querySelector('.password-togle');
-const inputRePw = document.querySelector('.check');
-const eyeBtn = document.querySelector('.eye')
+const toggleBtn = document.querySelector('.password-toggle');
 
 toggleBtn.addEventListener('click', passwordTogle);
 
-function passwordTogle(e){
-  const input = inputRePw.previousElementSibling
-  if(input.target.value.type==='password'){
+function passwordTogle(){
+  const input = toggleBtn.previousElementSibling
+  if(input.type==='password'){
     input.type = 'text';
-    eyeBtn.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    toggleBtn.style.backgroundImage = "url('../images/social/btn_visibility_on')";
   }else {
     input.type = 'password';
-    eyeBtn.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+    toggleBtn.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+  }
+}
+
+const toggleBtn2 = document.querySelector('.password-toggle2');
+
+toggleBtn2.addEventListener('click',seePassword);
+
+function seePassword(){
+  const input = toggleBtn2.previousElementSibling
+  if(input.type==='password'){
+    input.type = 'text';
+    toggleBtn2.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+  }else{
+    input.type = 'password';
+    toggleBtn2.style.backgroundImage=  "url('../images/social/btn_visibility_off')";
   }
 }
