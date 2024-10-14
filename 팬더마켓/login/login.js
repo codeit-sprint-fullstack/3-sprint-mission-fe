@@ -110,8 +110,10 @@ function seePassword(){
   if(input.type === 'password'){
     input.type = 'text';
     Pwtoggle.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    enterPw.classList.add('hide');
   }else{
     input.type = 'password';
     eyeImg.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+    enterPw.classList.add('hide');
   }
 }

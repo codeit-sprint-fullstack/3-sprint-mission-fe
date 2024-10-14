@@ -148,9 +148,11 @@ function passwordTogle(){
   if(input.type==='password'){
     input.type = 'text';
     toggleBtn.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    noPw.classList.add('hide');
   }else {
     input.type = 'password';
     toggleBtn.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+    noPw.classList.add('hide');
   }
 }
 
@@ -163,8 +165,10 @@ function seePassword(){
   if(input.type==='password'){
     input.type = 'text';
     toggleBtn2.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    rePwMsg.classList.add('hide');
   }else{
     input.type = 'password';
     toggleBtn2.style.backgroundImage=  "url('../images/social/btn_visibility_off')";
+    rePwMsg.classList.add('hide');
   }
 }
