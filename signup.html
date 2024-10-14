@@ -13,6 +13,7 @@
     />
   <link rel="stylesheet" href="/styles/global.css" />
   <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/auth.css" />
   <link rel="stylesheet" href="/styles/signup.css" />
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -32,7 +33,7 @@
       <a  href="/index.html"
         target="_self">
         <img 
-        id="signup-panda-logo"
+        id="login-panda-logo"
         src="/images/logo/panda-market-logo.png"
         alt="판다로고"
         />   
@@ -42,18 +43,18 @@
     <section class="signup-section2-layer">
       <form class="form">
         
-        <div class="signup-form-control">
+        <div class="form-control">
           <label for="signup-usermail">
             이메일
           </label>
           <input  type="email"
-                  id="signup-usermail" name="signup-usermail" 
+                  id="signup-usermail" name="usermail" 
                   placeholder="이메일을 입력해주세요" 
             />
           <small>Error message</small>
         </div>
 
-        <div class="signup-form-control">
+        <div class="form-control">
           <label class="signup-label" for="signup-nickname">
             닉네임
           </label>
@@ -64,11 +65,11 @@
           <small>Error message</small>
         </div>
 
-        <div class="signup-form-control">
+        <div class="form-control">
           <label for="password">
             비밀번호
           </label>
-          <div class="signup-wrapper">
+          <div class="input-wrapper">
             <input type="password"
                   id="password" name="password" 
                   placeholder="비밀번호를 입력해주세요"
@@ -87,11 +88,11 @@
           <small>Error message</small>
         </div>
 
-        <div class="signup-form-control">
+        <div class="form-control">
           <label for="confirm-password">
             비밀번호 확인
           </label>
-          <div class="signup-wrapper">
+          <div class="input-wrapper">
             <input type="password"
                   id="confirm-password" name="confirm-password" 
                   placeholder="비밀번호를 다시 한 번 입력해주세요"
@@ -110,7 +111,7 @@
           <small>Error message</small>
         </div>
 
-        <button class="signup-button">
+        <button class="login-button">
           회원가입
         </button>
 
@@ -152,6 +153,7 @@
       </div>      
     </section>
   </main>
-  <script type="text/javascript" src="/javascript/signup.js"></script> 
+  <!-- <script type="text/javascript" src="/javascript/signup.js"></script> -->
+  <script type="module" src="/module-js/signup.mjs"></script> 
 </body>
 </html>
