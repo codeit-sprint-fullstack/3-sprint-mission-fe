@@ -1,42 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- 모바일 브라우저의 뷰를 실제 크기인 1로 설정하는것을 의미한다 써주지 않는다면
-   모바일 브라우저에서 나오는 글자가 매우 작게 표시되어서 읽을 수 없을 것이다 -->
+  <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>판다마켓</title>
-  <!-- 
-  웹사이트를 식별하기 위해 브라우저에 표시하는 작은 아이콘을 '파비콘(Favicon)'이라고 합니다. 
-  일반적으로 16x16px의 .ico 확장자로 되어 있고, 온라인에서 favicon generator를 찾아 사용하면 편리하게 이미지를 파비콘으로 전환할 수 있습니다. 
-  -->
-  <link rel="icon" href="images/logo/favicon.ico" />
-  <!-- 외부 폰트 Pretendard의 스타일시트를 링크해 주세요. -->
+  <title>판다마켓</title>  
+  <link rel="icon" href="/images/logo/favicon.ico" />  
   <link
   rel="stylesheet"
   as="style"
   crossorigin
   href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
   />
-  <link rel="stylesheet" href="../styles/global.css" />
-  <link rel="stylesheet" href="styles/home.css">
-
-  <!-- [심화 요구사항] Google Analytics  -->
-  <!-- Google Analytics 계정을 생성해 ) 본인의 Tracking ID(예: G-XXXXXXXXXX)로 변경이 필요합니다. -->
-  <!-- <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-본인의_Tracking_ID"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-XXXXXXXXXX"); // 본인의 Tracking ID로 변경
-  </script> -->
-
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/home.css">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -45,7 +21,6 @@
   })(window,document,'script','dataLayer','GTM-TFWB8BBP');</script>
   <!-- End Google Tag Manager -->
 </head>
-
 <body>  
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFWB8BBP"
@@ -55,14 +30,14 @@
     <div>
       <img
       id="panda-logo"
-      src="images\logo\panda-market-logo.png"
+      src="/images/logo/panda-market-logo.png"
       alt="판다마켓 홈"
       />
     </div>
       <div>
         <a 
           class="login-btn btn-font"
-          href="login.html">로그인
+          href="/login.html">로그인
         </a>
       </div>
       <!-- <p class="btn-font">로그인</p> -->
@@ -77,28 +52,16 @@
         <div>
           <a 
             class="show-btn btn-font"
-            href="items.html">구경하러 가기
+            href="/items.html">구경하러 가기
           </a>
         </div>  
       </div>
       <div class="section1-img-layer">
         <img 
           style="width: 100%; height:auto"           
-          src="images\home\hero-image.png"
+          src="/images/home/hero-image.png"
           alt="판다 장바구니 든 모습"
         > <!-- width: 100%; height:auto  부모 width 값의 100%를 적용.  -->
-
-          <!-- <img 
-          style="width: 100%; height:auto"           
-          srcset="images\home\hero-image.png 1920w" 
-          src="images\home\hero-image.png"
-          alt="판다 장바구니 든 모습" -->
-          <!-- srcset이 설정되었다면 src 속성은 무시됨 -->
-          <!-- srcset="images\home\hero-image.png 1920w" 
-               브라우저의 뷰포트 너비에 대한 이미지 소스를 지정.
-               뷰포트 너비가 1920w 이하일 때 해당 png 파일 랜더링 됨.
-               조건에 부합되는 이미지가 없다면 가장 근사치에 있는 조건값의 이미지가
-               랜더링 된다. w는 길이 다누이로 환산하면 px와 동일.-->        
       </div>
     </section>
     <section class="section2">
@@ -106,7 +69,7 @@
         <div class="section2-img-layer">
           <img 
             style="width: 100%; height: auto"         
-            src="images\home\feature1-image.png"
+            src="/images/home/feature1-image.png"
             alt="2마리의 판다가 인기 상품 보는 모습"
           />        
         </div>
@@ -134,7 +97,7 @@
         <div class="section3-img-layer">
           <img
             style="width: 100%; height: auto"          
-            src="images\home\feature2-image.png"
+            src="/images/home/feature2-image.png"
             alt="구매상품 검색화면"
           />                
         </div>
@@ -145,7 +108,7 @@
         <div class="section4-img-layer">
           <img 
             style="width: 100%; height: auto"         
-            src="images\home\feature3-image.png"
+            src="/images/home/feature3-image.png"
             alt="판매등록 화면"
           />        
         </div>
@@ -169,7 +132,7 @@
         <div class="section5-img-layer">
           <img 
             style="width: 100%; height: auto"     
-            src="images\home\bottom-banner-image.png"
+            src="/images/home/bottom-banner-image.png"
             alt="판다마켓 안내"
           />        
         </div>
@@ -182,11 +145,11 @@
       <div class="footer-link-layer">
           <a 
             class="footer-privacy-policy"
-            href="privacy.html">Privacy Policy
+            href="/privacy.html">Privacy Policy
           </a>
           <a 
             class="footer-faq"
-            href="faq.html">FAQ
+            href="/faq.html">FAQ
           </a>
       </div>
       <div class="footer-sns-layer">
@@ -195,7 +158,7 @@
               target="_blank">
               <img 
               class="item"
-              src="images\social\facebook-logo.svg"
+              src="/images/social/facebook-logo.svg"
               alt="페이스북 로긴 버튼"
               />   
           </a>          
@@ -205,7 +168,7 @@
               target="_blank">
               <img 
               class="item"
-              src="images\social\twitter-logo.svg"
+              src="/images/social/twitter-logo.svg"
               alt="트위터 로긴 버튼"
               />   
           </a>          
@@ -215,7 +178,7 @@
           target="_blank">
           <img 
           class="item"
-          src="images\social\youtube-logo.svg"
+          src="/images/social/youtube-logo.svg"
           alt="유튜브 로긴 버튼"
           />   
           </a>          
@@ -225,7 +188,7 @@
               target="_blank">
               <img 
               class="item"
-              src="images\social\instagram-logo.svg"
+              src="/images/social/instagram-logo.svg"
               alt="인스타그램 로긴 버튼"
               />   
           </a>          
