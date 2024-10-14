@@ -7,7 +7,3 @@ async function getArt(idNum) {
     console.log(get);
 }
 
-// const getPro = await getProduct(7);
-// console.log(getPro);
-
-getArt(2);
