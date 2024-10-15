@@ -76,13 +76,19 @@ input:focus {
   gap: 20px;
 }
 
-.eyes {
-  background-image: url('img/btn_visibility_off_24px.png');
-  background-position: right 24px center;
-  background-repeat: no-repeat;
-  background-size: 24px;
-  cursor: pointer;
+.password-div {
+  position: relative;
+  width: 100%;
+  min-width: 360px;
 }
+
+.eyes {
+  position: absolute;
+  cursor: pointer;
+  top:41px;
+  right:20px;
+}
+
 
 .btn {
   width:100%;
