@@ -1,5 +1,5 @@
 import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle } from "../services/articleService.js";
-import { getProductList, getProduct, createProduct, patchProduct } from "../services/productService.js";
+import { getProductList, getProduct, createProduct, patchProduct, deleteProduct } from "../services/productService.js";
 
 
 
@@ -40,12 +40,16 @@ import { getProductList, getProduct, createProduct, patchProduct } from "../serv
 
 
 
-const updateProductData = {
-  name: '테니스공 3개입',
-  description: '고품질 테니스공 3개입',
-  price: 6900,
-  manufacturer: 'China Ningbo',
-  tags: ['스포츠용품, 테니스용품'],
-  images: ['tennis_ball.jpg, tennis_ball.png'],
-}
-patchProduct(409, updateProductData);
+// const updateProductData = {
+//   name: '테니스공 3개입',
+//   description: '고품질 테니스공 3개입',
+//   price: 6900,
+//   manufacturer: 'China Ningbo',
+//   tags: ['스포츠용품, 테니스용품'],
+//   images: ['tennis_ball.jpg, tennis_ball.png'],
+// }
+// patchProduct(409, updateProductData);
+
+
+
+deleteProduct(46)

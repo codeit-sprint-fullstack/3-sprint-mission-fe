@@ -100,3 +100,26 @@ export async function patchProduct(id, updateData) {
     console.error("기타 에러:", error);
   }
 }
+
+
+
+// deleteProduct() : DELETE 메서드를 사용해 주세요.
+export async function deleteProduct(id) {
+  const url = `${BASE_URL}/${id}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
+    }
+
+    console.log(response.status);
+    console.log(response.statusText);
+    return response;
+  } catch (error) {
+    console.error("기타 에러:", error);
+  }
+}

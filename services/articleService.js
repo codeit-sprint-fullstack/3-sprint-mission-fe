@@ -113,7 +113,8 @@ export async function deleteArticle(id) {
       throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
     }
 
-    console.log(response);
+    console.log(response.status);
+    console.log(response.statusText);
     return response;
   } catch (error) {
     console.error("기타 에러:", error);
