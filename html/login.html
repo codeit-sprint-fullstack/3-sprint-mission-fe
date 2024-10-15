@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인 페이지</title>
-  <link rel="stylesheet" href="login.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon"> 
 </head>
 <body>
   <main>
     <div class="loginPaageLogoDiv">
       <a href="/">
-        <img class="loginPageLogo" src="panda-market-logo.png" 
+        <img class="loginPageLogo" src="../img/panda-market-logo.png" 
         alt="판다마켓 로고">
       </a>
       <div class="loginDiv">
@@ -20,12 +20,16 @@
         </p>
         <input type="email" class="emailAndPassWord" name="email" 
         placeholder="이메일을 입력해 주세요" required>
+        <span class="email-error-message error-message"></span>
+
         <p class="emailPassWordText">
           비밀번호
         </p>
-        <input type="password" class="emailAndPassWord" name="email" 
+        <input type="password" class="emailAndPassWord" name="password" 
         placeholder="비밀번호를 입력해 주세요" required>
-        <a class="loginPageLoginBtn" href="/login">
+        <span class="password-error-message error-message"></span>
+
+        <a class="loginPageLoginBtn" href="">
           로그인
         </a>
         <div class="ezLogin">
@@ -35,10 +39,10 @@
             </p>
             <div class="loginPageSns">
               <a target="_blank" href="https://www.google.com/">
-                <img width="42" height="42" src="google.png" alt="구글 링크바로가기">
+                <img width="42" height="42" src="../img/google.png" alt="구글 링크바로가기">
               </a>
               <a target="_blank" href="https://www.kakaocorp.com/">
-                <img width="42" height="42" src="kakao.png" alt="카카오톡 링크바로가기">
+                <img width="42" height="42" src="../img/kakao.png" alt="카카오톡 링크바로가기">
               </a>
             </div>
           </div>
@@ -47,12 +51,13 @@
           <p>
             판다마켓이 처음이신가요?
           </p>
-          <a class="goSingup" href="/signup.html">
+          <a class="goSingup" href="../html/signup.html">
             회원가입
           </a>
         </div>
       </div>
     </div>
   </main>
+  <script src="../js/login.js"></script>
 </body>
 </html>

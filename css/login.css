@@ -155,3 +155,13 @@ input:invalid ~ .loginPageLoginBtn {
   font-size: 14px;
   line-height: 16.71px;
 }
+
+.error-message {
+  color: #f74747;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17.9px;
+  padding-left: 16px;
+  display: flex;
+  align-items: flex-start;
+}
