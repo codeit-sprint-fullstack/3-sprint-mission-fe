@@ -97,7 +97,7 @@ export async function patchProduct(id, updateData) {
     console.log(data);
     return data
   } catch (error) {
-    console.error("기타 에러:", error);
+    console.error("기타 에러:", error.message);
   }
 }
 
@@ -113,13 +113,17 @@ export async function deleteProduct(id) {
     });
 
     if (!response.ok) {
-      throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
+      if (response.status === 404) {
+        throw new Error(`삭제 실패: ID ${id}에 해당하는 제품을 찾을 수 없습니다.`);
+      } else {
+        throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
+      }
     }
 
     console.log(response.status);
     console.log(response.statusText);
     return response;
   } catch (error) {
-    console.error("기타 에러:", error);
+    console.error("기타 에러:", error.message);
   }
 }
