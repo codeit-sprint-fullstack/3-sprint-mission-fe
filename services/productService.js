@@ -73,3 +73,30 @@ export async function createProduct(name, description, price, manufacturer, tags
     console.error("기타 에러:", error);
   }
 }
+
+
+
+// patchProduct() : PATCH 메서드를 사용해 주세요.
+export async function patchProduct(id, updateData) {
+  const url = `${BASE_URL}/${id}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updateData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`지정 에러: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data
+  } catch (error) {
+    console.error("기타 에러:", error);
+  }
+}

@@ -1,5 +1,5 @@
 import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle } from "../services/articleService.js";
-import { getProductList, getProduct, createProduct } from "../services/productService.js";
+import { getProductList, getProduct, createProduct, patchProduct } from "../services/productService.js";
 
 
 
@@ -15,12 +15,12 @@ import { getProductList, getProduct, createProduct } from "../services/productSe
 
 
 
-// const updateData = {
+// const updateArticleData = {
 //   title: '긴급속보',
 //   content: '비트코인 5억 돌파',
 //   image: 'bitcoin.png'
 // }
-// patchArticle(98, updateData);
+// patchArticle(98, updateArticleData);
 
 
 
@@ -36,4 +36,16 @@ import { getProductList, getProduct, createProduct } from "../services/productSe
 
 
 
-createProduct('테니스공', '고품질의 테니스공 3개입 제품입니다', 6000, 'China', ['스포츠용품'], ['tennis_ball.jpg']);
+// createProduct('테니스공', '고품질의 테니스공 3개입 제품입니다', 6000, 'China', ['스포츠용품'], ['tennis_ball.jpg']);
+
+
+
+const updateProductData = {
+  name: '테니스공 3개입',
+  description: '고품질 테니스공 3개입',
+  price: 6900,
+  manufacturer: 'China Ningbo',
+  tags: ['스포츠용품, 테니스용품'],
+  images: ['tennis_ball.jpg, tennis_ball.png'],
+}
+patchProduct(409, updateProductData);
