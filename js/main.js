@@ -185,7 +185,9 @@ function insertBoxElement(object, method, part) {
 function resultElement(data, method, part) {
   const resultBox = document.querySelector("#resultBox");
   resultBox.innerHTML = "";
-  if (data.length === 0 && !!!part) {
+  const arrData = !Array.isArray(data) ? new Array(data) : data;
+  console.log(arrData);
+  if (arrData.length === 0 && !!!part) {
     const errorTitle = addEl({
       el: "h2",
       className: "resultTitle",
@@ -203,7 +205,7 @@ function resultElement(data, method, part) {
   const resultTitle = addEl({
     el: "h2",
     className: "resultTitle",
-    text: `${method} 결과 (${!!data.length ? data.length : 0})`,
+    text: `${method} 결과 (${!!arrData.length ? arrData.length : 0})`,
     append: resultBox,
   });
 
@@ -216,77 +218,77 @@ function resultElement(data, method, part) {
     });
     return;
   }
-  if (!Array.isArray(data)) {
+  // if (!Array.isArray(data)) {
+  //   const box = addEl({ el: "div", className: "dataBox", append: resultBox });
+  //   const id = addEl({ el: "p", text: `id:${data.id}`, append: box });
+  //   if (part === "article") {
+  //     const title = addEl({
+  //       el: "p",
+  //       text: `title:${data.title}`,
+  //       append: box,
+  //     });
+  //     ImgBox(data.image, box);
+  //     const content = addEl({
+  //       el: "p",
+  //       text: `content:${data.content}`,
+  //       append: box,
+  //     });
+  //   } else {
+  //   }
+  // } else
+  arrData.map((el) => {
     const box = addEl({ el: "div", className: "dataBox", append: resultBox });
-    const id = addEl({ el: "p", text: `id:${data.id}`, append: box });
+    const id = addEl({ el: "p", text: `id:${el.id}`, append: box });
     if (part === "article") {
       const title = addEl({
         el: "p",
-        text: `title:${data.title}`,
+        text: `title:${el.title}`,
         append: box,
       });
-      ImgBox(data.image, box);
+
+      ImgBox(el.image, box);
       const content = addEl({
         el: "p",
-        text: `content:${data.content}`,
+        text: `content:${el.content}`,
         append: box,
       });
     } else {
+      const tagBox = addEl({
+        el: "div",
+        className: "tagBox",
+        append: box,
+      });
+      el.tags.map((tag) => {
+        addEl({
+          el: "p",
+          className: "tag",
+          text: tag,
+          append: tagBox,
+        });
+      });
+      const name = addEl({
+        el: "p",
+        text: `name:${el.name}`,
+        append: box,
+      });
+      const description = addEl({
+        el: "p",
+        text: `description:${el.description}`,
+        append: box,
+      });
+      const price = addEl({
+        el: "p",
+        text: `price:${el.price}`,
+        append: box,
+      });
+      const manufacturer = addEl({
+        el: "p",
+        text: `manufacturer:${el.manufacturer}`,
+        append: box,
+      });
+      ImgBox(el.images[0], box);
     }
-  } else
-    [...data].map((el) => {
-      const box = addEl({ el: "div", className: "dataBox", append: resultBox });
-      const id = addEl({ el: "p", text: `id:${el.id}`, append: box });
-      if (part === "article") {
-        const title = addEl({
-          el: "p",
-          text: `title:${el.title}`,
-          append: box,
-        });
-
-        ImgBox(el.image, box);
-        const content = addEl({
-          el: "p",
-          text: `content:${el.content}`,
-          append: box,
-        });
-      } else {
-        const tagBox = addEl({
-          el: "div",
-          className: "tagBox",
-          append: box,
-        });
-        el.tags.map((tag) => {
-          addEl({
-            el: "p",
-            className: "tag",
-            text: tag,
-            append: tagBox,
-          });
-        });
-        const name = addEl({
-          el: "p",
-          text: `name:${el.name}`,
-          append: box,
-        });
-        const description = addEl({
-          el: "p",
-          text: `description:${el.description}`,
-          append: box,
-        });
-        const price = addEl({
-          el: "p",
-          text: `price:${el.price}`,
-          append: box,
-        });
-        const manufacturer = addEl({
-          el: "p",
-          text: `manufacturer:${el.manufacturer}`,
-          append: box,
-        });
-        ImgBox(el.images[0], box);
-      }
-    });
+  });
 }
 
 function ImgBox(img, append) {
