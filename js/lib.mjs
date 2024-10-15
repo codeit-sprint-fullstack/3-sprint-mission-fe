@@ -2,10 +2,16 @@
 export function typeConfirm(target, compare) {
   const arr = [];
   for (let key in target) {
+    let value = compare[key];
+    let andCondition = false;
+    if (!!Number(compare[key])) {
+      value = Number(compare[key]);
+      andCondition = typeof compare[key] === typeof target[key];
+    }
     arr.push({
       key,
       type: typeof target[key],
-      result: typeof target[key] === typeof compare[key],
+      result: typeof target[key] === typeof value || andCondition,
     });
   }
   const find = arr.find((x) => !x.result);

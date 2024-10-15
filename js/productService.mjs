@@ -9,6 +9,17 @@ export const instanceObject = {
     Authorization: "I can't speak korean",
   },
 };
+
+// async function fetchs() {
+//   const response = await fetch("https://sprint-mission-api.vercel.app/products/199", {
+//     method: "DELETE",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   console.log(response)
+// }
+// console.log(await fetchs());
 // 토큰 및 그런 코드 많이봄
 const instance = axios.create(instanceObject);
 instance.interceptors.request.use(
@@ -67,16 +78,7 @@ export async function createProducts(body = createProductsBody) {
     if (!!error) console.error("Create Products Error", error);
   }
 }
-
-// const status = await createProducts({
-//   name: "테스트 상품입니다.2222",
-//   description: "test_설명",
-//   price: 10000,
-//   manufacturer: "이게뭔데",
-//   tags: ["잡동사니", "쓸모없는"],
-//   images: ["없음"],
-// });
-// console.log(status);
+console.log(await createProducts(createProductsBody))
 
 /** Patch */
 export const patchProductsBody = {
@@ -92,7 +94,7 @@ export async function patchProducts(body = patchProductsBody) {
     const response = await instance.patch(`${products}/${id}`, body);
     return response.data;
   } catch (error) {
-    if (!!error) console.error("Delete Products Error", error);
+    if (!!error) console.error("Patch Products Error", error);
   }
 }
 

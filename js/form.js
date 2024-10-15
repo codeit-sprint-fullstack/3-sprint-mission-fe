@@ -7,7 +7,7 @@ const valueCheck = data.reduce((a, c, i) => {
 
 const bottom = (btn) => {
   return `
-      <div class="">
+      <div>
           <button class='${btn.className} btn'>${btn.text}</button>
       </div>
       <div class="simple">
