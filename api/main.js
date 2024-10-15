@@ -4,7 +4,7 @@ import {
   getArticle,
   getArticleList,
   patchArticle,
-} from './ArticleService.js';
+} from './service/ArticleService.js';
 
 import {
   createProduct,
@@ -12,7 +12,7 @@ import {
   getProduct,
   getProductList,
   patchProduct,
-} from './ProductService.js';
+} from './service/ProductService.js';
 
 const runArticleServiceAPIs = async () => {
   // 게시글 조회

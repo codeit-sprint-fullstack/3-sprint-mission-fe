@@ -13,10 +13,10 @@ const visibilityImages = document.querySelectorAll(
   '.password-visibility-image'
 );
 
-// eventBuilder
-//   .get('form-button')
-//   .event('input')
-//   .eventService(updateSubmitButtonState);
+eventBuilder
+  .get('form-button')
+  .event('input')
+  .eventService(updateSubmitButtonState);
 
 form.addEventListener('input', updateSubmitButtonState);
 form.addEventListener('submit', handleFormSubmit);

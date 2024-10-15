@@ -1,4 +1,4 @@
-import { BASE_URL } from './config.js';
+import { BASE_URL } from '../constants/config.js';
 import { AxiosDefault } from './axiosDefault.js';
 
 export const defaultAxios = AxiosDefault(BASE_URL);

@@ -1,4 +1,4 @@
-import { get, post, del, patch } from './axiosClient.js';
+import { get, post, del, patch } from '../utils/axiosClient.js';
 
 // basic url 설정하기 ->dotenv로 설정하기 -> vanila js에서는 사용못하나..? 웹브라우저에서 찾을 수 없다고 나오네
 
@@ -26,7 +26,7 @@ const getArticleList = async (page = 1, pageSize = 100, keyword) => {
 // 게시글 상세 조회
 const getArticle = async (id) => {
   if (id === undefined) {
-    alert('id is required');
+    alert('id is required'); // 유저한테 보여줌 -> x
     return;
   }
 

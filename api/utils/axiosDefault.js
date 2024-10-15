@@ -36,7 +36,7 @@ const responseInterceptor = (axiosInstance) => {
       return response;
     },
     (error) => {
-      handler(error);
+      handler(error); // 백엔드에게 에러 코드 보내기
       return Promise.reject(error);
     }
   );

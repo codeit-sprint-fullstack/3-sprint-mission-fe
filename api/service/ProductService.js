@@ -1,4 +1,4 @@
-import { get, post, patch, del } from './axiosClient.js';
+import { get, post, patch, del } from '../utils/axiosClient.js';
 
 // 상품 목록 조회
 const getProductList = async (page = 1, pageSize = 100, keyword) => {
