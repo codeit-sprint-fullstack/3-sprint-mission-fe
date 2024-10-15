@@ -1,4 +1,5 @@
-import axios from 'axios';
+// import { axios } from 'axios'; -> 웹브라우저에서는 사용할 수 없다. node.js에서만 사용할 수 있다. + 헤더에 CDN으로 추가해서 해결
+import { handler } from './handler.js';
 
 export const AxiosDefault = (baseURL) => {
   const axiosInstance = createAxiosInstance(baseURL);
@@ -17,6 +18,7 @@ const createAxiosInstance = (baseURL) => {
   return axiosInstance;
 };
 
+// 어떨때 에러를 발생할까?
 const requestInterceptor = (axiosInstance) => {
   axiosInstance.interceptors.request.use(
     (config) => {

@@ -1,7 +1,7 @@
-import { baseURL } from './config';
-import { AxiosDefault } from './axiosDefault';
+import { BASE_URL } from './config.js';
+import { AxiosDefault } from './axiosDefault.js';
 
-export const defaultAxios = AxiosDefault(baseURL);
+export const defaultAxios = AxiosDefault(BASE_URL);
 
 export async function get(url, config = {}) {
   return defaultAxios.get(url, config);
