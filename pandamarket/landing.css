@@ -4,8 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: clamp(10px,1.5vw,16px);
+}
+
+:root {
+  --main-font-size: 2.5rem;
+}
+
 header {
-  width: 100%;
+  width: 100vw;
   height: 70px;
   display: flex;
   flex-direction: row;
@@ -23,7 +31,7 @@ a {
 }
 
 .login-btn {
-  width: 128px;
+  min-width: 128px;
   height: 48px;
   background-color: #3692ff;
   border-radius: 8px;
@@ -36,10 +44,11 @@ a {
   color: #f3f4f6;
   font-weight: 600;
   line-height: 26px;
+  font-size: 16px;
 }
 
 .section1 {
-  width: 100%;
+  width: 100vw;
   height: 540px;
   background-color: #cfe5ff;
   display: flex;
@@ -51,15 +60,18 @@ a {
 .section1_block {
   display: flex;
   gap: 30px;
-  width:1110px;
+  width:100%; 
   height: 340px;
   align-items: flex-end;
+  margin: 0 40px 0;
 }
 
 .section1_title_layer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width:35%;
+  min-width: 450px;
   height: 300px;
   gap: 30px;
 }
@@ -67,15 +79,15 @@ a {
 .section1_title {
   width: 70%;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 56px;
+  font-size: var(--main-font-size);
+  line-height: 3.5rem;
   word-break:break-all;
 }
 
 .show-btn {
   background-color: #3692ff;
   color: #f9fafb;
-  width: 357px;
+  width: 70%;
   height: 56px;
   border-radius: 40px;
   display: flex;
