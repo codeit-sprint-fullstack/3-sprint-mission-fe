@@ -2,6 +2,8 @@ const BASE_URL = 'https://sprint-mission-api.vercel.app/articles'
 
 
 
+// getArticleList() : GET 메서드를 사용해 주세요.
+//  page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 export function getArticleList(page, pageSize, keyword) {
   const url = `${BASE_URL}?page=${page}&pageSize=${pageSize}&keyword=${encodeURIComponent(keyword)}`
 
@@ -20,6 +22,7 @@ export function getArticleList(page, pageSize, keyword) {
 
 
 
+//  getArticle() : GET 메서드를 사용해 주세요.
 export function getArticle(id) {
   const url = `${BASE_URL}/${id}`
 
@@ -38,11 +41,13 @@ export function getArticle(id) {
 
 
 
-export async function createArticle(ArticleTitle, ArticleContent, ArticleImage) {
+//  createArticle() : POST 메서드를 사용해 주세요.
+//  request body에 title, content, image 를 포함해 주세요.
+export async function createArticle(title, content, image) {
   const articleData = {
-    title: ArticleTitle,
-    content: ArticleContent,
-    image: ArticleImage
+    title,
+    content,
+    image,
   };
 
   try {
@@ -68,6 +73,7 @@ export async function createArticle(ArticleTitle, ArticleContent, ArticleImage) 
 
 
 
+//  patchArticle() : PATCH 메서드를 사용해 주세요.
 export async function patchArticle(id, updateData) {
   const url = `${BASE_URL}/${id}`
 
@@ -94,6 +100,7 @@ export async function patchArticle(id, updateData) {
 
 
 
+//  deleteArticle() : DELETE 메서드를 사용해 주세요.
 export async function deleteArticle(id) {
   const url = `${BASE_URL}/${id}`
 

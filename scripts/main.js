@@ -1,14 +1,12 @@
 import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle } from "../services/articleService.js";
+import { getProductList } from "../services/productService.js";
 
 
-// const temp1 = await getArticleList(1, 3, '마이크')
-// console.log(temp1)
+
 // getArticleList(1, 3, '마이크')
 
 
 
-// const temp2 = await getArticle(126)
-// console.log(temp2)
 // getArticle(126);
 
 
@@ -26,4 +24,8 @@ import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle 
 
 
 
-deleteArticle(103);
+// deleteArticle(117);
+
+
+
+// getProductList(1, 3, '보스헤드셋')
