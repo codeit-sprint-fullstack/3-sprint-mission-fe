@@ -1,5 +1,5 @@
 import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle } from "../services/articleService.js";
-import { getProductList } from "../services/productService.js";
+import { getProductList, getProduct } from "../services/productService.js";
 
 
 
@@ -29,3 +29,7 @@ import { getProductList } from "../services/productService.js";
 
 
 // getProductList(1, 3, '보스헤드셋')
+
+
+
+getProduct(408);
