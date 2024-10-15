@@ -21,6 +21,7 @@ export function getProductList(page, pageSize, keyword) {
 }
 
 
+
 // getProduct() : GET 메서드를 사용해 주세요.
 export function getProduct(id) {
   const url = `${BASE_URL}/${id}`
@@ -36,4 +37,39 @@ export function getProduct(id) {
     .catch(error => {
       console.error("기타 에러:", error); // 서버 등 예측하지 못한 에러 위해
     });
+}
+
+
+
+// createProduct(): POST 메서드를 사용해 주세요.
+//  request body에 name, description, price, manufacturer, tags, images 를 포함해 주세요.
+export async function createProduct(name, description, price, manufacturer, tags, images) {
+  const productData = {
+    name,
+    description,
+    price,
+    manufacturer,
+    tags,
+    images,
+  };
+
+  try {
+    const response = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(productData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`지정 에러: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data
+  } catch (error) {
+    console.error("기타 에러:", error);
+  }
 }

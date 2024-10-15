@@ -1,5 +1,5 @@
 import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle } from "../services/articleService.js";
-import { getProductList, getProduct } from "../services/productService.js";
+import { getProductList, getProduct, createProduct } from "../services/productService.js";
 
 
 
@@ -32,4 +32,8 @@ import { getProductList, getProduct } from "../services/productService.js";
 
 
 
-getProduct(408);
+// getProduct(408);
+
+
+
+createProduct('테니스공', '고품질의 테니스공 3개입 제품입니다', 6000, 'China', ['스포츠용품'], ['tennis_ball.jpg']);
