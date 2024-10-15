@@ -3,15 +3,16 @@ import ArticleService from './ArticleService.js'
 import ProductService from './ProductService.js'
 
 // Article Service
-const getArticleList = await ArticleService.getArticleList()
-const getArticle = await ArticleService.getArticle()
-const createArticle = await ArticleService.createArticle()
-const patchArticle = await ArticleService.patchArticle()
-const deleteArticle = await ArticleService.deleteArticle()
+// await ArticleService.getArticleList(1, 100, '웃음')
+// await ArticleService.getArticle()
+// await ArticleService.createArticle()
+// await ArticleService.patchArticle()
+// await ArticleService.deleteArticle()
 
-// Product Service
-const getProductList = await ProductService.getProductList()
-const getProduct = await ProductService.getProduct()
-const createProduct = await ProductService.createProduct()
-const patchProduct = await ProductService.patchProduct()
-const deleteProduct = await ProductService.deleteProduct()
+// // Product Service
+// await ProductService.getProductList()
+// await ProductService.getProduct()
+// await ProductService.createProduct()
+// await ProductService.patchProduct()
+// await ProductService.deleteProduct()
+

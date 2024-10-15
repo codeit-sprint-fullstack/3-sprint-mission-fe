@@ -7,19 +7,22 @@ async function getArticleList(page = 1, pageSize = 100, keyword) {
   const url = `${BASE_URL}?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   return fetch(url)
     .then(response => response.json())
-    .then( data => data)
-    .catch( error => console.error('에러가 났습니다.', error));
+    .then( data => {
+      data,
+      console.log(data)})
+    .catch( error => console.error('에러가 났습니다.', error))
+    .finally(() => console.log('GET FINISH') );
 }
 
 async function getArticle() {
   return fetch(BASE_URL)
     .then(response => response.json())
-    .then( data => data)
-    .catch( error => console.error('에러가 났습니다.', error));
+    .then( data => {
+      data,
+      console.log(data)})
+    .catch( error => console.error('에러가 났습니다.', error))
+    .finally(() => console.log('GET FINISH') );
   }
-
-  // const a = await getArticle()
-  // console.log(a)
 
 // POST Method
 async function createArticle(title, content, image) {
@@ -35,8 +38,11 @@ async function createArticle(title, content, image) {
     headers: { "Content-Type": "application/json", },
   })
     .then(response => response.json())
-    .then(data => data)
+    .then(data => {
+      data,
+      console.log(data)})
     .catch(error => console.err('에러가 났습니다.', error))
+    .finally(() => console.log('POST FINISH') );
 }
 
 // PATCH Method(동작 확인)
@@ -56,8 +62,11 @@ async function patchArticle(id, title, content, image) {
     },
   })
     .then(response => response.json())
-    .then(data => data )
+    .then(data => {
+      data,
+      console.log(data)})
     .catch(error => console.error('에러가 났습니다.', error))
+    .finally(() => console.log('PATCH FINISH') );
 }
 
 
@@ -72,14 +81,12 @@ async function deleteArticle(id) {
       },
   })
     .then(response => response.json())
-    .then(data => data)
+    .then(data => {
+      data,
+      console.log(data)})
     .catch(error => console.error('에러가 났습니다.', error))
+    .finally(() => console.log('DELETE FINISH') );
 }
-
-// const a = await getArticle()
-// await deleteArticle(232);
-// await getArticle();
-// console.log(a)
 
 // Export
 const ArticleService = {

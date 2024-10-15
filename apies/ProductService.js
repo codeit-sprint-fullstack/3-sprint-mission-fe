@@ -8,24 +8,21 @@ async function getProductList(page = 1, pageSize = 100, keyword) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    return data
+    return data, console.log(data)
   } catch (error) {
     console.error('에러가 났습니다.', error)
-  }
+  } finally { console.log('GET FINISH') }
 }
 
 async function getProduct() {
   try {
     const response = await fetch(BASE_URL);
     const data = await response.json();
-    return data
+    return data, console.log(data)
   } catch (error) {
     console.error('에러가 났습니다.', error)
-  }
+  } finally { console.log('GET FINISH') }
 }
-
-// const a = await getProduct()
-// console.log(a)
 
 // POST Method
 async function createProduct(name, description, price, tags, images) {
@@ -44,10 +41,10 @@ async function createProduct(name, description, price, tags, images) {
       headers: { "Content-Type": "application/json", },
     });
     const data = await response.json();
-    return data
+    return data, console.log(data)
   } catch (error) {
     console.error('에러가 났습니다.', error)
-  }
+  } finally { console.log('POST FINISH') }
 }
 
 // PATCH Method
@@ -68,12 +65,11 @@ async function patchProduct(id, name, description, price, tags, images) {
       headers: { "Content-Type": "application/json", }
     });
     const data = await response.json();
-    return data
+    return data, console.log(data)
   } catch (error) {
     console.error('에러가 났습니다.', error)
-  }
+  } finally { console.log('PATCH FINISH') }
 }
-
 
 // DELETE Method
 async function deleteProduct(id) {
@@ -85,10 +81,10 @@ async function deleteProduct(id) {
       headers: { "Content-Type": "application/json" }
     });
     const data = await response.json();
-    return data
+    return data, console.log(data)
   } catch (error) {
     console.error('에러가 났습니다.', error)
-  }
+  } finally { console.log('DELETE FINISH') }
 }
 
 // Export
