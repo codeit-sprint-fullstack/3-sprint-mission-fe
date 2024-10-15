@@ -203,7 +203,7 @@ function resultElement(data, method, part) {
   const resultTitle = addEl({
     el: "h2",
     className: "resultTitle",
-    text: `${method} 결과 (${!!data.length ? data.length : 1})`,
+    text: `${method} 결과 (${!!data.length ? data.length : 0})`,
     append: resultBox,
   });
 
