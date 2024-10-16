@@ -7,4 +7,10 @@ async function getArt(idNum) {
     console.log(get);
 }
 
-getArt(98);
+
+function App(){
+    const [count, setcount] =useState(0);
+    const handleClick = () =>{
+        setcount(count+1)
+    };
+}

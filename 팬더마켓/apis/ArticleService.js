@@ -15,7 +15,7 @@ export const getArticle = async (id) => {
     });
     return fetch(url)
         .then((response)=> response.json())
-        .then((data)=>data)
+        .then((data)=>console.log(data))
         .catch(()=>console.log('Error!'));
 }
 
@@ -34,7 +34,7 @@ export const createArticle = async (title, content, image) => {
         },
     })
     .then((response)=> response.json())
-    .then((data)=>data)
+    .then((data)=>console.log(data))
     .catch(()=>console.log('Error!'));
 }
 
