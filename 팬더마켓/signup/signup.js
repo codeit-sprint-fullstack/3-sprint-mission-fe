@@ -37,7 +37,7 @@ function Idvalidate(e){
   }
 }
   
-const password= document.querySelector('.pass');
+const password= document.querySelector('.pw');
 const leng = document.querySelector('.lMsg');
 const noPw = document.querySelector('.noPw');
 const rePwMsg = document.querySelector('.recheck');
@@ -49,6 +49,7 @@ function checkPassword(e){
   if(e.target.value.length===0){
     noPw.classList.remove('hide');
     password.classList.add('border');
+
   }else{
     noPw.classList.add('hide');
     password.classList.remove('border');
@@ -67,11 +68,12 @@ function lengPassword(d){
     }
 }
 
-const reEnter = document.querySelector('.passcheck');
+const reEnter = document.querySelector('.re');
 const same = document.querySelector('.matchMsg');
 const Nick = document.querySelector('.nickname');
 const enterNick = document.querySelector('.nickMsg');
 const button = document.querySelector('.btn');
+const inputPw = document.querySelector('.pass')
 
 reEnter.addEventListener('focusout',recheckPw);
 reEnter.addEventListener('input',samePass);
@@ -99,7 +101,7 @@ function recheckPw(a){
 }
 
 function samePass(){
-    if(password.value ===reEnter.value){
+    if(password.value ===inputRePw.value){
       rePwMsg.classList.add('hide');
       same.classList.add('hide');
       reEnter.classList.remove('border');
@@ -137,3 +139,36 @@ close.addEventListener('click',function(){
   modal.style.display='none';
 });
 
+const toggleBtn = document.querySelector('.password-toggle');
+
+toggleBtn.addEventListener('click', passwordTogle);
+
+function passwordTogle(){
+  const input = toggleBtn.previousElementSibling
+  if(input.type==='password'){
+    input.type = 'text';
+    toggleBtn.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    noPw.classList.add('hide');
+  }else {
+    input.type = 'password';
+    toggleBtn.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+    noPw.classList.add('hide');
+  }
+}
+
+const toggleBtn2 = document.querySelector('.password-toggle2');
+
+toggleBtn2.addEventListener('click',seePassword);
+
+function seePassword(){
+  const input = toggleBtn2.previousElementSibling
+  if(input.type==='password'){
+    input.type = 'text';
+    toggleBtn2.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    rePwMsg.classList.add('hide');
+  }else{
+    input.type = 'password';
+    toggleBtn2.style.backgroundImage=  "url('../images/social/btn_visibility_off')";
+    rePwMsg.classList.add('hide');
+  }
+}

@@ -1,8 +1,8 @@
-const id = document.querySelector('.email');
+const id = document.querySelector('.wrap');
 const enterId=document.querySelector('.enterIdMsg');
 const wrongId = document.querySelector('.wrongIdMsg');
 const button=document.querySelector('.loginbtn');
-const pw = document.querySelector('.pw');
+const pw = document.querySelector('.wrap-pw');
 const enterPw=document.querySelector('.enterPwMsg');
 const wrongPw = document.querySelector('.wrongPwMsg');
 const close=document.querySelector('.close_btn');
@@ -99,3 +99,22 @@ button.addEventListener('click',function(event){
 close.addEventListener('click',function(){
   modal.style.display='none';
 });
+
+const Pwtoggle = document.querySelector('.password-toggle');
+const eyeImg = document.querySelector('.eye');
+
+Pwtoggle.addEventListener('click', seePassword);
+
+function seePassword(){
+  const input = Pwtoggle.previousElementSibling;
+  if(input.type === 'password'){
+    input.type = 'text';
+    eyeImg.style.backgroundImage = "url('../images/social/btn_visibility_on')";
+    enterPw.classList.add('hide');
+  }else{
+    input.type = 'password';
+    eyeImg.style.backgroundImage = "url('../images/social/btn_visibility_off')";
+    enterPw.classList.add('hide');
+  }
+}
+

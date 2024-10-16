@@ -1,11 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
-
-:root{
-    --input-bg-color:#F3F4F6;
-    --btn-bg-color:#9CA3AF;
-    --simplelogin-bg-color:#E6F2FF;
-    --primary-100-color:#3692FF;
-}
+@import url(../root.css);
 
 html{
     font-size:10px;
@@ -61,6 +55,10 @@ html{
     color: var(--primary-100-color);
 }
 
+input:focus{
+    outline-color: var(--primary-100-color);
+}
+
 .email{
     padding: 1.6rem 2.4rem;
     margin-right: 37rem;
@@ -74,31 +72,21 @@ html{
     border: none;
 }
 
-.pass{
-    padding: 1.6rem 2.4rem;
-    margin-right: 37rem;
-    width: 93%;
-    border-radius: 1.2rem;
-    font-weight: 400;
-    font-family: pretendard;
-    font-size: 1.6rem;
-    color: #000000;
-    background-color:var(--input-bg-color);
+
+
+.password-toggle{
     border: none;
+    position: absolute;
+    right: 24px;
 }
 
-.passcheck{
-    padding: 1.6rem 2.4rem;
-    margin-right: 37rem;
-    width: 93%;
-    border-radius: 1.2rem;
-    font-weight: 400;
-    font-family: pretendard;
-    font-size: 1.6rem;
-    color: #000000;
-    background-color:var(--input-bg-color);
+.password-toggle2{
     border: none;
+    position: absolute;
+    right: 24px;
 }
+
+
 
 .nickname{
     padding: 1.6rem 2.4rem;
@@ -114,22 +102,9 @@ html{
 }
 
 
-input:focus{
+.btn:focus{
     outline: auto var(--primary-100-color);
 }
-
-.blind{
-    background-image: url(../images/social/btn_visibility_off.png);
-    background-repeat: no-repeat;
-    background-position: 96% center;
-}
-
-.see{ 
-    background-image: url(../images/social/btn_visibility_on.png);
-    background-repeat: no-repeat;
-    background-position: 96% center;
-}
-
 
 .logoimg{
     display: flex;
@@ -152,7 +127,7 @@ input:focus{
     border: none;
 }
 
-button:focus{
+.btn:focus{
     background-color: var(--primary-100-color);
 }
 
@@ -220,11 +195,37 @@ button:focus{
 
 .border{
     border: 1px solid red;
+    border-radius: 12px;
 }
 
 .redborder{
     border: 1px solid red;
+    border-radius: 12px;
 }
+
+.wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input{
+    margin-bottom: 24px;
+    display: block;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.input input {
+    padding: 16px 24px;
+    background-color: var(--input-bg-color);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+  }
 
 
 
