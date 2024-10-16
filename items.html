@@ -1,11 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>items</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./css/_reset.css" />
+    <style>
+      #apiContainer {
+        display: flex;
+        /* flex-wrap: wrap; */
+      }
+      #apiContainer > div {
+        padding: 10px;
+      }
+      #apiContainer h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+      }
+      #apiContainer button {
+        margin-right: 15px;
+        margin-bottom: 15px;
+        padding: 5px 15px;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 10px;
+        border: 0;
+        transition: 0.5s;
+      }
+      #apiContainer button:hover {
+        background: #000;
+        transform: scale(1.1);
+        color: #fff;
+      }
+      #apiContainer #insertBox {
+        margin-left: 100px;
+        width: 400px;
+      }
+      #apiContainer #insertBox h2 {
+        margin-bottom: 20px;
+      }
+      #apiContainer #insertBox div {
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      #apiContainer #insertBox label {
+        display: block;
+        width: 40%;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      #apiContainer #insertBox input {
+        width: 60%;
+        padding: 2px 8px;
+        font-size: 18px;
+      }
+      #apiContainer #insertBox .submit {
+        display: block;
+        margin: 20px 0;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="apiContainer" class="container">
+      <div id="methodBtn">
+        <div class="articles">
+          <h2>article</h2>
+          <div class="btnArea"></div>
+        </div>
+        <div class="products">
+          <h2>products</h2>
+          <div class="btnArea"></div>
+        </div>
+      </div>
+      <div id="insertBox"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>
