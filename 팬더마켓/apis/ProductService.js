@@ -1,6 +1,6 @@
 export const getProductList = async (page=1 , pageSize= 100, keyword= '') => {
     try {
-    const url = new URL (`https://sprint-mission-api.vercel.app/products/${page}&${pageSize}&${keyword}`);
+    const url = new URL (`https://sprint-mission-api.vercel.app/products?${page}&${pageSize}&${keyword}`);
     const response = await fetch(url);
     const data = await response.json();
     return data;
@@ -29,12 +29,8 @@ export const createProduct = async (name, description, price, tags,images) => {
         "name": name,
         "description": description,
         "price": price,
-        "tags":[
-            tags
-        ],
-        "images": [
-            images
-        ]
+        "tags":tags,
+        "images": images,
     };
     try {
         const url = new URL  ("https://sprint-mission-api.vercel.app/products");
@@ -56,12 +52,8 @@ export const patchProduct = async (id, name, description, price, tags, images) =
         "name": name,
         "description": description,
         "price": price,
-        "tags": [
-            tags
-        ],
-        "images": [
-            images
-         ],
+        "tags": tags,
+        "images": images,
     };
     try {
         const url = new URL (`https://sprint-mission-api.vercel.app/products/${id}`);
