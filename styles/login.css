@@ -237,6 +237,8 @@
 
 .modal-content > p {
   position: absolute;
+  width: 250px;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
