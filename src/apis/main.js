@@ -13,7 +13,7 @@ const testImgSrc = await getRandomCatImage();
 const testServices = async () => {
   try {
     console.log('ArticleService 테스트 시작');
-    const articleList = await ArticleService.getArticleList();
+    const articleList = await ArticleService.getArticleList(1, 10, '');
     console.log('getArticleList:', articleList);
     console.log('=====================================')
 
