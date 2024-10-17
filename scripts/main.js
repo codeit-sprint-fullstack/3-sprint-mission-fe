@@ -24,7 +24,7 @@ import { getProductList, getProduct, createProduct, patchProduct, deleteProduct 
 
 
 
-// deleteArticle(117);
+// deleteArticle(932);
 
 
 
@@ -52,4 +52,4 @@ import { getProductList, getProduct, createProduct, patchProduct, deleteProduct 
 
 
 
-deleteProduct(46)
+// deleteProduct(46)
