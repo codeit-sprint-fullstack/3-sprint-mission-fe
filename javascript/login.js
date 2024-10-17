@@ -1,71 +1,72 @@
 //유저 데이터
 const USER_DATA = [
-  { email: 'codeit1@codeit.com', password: "codeit101!" },
-  { email: 'codeit2@codeit.com', password: "codeit202!" },
-  { email: 'codeit3@codeit.com', password: "codeit303!" },
-  { email: 'codeit4@codeit.com', password: "codeit404!" },
-  { email: 'codeit5@codeit.com', password: "codeit505!" },
-  { email: 'codeit6@codeit.com', password: "codeit606!" },
+  { email: "codeit1@codeit.com", password: "codeit101!" },
+  { email: "codeit2@codeit.com", password: "codeit202!" },
+  { email: "codeit3@codeit.com", password: "codeit303!" },
+  { email: "codeit4@codeit.com", password: "codeit404!" },
+  { email: "codeit5@codeit.com", password: "codeit505!" },
+  { email: "codeit6@codeit.com", password: "codeit606!" },
 ];
 
 //자바스크립트 유효성 검사
-let email = document.getElementById('email').value;
-let password = document.getElementById('password').value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
 // let passwordcheck = document.getElementById('passwordcheck').value;
-let emailError = document.getElementById('emailError').value;
-let passwordError = document.getElementById('passwordError').value;
+let emailError = document.getElementById("emailError").value;
+let passwordError = document.getElementById("passwordError").value;
 // let passwordcheckError = document.getElementById('passwordcheckError').value;
-let submit = document.getElementById('submit').value;
+let submit = document.getElementById("submit").value;
 let check = true;
 let emailkey = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // let emailValue = emailInput.value;
 // let passwordValue = passwordInput.value;
 
 //이메일
-email.addEventListener ('textInput', function() {  
+email.addEventListener("input", function (e) {
+  e.prevnetDefault(); //e.prevnetDefault(e.target.value)
   if (!emailkey.test(email.value)) {
-    emailError.style.display = 'block';
-  }else{
-    document.getElementById('emailError').innerHTML = "";
-    emailError.style.display = 'none';
+    emailError.style.display = "block";
+  } else {
+    document.getElementById("emailError").innerHTML = "";
+    emailError.style.display = "none";
   }
   loginbutton();
 });
 
 //비밀번호
-password.addEventListener ('textInput', function() {  
+password.addEventListener("input", function (e) {
+  e.prevnetDefault(); //e.prevnetDefault(e.target.value)
   if (!password.text(password.value)) {
-    passwordError.style.display = 'block';  
-  }else{
-    passwordError.style.display = 'none';
+    passwordError.style.display = "block";
+  } else {
+    passwordError.style.display = "none";
   }
   loginbutton();
 });
 
 //로그인 버튼
 function loginbutton() {
-  if(emailkey.test(email.value) && password.value.length >= 8) {
-    submit.style.backgroundcolor = '#3692ff';
-    // submit.style.borderRadius = '40px';
-  }else{
-    submit.style.backgroundcolor = '#9ca3af';
+  if (emailkey.test(email.value) && password.value.length >= 8) {
+    submit.style.backgroundcolor = "#3692ff";
+  } else {
+    submit.style.backgroundcolor = "#9ca3af";
   }
-};
+}
 
 //결과
-submit.addEventListener('click', function (e) {
-  e.prevnetDefault();
-  
-  if(!USER_DATA) {
-    modal_background.style.display = 'block';
-  }else{
-    alert('로그인');
+submit.addEventListener("click", function (e) {
+  e.prevnetDefault(); //e.prevnetDefault(e.target.value)
+  if (!USER_DATA) {
+    modal_background.style.display = "block";
+  } else {
+    alert("로그인");
   }
 });
 
-modal_check.addEventListener('click', function() {
-  modal_background.style.display = 'none';
-  modal_background.style.zIndex = '998';
+modal_check.addEventListener("click", function (e) {
+  e.prevnetDefault(); //e.prevnetDefault(e.target.value)?
+  modal_background.style.display = "none";
+  modal_background.style.zIndex = "998";
 });
 
 // function validateForm() {
