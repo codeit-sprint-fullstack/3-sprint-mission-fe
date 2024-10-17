@@ -53,9 +53,7 @@
               <div class="grid">
                 <input type="password" required id="password" name="password" placeholder="비밀번호를 입력해주세요" minlength="8"
                   autocomplete="new-password">
-                <input type="checkbox" id="show-password"
-                  class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
-                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked />
+                <input type="checkbox" name="show-password" />
               </div>
               <p class="form-error-msg"></p>
             </div>
@@ -64,9 +62,7 @@
               <div class="grid">
                 <input type="password" required id="check-password" name="check-password"
                   placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="new-password" minlength="8">
-                <input type="checkbox" class="absolute self-center justify-self-end pr-6 cursor-pointer appearance-none"
-                  style="background: center no-repeat url('../images//icon/show-off.svg');" checked
-                  id="show-check-password" />
+                <input type="checkbox" name="show-password" />
               </div>
               <p class="form-error-msg"></p>
             </div>
@@ -103,7 +99,9 @@
       </div>
     </dialog>
   </main>
-  <script>
+  <script type="module">
+    import { setVisibleInput } from '../utils/formUtils.js'
+
     const controller = new AbortController();
     const signal = controller.signal;
     const errMsgType = {
@@ -120,7 +118,7 @@
     }
     window.addEventListener('DOMContentLoaded', () => {
       const form = document.querySelector('form');
-      const visibleBtn = form.querySelectorAll('input[type="checkbox"]');
+      const visibleBtn = form.querySelectorAll('input[name="show-password"]');
       const inputs = form.querySelectorAll('input[required]');
       const button = form.querySelector('button');
       const userInputs = { email: '', nickname: '', password: '', '[check-password]': '' };
@@ -155,12 +153,7 @@
       }
       for (const btn of visibleBtn) {
         btn.addEventListener('click', (e) => {
-          e.target.style.backgroundImage = e.target.checked ? 'url(../images/icon/show-off.svg)' : 'url(../images/icon/show-on.svg)';
-          if (e.target.id === 'show-password') {
-            userInputs['password'].type = e.target.checked ? 'password' : 'text';
-          } else {
-            userInputs['check-password'].type = e.target.checked ? 'password' : 'text';
-          }
+          setVisibleInput(e);
         }, { signal: signal });
       }
       form.addEventListener('formdata', (e) => {

@@ -6,13 +6,14 @@ form label {
 
 input {
   background-color: var(--color-gray100);
-  color: var(--color-gray800);
-  padding: 15px 24px;
   border-radius: var(--border-radius-lg);
-  outline: none;
   border: none;
-  font-weight: var(--font-weight-regular);
+  color: var(--color-gray800);
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  outline: none;
+  padding: 15px 24px;
+  text-overflow: ellipsis;
 }
 
 input::placeholder {
@@ -31,4 +32,20 @@ input:user-invalid {
   color: var(--color-error);
   font-size: 15px;
   font-weight: var(--font-weight-semibold);
+}
+
+input[name='show-password'] {
+  align-self: center;
+  appearance: none;
+  background: center no-repeat url('/src/images/icon/show-off.svg');
+  cursor: pointer;
+  justify-self: end;
+  margin-right: 12px;
+  outline: none;
+  padding: 12px;
+  position: absolute;
+}
+
+input[name='show-password']:checked {
+  background: center no-repeat url('/src/images/icon/show-on.svg');
 }

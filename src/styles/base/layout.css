@@ -109,6 +109,9 @@
 .pr-6 {
   padding-right: var(--padding-6);
 }
+.pr-12 {
+  padding-right: var(--padding-12);
+}
 .pl-8 {
   padding-left: var(--padding-8);
 }
