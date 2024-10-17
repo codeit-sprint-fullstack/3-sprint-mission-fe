@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+  </head>
+
+  <body>
+    <main>
+      <section class="main">
+        <section class="div-layer">
+          <a href="index.html">
+            <img
+              src="../img/panda-market-logo.png"
+              alt="판다마켓 로고"
+              width="396px"
+              height="132px"
+            />
+          </a>
+        </section>
+        <section>
+          <form>
+            <a class="form-box">
+              <label>이메일</label>
+              <input
+                autofocus="autofocus"
+                type="email"
+                name="email"
+                id="email"
+                required
+                placeholder="이메일을 입력해주세요"
+              />
+              <div id="emailError" class="error">잘못된 이메일 형식입니다.</div>
+            </a>
+            <a class="form-box">
+              <label>닉네임</label>
+              <input
+                autofocus="autofocus"
+                type="name"
+                name="name"
+                id="name"
+                placeholder="닉네임을 입력해주세요"
+              />
+            </a>
+            <a class="form-box">
+              <div class="form-box1">
+                <label>비밀번호</label>
+                <input
+                  autofocus="autofocus"
+                  type="password"
+                  name="password"
+                  id="password"
+                  minlength="8"
+                  required
+                  placeholder="비밀번호를 입력해주세요"
+                />
+                <div id="passwordError" class="error">
+                  비밀번호를 8자 이상 입력해주세요.
+                </div>
+                <button type="button" class="btn-view" style="display: block">
+                  <img src="../img/btn_visibility_off_24px.png" />
+                </button>
+              </div>
+            </a>
+            <a class="form-box">
+              <div class="form-box1">
+                <label>비밀번호 확인</label>
+                <input
+                  autofocus="autofocus"
+                  type="password"
+                  name="passwordcheck"
+                  id="passwordcheck"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                />
+                <div id="passwordcheckError" class="error">
+                  비밀번호가 일치하지 않습니다.
+                </div>
+                <button type="button" class="btn-view" style="display: block">
+                  <img src="../img/btn_visibility_off_24px.png" />
+                </button>
+              </div>
+            </a>
+          </form>
+          <div class="login-btn" id="submit">
+            <p class="btn-font">회원가입</p>
+          </div>
+        </section>
+        <section class="easy-login">
+          <p class="easy-login-font">간편 로그인하기</p>
+          <div class="font-layer">
+            <a href="https://www.google.com/">
+              <img
+                src="../img/Component 2.png"
+                alt="구글 로고"
+                width="42px"
+                height="42px"
+              />
+            </a>
+            <a href="https://www.kakaocorp.com/">
+              <img
+                src="../img/Component 3.png"
+                alt="카카오톡 로고"
+                width="42px"
+                height="42px"
+              />
+            </a>
+          </div>
+        </section>
+        <section class="bottom-layer">
+          <p class="bottom-layer-font">이미 회원이신가요?</p>
+          <a href="login.html">
+            <p class="signup-font">로그인</p>
+          </a>
+        </section>
+      </section>
+      <div class="modal_background" id="modal_background">
+        <div class="modal_layer" id="modal_layer">
+          <div class="modal_password" id="modal_password">
+            비밀번호가 일치하지 않습니다.
+          </div>
+          <button class="modal_check" id="modal_check">확인</button>
+        </div>
+      </div>
+    </main>
+    <!-- 자바스크립트 -->
+    <script src="../javascript/signup.js"></script>
+  </body>
+</html>

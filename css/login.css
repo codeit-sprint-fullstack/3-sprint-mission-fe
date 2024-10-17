@@ -6,7 +6,7 @@
 
 .main {
   width: 100%;
-  height: 842px;
+  height: 618px;
   margin-top: 231px;
   margin-bottom: 284px;
   left: 640px;
@@ -72,7 +72,7 @@ input {
   border: 1px solid #ff0000;
 } */
 
-.error{
+.error {
   display: none;
   font-size: 15px;
   font-weight: 600;
@@ -136,18 +136,18 @@ input {
 }
 
 .bottom-layer {
-  width: 197px;
-  height: 24px;
-  gap: 4px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  /* width: 197px; */
+  height: 24px;
+  gap: 4px;
 }
 
 .bottom-layer-font {
   display: flex;
-  width: 144px;
+  /* width: 144px; */
   height: 24px;
   font-size: 14px;
   font-weight: 500;
@@ -158,7 +158,7 @@ input {
 
 .signup-font {
   display: flex;
-  width: 49px;
+  /* width: 49px; */
   height: 17px;
   font-size: 14px;
   font-weight: 500;
@@ -178,8 +178,52 @@ input {
   width: 24px;
   height: 24px;
   right: 24px;
-  bottom: 16px;
+  bottom: 18px;
   z-index: 6;
   border: none;
   background-color: #f3f4f6;
+}
+
+.modal_background {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffb2;
+  width: 540px;
+  height: 250px;
+  top: 415px;
+  left: 690px;
+  gap: 0px;
+}
+
+.modal_password {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 192px;
+  height: 19px;
+  top: 108px;
+  left: 174px;
+  gap: 0px;
+}
+
+.modal_check {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+  text-align: center;
+  width: 120px;
+  height: 48px;
+  top: 174px;
+  left: 392px;
+  padding: 12px 23px;
+  gap: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+  background-color: #3692ff;
 }
