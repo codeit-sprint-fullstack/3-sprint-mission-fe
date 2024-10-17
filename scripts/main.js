@@ -3,7 +3,7 @@ import { getProductList, getProduct, createProduct, patchProduct, deleteProduct 
 
 
 
-// getArticleList(1, 3, '마이크')
+// getArticleList(1, 3, '콘텐츠')
 
 
 

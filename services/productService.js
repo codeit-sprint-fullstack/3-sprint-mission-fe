@@ -5,7 +5,13 @@ const BASE_URL = 'https://sprint-mission-api.vercel.app/products'
 // getProductList() : GET 메서드를 사용해 주세요.
 //  page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 export async function getProductList(page, pageSize, keyword) {
-  const url = `${BASE_URL}?page=${page}&pageSize=${pageSize}&keyword=${encodeURIComponent(keyword)}`;
+  const params = new URLSearchParams ({
+    page,
+    pageSize,
+    keyword
+  });
+  
+  const url = `${BASE_URL}?${params}`
 
   try {
     const response = await fetch(url);

@@ -5,7 +5,13 @@ const BASE_URL = 'https://sprint-mission-api.vercel.app/articles'
 // getArticleList() : GET 메서드를 사용해 주세요.
 //  page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 export function getArticleList(page, pageSize, keyword) {
-  const url = `${BASE_URL}?page=${page}&pageSize=${pageSize}&keyword=${encodeURIComponent(keyword)}`
+  const params = new URLSearchParams ({
+    page,
+    pageSize,
+    keyword
+  });
+  
+  const url = `${BASE_URL}?${params}`
 
   return fetch(url)
     .then(response => {
