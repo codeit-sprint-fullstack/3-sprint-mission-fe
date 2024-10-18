@@ -66,3 +66,18 @@ async function patchProduct(productName, updateProduct) {
         console.error('에러:', error);
     }
 }
+
+
+async function deleteProduct(productName) {
+    try {
+        const response = await fetch(`https://sprint-mission-api.vercel.app/products/${productName}`, {
+            method: 'DELETE'
+        });
+        if (!response.ok) {
+            throw new Error(`오류 발생: 상태 코드 ${response.status}`);
+        }
+        console.log(`게시물 ID ${productName}가 성공적으로 삭제되었습니다.`);
+    } catch (error) {
+        console.error('에러:', error);
+    }
+}
