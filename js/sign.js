@@ -15,6 +15,16 @@ const USER_DATA = [
     { email: 'codeit6@codeit.com', password: "codeit606!" },
 ]
 
+const butt = document.querySelector('button');
+
+function button_disable() {
+    if (email_err || password_error || password_error_re) {
+        butt.disabled = true;
+    } else {
+        butt.disabled = false;
+    }
+}
+
 // 이메일 input 에서 focus out 할때 적용
 function inter1(e) {
     const Email_box = e.target.closest('.Email_box');
@@ -25,20 +35,17 @@ function inter1(e) {
             errorMessage.textContent = '이메일을 다시 입력해주세요.';
             email_err = true;
         }
-        else if (!emailPattern.test(e.target.value)) { 
+        if (e.target.value !== '' && !emailPattern.test(e.target.value)) {
             errorMessage.textContent = '잘못된 이메일 형식입니다.';
             email_err = true;
         }
-        else {
+        if (e.target.value !== '' && emailPattern.test(e.target.value)) {
             errorMessage.textContent = '';
             email_err = false;
         }
+
         if (Email_box) {
-            if (email_err) {
-                Email_box.style.border = '2px solid red';
-            } else {
-                Email_box.style.border = '';
-            }
+            Email_box.style.border = email_err ? '2px solid red' : '';
         }
         button_disable();
     }
@@ -75,20 +82,18 @@ function inter123(e) {
         if (e.target.value === '') {
             nicknameMessage.textContent = '닉네임을 다시 입력해주세요.';
             nickname_err = true;
-        } else {
+        }
+        if (e.target.value !== '') {
+            nicknameMessage.textContent = '';
             nickname_err = false;
         }
+
         if (Username_box) {
-            if (nickname_err) {
-                Username_box.style.border = '2px solid red';
-            } else {
-                Username_box.style.border = '';
-            }
+            Username_box.style.border = nickname_err ? '2px solid red' : '';
         }
         button_disable();
     }
 }
-
 
 nickname.forEach(function (box) {
     box.addEventListener("input", inter123);
@@ -124,22 +129,18 @@ function inter2(e) {
         if (e.target.value === '') {
             errorMessage_pw.textContent = '비밀번호를 입력해주세요.';
             password_error = true;
-        } else if (e.target.value.length < 8) {
-            console.log(input_password.textContent);
+        }
+        if (e.target.value !== '' && e.target.value.length < 8) {
             errorMessage_pw.textContent = '비밀번호를 8자 이상 입력해주세요.';
             password_error = true;
         }
-        else {
+        if (e.target.value !== '' && e.target.value.length >= 8) {
             errorMessage_pw.textContent = '';
             password_error = false;
         }
 
         if (Password_box) {
-            if (password_error) {
-                Password_box.style.border = '2px solid red';
-            } else {
-                Password_box.style.border = '';
-            }
+            Password_box.style.border = password_error ? '2px solid red' : '';
         }
         button_disable();
     }
@@ -181,25 +182,23 @@ function inter3(e) {
         if (e.target.value === '') {
             errorMessage_pw_re.textContent = '비밀번호를 입력해주세요.';
             password_error_re = true;
-        } else if (e.target.value.length < 8) {
+        }
+        if (e.target.value !== '' && e.target.value.length < 8) {
             errorMessage_pw_re.textContent = '비밀번호를 8자 이상 입력해주세요.';
             password_error_re = true;
-        } else if (e.target.value !== input_password[0].value) {
+        }
+        if (e.target.value !== '' && e.target.value !== input_password[0].value) {
             errorMessage_pw_re.textContent = '비밀번호가 일치하지 않습니다.';
             password_error_re = true;
-        } else  {
+        }
+        if (e.target.value !== '' && e.target.value === input_password[0].value) {
             errorMessage_pw_re.textContent = '';
             password_error_re = false;
         }
 
         if (Password_box1) {
-            if (password_error_re) {
-                Password_box1.style.border = '2px solid red';
-            } else {
-                Password_box1.style.border = '';
-            }
+            Password_box1.style.border = password_error_re ? '2px solid red' : '';
         }
-        console.log("버튼");
         button_disable();
     }
 }
@@ -208,9 +207,6 @@ input_password_re.forEach(function (box) {
     box.addEventListener("input", inter3);
     box.addEventListener("focusout", inter3);
 });
-
-
-
 
 function inter112(e) {
     const parentBox2 = e.target.parentElement;
@@ -244,22 +240,14 @@ pwIcons.forEach(function (pwIcon) {
 });
 
 //----------------------------------------------------
-const butt = document.querySelector('button');
 
-function button_disable() {
-    if (email_err || password_error || password_error_re) {
-        butt.disabled = true;
-    } else {
-        butt.disabled = false;
-    }
-}
 
 // 로그인 조건을 갖추고 로그인 버튼을 클릭하였을때 item.html로 이동해야한다.
 
 butt.addEventListener('click', function () {
     if (butt.disabled === false) {
         const user = USER_DATA.find((el) => (el.email === input_email[0].value));
-        if(user && user.email === input_email[0].value) {
+        if (user && user.email === input_email[0].value) {
             showCustomAlert("사용중인 이메일입니다.");
         }
         else {
@@ -286,5 +274,8 @@ closeAlert.addEventListener('click', function () {
 
 // ---------------------------
 
-
-
+document.addEventListener('DOMContentLoaded', function () {
+    input_email[0].value = '';
+    email_err = true;
+    button_disable();
+});
