@@ -3,12 +3,15 @@ export default function MarketSection({
   title,
   data,
   itemMaxWidth,
+  navigation,
 }) {
   const items = !!data ? data : [];
 
   return (
     <section className={"marketSection " + className}>
-      <h2>{title}</h2>
+      <div className="titleLine">
+        <h2>{title}</h2>
+      </div>
       <ul>
         {items.map((el, i) => {
           return (

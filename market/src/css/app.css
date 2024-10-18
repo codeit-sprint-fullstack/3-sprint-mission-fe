@@ -66,17 +66,23 @@ header .logo img {
 
 /* marketSection */
 .marketSection {
+  margin-bottom: 40px;
 }
-.marketSection h2 {
+.marketSection .titleLine {
   margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .marketSection ul {
   display: flex;
+  flex-wrap: wrap;
 }
 .marketSection ul li {
   margin-right: 24px;
 }
-.marketSection ul li:last-of-type {
+.marketSection ul li:last-of-type,
+.marketSection ul li:nth-of-type(5n) {
   margin-right: 0;
 }
 .marketSection ul li .imgBox {
@@ -86,10 +92,14 @@ header .logo img {
   align-items: center;
   margin-bottom: 16px;
   background-color: #dfdfdf;
+  position: relative;
 }
 .marketSection ul li .imgBox img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 16px;
-  width: 100%;
 }
 
 .marketSection ul li .textBox {
