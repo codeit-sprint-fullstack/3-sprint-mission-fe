@@ -118,10 +118,11 @@
     }
     window.addEventListener('DOMContentLoaded', () => {
       const form = document.querySelector('form');
-      const visibleBtn = form.querySelectorAll('input[name="show-password"]');
+      const showPwdBtn = form.querySelectorAll('input[name="show-password"]');
       const inputs = form.querySelectorAll('input[required]');
       const button = form.querySelector('button');
       const userInputs = { email: '', nickname: '', password: '', '[check-password]': '' };
+
       for (const input of inputs) {
         userInputs[input.id] = input;
         input.addEventListener('change', () => {
@@ -151,7 +152,8 @@
           }
         }, { signal: signal });
       }
-      for (const btn of visibleBtn) {
+
+      for (const btn of showPwdBtn) {
         btn.addEventListener('click', (e) => {
           setVisibleInput(e);
         }, { signal: signal });
