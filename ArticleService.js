@@ -92,3 +92,5 @@ function deleteArticle(articleId) {
             console.error('에러:', error);
         });
 }
+
+export {getArticleList, getArticle, createArticle, patchArticle, deleteArticle}
