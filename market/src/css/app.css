@@ -1,0 +1,117 @@
+header {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #dfdfdf;
+  z-index: 999;
+  background: #fff;
+}
+header .gnb {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+  justify-content: space-between;
+  padding: 9px 200px;
+  margin: auto;
+}
+header .loginBtn {
+  border: 0;
+  display: block;
+  text-align: center;
+  width: 128px;
+  height: 48px;
+  border-radius: 8px;
+  padding: 12px 24px;
+  background-color: var(--primary100);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--gray50);
+}
+header nav {
+  width: 100%;
+  height: 100%;
+}
+header nav ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header nav ul li {
+  width: 108px;
+}
+header nav ul li a {
+  display: block;
+  font-size: 18px;
+  color: #4b5563;
+  font-weight: 700;
+  text-align: center;
+}
+header .logo {
+  margin-right: 24px;
+}
+header .logo img {
+  width: 153px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 26px;
+}
+
+/* marketSection */
+.marketSection {
+}
+.marketSection h2 {
+  margin-bottom: 16px;
+}
+.marketSection ul {
+  display: flex;
+}
+.marketSection ul li {
+  margin-right: 24px;
+}
+.marketSection ul li:last-of-type {
+  margin-right: 0;
+}
+.marketSection ul li .imgBox {
+  overflow: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  background-color: #dfdfdf;
+}
+.marketSection ul li .imgBox img {
+  border-radius: 16px;
+  width: 100%;
+}
+
+.marketSection ul li .textBox {
+  line-height: 24px;
+  color: #1f2937;
+}
+.marketSection ul li .textBox h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.marketSection ul li .textBox p {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.marketSection ul li .textBox p.favorite {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #4b5563;
+}
+.marketSection ul li .textBox p.favorite img {
+  margin-right: 3px;
+}
