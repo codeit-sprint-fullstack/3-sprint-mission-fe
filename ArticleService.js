@@ -78,4 +78,17 @@ function patchArticle(articleId, updateData) {
         });
 }
 
-
+function deleteArticle(articleId) {
+    fetch(`https://sprint-mission-api.vercel.app/articles/${articleId}`, {
+        method: 'DELETE'
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`오류 발생: 상태 코드 ${response.status}`);
+            }
+            console.log(`게시물 ID ${articleId}가 성공적으로 삭제되었습니다.`);
+        })
+        .catch(error => {
+            console.error('에러:', error);
+        });
+}
