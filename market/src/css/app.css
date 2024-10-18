@@ -68,6 +68,9 @@ header .logo img {
 .marketSection {
   margin-bottom: 40px;
 }
+.marketSection.sell {
+  margin-bottom: 0;
+}
 .marketSection .titleLine {
   margin-bottom: 16px;
   display: flex;
@@ -80,6 +83,7 @@ header .logo img {
 }
 .marketSection ul li {
   margin-right: 24px;
+  margin-bottom: 40px;
 }
 .marketSection ul li:last-of-type,
 .marketSection ul li:nth-of-type(5n) {
@@ -124,4 +128,30 @@ header .logo img {
 }
 .marketSection ul li .textBox p.favorite img {
   margin-right: 3px;
+}
+.pageNavi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageNavi button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray200);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.pageNavi button.next {
+  margin-right: 0;
+}
+.pageNavi .pageBtnCover {
+  display: flex;
+}
+.pageNavi button.on {
+  color: #fff;
+  background-color: var(--primary100);
 }

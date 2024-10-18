@@ -2,31 +2,33 @@ import "./css/app.css";
 import Header from "./component/header";
 import { useEffect, useState } from "react";
 import { productsGet } from "./api/product";
-import MarketSection from "./component/marketSection";
-import { useItmeList } from "./hook/hook";
+import MarketSection, { MarketPageNavi } from "./component/marketSection";
+import { useItmeList, usePageNavi } from "./hook/hook";
 let init = {
   paddingTop: "70px",
 };
 function App() {
   const bestProduct = useItmeList([], 4);
-  const sellProduct = useItmeList([], 170);
-  const [total, setTotal] = useState(0);
+  const sellProduct = useItmeList([], 10);
+  const [onTarget, setOnTarget] = useState(1);
+  const pageNavi = usePageNavi(1, 5);
   useEffect(() => {
     productsGet(1, bestProduct.length, "favorite")
       .then((res) => {
         bestProduct.setValue(res.list);
       })
       .catch((err) => console.error(err));
-    productsGet(1, sellProduct.length, "recent")
+  }, []);
+  useEffect(() => {
+    productsGet(onTarget, sellProduct.length, "recent")
       .then((res) => {
-        console.log(res);
         sellProduct.setValue(res.list);
       })
       .catch((err) => console.error(err));
-  }, []);
-  useEffect(() => {
-    console.log(bestProduct.value);
-  }, [bestProduct]);
+  }, [onTarget]);
+  const pageNaviEvent = (e) => {
+    setOnTarget(Number(e.target.textContent));
+  };
   return (
     <div className="App" style={init}>
       <Header />
@@ -45,6 +47,12 @@ function App() {
           itemMaxWidth={"220px"}
           skeletonLength={sellProduct.length}
         ></MarketSection>
+        <MarketPageNavi
+          start={pageNavi.start}
+          last={pageNavi.last}
+          target={onTarget}
+          onClick={pageNaviEvent}
+        />
       </div>
     </div>
   );

@@ -14,3 +14,18 @@ export function useItmeList(items, leng) {
     },
   };
 }
+
+export function usePageNavi(sNum, lNum) {
+  const [start, setStart] = useState(sNum);
+  const [last, setLast] = useState(lNum);
+  return {
+    start,
+    setStart: (startNum) => {
+      setStart(startNum);
+    },
+    last,
+    setLast: (lastNum) => {
+      setLast(lastNUm);
+    },
+  };
+}

@@ -24,6 +24,10 @@ li {
 p {
   word-break: keep-all;
 }
+button {
+  background: transparent;
+  border: 0;
+}
 
 /* color */
 :root {
