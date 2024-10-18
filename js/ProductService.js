@@ -9,8 +9,7 @@ export async function getProductList(page, pageSize, keyword) {
     if (!response.ok) {
       throw new Error("상품 목록 조회 오류: " + response.statusText);
     }
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error("오류:", error);
     return null;
@@ -18,29 +17,22 @@ export async function getProductList(page, pageSize, keyword) {
 }
 
 //-------------------------상품 등록----------------------
-export async function createProduct(productData) {
-  try {
-    const response = await fetch(`${API_HOST}/products`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productData),
-    });
-    if (!response.ok) {
-      throw new Error("상품 등록 오류: " + response.statusText);
-    }
-    const data = await response.json();
+export const createProduct = async (createData) => {
+  const response = await fetch(`${API_HOST}/products`, {
+    method: `POST`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(createData),
+  });
 
-    return {
-      status: data.status,
-      body: data,
-    };
-  } catch (error) {
-    console.error("오류:", error);
-    return null;
-  }
-}
+  const data = await response.json();
+
+  return {
+    status: response.status,
+    body: data,
+  };
+};
 
 //-------------------------상품 상세 조회----------------------
 export async function getProduct(id) {
@@ -49,8 +41,7 @@ export async function getProduct(id) {
     if (!response.ok) {
       throw new Error("상품 상세 조회 오류: " + response.statusText);
     }
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error("오류:", error);
     return null;
@@ -70,8 +61,7 @@ export async function patchProduct(id, productData) {
     if (!response.ok) {
       throw new Error("상품 수정 오류: " + response.statusText);
     }
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error("오류:", error);
     return null;
