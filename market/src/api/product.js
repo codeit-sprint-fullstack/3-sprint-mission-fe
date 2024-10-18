@@ -1,7 +1,4 @@
-import axios from "axios";
-const instance = await axios.create({
-  baseURL: "https://panda-market-api.vercel.app/",
-});
+import instance from "./instance";
 const url = "/products";
 export async function productsGet(page = 1, pageSize = 10, orderBy = "recet") {
   try {
