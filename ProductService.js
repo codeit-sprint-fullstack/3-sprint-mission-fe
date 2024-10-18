@@ -26,3 +26,23 @@ async function getProduct(productName) {
        console.error('에러:', error);
    }
 }
+
+async function createProduct(createmch) {
+    try {
+        const response = await fetch('https://sprint-mission-api.vercel.app/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(createmch)
+        });
+        if (!response.ok) {
+            throw new Error(`오류 발생: 상태 코드 ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('생성된 게시물:', data);
+        return data;
+    } catch (error) {
+        console.error('에러:', error);
+    }
+}
