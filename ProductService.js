@@ -81,3 +81,5 @@ async function deleteProduct(productName) {
         console.error('에러:', error);
     }
 }
+
+export { getProductList, getProduct, createProduct, patchProduct, deleteProduct };
