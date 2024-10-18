@@ -2,6 +2,7 @@ import {
   createArticle,
   getArticleList,
   deleteArticle,
+  getArticle,
 } from "./ArticleService.js";
 
 import {
@@ -10,13 +11,31 @@ import {
   deleteProduct,
 } from "./ProductService.js";
 
-//-----게시글 생성-----
+//-----게시글 목록 조회-----
+const searchArticleList = {
+  page: 1,
+  pageSize: 10,
+  keyword: "암기빵",
+};
+
+(async () => {
+  const articlelist = await getArticleList(
+    searchArticleList.page,
+    searchArticleList.pageSize,
+    searchArticleList.keyword
+  );
+  if (status === 200) {
+    console.log("게시글 목록:", articlelist);
+  } else {
+    console.log("게시글 목록 확인 실패");
+  }
+})();
+
+//-----게시글 등록-----
 const newArticle = {
   title: "암기빵",
-  content:
-    "암기하고 싶은 부분에 빵을 찍은 후 먹으면 찍힌 부분의 내용을 암기할 수 있음",
-  image:
-    "https://i.namu.wiki/i/F6qrMbMMeB6EOmJftuv30APR2F8-UFbT1_Hbzm5LS3NIU44X_uD9hfHhwK0YdxC3l8-94TnBA-erm1FNJlXUow.webp",
+  content: "암기빵 냠냠",
+  image: "bread.png",
 };
 
 (async () => {
@@ -24,30 +43,42 @@ const newArticle = {
   console.log("생성 성공", response);
 })();
 
-//-----게시글 목록 조회-----
-const searchArticleList = {
-  page: 1,
-  pageSize: 100,
-  keyword: "암기빵",
+//-----게시글 상세 조회-----
+const searchArticle = {
+  id: 817,
 };
 
 (async () => {
-  const Alist = await getArticleList(
-    searchArticleList.page,
-    searchArticleList.pageSize,
-    searchArticleList.keyword
-  );
+  const article = await getArticle(searchArticle.id);
   if (status === 200) {
-    console.log("상품 목록:", Alist);
+    console.log("게시글 :", article);
   } else {
-    console.log("상품 조회 실패");
+    console.log("게시글 조회 실패");
   }
 })();
 
-//상세 조회 없음
+//-----게시글 수정-----
+const updateArticle = {
+  id: 818,
+  title: "암기빵은 없어",
+  content: "수정된 내용",
+};
+
+(async () => {
+  try {
+    const article = await patchArticle(updateArticle.id, updateArticle);
+    if (article) {
+      console.log("게시글 수정 완료:", article);
+    } else {
+      console.log("게시글 수정 실패");
+    }
+  } catch (error) {
+    console.error("오류 발생:", error);
+  }
+})();
 
 //-----게시글 삭제-----
-deleteArticle(817).then((status) => {
+deleteArticle(848).then((status) => {
   if (status === 200) {
     console.log("삭제 성공");
   } else {

@@ -1,6 +1,6 @@
 const API_HOST = "https://sprint-mission-api.vercel.app";
 
-//----------------getArticleList-------------------
+//----------게시글 목록 조회---------
 export function getArticleList(page, pageSize, keyword) {
   return fetch(
     `${API_HOST}/articles?page=${page}&pageSize=${pageSize}&keyword=${keyword}`
@@ -20,25 +20,7 @@ export function getArticleList(page, pageSize, keyword) {
     });
 }
 
-//----------------getArticle-------------------
-export function getArticle(id) {
-  return fetch(`${API_HOST}/articles/${id}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("게시글을 찾을 수 없음: " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      console.error("오류:", error);
-      return null;
-    });
-}
-
-//----------------createArticle-------------------
+//----------------게시글 등록-------------------
 export const createArticle = async (createData) => {
   const response = await fetch(`${API_HOST}/articles`, {
     method: `POST`,
@@ -56,7 +38,25 @@ export const createArticle = async (createData) => {
   };
 };
 
-//----------------patchArticle-------------------
+//----------------게시글 상세 조회-------------------
+export function getArticle(id) {
+  return fetch(`${API_HOST}/articles/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("게시글을 찾을 수 없음: " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("오류:", error);
+      return null;
+    });
+}
+
+//----------------게시글 수정-------------------
 export function patchArticle(id, articleData) {
   return fetch(`${API_HOST}/articles/${id}`, {
     method: "PATCH",
@@ -71,16 +71,13 @@ export function patchArticle(id, articleData) {
       }
       return response.json();
     })
-    .then((data) => {
-      return data;
-    })
     .catch((error) => {
       console.error("오류:", error);
       return null;
     });
 }
 
-//----------------deleteArticle-------------------
+//----------------게시글 삭제-------------------
 export function deleteArticle(id) {
   return fetch(`${API_HOST}/articles/${id}`, {
     method: "DELETE",
