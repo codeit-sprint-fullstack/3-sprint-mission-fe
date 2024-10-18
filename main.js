@@ -22,3 +22,29 @@ patchArticle(3, updateData);
 
 deleteArticle(98);
 
+
+getProductList(40, 2, '상품');
+
+getProduct(25);
+
+const createmch = {
+    
+   "name": "",
+    "description": "",
+    "price": 0,
+    "manufacturer": "",
+    "tags": [""],
+    "images": [""]
+};
+
+
+createProduct(createmch);
+
+const updateProduct = {
+    name: ''
+};
+
+patchProduct(25, updateProduct);
+
+deleteProduct()
+
