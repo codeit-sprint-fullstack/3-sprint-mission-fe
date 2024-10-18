@@ -1,6 +1,8 @@
+const productUrl = new URL  ("https://sprint-mission-api.vercel.app/products");
+
 export const getProductList = async (page=1 , pageSize= 100, keyword= '') => {
     try {
-    const url = new URL (`https://sprint-mission-api.vercel.app/products?${page}&${pageSize}&${keyword}`);
+    const url = `${productUrl}?${page}&${pageSize}&${keyword}`;
     const response = await fetch(url);
     const data = await response.json();
     return data;
@@ -11,7 +13,7 @@ export const getProductList = async (page=1 , pageSize= 100, keyword= '') => {
 
 export const getProduct = async (id) => {
     try{
-        const url = new URL (`https://sprint-mission-api.vercel.app/products/${id}`);
+        const url = `${productUrl}/${id}`;
         Object.keys(id).forEach((key)=>{
             url.searchParams.append(key, id[key]);
         });
@@ -33,8 +35,7 @@ export const createProduct = async (name, description, price, tags,images) => {
         "images": images,
     };
     try {
-        const url = new URL  ("https://sprint-mission-api.vercel.app/products");
-        const response = await fetch(url,{
+        const response = await fetch(productUrl,{
             method: "POST",
             body: JSON.stringify(requestBody),
             headers:{
@@ -56,7 +57,7 @@ export const patchProduct = async (id, name, description, price, tags, images) =
         "images": images,
     };
     try {
-        const url = new URL (`https://sprint-mission-api.vercel.app/products/${id}`);
+        const url = `${productUrl}/${id}`;
         const response = await fetch(url,{
             method: "PATCH",
             body: JSON.stringify(requestBody),
@@ -72,7 +73,7 @@ export const patchProduct = async (id, name, description, price, tags, images) =
 
 export const deleteProduct = async (id) => {
     try{
-        const url = new URL(`https://sprint-mission-api.vercel.app/products/${id}`);
+        const url = `${productUrl}/${id}`;
         const response = await fetch(url,{
             method: "DELETE",
         });
