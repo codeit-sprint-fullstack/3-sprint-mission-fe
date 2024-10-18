@@ -1,0 +1,149 @@
+@import './reset.css';
+
+.body-main {
+    display: flex;
+    margin: 43px auto;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.best-item {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 auto;
+    margin-top : 50px;
+    border: 1px solid black;
+}
+
+/* 베스트상품 텍스트 들어간곳 */
+.best-item-text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.item-container {
+    display: flex;
+    justify-content: space-between;
+
+    border: 1px solid red;
+    ;
+}
+
+/* item들 보여주는 클래스 */
+.ItemComponent {
+    width: 282px;
+    height: 378px;
+    border: 1px solid black;
+}
+
+.all-item {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap : 24px;
+
+    border: 2px solid green;
+}
+
+.all-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.all-item-text {
+    width: 200px;
+    height: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.all-item-option {
+    width: 620px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}
+
+.all-item-searchbox {
+    width: 325px;
+    height: 42px;
+    padding: 9px 20px 9px 16px;
+    gap: 10px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: left;
+}
+
+.all-item-searchbox:focus {
+    border: 1px solid black;
+}
+
+.all-item-addButton {
+    padding: 12px 23px 12px 23px;
+    gap: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: left;
+    color: white;
+    background-color: #3692FF;
+    cursor: pointer;
+}
+
+.selectBox {
+    width: 130px;
+    height: 42px;
+    border: 1px solid #E5E7EB;
+    padding: 12px 20px 12px 20px;
+    gap: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.selectBox:focus {
+    outline: none;
+}
+
+.option1 {
+    width: 130px;
+    height: 42px;
+    border-radius: 12px 12px 0px 0px;
+    border: 1px;
+}
+
+.option2 {
+    width: 130px;
+    height: 42px;
+    border-radius: 0px 0px 12px 12px;
+    border: 1px;
+}
+
+.all-item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap : 12px;
+    border: 1px solid black;
+}
+
+.All-item-list-item {
+    width: 221px;
+    height: 317px;
+    gap: 16px;
+
+    border : 1px solid black;
+}

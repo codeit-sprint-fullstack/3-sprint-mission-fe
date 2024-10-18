@@ -1,0 +1,89 @@
+@import "./button.css";
+
+.header-contain {
+    width: 100%;
+    height: 81px;
+    background: #FFFFFF;
+    display: flex;
+    position: fixed;
+    z-index: 11;
+    padding-bottom : 26px;
+
+    border-bottom : 1px solid #DFDFDF
+}
+
+header {
+    width: calc(100% - 400px);
+    margin-top: 9.5px;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 9.5px 200px;
+    box-sizing: border-box;
+    top: 0px;
+    background: #FFFFFF;
+}
+
+.header-1 {
+    width: calc(100%);
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.header-1 img {
+    width: 100%;
+    width: 153px;
+    height: auto;
+    box-sizing: border-box;
+
+}
+
+.header-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-left: 24px;
+}
+
+.header-text-1 {
+    min-width: 108px;
+    height: 68px;
+    padding: 21px 15px 21px 15px;
+    gap: 10px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+
+}
+
+.header-text-2 {
+    min-width: 108px;
+    height: 68px;
+    padding: 21px 15px 21px 15px;
+    gap: 10px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+
+@media screen and (max-width: 1199px) {
+    header {
+        width: calc(100% - 48px);
+        min-width: 750px;
+        margin: 9.5px 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        min-width: 376px;
+    }
+}

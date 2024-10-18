@@ -1,0 +1,15 @@
+@import "reset.css";
+
+@media screen and (max-width: 1199px) {
+    header {
+        width: calc(100% - 48px);
+        min-width: 750px;
+        margin: 9.5px 24px;
+    }
+}
+
+@media screen and (max-width: 744px) {
+    header {
+        min-width: 375px;
+    }
+}
