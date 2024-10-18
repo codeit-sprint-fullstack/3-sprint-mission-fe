@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    
+</head>
+<body style="margin-top: 240px;">
+    <div>
+        <a href="/">
+       <img src="../img/panda-market-logo.png"
+        style="width: 396px ; height: 132px"> </a>
+    </div>
+    <div class="section1">
+        <form id="loginform">
+            <email>
+                <label for="signup-email">이메일</label> <br>   
+                <input type="eamil" 
+                id="signup-email"
+                placeholder="이메일을 입력해주세요"> 
+                <br>
+                <div class="FailMessageEmpty" style="color : red;"></div>
+                <div class="FailMessage" style="color: red; "> 이메일을 입력해주세요 </div>
+                <div class="FailMessage2" style="color: red; "> 잘못된 이메일 형식입니다</div>
+            </email>
+            <password>
+                <label for="signup-password">비밀번호</label> <br>
+                <input id="signup-password" name="password" type="password"
+                placeholder="비밀번호를 입력해주세요"> <br>
+
+                <div class="Failpassword" style="color : red">비밀번호를 입력하세요</div>
+                <div class="Failpassword2" style="color : red">비밀번호를 8자 이상 입력해주세요</div>
+            </password>
+        </form>
+    </div>
+
+    <section2>
+        <button class="login-btn" onclick="location.href='/items'"> <span class="login">로그인</span> </button> 
+    </section2>
+    <br><br>
+    
+    <div class ="login-container">
+        <span class="login-text">간편 로그인 하기</span> 
+        <div class="login-icons">
+            <a href="https://www.google.com/"  target="_blank">
+            <img src="../img/googlelogo.png"  alt="구글 로고" class="login-icon"> </a>
+
+            <a href="https://www.kakaocorp.com/" target="_blank">
+            <img src="../img/kakaologo.png" alt="카카오톡 로고" class="login-icon"></a>  
+        </div>
+    </div>
+
+    <section4 style="margin-top: 24px;">
+        <div class="signup-text">
+            <span>판다마켓이 처음이신가요?</span> 
+            <a href="signup.html" class="signup-link">회원가입</a>
+        </div>
+    </section4>
+    <script src="../js/login.js" ></script>
+</body>
+</html>
