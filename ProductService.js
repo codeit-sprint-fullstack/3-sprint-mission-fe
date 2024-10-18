@@ -12,3 +12,17 @@ async function getProductList(page, pageSize, keyword) {
         console.error('에러:', error);
     }
 }
+
+async function getProduct(productName) {
+    try {
+       const response = await fetch(`https://sprint-mission-api.vercel.app/products/${productName}`);
+       if (!response.ok) {
+           throw new Error(`오류 발생: 상태 코드 ${response.status}`);
+       }
+       const data = await response.json();
+       console.log('특정 게시물:', data);
+       return data;
+   } catch (error) {
+       console.error('에러:', error);
+   }
+}
