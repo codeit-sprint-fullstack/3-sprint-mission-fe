@@ -55,4 +55,27 @@ function createArticle(articlePost) {
         });
 }
 
+function patchArticle(articleId, updateData) {
+    fetch(`https://sprint-mission-api.vercel.app/articles/${articleId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updateData)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`오류 발생: 상태 코드 ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            return data;
+        })
+        .catch(error => {
+            console.error('에러:', error);
+        });
+}
+
 
