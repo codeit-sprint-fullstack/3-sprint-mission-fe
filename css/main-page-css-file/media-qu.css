@@ -18,7 +18,7 @@
         width: 100%;
     }
 
-    br {
+    .main1-text br {
         display: none;
     }
 
@@ -32,56 +32,54 @@
     .main2-contain img {
         width: 100%;
     }
-    .main2-text3 br {
-        display: inline;
+    .main2-text2 br {
+        display: none;
     }
+
 
     /* main3 미디어쿼리 적용 */
     .main3-contain {
         justify-content: flex-end;
         margin-right: 32px;
         margin-left: 32px;
+        flex-wrap: wrap-reverse;
     }
 
     .main3-contain img {
         width: 100%;
     }
 
-    .main3-text3 br {
-        display: inline;
+    .main3-text2 br {
+        display: none;
     }
 
     /* 메인4 미디어쿼리 적용 */
+
     .main4-contain {
         justify-content: flex-start;
         margin-right: 32px;
         margin-left: 32px;
     }
 
+    .main4-text2 br {
+        display: none;
+    }
+
     .main4-contain img {
         width: 100%;
     }
 
-    .main4-text3 br {
-        display: inline;
-    }
 
     /* 메인5 미디어쿼리 적용 */
-    .main5-text br {
-        font-size: 2.5rem;
-        display: inline;
-    }
-
-
     .main5-contain {
         flex-wrap: wrap;
     }
+
     .main5-text {
         width: 100%;
+        font-size: 2.5rem;
         text-align: center;
     }
-
-
 
     .footer-box {
         margin-left: 16px;
@@ -95,6 +93,9 @@
     header {
         min-width: 375px;
     }
+    .main1-text br {
+        display: inline;
+    }
 
     .main1-contain {
         flex-wrap: wrap;
@@ -105,34 +106,39 @@
         justify-content: center;
     }
 
-    br {
-        display: inline;
-    }
-
-
     .main2-text2 {
         font-size: 1.7rem;
     }
 
     .main2-text3 {
         font-size: 1.27rem;
+        
     }
 
     .main2-text2 br {
         display: none;
-        
     }
+
 
     .main3-text2 {
         font-size: 1.7rem;
+
     }
+
     .main3-text3 {
         font-size: 1.27rem;
+
     }
 
 
     .main3-text2 br {
         display: none;
+    }
+
+    .main4 {
+
+        justify-content: space-between;
+        align-items: space-between;
     }
 
     .main4-text2 {
