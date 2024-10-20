@@ -1,50 +1,56 @@
-//응답의 상태코드가 2xx가 아닐경우, 에러메시지를 콘솔에 출력
-//.then 메소드 사용
-//
-
 import axios from 'axios';
 
-async function getProductList(page, pageSize, keyword) {
+export async function getArticleList(page, pageSize, keyword) {
   try {
-    const response = await axios.get("https://sprint-mission-api.vercel.app/products", {
+    const response = await axios.get("https://sprint-mission-api.vercel.app/articles", {
       params: {
         page: page,
         pageSize: pageSize,
-        keyword: keyowrd
+        keyword: keyword
       } 
     });
-    return ReportingObserver.data;
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
+    return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
     throw error;
   }
 }
   
-// const getProduct = fetch("https://sprint-mission-api.vercel.app/products") // get
-async function getProduct(articleId) {
+// const getArticle = fetch("https://sprint-mission-api.vercel.app/articles") // get
+export async function getArticle(articleId) {
   try {
     const response = await axios.get("https://sprint-mission-api.vercel.app/articles");
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
     return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
-    throw errow;
+    throw error;
   }
 }
 
 
-// const createProductList = fetch("https://sprint-mission-api.vercel.app/products") // POST
-async function createProduct(name, description, price, tags, images) {
+// const createArticle = fetch("https://sprint-mission-api.vercel.app/articles") // POST
+export async function createArticleList(title, content, image) {
   try {
-    const response = await axios.post("https://sprint-mission-api.vercel.app/products", {
-      params: {
-        "name": name,
-        "description": description,
-        "price": price,
-        "tags": "tags",
-        "images": images
-      } 
+    const response = await axios.post("https://sprint-mission-api.vercel.app/articles", {
+
+        title: "title",
+        content: "content",
+        image: "image"
+        
     });
-    return ReportingObserver.data;
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
+    return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
     throw error;
@@ -53,25 +59,33 @@ async function createProduct(name, description, price, tags, images) {
 
 
 
-// const PatchProduct = fetch("https://sprint-mission-api.vercel.app/products") // PATCH
-async function PatchProduct(articlepatch) {
+// const PatchArticle = fetch("https://sprint-mission-api.vercel.app/articles") // PATCH
+export async function PatchArticle(articlepatch) {
   try {
-    const response = await axios.patch("https://sprint-mission-api.vercel.app/products");
+    const response = await axios.patch("https://sprint-mission-api.vercel.app/articles");
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
     return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
-    throw errow;
+    throw error;
   }
 }
 
 
-// const deleteProduct = fetch("https://sprint-mission-api.vercel.app/articles") // DELETE
-async function deleteProduct(articledelete) {
+// const deleteArticle = fetch("https://sprint-mission-api.vercel.app/articles") // DELETE
+export async function deleteArticle(articledelete) {
   try {
-    const response = await axios.delete("https://sprint-mission-api.vercel.app/products");
+    const response = await axios.delete("https://sprint-mission-api.vercel.app/articles");
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
     return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
-    throw errow;
+    throw error;
   }
 }

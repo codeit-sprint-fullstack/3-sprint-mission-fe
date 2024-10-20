@@ -1,25 +1,34 @@
+
 import axios from 'axios';
 
-async function getArticleList(page, pageSize, keyword) {
+export async function getProductList(page, pageSize, keyword) {
   try {
-    const response = await axios.get("https://sprint-mission-api.vercel.app/articles", {
-      params: {
-        page: page,
-        pageSize: pageSize,
-        keyword: keyword
-      } 
+    const response = await axios.get("https://sprint-mission-api.vercel.app/products", {
+
+        "page": page,
+        "pageSize": pageSize,
+        "keyword": keyword
+
     });
-    return ReportingObserver.data;
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
+    return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
     throw error;
   }
 }
   
-// const getArticle = fetch("https://sprint-mission-api.vercel.app/articles") // get
-async function getArticle(articleId) {
+// const getProduct = fetch("https://sprint-mission-api.vercel.app/products") // get
+export async function getProduct(articleId) {
   try {
     const response = await axios.get("https://sprint-mission-api.vercel.app/articles");
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
     return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
@@ -28,29 +37,22 @@ async function getArticle(articleId) {
 }
 
 
-// const createArticle = fetch("https://sprint-mission-api.vercel.app/articles") // POST
-async function createArticleList(page, pageSize, keyword) {
+// const createProductList = fetch("https://sprint-mission-api.vercel.app/products") // POST
+export async function createProduct(name, description, price, tags, images) {
   try {
-    const response = await axios.get("https://sprint-mission-api.vercel.app/articles", {
-      params: {
-        page: page,
-        pageSize: pageSize,
-        keyword: keyowrd
-      } 
+    const response = await axios.post("https://sprint-mission-api.vercel.app/products", {
+    
+        "name": name,
+        "description": description,
+        "price": price,
+        "tags": tags,
+        "images": images 
+
     });
-    return ReportingObserver.data;
-  } catch (error) {
-    console.error("API 요청 실패", error);
-    throw error;
-  }
-}
-
-
-
-// const PatchArticle = fetch("https://sprint-mission-api.vercel.app/articles") // PATCH
-async function PatchArticle(articlepatch) {
-  try {
-    const response = await axios.patch("https://sprint-mission-api.vercel.app/articles");
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
     return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
@@ -59,13 +61,43 @@ async function PatchArticle(articlepatch) {
 }
 
 
-// const deleteArticle = fetch("https://sprint-mission-api.vercel.app/articles") // DELETE
-async function deleteArticle(articledelete) {
+
+// const PatchProduct = fetch("https://sprint-mission-api.vercel.app/products") // PATCH
+
+export async function PatchProduct(articlepatch) {
   try {
-    const response = await axios.delete("https://sprint-mission-api.vercel.app/articles");
+    const response = await axios.patch("https://sprint-mission-api.vercel.app/products");
+
+    
+
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
+
     return response.data;
   } catch (error) {
     console.error("API 요청 실패", error);
     throw error;
   }
 }
+
+
+
+// const deleteProduct = fetch("https://sprint-mission-api.vercel.app/articles") // DELETE
+export async function deleteProduct(articledelete) {
+  try {
+    const response = await axios.delete("https://sprint-mission-api.vercel.app/products");
+    if (response.status < 200 || response.status >= 300) {
+      console.error("Error: Non-2xx response status", response.status)
+      throw new Error(`Error: status ${response.status}`);
+    }
+    return response.data;
+  } catch (error) {
+    console.error("API 요청 실패", error);
+    throw error;
+  }
+}
+
+
+
