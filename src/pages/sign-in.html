@@ -98,25 +98,33 @@
       const showPassword = document.querySelector("input[name='show-password']");
       const submitBtn = document.querySelector('button[type="button"]');
       const dialog = document.querySelector('dialog');
+      const inputs = document.querySelectorAll('input');
+      const form = document.querySelector('form');
 
-      userEmail.addEventListener('change', (e) => {
+      form.addEventListener('change', (e) => {
+        if (Array.from(inputs).every(el => el.validity.valid)) {
+          return submitBtn.classList.replace('bg-gray400', 'bg-primary');
+        }
+        return submitBtn.classList.replace('bg-primary', 'bg-gray400');
+      });
+
+      userEmail.addEventListener('input', (e) => {
         setValidationMsg(e.target);
       }, { signal: signal });
 
-      userPassword.addEventListener('change', (e) => {
+      userPassword.addEventListener('input', (e) => {
         setValidationMsg(e.target);
       }, { signal: signal })
 
       showPassword.addEventListener('click', (e) => {
         toggleInputVisibility(e.target);
-      });
+      }, { signal: signal });
 
-      submitBtn.onclick = () => {
-        const inputs = document.querySelectorAll('input');
+      submitBtn.addEventListener('click', (e) => {
         inputs.forEach(el => el.reportValidity());
         if (Array.from(inputs).every(el => el.validity.valid)) {
           if (USER_DATA_MAP.has(userEmail.value) && USER_DATA_MAP.get(userEmail.value) === userPassword.value) {
-            document.location.pathname = '/pages/items.html';
+            window.location.href = '/src/pages/items.html';
           } else {
             dialog.querySelector('p').textContent = '비밀번호가 일치하지 않습니다.';
             dialog.querySelector('button').onclick = () => {
@@ -125,10 +133,10 @@
             dialog.showModal();
           }
         }
-      }
+      }, { signal: signal })
     });
 
-    window.addEventListener('beforeunload', () => {
+    window.addEventListener('unload', () => {
       controller.abort();
     });
   </script>
