@@ -9,10 +9,12 @@ function Body2() {
                 <div className='all-item-option'>
                     <input className='all-item-searchbox' placeholder='검색할 상품을 입력해주세요'></input>
                     <button className='all-item-addButton'>상품 등록하기</button>
+
                     <select className='selectBox'>
-                        <option className='option1'>최신순</option>
-                        <option className='option2'>좋아요순</option>
+                        <option>최신순</option>
+                        <option>좋아요순</option>
                     </select>
+
                 </div>
             </div>
             <div className='all-item-list'>

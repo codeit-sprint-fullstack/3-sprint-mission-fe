@@ -118,18 +118,11 @@
     outline: none;
 }
 
-.option1 {
-    width: 130px;
-    height: 42px;
-    border-radius: 12px 12px 0px 0px;
-    border: 1px;
-}
-
-.option2 {
-    width: 130px;
-    height: 42px;
-    border-radius: 0px 0px 12px 12px;
-    border: 1px;
+.selectBox option {
+    background-color: white;
+    color: black;
+    padding: 12px 20px;
+    cursor: pointer;
 }
 
 .all-item-list {
@@ -147,3 +140,7 @@
 
     border : 1px solid black;
 }
+
+
+
+
