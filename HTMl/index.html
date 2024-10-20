@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다마켓</title>
+  <link rel="stylesheet" href="main-page.css">
+  <link rel="stylesheet" href="item-page.html">
+  <link rel="stylesheet" href="login-page.html">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T2LV866F');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2LV866F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="nav">
+      <img class="logo-image" src="panda-market-logo.png">
+      <div class="btn-layout" id="btn-layout">
+        <a href="login-page.html" target="_blank" class="btn">로그인</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="mainlogo">
+      <div class="mainlog-2set">
+        <div class="mainlog-2set-word"><p>일상의 모든 물건을 <br> 거래해 보세요</p></div>
+        <div class="mainlog-2set-btn" id="mainlog-2set-btn">
+          <a href="item-page.html" class="mainlogo-btn" id="mainlog-2set-btn">구경하러 가기</a>
+        </div>     
+      </div>
+      <img class="mainlog-img" src="hero-image.png">
+    </div>
+    
+    
+    <div class="Section">
+      <div class="Contanier">     
+        <div class="Section1">
+          <div class="Section1-4set">
+            <img class="Section1-img" src="feature1-image.png">
+            <div class="Section1-3set">
+              <div class="Section1-Hotitem"><p>Hot item</p></div>
+              <div class="Section1-middleword"><p>인기 상품을<br>확인해 보세요</p></div>
+              <div class="Section1-bottomword"><p>가장 HOT한 중고거래 물품을 <br>판다 마켓에서 확인해 보세요</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="Section2">
+          <div class="Section2-4set">
+            <img class="Section2-img" src="feature2-image.png">
+            <div class="Section2-3set">
+              <div class="Section2-Search"><p>Search</p></div>
+              <div class="Section2-middleword"><p>구매를 원하는 <br>상품을 검색하세요</p></div>
+              <div class="Section2-bottomword"><p>구매하고 싶은 물품은 검색해서 <br>쉽게 찾아보세요</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="Section3">
+          <div class="Section3-4set">
+            <img class="Section3-img" src="feature3-image.png">
+            <div class="Section3-3set">
+              <div class="Section3-Register"><p>Register</p></div>
+              <div class="Section3-middleword"><p>판매를 원하는 <br>상품을 등록하세요</p></div>
+              <div class="Section3-bottomword"><p>어떤 물건이든 판매하고 싶은 상품을 <br>쉽게 등록하세요</p></div>
+            </div>
+          </div>
+      </div>
+    </div>  
+      <div class="Closing">
+        <div class="Closing-2set">
+          <div class="Closing-word"><p>믿을 수 있는 <br> 판다마켓 중고 거래</p></div>
+          <img class="Closing-img" src="feature4-image .png">
+        </div>
+     </div>    
+    </div>     
+  </main>
+  <footer>
+    <div class="inform">
+      <div class="inform1"><p>@codeit - 2024</p></div>
+      <div class="inform2">
+        <div class="FAQ" a href="#" ><p>FAQ</p></div>
+        <div class="Privacy" a href="#"><p>Privacy Policy</p></div>
+      </div>        
+      <div class="inform-img">
+        <a href="https://www.facebook.com/" target="_blank">
+          <img src="facebook-logo.svg">
+        </a>
+        <a href="https://x.com/?mx=2" target="_blank">
+          <img src="twitter-logo.svg">
+        </a>
+        <a href="https://www.youtube.com/" target="_blank">
+          <img src="youtube-logo.svg">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <img src="instagram-logo.svg">
+        </a> 
+      </div>
+    </div>  
+  </footer>
+</body>
+<script>
+  const btnLayout = document.querySelector('#btn-layout');
+    btnLayout.addEventListener('click', function(event) {
+      event.preventDefault();  
+      window.location.href = 'login-page.html';  
+    });
+
+    const mainlog2setBtn = document.querySelector('#mainlog-2set-btn');
+    mainlog2setBtn.addEventListener('click', function(event) {
+      event.preventDefault(); 
+      window.location.href = 'item-page.html';  
+    });
+</script>
+</html>
