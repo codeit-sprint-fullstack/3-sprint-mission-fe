@@ -4,7 +4,7 @@ import {
   createArticle,
   patchArticle,
   deleteArticle,
-} from "./fetchArticleApi.mjs";
+} from "./ArticleService.js";
 
 import {
   getProductList,
@@ -12,7 +12,7 @@ import {
   createProduct,
   patchProduct,
   deleteProduct,
-} from "./fetchProductApi.mjs";
+} from "./ProductService.js";
 
 /*
 // GET
