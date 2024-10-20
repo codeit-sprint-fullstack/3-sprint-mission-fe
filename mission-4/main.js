@@ -18,11 +18,13 @@ import {
 // GET
 const data1 = await getArticleList();
 console.log("🚀 ~ data1:", data1);
+
 const data2 = await getArticleList(1, 2, "test");
 console.log("🚀 ~ data2:", data2);
 
-const data3 = await getArticle(973);
+const data3 = await getArticle(233);
 console.log("🚀 ~ data3:", data3);
+
 
 // POST
 const articleData = {
@@ -99,16 +101,17 @@ try {
 }
 */
 
+/*
 // 상품 관련 API
 
-/*
 const data1 = await getProductList();
 console.log("🚀 ~ data1:", data1);
 const data2 = await getProductList(1, 2, "test");
 console.log("🚀 ~ data2:", data2);
 
-const data3 = await getProduct(507);
+const data3 = await getProduct(57);
 console.log("🚀 ~ data3:", data3);
+
 
 // POST
 const productData = {
@@ -174,7 +177,7 @@ try {
 }
 
 // 출력 결과
-// message: '유효성 검사 오류입니다.',
+//message: '유효성 검사 오류입니다.',
 
 
 // DELETE
@@ -191,9 +194,10 @@ try {
 }
 
 // 출력 결과
-// { message: '존재하지 않습니다.' }
+//{ message: '존재하지 않습니다.' }
 
+
+
+const data4 = await getProduct(507);
+console.log("🚀 ~ data4:", data4);
 */
-
-const data3 = await getProduct(507);
-console.log("🚀 ~ data3:", data3);
