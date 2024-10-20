@@ -54,19 +54,48 @@ function patchArticleBody(title, content, image) {
 
   return patchBody;
 }
+
+//------------------------------게시물api실행--------------------------------//
+
 // // 게시글 리스트 가져오기
 // getArticleList()
 //   .then((getDataList) => console.log("게시글 리스트:", getDataList)) // 성공 시 데이터 처리
 //   .catch((error) => console.error("에러:", error)); // 실패 시 에러 처리
 
-// // 게시글 하나 가져오기
-// getArticle(122)
-//   .then((getData) => console.log("게시글 리스트:", getData)) // 성공 시 데이터 처리
+// // 게시글 가져오기 실행
+// getArticle(112)
+//   .then((getDataList) => console.log("게시글 리스트:", getDataList)) // 성공 시 데이터 처리
 //   .catch((error) => console.error("에러:", error)); // 실패 시 에러 처리
+
+// // 게시글 생성하기 실행
+// const newArticle = createArticleBody("제목 예시", "내용", "이미지 주소");
+// createArticle(newArticle)
+//   .then(() => console.log("게시글 생성 완료"))
+//   .catch((error) => console.error("에러 발생:", error));
+
+// // 게시글 수정하기 실행
+// const patchBody = patchArticleBody(null, "내용", "이미지 주소");
+
+// patchArticle(970, patchBody)
+//   .then(() => console.log("게시글 수정 완료"))
+//   .catch((error) => console.error("에러 발생:", error));
+
+// // 게시글 삭제 실행
+// deleteArticle(970)
+//   .then((data) => {
+//     console.log("삭제 성공");
+//   })
+//   .catch((error) => console.error("에러:", error));
+
+//-------------------------------상품api실행----------------------------------//
 
 // // 상품 리스트 가져오기
 // const getDataList = await getProductList();
 // console.log(getDataList);
+
+// // 상품 하나 가져오기 실행
+// const getData = await getProduct(122);
+// console.log(getData);
 
 // // 상품 만들기
 // const tagsArr = ["태그 테스트1"];
@@ -80,3 +109,18 @@ function patchArticleBody(title, content, image) {
 // );
 // const createData = await createProduct(productBody);
 // console.log(createData);
+
+// //상품 수정하기
+// const changeImagesArr = ["바꾼 이미지 주소 테스트"];
+// const patchBody = patchProductBody(
+//   "이름바꾸기 테스트",
+//   null,
+//   null,
+//   null,
+//   changeImagesArr
+// );
+// const patchData = await patchProduct(458, patchBody);
+// console.log(patchData);
+
+// // 상품 제거하기 실행
+// await deleteProduct(333);
