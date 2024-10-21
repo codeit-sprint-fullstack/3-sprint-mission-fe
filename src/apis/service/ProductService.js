@@ -15,9 +15,9 @@ const path = new URL('/products', BASE_URL);
 
 /**
  * @typedef { Object } QueryObj
- * @property { number | undefined } page
- * @property { number | undefined } pageSize
- * @property { string | undefined } keyword
+ * @property { number } [page]
+ * @property { number } [pageSize]
+ * @property { string } [keyword]
  */
 /**
  * 상품 목록 조회

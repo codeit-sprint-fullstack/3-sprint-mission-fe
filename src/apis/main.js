@@ -91,7 +91,7 @@ const runTest = async (service, newEntity, updatedEntity, testQueryObj, serviceN
 
 const articleServiceTest = async () => {
   const newArticle = {
-    title: `'테스트 제목 ${new Date()}`,
+    title: `테스트 제목 ${new Date()}`,
     content: '테스트 내용',
     image: testImgSrc
   };

@@ -6,14 +6,15 @@ form label {
 
 input {
   background-color: var(--color-gray100);
-  border-radius: var(--border-radius-lg);
-  border: none;
   color: var(--color-gray800);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
-  outline: none;
   padding: 15px 24px;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  outline: none;
   text-overflow: ellipsis;
+}
 }
 
 input::placeholder {
@@ -44,8 +45,11 @@ input[name='show-password'] {
   outline: none;
   padding: 12px;
   position: absolute;
+  width: 24px;  /* 클릭 가능한 영역 확대 */
+  height: 24px;
+  transition: background-image 0.3s ease;  /* 부드러운 전환 효과 */
 }
 
 input[name='show-password']:checked {
-  background: center no-repeat url('/src/images/icon/show-on.svg');
+  background-image: url('/src/images/icon/show-on.svg');
 }

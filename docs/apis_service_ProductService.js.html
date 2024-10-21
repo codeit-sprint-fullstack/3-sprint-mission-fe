@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>API Documentation: </title>
+    <title>API Documentation: apis/service/ProductService.js</title>
     
       <link type="text/css" rel="stylesheet" href="styles/vendor/prism-tomorrow-night.css">
     
@@ -24,34 +24,89 @@
 </header>
 
 
-<main class="layout-main ">
+<main class="layout-main  layout-content--source">
   <div class="container">
-    <p class="page-kind"></p>
-    <h1 class="page-title"></h1>
+    <p class="page-kind">source</p>
+    <h1 class="page-title">apis/service/ProductService.js</h1>
     
 
 
 
     
 
+<section>
+    <article>
+        <pre id="source" class="source-page line-numbers"><code class="language-js">import { BASE_URL, fetchReq } from '../fetch.js';
 
-    <h3> </h3>
+const path = new URL('/products', BASE_URL);
 
+/**
+ * @typedef {Object} Product
+ * @property { number | undefined } id - 상품 ID
+ * @property {string} name - 상품명
+ * @property {string} description - 설명
+ * @property {number} price - 가격
+ * @property {string} manufacturer -제조사
+ * @property {Array&lt;string>} tags - 태그
+ * @property {Array&lt;string>} imageUrls - 이미지 URL 목록
+ */
 
+/**
+ * @typedef { Object } QueryObj
+ * @property { number } [page]
+ * @property { number } [pageSize]
+ * @property { string } [keyword]
+ */
+/**
+ * 상품 목록 조회
+ * @param { QueryObj } queryObj
+ */
+const getProductList = (queryObj) => {
+  const queryParams = new URLSearchParams(queryObj);
+  return fetchReq('GET', `${path}?${queryParams}`);
+};
 
+/**
+ * 상품 등록
+ * @param {Product} payload
+ * @returns {Promise&lt;Response>}
+ */
+const createProduct = (payload) => {
+  return fetchReq('POST', path, payload);
+};
 
+/**
+ * 상품 상세 조회
+ * @param {number} id
+ * @returns {Promise&lt;Response>}
+ */
+const getProduct = (id) => {
+  return fetchReq('GET', `${path}/${id}`);
+};
 
+/**
+ * 상품 수정
+ * @param {number} id
+ * @param {Product} payload
+ * @returns {Promise&lt;Response>}
+ */
+const patchProduct = (id, payload) => {
+  return fetchReq('PATCH', `${path}/${id}`, payload);
+};
 
+/**
+ * 상품 삭제
+ * @param {number} id
+ * @returns {Promise&lt;Response>}
+ */
+const deleteProduct = (id) => {
+  return fetchReq('DELETE', `${path}/${id}`);
+};
 
-
-
-
-    
-
-
-
-
-
+export { getProductList, createProduct, getProduct, patchProduct, deleteProduct };
+</code></pre>
+    </article>
+</section>
 
 
 
