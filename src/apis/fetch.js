@@ -1,12 +1,5 @@
 export const BASE_URL = new URL('https://sprint-mission-api.vercel.app/');
 
-/**
- *
- * @param { 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' } method
- * @param { string } path
- * @param { * } payload
- * @returns
- */
 
 /**
  *
