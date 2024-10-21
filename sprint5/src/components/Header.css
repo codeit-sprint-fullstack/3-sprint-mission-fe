@@ -9,7 +9,6 @@ html {
 nav {
   position: sticky;
   height: 7rem;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
