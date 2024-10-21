@@ -23,8 +23,8 @@ const path = new URL('/products', BASE_URL);
  * @param { QueryObj } queryObj
  */
 const getProductList = (queryObj) => {
-  const queryPrams = new URLSearchParams(queryObj);
-  return fetchReq('GET', `${path}?${queryPrams}`);
+  const queryParams = new URLSearchParams(queryObj);
+  return fetchReq('GET', `${path}?${queryParams}`);
 };
 
 /**
