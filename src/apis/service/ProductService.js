@@ -9,7 +9,7 @@ const path = new URL('/products', BASE_URL);
  * @property {number} price - 가격
  * @property {string} manufacturer -제조사
  * @property {Array<string>} tags - 태그
- * @property {Array<string>} imageUrl - 이미지 URL 목록
+ * @property {Array<string>} imageUrls - 이미지 URL 목록
  */
 
 /**
