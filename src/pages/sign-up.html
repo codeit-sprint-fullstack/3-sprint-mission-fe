@@ -126,6 +126,7 @@
             userInputs['check-password'].value = '';
           }
           input.checkValidity();
+          setValidationMsg(input);
         }, { signal: signal });
       }
 
@@ -162,7 +163,7 @@
         }
       });
     });
-    window.addEventListener('unload', () => {
+    window.addEventListener('beforeunload', () => {
       controller.abort();
     });
   </script>

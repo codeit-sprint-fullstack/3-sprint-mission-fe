@@ -136,7 +136,7 @@
       }, { signal: signal })
     });
 
-    window.addEventListener('unload', () => {
+    window.addEventListener('beforeunload', () => {
       controller.abort();
     });
   </script>

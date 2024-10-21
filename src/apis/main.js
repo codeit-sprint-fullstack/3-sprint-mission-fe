@@ -55,7 +55,7 @@ const runTest = async (service, newEntity, updatedEntity, testQueryObj, serviceN
       if ((/get(?!.*list)/i).test(func)) {
         try {
           const res = await service[func](-1);
-          assert(res.ok);
+          assert.fail('존재하지 않는 ID로 GET 요청했지만 성공 응답을 받았습니다.');
           logResult(`GET 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, false);
         } catch (error) {
           logResult(`GET 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
@@ -64,7 +64,7 @@ const runTest = async (service, newEntity, updatedEntity, testQueryObj, serviceN
       if ((/patch/).test(func)) {
         try {
           const res = await service[func](-1, updatedEntity);
-          assert(res.ok);
+          assert.fail('존재하지 않는 ID로 PATCH 요청했지만 성공 응답을 받았습니다.');
           logResult(`PATCH 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, false);
         } catch (error) {
           logResult(`PATCH 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
@@ -76,7 +76,7 @@ const runTest = async (service, newEntity, updatedEntity, testQueryObj, serviceN
           assert(res.ok);
           logResult(`DELETE 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, false);
         } catch (error) {
-          logResult(`존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
+          logResult(`DELETE 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
         }
       }
     } catch (error) {
