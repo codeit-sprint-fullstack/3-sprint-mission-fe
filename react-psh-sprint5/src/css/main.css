@@ -1,0 +1,10 @@
+@import './media-qu.css';
+@import './Header.css';
+@import './reset.css';
+@import './body.css';
+
+* {
+    font-size: 16px;
+    font-family: 'Pretendard';
+    box-sizing: border-box;
+}
