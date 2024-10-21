@@ -24,6 +24,6 @@ export const fetchReq = async (method, path, payload) => {
     }
     return response;
   } catch (error) {
-    throw new Error("Fetch request failed", { cause: error });
+    throw new Error(`Fetch request failed for ${method} ${path}`, { cause: error });
   }
 };
