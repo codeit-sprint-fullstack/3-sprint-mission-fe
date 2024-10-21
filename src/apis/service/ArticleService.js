@@ -31,7 +31,7 @@ const getArticleList = (queryObj) => {
  * @param {Article} payload
  * @returns {Promise<Response>}
  */
-const createArticle = (payload) => {
+const createArticle = async (payload) => {
   return fetchReq('POST', path, payload);
 };
 
@@ -40,7 +40,7 @@ const createArticle = (payload) => {
  * @param {number} id
  * @returns {Promise<Response>}
  */
-const getArticle = (id) => {
+const getArticle = async (id) => {
   return fetchReq('GET', `${path}/${id}`);
 };
 
@@ -61,7 +61,7 @@ const patchArticle = async (id, payload) => {
  * @returns {Promise<Response>}
 */
 const deleteArticle = async (id) => {
-  return await fetchReq('DELETE', `${path}/${id}`);
+  return fetchReq('DELETE', `${path}/${id}`);
 };
 
 export { getArticleList, getArticle, createArticle, patchArticle, deleteArticle };
