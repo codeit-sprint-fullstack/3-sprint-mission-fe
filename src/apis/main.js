@@ -10,7 +10,7 @@ const getRandomCatImage = async () => {
     return src[0].url;
   } catch (error) {
     console.error('이미지 가져오기 실패:', error);
-    return ''; // 또는 기본 이미지 URL을 반환합니다.
+    return '';
   }
 }
 const testImgSrc = await getRandomCatImage();
@@ -42,22 +42,42 @@ const runTest = async (service, newEntity, updatedEntity, testQueryObj, serviceN
   for (const func of Object.keys(service)) {
     if (typeof service[func] !== 'function') continue;
     try {
-      // 'get'과 'list'를 동시에 포함하는지 테스트하는 정규식
       if (/(?=.*get)(?=.*list)/i.test(func)) {
-        logResult(func, true);
+        const res = await service[func](testQueryObj());
+        assert(res.ok);
+        logResult(`GET 리스트&쿼리 요청 성공(${func})`, true);
       }
       if (/create/.test(func)) {
-        logResult(func, true);
+        const res = await service[func](newEntity);
+        assert(res.ok);
+        logResult(`POST 생성 요청 성공(${func})`, true);
       }
-      // 오직 'get'만 포함하는지 테스트하는 정규식
       if ((/get(?!.*list)/i).test(func)) {
-        logResult(func, true);
+        try {
+          const res = await service[func](-1);
+          assert(res.ok);
+          logResult(`GET 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, false);
+        } catch (error) {
+          logResult(`GET 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
+        }
       }
       if ((/patch/).test(func)) {
-        logResult(func, true);
+        try {
+          const res = await service[func](-1, updatedEntity);
+          assert(res.ok);
+          logResult(`PATCH 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, false);
+        } catch (error) {
+          logResult(`PATCH 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
+        }
       }
       if ((/delete/).test(func)) {
-        logResult(func, true);
+        try {
+          const res = await service[func](-1);
+          assert(res.ok);
+          logResult(`DELETE 존재하지 않는 ID(-1) 요청시 404 반환(${func})`, false);
+        } catch (error) {
+          logResult(`존재하지 않는 ID(-1) 요청시 404 반환(${func})`, true);
+        }
       }
     } catch (error) {
       logResult(func, false, error.message);

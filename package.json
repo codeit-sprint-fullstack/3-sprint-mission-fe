@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d docs"
   },
   "homepage": "https://dani784601.github.io/3-sprint-mission-fe",
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.1",
   "devDependencies": {
     "gh-pages": "^6.2.0",
     "jsdoc": "^4.0.3",

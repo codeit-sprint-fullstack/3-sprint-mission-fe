@@ -100,22 +100,11 @@
     </dialog>
   </main>
   <script type="module">
-    import { setVisibleInput } from '../utils/formUtils.js'
+    import { toggleInputVisibility, setValidationMsg } from '../utils/formUtils.js'
 
     const controller = new AbortController();
     const signal = controller.signal;
-    const errMsgType = {
-      email: {
-        typeMismatch: '잘못된 이메일 형식입니다.'
-      },
-      nickname: {},
-      password: {
-        tooShort: '비밀번호를 8자 이상 입력해주세요'
-      },
-      ['check-password']: {
-        customError: '비밀번호가 일치하지 않습니다.'
-      }
-    }
+
     window.addEventListener('DOMContentLoaded', () => {
       const form = document.querySelector('form');
       const showPwdBtn = form.querySelectorAll('input[name="show-password"]');
@@ -125,7 +114,7 @@
 
       for (const input of inputs) {
         userInputs[input.id] = input;
-        input.addEventListener('change', () => {
+        input.addEventListener('input', () => {
           if (input.id === 'check-password') {
             if (input.value !== userInputs.password.value) {
               input.setCustomValidity(errMsgType[input.id].customError);
@@ -137,27 +126,15 @@
             userInputs['check-password'].value = '';
           }
           input.checkValidity();
-          const formData = new FormData(form);
-          const errMsg = input.nextElementSibling.tagName === 'P' ? input.nextElementSibling : input.parentElement.nextElementSibling;
-          errMsg.classList.add('fade-in');
-          if (input.validity.valid === true) {
-            errMsg.textContent = '';
-          } else {
-            for (const errType in input.validity) {
-              if (errType !== 'valid' && input.validity[errType] === true) {
-                errMsg.textContent = errMsgType[input.id][errType] ?? input.placeholder;
-
-              }
-            }
-          }
         }, { signal: signal });
       }
 
       for (const btn of showPwdBtn) {
         btn.addEventListener('click', (e) => {
-          setVisibleInput(e);
+          toggleInputVisibility(e);
         }, { signal: signal });
       }
+
       form.addEventListener('formdata', (e) => {
         if (Array.from(inputs).every(input => input.validity.valid)) {
           button.classList.replace('bg-gray400', 'bg-primary');
@@ -165,9 +142,10 @@
           button.classList.replace('bg-primary', 'bg-gray400');
         }
       }, { signal: signal });
-      button.onclick = () => {
+
+      button.addEventListener('click', () => {
         inputs.forEach(input => input.reportValidity());
-        if ([...inputs].every(input => input.validity.valid)) {
+        if (Array.from(inputs).every(el => el.validity.valid)) {
           if (USER_DATA_MAP.has(userInputs.email.value)) {
             document.querySelector('dialog p').textContent = '사용 중인 이메일입니다.';
             document.querySelector('dialog button').onclick = () => {
@@ -182,9 +160,9 @@
           }
           document.querySelector('dialog').showModal();
         }
-      }
+      });
     });
-    window.addEventListener('beforeunload', () => {
+    window.addEventListener('unload', () => {
       controller.abort();
     });
   </script>

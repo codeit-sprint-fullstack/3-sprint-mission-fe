@@ -4,6 +4,7 @@ const path = new URL('/products', BASE_URL);
 
 /**
  * @typedef {Object} Product
+ * @property { number | undefined } id - 상품 ID
  * @property {string} name - 상품명
  * @property {string} description - 설명
  * @property {number} price - 가격
