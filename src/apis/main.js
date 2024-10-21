@@ -17,8 +17,8 @@ const testImgSrc = await getRandomCatImage();
 
 const testQueryObj = () => {
   return {
-    page: Math.floor(Math.random() * 10),
-    pageSize: Math.floor(Math.random() * 10),
+    page: Math.floor(Math.random() * 10) + 1,
+    pageSize: Math.floor(Math.random() * 10) + 1,
     keyword: 'test'
   }
 };
