@@ -4,7 +4,7 @@ function Num() {
     return (
         <div className="number-box">
             <button className='buttonNum'>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     chevron_left
                 </span>
             </button>
@@ -14,7 +14,7 @@ function Num() {
             <button className='buttonNum'>4</button>
             <button className='buttonNum'>5</button>
             <button className='buttonNum'>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     chevron_right
                 </span>
             </button>

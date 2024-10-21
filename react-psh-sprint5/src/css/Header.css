@@ -53,8 +53,8 @@ header {
 
 .header-text-1 {
     display: block;
-    min-width: 108px;
-    padding: 21px 15px 21px 15px;
+    min-width: 110px;
+    padding: 21px 15px;
     gap: 10px;
     font-size: 18px;
     font-weight: bold;

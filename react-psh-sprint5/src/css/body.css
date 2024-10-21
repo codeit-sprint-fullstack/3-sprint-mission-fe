@@ -2,19 +2,19 @@
 
 .body-main {
     display: flex;
-    margin: 43px auto;
+    margin: 45px auto;
     flex-direction: column;
     gap: 40px;
 }
 
 .best-item {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin: 0 auto;
-    margin-top : 50px;
-    border: 1px solid black;
+    margin-top: 50px;
 }
 
 /* 베스트상품 텍스트 들어간곳 */
@@ -27,120 +27,152 @@
 .item-container {
     display: flex;
     justify-content: space-between;
-
-    border: 1px solid red;
-    ;
+    gap: 24px;
 }
 
 /* item들 보여주는 클래스 */
 .ItemComponent {
     width: 282px;
     height: 378px;
-    border: 1px solid black;
-}
-
-.all-item {
-    width: 1200px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap : 24px;
-
-    border: 2px solid green;
-}
-
-.all-item-header {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.all-item-text {
-    width: 200px;
-    height: 32px;
-    font-size: 20px;
+.contain-img {
+    width: 282px;
+    height: 282px;
+    border-radius: 16px;
+}
+
+.contain-img img {
+    width: 282px;
+}
+
+.contain-text {
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.contain-text-product-des {
+    height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+
+.contain-text-price {
+    height: 26px;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 32px;
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-.all-item-option {
-    width: 620px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-}
-
-.all-item-searchbox {
-    width: 325px;
-    height: 42px;
-    padding: 9px 20px 9px 16px;
-    gap: 10px;
-    border-radius: 12px;
-    background-color: #F3F4F6;
-    font-size: 16px;
-    font-weight: 400;
     line-height: 26px;
     text-align: left;
 }
 
-.all-item-searchbox:focus {
-    border: 1px solid black;
-}
-
-.all-item-addButton {
-    padding: 12px 23px 12px 23px;
-    gap: 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 26px;
-    text-align: left;
-    color: white;
-    background-color: #3692FF;
-    cursor: pointer;
-}
-
-.selectBox {
-    width: 130px;
-    height: 42px;
-    border: 1px solid #E5E7EB;
-    padding: 12px 20px 12px 20px;
-    gap: 10px;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.selectBox:focus {
-    outline: none;
-}
-
-.selectBox option {
-    background-color: white;
-    color: black;
-    padding: 12px 20px;
-    cursor: pointer;
-}
-
-.all-item-list {
+.contain-text-like {
+    height: 18px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap : 12px;
-    border: 1px solid black;
-}
+    position: relative;
+    gap: 2px;
 
-.All-item-list-item {
-    width: 221px;
-    height: 317px;
-    gap: 16px;
-
-    border : 1px solid black;
 }
 
 
+.like-button {
+    display: flex;
+}
 
+.like-button:hover {
+    cursor: pointer;
+    color: paleturquoise;
+    transition: 0.5s;
+}
 
+.favorite-icon {
+    font-size: 16px;
+}
+
+.contain-text-like-fs {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+
+}
+
+@media screen and (max-width: 1199px) {
+    .best-item {
+        width: 85%;
+        min-width: 720px;
+        justify-content: center;
+    }
+
+    .best-item-text{
+        width: 87%;
+        min-width: 750px;
+        margin : 0 auto;
+    }
+    .item-container {
+        width: 100%;
+        min-width: 720px;
+        border-radius: 19.46px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ItemComponent {
+        width: 343px;
+        height: auto;
+    }
+
+    .contain-img {
+        width: 343px;
+        height: 343px;
+        border-radius: 16px;
+    }
+
+    .contain-img img {
+        width: 343px;
+    }
+
+    .ItemCompo2,
+    .ItemCompo3 {
+        display: none;
+
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+
+    .best-item {
+        width: 100%;
+        min-width: 343px;
+    }
+
+    .ItemCompo4 {
+        display: none;
+    }
+
+    .ItemComponent {
+        width: 343px;
+        height: 482px;
+        gap: 16px;
+    }
+
+    .best-item-text{
+        width: 45%;
+        min-width: 343px;
+    }
+
+    .item-container {
+        min-width: 343px;
+    }
+
+}
