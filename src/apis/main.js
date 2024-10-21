@@ -4,9 +4,14 @@ import { fetchReq } from './fetch.js';
 import assert from 'node:assert';
 
 const getRandomCatImage = async () => {
-  const res = await fetchReq('GET', 'https://api.thecatapi.com/v1/images/search');
-  const src = await res.json();
-  return src[0].url;
+  try {
+    const res = await fetchReq('GET', 'https://api.thecatapi.com/v1/images/search');
+    const src = await res.json();
+    return src[0].url;
+  } catch (error) {
+    console.error('이미지 가져오기 실패:', error);
+    return ''; // 또는 기본 이미지 URL을 반환합니다.
+  }
 }
 const testImgSrc = await getRandomCatImage();
 
