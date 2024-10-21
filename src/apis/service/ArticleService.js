@@ -5,6 +5,7 @@ const path = new URL('/articles', BASE_URL);
 /**
  * 게시글 등록
  * @typedef { Object } Article
+ * @property { number } id - 게시글 ID
  * @property { string } title - 제목
  * @property { string } content - 내용
  * @property { string } image - 이미지 URL
