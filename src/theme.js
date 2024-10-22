@@ -13,6 +13,7 @@ export const defaultTheme = {
     mainCharcoal: "#4B5563",
     subCharcoal: "#6B7280",
     mainGrey: "#9CA3AF",
+    subGrey: "#DFDFDF",
     inputBg: "#F3F4F6",
   },
 };
