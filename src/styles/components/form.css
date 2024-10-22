@@ -1,0 +1,54 @@
+@import url('../base/variables.css');
+
+form label {
+  font-weight: var(--font-weight-bold);
+}
+
+input {
+  background-color: var(--color-gray100);
+  color: var(--color-gray800);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  padding: 15px 24px;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+input::placeholder {
+  color: var(--color-gray400);
+}
+
+input:focus {
+  outline: var(--color-primary100) solid 1px;
+}
+
+input:user-invalid {
+  outline: var(--color-error) solid 1px;
+}
+
+.form-error-msg {
+  color: var(--color-error);
+  font-size: 15px;
+  font-weight: var(--font-weight-semibold);
+}
+
+input[name='show-password'] {
+  align-self: center;
+  appearance: none;
+  background: center no-repeat url('/src/images/icon/show-off.svg');
+  cursor: pointer;
+  justify-self: end;
+  margin-right: 12px;
+  outline: none;
+  padding: 12px;
+  position: absolute;
+  width: 24px;  /* 클릭 가능한 영역 확대 */
+  height: 24px;
+  transition: background-image 0.3s ease;  /* 부드러운 전환 효과 */
+}
+
+input[name='show-password']:checked {
+  background-image: url('/src/images/icon/show-on.svg');
+}
