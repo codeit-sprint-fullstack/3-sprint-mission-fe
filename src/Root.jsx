@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
         font-family: "Pretendard Variable";
-        src: local("Pretendard Variable"), url(${Pretendard}) format('woff2'); 
+        src: url(${Pretendard}) format('woff2'); 
     }
 
   * {
