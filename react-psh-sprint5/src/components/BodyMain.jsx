@@ -2,7 +2,7 @@ import Body1 from "./Body1";
 import Body2 from "./Body2";
 
 
-function Body() {
+function BodyMain() {
     return (
         <div className="body-main">
             <Body1 />
@@ -11,5 +11,5 @@ function Body() {
     );
 }
 
-export default Body;
+export default BodyMain;
 
