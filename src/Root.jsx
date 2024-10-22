@@ -1,10 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import Pretendard from "../public/fonts/PretendardVariable.woff2";
 import Products from "./pages/Products";
+import Pretendard from "../public/fonts/PretendardVariable.woff2";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   ${reset}
+
+  @font-face {
+        font-family: "Pretendard Variable";
+        src: local("Pretendard Variable"), url(${Pretendard}) format('woff2'); 
+    }
+
   * {
     box-sizing:border-box;
     border:none;
@@ -15,8 +21,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family:${Pretendard};
-    font-size:16rem;
+    font-family:"Pretendard Variable";
+    font-size:1.6rem;
   }
 
   a {
