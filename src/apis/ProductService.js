@@ -5,11 +5,13 @@ import api from "./axiosInstance.js";
  * @param {object} body 상품목록 조회에 필요한 정보를 담은 객체
  * @param {number} page 조회할 페이지번호
  * @param {number} pageSize 조회했을 때 가져올 응답값의 개수
+ * @param {favorite | recent} orderBy 조회할 때 정렬 기준
  * @param {string} keyword 상품 조회에 사용할 키워드
  * @returns {Promise<response>} 비동기로 인한 Promise로 productList를 리턴
+ * @throws {Error} API 요청 실패 시 에러
  */
-export const getProductList = async (body = {}) => {
-  const { data } = await api.get(URLS.products, { body });
+export const getProductList = async (params = {}) => {
+  const { data } = await api.get(URLS.products, { params });
   return data;
 };
 
@@ -51,4 +53,13 @@ export const patchProduct = async (id, body) => {
 
 export const deleteProduct = async (id) => {
   await api.delete(`${URLS.products}/${id}`);
+};
+
+export const setFavoriteProduct = async (id) => {
+  const { data } = await api.post(`${URLS.products}/${id}/favorite`);
+  return data;
+};
+
+export const unsetFavoriteProduct = async (id) => {
+  await api.delete(`${URLS.products}/${id}/favorite`);
 };
