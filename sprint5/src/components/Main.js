@@ -2,14 +2,19 @@ import './Main.css';
 import arrowImg from "../img/icons/menu.png";
 import leftArrow from "../img/icons/left.png";
 import rightArrow from "../img/icons/right.png";
+import BestProdsList from "./BestProdsList";
 
 function Main() {
+
   return (
     <main>
       <div id='mainContent'>
         <h1>베스트 상품</h1>
         <section id='bestProdsList'>
-
+          <BestProdsList />
+          <BestProdsList />
+          <BestProdsList />
+          <BestProdsList />
         </section>
 
 
@@ -37,7 +42,7 @@ function Main() {
             <button>4</button>
             <button>5</button>
             <button style={{ marginRight: '0' }}>
-              <img src={rightArrow} style={{left: '0.1rem'} } />
+              <img src={rightArrow} style={{ left: '0.1rem' }} />
             </button>
           </div>
         </section>
