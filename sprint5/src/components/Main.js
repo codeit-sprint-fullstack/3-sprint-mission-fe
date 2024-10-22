@@ -3,6 +3,7 @@ import arrowImg from "../img/icons/menu.png";
 import leftArrow from "../img/icons/left.png";
 import rightArrow from "../img/icons/right.png";
 import BestProdsList from "./BestProdsList";
+import ProdsList from "./ProdsList"
 
 function Main() {
 
@@ -30,7 +31,16 @@ function Main() {
             </div>
           </div>
           <div id='componentBox'>
-            
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
+            <ProdsList />
           </div>
           <div id='pageNumBox'>
             <button>
