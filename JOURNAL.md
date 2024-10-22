@@ -33,6 +33,10 @@
 
 ## 2024-10-22
 
-### Chore(project): improve directory structure
+### 🎨 Chore(project): improve directory structure
 
 - NextJS 디렉터리 구성을 FSD(Feature Sliced Design) 패턴을 따르도록 설정
+
+### 🧑‍💻 Chore(husky): automate linting and formatting
+
+- Commit 시마다 ESLint Linting 및 Prettier Formatting을 자동으로 수행하도록 설정
