@@ -15,7 +15,6 @@ input {
   outline: none;
   text-overflow: ellipsis;
 }
-}
 
 input::placeholder {
   color: var(--color-gray400);

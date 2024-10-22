@@ -4,7 +4,7 @@ const path = new URL('/products', BASE_URL);
 
 /**
  * @typedef {Object} Product
- * @property { number | undefined } id - 상품 ID
+ * @property { number } [id] - 상품 ID
  * @property {string} name - 상품명
  * @property {string} description - 설명
  * @property {number} price - 가격
@@ -15,9 +15,9 @@ const path = new URL('/products', BASE_URL);
 
 /**
  * @typedef { Object } QueryObj
- * @property { number } [page]
- * @property { number } [pageSize]
- * @property { string } [keyword]
+ * @property { number } [page] - Default 1
+ * @property { number } [pageSize] - Default 100
+ * @property { string } [keyword] - 검색 키워드
  */
 /**
  * 상품 목록 조회
