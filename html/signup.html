@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+</head>
+<body style="margin-top: 240px;">
+    <div>
+        <a href="/">
+        <img src="../img/panda-market-logo.png" 
+        style="width: 396px ; height: 132px"> </a>
+    </div>
+    <div class="section1">
+        <form>
+            <email>
+                <label for="signup-email">이메일</label> <br>   
+                <input id="signup-email" name="email" type="eamil" 
+                placeholder="이메일을 입력해주세요"> <br>
+            </email>
+
+            <nickname>
+                <label for="nickname">닉네임</label> <br>
+                <input id="nickname" name="nickname"
+                placeholder="닉네임을 입력해주세요"> <br>
+            </nickname>
+
+            <password>
+                <label for="signup-password">비밀번호</label> <br>
+                <input id="signup-password" name="password" type="password"
+                placeholder="비밀번호를 입력해주세요"> <br>
+            </password>
+
+            <check-password>
+                <label for="check-password">비밀번호</label> <br>
+                <input id="check-password"  type="password"
+                placeholder="비밀번호를 다시 한 번입력해주세요"> <br>
+            </check-password>
+
+        </form>
+    </div>
+
+    <section2>
+        <button id class="signup-btn" disabled> <span class="login">회원가입</span> </button> 
+        <!-- 여기 회원가입 버튼이 왜 계속 비활성화 되어있는지 모르겠습니다.. -->
+    <div class ="login-container">
+        <span class="login-text">간편 로그인 하기</span> 
+        <div class="login-icons">
+            <a href="https://www.google.com/" target="_blank">
+            <img src="../img/googlelogo.png" alt="구글 로고" class="login-icon"> </a> 
+
+            <a href="https://www.kakaocorp.com/page/" target="_blank">
+            <img src="../img/kakaologo.png" alt="카카오톡 로고" class="login-icon"> </a>  
+        </div>
+    </div>
+
+    <section4 style="margin-top: 24px;">
+        <div class="signup-text">
+            <span>이미 회원이신가요?</span> 
+            <a href="login.html" class="signup-link">로그인</a>
+        </div>
+    </section4>
+    <script src="../js/signup.js" ></script>
+</body>
+</html>

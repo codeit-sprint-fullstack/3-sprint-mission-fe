@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+}
+
+main {
+margin-top: 70px;
+
+}
+.login-btn {
+  width: 128px;
+  height: 48px;
+  background-color: #3692ff;
+  border-radius: 8px;
+  /* padding: 12px 23px 12px 23px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-font {
+  color: #f3f4f6;
+  font-weight: 600;
+  line-height: 26px;
+  background-color: #3692ff;
+}
+
+.section1 {
+  width: 100%;
+  height: 540px;
+  background-color: #cfe5ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.section1-title-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 90px
+}
+
+.section1-title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+
+}
+
+.show-btn {
+  background-color: #3692ff;
+  color: #f9fafb;
+  width: 357px;
+  height: 56px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2{
+  width: 100%;
+  height: 720px;
+  background-color:#ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.hot{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #3692FF;
+
+
+}
+
+
+
+.hotitem{
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  color: #374151;
+
+}
+
+
+.mosthot{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #374151;
+
+}
+
+.section3{
+  width: 100%;
+height: 720px;
+/* padding: 138px 342px 138px 342px; */
+gap: 10px;
+display: flex;
+flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchp{
+font-weight: 700;
+font-size: 18px;
+line-height: 26px;
+color: #3692ff;
+
+}
+
+.buyp{
+font-weight: 700;
+font-size: 40px;
+line-height: 56px;
+letter-spacing: 2%;
+text-align: right;
+}
+
+.hopep{
+font-weight: 500;
+font-size: 24px;
+line-height: 32px;
+text-align: right;
+}
+
+.section4{
+  width: 100%;
+  height: 720px;
+  /* padding: 138px 360px 138px; */
+  gap:10px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.regi{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #3692FF;
+}
+
+.sell{
+font-weight: 700;
+font-size: 40px;
+line-height: 56px;
+color: #374151;
+
+}
+
+.what{
+font-weight: 500;
+font-size: 24px;
+line-height: 32px;
+color: #374151;
+
+
+}
+
+.section5{
+width: 100%;
+height: 540px;
+background-color: #cfe5ff;
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+align-items: center;
+}
+
+.trust{
+font-weight: 700;
+font-size: 40px;
+line-height: 56px;
+color: #374151;
+
+}
+
+.section6{
+  width: 100%;
+  height: 160px;
+  padding: 32px 200px 32px;
+  gap: 10px;
+  background-color: #111827;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/* 푸터 기본 스타일 */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0D1117; /* 어두운 배경 */
+  padding: 20px 40px;
+  color: #FFFFFF; /* 텍스트 색상 */
+}
+
+/* 왼쪽 섹션 */
+.footer-left {
+  font-size: 14px;
+}
+
+/* 가운데 섹션 */
+.footer-center {
+  display: flex;
+  gap: 20px; /* 링크 사이의 간격 */
+}
+
+.footer-center a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 오른쪽 섹션 (소셜 아이콘) */
+.footer-right {
+  display: flex;
+  gap: 10px; /* 아이콘 사이의 간격 */
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
