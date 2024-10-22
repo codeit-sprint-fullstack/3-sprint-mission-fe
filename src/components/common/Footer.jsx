@@ -49,8 +49,12 @@ function Footer() {
       <FooterContainer>
         <div className="copyright">@codeit-2024</div>
         <LinksContainer>
-          <a>Privacy Policy</a>
-          <a>FAQ</a>
+          <a target="_blank" href="/Privacy-Policy">
+            Privacy Policy
+          </a>
+          <a target="_blank" href="/FAQ">
+            FAQ
+          </a>
         </LinksContainer>
         <SocialMediaLinkContainer>
           <a target="_blank" href="https://www.facebook.com/">
