@@ -24,35 +24,45 @@
     line-height: 32px;
 }
 
+/* nth-child(n+5) */
+
 .item-container {
+    min-width: 1200px;
+    height: 378px;
     display: flex;
     justify-content: space-between;
     gap: 24px;
 }
 
+
+
 /* item들 보여주는 클래스 */
 .ItemComponent {
-    width: 282px;
-    height: 378px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 23%;
+    display: block;
+    gap: 18px;
 }
 
-.contain-img {
-    width: 282px;
-    height: 282px;
+.ItemComponent:nth-child(n+5) {
+    display: none;
+}
+
+.item-container .contain-img {
+    width: 100%;
     border-radius: 16px;
+
+    
 }
 
 .contain-img img {
-    width: 282px;
+    width: 100%;
+    object-fit: cover;
 }
 
-.contain-text {
+.item-container .contain-text {
     width: 100%;
     gap: 10px;
+    margin-top : 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -64,6 +74,7 @@
     font-weight: 500;
     line-height: 24px;
     text-align: left;
+    border : none;
 }
 
 .contain-text-price {
@@ -105,22 +116,24 @@
 
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1230px) {
     .best-item {
         width: 85%;
         min-width: 720px;
         justify-content: center;
     }
 
-    .best-item-text{
+    .best-item-text {
         width: 87%;
         min-width: 750px;
-        margin : 0 auto;
+        margin: 0 auto;
+
     }
+
     .item-container {
         width: 100%;
         min-width: 720px;
-        border-radius: 19.46px;
+        height: auto;
         margin: 0 auto;
         display: flex;
         justify-content: space-around;
@@ -129,22 +142,25 @@
     .ItemComponent {
         width: 343px;
         height: auto;
+        
     }
 
-    .contain-img {
-        width: 343px;
-        height: 343px;
+    .item-container .contain-img {
+        width: 100%;
+        height: auto;
         border-radius: 16px;
     }
 
     .contain-img img {
-        width: 343px;
+        width: 500px;
+        height: 100%;
+    }
+    .item-container .contain-text {
+        margin-top : 0px;
     }
 
-    .ItemCompo2,
-    .ItemCompo3 {
+    .ItemComponent:nth-child(n+3) {
         display: none;
-
     }
 
 }
@@ -154,6 +170,9 @@
     .best-item {
         width: 100%;
         min-width: 343px;
+    }
+    .ItemComponent:nth-child(n+2) {
+        display: none;
     }
 
     .ItemCompo4 {
@@ -166,13 +185,16 @@
         gap: 16px;
     }
 
-    .best-item-text{
+    .best-item-text {
         width: 45%;
         min-width: 343px;
     }
 
     .item-container {
         min-width: 343px;
+    }
+    .item-container .contain-text{
+        margin-top: 25px;
     }
 
 }

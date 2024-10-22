@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './components/Header'
-import Body from './components/Body'
+import BodyMain from './components/BodyMain'
 import Num from './components/Num'
 import Footer from './components/Footer'
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='APP'>
       <Header />
-      <Body />
+      <BodyMain />
       <Num />
       <Footer />
     </div>

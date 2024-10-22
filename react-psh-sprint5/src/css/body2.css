@@ -12,8 +12,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border : 1px solid black;
 }
+
 .all-item-header2 {
     display: none;
 }
@@ -29,17 +29,19 @@
 }
 
 .all-item-option {
-    width: 620px;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 4px;
+
 }
 
 .all-item-searchBox {
     width: 325px;
     height: 42px;
     padding: 9px 20px 9px 16px;
+    margin-left: 30px;
     gap: 10px;
     border-radius: 12px;
     background-color: #F3F4F6;
@@ -49,19 +51,15 @@
     text-align: left;
 }
 
-.all-item-searchBox:hover {
-    border: 1px solid black;
-}
-
 .all-item-addButton {
-    min-width: 133px;
+    min-width: 150px;
     padding: 12px 23px;
     gap: 10px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
     line-height: 26px;
-    text-align: left;
+    text-align: center;
     color: white;
     background-color: #3692FF;
     cursor: pointer;
@@ -70,10 +68,10 @@
 .selectBox {
     width: 130px;
     height: 42px;
-    border: 1px solid #E5E7EB;
     padding: 12px 20px;
     gap: 10px;
     border-radius: 12px;
+    background-color: #F3F4F6;
     cursor: pointer;
 }
 
@@ -82,11 +80,11 @@
 }
 
 .all-item-list {
+    width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 12px;
-
 }
 
 .All-item-list-item {
@@ -94,11 +92,54 @@
     width: 221px;
     height: 317px;
     gap: 16px;
+    
 
-    border: 1px solid black;
 }
 
-@media screen and (max-width: 1199px) {
+.contain-img {
+    width: 219px;
+    height: 221px;
+    margin-bottom: 5px;
+}
+
+.contain-img img {
+    width: 100%;
+}
+
+.contain-text-product-des {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #DFDFDF;
+}
+
+.all-item-searchBox-container {
+    display: flex;
+    position: relative;
+    width: 50%;
+    align-items: center;
+    background-color: #F3F4F6;
+    border-radius: 7px;
+}
+
+.search-icon {
+    font-size: 30px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.all-item-searchButton {
+    display: flex;
+    position: absolute;
+    padding-left: 7px;
+}
+.none-product{
+    width: 100%;
+    height: 200px;
+    padding-top : 100px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1230px) {
     .all-item {
         width: 80%;
         min-width: 750px;
@@ -110,19 +151,22 @@
         width: 100%;
         min-width: 695px;
         display: flex;
-        gap : 16px;
+        gap: 16px;
     }
+
     .All-item-list-item:nth-child(n+7) {
         display: none;
-
     }
 
     .all-item-searchBox {
         width: 242px;
+        border-radius: 10px;
     }
 
-    .all-item-option{
-        width: 529px;
+    .all-item-option {
+        width: 80%;
+        max-width: 570px;
+        gap: 10px;
     }
 }
 
@@ -130,35 +174,42 @@
     .all-item-header {
         display: none;
     }
+
     .all-item-header2 {
-        display:block;
+        display: block;
         width: 100%;
         display: flex;
         flex-direction: column;
-        margin:0 auto;
-        gap:10px;
+        margin: 0 auto;
+        gap: 10px;
     }
+
     .all-item-header2 .all-item-text {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        margin-left : 10px;
+        margin-left: 10px;
     }
+
     .all-item-header2 .all-item-searchBox {
         width: 100%;
     }
-    .all-item-header2 .all-item-option{
+
+    .all-item-header2 .all-item-option {
         min-width: 344px;
         width: 100%;
         justify-content: space-between;
     }
-    .all-item-header2 .selectBox{
+
+    .all-item-header2 .selectBox {
         width: 50px;
     }
-    .all-item-header2 .all-item-addButton{
-        width: 133px;
-        margin-top : 5px;
-        margin-right:45px;
+
+    .all-item-header2 .all-item-addButton {
+        width: 40%;
+        margin-top: 5px;
+        margin-right: 30px;
+        text-align: center;
     }
 
     .all-item {
@@ -166,20 +217,30 @@
         min-width: 344px;
         justify-content: center;
     }
+
     .all-item-list {
-        min-width: 344px;
+        min-width: 500px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        margin : 0 auto;
+        margin: 0 auto;
         justify-content: space-around;
     }
 
-    .All-item-list-item{
+    .All-item-list-item {
         margin: 0 auto;
     }
 
     .All-item-list-item:nth-child(n+5) {
         display: none;
+    }
+
+    .menu-icon {
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .all-item-searchBox-container {
+        width: 85%;
     }
 
 }

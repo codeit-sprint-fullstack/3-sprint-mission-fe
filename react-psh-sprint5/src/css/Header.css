@@ -76,7 +76,7 @@ header {
 }
 
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1230px) {
     header {
         width: calc(100% - 48px);
         min-width: 750px;
