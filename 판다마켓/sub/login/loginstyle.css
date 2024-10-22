@@ -10,11 +10,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 640px;
+}
+
+.logo{
+    max-width: 400px;
+}
+
+.logo > a > img{
+    width: 100%;
 }
 
 button{
     border: none;
     background: none;
+}
+
+.login_bt_change{
+    background-color: var(--blue200);
+    color: var(--cool-gray100);
 }
 
 .login_inner{
@@ -23,15 +37,15 @@ button{
     gap: 24px;
     margin-top: 40px;
     align-items: center;
-    min-width: 480px;
-    width: 50%;
+    /* min-width: 480px; */
+    /* width: 50%; */
     align-items: center;
     justify-content: center;
 }
 
-.login_inner .e_mail, .login_inner .password, .login_bt, .simple_login{
+.login_inner .e_mail, .login_inner .password{
     width: 67.3%;
-    min-width: 440px;
+    min-width: 640px;
 }
 
 .login_inner p{
@@ -41,19 +55,38 @@ button{
     display: inline-block;
 }
 
-input{
+.box{
     border: none;
     background-color: var(--cool-gray100);
-    padding: 20px 24px;
+    /* padding: 20px 24px; */
     display: flex;
     align-items: center;
     border-radius: 12px;
     margin-top: 16px;
-    width: 90%;
+    /* width: 100%; */
 }
 
+.box > input{
+    border: none;
+    background-color: transparent;
+    /* padding: 0; */
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.box .btnVisibility{
+    margin-right: 10px;
+} 
+
 input:focus{
-    outline: 1px solid var(--blue200);
+    /* outline: 1px solid var(--blue200); */
+    outline: none;
 }
 
 input:focus::placeholder{
@@ -67,25 +100,14 @@ input::placeholder{
     line-height: 26px;
 }
 
-input#pass{
-    background-image: url(../../img/btn_visibility_on_24px.png);
-    background-repeat: no-repeat;
-    background-size: 24px;
-    background-position: 96% center;
-}
-
-.password input img{
-    vertical-align: middle;
-    width: 92%;
-    position: absolute;
-}
 
 .login_bt{
     background-color: var(--cool-gray200);
     justify-content: center;
     color: var(--cool-gray100);
     border-radius: 40px;
-    width: 67.3%;
+    width: 100%;
+    /* width: 640px; */
     height: 56px;
     /* padding: 12px 24px; */
     
@@ -108,12 +130,12 @@ input#pass{
 
 .simple_login{
     background-color: var(--blue100);
-    /* padding: 16px 23px; */
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 67.3%;
+    /* width: 67.3%; */
+    width: 100%;
 }
 
 .simple_login span{
@@ -128,7 +150,7 @@ input#pass{
     margin: 12px 24px;
 }
 
-.login_inner .txt p{
+.login_inner .txt p, a{
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
@@ -137,4 +159,92 @@ input#pass{
 .login_inner .txt a{
     color: var(--blue200);
     line-height: 16px;
+}
+
+.modal_bg{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    
+}
+
+.modal{
+    width: 540px;
+    height: 250px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal span{
+    line-height: 240px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.modal button{
+    width: 120px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--blue200);
+    color: #fff;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+
+
+@media (min-width: 744px){
+    .inner{
+        padding: 0 16px;
+        width: 100%;
+    }
+
+    .login_inner {
+        min-width: 640px;
+    }
+
+    .logo{
+        min-width: 400px;
+    }
+
+    .login_inner .e_mail, .password{
+        width: 100%;
+    }
+    
+}
+
+
+@media (min-width: 375px){
+    .inner{
+        padding: 0 16px;
+        /* width: 100%; */
+    }
+
+    .login_inner {
+        /* border: 1px solid red; */
+        min-width: 340px;
+        width: 100%;
+    }
+
+    .login_inner .e_mail, .login_inner .password{
+        min-width: 340px;
+        width: 100%;
+    }
 }
