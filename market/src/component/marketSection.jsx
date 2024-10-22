@@ -5,13 +5,17 @@ export default function MarketSection({
   title,
   data,
   itemMaxWidth,
+  children,
 }) {
-  const items = !!data ? data : [];
-
+  const [items, setItems] = useState(data);
+  useEffect(() => {
+    setItems(data);
+  }, [data]);
   return (
     <section className={"marketSection " + className}>
       <div className="titleLine">
         <h2>{title}</h2>
+        {children}
       </div>
       <ul>
         {items.map((el, i) => {
@@ -38,15 +42,20 @@ function MarketList({ img, name, price, favorite, width }) {
   let style = {
     width,
   };
-  let border = "1px solid #e8e8e8";
+
+  const cutPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   useEffect(() => {
-    if (!!imgRef.current && imgRef.current.width < width.split("px")[0]) {
-      setImgStyle({
-        ...imgStyle,
-        width: "100%",
-      });
+    if (imgRef.current.width < width.split("px")[0]) {
+      setTimeout(() => {
+        setImgStyle({
+          ...imgStyle,
+          width: "100%",
+        });
+      }, 50);
     }
-  }, [imgRef.current, img]);
+  }, [img]);
   return (
     <li style={style}>
       <a href="#">
@@ -58,16 +67,12 @@ function MarketList({ img, name, price, favorite, width }) {
             style={!!img ? imgStyle : { ...imgStyle, width: "100%" }}
             onError={(e) => {
               e.target.src = notFound;
-              // setImgStyle({
-              //   ...imgStyle,
-              //   border,
-              // });
             }}
           />
         </div>
         <div className="textBox">
           <h3>{name}</h3>
-          <p>{price}</p>
+          <p>{cutPrice(price)}원</p>
           <p className="favorite">
             <img src="./img/ic_heart.svg" alt="favorite" />
             {favorite}
@@ -78,16 +83,26 @@ function MarketList({ img, name, price, favorite, width }) {
   );
 }
 
-export function MarketPageNavi({ onClick, start, last, target }) {
+export function MarketPageNavi({
+  onClick,
+  start,
+  last,
+  target,
+  onNext,
+  onPrivous,
+  total,
+}) {
   const arr = [];
   for (let i = start; i <= last; i++) {
-    arr.push(i);
+    if (i <= total) arr.push(i);
   }
   return (
     <div className="pageNavi">
-      <button className="privous">
-        <img src="./img/arrow_left.svg" alt="왼쪽" />
-      </button>
+      {target === 1 ? null : (
+        <button className="privous" onClick={onPrivous}>
+          <img src="./img/arrow_left.svg" alt="왼쪽" />
+        </button>
+      )}
       <div className="pageBtnCover">
         {arr.map((v, i) => {
           return (
@@ -101,9 +116,11 @@ export function MarketPageNavi({ onClick, start, last, target }) {
           );
         })}
       </div>
-      <button className="next">
-        <img src="./img/arrow_right.svg" alt="오른쪽" />
-      </button>
+      {target === total ? null : (
+        <button className="next" onClick={onNext}>
+          <img src="./img/arrow_right.svg" alt="오른쪽" />
+        </button>
+      )}
     </div>
   );
 }

@@ -1,17 +1,25 @@
 import "./css/app.css";
 import Header from "./component/header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { productsGet } from "./api/product";
 import MarketSection, { MarketPageNavi } from "./component/marketSection";
-import { useItmeList, usePageNavi } from "./hook/hook";
+import Footer from "./component/footer";
+import { useChange, useItmeList, usePageNavi } from "./hook/hook";
 let init = {
   paddingTop: "70px",
 };
 function App() {
+  const sellLimit = 10;
+  const naviLimit = 5;
   const bestProduct = useItmeList([], 4);
-  const sellProduct = useItmeList([], 10);
+  const sellProduct = useItmeList([], sellLimit);
   const [onTarget, setOnTarget] = useState(1);
+  const [arrType, setArrType] = useState("recent");
+  const [total, setTotal] = useState(0);
   const pageNavi = usePageNavi(1, 5);
+  const searchRef = useRef(null);
+  const searchHandle = useChange();
+
   useEffect(() => {
     productsGet(1, bestProduct.length, "favorite")
       .then((res) => {
@@ -20,14 +28,40 @@ function App() {
       .catch((err) => console.error(err));
   }, []);
   useEffect(() => {
-    productsGet(onTarget, sellProduct.length, "recent")
+    productsGet(onTarget, sellProduct.length, arrType)
       .then((res) => {
         sellProduct.setValue(res.list);
+        setTotal(res.totalCount / sellLimit);
       })
       .catch((err) => console.error(err));
-  }, [onTarget]);
+  }, [onTarget, arrType]);
   const pageNaviEvent = (e) => {
     setOnTarget(Number(e.target.textContent));
+  };
+  const nextEvent = (e) => {
+    e.preventDefault();
+    const pageNum = Math.floor(onTarget / naviLimit);
+    if (onTarget % naviLimit === 0) {
+      pageNavi.setStart(pageNum * naviLimit + 1);
+      pageNavi.setLast((pageNum + 1) * naviLimit);
+    }
+    setOnTarget(onTarget + 1);
+  };
+  const privousEvent = (e) => {
+    e.preventDefault();
+    if (onTarget % naviLimit === 1) {
+      pageNavi.setStart(onTarget - naviLimit);
+      pageNavi.setLast(onTarget - 1);
+    }
+    setOnTarget(onTarget - 1);
+  };
+  const selectHandle = (e) => {
+    e.preventDefault();
+    setArrType(e.target.value);
+  };
+
+  const searchKewordHandle = (e) => {
+    e.preventDefault();
   };
   return (
     <div className="App" style={init}>
@@ -46,14 +80,40 @@ function App() {
           data={sellProduct.value}
           itemMaxWidth={"220px"}
           skeletonLength={sellProduct.length}
-        ></MarketSection>
+        >
+          <div className="marketEtc">
+            <div className="searchBox">
+              <button className="submit" onClick={searchKewordHandle}>
+                <img src="./img/ic_search.svg" alt="search" />
+              </button>
+              <input
+                type="text"
+                ref={searchRef}
+                onChange={searchHandle.onChange}
+                className="marketSearch"
+                placeholder="검색할 상품을 입력해주세요"
+              />
+            </div>
+            <a href="#">상품등록하기</a>
+            <select onChange={selectHandle}>
+              <option value="recent" defaultChecked>
+                최신순
+              </option>
+              <option value="favorite">좋아요순</option>
+            </select>
+          </div>
+        </MarketSection>
         <MarketPageNavi
           start={pageNavi.start}
           last={pageNavi.last}
           target={onTarget}
           onClick={pageNaviEvent}
+          onNext={nextEvent}
+          onPrivous={privousEvent}
+          total={total}
         />
       </div>
+      <Footer />
     </div>
   );
 }

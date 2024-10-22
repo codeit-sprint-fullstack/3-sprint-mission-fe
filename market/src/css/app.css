@@ -77,6 +77,57 @@ header .logo img {
   justify-content: space-between;
   align-items: center;
 }
+.marketSection .titleLine .marketEtc {
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
+.marketSection .titleLine .marketEtc .searchBox {
+  display: flex;
+  background: #f3f4f6;
+  width: 325px;
+  align-items: center;
+  height: 100%;
+  padding: 9px 16px 9px;
+  border-radius: 12px;
+}
+.marketSection .titleLine .marketEtc .searchBox input {
+  display: block;
+  border: 0;
+  width: 100%;
+  background-color: transparent;
+  height: 100%;
+  outline: none;
+}
+.marketSection .titleLine .marketEtc .searchBox .submit {
+  display: flex;
+  align-items: center;
+}
+.marketSection .titleLine .marketEtc a {
+  color: #fff;
+  background-color: var(--primary100);
+  width: 133px;
+  height: 42px;
+  margin: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.marketSection .titleLine .marketEtc select {
+  height: 42px;
+  width: 130px;
+  padding: 9px 20px;
+  outline: none;
+  border: 1px solid var(--gray200);
+  border-radius: 12px;
+  font-size: 16px;
+}
+.marketSection .titleLine .marketEtc select option {
+  height: 100%;
+}
 .marketSection ul {
   display: flex;
   flex-wrap: wrap;
@@ -154,4 +205,40 @@ header .logo img {
 .pageNavi button.on {
   color: #fff;
   background-color: var(--primary100);
+}
+
+footer {
+  margin-top: 140px;
+  width: 100%;
+  height: 160px;
+  padding: 32px 20px;
+  background: #111827;
+}
+footer .content {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+footer .content p {
+  color: #9ca3af;
+  line-height: 18px;
+  font-weight: 400;
+}
+footer .content .link {
+  width: 159px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .link a {
+  color: #e5e7eb;
+}
+footer .content .icon {
+  width: 116px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .icon img {
+  width: 20px;
 }
