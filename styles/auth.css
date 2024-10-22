@@ -1,3 +1,15 @@
+.form {  
+  /* background-color:burlywood; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:24px; 
+
+  /* justify-content:space-around; */
+  /* align-items:center; */
+  margin: 16px auto;  
+}
+
 /* width:1920px; */
 /* height:1133px */
 
@@ -16,7 +28,7 @@ position 속성이 static일 때는 무시됩니다.
   margin-right:auto;
 }
 
-.login-section1{
+.login-section1-layer{
   /* background-color: #f1cf0d;  */
   /* width: 640px; */
   width:100%;
@@ -41,25 +53,14 @@ position 속성이 static일 때는 무시됩니다.
   cursor:pointer;
 }
 
-.login-section2{  
+.login-section2-layer{  
   /* background-color: #33f10d;  */
   width:100%;
   /* height: 324px; */ /*로그인 버튼이 밑에 침범해서 높이 크기 제한 없앰. */
 }
 
-.form {  
-  /* background-color:burlywood; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap:24px; 
 
-  /* justify-content:space-around; */
-  /* align-items:center; */
-  margin: 16px auto;  
-}
-
-.login-form-control {
+.form-control {
   /* background-color: blueviolet; */
   width:100%;
   display: flex;
@@ -67,10 +68,10 @@ position 속성이 static일 때는 무시됩니다.
   gap:12px; 
 }
 
-.login-form-control label{
+.form-control label{
   color: #1F2937;
   font-size: 1.125rem;
-  line-height: 1.3rem;
+  line-height: 1.2rem;
   font-weight: 700;
   text-align:start;  
 
@@ -95,7 +96,7 @@ position 속성이 static일 때는 무시됩니다.
   /* background-color: green; */
 }
 
-.login-form-control input {  
+.form-control input {  
   width: 100%;
   border-radius:12px;
   padding:16px 24px 16px 24px;  
@@ -103,7 +104,7 @@ position 속성이 static일 때는 무시됩니다.
   color: #9CA3AF;
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.3rem;  
+  line-height: 1.2rem;  
   text-align:start;
   border-width:0;  
 
@@ -114,21 +115,21 @@ position 속성이 static일 때는 무시됩니다.
   line-height: 26px; */
 }
 
-.login-form-control input:focus {
+.form-control input:focus {
   border-width: 1px;
   border-color: #3692FF;
   outline: none;  
 }
 
-.login-form-control.success input {
+.form-control.success input {
   border-color: var(--success-color);
 }
 
-.login-form-control.error input {
+.form-control.error input {
   border-color: var(--error-color);
 }
 
-.login-form-control small {
+.form-control small {
   color: var(--error-color);
   position: relative;
   bottom: 8px;
@@ -137,7 +138,7 @@ position 속성이 static일 때는 무시됩니다.
   /* visibility: visible; */
 }
 
-.login-form-control.error small {
+.form-control.error small {
   visibility: visible;
 }
 
