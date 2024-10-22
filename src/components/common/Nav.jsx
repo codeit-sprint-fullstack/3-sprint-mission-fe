@@ -17,18 +17,20 @@ const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-  }
-  div img {
+`;
+
+const LogoContainer = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  img {
     width: 15.1rem;
+    height: auto;
   }
 `;
 
-const NavLink = styled.div`
+const NavLink = styled.a`
   font-size: 1.8rem;
   line-height: 2.5rem;
   color: ${(props) => props.theme.color.mainCharcoal};
@@ -39,11 +41,11 @@ function Nav() {
   return (
     <NavComponent>
       <NavContainer>
-        <div>
+        <LogoContainer>
           <img src="../public/images/common/logo.png" />
           <NavLink href="/">자유게시판</NavLink>
           <NavLink href="/">중고마켓</NavLink>
-        </div>
+        </LogoContainer>
         <LoginButton>로그인</LoginButton>
       </NavContainer>
     </NavComponent>
