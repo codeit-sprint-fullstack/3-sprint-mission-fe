@@ -75,9 +75,8 @@ input {
 }
 
 #serchInput:focus {
-  border: 0.1rem solid #9CA3AF;
   outline: none;
-  filter: drop-shadow(0 0 0.60rem rgba(0, 0, 0, 15%));
+  filter: drop-shadow(0 0 0.30rem rgba(0, 0, 0, 0.273));
 }
 
 input::placeholder {
