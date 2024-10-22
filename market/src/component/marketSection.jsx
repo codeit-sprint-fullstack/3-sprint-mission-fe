@@ -18,18 +18,22 @@ export default function MarketSection({
         {children}
       </div>
       <ul>
-        {items.map((el, i) => {
-          return (
-            <MarketList
-              width={itemMaxWidth}
-              key={`${el}_${i}`}
-              img={el.images[0]}
-              name={el.name}
-              price={el.price}
-              favorite={el.favoriteCount}
-            />
-          );
-        })}
+        {!!items.length ? (
+          items.map((el, i) => {
+            return (
+              <MarketList
+                width={itemMaxWidth}
+                key={`${el}_${i}`}
+                img={el.images[0]}
+                name={el.name}
+                price={el.price}
+                favorite={el.favoriteCount}
+              />
+            );
+          })
+        ) : (
+          <h2 className="notFoundList">게시물이 존재 하지 않습니다.</h2>
+        )}
       </ul>
     </section>
   );
@@ -93,9 +97,11 @@ export function MarketPageNavi({
   total,
 }) {
   const arr = [];
+  // if (total < 1) total = Math.ceil(total);
   for (let i = start; i <= last; i++) {
     if (i <= total) arr.push(i);
   }
+  if (total < 1) arr.push(1);
   return (
     <div className="pageNavi">
       {target === 1 ? null : (
@@ -116,7 +122,7 @@ export function MarketPageNavi({
           );
         })}
       </div>
-      {target === total ? null : (
+      {target === total || arr < 5 ? null : (
         <button className="next" onClick={onNext}>
           <img src="./img/arrow_right.svg" alt="오른쪽" />
         </button>

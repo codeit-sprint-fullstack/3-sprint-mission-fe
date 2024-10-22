@@ -61,7 +61,13 @@ function App() {
   };
 
   const searchKewordHandle = (e) => {
-    e.preventDefault();
+    if (e.keyCode === 13 || e.type.toString() === "click")
+      productsGet(onTarget, sellProduct.length, arrType, searchHandle.value)
+        .then((res) => {
+          sellProduct.setValue(res.list);
+          setTotal(res.totalCount / sellLimit);
+        })
+        .catch((err) => console.error(err));
   };
   return (
     <div className="App" style={init}>
@@ -90,6 +96,7 @@ function App() {
                 type="text"
                 ref={searchRef}
                 onChange={searchHandle.onChange}
+                onKeyDown={searchKewordHandle}
                 className="marketSearch"
                 placeholder="검색할 상품을 입력해주세요"
               />

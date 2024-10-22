@@ -25,7 +25,19 @@ export function usePageNavi(sNum, lNum) {
     },
     last,
     setLast: (lastNum) => {
-      setLast(lastNUm);
+      setLast(lastNum);
     },
+  };
+}
+
+export function useChange() {
+  const [value, setVlaue] = useState("");
+  const handler = (e) => {
+    e.preventDefault();
+    setVlaue(e.target.value);
+  };
+  return {
+    value,
+    onChange: handler,
   };
 }
