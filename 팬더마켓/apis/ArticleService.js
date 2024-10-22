@@ -1,6 +1,7 @@
+const articletUrl = new URL("https://sprint-mission-api.vercel.app/articles");
 
 export const getArticleList = async (page=1, pageSize=100, keyword ='') => {
-    const url = new URL(`https://sprint-mission-api.vercel.app/articles/${page}&${pageSize}&${keyword}`);
+    const url = `${articletUrl}?${page}&${pageSize}&${keyword}`;
     return fetch(url)
         .then((response)=>response.json())
         .then((data)=>data)
@@ -9,7 +10,7 @@ export const getArticleList = async (page=1, pageSize=100, keyword ='') => {
 
 
 export const getArticle = async (id) => {
-    const url = new URL(`https://sprint-mission-api.vercel.app/articles/${id}`);
+    const url = `${articletUrl}/${id}`;
     Object.keys(id).forEach((key)=>{
         url.searchParams.append(key, id[key]);
     });
@@ -25,8 +26,7 @@ export const createArticle = async (title, content, image) => {
         "content": content,
         "image": image,
     };
-    const url = new URL("https://sprint-mission-api.vercel.app/articles");
-    return fetch(url, {
+    return fetch(articletUrl, {
         method: "POST",
         body: JSON.stringify(body),
         headers:{
@@ -44,7 +44,7 @@ export const patchArticle = async (id, title, content, image) => {
         "content": content,
         "image": image,
     };
-    const url = new URL(`https://sprint-mission-api.vercel.app/articles/${id}`);
+    const url = `${articletUrl}/${id}`;
     return fetch(url, {
         method: "PATCH",
         body: JSON.stringify(requestBody),
@@ -58,7 +58,7 @@ export const patchArticle = async (id, title, content, image) => {
 }
 
 export const deleteArticle = async (id) => {
-    const url = new URL(`https://sprint-mission-api.vercel.app/articles/${id}`);
+    const url = `${articletUrl}/${id}`;
     return fetch(url, {
         method : "DELETE",
     })

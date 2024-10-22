@@ -95,12 +95,13 @@ h1{
 }
 
 footer{
+    background-color: #111827;
+    color: #9ca3af;
     display: flex;
     justify-content: space-between;
-    height: 15.2rem;
-    padding: 3.2rem 20rem;
-    gap: rem;
-    background-color: var(--footer-bg-color);
+    align-items: center;
+    padding: 3.2rem 20rem 10.8rem 20rem;
+    font-size: 1.6rem;
 }
 
 .seebtn{
