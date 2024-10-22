@@ -6,16 +6,17 @@ function Body2() {
     const [products, setProducts] = useState([]);
     const [option, setOption] = useState('recent');
     const [tempSearch, setTempSearch] = useState("");
-    const [search, setSearch] = useState("갤럭시");
+    const [search, setSearch] = useState("");
+    const [page, setPage] = useState(1);
 
     const updateProducts = async () => {
-        const axiosProducts = await getProductsList(search, option);
+        const axiosProducts = await getProductsList(page, search, option);
         setProducts(axiosProducts);
     };
 
     useEffect(() => {
-        updateProducts(search, option);
-    }, [search, option]);
+        updateProducts(page, search, option);
+    }, [page, search, option]);
 
     const filterProductsBySearch = () => {
         if (!search) return products;
@@ -31,17 +32,32 @@ function Body2() {
     const onClickSearch = () => {
         setSearch(tempSearch);
         setTempSearch("");
+        setPage(1);
     }
     const onKeyDown = (e) => {
         if (e.keyCode === 13) {
             onClickSearch();
+            setPage(1);
         }
     }
     const onChangeSortOption = (e) => {
         setOption(e.target.value);
-    };
+    }
+    const onClickPage = (e) => {
+        setPage(e.target.value);
+        console.log(page);
+    }
+
+    const onClickPagePlus = () => {
+        if (products.length === 10) setPage(page + 1);
+    }
+
+    const onClickPageMinus = () => {
+        if (page > 1) setPage(page - 1);
+    }
 
     const filteredSearch = filterProductsBySearch();
+
     return (
         <div className='all-item'>
             <div className='all-item-header'>
@@ -50,7 +66,8 @@ function Body2() {
                     <div className='all-item-searchBox-container'>
                         <input value={tempSearch}
                             onKeyDown={onKeyDown}
-                            onChange={onChangeSearch} className='all-item-searchBox' placeholder='검색할 상품을 입력해주세요'></input>
+                            onChange={onChangeSearch} className='all-item-searchBox' placeholder='검색할 상품을 입력해주세요'>
+                        </input>
                         <a onClick={onClickSearch} className='all-item-searchButton'>
                             <span className="material-symbols-outlined search-icon">
                                 search
@@ -67,7 +84,6 @@ function Body2() {
                         <option value="recent">최신순</option>
                         <option value="favorite">좋아요순</option>
                     </select>
-
                 </div>
             </div>
 
@@ -95,7 +111,6 @@ function Body2() {
                         <option value="recent">최신순</option>
                         <option value="favorite">좋아요순</option>
                     </select>
-
                 </div>
             </div>
 
@@ -120,6 +135,24 @@ function Body2() {
                         </div>
                     ))
                     )}
+            </div>
+
+            <div className="number-box">
+                <button onClick={onClickPageMinus} className='buttonNum'>
+                    <span className="material-symbols-outlined">
+                        chevron_left
+                    </span>
+                </button>
+                <button value={1} onClick={onClickPage} className='buttonNum'>1</button>
+                <button value={2} onClick={onClickPage} className='buttonNum'>2</button>
+                <button value={3} onClick={onClickPage} className='buttonNum'>3</button>
+                <button value={4} onClick={onClickPage} className='buttonNum'>4</button>
+                <button value={5} onClick={onClickPage} className='buttonNum'>5</button>
+                <button onClick={onClickPagePlus} className='buttonNum'>
+                    <span className="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </button>
             </div>
         </div>
     );
