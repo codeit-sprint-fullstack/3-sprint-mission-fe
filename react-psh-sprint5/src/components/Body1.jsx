@@ -9,7 +9,7 @@ function Body1() {
 
     const updateProducts = async () => {
         const axiosProducts = await getProductsList();
-        setProducts(axiosProducts);
+        setProducts(axiosProducts.products);
     }
     useEffect(() => {
         updateProducts();

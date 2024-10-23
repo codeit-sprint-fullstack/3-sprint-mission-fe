@@ -1,6 +1,8 @@
 import '../css/body2.css';
-import { useEffect, useState } from 'react';
 import getProductsList from '../api/getProductsList.jsx';
+import { useEffect, useState } from 'react';
+
+//윈도우 크기감지
 
 function Body2() {
     const [products, setProducts] = useState([]);
@@ -8,15 +10,45 @@ function Body2() {
     const [tempSearch, setTempSearch] = useState("");
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
+    const [totalCount, setTotalCount] = useState(0);
 
     const updateProducts = async () => {
-        const axiosProducts = await getProductsList(page, search, option);
-        setProducts(axiosProducts);
+        const axiosProducts = await getProductsList(page, search, option, pageSize);
+        setProducts(axiosProducts.products);
+        setTotalCount(axiosProducts.totalCount);
     };
 
     useEffect(() => {
-        updateProducts(page, search, option);
-    }, [page, search, option]);
+        updateProducts();
+    }, [page, search, option, pageSize]);
+
+
+    useEffect(() => {
+        const windowSize = () => {
+            const width = window.innerWidth;
+            console.log(`현재 화면 너비: ${width}px`);
+            if (width >= 1230) {
+                setPageSize(10);
+            } else if (width >= 801 && width < 1230) {
+                setPageSize(6);
+            } else {
+                setPageSize(4);
+            }
+            console.log({pageSize});
+        };
+        
+        windowSize();
+        window.addEventListener('resize', windowSize);
+
+        return () => {
+            window.removeEventListener('resize', windowSize);
+        };
+    }, [pageSize]);
+
+    useEffect(() => {
+        updateProducts(page, search, option, pageSize);
+    }, [page, search, option, pageSize]);
 
     const filterProductsBySearch = () => {
         if (!search) return products;
@@ -45,16 +77,23 @@ function Body2() {
     }
     const onClickPage = (e) => {
         setPage(e.target.value);
-        console.log(page);
     }
 
     const onClickPagePlus = () => {
-        if (products.length === 10) setPage(page + 1);
+        if ((pageSize % products.length === 0))
+            setPage(parseInt(page) + 1);
     }
 
     const onClickPageMinus = () => {
-        if (page > 1) setPage(page - 1);
+        if (page > 1) {
+            setPage(parseInt(page) - 1);
+        }
     }
+
+    useEffect(() => {
+        console.log('page : ', { page });
+        console.log('totalcount : ', { totalCount });
+    }, [page, totalCount]);
 
     const filteredSearch = filterProductsBySearch();
 
@@ -153,6 +192,13 @@ function Body2() {
                         chevron_right
                     </span>
                 </button>
+                <div>
+                    {page}
+                </div>
+                <div></div>
+                <div>
+                    
+                </div>
             </div>
         </div>
     );
