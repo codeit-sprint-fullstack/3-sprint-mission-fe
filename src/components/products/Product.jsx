@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import formatter from "../../utils/formatter";
+import PropTypes from "prop-types";
 
 const ProductContainer = styled.div`
   display: flex;
@@ -12,14 +13,14 @@ const ProductContainer = styled.div`
 
 const ImageContainer = styled.div`
   border-radius: 1.6rem;
-  width: 28.2rem;
-  height: 28.2rem;
+  width: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
+  height: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   img {
-    width: 28.2rem;
+    width: 100%;
   }
 `;
 
@@ -48,17 +49,15 @@ const TextContainer = styled.div`
     img {
       width: 1.34rem;
     }
-    div {
-    }
   }
 `;
 
-function BestProduct({ title, price, likes, image }) {
+function Product({ title, price, likes, image, best = false }) {
   return (
     <>
       <ProductContainer>
-        <ImageContainer>
-          <img src={image} />
+        <ImageContainer $best={best}>
+          <img src={image} alt={title} />
         </ImageContainer>
         <TextContainer>
           <p>{title}</p>
@@ -73,4 +72,12 @@ function BestProduct({ title, price, likes, image }) {
   );
 }
 
-export default BestProduct;
+Product.propTypes = {
+  title: PropTypes.string,
+  price: PropTypes.number,
+  likes: PropTypes.number,
+  image: PropTypes.string,
+  best: PropTypes.bool,
+};
+
+export default Product;
