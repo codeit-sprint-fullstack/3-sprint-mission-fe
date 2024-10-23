@@ -1,6 +1,6 @@
 import Body1 from "./Body1";
 import Body2 from "./Body2";
-
+import '../css/body.css';
 
 function BodyMain() {
     return (

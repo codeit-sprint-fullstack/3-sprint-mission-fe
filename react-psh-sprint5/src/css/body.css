@@ -1,5 +1,3 @@
-@import './reset.css';
-
 .body-main {
     display: flex;
     margin: 45px auto;
@@ -18,10 +16,11 @@
 }
 
 .best-item-text {
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 32px;
 }
+
 .item-container {
     min-width: 1200px;
     height: 378px;
@@ -53,7 +52,7 @@
 .item-container .contain-text {
     width: 100%;
     gap: 10px;
-    margin-top : 60px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -65,7 +64,6 @@
     font-weight: 500;
     line-height: 24px;
     text-align: left;
-    border : none;
 }
 
 .contain-text-price {
@@ -130,7 +128,7 @@
     .ItemComponent {
         width: 343px;
         height: auto;
-        
+
     }
 
     .item-container .contain-img {
@@ -143,8 +141,9 @@
         width: 500px;
         height: 100%;
     }
+
     .item-container .contain-text {
-        margin-top : 0px;
+        margin-top: 0px;
     }
 
     .ItemComponent:nth-child(n+3) {
@@ -159,6 +158,7 @@
         width: 100%;
         min-width: 343px;
     }
+
     .ItemComponent:nth-child(n+2) {
         display: none;
     }
@@ -181,7 +181,8 @@
     .item-container {
         min-width: 343px;
     }
-    .item-container .contain-text{
+
+    .item-container .contain-text {
         margin-top: 25px;
     }
 
