@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+  <main>
+    <a href="main-page.html">
+     <img class="panda-logo" src="logo.png">
+    </a> 
+    <div class="main-section">
+      <div class="privite-information">
+        <div class="main-loginset-email-skin">
+          <p class="email">이메일</p>
+          <input type="text" id="chk_email" placeholder="이메일을 입력해주세요"> 
+          <div class="email_message" id="email_message">잘못된 이메일 형식입니다.</div> 
+        </div>
+        <div class="main-loginset-nikname-skin">
+          <p class="nikname">닉네임</p>
+          <input type="text" placeholder="닉네임을 입력해주세요">  
+        </div>
+        <div class="main-loginset-pw-skin">
+          <p class="pw" img src="btn_visibility_on_24px.png">비밀번호</p>
+          <div class="pw-icon"> 
+            <input type="password" id="chkpw" placeholder="비밀번호를 입력해주세요"> 
+            <div class="pw_message" id="pw_message">비밀번호를 8자 이상 입력해주세요.</div>
+              <img class="pw-icon-skin" src="btn_visibility_on_24px.png">              
+          </div>
+        </div>
+        <div class="main-loginset-checkpw-skin">
+          <p class="pwch" img src="btn_visibility_on_24px.png">비밀번호 확인</p> 
+          <div class="pwchenk-icon">          
+            <input type="password" id="again_chk_pw" placeholder="비밀번호를 다시 한 번 입력해주세요">
+            <div class="pwchk_message" id="again_pw_message">비밀번호가 일치하지 않습니다.</div>
+              <img class="pwch-icon-skin" src="btn_visibility_on_24px.png"> 
+          </div>    
+        </div>
+        <a href="#" class="btn-newbeejoin" id="btn-newbeejoin">회원가입</a>
+      </div>
+      <div class="main-simplelogin-skin">
+        <div class="main-simplelogin-skin-3set">
+          <div class="simplelogin">간편 로그인하기</div>
+          <div class="logo">
+            <a href="https://www.google.com/" class="gogle-logo"> 
+              <img src="Component 2.png">
+            </a>  
+            <a href="https://www.kakaocorp.com/page/" class="kakao-logo"  >
+              <img src="Component 3.png">
+            </a>  
+          </div> 
+        </div>  
+      </div>
+      <div class="word-btn">
+        <p>이미 회원이신가요?</p>
+        <a href="login-page.html" class="btn">로그인</a>
+
+    </div>
+    </div>
+    <div class="modal-background" id="modal-background">
+      <div class="modal-content"id="modal-content">
+        <div class="modal-word" id="modal-word">사용 중인 이메일입니다.</div>
+        <button class="modal-ok" id="modal-ok">확인</button>
+      </div>  
+    </div>
+  </main>
+  <script src="signup.js"></script>
+</body>
+</html>
