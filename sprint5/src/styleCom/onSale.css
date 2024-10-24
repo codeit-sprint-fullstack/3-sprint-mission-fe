@@ -1,0 +1,30 @@
+
+.smallImg{
+    width: 221px;
+    height: 221px;
+    border-radius: 16px;
+}
+.inputStyle {
+    border: 0;
+    outline: none;
+    background-color: #F3F4F6;
+    color: #1F2937;
+    width: 325px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-indent: 24px;
+}
+
+.onSaleBanner{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.rightBanner{
+    display: flex;
+    gap: 10px;
+}

@@ -1,0 +1,33 @@
+a{
+    text-decoration: none;
+    color:black;
+}
+
+/* 상단 구분 div */
+.topNav {
+    /* 화면 위에 고정시키기 */
+    position: sticky;
+    top: 0;
+    padding: 9px 200px 9px 200px;
+    /* nav 구분하는 선 */
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
+   
+}
+
+#logoImg{
+    width: 153px;
+    height: 51px;
+}
+
+.navCon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.leftCon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:24px;
+}
