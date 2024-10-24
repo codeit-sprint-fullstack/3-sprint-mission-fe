@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LoginButton from "./LoginButton";
+import Button from "./Button";
 
 const NavComponent = styled.nav`
   width: 100%;
@@ -46,7 +46,7 @@ function Nav() {
           <NavLink href="/">자유게시판</NavLink>
           <NavLink href="/">중고마켓</NavLink>
         </LogoContainer>
-        <LoginButton>로그인</LoginButton>
+        <Button>로그인</Button>
       </NavContainer>
     </NavComponent>
   );
