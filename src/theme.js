@@ -2,11 +2,11 @@ export const defaultTheme = {
   color: {
     mainBlue: "#3692FF",
     subBlue: "#3182F6",
-    footerLink: "#E5E7EB",
     white: "#ffffff",
     offwhite: "#FCFCFC",
     mainIvory: "#F3F4F6",
     subIvory: "#F9FAFB",
+    anotherIvory: "#E5E7EB",
     footerCopyright: "#9CA3AF",
     mainBlack: "#1F2937",
     subBlack: "#111827",

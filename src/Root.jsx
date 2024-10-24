@@ -16,18 +16,30 @@ export const GlobalStyle = createGlobalStyle`
     border:none;
   }
 
-  html {
-    font-size:62.5%;
-  }
-
   body {
     font-family:"Pretendard Variable";
     font-size:1.6rem;
   }
 
+  html {
+    font-size:62.5%;
+  }
+
   a {
     text-decoration:none;
     color:inherit;
+  }
+
+  input {
+    background-color:${(props) => props.theme.color.inputBg};
+  }
+  button {
+    color: ${(props) => props.theme.color.mainIvory};
+    background-color: ${(props) => props.theme.color.mainBlue};
+  }
+
+  button:disabled {
+    background-color: ${(props) => props.theme.color.mainGrey};
   }
 `;
 

@@ -29,7 +29,7 @@ const FooterContainer = styled.div`
 
 const LinksContainer = styled.div`
   display: flex;
-  color: ${(props) => props.theme.color.footerLink};
+  color: ${(props) => props.theme.color.anotherIvory};
   gap: 3rem;
 `;
 
