@@ -19,7 +19,6 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   .copyright {
     font-weight: 400;
     line-height: 1.909rem;
