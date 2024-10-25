@@ -18,7 +18,7 @@
 
 .all-item-text {
     min-width: 150px;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 32px;
     text-align: left;
@@ -42,7 +42,7 @@
     gap: 10px;
     border-radius: 12px;
     background-color: #F3F4F6;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 26px;
     text-align: left;
@@ -53,7 +53,7 @@
     padding: 12px 23px;
     gap: 10px;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
     line-height: 26px;
     text-align: center;
@@ -66,6 +66,7 @@
     width: 130px;
     height: 42px;
     padding: 12px 20px;
+    font-size : 1.6rem;
     gap: 10px;
     border-radius: 12px;
     background-color: #F3F4F6;
@@ -90,8 +91,6 @@
     width: 221px;
     height: 317px;
     gap: 16px;
-    
-
 }
 
 .contain-img {
@@ -119,7 +118,7 @@
 }
 
 .search-icon {
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 500;
     cursor: pointer;
 }
@@ -129,10 +128,11 @@
     position: absolute;
     padding-left: 7px;
 }
-.none-product{
+
+.none-product {
     width: 100%;
     height: 200px;
-    padding-top : 100px;
+    padding-top: 100px;
     text-align: center;
 }
 
@@ -156,14 +156,14 @@
     border-radius: 40px;
     border: 1px solid #E5E7EB;
     background-color: white;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: bold;
     line-height: 26px;
 }
 
 .buttonNum:hover {
     background-color: #2F80ED;
-    color : white;
+    color: white;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -190,6 +190,7 @@
     .all-item-searchBox {
         width: 242px;
         border-radius: 10px;
+        font-size: 1.6rem;
     }
 
     .all-item-option {
@@ -225,13 +226,13 @@
     }
 
     .all-item-header2 .all-item-option {
-        min-width: 344px;
+        min-width: 34.4rem;
         width: 100%;
         justify-content: space-between;
     }
 
     .all-item-header2 .selectBox {
-        width: 50px;
+        width: 5rem;
     }
 
     .all-item-header2 .all-item-addButton {
@@ -239,6 +240,7 @@
         margin-top: 5px;
         margin-right: 30px;
         text-align: center;
+        font-size: 1.6rem;
     }
 
     .all-item {
@@ -264,12 +266,11 @@
     }
 
     .menu-icon {
-        font-size: 30px;
+        font-size: 3rem;
         cursor: pointer;
     }
 
     .all-item-searchBox-container {
         width: 85%;
     }
-
 }

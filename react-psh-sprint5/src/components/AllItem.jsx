@@ -2,8 +2,6 @@ import '../css/body2.css';
 import getProductsList from '../api/getProductsList.jsx';
 import { useEffect, useState } from 'react';
 
-//윈도우 크기감지
-
 function Body2() {
     const [products, setProducts] = useState([]);
     const [option, setOption] = useState('recent');
@@ -13,6 +11,9 @@ function Body2() {
     const [pageSize, setPageSize] = useState(10);
     const [totalCount, setTotalCount] = useState(0);
 
+    const totalPages = Math.ceil(totalCount / pageSize);
+    const startPage = Math.floor((page - 1) / 5) * 5 + 1;
+
     const updateProducts = async () => {
         const axiosProducts = await getProductsList(page, search, option, pageSize);
         setProducts(axiosProducts.products);
@@ -20,7 +21,9 @@ function Body2() {
     };
 
     useEffect(() => {
-        updateProducts();
+        if (page > 0) {
+            updateProducts();
+        }
     }, [page, search, option, pageSize]);
 
 
@@ -35,9 +38,8 @@ function Body2() {
             } else {
                 setPageSize(4);
             }
-            console.log({pageSize});
         };
-        
+
         windowSize();
         window.addEventListener('resize', windowSize);
 
@@ -47,7 +49,15 @@ function Body2() {
     }, [pageSize]);
 
     useEffect(() => {
-        updateProducts(page, search, option, pageSize);
+        if (totalPages > 0 & page > totalPages) {
+            setPage(totalPages);
+        }
+    }, [pageSize, totalPages]);
+
+    useEffect(() => {
+        if (page > 0) {
+            updateProducts(page, search, option, pageSize);
+        }
     }, [page, search, option, pageSize]);
 
     const filterProductsBySearch = () => {
@@ -76,19 +86,16 @@ function Body2() {
         setOption(e.target.value);
     }
     const onClickPage = (e) => {
-        setPage(e.target.value);
+        setPage(Number(e.target.value));
     }
 
     const onClickPagePlus = () => {
-        if ((pageSize % products.length === 0))
-            setPage(parseInt(page) + 1);
+        if (page < totalPages) setPage(page + 1);
     }
 
     const onClickPageMinus = () => {
-        if (page > 1) {
-            setPage(parseInt(page) - 1);
-        }
-    }
+        if (page > 1) setPage(page - 1);
+    };
 
     useEffect(() => {
         console.log('page : ', { page });
@@ -182,23 +189,17 @@ function Body2() {
                         chevron_left
                     </span>
                 </button>
-                <button value={1} onClick={onClickPage} className='buttonNum'>1</button>
-                <button value={2} onClick={onClickPage} className='buttonNum'>2</button>
-                <button value={3} onClick={onClickPage} className='buttonNum'>3</button>
-                <button value={4} onClick={onClickPage} className='buttonNum'>4</button>
-                <button value={5} onClick={onClickPage} className='buttonNum'>5</button>
+
+                <button value={startPage} onClick={onClickPage} className='buttonNum'>{startPage}</button>
+                <button value={startPage + 1} onClick={onClickPage} className='buttonNum'>{startPage + 1}</button>
+                <button value={startPage + 2} onClick={onClickPage} className='buttonNum'>{startPage + 2}</button>
+                <button value={startPage + 3} onClick={onClickPage} className='buttonNum'>{startPage + 3}</button>
+                <button value={startPage + 4} onClick={onClickPage} className='buttonNum'>{startPage + 4}</button>
                 <button onClick={onClickPagePlus} className='buttonNum'>
                     <span className="material-symbols-outlined">
                         chevron_right
                     </span>
                 </button>
-                <div>
-                    {page}
-                </div>
-                <div></div>
-                <div>
-                    
-                </div>
             </div>
         </div>
     );
