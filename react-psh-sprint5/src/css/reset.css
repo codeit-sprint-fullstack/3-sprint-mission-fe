@@ -15,11 +15,15 @@
     --color11: #E5E7EB;
 }
 
+html {
+    font-size: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 30px;
+    font-size: 40px;
     font: inherit;
     font-family: 'Pretendard';
     box-sizing: border-box;

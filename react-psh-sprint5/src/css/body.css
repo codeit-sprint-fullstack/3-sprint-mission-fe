@@ -16,9 +16,9 @@
 }
 
 .best-item-text {
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    line-height: 32px;
+    line-height: 3.2rem;
 }
 
 .item-container {
@@ -60,17 +60,17 @@
 
 .contain-text-product-des {
     height: 24px;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 2.4rem;
     text-align: left;
 }
 
 .contain-text-price {
     height: 26px;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 700;
-    line-height: 26px;
+    line-height: 2.6rem;
     text-align: left;
 }
 
@@ -80,7 +80,6 @@
     position: relative;
     gap: 2px;
 }
-
 
 .like-button {
     display: flex;
@@ -93,13 +92,13 @@
 }
 
 .favorite-icon {
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 .contain-text-like-fs {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 500;
-    line-height: 16px;
+    line-height: 1.6rem;
     text-align: left;
 }
 
@@ -128,7 +127,6 @@
     .ItemComponent {
         width: 343px;
         height: auto;
-
     }
 
     .item-container .contain-img {
@@ -149,21 +147,15 @@
     .ItemComponent:nth-child(n+3) {
         display: none;
     }
-
 }
 
 @media screen and (max-width: 800px) {
-
     .best-item {
         width: 100%;
         min-width: 343px;
     }
 
     .ItemComponent:nth-child(n+2) {
-        display: none;
-    }
-
-    .ItemCompo4 {
         display: none;
     }
 
@@ -185,5 +177,4 @@
     .item-container .contain-text {
         margin-top: 25px;
     }
-
 }
