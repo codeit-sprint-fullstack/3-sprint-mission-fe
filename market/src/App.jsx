@@ -4,12 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import { productsGet } from "./api/product";
 import MarketSection, { MarketPageNavi } from "./component/marketSection";
 import Footer from "./component/footer";
-import { useChange, useItmeList, usePageNavi } from "./hook/hook";
+import {
+  useChange,
+  useItmeList,
+  usePageNavi,
+  useScreenSize,
+} from "./hook/hook";
 let init = {
   paddingTop: "70px",
 };
 function App() {
-  const sellLimit = 10;
+  const [sellLimit, setSellLimit] = useState(10);
   const naviLimit = 5;
   const bestProduct = useItmeList([], 4);
   const sellProduct = useItmeList([], sellLimit);
@@ -19,22 +24,90 @@ function App() {
   const pageNavi = usePageNavi(1, 5);
   const searchRef = useRef(null);
   const searchHandle = useChange();
+  const windowSize = useScreenSize();
+  const [bestItmeSize, setBestItemSize] = useState("282px");
+  const [sellItmeSize, setSellItemSize] = useState("220px");
 
-  useEffect(() => {
-    productsGet(1, bestProduct.length, "favorite")
+  function BestProdcuts(page, pageSize, orderBy, keyword) {
+    productsGet(page, pageSize, orderBy, keyword)
       .then((res) => {
         bestProduct.setValue(res.list);
       })
       .catch((err) => console.error(err));
-  }, []);
-  useEffect(() => {
-    productsGet(onTarget, sellProduct.length, arrType)
+  }
+  function SellProdcuts(page, pageSize, orderBy, keyword) {
+    productsGet(page, pageSize, orderBy, keyword)
       .then((res) => {
         sellProduct.setValue(res.list);
         setTotal(res.totalCount / sellLimit);
       })
       .catch((err) => console.error(err));
-  }, [onTarget, arrType]);
+  }
+
+  useEffect(() => {
+    BestProdcuts(1, bestProduct.length, "favorite");
+  }, [bestProduct.length]);
+  useEffect(() => {
+    SellProdcuts(onTarget, sellProduct.length, arrType);
+  }, [onTarget, arrType, sellLimit, sellProduct.length]);
+
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      switch (true) {
+        case window.innerWidth < 1200 && window.innerWidth >= 744:
+          setTimeout(() => {
+            BestProdcuts(1, 2, "favorite");
+            SellProdcuts(1, 6, arrType);
+            setBestItemSize("343px");
+            setSellItemSize("221px");
+            setSellLimit(6);
+          }, 50);
+          break;
+        case window.innerWidth < 744:
+          setTimeout(() => {
+            BestProdcuts(1, 1, "favorite");
+            SellProdcuts(1, 4, arrType);
+            setSellItemSize("168px");
+            setSellLimit(4);
+          }, 50);
+          break;
+        default:
+          setTimeout(() => {
+            BestProdcuts(1, 4, "favorite");
+            setBestItemSize("282px");
+            setSellItemSize("220px");
+          }, 50);
+          break;
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    switch (true) {
+      case windowSize < 1200 && windowSize >= 744:
+        bestProduct.setLength(2);
+        sellProduct.setLength(6);
+        setSellLimit(6);
+        setBestItemSize("343px");
+        setSellItemSize("221px");
+        break;
+      case windowSize < 744:
+        bestProduct.setLength(1);
+        sellProduct.setLength(4);
+        setSellItemSize("168px");
+        setSellLimit(4);
+
+        break;
+      default:
+        bestProduct.setLength(4);
+        sellProduct.setLength(10);
+        setSellLimit(10);
+        setBestItemSize("282px");
+        setSellItemSize("220px");
+        break;
+    }
+  }, [windowSize]);
+
   const pageNaviEvent = (e) => {
     setOnTarget(Number(e.target.textContent));
   };
@@ -77,14 +150,14 @@ function App() {
           className={"best"}
           title={"베스트 상품"}
           data={bestProduct.value}
-          itemMaxWidth={"282px"}
+          itemMaxWidth={bestItmeSize}
           skeletonLength={bestProduct.length}
         />
         <MarketSection
           className={"sell"}
           title={"판매 중인 상품"}
           data={sellProduct.value}
-          itemMaxWidth={"220px"}
+          itemMaxWidth={sellItmeSize}
           skeletonLength={sellProduct.length}
         >
           <div className="marketEtc">

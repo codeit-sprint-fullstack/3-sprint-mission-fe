@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useItmeList(items, leng) {
   const [_list, _setList] = useState(items);
@@ -40,4 +40,17 @@ export function useChange() {
     value,
     onChange: handler,
   };
+}
+
+export function useScreenSize() {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+  useEffect(() => {
+    const handle = () => setWindowSize(window.innerWidth);
+    window.addEventListener("resize", handle);
+    return () => {
+      window.removeEventListener("resize", handle);
+    };
+  }, []);
+
+  return windowSize;
 }

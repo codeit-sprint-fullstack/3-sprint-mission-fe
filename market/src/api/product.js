@@ -8,9 +8,8 @@ export async function productsGet(
 ) {
   try {
     let path = `${url}?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
-    if (keyword) path += `&keyword=${keyword}`;
+    if (!!keyword) path += `&keyword=${keyword}`;
     const response = await instance.get(path);
-    // console.log(await response.data);
     return await response.data;
   } catch (error) {
     console.error(error);
