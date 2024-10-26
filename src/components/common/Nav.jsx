@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
+import PropTypes from "prop-types";
 
 const NavComponent = styled.nav`
   width: 100%;
@@ -17,6 +18,13 @@ const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${(props) => props.theme.media.medium} {
+    max-width: 100%;
+    margin: 0 2.4rem;
+  }
+  ${(props) => props.theme.media.small} {
+    margin: 0 1.6rem;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -28,23 +36,18 @@ const LogoContainer = styled.div`
     width: 15.1rem;
     height: auto;
   }
+  ${(props) => props.theme.media.small} {
+    gap: 0.8rem;
+  }
 `;
 
-const NavLink = styled.a`
-  font-size: 1.8rem;
-  line-height: 2.5rem;
-  color: ${(props) => props.theme.color.mainCharcoal};
-  font-weight: 700;
-`;
-
-function Nav() {
+function Nav({ children }) {
   return (
     <NavComponent>
       <NavContainer>
         <LogoContainer>
           <img src="../public/images/common/logo.png" />
-          <NavLink href="/">자유게시판</NavLink>
-          <NavLink href="/">중고마켓</NavLink>
+          {children}
         </LogoContainer>
         <Button>로그인</Button>
       </NavContainer>
@@ -53,3 +56,7 @@ function Nav() {
 }
 
 export default Nav;
+
+Nav.propTypes = {
+  children: PropTypes.node,
+};

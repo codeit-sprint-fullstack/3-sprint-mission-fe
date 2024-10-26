@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
+import DropDown from "../../../public/icons/DropDown.png";
 
 const SelectContainer = styled.div`
   position: relative;
@@ -18,10 +19,25 @@ const SelectButton = styled.button`
   height: 4.2rem;
   display: flex;
   justify-content: space-between;
-  border: 0.1rem solid ${(props) => props.theme.color.anotherGrey};
+  border: 0.1rem solid ${(props) => props.theme.color.anotherIvory};
   background-color: ${(props) => props.theme.color.white};
   border-radius: 1.2rem;
   padding: 1.2rem 2.4rem 1.2rem 2rem;
+`;
+
+const DropdownButtonContainer = styled.div`
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 0.1rem solid ${(props) => props.theme.color.anotherIvory};
+  background-color: ${(props) => props.theme.color.white};
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  img {
+    width: 1.7rem;
+  }
 `;
 
 const OptionContainer = styled.div`
@@ -39,7 +55,7 @@ const Option = styled.div`
   text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
-  border: 0.1rem solid ${(props) => props.theme.color.anotherGrey};
+  border: 0.1rem solid ${(props) => props.theme.color.anotherIvory};
   background-color: ${(props) => props.theme.color.white};
   padding: 1.2rem 2rem;
   &:first-child {
@@ -50,7 +66,7 @@ const Option = styled.div`
   }
 `;
 
-function Select({ selectedOption, setOption, options }) {
+function Select({ selectedOption, setOption, options, screenWidth }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleSelect = (option) => {
     setOption(option);
@@ -59,10 +75,16 @@ function Select({ selectedOption, setOption, options }) {
 
   return (
     <SelectContainer>
-      <SelectButton onClick={() => setIsOpen(!isOpen)}>
-        {selectedOption}
-        <FontAwesomeIcon icon={faCaretDown} />
-      </SelectButton>
+      {screenWidth > 744 ? (
+        <SelectButton onClick={() => setIsOpen(!isOpen)}>
+          {selectedOption}
+          <FontAwesomeIcon icon={faCaretDown} />
+        </SelectButton>
+      ) : (
+        <DropdownButtonContainer onClick={() => setIsOpen(!isOpen)}>
+          <img src={DropDown} />
+        </DropdownButtonContainer>
+      )}
       <OptionContainer $isOpen={isOpen}>
         {options.map((option) => (
           <Option key={option} onClick={() => handleSelect(option)}>
@@ -78,6 +100,7 @@ Select.propTypes = {
   selectedOption: PropTypes.string,
   setOption: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.string),
+  screenWidth: PropTypes.number,
 };
 
 export default Select;

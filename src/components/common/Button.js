@@ -6,6 +6,7 @@ const Button = styled.a`
   &:disabled {
     background-color: ${(props) => props.theme.color.mainGrey};
   }
+  width: ${(props) => props.$size};
   border-radius: 0.8rem;
   font-size: 1.6rem;
   line-height: 2.1rem;

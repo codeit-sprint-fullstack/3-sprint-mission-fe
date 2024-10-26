@@ -7,13 +7,15 @@ import PropTypes from "prop-types";
 const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 28.2rem;
-  gap: 1.6rem;
+  width: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
+  ${(props) => props.theme.media.small} {
+    width: ${(props) => (props.$best ? "28.2rem" : "16.8rem")};
+  }
 `;
 
 const ImageContainer = styled.div`
   border-radius: 1.6rem;
-  width: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
+  width: 100%;
   height: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
   overflow: hidden;
   display: flex;
@@ -22,12 +24,16 @@ const ImageContainer = styled.div`
   img {
     width: 100%;
   }
+  ${(props) => props.theme.media.small} {
+    height: ${(props) => (props.$best ? "28.2rem" : "16.8rem")};
+  }
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  margin-top: 1.6rem;
   color: ${(props) => props.theme.color.mainBlack};
   p:nth-of-type(1) {
     line-height: 2.4rem;
@@ -55,7 +61,7 @@ const TextContainer = styled.div`
 function Product({ title, price, likes, image, best = false }) {
   return (
     <>
-      <ProductContainer>
+      <ProductContainer $best={best}>
         <ImageContainer $best={best}>
           <img src={image} alt={title} />
         </ImageContainer>
