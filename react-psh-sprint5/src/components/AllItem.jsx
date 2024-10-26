@@ -184,21 +184,66 @@ function Body2() {
             </div>
 
             <div className="number-box">
-                <button onClick={onClickPageMinus} className='buttonNum'>
-                    <span className="material-symbols-outlined">
-                        chevron_left
-                    </span>
+                <button
+                    onClick={onClickPageMinus}
+                    className={`buttonNum ${page === 1 ? 'disabled' : ''}`}
+                    disabled={page === 1}
+                >
+                    <span className="material-symbols-outlined">chevron_left</span>
                 </button>
 
-                <button value={startPage} onClick={onClickPage} className='buttonNum'>{startPage}</button>
-                <button value={startPage + 1} onClick={onClickPage} className='buttonNum'>{startPage + 1}</button>
-                <button value={startPage + 2} onClick={onClickPage} className='buttonNum'>{startPage + 2}</button>
-                <button value={startPage + 3} onClick={onClickPage} className='buttonNum'>{startPage + 3}</button>
-                <button value={startPage + 4} onClick={onClickPage} className='buttonNum'>{startPage + 4}</button>
-                <button onClick={onClickPagePlus} className='buttonNum'>
-                    <span className="material-symbols-outlined">
-                        chevron_right
-                    </span>
+                {startPage <= totalPages && (
+                    <button
+                        value={startPage}
+                        onClick={onClickPage}
+                        className={`buttonNum ${page === startPage ? 'active' : ''}`}
+                    >
+                        {startPage}
+                    </button>
+                )}
+                {startPage + 1 <= totalPages && (
+                    <button
+                        value={startPage + 1}
+                        onClick={onClickPage}
+                        className={`buttonNum ${page === startPage + 1 ? 'active' : ''}`}
+                    >
+                        {startPage + 1}
+                    </button>
+                )}
+                {startPage + 2 <= totalPages && (
+                    <button
+                        value={startPage + 2}
+                        onClick={onClickPage}
+                        className={`buttonNum ${page === startPage + 2 ? 'active' : ''}`}
+                    >
+                        {startPage + 2}
+                    </button>
+                )}
+                {startPage + 3 <= totalPages && (
+                    <button
+                        value={startPage + 3}
+                        onClick={onClickPage}
+                        className={`buttonNum ${page === startPage + 3 ? 'active' : ''}`}
+                    >
+                        {startPage + 3}
+                    </button>
+                )}
+                {startPage + 4 <= totalPages && (
+                    <button
+                        value={startPage + 4}
+                        onClick={onClickPage}
+                        className={`buttonNum ${page === startPage + 4 ? 'active' : ''}`}
+                    >
+                        {startPage + 4}
+                    </button>
+                )}
+
+                <button
+                    onClick={onClickPagePlus}
+                    className={`buttonNum ${page === totalPages ? 'disabled' : ''}`}
+                    disabled={page === totalPages}
+                >
+                    <span className="material-symbols-outlined">chevron_right</span>
                 </button>
             </div>
         </div>

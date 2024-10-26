@@ -168,6 +168,17 @@
     transition: 0.5s;
 }
 
+.buttonNum.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.buttonNum.active {
+    background-color: #2F80ED;
+    color: #ccc;
+}
+
 @media screen and (max-width: 1230px) {
     .all-item {
         width: 80%;
