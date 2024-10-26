@@ -5,6 +5,7 @@
 }
 
 .logoPart{
+  margin-left: 5%;
   display: flex;
   justify-content:space-around;
   align-items: center;
@@ -12,7 +13,7 @@
 
 .headerPart{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .img{
@@ -27,6 +28,7 @@
 }
 
 .login{
+  margin-right: 8rem;
   background-color: #3692FF;
   border-radius: 8px;
   width: 8.8rem;
@@ -132,6 +134,7 @@
 }
 
 .bestProduct{
+  margin-top: 2%;
   display: flex;
   justify-content: space-around;
 }

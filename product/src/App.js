@@ -6,32 +6,13 @@ import instagram from './image/instagram.png';
 import youtube from './image/youtube.png';
 import vector from './image/Vector.png';
 import Box from './component/choose.js';
-import {getProduct} from './apis.js';
-import {useEffect, useState} from 'react';
-import BestProduct  from './component/bestproduct.js';
 import left from './image/left.png';
 import right from './image/right.png';
+import Best from './component/best.js';
 
 function App() {
 
-  const [items, setItems] = useState([]);
-    const handleLoad = async () => {
-      try {
-        const product = await getProduct();
-        // { list, totalCount } 
-        setItems(product.list);
-      } catch(err) {
-        console.log('err', err)
-      }
-     };
-
-
-     useEffect(
-      ()=> {
-       handleLoad();
-    },[])
-
-
+ 
   return (
     <div>
       <header className="headerPart">
@@ -50,7 +31,7 @@ function App() {
           <p></p>
           <p></p>
         </div>
-          <BestProduct products={items}/>
+        <Best/>
         <div className='bunch'>
           <div>
             <h1 className='title'>판매 중인 상품</h1>
