@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 
 const ButtonsContainer = styled.div`
   display: flex;
@@ -25,13 +26,24 @@ const CircleButton = styled.button`
 `;
 
 function PageIndex({ page, setPage }) {
-  const pageGroup = Math.floor((page - 1) / 5);
-  const start = pageGroup * 5 + 1;
-  const array = Array.from({ length: 5 }, (_, index) => start + index);
+  const PAGE_SIZE = 5;
+  const [pageGroup, setPageGroup] = useState(0);
+  const start = pageGroup * PAGE_SIZE + 1;
+  const array = Array.from({ length: PAGE_SIZE }, (_, index) => start + index);
+  const handlePreviousPage = () => {
+    setPageGroup((prevValue) => Math.max(prevValue - 1, 0));
+  };
+  const handleNextPage = () => {
+    setPageGroup((prevValue) => prevValue + 1);
+  };
+
+  useEffect(() => {
+    setPage(start);
+  }, [start, setPage]);
 
   return (
     <ButtonsContainer>
-      <CircleButton onClick={() => setPage(Math.max(page - 5, 1))}>
+      <CircleButton onClick={handlePreviousPage}>
         <FontAwesomeIcon icon={faAngleLeft} />
       </CircleButton>
       {array.map((number) => (
@@ -43,7 +55,7 @@ function PageIndex({ page, setPage }) {
           {number}
         </CircleButton>
       ))}
-      <CircleButton onClick={() => setPage(page + 5)}>
+      <CircleButton onClick={handleNextPage}>
         <FontAwesomeIcon icon={faAngleRight} />
       </CircleButton>
     </ButtonsContainer>
