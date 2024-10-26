@@ -10,32 +10,33 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "lint": "eslint src './src/**/*.{ts,tsx,js,jsx}' && next lint",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}' && next lint",
-    "prepare": "husky install",
-    "postinstall": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,scss}": [
       "prettier --write",
-      "eslint --fix",
-      "next lint"
+      "eslint --fix"
     ]
   },
   "dependencies": {
+    "3-sprint-mission-fe": "link:",
     "ky": "^1.7.2",
     "next": "^14.2.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@svgr/webpack": "^8.1.0",
-    "@types/node": "^22.7.9",
+    "@types/node": "^22.8.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "eslint": "^9.13.0",
+    "eslint": "^8.57.1",
     "eslint-config-next": "15.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "husky": "^8.0.3",
+    "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",

@@ -65,6 +65,7 @@
     "target": "ES2017"
   },
   "include": [
+    "src/app/types/svgr.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

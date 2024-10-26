@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "../styles";
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import '../styles';
 
 const pretendard = localFont({
   src: '../../../public/fonts/PretendardVariable.woff2',
@@ -10,8 +10,8 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "판다마켓",
-  description: "일상에서 모든 물건을 거래해보세요",
+  title: '판다마켓',
+  description: '일상에서 모든 물건을 거래해보세요',
 };
 
 export function RootLayout({
@@ -20,9 +20,14 @@ export function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang='ko'>
       <body className={`${pretendard.variable} antialiased`}>
-        {children}
+        <div
+          id='wrap'
+          className='mx-auto w-screen'
+        >
+          {children}
+        </div>
       </body>
     </html>
   );

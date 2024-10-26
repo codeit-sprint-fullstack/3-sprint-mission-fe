@@ -40,3 +40,22 @@
 ### 🧑‍💻 Chore(husky): automate linting and formatting
 
 - Commit 시마다 ESLint Linting 및 Prettier Formatting을 자동으로 수행하도록 설정
+- v9 기준으로 shell script 재작성
+
+### ➕ Deps(svgr): add deps to convert svg to component
+
+- @svgr/webpack 패키지를 설치하여 svg 파일을 React 컴포넌트로 다룰 수 있도록 설정
+
+## 2024-10-23
+
+### 💄 Style(project): add common ui components style
+
+- 공통 UI 컴포넌트(Header, Footer 등) 스타일 구성
+
+### 💄 Chore(tailwindcss): update tailwindcss configure
+
+- 프로젝트의 FSD 디렉터리 구성에 따라 tailwind.config.ts 파일 수정
+
+### ➕ Deps(ky): add deps fetching library
+
+- 데이터 fetch를 위해 ky 라이브러리를 디펜던시에 추가

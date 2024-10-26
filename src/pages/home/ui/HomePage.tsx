@@ -1,7 +1,12 @@
+import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/header';
+
 export default function Home() {
   return (
-    <div>
-      <h1>홈화면</h1>
-    </div>
+    <>
+      <Header />
+      <main>홈화면</main>
+      <Footer />
+    </>
   );
 }
