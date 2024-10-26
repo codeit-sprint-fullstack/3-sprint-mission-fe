@@ -7,7 +7,7 @@ export default {
   tags: ["autodocs"],
 };
 
-const Template = (props) => <Select {...props}></Select>;
+const Template = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
 
@@ -15,6 +15,6 @@ Default.decorators = [
   (Story) => {
     const options = ["최신순", "좋아요순"];
     const [selectedOption, setOption] = useState(options[0]);
-    return <Story args={{ selectedOption, options, setOption }} />;
+    return <Story args={{ selectedOption, options, setOption, screenWidth: 1200 }} />;
   },
 ];
