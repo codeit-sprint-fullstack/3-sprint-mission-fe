@@ -2,6 +2,7 @@ import './bestproduct.css';
 import heart from '../image/ic_heart.png';
 
 function BestProduct({products}){
+   
     return (
         <div className='bestproduct'>  
             {products.map((product, index)=>{
