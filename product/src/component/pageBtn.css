@@ -1,0 +1,31 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+:root{
+    font-size: 10px;
+  }
+  
+.page{
+    border: 1px solid #E5E7Eb;
+    border-radius: 40px;
+    padding: 1rem;
+    margin: 0.3rem;
+    gap: 1.25rem;
+    font-family: pertendard;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #6B7280;
+    background-color: #FFFFFF;
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .pageBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page:focus{
+    background-color: #2F80ED;
+  }
+  
