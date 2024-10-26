@@ -1,0 +1,30 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.disabled{
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding:1.25em;
+    border: 1px solid #FFFFFF;
+    text-decoration: none;
+    color: #E5E7EB;
+    border-radius:40px ;
+
+}
+
+.active{
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding:1.25rem;
+    border: 1px solid #FFFFFF;
+    text-decoration: none;
+    color: #E5E7EB;
+    border-radius: 40px;
+}
