@@ -1,0 +1,32 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+:root{
+    font-size: 10px;
+  }
+
+.pagination{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 3%;
+}
+
+.pagination button{
+    background-color: #FFFFFF;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 40px;
+    padding: 12.5px;
+    gap: 12.5px;
+    color: #6B7280;
+    border:  1px solid #E5E7EB;
+    cursor: pointer;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.pagination button:hover{
+    background-color: #2F80ED;
+}
+

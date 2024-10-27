@@ -22,9 +22,4 @@ import heart from '../image/ic_heart.png';
     );
  }
 
-
-
-
-
- 
  export default ProductList;
