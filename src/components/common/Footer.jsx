@@ -19,6 +19,7 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   .copyright {
     font-weight: 400;
     line-height: 1.909rem;
@@ -27,6 +28,7 @@ const FooterContainer = styled.div`
 `;
 
 const LinksContainer = styled.div`
+  width: 15.9rem;
   display: flex;
   color: ${(props) => props.theme.color.anotherIvory};
   gap: 3rem;
@@ -39,6 +41,9 @@ const SocialMediaLinkContainer = styled.div`
     cursor: pointer;
     width: 1.8rem;
     height: 1.8rem;
+  }
+  ${(props) => props.theme.media.small} {
+    margin-top: 2.4rem;
   }
 `;
 
