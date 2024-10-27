@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import facebookLogo from "../public/images/home/ic_facebook.png";
-import twitterLogo from "../public/images/home/ic_twitter.png";
-import youtubeLogo from "../public/images/home/ic_youtube.png";
-import instagramLogo from "../public/images/home/ic_instagram.png";
+import facebookLogo from "../../../public/images/home/ic_facebook.png";
+import twitterLogo from "../../../public/images/home/ic_twitter.png";
+import youtubeLogo from "../../../public/images/home/ic_youtube.png";
+import instagramLogo from "../../../public/images/home/ic_instagram.png";
 
 const FooterComponent = styled.footer`
   background-color: ${(props) => props.theme.color.subBlack};
