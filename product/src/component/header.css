@@ -21,10 +21,12 @@
   }
   
   .text{
+    color: #4B5563;
     text-align: center;
     font-family: pretendard;
     font-size: 1.8rem;
     font-weight: 700;
+    text-decoration: none;
   }
   
   .login{

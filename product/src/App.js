@@ -4,6 +4,7 @@ import MainPart from './component/mainPart.js';
 import FooterPart from './component/footer.js';
 import Pagebtn from './component/pageBtn.js';
 
+
 function App() {
 
  
