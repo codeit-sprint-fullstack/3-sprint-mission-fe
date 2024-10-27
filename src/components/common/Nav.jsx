@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Button from "./Button";
 import PropTypes from "prop-types";
+import logo from "../../../public/images/common/logo.png";
+import mobileLogo from "../../../public/images/common/mobileLogo.png";
 
 const NavComponent = styled.nav`
   width: 100%;
@@ -38,15 +40,18 @@ const LogoContainer = styled.div`
   }
   ${(props) => props.theme.media.small} {
     gap: 0.8rem;
+    img {
+      width: 10.3rem;
+    }
   }
 `;
 
-function Nav({ children }) {
+function Nav({ screenWidth, children }) {
   return (
     <NavComponent>
       <NavContainer>
         <LogoContainer>
-          <img src="../public/images/common/logo.png" />
+          {screenWidth > 743 ? <img src={logo} /> : <img src={mobileLogo} />}
           {children}
         </LogoContainer>
         <Button>로그인</Button>
@@ -58,5 +63,6 @@ function Nav({ children }) {
 export default Nav;
 
 Nav.propTypes = {
+  screenWidth: PropTypes.number,
   children: PropTypes.node,
 };

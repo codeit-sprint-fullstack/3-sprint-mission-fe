@@ -43,7 +43,7 @@ function Products() {
 
   return (
     <MainContainer>
-      <Nav>
+      <Nav screenWidth={screenWidth}>
         <NavLink href="/">자유게시판</NavLink>
         <NavLink href="/">중고마켓</NavLink>
       </Nav>
