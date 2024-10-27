@@ -168,11 +168,7 @@ function Main() {
             <button>
               <img src={leftArrow} />
             </button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
+            <PageButton />
             <button style={{ marginRight: '0' }}>
               <img src={rightArrow} style={{ left: '0.1rem' }} />
             </button>
