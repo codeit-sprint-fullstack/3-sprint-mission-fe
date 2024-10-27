@@ -5,22 +5,22 @@ import './pagination.css';
 function Pagination({
     currentPage,
     totalPages,
-    pageGroup,
+    pages,
     onPageChange,
-    onPrevGroup,
-    onNectGroup,
+    onPrevPage,
+    onNextPage,
 }) {
-    const startPage = pageGroup * 5 +1;
+    const startPage = pages * 5 +1;
     const endPage = Math.min(startPage+4, totalPages);
 
     const pages=[];
-    for (let i = startPage; i <=endPage; i++){
+    for (let i = startPage; i <= endPage; i++){
         pages.push(i);
     }
 
     return (
         <div className="pagination">
-            <button onClick={onPrevGroup} disabled={pageGroup === 0}>
+            <button onClick={onPrevPage} disabled={pages === 0}>
                 &lt;
             </button>
             {pages.map((page) => {
@@ -28,7 +28,7 @@ function Pagination({
                     {page}
                 </button>
             })}
-            <button onClick={onNectGroup} disabled={(pageGroup + 1 ) * 5 >=totalPages}>
+            <button onClick={onNextPage} disabled={(pages + 1 ) * 5 >=totalPages}>
                 &gt;
             </button>
         </div>
