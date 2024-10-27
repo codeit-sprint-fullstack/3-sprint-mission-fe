@@ -21,7 +21,7 @@ export async function getProductList(page, pageSize, keyword) {
   }
 }
   
-// const getProduct = fetch("https://sprint-mission-api.vercel.app/products") // get
+
 export async function getProduct(articleId) {
   try {
     const response = await axios.get("https://sprint-mission-api.vercel.app/articles");
@@ -37,7 +37,7 @@ export async function getProduct(articleId) {
 }
 
 
-// const createProductList = fetch("https://sprint-mission-api.vercel.app/products") // POST
+
 export async function createProduct(name, description, price, tags, images) {
   try {
     const response = await axios.post("https://sprint-mission-api.vercel.app/products", {
@@ -62,7 +62,7 @@ export async function createProduct(name, description, price, tags, images) {
 
 
 
-// const PatchProduct = fetch("https://sprint-mission-api.vercel.app/products") // PATCH
+
 
 export async function PatchProduct(articlepatch) {
   try {
@@ -84,7 +84,7 @@ export async function PatchProduct(articlepatch) {
 
 
 
-// const deleteProduct = fetch("https://sprint-mission-api.vercel.app/articles") // DELETE
+
 export async function deleteProduct(articledelete) {
   try {
     const response = await axios.delete("https://sprint-mission-api.vercel.app/products");

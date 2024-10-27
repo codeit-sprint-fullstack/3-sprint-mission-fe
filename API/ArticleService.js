@@ -3,11 +3,9 @@ import axios from 'axios';
 export async function getArticleList(page, pageSize, keyword) {
   try {
     const response = await axios.get("https://sprint-mission-api.vercel.app/articles", {
-      params: {
         page: page,
         pageSize: pageSize,
         keyword: keyword
-      } 
     });
     if (response.status < 200 || response.status >= 300) {
       console.error("Error: Non-2xx response status", response.status)
@@ -75,7 +73,7 @@ export async function PatchArticle(articlepatch) {
 }
 
 
-// const deleteArticle = fetch("https://sprint-mission-api.vercel.app/articles") // DELETE
+
 export async function deleteArticle(articledelete) {
   try {
     const response = await axios.delete("https://sprint-mission-api.vercel.app/articles");

@@ -193,7 +193,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding-top : 3%;  
+  padding-top : 3%;  /* 이거아님 */
   font-size: 20px;
   font-weight: 600px;
   line-height: 24px;
