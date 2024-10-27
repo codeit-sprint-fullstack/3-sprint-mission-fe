@@ -16,6 +16,21 @@ export const GlobalStyles = createGlobalStyle`
 
     /* 푸터 관련 색상 */
     --footer-font-color: #9CA3AF;
+    --footer-bg-color: #111827;
+    --mobile-footer-font-color: #9ca3af;
+
+    /* 검색창 관련 색상 */
+    --search-bar-bg-color: #F3F4F6;
+    --search-bar-placeholder-color:#9ca3af;
+
+    /* 상품 정렬 선택 관련 색상 */
+    --select-border-color: #E5E7EB;
+
+    /* 페이지네이션 관련 색상 */
+    --pagination-active-bg-color: #2F80ED;
+    --pagination-active-font-color: #F9FAFB;
+    --pagination-inactive-border-color: #E5E7EB;
+    --pagination-inactive-font-color: #6B7280;
 
   }
   html, body, div, span, applet, object, iframe,
@@ -64,7 +79,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	html {
         font-size: 62.5%;
-		font-family: 'NotoSans';
+		font-family: 'Pretendard';
 		overflow-x: hidden;
 	}
 	img {
