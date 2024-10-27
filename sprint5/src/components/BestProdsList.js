@@ -1,15 +1,14 @@
 import heartImg from '../img/icons/heart.png'
 import './ProductsInfo.css';
 
-function BestProdsList() {
-
+function BestProdsList({ images, name, price, favoriteCount }) {
   return (
     <div id='bestProducts'>
-      <img src id='bestProsImg'/>
-      <div className='prodName'>상품명</div>
-      <div className='prodPrice'>가격</div>
+      <img id='bestProsImg' src={images} />
+      <div className='prodName'>{name}</div>
+      <div className='prodPrice'>{price}원</div>
       <img src={heartImg} className='heart' />
-      <span className='heartNum'>점수</span>
+      <span className='heartNum'>{favoriteCount}</span>
     </div>
   )
 }

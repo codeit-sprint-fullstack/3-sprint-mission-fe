@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import getProducts from "../API/api.js";
 import './Main.css';
 import arrowImg from "../img/icons/menu.png";
 import leftArrow from "../img/icons/left.png";
@@ -5,19 +7,33 @@ import rightArrow from "../img/icons/right.png";
 import BestProdsList from "./BestProdsList";
 import ProdsList from "./ProdsList"
 
+const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';
+
 function Main() {
+  // Use State
+  const [bestProds, setBestProds] = useState([]); // 베스트 상품
+
+  // 화면이 켜지자마자 렌더링
+  const loadHandle = async () => {
+    const bestProducts = await getProducts(BEST_PRODS_LIST);
+    setBestProds(bestProducts.list)
+  }
+
+  useEffect(() => {
+    loadHandle()
+  }, [])
 
   return (
     <main>
       <div id='mainContent'>
         <h1>베스트 상품</h1>
         <section id='bestProdsList'>
-          <BestProdsList />
-          <BestProdsList />
-          <BestProdsList />
-          <BestProdsList />
+          {
+            bestProds.map((prod) => {
+              return <BestProdsList price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
+            })
+          }
         </section>
-
 
         <section id='prodsList'>
           <div id='prodsListHead'>
