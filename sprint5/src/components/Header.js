@@ -6,7 +6,7 @@ function Header() {
     <header>
       <nav>
         <div id='navContent'>
-          <a id='logoImg'>
+        <a id='logoImg' href='./'>
             <img src={pandaLogoImg} />
           </a>
 
