@@ -1,7 +1,8 @@
 import "../styleCom/common.css";
 import "../styleCom/onSale.css";
+import Dropdown from "./DropDown";
 
-export function OnSaleBanner() {
+export function OnSaleBanner({ options, order, orderChange }) {
   return (
     <div className="onSaleBanner">
       <div className="textBold">판매 중인 상품</div>
@@ -13,7 +14,11 @@ export function OnSaleBanner() {
         <a className="likeBt" href="/login">
           <div>상품 등록하기</div>
         </a>
-        <div>드롭다운</div>
+        <Dropdown
+          options={options}
+          selectedOrder={order}
+          orderChange={orderChange}
+        />
       </div>
     </div>
   );

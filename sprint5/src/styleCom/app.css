@@ -1,3 +1,8 @@
+
+  .wrap {
+    height: 100vh;
+  }
+
 .contentsBody{
     display: flex;
     align-items: center;

@@ -27,8 +27,8 @@ export async function getProductsByOrder(
   }
 }
 
-// const data = await getProductsByOrder();
-// console.log(data);
+const data = await getProductsByOrder();
+console.log(data);
 
 export async function getProductByLike() {
   const response = await fetch(
