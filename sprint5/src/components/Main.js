@@ -8,6 +8,7 @@ import BestProdsList from "./BestProdsList.js";
 import ProdsList from "./ProdsList.js";
 
 const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';
+const LIKE_PRODS_LIST = 'page=1&pageSize=10&orderBy=favorite';
 const PRODS_LIST = 'page=1&pageSize=10&orderBy=recent';
 
 function Main() {
@@ -38,15 +39,28 @@ function Main() {
     )
   }
 
+  // 최근순 렌더링
+  const recentSortHandle = async () => {
+    const products = await getProducts(PRODS_LIST);
+    setProdsList(products.list)
+  }
+
   const recentFilterHandle = () => {
     setProdsListState(false); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
+    recentSortHandle(); // 최근순 렌더링 작동
   }
 
   // 좋아요순 렌더링
+  const favoriteSortHandle = async () => {
+    const favoriteProducts = await getProducts(LIKE_PRODS_LIST);
+    setProdsList(favoriteProducts.list)
+  };
+
   const likeFilterHandle = async () => {
     setProdsListState(true); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
+    favoriteSortHandle() // 좋아요순 렌더링 작동
   }
 
   // 필터 종류에 따른 페이지 버튼 핸들러
