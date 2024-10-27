@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import facebookLogo from "../public/images/home/ic_facebook.png";
+import twitterLogo from "../public/images/home/ic_twitter.png";
+import youtubeLogo from "../public/images/home/ic_youtube.png";
+import instagramLogo from "../public/images/home/ic_instagram.png";
 
 const FooterComponent = styled.footer`
   background-color: ${(props) => props.theme.color.subBlack};
@@ -69,16 +73,16 @@ function Footer() {
         </LinksContainer>
         <SocialMediaLinkContainer>
           <a target="_blank" href="https://www.facebook.com/">
-            <img src="../public/images/home/ic_facebook.png" />
+            <img src={facebookLogo} />
           </a>
           <a target="_blank" href="https://www.x.com/">
-            <img src="../public/images/home/ic_twitter.png" />
+            <img src={twitterLogo} />
           </a>
           <a target="_blank" href="https://www.youtube.com/">
-            <img src="../public/images/home/ic_youtube.png" />
+            <img src={youtubeLogo} />
           </a>
           <a target="_blank" href="https://www.instagram.com/">
-            <img src="../public/images/home/ic_instagram.png" />
+            <img src={instagramLogo} />
           </a>
         </SocialMediaLinkContainer>
       </FooterContainer>
