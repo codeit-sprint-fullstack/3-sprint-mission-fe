@@ -1,7 +1,7 @@
 .main__container {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   top: 94px;
   padding: 0 20% 0;
   width: 100%;

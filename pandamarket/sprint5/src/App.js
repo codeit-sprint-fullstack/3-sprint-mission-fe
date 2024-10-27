@@ -4,6 +4,7 @@ import ProductList from "./components/ProductList";
 import { useEffect, useState } from "react";
 import getProduct from './Api';
 import './style/main.css';
+import './style/app.css'
 import Footer from "./components/Footer";
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
   }, [screenWidth, sort]);
 
   return (
-    <div>
+    <div className="app__container">
       <Header/>
       <main className="main__container">
         <ProductList items={favoriteItems} label='베스트 상품' />
