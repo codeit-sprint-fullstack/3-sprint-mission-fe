@@ -58,6 +58,10 @@ h1 {
   margin-bottom: 2.9rem;
 }
 
+.none {
+  display: none;
+}
+
 #formContain {
   width: 62.2rem;
 }
@@ -101,7 +105,7 @@ input::placeholder {
   background-color: #3ee4d7;
 }
 
-#filterMenu {
+.filterMenu {
   background-color: #FFFFFF;
   width: 13.3rem;
   height: 4.2rem;
@@ -113,9 +117,33 @@ input::placeholder {
   position: relative;
 }
 
-#filterMenu:hover {
+.filterMenu:hover {
   background-color: #ffffffc7;
   filter: drop-shadow(0 0 0.55rem rgba(0, 0, 0, 15%));
+}
+
+#filterMenuRecent {
+  padding-right: 0;
+  margin-left: 0;
+  border-radius: 1.2rem 1.2rem 0 0;
+  background-color: rgba(255, 255, 255, 0.975);
+}
+
+#filterMenuLike {
+  border-radius: 0 0 1.2rem 1.2rem;
+  padding-right: 0;
+  margin-left: 0;
+  position: relative;
+  right: 13.3rem;
+  bottom: -4.0rem;
+  background-color: rgba(255, 255, 255, 0.975);
+}
+
+#filterMenuBox {
+  position: relative;
+  right: -84.39999999999999999999rem;
+  bottom: -5rem;
+  z-index: 1;
 }
 
 #arrowImg {

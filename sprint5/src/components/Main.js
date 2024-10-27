@@ -14,6 +14,8 @@ function Main() {
   // Use State
   const [bestProds, setBestProds] = useState([]); // 베스트 상품
   const [prodsList, setProdsList] = useState([]); // 판매 중인 상품
+  const [filter, setFilter] = useState(false); // 필터 메뉴 Hide
+  const [prodsListState, setProdsListState] = useState(false); // 필터 종류에 따라 버튼의 기능이 변함
 
   // 화면이 켜지자마자 렌더링
   const loadHandle = async () => {
@@ -29,12 +31,75 @@ function Main() {
 
   // 판매 중인 상품 렌더링
   const ProductSort = ({ sort }) => {
-
     return (
       sort.map((prod) => {
         return <ProdsList price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
       })
     )
+  }
+
+  const recentFilterHandle = () => {
+    setProdsListState(false); // 필터 종류에 따라 버튼 기능 변화
+    filterHideHandle(); // 필터 메뉴 Hide 이벤트
+  }
+
+  // 좋아요순 렌더링
+  const likeFilterHandle = async () => {
+    setProdsListState(true); // 필터 종류에 따라 버튼 기능 변화
+    filterHideHandle(); // 필터 메뉴 Hide 이벤트
+  }
+
+  // 필터 종류에 따른 페이지 버튼 핸들러
+  const PageButton = () => {
+    if (prodsListState) {
+      return <PageButtonlike />
+    } else {
+      return <PageButtonNew />
+    }
+  }
+
+  // 페이지네이션 버튼 RECENT
+  const PageButtonNew = () => {
+
+    const pageNationHndle = async (e) => {
+      const query = `page=${e.target.textContent}&pageSize=10`
+
+      const prodsList = await getProducts(query)
+      setProdsList(prodsList.list)
+    }
+    const button = [];
+
+    for (let i = 1; i <= 5; i++) {
+      button.push(
+        <button key={i} onClick={pageNationHndle}>{i}</button>
+      )
+    }
+    return button
+  }
+
+  // 페이지네이션 버튼 LIKE
+  const PageButtonlike = () => {
+
+    const pageNationHndle = async (e) => {
+      const query = `page=${e.target.textContent}&pageSize=10&orderBy=favorite`
+
+      const favoriteProdsList = await getProducts(query)
+      setProdsList(favoriteProdsList.list)
+    }
+
+    const button = [];
+
+    for (let i = 1; i <= 5; i++) {
+      button.push(
+        <button key={i} onClick={pageNationHndle}>{i}</button>
+      )
+    }
+    return button
+  }
+
+  // 필터 메뉴에 hide 이벤트
+  const filterHideHandle = () => {
+    setFilter(!filter)
   }
 
   return (
@@ -52,10 +117,14 @@ function Main() {
         <section id='prodsList'>
           <div id='prodsListHead'>
             <h1 id='title'>판매 중인 상품</h1>
+            <div id='filterMenuBox' className={filter ? '' : 'none'}>
+              <button onClick={recentFilterHandle} id='filterMenuRecent' className='filterMenu'>최신순</button>
+              <button onClick={likeFilterHandle} id='filterMenuLike' className='filterMenu'>좋아요순</button>
+            </div>
             <div id='formContain'>
               <input id='serchInput' type='text' placeholder='검색할 상품을 입력해주세요'></input>
               <button id='addProdButton'>상품 등록하기</button>
-              <button id='filterMenu'>최신순
+              <button onClick={filterHideHandle} className='filterMenu'>최신순
                 <img src={arrowImg} id='arrowImg' />
               </button>
             </div>
