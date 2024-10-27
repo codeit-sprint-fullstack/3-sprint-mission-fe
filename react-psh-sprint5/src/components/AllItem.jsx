@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 function AllItem() {
     const [products, setProducts] = useState([]);
-    const [option, setOption] = useState('recent');
+    const [option, setOption] = useState('favorite');
     const [tempSearch, setTempSearch] = useState("");
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
