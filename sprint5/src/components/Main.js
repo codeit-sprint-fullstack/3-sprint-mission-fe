@@ -17,6 +17,7 @@ function Main() {
   const [prodsList, setProdsList] = useState([]); // 판매 중인 상품
   const [filter, setFilter] = useState(false); // 필터 메뉴 Hide
   const [prodsListState, setProdsListState] = useState(false); // 필터 종류에 따라 버튼의 기능이 변함
+  const [searchProdInput, setSearchProdInput] = useState(); // 상품 검색시 검색한 텍스트가 담김
 
   // 화면이 켜지자마자 렌더링
   const loadHandle = async () => {
@@ -61,6 +62,23 @@ function Main() {
     setProdsListState(true); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
     favoriteSortHandle() // 좋아요순 렌더링 작동
+  }
+
+  // 상품 검색
+  const searchProdHandle = async (e) => {
+    const query = `keyword=${searchProdInput}`
+    const searchedProd = await getProducts(query)
+    if (e) {
+      if (searchedProd.list.length === 0) {
+        return setProdsList(searchedProd.list);
+      }
+      return setProdsList(searchedProd.list)
+    }
+  }
+
+  const searchprodInput = (e) => {
+    setSearchProdInput(e.target.value)
+    searchProdHandle(e.key)
   }
 
   // 필터 종류에 따른 페이지 버튼 핸들러
@@ -136,7 +154,7 @@ function Main() {
               <button onClick={likeFilterHandle} id='filterMenuLike' className='filterMenu'>좋아요순</button>
             </div>
             <div id='formContain'>
-              <input id='serchInput' type='text' placeholder='검색할 상품을 입력해주세요'></input>
+              <input id='serchInput' type='text' placeholder='검색할 상품을 입력해주세요' onKeyDown={searchprodInput}></input>
               <button id='addProdButton'>상품 등록하기</button>
               <button onClick={filterHideHandle} className='filterMenu'>최신순
                 <img src={arrowImg} id='arrowImg' />
