@@ -12,10 +12,9 @@ const FooterComponent = styled.footer`
 const FooterContainer = styled.div`
   width: 100%;
   max-width: 152rem;
-  margin: 0 20rem;
+  margin: 3.2rem 20rem 0 20rem;
   font-size: 1.6rem;
   font-weight: 400;
-  margin-top: 3.2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -24,6 +23,17 @@ const FooterContainer = styled.div`
     font-weight: 400;
     line-height: 1.909rem;
     color: ${(props) => props.theme.color.mainGrey};
+  }
+  ${(props) => props.theme.media.medium} {
+    width: 100%;
+    margin: 3.2rem 2.4rem 0 2.4rem;
+  }
+  ${(props) => props.theme.media.small} {
+    width: 100%;
+    margin: 3.2rem 1.6rem 0 1.6rem;
+    .copyright {
+      margin-bottom: 2.4rem;
+    }
   }
 `;
 
@@ -41,9 +51,6 @@ const SocialMediaLinkContainer = styled.div`
     cursor: pointer;
     width: 1.8rem;
     height: 1.8rem;
-  }
-  ${(props) => props.theme.media.small} {
-    margin-top: 2.4rem;
   }
 `;
 
