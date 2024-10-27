@@ -1,4 +1,4 @@
-global
+/* global */
 * {
   box-sizing: border-box;
 }
@@ -184,6 +184,7 @@ input::placeholder {
   font-weight: 600;
   color: #6B7280;
   margin-right: 0.4rem;
+  cursor: pointer;
 }
 
 #pageNumBox button:hover {
