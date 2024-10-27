@@ -18,6 +18,7 @@ function Main() {
   const [filter, setFilter] = useState(false); // 필터 메뉴 Hide
   const [prodsListState, setProdsListState] = useState(false); // 필터 종류에 따라 버튼의 기능이 변함
   const [searchProdInput, setSearchProdInput] = useState(); // 상품 검색시 검색한 텍스트가 담김
+  const [emptyBox, setEmptyBox] = useState(false); // 상품 검색 목록이 없을 때 나오는 메시지
 
   // 화면이 켜지자마자 렌더링
   const loadHandle = async () => {
@@ -50,6 +51,7 @@ function Main() {
     setProdsListState(false); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
     recentSortHandle(); // 최근순 렌더링 작동
+    setEmptyBox(false); // EmptyBox(상품 없을 때) 사라지게 함.
   }
 
   // 좋아요순 렌더링
@@ -62,6 +64,7 @@ function Main() {
     setProdsListState(true); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
     favoriteSortHandle() // 좋아요순 렌더링 작동
+    setEmptyBox(false); // EmptyBox(상품 없을 때) 사라지게 함.
   }
 
   // 상품 검색
@@ -70,8 +73,10 @@ function Main() {
     const searchedProd = await getProducts(query)
     if (e) {
       if (searchedProd.list.length === 0) {
+        setEmptyBox(true)
         return setProdsList(searchedProd.list);
       }
+      setEmptyBox(false)
       return setProdsList(searchedProd.list)
     }
   }
@@ -79,6 +84,27 @@ function Main() {
   const searchprodInput = (e) => {
     setSearchProdInput(e.target.value)
     searchProdHandle(e.key)
+  }
+
+  const EmptyBox = () => {
+
+    if (emptyBox) {
+      return (
+        <div id='emptyPrdsBox'>
+          <div className="emptyContentBox">
+            검색하신 상품이 없습니다.
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <div className="none">
+        <div className="emptyContentBox">
+          검색하신 상품이 없습니다.
+        </div>
+      </div>
+    )
   }
 
   // 필터 종류에 따른 페이지 버튼 핸들러
@@ -163,6 +189,7 @@ function Main() {
           </div>
           <div id='componentBox'>
             <ProductSort sort={prodsList} />
+            <EmptyBox />
           </div>
           <div id='pageNumBox'>
             <button>
