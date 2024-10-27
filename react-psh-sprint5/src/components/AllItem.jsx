@@ -1,8 +1,7 @@
-import '../css/body2.css';
 import getProductsList from '../api/getProductsList.jsx';
 import { useEffect, useState } from 'react';
 
-function Body2() {
+function AllItem() {
     const [products, setProducts] = useState([]);
     const [option, setOption] = useState('recent');
     const [tempSearch, setTempSearch] = useState("");
@@ -12,7 +11,7 @@ function Body2() {
     const [totalCount, setTotalCount] = useState(0);
 
     const totalPages = Math.ceil(totalCount / pageSize);
-    const startPage = Math.floor((page - 1) / 5) * 5 + 1;
+    const startPage = ~~((page - 1) / 5) * 5 + 1;
 
     const updateProducts = async () => {
         const axiosProducts = await getProductsList(page, search, option, pageSize);
@@ -21,23 +20,11 @@ function Body2() {
     };
 
     useEffect(() => {
-        if (page > 0) {
-            updateProducts();
-        }
-    }, [page, search, option, pageSize]);
-
-
-    useEffect(() => {
         const windowSize = () => {
             const width = window.innerWidth;
-            console.log(`현재 화면 너비: ${width}px`);
-            if (width >= 1230) {
-                setPageSize(10);
-            } else if (width >= 801 && width < 1230) {
-                setPageSize(6);
-            } else {
-                setPageSize(4);
-            }
+            if (width >= 1230) setPageSize(10);
+            if (width >= 801 && width < 1230) setPageSize(6);
+            if (width < 800) setPageSize(4);   
         };
 
         windowSize();
@@ -49,15 +36,11 @@ function Body2() {
     }, [pageSize]);
 
     useEffect(() => {
-        if (totalPages > 0 & page > totalPages) {
-            setPage(totalPages);
-        }
+        if (totalPages > 0 & page > totalPages) setPage(totalPages);
     }, [pageSize, totalPages]);
 
     useEffect(() => {
-        if (page > 0) {
-            updateProducts(page, search, option, pageSize);
-        }
+        if (page > 0) updateProducts(page, search, option, pageSize);
     }, [page, search, option, pageSize]);
 
     const filterProductsBySearch = () => {
@@ -96,11 +79,6 @@ function Body2() {
     const onClickPageMinus = () => {
         if (page > 1) setPage(page - 1);
     };
-
-    useEffect(() => {
-        console.log('page : ', { page });
-        console.log('totalcount : ', { totalCount });
-    }, [page, totalCount]);
 
     const filteredSearch = filterProductsBySearch();
 
@@ -165,7 +143,7 @@ function Body2() {
                     (products.map((product, index) => (
                         <div key={index} className='All-item-list-item'>
                             <div className='contain-img'>
-                                <img src={product.images[0]} alt={product.name} />
+                                <img src={product.images} alt={product.name} />
                             </div>
                             <div className='contain-text'>
                                 <div className='contain-text-product-des'>{product.name}</div>
@@ -250,4 +228,4 @@ function Body2() {
     );
 }
 
-export default Body2;
+export default AllItem;

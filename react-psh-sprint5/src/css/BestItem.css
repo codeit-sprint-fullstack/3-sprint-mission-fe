@@ -87,7 +87,7 @@
 
 .like-button:hover {
     cursor: pointer;
-    color: paleturquoise;
+    color: var(--color7);
     transition: 0.5s;
 }
 

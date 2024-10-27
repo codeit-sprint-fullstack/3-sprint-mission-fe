@@ -1,5 +1,4 @@
-import '../css/main.css';
-
+import '../css/Header.css';
 import PandaLogo from '../image/PandaLogo.png';
 
 function Header() {

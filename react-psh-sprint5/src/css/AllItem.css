@@ -41,7 +41,7 @@
     margin-left: 30px;
     gap: 10px;
     border-radius: 12px;
-    background-color: #F3F4F6;
+    background-color: var(--color1);
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 26px;
@@ -57,8 +57,8 @@
     font-weight: 600;
     line-height: 26px;
     text-align: center;
-    color: white;
-    background-color: #3692FF;
+    color: var(--white);
+    background-color: var(--color5);
     cursor: pointer;
 }
 
@@ -69,7 +69,7 @@
     font-size : 1.6rem;
     gap: 10px;
     border-radius: 12px;
-    background-color: #F3F4F6;
+    background-color: var(--color1);
     cursor: pointer;
 }
 
@@ -113,7 +113,7 @@
     position: relative;
     width: 50%;
     align-items: center;
-    background-color: #F3F4F6;
+    background-color: var(--color1);
     border-radius: 7px;
 }
 
@@ -132,6 +132,7 @@
 .none-product {
     width: 100%;
     height: 200px;
+    font-size : 1.6rem;
     padding-top: 100px;
     text-align: center;
 }
@@ -154,29 +155,29 @@
     height: 40px;
     gap: 12.5px;
     border-radius: 40px;
-    border: 1px solid #E5E7EB;
-    background-color: white;
+    border: 1px solid var(--color11);
+    background-color: var(--white);
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 26px;
 }
 
 .buttonNum:hover {
-    background-color: #2F80ED;
-    color: white;
+    background-color: var(--color12);
+    color: var(--white);
     cursor: pointer;
     transition: 0.5s;
 }
 
 .buttonNum.disabled {
-    color: #ccc;
+    color: var(--color11);
     cursor: not-allowed;
     pointer-events: none;
 }
 
 .buttonNum.active {
-    background-color: #2F80ED;
-    color: #ccc;
+    background-color: var(--color5);
+    color: var(--color11);
 }
 
 @media screen and (max-width: 1230px) {
