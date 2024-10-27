@@ -1,0 +1,6 @@
+footer {
+  display: flex;
+  position: relative;
+  background-color: #111827;
+  height: 180px;
+}
