@@ -1,0 +1,1 @@
+import './PretendardVariable.woff2';

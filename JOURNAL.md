@@ -59,3 +59,9 @@
 ### ➕ Deps(ky): add deps fetching library
 
 - 데이터 fetch를 위해 ky 라이브러리를 디펜던시에 추가
+
+## 2024-10-26
+
+### ✨ Feat(ky): Implment ky http client
+
+- 공통적으로 사용하기 위해 shared에 ky wrapper(apiClient)를 작성하였습니다

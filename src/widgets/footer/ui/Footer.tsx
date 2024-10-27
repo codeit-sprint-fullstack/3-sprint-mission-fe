@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className='flex w-screen justify-center bg-[#111827] text-[#e5e7eb]'>
       <nav
         id='fnb'
-        className='mb-[6.75rem] mt-8 flex w-max max-w-[95rem] items-center justify-between px-4'
+        className='mb-[6.75rem] mt-8 flex w-full max-w-[95rem] items-center justify-between px-4'
       >
         <div>
           <span className='text-[#9ca3af]'>©codeit - 2024</span>
