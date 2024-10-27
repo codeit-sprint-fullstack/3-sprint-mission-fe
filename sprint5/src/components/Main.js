@@ -19,6 +19,7 @@ function Main() {
   const [prodsListState, setProdsListState] = useState(false); // 필터 종류에 따라 버튼의 기능이 변함
   const [searchProdInput, setSearchProdInput] = useState(); // 상품 검색시 검색한 텍스트가 담김
   const [emptyBox, setEmptyBox] = useState(false); // 상품 검색 목록이 없을 때 나오는 메시지
+  const [filterSort, setFilterSort] = useState('최신순')
 
   // 화면이 켜지자마자 렌더링
   const loadHandle = async () => {
@@ -52,6 +53,7 @@ function Main() {
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
     recentSortHandle(); // 최근순 렌더링 작동
     setEmptyBox(false); // EmptyBox(상품 없을 때) 사라지게 함.
+    setFilterSort('최신순') // 필터 메뉴 텍스트 바뀜.
   }
 
   // 좋아요순 렌더링
@@ -65,6 +67,7 @@ function Main() {
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
     favoriteSortHandle() // 좋아요순 렌더링 작동
     setEmptyBox(false); // EmptyBox(상품 없을 때) 사라지게 함.
+    setFilterSort('좋아요순') // 필터 메뉴 텍스트 바뀜.
   }
 
   // 상품 검색
@@ -182,7 +185,7 @@ function Main() {
             <div id='formContain'>
               <input id='serchInput' type='text' placeholder='검색할 상품을 입력해주세요' onKeyDown={searchprodInput}></input>
               <button id='addProdButton'>상품 등록하기</button>
-              <button onClick={filterHideHandle} className='filterMenu'>최신순
+              <button onClick={filterHideHandle} className='filterMenu'>{filterSort}
                 <img src={arrowImg} id='arrowImg' />
               </button>
             </div>
