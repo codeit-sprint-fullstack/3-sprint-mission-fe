@@ -13,6 +13,8 @@
     --color9: #374151;
     --color10: #111827;
     --color11: #E5E7EB;
+    --color12 : #2F80ED;
+    --color13 : #DFDFDF;
 }
 
 html {
@@ -23,7 +25,7 @@ html {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 40px;
+    font-size: 10px;
     font: inherit;
     font-family: 'Pretendard';
     box-sizing: border-box;

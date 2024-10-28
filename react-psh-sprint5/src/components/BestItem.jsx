@@ -1,10 +1,7 @@
-import '../css/body.css';
 import getProductsList from '../api/getProductsList.jsx';
-
 import { useEffect, useState } from 'react';
 
-
-function Body1() {
+function BestItem() {
     const [products, setProducts] = useState([]);
 
     const updateProducts = async () => {
@@ -36,7 +33,7 @@ function Body1() {
                                     </span>
                                 </a>
                                 <div className='contain-text-like-fs'>
-                                    {products[0].favoriteCount}
+                                    {product.favoriteCount}
                                 </div>
                             </div>
                         </div>
@@ -45,8 +42,7 @@ function Body1() {
                 )}
             </div>
         </div>
-
     );
 }
 
-export default Body1;
+export default BestItem;

@@ -67,14 +67,12 @@ footer {
     width: 29px;
     height: 19px;
     font-size: 1.6rem;
-    font-weight: 400;
+    font-weight: 400; 
     line-height: 19.09px;
     text-align: center;
     color: var(--color11);
     cursor: pointer;
 }
-
-/* footer 끝 */
 
 @media screen and (max-width: 1230px) {
     .footer-box {
@@ -82,5 +80,3 @@ footer {
         margin-right: 16px;
     }
 }
-
-@media screen and (max-width: 744px) {}

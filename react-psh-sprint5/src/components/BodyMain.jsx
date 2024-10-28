@@ -1,6 +1,7 @@
 import BestItem from "./BestItem";
 import AllItem from "./AllItem";
-import '../css/body.css';
+import '../css/BestItem.css';
+import '../css/AllItem.css';
 
 function BodyMain() {
     return (

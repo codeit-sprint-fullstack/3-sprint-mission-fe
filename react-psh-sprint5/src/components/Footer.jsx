@@ -4,8 +4,6 @@ import twitter from '../icon/twitter-logo.svg';
 import instagram from '../icon/instagram-logo.svg';
 import youtube from '../icon/youtube-logo.svg';
 
-
-
 function Footer() {
     return (
         <div>
