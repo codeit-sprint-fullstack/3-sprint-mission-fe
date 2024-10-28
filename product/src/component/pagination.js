@@ -5,12 +5,12 @@ import './pagination.css';
 function Pagination({
     currentPage,
     totalPages,
-    pages,
+    pagesCount,
     onPageChange,
     onPrevPage,
     onNextPage,
 }) {
-    const startPage = pages * 5 +1;
+    const startPage = pagesCount * 5 +1;
     const endPage = Math.min(startPage+4, totalPages);
 
     const pages=[];
@@ -20,7 +20,7 @@ function Pagination({
 
     return (
         <div className="pagination">
-            <button onClick={onPrevPage} disabled={pages === 0}>
+            <button onClick={onPrevPage} disabled={pagesCount === 0}>
                 &lt;
             </button>
             {pages.map((page) => {
@@ -28,7 +28,7 @@ function Pagination({
                     {page}
                 </button>
             })}
-            <button onClick={onNextPage} disabled={(pages + 1 ) * 5 >=totalPages}>
+            <button onClick={onNextPage} disabled={(pagesCount + 1 ) * 5 >=totalPages}>
                 &gt;
             </button>
         </div>
