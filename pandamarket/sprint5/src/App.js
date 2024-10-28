@@ -14,6 +14,7 @@ function App() {
   const [sortedItems, setSortedItems] = useState([]);
   const [sortedPageSize, setSortedPageSize] = useState(10);
   const [favoritePageSize, setFavoritePageSize] = useState(4);
+  const [searchItem, setSearchItem] = useState('');
 
   const loadFavorite = async () => {
     let pageSize;
@@ -24,7 +25,7 @@ function App() {
 
     setFavoritePageSize(pageSize);
 
-    const response = await getProduct(1, pageSize, 'favorite');
+    const response = await getProduct(1, favoritePageSize, 'favorite');
     setFavoriteItems(response.list);
   }
 
@@ -37,8 +38,12 @@ function App() {
 
     setSortedPageSize(pageSize);
 
-    const response = await getProduct(1, pageSize, sort);
+    const response = await getProduct(1, sortedPageSize, sort, searchItem);
     setSortedItems(response.list);
+  }
+
+  const handleSearch = (e) => {
+    setSearchItem(e.target.value);
   }
 
   useEffect(() => {
@@ -50,14 +55,14 @@ function App() {
     loadFavorite();
     loadSorted();
 
-  }, [screenWidth, sort]);
+  }, [screenWidth, sort, searchItem]);
 
   return (
     <div className="app__container">
       <Header/>
       <main className="main__container">
         <ProductList items={favoriteItems} label='베스트 상품' />
-        <ProductList items={sortedItems} label='판매 중인 상품' setSort={setSort}/>
+        <ProductList items={sortedItems} label='판매 중인 상품' setSort={setSort} onSearch={handleSearch} />
       </main>
       <Footer/>
     </div> 

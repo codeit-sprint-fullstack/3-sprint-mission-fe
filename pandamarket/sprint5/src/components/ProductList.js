@@ -1,6 +1,8 @@
 
 import '../style/productlist.css';
 import likeIcon from '../img/LikeIcon.png';
+import { useState } from 'react';
+
 
 function ProductItem({ item , label }) {
   const {id, name, description, price, images, favoriteCount, createdAt, updatedAt} = item;
@@ -18,9 +20,7 @@ function ProductItem({ item , label }) {
   );
 }
 
-
-
-function ProductList({ items, label, setSort }) {
+function ProductList({ items, label, setSort, onSearch }) {
   const handleSortChange = (e) => {
     setSort(e.target.value);
   }
@@ -31,7 +31,7 @@ function ProductList({ items, label, setSort }) {
         : (<div className='sortedProductList__label__box'>
             <p className='productList__label'>{label}</p>
             <div>
-              <input type='search' placeholder='검색할 상품을 입력해주세요'/>
+              <input type='search' placeholder='검색할 상품을 입력해주세요' onChange={onSearch} />
               <button type='button'>상품 등록하기</button>
               <select className='sortedSelect' onChange={handleSortChange}>
                 <option value="recent">최신순</option>
