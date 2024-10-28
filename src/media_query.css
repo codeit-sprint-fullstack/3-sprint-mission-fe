@@ -1,0 +1,21 @@
+/* 스프린트 미션4 까지 사용했던 미디어 쿼리 기준
+미션5에 미디어 쿼리 적용을 아직완성하지 못하고 파일만 만들어 둠 */
+
+/* PC 스타일: 1200px 이상 */
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+@media (min-width: 744px) and (max-width: 1199px) {
+}
+
+/* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+@media (min-width: 375px) and (max-width: 743px) {
+}
+
+@media (max-width: 500px) {
+}
+
+/* 375px 미만에 대한 스타일은 고려하지 않음 */
+@media (max-width: 374px) {
+}

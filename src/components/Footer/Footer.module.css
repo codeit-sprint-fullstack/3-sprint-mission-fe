@@ -1,0 +1,41 @@
+.footer {
+  height: 160px;
+  background-color: #111827;
+  padding-top: 32px;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer_box {
+  padding: 0 200px;
+  height: 20px;
+  margin: 0 auto;
+  line-height: 19.09px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.copy {
+  color: #9CA3AF;
+}
+
+.info {
+  width: 145px;
+  color: #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info > span {
+  cursor: pointer;
+}
+
+.sns {
+  width: 93px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sns > span {
+  cursor: pointer;
+}
