@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
-import { Flex, IconButton, Container, Text } from '@radix-ui/themes';
+import { Flex, IconButton, Container } from '@radix-ui/themes';
 import { css } from '@emotion/react';
 
 function Pagination() {
@@ -8,7 +8,7 @@ function Pagination() {
 
   return (
     <Container>
-      <Flex gap="1">
+      <Flex gap="1" justify="center">
         <IconButton
           color="gray"
           variant="outline"

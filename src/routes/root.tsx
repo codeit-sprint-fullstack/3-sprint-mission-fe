@@ -1,14 +1,15 @@
-import { Box, Container, Grid, Heading } from '@radix-ui/themes';
+import { Container, Grid, Heading, Section } from '@radix-ui/themes';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Pagination from '../components/Pagination';
+import ItemCard from '../components/ItemCard';
 
 export default function Root() {
   return (
     <main>
       <Header />
       <Container>
-        <Box>
+        <Section>
           <Heading>베스트 상품</Heading>
           <Grid
             columns={{ initial: '1', sm: '2', md: '4' }}
@@ -17,13 +18,12 @@ export default function Root() {
             rows="repeat(1, 1fr)"
             overflow={'hidden'}
           >
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
+            {Array.from({ length: 4 }).map((_, i) => (
+              <ItemCard key={i} />
+            ))}
           </Grid>
-        </Box>
-        <Box>
+        </Section>
+        <Section>
           <Heading>판매 중인 상품</Heading>
           <Grid
             columns={{ initial: '2', sm: '3', md: '5' }}
@@ -32,14 +32,14 @@ export default function Root() {
             rows="repeat(1, 1fr)"
             overflow={'hidden'}
           >
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <ItemCard key={i} />
+            ))}
           </Grid>
-          <Pagination />
-        </Box>
+          <Section>
+            <Pagination />
+          </Section>
+        </Section>
       </Container>
       <Footer />
     </main>

@@ -5,7 +5,6 @@ import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/root.tsx';
 import ErrorPage from './error-page';
-
 import './index.css';
 
 const router = createBrowserRouter([
@@ -16,10 +15,16 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Theme accentColor="blue">
-      <RouterProvider router={router} />
-    </Theme>
-  </React.StrictMode>,
-);
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+      <Theme accentColor="blue">
+        <RouterProvider router={router} />
+      </Theme>
+    </React.StrictMode>,
+  );
+} else {
+  console.error('No root element found');
+}
