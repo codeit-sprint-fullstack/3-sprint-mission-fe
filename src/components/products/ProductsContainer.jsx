@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { getProductList } from "../../apis/ProductService";
 import Product from "./Product";
 import Button from "../common/Button";
-import { useRecoilState } from "recoil";
-import productSortingState from "../../recoil/atoms/ProductSortingState";
+import { useAtom } from "jotai";
+import productSortByState from "../../jotai/atoms/productSortByState";
 import { PRODUCT_SORTING } from "../../constants/options";
 import PageIndex from "../common/PageIndex";
 import PropTypes from "prop-types";
@@ -77,7 +77,7 @@ const ProductsContainerComponent = styled.div`
 `;
 
 function ProductsContainer({ screenWidth }) {
-  const [productSorting, setProductSorting] = useRecoilState(productSortingState);
+  const [productSorting, setProductSorting] = useAtom(productSortByState);
   const options = ["최신순", "좋아요순"];
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

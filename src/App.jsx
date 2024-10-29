@@ -1,16 +1,16 @@
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./theme";
 import Root from "./Root";
-import { RecoilRoot } from "recoil";
+import { Provider } from "jotai";
 
 function App() {
   return (
     <>
-      <RecoilRoot>
+      <Provider>
         <ThemeProvider theme={defaultTheme}>
           <Root />
         </ThemeProvider>
-      </RecoilRoot>
+      </Provider>
     </>
   );
 }
