@@ -1,0 +1,64 @@
+.card {
+  width: 261px;
+  height: 370px;
+}
+
+.image {
+  width: 261px;
+  height: 261px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.details {
+}
+
+.name {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 4.1rem;
+  font-family: Pretendard;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.likeIcon {
+  width: 13.4px;
+  height: 12px;
+  position: relative;
+  top: 1.5px;
+}
+
+.likes > span {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+/* ------------------------ */
+
+.card.small {
+  width: 215px;
+  height: 311px;
+  margin-bottom: 40px;
+}
+
+.card.small > .image {
+  width: 215px;
+  height: 215px;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.card.small .price {
+  line-height: 3.7rem;
+}

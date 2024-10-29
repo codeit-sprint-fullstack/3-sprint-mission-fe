@@ -1,0 +1,79 @@
+.main {
+  padding: 26px 200px;
+  color: #111827;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1118px;
+}
+
+.bestItem {
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.onSales {
+  margin-top: 40px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.toolBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.search {
+  width: 310px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  border: none;
+  font-weight: 400;
+  font-size: 1.6rem;
+  padding: 0 39px 0 13px;
+}
+
+.searchLogo {
+  width: 15px;
+  height: 14.5px;
+  position: absolute;
+  right: 13px;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+.regist {
+  width: 133px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 600;
+  color: #f3f4f6;
+  background-color: #3692ff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.select {
+  width: 130px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 1.6rem;
+}

@@ -1,0 +1,69 @@
+.nav {
+  height: 70px;
+  background: #fff;
+  padding: 0 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.logo {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoImg {
+  width: 40px;
+  position: relative;
+  margin-right: 8px;
+}
+
+.logoTitle {
+  width: 103px;
+  font-family: rokaf;
+  font-weight: 700;
+  font-size: 2.56rem;
+  color: #3692ff;
+  display: inline-block;
+}
+
+.ul {
+  list-style: none;
+  width: 73%;
+  text-align: left;
+  padding: 0;
+}
+
+.li {
+  display: inline-block;
+  text-align: center;
+  width: 114px;
+  height: 68px;
+  line-height: 68px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4b5563;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.li:hover {
+  background-color: #f8f8f8;
+}
+
+.login {
+  width: 128px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 600;
+  color: #f3f4f6;
+  background-color: #3692ff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}

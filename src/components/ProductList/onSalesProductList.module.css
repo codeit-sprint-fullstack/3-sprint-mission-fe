@@ -1,0 +1,23 @@
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* .productList > div {
+  width: 221px;
+  height: 317px;
+  border: 1px solid red;
+}
+
+.productList > div > img {
+  width: 221px;
+  height: 221px;
+} */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
