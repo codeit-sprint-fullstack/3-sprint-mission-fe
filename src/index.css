@@ -1,21 +1,26 @@
-.radix-themes {
-  --primary-blue-100: #3692FF;
-  --primary-blue-200: #1967D6;
-  --primary-blue-300: #1251AA;
-  --primary-blue-surface: #2F80ED;
-
+:root {
+  scroll-behavior: smooth;
+  body {
+    all: unset
+  }
+}
+.radix-themes[data-accent-color='blue'] {
+  --primary-blue-100: #3692ff;
+  --primary-blue-200: #1967d6;
+  --primary-blue-300: #1251aa;
+  --primary-blue-surface: #2f80ed;
   --secondary-gray-900: #111827;
-  --secondary-gray-800: #1F2937;
+  --secondary-gray-800: #1f2937;
   --secondary-gray-700: #374151;
-  --secondary-gray-600: #4B5563;
-  --secondary-gray-500: #6B7280;
-  --secondary-gray-400: #9CA3AF;
-  --secondary-gray-200: #E5E7EB;
-  --secondary-gray-100: #F3F4F6;
-  --secondary-gray-50: #F9FAFB;
+  --secondary-gray-600: #4b5563;
+  --secondary-gray-500: #6b7280;
+  --secondary-gray-400: #9ca3af;
+  --secondary-gray-200: #e5e7eb;
+  --secondary-gray-100: #f3f4f6;
+  --secondary-gray-50: #f9fafb;
+  --gray-a11: var(--secondary-gray-600);
+  --blue-9: var(--primary-blue-100);
 
-  --accent-9: var(--primary-blue-100);
   --accent-10: var(--primary-blue-200);
   --accent-11: var(--primary-blue-300);
-
 }
