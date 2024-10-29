@@ -45,7 +45,7 @@ function BestProductContainer({ screenWidth }) {
         setLoading(false);
       }
     };
-    fetchBestProductsList();
+    pageSize && fetchBestProductsList();
   }, [pageSize]);
 
   return (

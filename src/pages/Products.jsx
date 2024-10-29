@@ -43,7 +43,7 @@ function Products() {
   const screenWidth = useMemo(() => {
     if (smallMediaQuery) return MEDIA_QUERY.value.small;
     if (mediumMediaQuery) return MEDIA_QUERY.value.medium;
-    if (largeMediaQuery) return MEDIA_QUERY.value.medium;
+    if (largeMediaQuery) return MEDIA_QUERY.value.large;
   }, [largeMediaQuery, mediumMediaQuery, smallMediaQuery]);
 
   return (
