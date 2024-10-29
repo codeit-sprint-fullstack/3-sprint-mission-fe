@@ -1,7 +1,5 @@
-import React from 'react';
-
-function Serach() {
-  return <div>Serach</div>;
+function Search() {
+  return <div>Search</div>;
 }
 
-export default Serach;
+export default Search;
