@@ -3,6 +3,7 @@ import Button from "./Button";
 import PropTypes from "prop-types";
 import logo from "../../../public/images/common/logo.png";
 import mobileLogo from "../../../public/images/common/mobileLogo.png";
+import { MEDIA_QUERY } from "../../constants/mediaQuery";
 
 const NavComponent = styled.nav`
   width: 100%;
@@ -51,7 +52,7 @@ function Nav({ screenWidth, children }) {
     <NavComponent>
       <NavContainer>
         <LogoContainer>
-          {screenWidth > 743 ? <img src={logo} /> : <img src={mobileLogo} />}
+          {screenWidth === MEDIA_QUERY.value.small ? <img src={mobileLogo} /> : <img src={logo} />}
           {children}
         </LogoContainer>
         <Button>로그인</Button>
@@ -63,6 +64,6 @@ function Nav({ screenWidth, children }) {
 export default Nav;
 
 Nav.propTypes = {
-  screenWidth: PropTypes.number,
+  screenWidth: PropTypes.string,
   children: PropTypes.node,
 };

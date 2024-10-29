@@ -3,20 +3,21 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import formatter from "../../utils/formatter";
 import PropTypes from "prop-types";
+import PROP_VALUES from "../../constants/propValues";
 
 const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
+  width: ${(props) => (props.$size === PROP_VALUES.product.big ? "28.2rem" : "22.1rem")};
   ${(props) => props.theme.media.small} {
-    width: ${(props) => (props.$best ? "28.2rem" : "16.8rem")};
+    width: ${(props) => (props.$size === PROP_VALUES.product.big ? "28.2rem" : "16.8rem")};
   }
 `;
 
 const ImageContainer = styled.div`
   border-radius: 1.6rem;
   width: 100%;
-  height: ${(props) => (props.$best ? "28.2rem" : "22.1rem")};
+  height: ${(props) => (props.$size === PROP_VALUES.product.big ? "28.2rem" : "22.1rem")};
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -25,7 +26,7 @@ const ImageContainer = styled.div`
     width: 100%;
   }
   ${(props) => props.theme.media.small} {
-    height: ${(props) => (props.$best ? "28.2rem" : "16.8rem")};
+    height: ${(props) => (props.$size === PROP_VALUES.product.big ? "28.2rem" : "16.8rem")};
   }
 `;
 
@@ -58,11 +59,11 @@ const TextContainer = styled.div`
   }
 `;
 
-function Product({ title, price, likes, image, best = false }) {
+function Product({ title, price, likes, image, size = PROP_VALUES.product.small }) {
   return (
     <>
-      <ProductContainer $best={best}>
-        <ImageContainer $best={best}>
+      <ProductContainer $size={size}>
+        <ImageContainer $size={size}>
           <img src={image} alt={title} />
         </ImageContainer>
         <TextContainer>
@@ -83,7 +84,7 @@ Product.propTypes = {
   price: PropTypes.number,
   likes: PropTypes.number,
   image: PropTypes.string,
-  best: PropTypes.bool,
+  size: PropTypes.oneOf([PROP_VALUES.product.small, PROP_VALUES.product.big]),
 };
 
 export default Product;

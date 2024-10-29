@@ -3,6 +3,7 @@ import Product from "./Product";
 import { useEffect, useMemo, useState } from "react";
 import { getProductList } from "../../apis/ProductService";
 import PropTypes from "prop-types";
+import { MEDIA_QUERY } from "../../constants/mediaQuery";
 
 const BestProductSection = styled.section`
   width: 100%;
@@ -29,11 +30,7 @@ function BestProductContainer({ screenWidth }) {
   const [bestProducts, setBestProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const pageSize = useMemo(() => {
-    if (screenWidth > 1199) return 4;
-    if (screenWidth > 744) return 2;
-    return 1;
-  }, [screenWidth]);
+  const pageSize = useMemo(() => MEDIA_QUERY.bestProductsPageSize[screenWidth], [screenWidth]);
 
   useEffect(() => {
     const fetchBestProductsList = async () => {
@@ -80,5 +77,5 @@ function BestProductContainer({ screenWidth }) {
 export default BestProductContainer;
 
 BestProductContainer.propTypes = {
-  screenWidth: PropTypes.number,
+  screenWidth: PropTypes.string,
 };

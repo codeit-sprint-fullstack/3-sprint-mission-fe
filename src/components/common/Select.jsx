@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import DropDown from "../../../public/icons/DropDown.png";
+import { MEDIA_QUERY } from "../../constants/mediaQuery";
 
 const SelectContainer = styled.div`
   position: relative;
@@ -75,15 +76,15 @@ function Select({ selectedOption, setOption, options, screenWidth }) {
 
   return (
     <SelectContainer>
-      {screenWidth > 744 ? (
+      {screenWidth === MEDIA_QUERY.value.small ? (
+        <DropdownButtonContainer onClick={() => setIsOpen(!isOpen)}>
+          <img src={DropDown} />
+        </DropdownButtonContainer>
+      ) : (
         <SelectButton onClick={() => setIsOpen(!isOpen)}>
           {selectedOption}
           <FontAwesomeIcon icon={faCaretDown} />
         </SelectButton>
-      ) : (
-        <DropdownButtonContainer onClick={() => setIsOpen(!isOpen)}>
-          <img src={DropDown} />
-        </DropdownButtonContainer>
       )}
       <OptionContainer $isOpen={isOpen}>
         {options.map((option) => (
@@ -100,7 +101,7 @@ Select.propTypes = {
   selectedOption: PropTypes.string,
   setOption: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.string),
-  screenWidth: PropTypes.number,
+  screenWidth: PropTypes.string,
 };
 
 export default Select;

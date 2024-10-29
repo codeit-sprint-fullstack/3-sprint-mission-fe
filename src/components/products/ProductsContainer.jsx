@@ -11,6 +11,7 @@ import PageIndex from "../common/PageIndex";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { MEDIA_QUERY } from "../../constants/mediaQuery";
 
 const Input = styled.input`
   padding: 0.9rem 2rem 0.9rem 3.5rem;
@@ -86,11 +87,7 @@ function ProductsContainer({ screenWidth }) {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [page, setPage] = useState(1);
 
-  const pageSize = useMemo(() => {
-    if (screenWidth > 1199) return 10;
-    if (screenWidth > 744) return 6;
-    return 4;
-  }, [screenWidth]);
+  const pageSize = useMemo(() => MEDIA_QUERY.productsPageSize[screenWidth], [screenWidth]);
 
   useEffect(() => {
     const fetchProductsList = async () => {
@@ -164,5 +161,5 @@ function ProductsContainer({ screenWidth }) {
 export default ProductsContainer;
 
 ProductsContainer.propTypes = {
-  screenWidth: PropTypes.number,
+  screenWidth: PropTypes.string,
 };
