@@ -9,11 +9,15 @@ const BestProductList = () => {
 
   // 화면 크기에 따른 열 개수 및 pageSize 설정
   const isDesktop = useMediaQuery('(min-width:1200px)');
-  const isTablet = useMediaQuery('(min-width:768px) and (max-width:1199px)');
-  const isMobile = useMediaQuery('(max-width:767px)');
+  const isTablet = useMediaQuery('(min-width:744px) and (max-width:1199.98px)');
+  const isMobile = useMediaQuery('(max-width:743px)');
 
   const columns = isDesktop ? 4 : isTablet ? 2 : 1;
   const pageSize = columns; // 화면 크기에 맞춰 pageSize를 columns와 동일하게 설정
+
+  console.log('Desktop:', isDesktop);
+  console.log('Tablet:', isTablet);
+  console.log('Mobile:', isMobile);
 
   useEffect(() => {
     // API에서 데이터 가져오기 - pageSize를 동적으로 전달
