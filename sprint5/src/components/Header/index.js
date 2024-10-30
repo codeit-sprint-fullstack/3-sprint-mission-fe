@@ -4,7 +4,7 @@ import pandaLogoImg from '../../img/panda-market-logo.png';
 function Header() {
   return (
     <header>
-      <nav>
+      <nav className='nav'>
         <div id='navContent'>
           <a id='logoImg' href='./'>
             <img src={pandaLogoImg} alt='pandaMarketLogo' />

@@ -6,7 +6,7 @@ html {
   font-size: 10px;
 }
 
-nav {
+.nav {
   position: sticky;
   height: 7rem;
   width: 100%;
