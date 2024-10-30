@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import getProducts from "../../api/api.js";
 import './index.css';
+// images
 import arrowImg from "../../img/icons/menu.png";
 import leftArrow from "../../img/icons/left.png";
 import rightArrow from "../../img/icons/right.png";
+// 
+import getProducts from "../../api/api.js";
 import BestProds from "../../components/BestProds/index.js";
 import Prods from "../../components/Prods/index.js";
+import EmptyBox from "./EmptyBox/index.js";
 
 const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';
 const LIKE_PRODS_LIST = 'page=1&pageSize=10&orderBy=favorite';
@@ -89,38 +92,38 @@ function Main() {
     searchProdHandle(e.key)
   }
 
-  const EmptyBox = () => {
+  // const EmptyBox = () => {
 
-    if (emptyBox) {
-      return (
-        <div id='emptyPrdsBox'>
-          <div className="emptyContentBox">
-            검색하신 상품이 없습니다.
-          </div>
-        </div>
-      )
-    }
+    // if (emptyBox) {
+  //     return (
+  //       <div id='emptyPrdsBox'>
+  //         <div className="emptyContentBox">
+  //           검색하신 상품이 없습니다.
+  //         </div>
+  //       </div>
+  //     )
+  //   }
 
-    return (
-      <div className="none">
-        <div className="emptyContentBox">
-          검색하신 상품이 없습니다.
-        </div>
-      </div>
-    )
-  }
+  //   return (
+  //     <div className="none">
+  //       <div className="emptyContentBox">
+  //         검색하신 상품이 없습니다.
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   // 필터 종류에 따른 페이지 버튼 핸들러
   const PageButton = () => {
     if (prodsListState) {
       return <PageButtonlike />
     } else {
-      return <PageButtonNew />
+      return <PageButtonRecent />
     }
   }
 
   // 페이지네이션 버튼 RECENT
-  const PageButtonNew = () => {
+  const PageButtonRecent = () => {
 
     const pageNationHndle = async (e) => {
       const query = `page=${e.target.textContent}&pageSize=10`
@@ -192,7 +195,7 @@ function Main() {
           </div>
           <div id='componentBox'>
             <ProductSort sort={prodsList} />
-            <EmptyBox />
+            <EmptyBox run={emptyBox} />
           </div>
           <div id='pageNumBox'>
             <button>
