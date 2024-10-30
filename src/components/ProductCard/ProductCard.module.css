@@ -1,14 +1,30 @@
+/* PC 스타일: 1200px 이상 */
 @media (min-width: 1200px) {
-  .card {
-    --card-width: 261px; /* 데스크탑 크기 */
+  :root {
+    --card-width: 261px;
     --card-height: 370px;
+    --card-small-width: 215px;
+    --card-small-height: 311px;
   }
 }
 
-@media (min-width: 375px) and (max-width: 1199.98px) {
-  .card {
-    --card-width: 343px; /* 태블릿 & 모바일 크기 */
+/* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+@media (min-width: 744px) and (max-width: 1199.98px) {
+  :root {
+    --card-width: 343px;
     --card-height: 434px;
+    --card-small-width: 215px;
+    --card-small-height: 311px;
+  }
+}
+
+/* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+@media (min-width: 375px) and (max-width: 743.98px) {
+  :root {
+    --card-width: 343px;
+    --card-height: 434px;
+    --card-small-width: 168px;
+    --card-small-height: 264px;
   }
 }
 
@@ -22,7 +38,33 @@
   height: var(--card-width);
   object-fit: cover;
   margin-bottom: 16px;
+  border-radius: 16px;
 }
+
+/* ------------------------ */
+
+.card.small {
+  width: var(--card-small-width);
+  height: var(--card-small-height);
+  margin-bottom: 40px;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    margin-bottom: 32px;
+  }
+}
+
+.card.small > .image {
+  width: var(--card-small-width);
+  height: var(--card-small-width);
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.card.small .price {
+  line-height: 3.7rem;
+}
+
+/* ------------------------ */
 
 .name {
   font-size: 1.4rem;
@@ -71,23 +113,4 @@
 .likes > span {
   font-weight: 500;
   font-size: 1.2rem;
-}
-
-/* ------------------------ */
-
-.card.small {
-  width: 215px;
-  height: 311px;
-  margin-bottom: 40px;
-}
-
-.card.small > .image {
-  width: 215px;
-  height: 215px;
-  object-fit: cover;
-  margin-bottom: 14px;
-}
-
-.card.small .price {
-  line-height: 3.7rem;
 }
