@@ -1,11 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>items</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./css/_reset.css" />
+    <style>
+      #apiContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      #apiContainer > div {
+        padding: 10px;
+      }
+      #apiContainer h2 {
+        font-size: 25px;
+        padding: 5px 15px;
+        border-radius: 8px;
+        background-color: #222;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      #apiContainer button {
+        margin-right: 15px;
+        margin-bottom: 15px;
+        padding: 5px 15px;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 10px;
+        border: 0;
+        transition: 0.5s;
+      }
+      #apiContainer button:hover {
+        background: #000;
+        transform: scale(1.1);
+        color: #fff;
+      }
+      #apiContainer #insertBox {
+        margin-left: 100px;
+        width: 400px;
+      }
+      #apiContainer #insertBox h2 {
+        padding: 5px 15px;
+        background-color: #000;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      #apiContainer #insertBox div {
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      #apiContainer #insertBox label {
+        display: block;
+        width: 40%;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      #apiContainer #insertBox input {
+        width: 60%;
+        padding: 2px 8px;
+        font-size: 18px;
+      }
+      #apiContainer #insertBox .submit {
+        display: block;
+        margin: 20px 0;
+        margin-left: auto;
+      }
+      #apiContainer #resultBox {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      #apiContainer #resultBox .dataBox,
+      .dataBoxRed {
+        width: 19%;
+        margin: 0.5%;
+        border: 1px solid #a1a1a1;
+        max-width: 20%;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 22px;
+        font-weight: 500;
+        color: green;
+      }
+      #apiContainer #resultBox .dataBoxRed {
+        color: red;
+      }
+      #apiContainer #resultBox .dataBox p {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      #apiContainer #resultBox .dataBox .imgBox {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      #apiContainer #resultBox .dataBox .imgBox img {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+      }
+      #apiContainer #resultBox .dataBox .tagBox {
+        display: flex;
+      }
+      #apiContainer #resultBox .dataBox .tagBox .tag {
+        background-color: #a1a1a1;
+        color: #fff;
+        padding: 0 4px;
+        border-radius: 5px;
+        margin-right: 4px;
+      }
+      #apiContainer #resultBox .resultTitle {
+        width: 100%;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="apiContainer" class="container">
+      <div id="methodBtn">
+        <div class="articles">
+          <h2>article</h2>
+          <div class="btnArea"></div>
+        </div>
+        <div class="products">
+          <h2>products</h2>
+          <div class="btnArea"></div>
+        </div>
+      </div>
+      <div id="insertBox"></div>
+      <div id="resultBox"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>

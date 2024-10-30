@@ -1,3 +1,5 @@
+import { addEl } from "./lib.mjs";
+
 const USER_DATA = [
   { email: "codeit1@codeit.com", password: "codeit101!" },
   { email: "codeit2@codeit.com", password: "codeit202!" },
@@ -7,21 +9,6 @@ const USER_DATA = [
   { email: "codeit6@codeit.com", password: "codeit606!" },
   { email: "test@test.com", password: "test1234!" },
 ];
-
-const addEl = (
-  props = {
-    el: "div",
-    className: "",
-    text: "",
-    append: null,
-  }
-) => {
-  const newEl = document.createElement(props.el);
-  if (!!props.className) newEl.classList.add(props.className);
-  if (!!props.text) newEl.innerHTML = props.text;
-  if (!!props.append) props.append.appendChild(newEl);
-  return newEl;
-};
 
 const modal = (text, event) => {
   const modalCover = addEl({
