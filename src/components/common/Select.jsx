@@ -67,7 +67,7 @@ const Option = styled.div`
   }
 `;
 
-function Select({ selectedOption, setOption, options, screenWidth }) {
+function Select({ selectedOption, setOption, optionsString, optionsValue, screenWidth }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleSelect = (option) => {
     setOption(option);
@@ -87,8 +87,8 @@ function Select({ selectedOption, setOption, options, screenWidth }) {
         </SelectButton>
       )}
       <OptionContainer $isOpen={isOpen}>
-        {options.map((option) => (
-          <Option key={option} onClick={() => handleSelect(option)}>
+        {optionsString.map((option, index) => (
+          <Option key={option} onClick={() => handleSelect(optionsValue[index])}>
             {option}
           </Option>
         ))}
@@ -100,7 +100,8 @@ function Select({ selectedOption, setOption, options, screenWidth }) {
 Select.propTypes = {
   selectedOption: PropTypes.string,
   setOption: PropTypes.func,
-  options: PropTypes.arrayOf(PropTypes.string),
+  optionsString: PropTypes.arrayOf(PropTypes.string),
+  optionsValue: PropTypes.arrayOf(PropTypes.string),
   screenWidth: PropTypes.string,
 };
 
