@@ -4,7 +4,7 @@ import './Main.css';
 import arrowImg from "../img/icons/menu.png";
 import leftArrow from "../img/icons/left.png";
 import rightArrow from "../img/icons/right.png";
-import BestProdsList from "./BestProdsList.js";
+import BestProds from "./BestProds/index.js";
 import ProdsList from "./ProdsList.js";
 
 const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';
@@ -170,7 +170,7 @@ function Main() {
         <section id='bestProdsList'>
           {
             bestProds.map((prod) => {
-              return <BestProdsList price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
+              return <BestProds price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
             })
           }
         </section>
@@ -186,7 +186,7 @@ function Main() {
               <input id='serchInput' type='text' placeholder='검색할 상품을 입력해주세요' onKeyDown={searchprodInput}></input>
               <button id='addProdButton'>상품 등록하기</button>
               <button onClick={filterHideHandle} className='filterMenu'>{filterSort}
-                <img src={arrowImg} id='arrowImg' />
+                <img src={arrowImg} id='arrowImg' alt="arrow" />
               </button>
             </div>
           </div>
@@ -196,11 +196,11 @@ function Main() {
           </div>
           <div id='pageNumBox'>
             <button>
-              <img src={leftArrow} />
+              <img src={leftArrow} alt="left arrow" />
             </button>
             <PageButton />
             <button style={{ marginRight: '0' }}>
-              <img src={rightArrow} style={{ left: '0.1rem' }} />
+              <img src={rightArrow} style={{ left: '0.1rem' }} alt="right arrow" />
             </button>
           </div>
         </section>
