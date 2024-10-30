@@ -1,18 +1,21 @@
-import './css/reset.css';
-import './App.css'
-import Header from './components/Header'
-import BodyMain from './components/BodyMain'
-import Footer from './components/Footer'
-
-
+import Sprint5 from "./components/Sprint5"
+import RendingPage from "./components/RendingPage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Item from "./features/item/Items";
+import Registration from "./features/registration/component/Registration";
+import ProductDetails from "./features/productdetails/components/ProductDetails";
 
 function App() {
   return (
-    <div className='APP'>
-      <Header />
-      <BodyMain />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RendingPage />} />
+        <Route path="/sprint5" element={<Sprint5 />} />
+        <Route path="/items" element={<Item />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/ProductDetails" element={<ProductDetails />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

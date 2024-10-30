@@ -1,0 +1,12 @@
+POST http://localhost:8000/items
+Content-Type: application/json
+
+{
+    "name" : "갤럭시27",
+    "description" : "갤럭시27 사전예약",
+    "price" : 3000000,
+    "tags": ["갤럭시", "사전예약"]
+}
+
+###
+GET http://localhost:8000/items
