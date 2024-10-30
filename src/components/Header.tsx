@@ -1,4 +1,4 @@
-import { Section, Container, Button, Flex, Link } from '@radix-ui/themes';
+import { Section, Container, Button, Flex, Link, Text } from '@radix-ui/themes';
 import { css } from '@emotion/react';
 import headerLogo from '../assets/header-logo.png';
 
@@ -43,12 +43,21 @@ function Header(): React.ReactNode {
                 css={css`&:has(button) { flex-grow: 1; text-align: right} padding: 20px 15px`}
                 key={label}
               >
-                <Link color="gray" href={href} underline="none">
+                <Link href={href} underline="none">
                   {type === 'img' && <img width="153" src={src} alt="logo" />}
-                  {type === 'link' && label}
-                  {type === 'button' && (
-                    <Button size="3" color="blue">
+                  {type === 'link' && (
+                    <Text
+                      size="4"
+                      trim="both"
+                      weight="bold"
+                      style={{ color: 'var(--gray-9)' }}
+                    >
                       {label}
+                    </Text>
+                  )}
+                  {type === 'button' && (
+                    <Button size="3">
+                      <Text>{label}</Text>
                     </Button>
                   )}
                 </Link>

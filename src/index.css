@@ -1,3 +1,26 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-Regular.subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-Medium.subset.woff2') format('woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-SemiBold.subset.woff2') format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-Bold.subset.woff2') format('woff2');
+  font-weight: 700;
+}
+
+
 :root {
   scroll-behavior: smooth;
   body {
@@ -43,6 +66,12 @@
 }
 
 .radix-themes {
+  --default-font-family: 'Pretendard', sans-serif;
+  --font-weight-light: 400;
+  --font-weight-regular: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+
   --gray-4: var(--secondary-gray-50);
   --gray-5: var(--secondary-gray-100);
   --gray-6: var(--secondary-gray-200);
@@ -56,6 +85,7 @@
   --blue-9: var(--primary-blue-100);
   --blue-10: var(--primary-blue-200);
   --blue-11: var(--primary-blue-300);
+  --blue-contrast: var(--secondary-gray-100);
 
   --red-9: var(--primary-red);
 }

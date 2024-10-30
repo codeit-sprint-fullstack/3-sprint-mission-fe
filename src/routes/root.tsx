@@ -19,8 +19,10 @@ export default function Root() {
     <main>
       <Header />
       <Container>
-        <Section>
-          <Heading mb="4">베스트 상품</Heading>
+        <Section pt="6">
+          <Heading size="5" trim="both" mb="4">
+            베스트 상품
+          </Heading>
           <Grid
             columns={{ initial: '1', sm: '2', md: '4' }}
             gap="3"
@@ -33,9 +35,11 @@ export default function Root() {
             ))}
           </Grid>
         </Section>
-        <Section>
+        <Section pt="7">
           <Flex mb="5" align="center" justify="between">
-            <Heading trim="both">판매 중인 상품</Heading>
+            <Heading size="5" trim="both">
+              판매 중인 상품
+            </Heading>
             <Flex gap="3">
               <Box width="325px">
                 <SearchInput />
