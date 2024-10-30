@@ -26,12 +26,12 @@ const useProducts = ({
         });
         if (pageSize && stale) {
           setProducts(list);
-          setStale(false);
         }
       } catch (e) {
         setError(e.message);
       } finally {
         setLoading(false);
+        setStale(false);
       }
     };
     fetchProductsList();
