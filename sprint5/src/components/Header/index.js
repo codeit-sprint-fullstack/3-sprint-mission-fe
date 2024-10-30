@@ -1,13 +1,13 @@
-import './Header.css';
-import  pandaLogoImg  from '../img/panda-market-logo.png';
+import './index.css';
+import pandaLogoImg from '../../img/panda-market-logo.png';
 
 function Header() {
   return (
     <header>
       <nav>
         <div id='navContent'>
-        <a id='logoImg' href='./'>
-            <img src={pandaLogoImg} />
+          <a id='logoImg' href='./'>
+            <img src={pandaLogoImg} alt='pandaMarketLogo' />
           </a>
 
           <div id='textBox'>
