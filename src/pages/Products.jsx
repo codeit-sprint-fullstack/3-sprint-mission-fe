@@ -103,9 +103,12 @@ function Products() {
       best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
       normal: MEDIA_QUERY.productsPageSize[screenWidth],
     });
+  }, [screenWidth]);
+
+  useEffect(() => {
     bestProducts.refetch();
     products.refetch();
-  }, [screenWidth]);
+  }, [screenWidth, productSortBy, searchKeyword, page]);
 
   return (
     <MainContainer>
