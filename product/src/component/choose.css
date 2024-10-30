@@ -1,0 +1,24 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+.sortBtn{
+    border-radius: 12px;
+    padding: 1.2rem 2rem;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    font-weight: 400;
+    transform: translate(1380%, -110%);
+    position: relative;
+  }
+
+  .option{
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #1F2937;
+  }
+
+ 
