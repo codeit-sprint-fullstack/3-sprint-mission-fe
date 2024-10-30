@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import getProducts from "../api/api.js";
-import './Main.css';
-import arrowImg from "../img/icons/menu.png";
-import leftArrow from "../img/icons/left.png";
-import rightArrow from "../img/icons/right.png";
-import BestProds from "./BestProds/index.js";
-import Prods from "./Prods/index.js";
+import getProducts from "../../api/api.js";
+import './index.css';
+import arrowImg from "../../img/icons/menu.png";
+import leftArrow from "../../img/icons/left.png";
+import rightArrow from "../../img/icons/right.png";
+import BestProds from "../../components/BestProds/index.js";
+import Prods from "../../components/Prods/index.js";
 
 const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';
 const LIKE_PRODS_LIST = 'page=1&pageSize=10&orderBy=favorite';
