@@ -1,10 +1,18 @@
 import Footer from "../components/common/footer";
 import Nav from "../components/common/Nav";
-import BestProductContainer from "../components/products/BestProductContainer";
 import styled from "styled-components";
 import ProductsContainer from "../components/products/ProductsContainer";
 import useScreenWidth from "../hooks/useScreenWidth";
 import { MEDIA_QUERY } from "../constants/mediaQuery";
+import PRODUCT_SORT_BY from "../constants/productSortBy";
+import useProducts from "../hooks/useProducts";
+import PROP_VALUES from "../constants/propValues";
+import ProductsBar from "../components/products/ProductBar";
+import { useAtomValue } from "jotai";
+import productSearchKeywordState from "../jotai/atoms/productSearchKeywordState";
+import productSortByState from "../jotai/atoms/productSortByState";
+import PageIndex from "../components/common/PageIndex";
+import { useState } from "react";
 
 const MainContainer = styled.main`
   width: 100%;
@@ -34,8 +42,56 @@ const NavLink = styled.a`
   }
 `;
 
+const BestProductSection = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.6rem;
+  h1 {
+    font-size: 2rem;
+    color: ${(props) => props.theme.color.subBlack};
+    margin-bottom: 1.5rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+  }
+`;
+
+const BestProductsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 2.4rem;
+  justify-content: center;
+`;
+
+const ProductsContainerComponent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 14rem;
+  gap: 2.3rem;
+  ${(props) => props.theme.media.medium} {
+    gap: 1.6rem;
+  }
+  ${(props) => props.theme.media.small} {
+    gap: 0.8rem;
+  }
+`;
+
 function Products() {
   const screenWidth = useScreenWidth();
+  const searchKeyword = useAtomValue(productSearchKeywordState);
+  const productSortBy = useAtomValue(productSortByState);
+  const [page, setPage] = useState(1);
+  const bestProducts = useProducts({
+    pageSize: MEDIA_QUERY.bestProductsPageSize[screenWidth],
+    orderBy: PRODUCT_SORT_BY.favorite.parameter,
+  });
+  const products = useProducts({
+    pageSize: MEDIA_QUERY.productsPageSize[screenWidth],
+    orderBy: productSortBy,
+    searchKeyword,
+    page,
+  });
 
   return (
     <MainContainer>
@@ -44,8 +100,16 @@ function Products() {
         <NavLink href="/">중고마켓</NavLink>
       </Nav>
       <PageContainer>
-        <BestProductContainer screenWidth={screenWidth} />
-        <ProductsContainer screenWidth={screenWidth} />
+        <BestProductSection>
+          <h1>베스트 상품</h1>
+          <BestProductsContainer></BestProductsContainer>
+        </BestProductSection>
+        <ProductsContainerComponent>
+          {<ProductsContainer {...bestProducts} size={PROP_VALUES.product.big}></ProductsContainer>}
+          <ProductsBar screenWidth={screenWidth} />
+          {<ProductsContainer {...products} size={PROP_VALUES.product.small}></ProductsContainer>}
+          <PageIndex page={page} setPage={setPage} />
+        </ProductsContainerComponent>
       </PageContainer>
       <Footer />
     </MainContainer>
