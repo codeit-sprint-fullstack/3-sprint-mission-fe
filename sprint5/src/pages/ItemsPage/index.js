@@ -92,27 +92,6 @@ function Main() {
     searchProdHandle(e.key)
   }
 
-  // const EmptyBox = () => {
-
-    // if (emptyBox) {
-  //     return (
-  //       <div id='emptyPrdsBox'>
-  //         <div className="emptyContentBox">
-  //           검색하신 상품이 없습니다.
-  //         </div>
-  //       </div>
-  //     )
-  //   }
-
-  //   return (
-  //     <div className="none">
-  //       <div className="emptyContentBox">
-  //         검색하신 상품이 없습니다.
-  //       </div>
-  //     </div>
-  //   )
-  // }
-
   // 필터 종류에 따른 페이지 버튼 핸들러
   const PageButton = () => {
     if (prodsListState) {
