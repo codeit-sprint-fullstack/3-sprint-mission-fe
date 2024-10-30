@@ -3,8 +3,8 @@ import './ProductsInfo.css';
 
 function BestProdsList({ images, name, price, favoriteCount }) {
   return (
-    <div id='bestProducts'>
-      <img id='bestProsImg' src={images} />
+    <div className='bestProducts'>
+      <img className='bestProsImg' src={images} />
       <div className='prodName'>{name}</div>
       <div className='prodPrice'>{price}원</div>
       <img src={heartImg} className='heart' />

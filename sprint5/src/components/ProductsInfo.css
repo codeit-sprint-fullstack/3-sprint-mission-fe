@@ -44,14 +44,14 @@ html {
 }
 
 /* Best Products */
-#bestProducts {
+.bestProducts {
   background-color: #FCFCFC;
   width: 28.2rem;
   height: 37.8rem;
   margin-top: 1.6rem;
 }
 
-#bestProsImg {
+.bestProsImg {
   width: 28.2rem;
   height: 28.2rem;
   border-radius: 1.6rem;
