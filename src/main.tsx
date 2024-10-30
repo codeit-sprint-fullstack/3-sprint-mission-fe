@@ -20,7 +20,7 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <Theme accentColor="blue">
+      <Theme accentColor="blue" radius="large">
         <RouterProvider router={router} />
       </Theme>
     </React.StrictMode>,

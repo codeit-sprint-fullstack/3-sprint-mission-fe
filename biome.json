@@ -27,5 +27,13 @@
       "enabled": true,
       "quoteStyle": "single"
     }
+  },
+  "css": {
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    }
   }
 }

@@ -16,7 +16,7 @@ const headerItems: HeaderItem[] = [
   { label: '로그인', href: '#', type: 'button' },
 ];
 
-function Header() {
+function Header(): React.ReactNode {
   return (
     <Section
       p="0"
@@ -46,7 +46,11 @@ function Header() {
                 <Link color="gray" href={href} underline="none">
                   {type === 'img' && <img width="153" src={src} alt="logo" />}
                   {type === 'link' && label}
-                  {type === 'button' && <Button color="blue">{label}</Button>}
+                  {type === 'button' && (
+                    <Button size="3" color="blue">
+                      {label}
+                    </Button>
+                  )}
                 </Link>
               </li>
             ))}
