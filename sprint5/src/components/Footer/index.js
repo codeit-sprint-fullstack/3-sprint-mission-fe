@@ -1,8 +1,8 @@
-import faceBookImg from '../img/social/ic_facebook.png';
-import twitterImg from '../img/social/ic_twitter.png';
-import youtubeImg from '../img/social/ic_youtube.png';
-import instagramImg from '../img/social/ic_instargram.png';
-import './Footer.css';
+import faceBookImg from '../../img/social/ic_facebook.png';
+import twitterImg from '../../img/social/ic_twitter.png';
+import youtubeImg from '../../img/social/ic_youtube.png';
+import instagramImg from '../../img/social/ic_instargram.png';
+import './index.css';
 
 function Footer() {
   return (
