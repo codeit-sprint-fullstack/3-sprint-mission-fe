@@ -1,5 +1,7 @@
+import expressList from '../api/expressList.jsx';
 import getProductsList from '../api/getProductsList.jsx';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function AllItem() {
     const [products, setProducts] = useState([]);
@@ -24,7 +26,7 @@ function AllItem() {
             const width = window.innerWidth;
             if (width >= 1230) setPageSize(10);
             if (width >= 801 && width < 1230) setPageSize(6);
-            if (width < 800) setPageSize(4);   
+            if (width < 800) setPageSize(4);
         };
 
         windowSize();
@@ -45,36 +47,36 @@ function AllItem() {
 
     const filterProductsBySearch = () => {
         if (!search) return products;
-        return products.filter((products) =>
-            products.name.toLowerCase().includes(search.toLowerCase())
+        return products.filter((product) =>
+            product.name.toLowerCase().includes(search.toLowerCase())
         );
-    }
+    };
 
     const onChangeSearch = (e) => {
         setTempSearch(e.target.value);
-    }
+    };
 
     const onClickSearch = () => {
         setSearch(tempSearch);
         setTempSearch("");
         setPage(1);
-    }
+    };
+
     const onKeyDown = (e) => {
-        if (e.keyCode === 13) {
-            onClickSearch();
-            setPage(1);
-        }
-    }
+        if (e.keyCode === 13) onClickSearch();
+    };
+
     const onChangeSortOption = (e) => {
         setOption(e.target.value);
-    }
+    };
+
     const onClickPage = (e) => {
         setPage(Number(e.target.value));
-    }
+    };
 
     const onClickPagePlus = () => {
         if (page < totalPages) setPage(page + 1);
-    }
+    };
 
     const onClickPageMinus = () => {
         if (page > 1) setPage(page - 1);
@@ -98,7 +100,7 @@ function AllItem() {
                             </span>
                         </a>
                     </div>
-                    <button className='all-item-addButton'>상품 등록하기</button>
+                    <Link to="/registration"><button className='all-item-addButton'>상품 등록하기</button></Link>
 
                     <select
                         className='selectBox'
@@ -111,7 +113,7 @@ function AllItem() {
                 </div>
             </div>
 
-            <div className='all-item-header2'>
+            <div className='items-header2'>
                 <div className='all-item-text'>판매 중인 상품
                     <button className='all-item-addButton'>상품 등록하기</button>
                 </div>

@@ -1,0 +1,90 @@
+@import "./button.css";
+
+.header-contain {
+    width: 100%;
+    height: 81px;
+    background: var(--white);
+    display: flex;
+    position: fixed;
+    z-index: 11;
+    padding-bottom : 26px;
+    align-items: center;
+    border-bottom : 1px solid var(--color13);
+}
+
+.header1 {
+    width: calc(100% - 400px);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 9.5px 200px;
+    box-sizing: border-box;
+    top: 0px;
+    background: var(--white);
+
+}
+
+.header-1 {
+    width: calc(100%);
+    min-width: 300px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header-1 img {
+    width: 153px;
+}
+
+.header-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    padding-left: 24px;
+    top : 0;
+    bottom: 0;
+}
+
+.header-text-1 {
+    display: block;
+    min-width: 110px;
+    padding: 21px 15px;
+    gap: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 35px;
+}
+.header-text-1:hover, .header-text-2:hover {
+    color : var(--color7);
+    transition: 0.5s;
+}
+
+.header-text-2 {
+    display: block;
+    color : black;
+    min-width: 108px;
+    padding: 21px 15px 21px 15px;
+    gap: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+@media screen and (max-width: 1230px) {
+    .header1 {
+        width: calc(100% - 48px);
+        min-width: 750px;
+        margin: 9.5px 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header1 {
+        min-width: 376px;
+    }
+}
