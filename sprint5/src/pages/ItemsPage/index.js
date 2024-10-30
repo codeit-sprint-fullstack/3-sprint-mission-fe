@@ -6,8 +6,8 @@ import leftArrow from "../../img/icons/left.png";
 import rightArrow from "../../img/icons/right.png";
 // 
 import getProducts from "../../api/api.js";
-import BestProds from "../../components/BestProds/index.js";
-import Prods from "../../components/Prods/index.js";
+import BestProds from "./BestProds/index.js";
+import Prods from "./Prods/index.js";
 import EmptyBox from "./EmptyBox/index.js";
 
 const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';

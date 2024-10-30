@@ -1,4 +1,4 @@
-import heartImg from '../../img/icons/heart.png'
+import heartImg from '../../../img/icons/heart.png'
 import './index.css';
 
 function BestProds({ index, images, name, price, favoriteCount }) {
