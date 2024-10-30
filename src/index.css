@@ -22,6 +22,7 @@
 
 
 :root {
+  min-width: 375px;
   scroll-behavior: smooth;
   body {
     all: unset;
@@ -66,11 +67,13 @@
 }
 
 .radix-themes {
+  --cursor-button: pointer;
   --default-font-family: 'Pretendard', sans-serif;
   --font-weight-light: 400;
   --font-weight-regular: 500;
   --font-weight-medium: 600;
   --font-weight-bold: 700;
+  --font-weight-normal: var(--font-weight-regular);
 
   --gray-4: var(--secondary-gray-50);
   --gray-5: var(--secondary-gray-100);

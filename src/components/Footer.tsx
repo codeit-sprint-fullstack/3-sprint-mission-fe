@@ -8,6 +8,10 @@ import {
   IconButton,
 } from '@radix-ui/themes';
 import { css } from '@emotion/react';
+import InstagramLogo from '../assets/image/footer/instagram-logo.svg';
+import YoutubeLogo from '../assets/image/footer/youtube-logo.svg';
+import FacebookLogo from '../assets/image/footer/facebook-logo.svg';
+import TwitterLogo from '../assets/image/footer/twitter-logo.svg';
 
 type linkItem = {
   label: string;
@@ -19,22 +23,22 @@ const SNSLinkList: linkItem[] = [
   {
     label: 'Facebook',
     href: '#',
-    imgSrc: '',
+    imgSrc: FacebookLogo,
   },
   {
     label: 'Instagram',
     href: '#',
-    imgSrc: '',
+    imgSrc: InstagramLogo,
   },
   {
     label: 'Twitter',
     href: '#',
-    imgSrc: '',
+    imgSrc: TwitterLogo,
   },
   {
     label: 'Youtube',
     href: '#',
-    imgSrc: '',
+    imgSrc: YoutubeLogo,
   },
 ];
 
@@ -83,14 +87,16 @@ function Footer() {
             </Flex>
 
             <Flex gap="3" justify="end">
-              {SNSLinkList.map(({ label, href }) => (
+              {SNSLinkList.map(({ label, href, imgSrc }) => (
                 <Link key={label} href={href} underline="none">
                   <IconButton
                     size="1"
-                    color="gray"
                     aria-label={label}
                     radius="full"
-                  />
+                    variant="ghost"
+                  >
+                    <img src={imgSrc} alt={label} />
+                  </IconButton>
                 </Link>
               ))}
             </Flex>

@@ -1,33 +1,53 @@
-// import PropTypes from 'prop-types'
-import { Box, Card, Inset, Text, Strong } from '@radix-ui/themes';
+import { HeartIcon } from '@radix-ui/react-icons';
+import defaultImg from '../assets/image/items/item-default.svg';
+import {
+  Box,
+  Card,
+  Text,
+  Strong,
+  AspectRatio,
+  Grid,
+  Badge,
+} from '@radix-ui/themes';
+import { css } from '@emotion/react';
+
+const numberTextStyle = css({
+  fontVariantNumeric: 'tabular-nums',
+});
 
 function ItemCard() {
   return (
-    <Box maxWidth="240px">
-      <Card size="2">
-        <Inset clip="padding-box" side="top" pb="current">
-          <img
-            src="https://images.unsplash.com/photo-1617050318658-a9a3175e34cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-            alt="Bold typography"
-            style={{
-              display: 'block',
-              objectFit: 'cover',
-              width: '100%',
-              height: 140,
-              backgroundColor: 'var(--gray-5)',
-            }}
-          />
-        </Inset>
-        <Text as="p" size="3">
-          <Strong>Typography</Strong> is the art and technique of arranging type
-          to make written language legible, readable and appealing when
-          displayed.
-        </Text>
+    <Box maxWidth="282px">
+      <Card variant="ghost">
+        <Grid gap="4">
+          <AspectRatio ratio={1 / 1}>
+            <img
+              style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: 'var(--radius-5)',
+                objectFit: 'cover',
+              }}
+              src={defaultImg}
+              alt=""
+            />
+          </AspectRatio>
+          <Grid style={{ rowGap: '0.5rem' }}>
+            <Text as="p" size="2" truncate wrap="nowrap">
+              {'제목'}
+            </Text>
+            <Strong css={numberTextStyle}>{'500 원'}</Strong>
+            <Badge variant="outline" color="gray" style={{ boxShadow: 'none' }}>
+              <HeartIcon />
+              <Text css={numberTextStyle} trim="both" weight="regular">
+                ?
+              </Text>
+            </Badge>
+          </Grid>
+        </Grid>
       </Card>
     </Box>
   );
 }
-
-// Card.propTypes = {}
 
 export default ItemCard;

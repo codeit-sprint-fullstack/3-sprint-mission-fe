@@ -20,7 +20,7 @@ export default function Root() {
       <Header />
       <Container>
         <Section pt="6">
-          <Heading size="5" trim="both" mb="4">
+          <Heading size="5" mb="4">
             베스트 상품
           </Heading>
           <Grid
