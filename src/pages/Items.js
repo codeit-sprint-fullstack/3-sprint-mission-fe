@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import styles from './Main.module.css'
-import BestProductList from './../ProductList/BestProductList';
-import OnSalesProductList from './../ProductList/onSalesProductList';
-import searchLogo from '../../assets/images/search.png'
+import styles from './Items.module.css'
+import BestProductList from '../components/ProductList/BestProductList';
+import OnSalesProductList from '../components/ProductList/onSalesProductList';
+import searchLogo from '../assets/images/search.png'
 
-function Main() {
+function Items() {
   const [searchKeyword, setSearchKeyword] = useState('');
   const [orderBy, setOrderBy] = useState('recent');
   const [finalKeyword, setFinalKeyword] = useState('');
@@ -65,4 +65,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Items;

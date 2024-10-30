@@ -16,8 +16,18 @@ const OnSalesProductList = ({ orderBy = 'recent', keyword }) => {
   const isTablet = useMediaQuery('(min-width:744px) and (max-width:1199.98px)');
   const isMobile = useMediaQuery('(max-width:743px)');
 
-  const columns = isDesktop ? 5 : isTablet ? 3 : 2;
-  const pageSize = columns * 2; // 화면 크기에 맞춰 pageSize를 columns와 동일하게 설정
+  let columns;
+
+  if (isDesktop) {
+    columns = 5;
+  } else if (isTablet) {
+    columns = 3;
+  } else if (isMobile) {
+    columns = 2;
+  }
+
+  const pageSize = columns * 2; // 화면 크기에 맞춰 pageSize를 columns에 맞게 설정
+
 
   useEffect(() => {
     getProductList(page, pageSize, orderBy, keyword)
