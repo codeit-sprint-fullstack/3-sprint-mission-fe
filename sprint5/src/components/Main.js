@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getProducts from "../API/api.js";
+import getProducts from "../api/api.js";
 import './Main.css';
 import arrowImg from "../img/icons/menu.png";
 import leftArrow from "../img/icons/left.png";
