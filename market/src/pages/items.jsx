@@ -9,21 +9,41 @@ import {
 } from "../hook/hook";
 import Layout from "../component/layout";
 import { Link } from "react-router-dom";
+import { productsGet } from "../api/product";
 
 export default function UsedMarket() {
+  const naviLimit = 5;
   const [sellLimit, setSellLimit] = useState(10);
   const sellProduct = useItmeList([], sellLimit);
   const [sellItmeSize, setSellItemSize] = useState("220px");
   const [arrType, setArrType] = useState("recent");
   const [onTarget, setOnTarget] = useState(1);
   const [total, setTotal] = useState(0);
-
+  const [keyword, setKeyword] = useState("");
   const pageNavi = usePageNavi(1, 5);
   const searchHandle = useChange();
   const searchRef = useRef(null);
 
+  function GetItems(page, pageSize, orderBy, keyword) {
+    productsGet(page, pageSize, orderBy, keyword)
+      .then((res) => {
+        if (res.success) {
+          sellProduct.setValue(res.data);
+          setTotal(res.totalCount / sellLimit);
+        }
+      })
+      .catch((err) => console.error(err));
+  }
+  useEffect(() => {
+    GetItems(onTarget, sellLimit, arrType, searchHandle.value);
+  }, [onTarget]);
+
   const searchKewordHandle = (e) => {
     if (e.keyCode === 13 || e.type.toString() === "click") {
+      setOnTarget(1);
+      pageNavi.setStart(1);
+      pageNavi.setLast(5);
+      GetItems(1, sellLimit, arrType, searchHandle.value);
     }
   };
   const selectHandle = (e) => {

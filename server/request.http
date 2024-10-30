@@ -1,0 +1,7 @@
+###
+POST http://localhost:8000/product/register
+Content-Type: application/json
+
+{
+    
+}

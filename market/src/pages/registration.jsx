@@ -2,6 +2,9 @@ import Layout, { LayoutInput } from "../component/layout";
 import { useChange } from "../hook/hook";
 import "../css/registration.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { productCreate } from "../api/product";
 
 export default function Registration() {
   const name = useChange();
@@ -10,6 +13,7 @@ export default function Registration() {
   const tag = useChange();
   const [onBtn, setOnBtn] = useState("");
   const [tagV, setTagV] = useState([]);
+  const navigation = useNavigate();
   useEffect(() => {
     if (!!name.value && !!des.value && !!price.value && !!tagV.length) {
       setOnBtn("on");
@@ -18,8 +22,28 @@ export default function Registration() {
     }
   }, [name.value, des.value, price.value, tag.value]);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    let body = {
+      name: name.value,
+      description: des.value,
+      price: price.value,
+      tags: tagV,
+    };
+    if (onBtn === "on") {
+      await productCreate(body)
+        .then((res) => {
+          if (res.success) {
+            alert("등록했습니다.");
+            navigation("/items");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      alert("정확히 입력해주세요");
+    }
   };
   const tagEvent = (e) => {
     if (e.keyCode === 13) {
