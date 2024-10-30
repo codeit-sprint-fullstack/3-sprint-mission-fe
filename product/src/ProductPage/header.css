@@ -1,0 +1,53 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+:root{
+    font-size: 10px;
+  }
+
+.logoPart{
+    margin-left: 5%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+  }
+  
+  .headerPart{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .img{
+    width: 25%;
+  }
+  
+  .text{
+    color: #4B5563;
+    text-align: center;
+    font-family: pretendard;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  .login{
+    margin-right: 8rem;
+    background-color: #3692FF;
+    border-radius: 8px;
+    width: 8.8rem;
+    height: 4.2rem;
+    color: #F3F4F6;
+    border:none;
+    font-family: pretendard;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .changeText{
+    color: #3692FF;
+    text-align: center;
+    font-family: pretendard;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+  }

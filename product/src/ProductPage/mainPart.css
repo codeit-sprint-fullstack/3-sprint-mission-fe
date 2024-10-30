@@ -24,6 +24,9 @@
   }
 
   .enterInput{
+    margin-top: 2rem;
+    margin-left: 4px;
+    flex: 1;
     border-radius: 12px;
     padding: 0.9rem 2rem 0.9rem 1.6rem;
     gap: 1rem;
@@ -37,6 +40,7 @@
 
   .vectorImg{
     position: absolute;
+    margin-top: 2rem;
     margin-left: 0.5rem;
   }
   

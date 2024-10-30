@@ -1,5 +1,6 @@
 import './product.css';
 import heart from '../image/ic_heart.png';
+import Image from '../image/img_default.png';
 
  
  function ProductList({products}){
@@ -8,7 +9,7 @@ import heart from '../image/ic_heart.png';
             {products.map((product, index)=>{
                 return (
                     <ul className='p' key={index}>
-                        <img src = {product.images} alt={product.name} width="250" />
+                        <img src = {Image} alt={product.name} width="250" />
                         <li className='name'>{product.name}</li>
                         <li className='price'>{product.price}원</li>
                         <div className='favorite'>
