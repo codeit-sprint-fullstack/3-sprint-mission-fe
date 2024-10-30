@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Button from "./Button";
 import PropTypes from "prop-types";
 import logo from "../../../public/images/common/logo.png";
 import mobileLogo from "../../../public/images/common/mobileLogo.png";
@@ -47,6 +46,11 @@ const LogoContainer = styled.div`
   }
 `;
 
+const LoginButton = styled.button`
+  width: 8.8rem;
+  height: 4.2rem;
+`;
+
 function Nav({ screenWidth, children }) {
   return (
     <NavComponent>
@@ -55,7 +59,7 @@ function Nav({ screenWidth, children }) {
           {screenWidth === MEDIA_QUERY.value.small ? <img src={mobileLogo} /> : <img src={logo} />}
           {children}
         </LogoContainer>
-        <Button>로그인</Button>
+        <LoginButton>로그인</LoginButton>
       </NavContainer>
     </NavComponent>
   );

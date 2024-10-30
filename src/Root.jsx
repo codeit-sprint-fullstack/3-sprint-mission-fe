@@ -35,7 +35,15 @@ export const GlobalStyle = createGlobalStyle`
   }
   button {
     color: ${(props) => props.theme.color.mainIvory};
-    background-color: ${(props) => props.theme.color.mainBlue};
+  background-color: ${(props) => props.theme.color.mainBlue};
+  &:disabled {
+    background-color: ${(props) => props.theme.color.mainGrey};
+  }
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
   }
 
   button:disabled {

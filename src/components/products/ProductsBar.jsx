@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Select from "../common/Select";
-import Button from "../common/Button";
 import { useAtom, useSetAtom } from "jotai";
 import productSortByState from "../../jotai/atoms/productSortByState";
 import PRODUCT_SORT_BY from "../../constants/productSortBy";
@@ -59,6 +58,11 @@ const ProductButtonsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+const RegisterButton = styled.button`
+  width: 13.3rem;
+  height: 4.5rem;
+`;
+
 function ProductsBar({ screenWidth }) {
   const [productSortBy, setProductSortBy] = useAtom(productSortByState);
   const setProductSearchKeyword = useSetAtom(productSearchKeywordState);
@@ -80,7 +84,7 @@ function ProductsBar({ screenWidth }) {
             icon={faMagnifyingGlass}
           />
         </InputContainer>
-        <Button $size="13.3rem">상품 등록하기</Button>
+        <RegisterButton>상품 등록하기</RegisterButton>
         <Select
           {...{
             selectedOption: PRODUCT_SORT_BY[productSortBy].string,
