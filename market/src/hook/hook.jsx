@@ -31,13 +31,14 @@ export function usePageNavi(sNum, lNum) {
 }
 
 export function useChange() {
-  const [value, setVlaue] = useState("");
+  const [value, setValue] = useState("");
   const handler = (e) => {
     e.preventDefault();
-    setVlaue(e.target.value);
+    setValue(e.target.value);
   };
   return {
     value,
+    set: (v) => setValue(v),
     onChange: handler,
   };
 }

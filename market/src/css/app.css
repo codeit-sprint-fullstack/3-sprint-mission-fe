@@ -54,8 +54,6 @@ header nav ul li a {
 header .logo {
   margin-right: 24px;
   width: 153px;
-
-  /* background: url(../../public/img/logo.png) no-repeat center; */
 }
 header .logo img {
   width: 153px;
@@ -72,7 +70,7 @@ header .logo img {
   margin-bottom: 40px;
 }
 .marketSection.sell {
-  margin-bottom: 140px;
+  margin-bottom: 0;
 }
 .marketSection .titleLine {
   margin-bottom: 16px;
@@ -80,7 +78,8 @@ header .logo img {
   justify-content: space-between;
   align-items: center;
 }
-.marketSection .titleLine h2 {
+.marketSection .titleLine h2,
+.container h2 {
   font-size: 20px;
 }
 .marketSection .titleLine .marketEtc {
@@ -190,6 +189,7 @@ header .logo img {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 140px;
 }
 .pageNavi button {
   display: flex;
@@ -211,6 +211,13 @@ header .logo img {
 .pageNavi button.on {
   color: #fff;
   background-color: var(--primary100);
+}
+.notFoundList {
+  width: 100%;
+  height: 150px;
+  font-size: 32px;
+  color: #343a32;
+  padding-top: 40px;
 }
 
 footer {

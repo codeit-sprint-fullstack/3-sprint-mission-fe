@@ -60,6 +60,7 @@ function MarketList({ img, name, price, favorite, width }) {
       }, 50);
     }
   }, [img]);
+
   return (
     <li style={style}>
       <a href="#">

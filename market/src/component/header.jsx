@@ -12,7 +12,7 @@ export default function Header({}) {
         <nav>
           <ul>
             <NavLi href="#">자유게시판</NavLi>
-            <NavLi href="/usedmarket">중고마켓</NavLi>
+            <NavLi href="/items">중고마켓</NavLi>
           </ul>
         </nav>
         <a href="./login.html" className="loginBtn">
