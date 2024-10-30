@@ -1,6 +1,8 @@
 const formatter = {
   formatNumber(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const numberToFormat = +number;
+    if (typeof numberToFormat !== "number") return number;
+    return numberToFormat.toLocaleString();
   },
 };
 
