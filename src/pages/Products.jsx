@@ -7,12 +7,12 @@ import { MEDIA_QUERY } from "../constants/mediaQuery";
 import PRODUCT_SORT_BY from "../constants/productSortBy";
 import useProducts from "../hooks/useProducts";
 import PROP_VALUES from "../constants/propValues";
-import ProductsBar from "../components/products/ProductBar";
+import ProductsBar from "../components/products/ProductsBar";
 import { useAtomValue } from "jotai";
 import productSearchKeywordState from "../jotai/atoms/productSearchKeywordState";
 import productSortByState from "../jotai/atoms/productSortByState";
 import PageIndex from "../components/common/PageIndex";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MainContainer = styled.main`
   width: 100%;
@@ -82,16 +82,30 @@ function Products() {
   const searchKeyword = useAtomValue(productSearchKeywordState);
   const productSortBy = useAtomValue(productSortByState);
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState({
+    best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
+    normal: MEDIA_QUERY.productsPageSize[screenWidth],
+  });
+
   const bestProducts = useProducts({
-    pageSize: MEDIA_QUERY.bestProductsPageSize[screenWidth],
+    pageSize: pageSize.best,
     orderBy: PRODUCT_SORT_BY.favorite.parameter,
   });
   const products = useProducts({
-    pageSize: MEDIA_QUERY.productsPageSize[screenWidth],
+    pageSize: pageSize.normal,
     orderBy: productSortBy,
     searchKeyword,
     page,
   });
+
+  useEffect(() => {
+    setPageSize({
+      best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
+      normal: MEDIA_QUERY.productsPageSize[screenWidth],
+    });
+    bestProducts.refetch();
+    products.refetch();
+  }, [screenWidth]);
 
   return (
     <MainContainer>
