@@ -43,21 +43,6 @@ html {
   color: #4B5563;
 }
 
-/* Best Products */
-.bestProducts {
-  background-color: #FCFCFC;
-  width: 28.2rem;
-  height: 37.8rem;
-  margin-top: 1.6rem;
-}
-
-.bestProsImg {
-  width: 28.2rem;
-  height: 28.2rem;
-  border-radius: 1.6rem;
-  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
-}
-
 /* Products List */
 .products {
   background-color: #FCFCFC;

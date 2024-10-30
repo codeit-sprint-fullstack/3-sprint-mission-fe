@@ -5,7 +5,7 @@ import arrowImg from "../img/icons/menu.png";
 import leftArrow from "../img/icons/left.png";
 import rightArrow from "../img/icons/right.png";
 import BestProds from "./BestProds/index.js";
-import ProdsList from "./ProdsList.js";
+import Prods from "./Prods/index.js";
 
 const BEST_PRODS_LIST = 'page=1&pageSize=4&orderBy=favorite';
 const LIKE_PRODS_LIST = 'page=1&pageSize=10&orderBy=favorite';
@@ -37,7 +37,7 @@ function Main() {
   const ProductSort = ({ sort }) => {
     return (
       sort.map((prod) => {
-        return <ProdsList price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
+        return <Prods price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
       })
     )
   }
