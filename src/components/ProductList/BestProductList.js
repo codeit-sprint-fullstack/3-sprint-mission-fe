@@ -15,9 +15,9 @@ const BestProductList = () => {
   const columns = isDesktop ? 4 : isTablet ? 2 : 1;
   const pageSize = columns; // 화면 크기에 맞춰 pageSize를 columns와 동일하게 설정
 
-  console.log('Desktop:', isDesktop);
-  console.log('Tablet:', isTablet);
-  console.log('Mobile:', isMobile);
+  // console.log('Desktop:', isDesktop);
+  // console.log('Tablet:', isTablet);
+  // console.log('Mobile:', isMobile);
 
   useEffect(() => {
     // API에서 데이터 가져오기 - pageSize를 동적으로 전달

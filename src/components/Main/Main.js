@@ -48,7 +48,7 @@ function Main() {
               </div>
               <div className={styles.regist}>상품 등록하기</div>
               <div>
-                <label for="order"></label>
+                <label htmlFor="order"></label>
                 <select className={styles.select} name="order" id="order" value={orderBy} onChange={handleOrderChange}>
                   <option value="recent">최신순</option>
                   <option value="favorite">좋아요순</option>
