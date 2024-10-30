@@ -40,7 +40,7 @@ function Main() {
   const ProductSort = ({ sort }) => {
     return (
       sort.map((prod) => {
-        return <Prods price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
+        return <Prods key={prod.id} price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
       })
     )
   }
@@ -152,7 +152,7 @@ function Main() {
         <section id='bestProdsList'>
           {
             bestProds.map((prod) => {
-              return <BestProds price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
+              return <BestProds key={prod.id} price={prod.price} images={prod.images} name={prod.name} favoriteCount={prod.favoriteCount} />
             })
           }
         </section>

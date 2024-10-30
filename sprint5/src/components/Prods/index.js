@@ -1,10 +1,10 @@
 import heartImg from '../../img/icons/heart.png';
 import './index.css';
 
-function Prods({price, images, name, favoriteCount}) {
+function Prods({index, price, images, name, favoriteCount}) {
   
   return (
-    <div className='products'>
+    <div className='products' key={index}>
       <img className='productsImg' src={images} alt='productImage' />
       <div className='prodName'>{name}</div>
       <div className='prodPrice'>{price}원</div>
