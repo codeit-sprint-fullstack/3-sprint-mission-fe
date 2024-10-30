@@ -59,14 +59,14 @@ html {
 }
 
 /* Products List */
-#products {
+.products {
   background-color: #FCFCFC;
   width: 22.1rem;
   height: 31.7rem;
   margin-bottom: 2rem;
 }
 
-#productsImg {
+.productsImg {
   width: 22.1rem;
   height: 22.1rem;
   border-radius: 1.6rem;

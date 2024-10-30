@@ -4,8 +4,8 @@ import './ProductsInfo.css';
 function ProdsList({price, images, name, favoriteCount}) {
   
   return (
-    <div id='products'>
-      <img id='productsImg' src={images} />
+    <div className='products'>
+      <img className='productsImg' src={images} alt='product image' />
       <div className='prodName'>{name}</div>
       <div className='prodPrice'>{price}원</div>
       <img src={heartImg} className='heart' />
