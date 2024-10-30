@@ -93,7 +93,7 @@ function Main() {
   }
 
   // 필터 종류에 따른 페이지 버튼 핸들러
-  const PageButton = () => {
+  const PageButtonRenderHandle = () => {
     if (prodsListState) {
       return <PageButtonlike />
     } else {
@@ -180,7 +180,7 @@ function Main() {
             <button>
               <img src={leftArrow} alt="left arrow" />
             </button>
-            <PageButton />
+            <PageButtonRenderHandle />
             <button style={{ marginRight: '0' }}>
               <img src={rightArrow} style={{ left: '0.1rem' }} alt="right arrow" />
             </button>
