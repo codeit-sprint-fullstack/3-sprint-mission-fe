@@ -3,8 +3,7 @@ import Nav from "../components/common/Nav";
 import BestProductContainer from "../components/products/BestProductContainer";
 import styled from "styled-components";
 import ProductsContainer from "../components/products/ProductsContainer";
-import { useMemo } from "react";
-import useMediaQuery from "../hooks/useMedia";
+import useScreenWidth from "../hooks/useScreenWidth";
 import { MEDIA_QUERY } from "../constants/mediaQuery";
 
 const MainContainer = styled.main`
@@ -36,15 +35,7 @@ const NavLink = styled.a`
 `;
 
 function Products() {
-  const largeMediaQuery = useMediaQuery(MEDIA_QUERY.query.large);
-  const mediumMediaQuery = useMediaQuery(MEDIA_QUERY.query.medium);
-  const smallMediaQuery = useMediaQuery(MEDIA_QUERY.query.small);
-
-  const screenWidth = useMemo(() => {
-    if (smallMediaQuery) return MEDIA_QUERY.value.small;
-    if (mediumMediaQuery) return MEDIA_QUERY.value.medium;
-    if (largeMediaQuery) return MEDIA_QUERY.value.large;
-  }, [largeMediaQuery, mediumMediaQuery, smallMediaQuery]);
+  const screenWidth = useScreenWidth();
 
   return (
     <MainContainer>
