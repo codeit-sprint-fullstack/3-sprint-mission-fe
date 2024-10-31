@@ -94,6 +94,10 @@
   }
 }
 
+.active {
+  color: #3692ff;
+}
+
 .li:hover {
   background-color: #f8f8f8;
 }

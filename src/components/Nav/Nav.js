@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Nav.module.css'
 
 function Nav() {
+  const location = useLocation();
+
   const isLoggedIn = false; // true 또는 false로 각각 바꿔보며 확인
 
   return (
@@ -13,8 +15,8 @@ function Nav() {
           <div className={styles.logoTitle}>판다마켓</div>
         </div></Link>
         <ul className={styles.ul}>
-          <Link to="/community"><li className={styles.li}>자유게시판</li></Link>
-          <Link to="/items"><li className={styles.li}>중고마켓</li></Link>
+          <Link to="/community"><li className={`${styles.li} ${location.pathname === '/community' ? styles.active : ''}`}>자유게시판</li></Link>
+          <Link to="/items"><li className={`${styles.li} ${location.pathname === '/items' ? styles.active : ''}`}>중고마켓</li></Link>
         </ul>
         {isLoggedIn ? (
           <div className={styles.avatar}>
