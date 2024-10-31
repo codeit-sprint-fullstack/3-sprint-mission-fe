@@ -1,0 +1,325 @@
+header {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #dfdfdf;
+  z-index: 999;
+  background: #fff;
+}
+header .gnb {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+  justify-content: space-between;
+  padding: 9px 200px;
+  margin: auto;
+}
+header .loginBtn {
+  border: 0;
+  display: block;
+  text-align: center;
+  width: 128px;
+  height: 48px;
+  border-radius: 8px;
+  padding: 12px 24px;
+  background-color: var(--primary100);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--gray50);
+}
+header nav {
+  width: 70%;
+  height: 100%;
+}
+header nav ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header nav ul li {
+  width: 108px;
+}
+header nav ul li a {
+  display: block;
+  font-size: 18px;
+  color: #4b5563;
+  font-weight: 700;
+  text-align: center;
+}
+header .logo {
+  margin-right: 24px;
+  width: 153px;
+
+  /* background: url(../../public/img/logo.png) no-repeat center; */
+}
+header .logo img {
+  width: 153px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 26px;
+}
+
+/* marketSection */
+.marketSection {
+  margin-bottom: 40px;
+}
+.marketSection.sell {
+  margin-bottom: 0;
+}
+.marketSection .titleLine {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.marketSection .titleLine h2 {
+  font-size: 20px;
+}
+.marketSection .titleLine .marketEtc {
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
+.marketSection .titleLine .marketEtc .searchBox {
+  display: flex;
+  background: #f3f4f6;
+  width: 325px;
+  align-items: center;
+  height: 100%;
+  padding: 9px 16px 9px;
+  border-radius: 12px;
+}
+.marketSection .titleLine .marketEtc .searchBox input {
+  display: block;
+  border: 0;
+  width: 100%;
+  background-color: transparent;
+  height: 100%;
+  outline: none;
+}
+.marketSection .titleLine .marketEtc .searchBox .submit {
+  display: flex;
+  align-items: center;
+}
+.marketSection .titleLine .marketEtc a {
+  color: #fff;
+  background-color: var(--primary100);
+  width: 133px;
+  height: 42px;
+  margin: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.marketSection .titleLine .marketEtc select {
+  height: 42px;
+  width: 130px;
+  padding: 9px 20px;
+  outline: none;
+  border: 1px solid var(--gray200);
+  border-radius: 12px;
+  font-size: 16px;
+}
+.marketSection .titleLine .marketEtc select option {
+  height: 100%;
+}
+.marketSection ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.marketSection ul li {
+  margin-right: 24px;
+  margin-bottom: 40px;
+}
+.marketSection ul li:last-of-type,
+.marketSection ul li:nth-of-type(5n) {
+  margin-right: 0;
+}
+.marketSection ul li .imgBox {
+  overflow: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  background-color: #dfdfdf;
+  position: relative;
+}
+.marketSection ul li .imgBox img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+}
+
+.marketSection ul li .textBox {
+  line-height: 24px;
+  color: #1f2937;
+}
+.marketSection ul li .textBox h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.marketSection ul li .textBox p {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.marketSection ul li .textBox p.favorite {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #4b5563;
+}
+.marketSection ul li .textBox p.favorite img {
+  margin-right: 3px;
+}
+.pageNavi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageNavi button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray200);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.pageNavi button.next {
+  margin-right: 0;
+}
+.pageNavi .pageBtnCover {
+  display: flex;
+}
+.pageNavi button.on {
+  color: #fff;
+  background-color: var(--primary100);
+}
+
+footer {
+  margin-top: 140px;
+  width: 100%;
+  height: 160px;
+  padding: 32px 20px;
+  background: #111827;
+}
+footer .content {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+footer .content p {
+  color: #9ca3af;
+  line-height: 18px;
+  font-weight: 400;
+}
+footer .content .link {
+  width: 159px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .link a {
+  color: #e5e7eb;
+}
+footer .content .icon {
+  width: 116px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .icon img {
+  width: 20px;
+}
+
+@media screen and (max-width: 1199px) {
+  header {
+  }
+  header nav {
+    width: 65%;
+  }
+  header .gnb {
+    max-width: 1199px;
+    padding: 9px 16px;
+    margin: auto;
+  }
+  header .loginBtn {
+  }
+  header .logo {
+    width: 153px;
+  }
+  header .logo img {
+    width: 100%;
+  }
+  .container {
+    max-width: 696px;
+  }
+  .marketSection ul li,
+  .marketSection ul li:nth-of-type(5n) {
+    margin-right: 10px;
+  }
+  .marketSection .titleLine .marketEtc .searchBox {
+    width: 242px;
+  }
+}
+
+@media screen and (max-width: 743px) {
+  header .gnb {
+    max-width: 743x;
+  }
+  header nav {
+    width: 40%;
+  }
+  .container {
+    max-width: 344px;
+  }
+  .marketSection ul {
+    justify-content: center;
+  }
+  .marketSection .titleLine {
+    /* overflow: hidden; */
+    flex-wrap: wrap;
+  }
+  .marketSection .titleLine .marketEtc {
+    position: relative;
+  }
+  .marketSection .titleLine .marketEtc a {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+  }
+  .marketSection .titleLine .marketEtc .searchBox {
+    width: 288px;
+    margin-right: 14px;
+  }
+  .marketSection .titleLine .marketEtc select {
+    height: 42px;
+    width: 42px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+  }
+  .marketSection ul li,
+  .marketSection ul li:nth-of-type(5n) {
+    margin-right: 8px;
+  }
+  .marketSection ul li:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
