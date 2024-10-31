@@ -67,14 +67,19 @@ function Footer() {
             gapY="5"
           >
             <Flex css={{ '@container style(--is-sm: false)': { order: 3 } }}>
-              <Text trim="both" style={{ color: 'var(--gray-7)' }}>
-                ©codeit - 2024
+              <Text
+                trim="both"
+                weight="light"
+                style={{ color: 'var(--gray-7)' }}
+              >
+                ©codeit - {new Date().getFullYear() ?? '2024'}
               </Text>
             </Flex>
 
             <Flex gap="6" justify={{ initial: 'start', sm: 'center' }}>
               {footerLinks.map(({ label, href }) => (
                 <Link
+                  weight="light"
                   key={label}
                   href={href}
                   underline="none"

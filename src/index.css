@@ -67,6 +67,7 @@
 }
 
 .radix-themes {
+  --space-10: 100px;
   --cursor-button: pointer;
   --default-font-family: 'Pretendard', sans-serif;
   --font-weight-light: 400;

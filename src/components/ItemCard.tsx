@@ -8,16 +8,20 @@ import {
   AspectRatio,
   Grid,
   Badge,
+  Flex,
+  IconButton,
 } from '@radix-ui/themes';
 import { css } from '@emotion/react';
+import type { ItemCardProps } from '../../types/product';
 
 const numberTextStyle = css({
   fontVariantNumeric: 'tabular-nums',
 });
 
-function ItemCard() {
+function ItemCard(itemCardProps: Readonly<ItemCardProps>) {
+  const { favoriteCount, images, name, price } = itemCardProps;
   return (
-    <Box maxWidth="282px">
+    <Grid>
       <Card variant="ghost">
         <Grid gap="4">
           <AspectRatio ratio={1 / 1}>
@@ -28,25 +32,33 @@ function ItemCard() {
                 borderRadius: 'var(--radius-5)',
                 objectFit: 'cover',
               }}
-              src={defaultImg}
-              alt=""
+              src={images[0] || defaultImg}
+              alt={name}
             />
           </AspectRatio>
           <Grid style={{ rowGap: '0.5rem' }}>
             <Text as="p" size="2" truncate wrap="nowrap">
-              {'제목'}
+              {name}
             </Text>
-            <Strong css={numberTextStyle}>{'500 원'}</Strong>
-            <Badge variant="outline" color="gray" style={{ boxShadow: 'none' }}>
-              <HeartIcon />
+            <Strong css={numberTextStyle}>
+              {`${price.toLocaleString()} 원`}
+            </Strong>
+            <Badge
+              color="gray"
+              variant="outline"
+              style={{ boxShadow: 'none', paddingLeft: 0 }}
+            >
+              <IconButton color="gray" variant="ghost">
+                <HeartIcon />
+              </IconButton>
               <Text css={numberTextStyle} trim="both" weight="regular">
-                ?
+                {favoriteCount}
               </Text>
             </Badge>
           </Grid>
         </Grid>
       </Card>
-    </Box>
+    </Grid>
   );
 }
 

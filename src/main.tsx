@@ -6,10 +6,20 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/root.tsx';
 import ErrorPage from './error-page';
 import './index.css';
+import { getProductList } from './apis/products.ts';
 
 const router = createBrowserRouter([
   {
     path: '/',
+    loader: async () => {
+      const bestItems = await getProductList({
+        page: 1,
+        pageSize: 4,
+        orderBy: 'favorite',
+      });
+      const sellingItems = await getProductList({ page: 1, pageSize: 10 });
+      return { bestItems, sellingItems };
+    },
     element: <Root />,
     errorElement: <ErrorPage />,
   },

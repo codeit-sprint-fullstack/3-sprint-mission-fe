@@ -10,32 +10,40 @@ import {
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Pagination from '../components/Pagination';
-import ItemCard from '../components/ItemCard';
 import SearchInput from '../components/SearchInput';
 import SortSelection from '../components/SortSelection';
+import { useLoaderData } from 'react-router-dom';
+import type { ItemCardProps } from '../../types/product';
+import ItemCard from '../components/ItemCard';
+
+type ItemListType = {
+  list: ItemCardProps[];
+  totalCount: number;
+};
 
 export default function Root() {
+  const { bestItems, sellingItems } = useLoaderData();
   return (
     <main>
       <Header />
-      <Container>
-        <Section pt="6">
+      <Container px={{ initial: '4' }}>
+        <Section pt="6" pb="0">
           <Heading size="5" mb="4">
             베스트 상품
           </Heading>
           <Grid
             columns={{ initial: '1', sm: '2', md: '4' }}
-            gap="3"
+            gap="5"
             width="auto"
-            rows="repeat(1, 1fr)"
-            overflow={'hidden'}
+            rows="1"
           >
-            {Array.from({ length: 4 }).map((_, i) => (
-              <ItemCard key={i} />
+            {bestItems.list.map((itemInfo: ItemCardProps) => (
+              <ItemCard key={itemInfo.id} {...itemInfo} />
             ))}
           </Grid>
         </Section>
-        <Section pt="7">
+
+        <Section pt="7" style={{ paddingBottom: 'var(--space-10)' }}>
           <Flex mb="5" align="center" justify="between">
             <Heading size="5" trim="both">
               판매 중인 상품
@@ -50,16 +58,15 @@ export default function Root() {
           </Flex>
           <Grid
             columns={{ initial: '2', sm: '3', md: '5' }}
-            gap="3"
-            width="auto"
-            rows="repeat(1, 1fr)"
-            overflow={'hidden'}
+            gapX="5"
+            gapY="7"
+            rows="2"
           >
-            {Array.from({ length: 5 }).map((_, i) => (
-              <ItemCard key={i} />
+            {sellingItems.list.map((itemInfo: ItemCardProps) => (
+              <ItemCard key={itemInfo.id} {...itemInfo} />
             ))}
           </Grid>
-          <Section>
+          <Section py="7">
             <Pagination />
           </Section>
         </Section>
