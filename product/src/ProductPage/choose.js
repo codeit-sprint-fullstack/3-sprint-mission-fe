@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import './choose.css';
 import ProductList from './product.js';
-import {getBestProduct} from '../apis.js';
+import {getProduct} from '../apis.js';
 
 
 const Box = () => {
@@ -24,7 +24,7 @@ const Box = () => {
 
     const handleLoad = async (orderQuery) => {
       try {
-        const product = await getBestProduct(orderQuery);
+        const product = await getProduct(orderQuery);
         // { list, totalCount } 
         setItems(product.list);
       } catch(err) {
