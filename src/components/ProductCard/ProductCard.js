@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './ProductCard.module.css';
-import likeIcon from '../../assets/images/like-icon.png';
 import placeholderImage from '../../assets/images/placeholder.png';
 
 const ProductCard = ({ product, size }) => {
@@ -17,7 +16,7 @@ const ProductCard = ({ product, size }) => {
         <h3 className={styles.name}>{product.name}</h3>
         <p className={styles.price}>{formattedPrice}원</p>
         <div className={styles.likes}>
-          <img src={likeIcon} alt="like" className={styles.likeIcon} />
+          <img src='/static/images/like-icon.png' alt="like" className={styles.likeIcon} />
           <span>{product.favoriteCount}</span>
         </div>
       </div>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Nav.module.css'
-import logo from '../../assets/images/logo.png'
-import avatar from '../../assets/images/user_profile.png'
 
 function Nav() {
   const isLoggedIn = false; // true 또는 false로 각각 바꿔보며 확인
@@ -11,7 +9,7 @@ function Nav() {
     <div className={styles.nav}>
       <div className={styles.gnb}>
         <Link to="/"><div className={styles.logo}>
-          <img src={logo} alt="로고" className={styles.logoImg} />
+          <img src='/static/images/logo.png' alt="로고" className={styles.logoImg} />
           <div className={styles.logoTitle}>판다마켓</div>
         </div></Link>
         <ul className={styles.ul}>
@@ -20,7 +18,7 @@ function Nav() {
         </ul>
         {isLoggedIn ? (
           <div className={styles.avatar}>
-            <img src={avatar} alt="유저 프로필" />
+            <img src='/static/images/user_profile.png' alt="유저 프로필" />
           </div>
         ) : (
           <Link to="/login"><div className={styles.login}>로그인</div></Link>

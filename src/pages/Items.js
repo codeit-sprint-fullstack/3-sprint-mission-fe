@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './Items.module.css'
 import BestProductList from '../components/ProductList/BestProductList';
 import OnSalesProductList from '../components/ProductList/onSalesProductList';
-import searchLogo from '../assets/images/search.png'
 
 function Items() {
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -44,7 +43,7 @@ function Items() {
               <div className={styles.searchBox}>
                 <input className={styles.search} type='search' placeholder='검색할 상품을 입력해주세요' value={searchKeyword} onChange={handleSearchChange}
                   onKeyDown={handleKeyDown} />
-                <img className={styles.searchLogo} src={searchLogo} alt='search' onClick={handleSearchSubmit} />
+                <img className={styles.searchLogo} src='static/images/search.png' alt='search' onClick={handleSearchSubmit} />
               </div>
               <div className={styles.regist}>상품 등록하기</div>
               <div>

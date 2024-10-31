@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Pretendard-Regular";
-  src: url("./assets/font/Pretendard-Regular.woff") format("woff");
+  src: url("/public/static/font/Pretendard-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "rokaf";
-  src: url("./assets/font/ROKAF_Sans_Medium.ttf") format("truetype");
+  src: url("/public/static/font/ROKAF_Sans_Medium.ttf") format("truetype");
 }
 
 * {

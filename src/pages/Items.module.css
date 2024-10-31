@@ -116,6 +116,6 @@
     -webkit-appearance: none; /* Safari와 Chrome */
     -moz-appearance: none; /* Firefox */
     appearance: none; /* 나머지 브라우저 */
-    background: url(../assets/images/ic_sort.png) no-repeat center / 24px;
+    background: url("/public/static/images/ic_sort.png") no-repeat center / 24px;
   }
 }
