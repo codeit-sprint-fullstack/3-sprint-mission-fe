@@ -16,13 +16,13 @@ function Footer() {
             <img src='/static/images/ic_facebook.svg' alt="facebook" />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <img src='/static/public/ic_twitter.svg' alt="twitter" />
+            <img src='/static/images/ic_twitter.svg' alt="twitter" />
           </a>
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-            <img src='/static/public/ic_youtube.svg' alt="youtube" />
+            <img src='/static/images/ic_youtube.svg' alt="youtube" />
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <img src='/static/public/ic_instagram.svg' alt="instagram" />
+            <img src='/static/images/ic_instagram.svg' alt="instagram" />
           </a>
         </div>
       </div>
