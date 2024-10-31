@@ -1,0 +1,82 @@
+@import './reset.css';
+
+footer {
+    background: var(--color10);
+    gap: 10px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 1;
+}
+
+.footer-box {
+    width: calc(100%);
+    min-width: 390px;
+    gap: 0px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    opacity: 0px;
+    margin-top: 32.5px;
+    margin-bottom: 108px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.footer-box-inner1 {
+    height: 19px;
+    color: var(--color2);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: center;
+}
+
+
+.footer-box-inner2 {
+    height: 19px;
+    gap: 30px;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.footer-box-inner3 {
+    height: 20px;
+    gap: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-box-inner2-1 {
+    height: 19px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: center;
+    color: var(--color11);
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.footer-box-inner2-2 {
+    width: 29px;
+    height: 19px;
+    font-size: 1.6rem;
+    font-weight: 400; 
+    line-height: 19.09px;
+    text-align: center;
+    color: var(--color11);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1230px) {
+    .footer-box {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
