@@ -32,6 +32,7 @@ function Tags() {
         if(!value.trim()) return ;
         setTags([...tags, value]);
         e.target.value = "";
+        setTagMessage('');
     };
 
     return (
