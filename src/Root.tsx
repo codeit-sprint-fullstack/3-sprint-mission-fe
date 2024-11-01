@@ -1,7 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import Products from "./pages/Products";
 import Pretendard from "../public/fonts/PretendardVariable.woff2";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/common/Footer";
+import Nav from "./components/common/Nav";
+import useScreenWidth from "./hooks/useScreenWidth";
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -52,10 +55,14 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 function Root() {
+  const screenWidth = useScreenWidth();
+
   return (
     <>
       <GlobalStyle />
-      <Products />
+      <Nav screenWidth={screenWidth} />
+      <Outlet />
+      <Footer />
     </>
   );
 }

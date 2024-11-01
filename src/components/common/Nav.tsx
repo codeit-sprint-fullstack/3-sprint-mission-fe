@@ -2,12 +2,11 @@ import styled from "styled-components";
 import logo from "../../../public/images/common/logo.png";
 import mobileLogo from "../../../public/images/common/mobileLogo.png";
 import { MEDIA_QUERY } from "../../constants/mediaQuery";
-import { ReactNode } from "react";
 import { ScreenWidth } from "../../types/options";
+import { Link, useLocation } from "react-router-dom";
 
 interface INavProps {
   screenWidth: ScreenWidth;
-  children?: ReactNode;
 }
 
 const NavComponent = styled.nav`
@@ -57,13 +56,34 @@ const LoginButton = styled.button`
   height: 4.2rem;
 `;
 
-function Nav({ screenWidth, children }: INavProps) {
+const NavLink = styled.span`
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  color: ${(props) => props.theme.color.mainCharcoal};
+  font-weight: 700;
+  ${(props) => props.theme.media.small} {
+    font-size: 1.6rem;
+  }
+`;
+
+function Nav({ screenWidth }: INavProps) {
+  const location = useLocation();
+
   return (
     <NavComponent>
       <NavContainer>
         <LogoContainer>
           {screenWidth === MEDIA_QUERY.value.small ? <img src={mobileLogo} /> : <img src={logo} />}
-          {children}
+          {location.pathname !== "/" ? (
+            <>
+              <Link to="/">
+                <NavLink>자유게시판</NavLink>
+              </Link>
+              <Link to="/">
+                <NavLink>중고마켓</NavLink>
+              </Link>
+            </>
+          ) : null}
         </LogoContainer>
         <LoginButton>로그인</LoginButton>
       </NavContainer>

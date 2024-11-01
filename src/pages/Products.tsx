@@ -1,5 +1,3 @@
-import Footer from "../components/common/Footer";
-import Nav from "../components/common/Nav";
 import styled from "styled-components";
 import ProductsContainer from "../components/products/ProductsContainer";
 import useScreenWidth from "../hooks/useScreenWidth";
@@ -29,16 +27,6 @@ const PageContainer = styled.div`
   }
   ${(props) => props.theme.media.small} {
     max-width: 34.4rem;
-  }
-`;
-
-const NavLink = styled.a`
-  font-size: 1.8rem;
-  line-height: 2.5rem;
-  color: ${(props) => props.theme.color.mainCharcoal};
-  font-weight: 700;
-  ${(props) => props.theme.media.small} {
-    font-size: 1.6rem;
   }
 `;
 
@@ -102,7 +90,7 @@ function Products() {
   });
 
   useEffect(() => {
-    screenWidth &&
+    if (screenWidth)
       setPageSize({
         best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
         normal: MEDIA_QUERY.productsPageSize[screenWidth],
@@ -116,10 +104,6 @@ function Products() {
 
   return (
     <MainContainer>
-      <Nav screenWidth={screenWidth}>
-        <NavLink href="/">자유게시판</NavLink>
-        <NavLink href="/">중고마켓</NavLink>
-      </Nav>
       <PageContainer>
         <BestProductSection>
           <h1>베스트 상품</h1>
@@ -132,7 +116,6 @@ function Products() {
           <PageIndex page={page} setPage={setPage} />
         </ProductsContainerComponent>
       </PageContainer>
-      <Footer />
     </MainContainer>
   );
 }
