@@ -23,6 +23,7 @@ export default function UsedMarket() {
   const pageNavi = usePageNavi(1, 5);
   const searchHandle = useChange();
   const searchRef = useRef(null);
+  const windowSize = useScreenSize();
 
   function GetItems(page, pageSize, orderBy, keyword) {
     productsGet(page, pageSize, orderBy, keyword)
@@ -34,6 +35,52 @@ export default function UsedMarket() {
       })
       .catch((err) => console.error(err));
   }
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      switch (true) {
+        case window.innerWidth < 1200 && window.innerWidth >= 744:
+          setTimeout(() => {
+            GetItems(1, 6, arrType, keyword);
+            setSellItemSize("221px");
+            setSellLimit(6);
+          }, 50);
+          break;
+        case window.innerWidth < 744:
+          setTimeout(() => {
+            GetItems(1, 4, arrType, keyword);
+            setSellItemSize("168px");
+            setSellLimit(4);
+          }, 50);
+          break;
+        default:
+          setTimeout(() => {
+            setSellItemSize("220px");
+          }, 50);
+          break;
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    switch (true) {
+      case windowSize < 1200 && windowSize >= 744:
+        sellProduct.setLength(6);
+        setSellLimit(6);
+        setSellItemSize("221px");
+        break;
+      case windowSize < 744:
+        sellProduct.setLength(4);
+        setSellItemSize("168px");
+        setSellLimit(4);
+        break;
+      default:
+        sellProduct.setLength(10);
+        setSellLimit(10);
+        setSellItemSize("220px");
+        break;
+    }
+  }, [windowSize]);
+
   useEffect(() => {
     GetItems(onTarget, sellLimit, arrType, searchHandle.value);
   }, [onTarget]);
@@ -94,12 +141,15 @@ export default function UsedMarket() {
             />
           </div>
           <Link to="/registration">상품등록하기</Link>
-          <select onChange={selectHandle}>
-            <option value="recent" defaultChecked>
-              최신순
-            </option>
-            <option value="favorite">좋아요순</option>
-          </select>
+          <div className="sortIcon">
+            <select onChange={selectHandle}>
+              <option value="recent" defaultChecked>
+                최신순
+              </option>
+              <option value="favorite">좋아요순</option>
+            </select>
+            <img src="./img/ic_sort.png" alt="" />
+          </div>
         </div>
       </MarketSection>
       <MarketPageNavi
