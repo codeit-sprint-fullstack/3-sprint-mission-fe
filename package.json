@@ -1,0 +1,39 @@
+{
+  "name": "3-sprint-mission-fe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "biome format --write ./src",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/themes": "^3.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@radix-ui/react-toggle-group": "^1.1.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "globals": "^15.11.0",
+    "postcss": "^8.4.47",
+    "react-router-dom": "^6.27.0",
+    "sharp": "^0.33.5",
+    "svgo": "^3.3.2",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.9",
+    "vite-plugin-image-optimizer": "^1.1.8",
+    "vite-plugin-lqip": "^0.0.5"
+  }
+}

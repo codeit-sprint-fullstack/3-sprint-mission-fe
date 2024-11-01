@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-Regular.subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-Medium.subset.woff2') format('woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-SemiBold.subset.woff2') format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/Pretendard-Bold.subset.woff2') format('woff2');
+  font-weight: 700;
+}
+
+
+:root {
+  min-width: 375px;
+  scroll-behavior: smooth;
+  body {
+    all: unset;
+  }
+  --is-xs: false;
+  --is-sm: false;
+  --is-md: false;
+  --is-lg: false;
+  --is-xl: false;
+
+  @media (520px <= width) {
+    --is-initial: false;
+    --is-xs: true;
+  }
+  @media (768px <= width) {
+  --is-sm: true;
+  }
+  @media (1024px <= width){
+  --is-md: true;
+  }
+  @media (1280px) <= width {
+  --is-lg: true;
+  }
+  @media (1640px <= width) {
+  --is-xl: true;
+  }
+  --primary-blue-100: #3692ff;
+  --primary-blue-200: #1967d6;
+  --primary-blue-300: #1251aa;
+
+  --secondary-gray-50: #f9fafb;
+  --secondary-gray-100: #f3f4f6;
+  --secondary-gray-200: #e5e7eb;
+  --secondary-gray-400: #9ca3af;
+  --secondary-gray-500: #6b7280;
+  --secondary-gray-600: #4b5563;
+  --secondary-gray-700: #374151;
+  --secondary-gray-800: #1f2937;
+  --secondary-gray-900: rgba(17, 24, 39, 1);
+
+  --primary-red: #f74747;
+}
+
+.radix-themes {
+  --space-10: 100px;
+  --cursor-button: pointer;
+  --default-font-family: 'Pretendard', sans-serif;
+  --font-weight-light: 400;
+  --font-weight-regular: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+  --font-weight-normal: var(--font-weight-regular);
+
+  --gray-4: var(--secondary-gray-50);
+  --gray-5: var(--secondary-gray-100);
+  --gray-6: var(--secondary-gray-200);
+  --gray-7: var(--secondary-gray-400);
+  --gray-8: var(--secondary-gray-500);
+  --gray-9: var(--secondary-gray-600);
+  --gray-10: var(--secondary-gray-700);
+  --gray-11: var(--secondary-gray-800);
+  --gray-12: var(--secondary-gray-900);
+
+  --blue-9: var(--primary-blue-100);
+  --blue-10: var(--primary-blue-200);
+  --blue-11: var(--primary-blue-300);
+  --blue-contrast: var(--secondary-gray-100);
+
+  --red-9: var(--primary-red);
+}
