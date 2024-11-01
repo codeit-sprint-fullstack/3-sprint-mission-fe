@@ -1,32 +1,53 @@
-import expressList from '../api/expressList.jsx';
-import getProductsList from '../api/getProductsList.jsx';
+import expressList from '../../api/expressList.jsx';
+import getProductsList from '../../api/getProductsList.jsx';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function AllItem() {
-    const [products, setProducts] = useState([]);
-    const [option, setOption] = useState('favorite');
-    const [tempSearch, setTempSearch] = useState("");
-    const [search, setSearch] = useState("");
+    const [products, setProducts] = useState({ products: [], totalCount: 0 });
+
+    //const object로 정의하여 enum처럼 사용해보기
+    const options = {
+        favorite: 'favorite',
+        recent: 'recent'
+    }
+    const [option, setOption] = useState(options.recent);
+
+    // 사용자가 검색어를 입력할때 keyword를 onchange를 이용하여 searchInput에 담게 하고,
+    // 검색하기 버튼을 누를때 useEffect로 searchQuery를 전달하였습니다.
+    // 변수명 수정
+    const [searchInput, setSearchInput] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
+
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
-    const [totalCount, setTotalCount] = useState(0);
 
-    const totalPages = Math.ceil(totalCount / pageSize);
-    const startPage = ~~((page - 1) / 5) * 5 + 1;
+    const totalPages = Math.ceil(products.totalCount / pageSize);
+    //Math 객체의 method를 사용
+    const pageNationMax = 5;
+    const startPage = Math.floor((page - 1) / pageNationMax) * pageNationMax + 1;
 
     const updateProducts = async () => {
-        const axiosProducts = await getProductsList(page, search, option, pageSize);
-        setProducts(axiosProducts.products);
-        setTotalCount(axiosProducts.totalCount);
+        const axiosProducts = await getProductsList(page, searchQuery, option, pageSize);
+        setProducts({
+            products: axiosProducts.products,
+            totalCount: axiosProducts.totalCount
+        });     //객체자체를 state로 가져가 점표기법으로 사용하기
     };
 
+    //중괄호 작성하여 코드 가독성 개선
     useEffect(() => {
         const windowSize = () => {
             const width = window.innerWidth;
-            if (width >= 1230) setPageSize(10);
-            if (width >= 801 && width < 1230) setPageSize(6);
-            if (width < 800) setPageSize(4);
+            if (width >= 1230) {
+                setPageSize(10);
+            }
+            if (width >= 801 && width < 1230) {
+                setPageSize(6);
+            }
+            if (width < 800) {
+                setPageSize(4);
+            }
         };
 
         windowSize();
@@ -42,29 +63,32 @@ function AllItem() {
     }, [pageSize, totalPages]);
 
     useEffect(() => {
-        if (page > 0) updateProducts(page, search, option, pageSize);
-    }, [page, search, option, pageSize]);
+        if (page > 0) updateProducts(page, searchQuery, option, pageSize);
+    }, [page, searchQuery, option, pageSize]);
 
     const filterProductsBySearch = () => {
-        if (!search) return products;
-        return products.filter((product) =>
-            product.name.toLowerCase().includes(search.toLowerCase())
+        if (!searchQuery) return products;
+        return products.products.filter((product) =>
+            product.name.toLowerCase().includes(searchQuery.toLowerCase())
         );
     };
 
     const onChangeSearch = (e) => {
-        setTempSearch(e.target.value);
+        setSearchInput(e.target.value);
     };
 
     const onClickSearch = () => {
-        setSearch(tempSearch);
-        setTempSearch("");
+        setSearchQuery(searchInput);
+        setSearchInput("");
         setPage(1);
     };
 
     const onKeyDown = (e) => {
-        if (e.keyCode === 13) onClickSearch();
-    };
+        if (e.keyCode === 13) {
+            onClickSearch();
+            setPage(1);
+        }// 엔터키를 눌렀을때 검색이 되도록 하기위해 설정하였습니다.
+    }
 
     const onChangeSortOption = (e) => {
         setOption(e.target.value);
@@ -90,7 +114,7 @@ function AllItem() {
                 <div className='all-item-text'>판매 중인 상품</div>
                 <div className='all-item-option'>
                     <div className='all-item-searchBox-container'>
-                        <input value={tempSearch}
+                        <input value={searchInput}
                             onKeyDown={onKeyDown}
                             onChange={onChangeSearch} className='all-item-searchBox' placeholder='검색할 상품을 입력해주세요'>
                         </input>
@@ -119,7 +143,7 @@ function AllItem() {
                 </div>
                 <div className='all-item-option'>
                     <div className='all-item-searchBox-container'>
-                        <input value={tempSearch}
+                        <input value={searchInput}
                             onKeyDown={onKeyDown}
                             onChange={onChangeSearch} className='all-item-searchBox' placeholder='검색할 상품을 입력해주세요'></input>
                         <a onClick={onClickSearch} className='all-item-searchButton'>
@@ -141,8 +165,8 @@ function AllItem() {
             </div>
 
             <div className='all-item-list'>
-                {products.length === 0 ? (<p className='none-product'>상품이 없습니다.</p>) :
-                    (products.map((product, index) => (
+                {products.products.length === 0 ? (<p className='none-product'>상품이 없습니다.</p>) :
+                    (products.products.map((product, index) => (
                         <div key={index} className='All-item-list-item'>
                             <div className='contain-img'>
                                 <img src={product.images} alt={product.name} />
@@ -172,51 +196,22 @@ function AllItem() {
                     <span className="material-symbols-outlined">chevron_left</span>
                 </button>
 
-                {startPage <= totalPages && (
-                    <button
-                        value={startPage}
-                        onClick={onClickPage}
-                        className={`buttonNum ${page === startPage ? 'active' : ''}`}
-                    >
-                        {startPage}
-                    </button>
-                )}
-                {startPage + 1 <= totalPages && (
-                    <button
-                        value={startPage + 1}
-                        onClick={onClickPage}
-                        className={`buttonNum ${page === startPage + 1 ? 'active' : ''}`}
-                    >
-                        {startPage + 1}
-                    </button>
-                )}
-                {startPage + 2 <= totalPages && (
-                    <button
-                        value={startPage + 2}
-                        onClick={onClickPage}
-                        className={`buttonNum ${page === startPage + 2 ? 'active' : ''}`}
-                    >
-                        {startPage + 2}
-                    </button>
-                )}
-                {startPage + 3 <= totalPages && (
-                    <button
-                        value={startPage + 3}
-                        onClick={onClickPage}
-                        className={`buttonNum ${page === startPage + 3 ? 'active' : ''}`}
-                    >
-                        {startPage + 3}
-                    </button>
-                )}
-                {startPage + 4 <= totalPages && (
-                    <button
-                        value={startPage + 4}
-                        onClick={onClickPage}
-                        className={`buttonNum ${page === startPage + 4 ? 'active' : ''}`}
-                    >
-                        {startPage + 4}
-                    </button>
-                )}
+                {/* 임의의 length 5짜리 배열 만들어서 map사용해 페이지네이션 구현해보기 */}
+                {[0, 1, 2, 3, 4].map((x) => {
+                    const pageNumber = startPage + x;
+                    return (
+                        pageNumber <= totalPages && (
+                            <button
+                                key={x}
+                                value={pageNumber}
+                                onClick={onClickPage}
+                                className={`buttonNum ${page === pageNumber ? 'active' : ''}`}
+                            >
+                                {pageNumber}
+                            </button>
+                        )
+                    );
+                })}
 
                 <button
                     onClick={onClickPagePlus}

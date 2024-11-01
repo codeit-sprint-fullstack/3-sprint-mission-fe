@@ -8,10 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+./react-psh-sprint5/node_modules/
+./express-psh-sprint6/node_modules/
 dist
 dist-ssr
 *.local
 
+./express-psh-sprint6/env.js
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

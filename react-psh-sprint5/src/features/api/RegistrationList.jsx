@@ -1,8 +1,8 @@
 import axios from "axios";
-
+import { ExpressURL } from "./url";
 const RegistrationList = async (productName, productIntro, productPrice, productTag) => {
     try {
-        const response = await axios.post(`http://localhost:8000/registration`, {
+        const response = await axios.post(`${ExpressURL}/registration`, {
             name: productName,
             description: productIntro,
             price: productPrice,

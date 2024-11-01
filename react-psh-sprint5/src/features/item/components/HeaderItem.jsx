@@ -1,4 +1,4 @@
-import PandaLogo from "../../images/PandaLogo.png"
+import PandaLogo from "../images/PandaLogo.png"
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 

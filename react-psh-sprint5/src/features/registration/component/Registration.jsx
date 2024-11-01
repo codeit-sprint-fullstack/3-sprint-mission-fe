@@ -1,5 +1,5 @@
 import HeaderItem from "../../item/components/HeaderItem";
-import Footer from "../../../../src/components/Footer"
+import Footer from "../../../../shared/components/Footer";
 import '../css/Registr.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";

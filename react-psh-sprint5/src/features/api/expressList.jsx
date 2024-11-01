@@ -1,8 +1,9 @@
 import axios from "axios";
+import { ExpressURL } from "./url";
 
-const expressList = async (page = 1, search = "", option = "favorite", pageSize = 10) => {
+const expressList = async (page = 1, searchQuery = "", option = "favorite", pageSize = 10) => {
     try {
-        const response = await axios.get(`http://localhost:8000/items?page=${page}&pageSize=${pageSize}&orderBy=${option}&keyword=${search}`);
+        const response = await axios.get(`${ExpressURL}/items?page=${page}&pageSize=${pageSize}&orderBy=${option}&keyword=${searchQuery}`);
         return {
             products: response.data.list,
             totalCount: response.data.totalCount

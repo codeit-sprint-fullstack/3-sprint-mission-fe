@@ -1,5 +1,5 @@
-import Header from "../../shared/components/Header";
-import Footer from "./Footer";
+import Header from "../../../../shared/components/Header";
+import Footer from "../../../../shared/components/Footer";
 import RendingPageMain from "./RendingPageMain";
 
 function RendingPage() {
