@@ -1,0 +1,77 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/app": ["src/app"],
+      "@/app/*": ["src/app/*"],
+      "@/app/providers": ["src/app/providers"],
+      "@/app/providers/*": ["src/app/providers/*"],
+      "@/app/styles": ["src/app/styles"],
+      "@/app/styles/*": ["src/app/styles/*"],
+      "@/app/types": ["src/app/types"],
+      "@/app/types/*": ["src/app/types/*"],
+      "@/pages": ["src/pages"],
+      "@/pages/*": ["src/pages/*"],
+      "@/pages/api": ["src/pages/api"],
+      "@/pages/api/*": ["src/pages/api/*"],
+      "@/widgets": ["src/widgets"],
+      "@/widgets/*": ["src/widgets/*"],
+      "@/features": ["src/features"],
+      "@/features/*": ["src/features/*"],
+      "@/entities": ["src/entities"],
+      "@/entities/*": ["src/entities/*"],
+      "@/shared": ["src/shared"],
+      "@/shared/*": ["src/shared/*"],
+      "@/shared/api": ["src/shared/api"],
+      "@/shared/api/*": ["src/shared/api/*"],
+      "@/shared/config": ["src/shared/config"],
+      "@/shared/config/*": ["src/shared/config/*"],
+      "@/shared/lib": ["src/shared/lib"],
+      "@/shared/lib/*": ["src/shared/lib/*"],
+      "@/shared/ui": ["src/shared/ui"],
+      "@/shared/ui/*": ["src/shared/ui/*"],
+      "@/shared/hooks": ["src/shared/hooks"],
+      "@/shared/hooks/*": ["src/shared/hooks/*"],
+      "@/shared/types": ["src/shared/types"],
+      "@/shared/types/*": ["src/shared/types/*"],
+      "@/shared/assets": ["src/shared/assets"],
+      "@/shared/assets/*": ["src/shared/assets/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@layouts/*": ["./src/app/layouts/*"],
+      "@styles/*": ["./src/app/styles/*"],
+      "@public/*": ["./public/*"]
+    },
+    "target": "ES2017"
+  },
+  "include": [
+    "src/app/types/svgr.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
