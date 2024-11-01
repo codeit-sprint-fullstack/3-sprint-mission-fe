@@ -8,8 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-3-SPRINT-MISSION-FE/react-psh-sprint5/node_modules/
-3-SPRINT-MISSION-FE/express-psh-sprint6/node_modules/
 dist
 dist-ssr
 *.local
