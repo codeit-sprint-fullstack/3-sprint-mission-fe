@@ -1,5 +1,5 @@
 import { atom } from "jotai";
 
-const productSearchKeywordState = atom("");
+const productSearchKeywordState = atom<string>("");
 
 export default productSearchKeywordState;

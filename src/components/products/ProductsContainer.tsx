@@ -3,6 +3,16 @@ import Product from "./Product";
 import PropTypes from "prop-types";
 import PROP_VALUES from "../../constants/propValues";
 import RefreshButton from "../common/RefreshButton";
+import { IProduct } from "../../types/datas";
+import { ProductSize } from "../../types/options";
+
+interface IProductsContainer {
+  products: IProduct[];
+  loading: boolean;
+  error: string | null;
+  size: ProductSize;
+  refetch: () => void;
+}
 
 const ProductsContainerComponent = styled.div`
   display: flex;
@@ -18,11 +28,11 @@ const ProductsContainerComponent = styled.div`
   }
 `;
 
-function ProductsContainer({ products, loading, error, size, refetch }) {
+function ProductsContainer({ products, loading, error, size, refetch }: IProductsContainer) {
   return (
     <ProductsContainerComponent>
       {/* 로딩,에러 핸들 구현 예정 */}
-      {error && <RefreshButton refetch={refetch} />}
+      {error && <RefreshButton refresh={refetch} />}
       {!loading &&
         !error &&
         products.map((product) => {

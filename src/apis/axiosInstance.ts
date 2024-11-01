@@ -1,6 +1,6 @@
-import axios from "axios";
-import URLS from "../constants/url.js";
-import { HTTP_ERROR_MESSAGE } from "../constants/messages.js";
+import axios, { AxiosError } from "axios";
+import URLS from "../constants/url";
+import { HTTP_ERROR_MESSAGE } from "../constants/messages";
 
 const api = axios.create({
   baseURL: URLS.baseUrl,
@@ -12,10 +12,12 @@ const api = axios.create({
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response) {
+    if (error instanceof AxiosError) {
       throw new Error(
-        HTTP_ERROR_MESSAGE[error.response.status] ??
-          `${HTTP_ERROR_MESSAGE.else} : ${error.response.status}`
+        error.response?.status
+          ? HTTP_ERROR_MESSAGE[error.response.status.toString()] ||
+            `${HTTP_ERROR_MESSAGE.else} : ${error.response.status}`
+          : HTTP_ERROR_MESSAGE.else
       );
     }
     if (error.request) {

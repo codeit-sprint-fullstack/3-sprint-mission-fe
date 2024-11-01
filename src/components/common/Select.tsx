@@ -2,9 +2,26 @@ import { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
 import DropDown from "../../../public/icons/DropDown.png";
 import { MEDIA_QUERY } from "../../constants/mediaQuery";
+import { useSetAtom } from "jotai";
+import { WritableAtom } from "jotai";
+import { SetStateAction } from "jotai";
+import { ProductSortOption, ScreenWidth } from "../../types/options";
+
+interface ISelectProps {
+  selectedOption: string;
+  setOption: ReturnType<
+    typeof useSetAtom<WritableAtom<ProductSortOption, [SetStateAction<ProductSortOption>], void>>
+  >;
+  optionsString: string[];
+  optionsValue: ProductSortOption[];
+  screenWidth: ScreenWidth;
+}
+
+interface OptionContainerProps {
+  $isOpen: boolean;
+}
 
 const SelectContainer = styled.div`
   position: relative;
@@ -41,7 +58,7 @@ const DropdownButtonContainer = styled.div`
   }
 `;
 
-const OptionContainer = styled.div`
+const OptionContainer = styled.div<OptionContainerProps>`
   position: absolute;
   width: 100%;
   top: 100%;
@@ -67,9 +84,15 @@ const Option = styled.div`
   }
 `;
 
-function Select({ selectedOption, setOption, optionsString, optionsValue, screenWidth }) {
+function Select({
+  selectedOption,
+  setOption,
+  optionsString,
+  optionsValue,
+  screenWidth,
+}: ISelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const handleSelect = (option) => {
+  const handleSelect = (option: ProductSortOption) => {
     setOption(option);
     setIsOpen(false);
   };
@@ -96,13 +119,5 @@ function Select({ selectedOption, setOption, optionsString, optionsValue, screen
     </SelectContainer>
   );
 }
-
-Select.propTypes = {
-  selectedOption: PropTypes.string,
-  setOption: PropTypes.func,
-  optionsString: PropTypes.arrayOf(PropTypes.string),
-  optionsValue: PropTypes.arrayOf(PropTypes.string),
-  screenWidth: PropTypes.string,
-};
 
 export default Select;

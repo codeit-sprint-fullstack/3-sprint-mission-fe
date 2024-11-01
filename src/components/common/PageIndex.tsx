@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+
+interface IPageIndexProps {
+  page: number;
+  setPage: (value: number) => void;
+}
 
 const ButtonsContainer = styled.div`
   display: flex;
@@ -25,7 +29,7 @@ const CircleButton = styled.button`
   }
 `;
 
-function PageIndex({ page, setPage }) {
+function PageIndex({ page, setPage }: IPageIndexProps) {
   const PAGE_SIZE = 5;
   const [pageGroup, setPageGroup] = useState(0);
   const start = pageGroup * PAGE_SIZE + 1;
@@ -63,8 +67,3 @@ function PageIndex({ page, setPage }) {
 }
 
 export default PageIndex;
-
-PageIndex.propTypes = {
-  page: PropTypes.number,
-  setPage: PropTypes.func,
-};

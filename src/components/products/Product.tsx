@@ -2,10 +2,22 @@ import styled from "styled-components";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import formatter from "../../utils/formatter";
-import PropTypes from "prop-types";
-import PROP_VALUES from "../../constants/propValues";
+import PROP_VALUES from "../../constants/propValues.ts";
+import { ProductSize } from "../../types/options.ts";
 
-const ProductContainer = styled.div`
+interface ISizeProp {
+  $size: ProductSize;
+}
+
+interface IProductProps {
+  title: string;
+  price: number;
+  likes: number;
+  image: string;
+  size: ProductSize;
+}
+
+const ProductContainer = styled.div<ISizeProp>`
   display: flex;
   flex-direction: column;
   width: ${(props) => (props.$size === PROP_VALUES.product.big ? "28.2rem" : "22.1rem")};
@@ -14,7 +26,7 @@ const ProductContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div<ISizeProp>`
   border-radius: 1.6rem;
   width: 100%;
   height: ${(props) => (props.$size === PROP_VALUES.product.big ? "28.2rem" : "22.1rem")};
@@ -59,7 +71,7 @@ const TextContainer = styled.div`
   }
 `;
 
-function Product({ title, price, likes, image, size = PROP_VALUES.product.small }) {
+function Product({ title, price, likes, image, size = PROP_VALUES.product.small }: IProductProps) {
   return (
     <>
       <ProductContainer $size={size}>
@@ -78,13 +90,5 @@ function Product({ title, price, likes, image, size = PROP_VALUES.product.small 
     </>
   );
 }
-
-Product.propTypes = {
-  title: PropTypes.string,
-  price: PropTypes.number,
-  likes: PropTypes.number,
-  image: PropTypes.string,
-  size: PropTypes.oneOf([PROP_VALUES.product.small, PROP_VALUES.product.big]),
-};
 
 export default Product;

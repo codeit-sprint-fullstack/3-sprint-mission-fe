@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
 
-const RefreshButton = ({ refresh }) => {
+interface IRefreshButton {
+  refresh: () => void;
+}
+
+const RefreshButton = ({ refresh }: IRefreshButton) => {
   return (
     <FontAwesomeIcon
       size="4x"
@@ -14,7 +17,3 @@ const RefreshButton = ({ refresh }) => {
 };
 
 export default RefreshButton;
-
-RefreshButton.propTypes = {
-  refresh: PropTypes.func,
-};

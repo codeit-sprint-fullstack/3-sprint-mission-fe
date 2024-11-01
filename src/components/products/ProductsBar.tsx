@@ -9,6 +9,11 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { MEDIA_QUERY } from "../../constants/mediaQuery";
 import { useState } from "react";
 import productSearchKeywordState from "../../jotai/atoms/productSearchKeywordState";
+import { ScreenWidth } from "../../types/options";
+
+interface IProductsBarProps {
+  screenWidth: ScreenWidth;
+}
 
 const Input = styled.input`
   padding: 0.9rem 2rem 0.9rem 3.5rem;
@@ -63,7 +68,7 @@ const RegisterButton = styled.button`
   height: 4.5rem;
 `;
 
-function ProductsBar({ screenWidth }) {
+function ProductsBar({ screenWidth }: IProductsBarProps) {
   const [productSortBy, setProductSortBy] = useAtom(productSortByState);
   const setProductSearchKeyword = useSetAtom(productSearchKeywordState);
   const [searchInputValue, setSearchInputValue] = useState("");

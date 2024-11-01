@@ -1,8 +1,14 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import logo from "../../../public/images/common/logo.png";
 import mobileLogo from "../../../public/images/common/mobileLogo.png";
 import { MEDIA_QUERY } from "../../constants/mediaQuery";
+import { ReactNode } from "react";
+import { ScreenWidth } from "../../types/options";
+
+interface INavProps {
+  screenWidth: ScreenWidth;
+  children?: ReactNode;
+}
 
 const NavComponent = styled.nav`
   width: 100%;
@@ -51,7 +57,7 @@ const LoginButton = styled.button`
   height: 4.2rem;
 `;
 
-function Nav({ screenWidth, children }) {
+function Nav({ screenWidth, children }: INavProps) {
   return (
     <NavComponent>
       <NavContainer>
@@ -66,8 +72,3 @@ function Nav({ screenWidth, children }) {
 }
 
 export default Nav;
-
-Nav.propTypes = {
-  screenWidth: PropTypes.string,
-  children: PropTypes.node,
-};

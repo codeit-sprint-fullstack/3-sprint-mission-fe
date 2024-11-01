@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import { getProductList } from "../apis/ProductService";
 import PRODUCT_SORT_BY from "../constants/productSortBy";
+import { IProduct } from "../types/datas";
 
 const useProducts = ({
   page = 1,
-  pageSize,
+  pageSize = 100,
   searchKeyword = "",
   orderBy = PRODUCT_SORT_BY.recent.parameter,
+}: {
+  page?: number;
+  pageSize: number;
+  searchKeyword?: string;
+  orderBy?: "recent" | "favorite";
 }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [stale, setStale] = useState(true);
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [stale, setStale] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchProductsList = async () => {
@@ -28,7 +34,7 @@ const useProducts = ({
           setProducts(list);
         }
       } catch (e) {
-        setError(e.message);
+        if (e instanceof Error) setError(e.message);
       } finally {
         setLoading(false);
         setStale(false);

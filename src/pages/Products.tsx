@@ -1,4 +1,4 @@
-import Footer from "../components/common/footer";
+import Footer from "../components/common/Footer";
 import Nav from "../components/common/Nav";
 import styled from "styled-components";
 import ProductsContainer from "../components/products/ProductsContainer";
@@ -82,27 +82,31 @@ function Products() {
   const searchKeyword = useAtomValue(productSearchKeywordState);
   const productSortBy = useAtomValue(productSortByState);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState({
-    best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
-    normal: MEDIA_QUERY.productsPageSize[screenWidth],
+  const [pageSize, setPageSize] = useState(() => {
+    if (screenWidth)
+      return {
+        best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
+        normal: MEDIA_QUERY.productsPageSize[screenWidth],
+      };
   });
 
   const bestProducts = useProducts({
-    pageSize: pageSize.best,
+    pageSize: pageSize?.best ?? 4,
     orderBy: PRODUCT_SORT_BY.favorite.parameter,
   });
   const products = useProducts({
-    pageSize: pageSize.normal,
+    pageSize: pageSize?.normal ?? 10,
     orderBy: productSortBy,
     searchKeyword,
     page,
   });
 
   useEffect(() => {
-    setPageSize({
-      best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
-      normal: MEDIA_QUERY.productsPageSize[screenWidth],
-    });
+    screenWidth &&
+      setPageSize({
+        best: MEDIA_QUERY.bestProductsPageSize[screenWidth],
+        normal: MEDIA_QUERY.productsPageSize[screenWidth],
+      });
   }, [screenWidth]);
 
   useEffect(() => {

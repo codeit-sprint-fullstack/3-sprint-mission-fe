@@ -1,4 +1,8 @@
-export const DOCUMENT_ERROR_MESSAGES = {
+interface IMessage {
+  [key: string | number]: string;
+}
+
+export const DOCUMENT_ERROR_MESSAGES: IMessage = {
   failCreatingDocument: "문서를 생성하는데 실패했습니다 : ",
   failGettingDocument: "문서를 불러오는데 실패했습니다 : ",
   failGettingDocumentList: "문서 목록을 불러오는데 실패했습니다 : ",
@@ -7,7 +11,7 @@ export const DOCUMENT_ERROR_MESSAGES = {
   succededDeletingDocument: "성공적으로 문서를 삭제했습니다.",
 };
 
-export const HTTP_ERROR_MESSAGE = {
+export const HTTP_ERROR_MESSAGE: IMessage = {
   404: "문서를 찾을 수 없습니다.",
   400: "잘못된 값이 입력되었습니다.",
   401: "접근 권한이 없습니다.",
