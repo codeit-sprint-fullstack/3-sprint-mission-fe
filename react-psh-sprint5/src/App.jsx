@@ -1,5 +1,5 @@
-import Sprint5 from "./components/Sprint5"
-import RendingPage from "./components/RendingPage"
+import Sprint5 from "./features/sprint5/Sprint5";
+import RendingPage from "./features/rendingPage/components/RendingPage"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Item from "./features/item/Items";
 import Registration from "./features/registration/component/Registration";
