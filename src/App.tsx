@@ -1,14 +1,15 @@
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./theme";
-import Root from "./Root";
 import { Provider } from "jotai";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
 function App() {
   return (
     <>
       <Provider>
         <ThemeProvider theme={defaultTheme}>
-          <Root />
+          <RouterProvider router={router} />
         </ThemeProvider>
       </Provider>
     </>
