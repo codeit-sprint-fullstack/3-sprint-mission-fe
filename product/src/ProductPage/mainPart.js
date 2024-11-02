@@ -3,6 +3,7 @@ import './mainPart.css';
 import vector from '../image/Vector.png';
 import Box from './choose.js';
 import {Link} from "react-router-dom"; 
+// import ProductList from "./product";
 
 function MainPart() {
     return(

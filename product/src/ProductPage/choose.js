@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import './choose.css';
 import ProductList from './product.js';
-import {getProduct} from '../apis.js';
+import {getProducts} from '../apis.js';
 
 
 const Box = () => {
@@ -14,19 +14,17 @@ const Box = () => {
     const handleOnChangeSelectValue = (e) => {
         setCurrentValue(e.target.value);
         if(e.target.value === '최신순'){
-          setOrder('createAt');
-        }else if(e.target.value === '좋아요순'){
-          setOrder('favoriteCount');
+          setOrder('createdAt');
         }
     }
 
     const sortedItems = items.sort((a,b)=> b[order]-a[order]);
 
-    const handleLoad = async (orderQuery) => {
+    const handleLoad = async () => {
       try {
-        const product = await getProduct(orderQuery);
+        const product = await getProducts();
         // { list, totalCount } 
-        setItems(product.list);
+        setItems(product);
       } catch(err) {
         console.log('err', err)
       }
@@ -40,7 +38,7 @@ const Box = () => {
        <div className='sort'>  
             <select className="sortBtn" onChange={handleOnChangeSelectValue} value={currentValue}>
                 <option className="option" onChange = {handleOnChangeSelectValue}>최신순</option>
-                <option className="option" onChange = {handleOnChangeSelectValue} >좋아요순</option>
+                <option className="option">좋아요순</option>
             </select>    
             <ProductList products = {sortedItems}/>
         </div>

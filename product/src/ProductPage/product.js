@@ -14,7 +14,7 @@ import Image from '../image/img_default.png';
                         <li className='price'>{product.price}원</li>
                         <div className='favorite'>
                             <img src={heart} alt='하트이미지'/>
-                            <li className='count'>{product.favoriteCount}</li>
+                            <li className='count'></li>
                         </div>
                     </ul>
                 );

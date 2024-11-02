@@ -1,53 +1,53 @@
 import React from "react";
 import './pagination.css';
-import Left from '../image/left.png';
-import Right from '../image/right.png';
+import  LeftArrow from '../image/left.png';
+import  RightArrow from '../image/right.png';
 
-const Pagination = ({ totalPageNum, activePageNum, onPageChange}) => {
-    const maxPages = 5;
-    let startPage;
+const PaginationBar = ({ pageNum, setPageNum, totalPage }) => {
+  
+    const startPage = Math.max(1, Math.min(pageNum - 2, totalPage -4));
+    const endPage = Math.min(totalPage, startPage + 4);
+    const paginationArr = Array.from (
+      {length: endPage - startPage + 1},
+      (_, index) => startPage + index
+    );
 
-    if(totalPageNum <= maxPages){
-        startPage = 1;
-    }else{
-        startPage = Math.max(activePageNum - Math.floor(maxPages / 2), 1);
-        startPage = Math.min(startPage, totalPageNum - maxPages + 1);
+    const handlePrevPage = () => {
+      if (pageNum > 1) setPageNum(pageNum - 1);
     }
 
-    const pages = Array.from(
-        {length: Math.min(maxPages, totalPageNum - startPage + 1)},
-        (_, i) => startPage + i
-    );
+    const handleNextPage = () => {
+      if (pageNum < totalPage) setPageNum(pageNum + 1);
+    }
   
-
     return (
-        <div className="pagination">
-            <button className="paginationBtn" 
-            disabled={activePageNum === 1} 
-            onClick={() => onPageChange(activePageNum -1)}>
-                <img src={Left} alt="왼쪽 화살표"/>
-            </button>
-            {pages.map((page) => {
-                 <button
-                 key={page}
-                 className={`paginationBTn ${
-                   activePageNum === page ? "active" : ""
-                 }`}
-                 onClick={() => onPageChange(page)}
-               >
-                {page}
-                </button>
-            })}
-             <button
-            className="paginationButton"
-            disabled={activePageNum === totalPageNum}
-            onClick={() => onPageChange(activePageNum + 1)}>
-             <img src={Right} alt="오른쪽 화살표"/>
+      <div className="pagination">
+        <button
+          className="pagination"
+          onClick={handlePrevPage}
+        >
+          <img src={LeftArrow} alt="LeftArrow"/>
         </button>
-        </div>
-    )
-} 
-
-
-
-export default Pagination;
+        {paginationArr.map((page) => (
+          <button
+            key={page}
+            className={`pagination ${
+              pageNum === page ? "active" : ""
+            }`}
+            onClick={() => setPageNum(page)}
+          >
+            {page}
+          </button>
+        ))}
+        <button
+          className="pagination"
+          onClick={handleNextPage}
+        >
+          <img src={RightArrow} alt="RightArrow"/>
+        </button>
+      </div>
+    );
+  };
+  
+  export default PaginationBar;
+  
