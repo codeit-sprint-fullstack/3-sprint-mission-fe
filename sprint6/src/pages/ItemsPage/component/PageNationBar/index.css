@@ -1,0 +1,36 @@
+
+/* Page Number */
+#pageNumBox {
+  width: 30.4rem;
+  height: 4rem;
+  position: relative;
+  right: -45rem;
+  bottom: -1rem;
+}
+
+#pageNumBox button {
+  width: 4rem;
+  height: 4rem;
+  background-color: #FFFFFF;
+  border: 0.1rem solid #E5E7EB;
+  border-radius: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-right: 0.4rem;
+  cursor: pointer;
+}
+
+#pageNumBox button:hover {
+  background-color: #2F80ED;
+  color: #F9FAFB;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+}
+
+#pageNumBox img {
+  width: 0.6rem;
+  height: 1rem;
+  position: relative;
+  left: -0.1rem;
+  top: -0.2rem;
+}
