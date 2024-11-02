@@ -3,17 +3,19 @@ import styled from 'styled-components';
 
 type SortByDropdownProps = {
   setOrderBy: (orderBy: string) => void;
+  children: React.ReactNode;
 };
 
-const SortByDropdown = ({ setOrderBy }: SortByDropdownProps) => {
+const SortByDropdown = ({ setOrderBy, children }: SortByDropdownProps) => {
   const handleOrderByChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOrderBy(e.target.value);
   };
 
   return (
     <Select onChange={handleOrderByChange}>
-      <Option value="recent">최신순</Option>
-      <Option value="favorite">좋아요순</Option>
+      {children}
+      {/* <Option value="recent">최신순</Option>
+      <Option value="favorite">좋아요순</Option> */}
     </Select>
   );
 };
@@ -28,5 +30,3 @@ const Select = styled.select`
   font-weight: 400;
   font-family: 'Pretendard';
 `;
-
-const Option = styled.option``;
