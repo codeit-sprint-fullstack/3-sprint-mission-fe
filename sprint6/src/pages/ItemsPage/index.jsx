@@ -14,30 +14,15 @@ import EmptyBox from "./component/EmptyBox/index.jsx";
 import getProducts from "../../api/api.js";
 // import getPageSize from "./common/getPageSize.js";
 
-const LIKE_PRODS_LIST = "page=1&pageSize=10&orderBy=favorite";
 const PRODS_LIST = "page=1&pageSize=10&orderBy=recent";
 
 function ItemsPage() {
   // Use State
   const [prodsList, setProdsList] = useState([]); // 판매 중인 상품
   const [filter, setFilter] = useState(false); // 필터 메뉴 Hide
-  const [prodsListState, setProdsListState] = useState(false); // 필터 종류에 따라 버튼의 기능이 변함
   const [searchProdInput, setSearchProdInput] = useState(); // 상품 검색시 검색한 텍스트가 담김
   const [emptyBox, setEmptyBox] = useState(false); // 상품 검색 목록이 없을 때 나오는 메시지
   const [filterSort, setFilterSort] = useState("최신순"); // 필터 글씨 바꾸기
-  // 쿼리 State 옵션
-  // const [orderBy, setOrderBy] = useState("recent");
-  // const [page, setPage] = useState(1);
-  // const [pageSize, setPageSize] = useState(10);
-  // const [keyword, setKeyword] = useState();
-  // const [totalPageNum, setTotalPageNum] = useState();
-
-
-  // const fetchSortData = async ({ orderBy, page, pageSize, keyword }) => {
-  //   const products = await getProducts({ orderBy, page, pageSize, keyword });
-  //   setProdsList(products.list);
-  //   setTotalPageNum(Math.ceil(products.totalCount / pageSize)); // Math.ceil(x), x의 소수점이 얼마이든지 올림 값이 됨. 2.4 => 3
-  // };
 
   // 화면이 켜지자마자 렌더링
   const loadHandle = async () => {
@@ -71,23 +56,14 @@ function ItemsPage() {
   };
 
   const recentFilterHandle = () => {
-    setProdsListState(false); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
     recentSortHandle(); // 최근순 렌더링 작동
     setEmptyBox(false); // EmptyBox(상품 없을 때) 사라지게 함.
     setFilterSort("최신순"); // 필터 메뉴 텍스트 바뀜.
   };
 
-  // 좋아요순 렌더링
-  const favoriteSortHandle = async () => {
-    const favoriteProducts = await getProducts(LIKE_PRODS_LIST);
-    setProdsList(favoriteProducts.list);
-  };
-
   const likeFilterHandle = async () => {
-    setProdsListState(true); // 필터 종류에 따라 버튼 기능 변화
     filterHideHandle(); // 필터 메뉴 Hide 이벤트
-    favoriteSortHandle(); // 좋아요순 렌더링 작동
     setEmptyBox(false); // EmptyBox(상품 없을 때) 사라지게 함.
     setFilterSort("좋아요순"); // 필터 메뉴 텍스트 바뀜.
   };
@@ -113,11 +89,7 @@ function ItemsPage() {
 
   // 필터 종류에 따른 페이지 버튼 핸들러
   const PageButtonRenderHandle = () => {
-    if (prodsListState) {
-      return <PageButtonlike />;
-    } else {
-      return <PageButtonRecent />;
-    }
+      return <PageButtonRecent />
   };
 
   // 페이지네이션 버튼 RECENT
@@ -128,27 +100,6 @@ function ItemsPage() {
       const prodsList = await getProducts(query);
       setProdsList(prodsList.list);
     };
-    const button = [];
-
-    for (let i = 1; i <= 5; i++) {
-      button.push(
-        <button key={i} onClick={pageNationHndle}>
-          {i}
-        </button>
-      );
-    }
-    return button;
-  };
-
-  // 페이지네이션 버튼 LIKE
-  const PageButtonlike = () => {
-    const pageNationHndle = async (e) => {
-      const query = `page=${e.target.textContent}&pageSize=10&orderBy=favorite`;
-
-      const favoriteProdsList = await getProducts(query);
-      setProdsList(favoriteProdsList.list);
-    };
-
     const button = [];
 
     for (let i = 1; i <= 5; i++) {
