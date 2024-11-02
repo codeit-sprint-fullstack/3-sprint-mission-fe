@@ -1,5 +1,5 @@
 const URLS = {
-  baseUrl: "https://panda-market-api.vercel.app",
+  baseUrl: "https://three-sprint-mission-be.onrender.com",
   products: "products",
 };
 

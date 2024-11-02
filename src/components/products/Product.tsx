@@ -76,14 +76,16 @@ function Product({ title, price, likes, image, size = PROP_VALUES.product.small 
     <>
       <ProductContainer $size={size}>
         <ImageContainer $size={size}>
-          <img src={image} alt={title} />
+          {/* 이미지 임시 처리 */}
+          <img src="https://nomadlee.com/wp-content/uploads/2024/09/16.webp" alt={title} />
         </ImageContainer>
         <TextContainer>
           <p>{title}</p>
           <p>{formatter.formatNumber(price)}원</p>
           <div>
             <FontAwesomeIcon icon={faHeart} />
-            <div>{formatter.formatNumber(likes)}</div>
+            {/* 이후 구현 예정 */}
+            {/* <div>{formatter.formatNumber(likes)}</div> */}
           </div>
         </TextContainer>
       </ProductContainer>

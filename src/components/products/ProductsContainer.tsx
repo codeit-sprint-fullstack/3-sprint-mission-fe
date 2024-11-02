@@ -43,7 +43,7 @@ function ProductsContainer({ products, loading, error, size, refetch }: IProduct
             image: product.images[0],
             size,
           };
-          return <Product key={product.id} {...props} />;
+          return <Product key={product._id} {...props} />;
         })}
     </ProductsContainerComponent>
   );

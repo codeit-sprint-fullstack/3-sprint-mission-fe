@@ -1,7 +1,8 @@
 export interface IProduct {
-  id: number;
+  _id?: string;
   name: string;
   price: number;
   favoriteCount: number;
   images: string[];
+  description: string;
 }
