@@ -10,6 +10,7 @@ import { MEDIA_QUERY } from "../../constants/mediaQuery";
 import { useState } from "react";
 import productSearchKeywordState from "../../jotai/atoms/productSearchKeywordState";
 import { ScreenWidth } from "../../types/options";
+import { useNavigate } from "react-router-dom";
 
 interface IProductsBarProps {
   screenWidth: ScreenWidth;
@@ -72,6 +73,7 @@ function ProductsBar({ screenWidth }: IProductsBarProps) {
   const [productSortBy, setProductSortBy] = useAtom(productSortByState);
   const setProductSearchKeyword = useSetAtom(productSearchKeywordState);
   const [searchInputValue, setSearchInputValue] = useState("");
+  const navigate = useNavigate();
 
   return (
     <ProductsBarContainer>
@@ -89,7 +91,7 @@ function ProductsBar({ screenWidth }: IProductsBarProps) {
             icon={faMagnifyingGlass}
           />
         </InputContainer>
-        <RegisterButton>상품 등록하기</RegisterButton>
+        <RegisterButton onClick={() => navigate("/registration")}>상품 등록하기</RegisterButton>
         <Select
           {...{
             selectedOption: PRODUCT_SORT_BY[productSortBy].string,
