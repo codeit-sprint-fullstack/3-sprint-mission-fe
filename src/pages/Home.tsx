@@ -3,6 +3,7 @@ import Banner from "../components/home/Banner";
 import TopBannerImg from "../../public/images/home/Img_home_top.png";
 import BottomBannerImg from "../../public/images/home/Img_home_bottom.png";
 import MainPage from "../components/home/MainPage";
+import { Link } from "react-router-dom";
 
 const BannerTextContainer = styled.div`
   display: flex;
@@ -44,7 +45,9 @@ function Home() {
         <Banner image={TopBannerImg}>
           <BannerTextContainer>
             <BannerText>일상의 모든 물건을 거래해 보세요</BannerText>
-            <Button>구경하러 가기</Button>
+            <Link to="/items">
+              <Button>구경하러 가기</Button>
+            </Link>
           </BannerTextContainer>
         </Banner>
         <MainPage />

@@ -17,6 +17,7 @@ export const defaultTheme = {
     mainGrey: "#9CA3AF",
     subGrey: "#DFDFDF",
     inputBg: "#F3F4F6",
+    activeColor: "#3692ff",
   },
   media: {
     small: `@media (max-width: ${743}px)`,

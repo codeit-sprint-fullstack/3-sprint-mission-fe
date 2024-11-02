@@ -64,23 +64,26 @@ const NavLink = styled.span`
   ${(props) => props.theme.media.small} {
     font-size: 1.6rem;
   }
+  &.active {
+    color: ${(props) => props.theme.color.activeColor};
+  }
 `;
 
 function Nav({ screenWidth }: INavProps) {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <NavComponent>
       <NavContainer>
         <LogoContainer>
           {screenWidth === MEDIA_QUERY.value.small ? <img src={mobileLogo} /> : <img src={logo} />}
-          {location.pathname !== "/" ? (
+          {pathname !== "/" ? (
             <>
               <Link to="/">
                 <NavLink>자유게시판</NavLink>
               </Link>
               <Link to="/">
-                <NavLink>중고마켓</NavLink>
+                <NavLink className={pathname === "/items" ? "active" : ""}>중고마켓</NavLink>
               </Link>
             </>
           ) : null}
