@@ -41,22 +41,20 @@ const Button = styled.button`
 function Home() {
   return (
     <>
-      <main>
-        <Banner image={TopBannerImg}>
-          <BannerTextContainer>
-            <BannerText>일상의 모든 물건을 거래해 보세요</BannerText>
-            <Link to="/items">
-              <Button>구경하러 가기</Button>
-            </Link>
-          </BannerTextContainer>
-        </Banner>
-        <MainPage />
-        <Banner image={BottomBannerImg}>
-          <BannerTextContainerBottm>
-            <BannerText>믿을 수 있는 판다마켓 중고 거래</BannerText>
-          </BannerTextContainerBottm>
-        </Banner>
-      </main>
+      <Banner image={TopBannerImg}>
+        <BannerTextContainer>
+          <BannerText>일상의 모든 물건을 거래해 보세요</BannerText>
+          <Link to="/items">
+            <Button>구경하러 가기</Button>
+          </Link>
+        </BannerTextContainer>
+      </Banner>
+      <MainPage />
+      <Banner image={BottomBannerImg}>
+        <BannerTextContainerBottm>
+          <BannerText>믿을 수 있는 판다마켓 중고 거래</BannerText>
+        </BannerTextContainerBottm>
+      </Banner>
     </>
   );
 }

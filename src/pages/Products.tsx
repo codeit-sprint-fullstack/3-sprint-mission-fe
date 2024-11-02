@@ -12,14 +12,6 @@ import productSortByState from "../jotai/atoms/productSortByState";
 import PageIndex from "../components/common/PageIndex";
 import { useEffect, useState } from "react";
 
-const MainContainer = styled.main`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const PageContainer = styled.div`
   width: 120rem;
   ${(props) => props.theme.media.medium} {
@@ -44,17 +36,11 @@ const BestProductSection = styled.section`
   }
 `;
 
-const BestProductsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 2.4rem;
-  justify-content: center;
-`;
-
 const ProductsContainerComponent = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-bottom: 14rem;
   gap: 2.3rem;
   ${(props) => props.theme.media.medium} {
@@ -103,20 +89,17 @@ function Products() {
   }, [screenWidth, productSortBy, searchKeyword, page]);
 
   return (
-    <MainContainer>
-      <PageContainer>
-        <BestProductSection>
-          <h1>베스트 상품</h1>
-          <BestProductsContainer></BestProductsContainer>
-        </BestProductSection>
+    <PageContainer>
+      <BestProductSection>
+        <h1>베스트 상품</h1>
         <ProductsContainerComponent>
           {<ProductsContainer {...bestProducts} size={PROP_VALUES.product.big}></ProductsContainer>}
           <ProductsBar screenWidth={screenWidth} />
           {<ProductsContainer {...products} size={PROP_VALUES.product.small}></ProductsContainer>}
           <PageIndex page={page} setPage={setPage} />
         </ProductsContainerComponent>
-      </PageContainer>
-    </MainContainer>
+      </BestProductSection>
+    </PageContainer>
   );
 }
 
