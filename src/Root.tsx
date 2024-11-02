@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import Pretendard from "../public/fonts/PretendardVariable.woff2";
 import { Outlet } from "react-router-dom";
@@ -33,9 +33,16 @@ export const GlobalStyle = createGlobalStyle`
     color:inherit;
   }
 
-  input {
+  input,textarea {
     background-color:${(props) => props.theme.color.inputBg};
+    border-radius:1.2rem;
+    padding: 1.6rem 2.4rem;
+    &::placeholder {
+      color:${(props) => props.theme.color.mainGrey};
+      font-weight:400;
+    }
   }
+
   button {
     color: ${(props) => props.theme.color.mainIvory};
   background-color: ${(props) => props.theme.color.mainBlue};
@@ -54,6 +61,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const MainContainer = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 function Root() {
   const screenWidth = useScreenWidth();
 
@@ -61,7 +76,9 @@ function Root() {
     <>
       <GlobalStyle />
       <Nav screenWidth={screenWidth} />
-      <Outlet />
+      <MainContainer>
+        <Outlet />
+      </MainContainer>
       <Footer />
     </>
   );
