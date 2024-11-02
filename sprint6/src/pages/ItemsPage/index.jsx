@@ -5,6 +5,7 @@ import './index.css';
 import arrowImg from "../../img/icons/menu.png";
 import leftArrow from "../../img/icons/left.png";
 import rightArrow from "../../img/icons/right.png";
+import defaultImg from "../../img/default/FE_default_Img.png";
 // jsx
 import Header from "./component/Header/index.jsx";
 import Footer from "../../components/Footer/index.jsx";
@@ -41,7 +42,7 @@ function ItemsPage() {
         <Prods
           key={prod.id}
           price={prod.price}
-          images={prod.images}
+          images={defaultImg}
           name={prod.name}
           favoriteCount={prod.favoriteCount}
         />
@@ -53,6 +54,7 @@ function ItemsPage() {
   const recentSortHandle = async () => {
     const products = await getProducts(PRODS_LIST);
     setProdsList(products.list);
+    console.log(products.list);
   };
 
   const recentFilterHandle = () => {
