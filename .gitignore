@@ -8,10 +8,10 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-/react-psh-sprint5/node_modules/
-/express-psh-sprint6/node_modules/
-/express-psh-sprint6/.env
-/react-psh-sprint5/src/features/api/url.jsx
+/react-psh-sprint-5/node_modules/
+/express-psh-sprint-6/node_modules/
+/express-psh-sprint-6/.env
+/react-psh-sprint-5/src/features/api/url.jsx
 dist
 dist-ssr
 *.local
