@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import PANDA_MARKET_LOGO_IMAGE from '../../assets/images/logo/panda-market-logo.svg';
 import styled from 'styled-components';
 
@@ -18,8 +18,10 @@ const Navbar = () => {
             </Link>
             {currentPath !== '/' && (
               <>
-                <Link to="/">자유게시판 </Link>
-                <Link to="/">중고마켓 </Link>
+                <NavLink to="/">자유게시판 </NavLink>
+                <NavLink to="/items" style={getLinkStyle}>
+                  중고마켓
+                </NavLink>
               </>
             )}
           </MenuContainer>
@@ -31,6 +33,18 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+type LinkStyleProps = {
+  isActive: boolean;
+};
+
+const getLinkStyle = ({ isActive }: LinkStyleProps) => {
+  return {
+    color: isActive
+      ? 'var(--primary-blue-color)'
+      : 'var(--nav-menu-gray-font-color)',
+  };
+};
 
 const Nav = styled.nav`
   width: 100%;

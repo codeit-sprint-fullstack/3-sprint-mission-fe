@@ -5,17 +5,14 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --primary-blue-color: #3692FF;
 
-
     /* ----- '/' 페이지 ----- */
     --home-banner-bh-color: #cfe5ff;
-
-
-
 
     /* ----- '/items' 페이지 ----- */
 
     /* 네비게이션 관련 색상 */
     --nav-menu-gray-font-color: #4B5563;
+    
     --navbar-border-color: #DFDFDF;
 
     /* 상품 관련 색상 */
@@ -40,6 +37,21 @@ export const GlobalStyles = createGlobalStyle`
     --pagination-active-font-color: #F9FAFB;
     --pagination-inactive-border-color: #E5E7EB;
     --pagination-inactive-font-color: #6B7280;
+
+    
+    /* ----- '/registration' 페이지 ----- */
+    
+    /* 등록 버튼 관련 색상 */
+    --button-active-bg-color: #3692FF;
+    --button-inactive-bg-color: #9CA3AF;
+
+    /* input 관련 색상 */
+    --input-background-color: #F3F4F6;
+    --input-placeholder-font-color: #9CA3AF;
+
+    /*  hashTag 관련 색상 */
+
+    --hashTag-bg-color: #F3F4F6;
 
 
 
