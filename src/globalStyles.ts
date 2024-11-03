@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 
     /* 네비게이션 관련 색상 */
     --nav-menu-gray-font-color: #4B5563;
-    
+
     --navbar-border-color: #DFDFDF;
 
     /* 상품 관련 색상 */
@@ -48,6 +48,8 @@ export const GlobalStyles = createGlobalStyle`
     /* input 관련 색상 */
     --input-background-color: #F3F4F6;
     --input-placeholder-font-color: #9CA3AF;
+    --input-error-border-color: #F74747;
+    --error-font-color: #F74747;
 
     /*  hashTag 관련 색상 */
 
