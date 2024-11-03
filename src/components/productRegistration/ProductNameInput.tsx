@@ -8,7 +8,7 @@ const ProductNameInput = () => {
   return (
     <ProductInputContainer>
       <RegistrationH2>상품명</RegistrationH2>
-      <Input value={productName} onChange={(e) => setProductName(e.target.value)} />
+      <Input type="text" value={productName} onChange={(e) => setProductName(e.target.value)} />
     </ProductInputContainer>
   );
 };

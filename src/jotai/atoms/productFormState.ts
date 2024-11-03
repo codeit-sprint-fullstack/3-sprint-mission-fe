@@ -10,9 +10,18 @@ export const productTagState = atom<string>("");
 
 export const productTagsState = atom<string[]>([]);
 
-export const productForm = atom((get) => ({
-  name: get(productNameState),
-  description: get(productDescriptionState),
-  price: get(productPriceState),
-  tags: get(productTagsState),
-}));
+export const productFormState = atom(
+  (get) => ({
+    name: get(productNameState),
+    description: get(productDescriptionState),
+    price: get(productPriceState),
+    tags: get(productTagsState),
+  }),
+  (get, set) => {
+    set(productNameState, "");
+    set(productDescriptionState, "");
+    set(productPriceState, "");
+    set(productTagState, "");
+    set(productTagsState, []);
+  }
+);

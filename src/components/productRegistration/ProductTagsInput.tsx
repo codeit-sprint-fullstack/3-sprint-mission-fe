@@ -19,6 +19,7 @@ const ProductTagsInput = () => {
     <ProductInputContainer>
       <RegistrationH2>태그</RegistrationH2>
       <Input
+        type="text"
         value={productTag}
         onKeyUp={handleTags}
         onChange={(e) => setProductTag(e.target.value)}
