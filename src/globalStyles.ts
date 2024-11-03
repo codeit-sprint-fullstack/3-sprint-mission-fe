@@ -5,6 +5,15 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --primary-blue-color: #3692FF;
 
+
+    /* ----- '/' 페이지 ----- */
+    --home-banner-bh-color: #cfe5ff;
+
+
+
+
+    /* ----- '/items' 페이지 ----- */
+
     /* 네비게이션 관련 색상 */
     --nav-menu-gray-font-color: #4B5563;
     --navbar-border-color: #DFDFDF;
@@ -31,6 +40,8 @@ export const GlobalStyles = createGlobalStyle`
     --pagination-active-font-color: #F9FAFB;
     --pagination-inactive-border-color: #E5E7EB;
     --pagination-inactive-font-color: #6B7280;
+
+
 
   }
   html, body, div, span, applet, object, iframe,
