@@ -42,6 +42,10 @@ const Nav = styled.nav`
   z-index: 1;
   max-height: 70px;
   border-bottom: 1px solid var(--navbar-border-color);
+  padding: 1rem 2.4rem;
+  @media (max-width: 743px) {
+    padding: 1rem 1.6rem;
+  }
 `;
 
 const NavContainer = styled.div`
@@ -49,15 +53,7 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 20rem;
-
-  @media (min-width: 744px) and (max-width: 1199px) {
-    padding: 1rem 2.4rem;
-  }
-
-  @media (max-width: 743px) {
-    padding: 1rem 1.6rem;
-  }
+  max-width: 170rem;
 `;
 
 const MenuContainer = styled.div`
