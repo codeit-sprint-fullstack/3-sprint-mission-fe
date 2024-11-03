@@ -3,7 +3,7 @@
   section.hero_section {
     height: calc(540px - 108px);
   }
-  div.hero_box {
+  .hero_box {
     transform: scale(0.75);
     transform-origin: center bottom;
   }
@@ -14,7 +14,7 @@
   section.hero_section {
     height: calc(540px - 216px);
   }
-  div.hero_box {
+  .hero_box {
     transform: scale(0.6);
     transform-origin: center bottom;
   }
@@ -25,7 +25,7 @@
   section.hero_section {
     height: calc(540px - 180px);
   }
-  div.hero_box {
+  .hero_box {
     height: 600px;
     width: 400px;
     flex-direction: column;
