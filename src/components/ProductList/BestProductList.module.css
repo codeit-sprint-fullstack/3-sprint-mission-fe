@@ -1,7 +1,7 @@
 .productList {
   width: 100%;
   display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
-  /* gap: 24px; */
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  gap: 24.6px;
 }

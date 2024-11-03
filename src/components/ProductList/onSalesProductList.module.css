@@ -1,8 +1,8 @@
 .productList {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  /* gap: 10px; */
+  /* justify-content: space-between; */
+  gap: 10.75px;
 }
 
 /* .productList > div {
