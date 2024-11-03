@@ -2,7 +2,7 @@ import React from 'react'
 
 function Faq() {
   return (
-    <div className='coming-soon'>Faq</div>
+    <div className='coming_soon'>Faq</div>
   )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Signup() {
   return (
-    <div className='coming-soon'>Signup</div>
+    <div className='coming_soon'>Signup</div>
   )
 }
 

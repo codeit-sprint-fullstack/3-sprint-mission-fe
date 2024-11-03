@@ -26,7 +26,7 @@ a {
   color: inherit;
 }
 
-.coming-soon {
+.coming_soon {
   height: calc(100vh - 230px);
   display: flex;
   justify-content: center;

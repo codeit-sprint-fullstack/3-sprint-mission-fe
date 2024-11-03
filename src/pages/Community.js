@@ -2,7 +2,7 @@ import React from 'react'
 
 function Community() {
   return (
-    <div className='coming-soon'>Community</div>
+    <div className='coming_soon'>Community</div>
   )
 }
 
