@@ -11,17 +11,19 @@
 }
 
 .nav {
-  height: 70px;
   background: #fff;
-  border-bottom: 1px solid #dfdfdf;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
 }
 
 .gnb {
-  height: 69px;
+  height: 70px;
   padding: 0 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #dfdfdf;
   /* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
   @media (min-width: 744px) and (max-width: 1199.98px) {
     margin: 0 auto;
