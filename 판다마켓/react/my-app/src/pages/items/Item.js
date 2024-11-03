@@ -1,13 +1,24 @@
 import "./ltem.css";
-import HeartImg from "../img/ic_heart.png";
+import HeartImg from "../../common/img/ic_heart.png";
+import defaultImg from "../../common/img/img_default.png";
+
 import { useEffect, useRef, useState } from "react";
 
-export function Item({ name, price, imgUrl, likeCount, imgStyle }) {
+export function Item({
+  name,
+  price,
+  imgUrl,
+  likeCount,
+  imgStyle,
+  marginStyle,
+}) {
   // 1. class를 width에 따라서 구분
   // 2. 인라인 스타일
   // 밑에는 단순한 예시
   const imgRef = useRef(null);
   const [imgInner, setImgInnser] = useState({});
+
+  // console.log("이건뭘까", imgRef);
 
   useEffect(() => {
     // 이미지 크기 비교
@@ -16,19 +27,16 @@ export function Item({ name, price, imgUrl, likeCount, imgStyle }) {
         width: "100%",
       });
     }
-  }, [imgUrl]);
+  }, []);
 
   return (
-    <div className="item">
+    <div className="item" style={marginStyle}>
       <div className="img_box" style={imgStyle}>
         <img
           ref={imgRef}
           src={imgUrl}
           onError={(e) => {
-            // console.log(e);
-            // console.log(e.target);
-            e.target.src =
-              "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2016/03/31/18/6/c21ad6ab-fbb0-445e-b0e6-248a46d9d84a.jpg";
+            e.target.src = defaultImg;
           }}
           alt="image"
           style={imgInner}

@@ -1,10 +1,8 @@
 import "./main.css";
-import axios from "axios";
 import { useState, useEffect } from "react";
-import { getProductsApi } from "../api/api.js";
-import { getItemApi } from "../api/api.js";
-import { Item, SellItem } from "../components/Item.js";
-import Polygon from "../img/Polygon.png";
+import { getProductsApi } from "../../api/api.js";
+import { getItemApi } from "../../api/api.js";
+import { Item } from "../items/Item.js";
 // import Shearch from "../img/shearch.png";
 
 export function Main() {
@@ -25,6 +23,7 @@ export function Main() {
       setProducts(data.list);
       setTotalLength(data.totalCount / sellCount);
       // 160 /10 = 16
+      // console.log("나누기 이건 먹냐", totalLength);
     };
     settingProduct();
     window.addEventListener("resize", () => {
@@ -46,7 +45,6 @@ export function Main() {
     // 렌더링 되는 거 넣기
     const settingItem = async () => {
       const data = await getItemApi(page, sellCount, oderby);
-      // console.log("aaa", data);
       setItem(data.list);
     };
 
@@ -87,6 +85,7 @@ export function Main() {
     } else alert("마지막 페이지");
   };
 
+  //전
   const beforeHandle = (e) => {
     if (page > 1) {
       setPage(page - 1);
@@ -172,7 +171,7 @@ export function Main() {
           <div className="right_box">
             <div className="input_box">
               <a href="#" onClick={searchItem}>
-                <img src="../img/search.png" />
+                <img src="../../common/img/search.png" />
               </a>
               <input
                 onChange={searchInput}
@@ -200,7 +199,7 @@ export function Main() {
                 key={index}
                 name={item.name}
                 price={item.price}
-                imgUrl={item.images[0]}
+                imgUrl={item.images[0] || "https://example.com/..."}
                 likeCount={item.favoriteCount}
                 imgStyle={{
                   width: "220px",
