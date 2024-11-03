@@ -10,12 +10,13 @@ lerna-debug.log*
 node_modules
 /react-psh-sprint5/node_modules/
 /express-psh-sprint6/node_modules/
-/express-psh-sprint6/env.js
+/express-psh-sprint6/.env
 /react-psh-sprint5/src/features/api/url.jsx
 dist
 dist-ssr
 *.local
 
+.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
