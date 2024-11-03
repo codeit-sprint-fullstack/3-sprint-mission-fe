@@ -1,36 +1,58 @@
 import React from 'react';
 import styled from 'styled-components';
-import heroImage from '../../assets/images/home/hero-image.png';
 import { Link } from 'react-router-dom';
 
-const Banner = () => {
+type BannerProps = {
+  title: string;
+  buttonText?: string;
+  buttonLink?: string;
+  imageSrc: string;
+  isFooter?: boolean;
+};
+
+const Banner = ({
+  title,
+  buttonText,
+  buttonLink,
+  imageSrc,
+  isFooter,
+}: BannerProps) => {
   return (
-    <StyledBanner>
+    <BannerSection>
       <BannerContainer>
         <BannerContent>
-          <BannerTitle>일상의 모든 물건을 거래해 보세요</BannerTitle>
-          <Link to={'/items'}>
-            <BannerButton>구경하러 가기</BannerButton>
-          </Link>
+          <BannerTitle dangerouslySetInnerHTML={{ __html: title }} />
+          {!isFooter && (
+            <Link to={buttonLink || '/'}>
+              <BannerButton>{buttonText}</BannerButton>
+            </Link>
+          )}
         </BannerContent>
         <BannerImage>
-          <img
-            src={heroImage || ''}
-            alt="일상의 모든 물건을 거래해 보세요 배너 이미지"
-          />
+          <img src={imageSrc || ''} alt={title} />
         </BannerImage>
       </BannerContainer>
-    </StyledBanner>
+    </BannerSection>
   );
 };
 
 export default Banner;
 
-const StyledBanner = styled.section`
+// Styled Components
+const BannerSection = styled.section`
+  box-sizing: border-box;
   width: 100%;
   height: 54rem;
   background-color: var(--home-banner-bh-color);
   margin-top: 7rem;
+
+  @media (min-width: 744px) and (max-width: 1199px) {
+    height: 77rem;
+  }
+
+  @media (max-width: 743px) {
+    height: 54rem;
+  }
 `;
 
 const BannerContainer = styled.figure`
@@ -40,26 +62,47 @@ const BannerContainer = styled.figure`
   height: 100%;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: 1199px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+  }
 `;
 
 const BannerContent = styled.div`
   min-width: fit-content;
   margin-bottom: 9rem;
-  white-space: nowrap;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 743px) {
+    margin-bottom: 4.8rem;
+  }
 `;
 
 const BannerTitle = styled.h1`
   max-width: 35rem;
-  text-wrap: wrap;
   word-break: keep-all;
+  white-space: normal;
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
   margin-bottom: 4rem;
+
+  @media (min-width: 744px) and (max-width: 1199px) {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  @media (max-width: 743px) {
+    max-width: 24rem;
+    line-height: 4rem;
+    font-size: 3.2rem;
+    text-align: center;
+  }
 `;
 
 const BannerButton = styled.button`
@@ -68,12 +111,17 @@ const BannerButton = styled.button`
   height: 5.6rem;
   border: none;
   border-radius: 4rem;
-  padding: 1.6rem 12.4rem;
+  padding: 1.6rem 11rem;
   background-color: var(--primary-blue-color);
   color: white;
   font-size: 2rem;
   font-weight: 600;
   cursor: pointer;
+
+  @media (max-width: 743px) {
+    padding: 1rem 7rem;
+    font-size: 1.8rem;
+  }
 `;
 
 const BannerImage = styled.div`
@@ -82,5 +130,9 @@ const BannerImage = styled.div`
     max-width: 74.6rem;
     width: 100%;
     height: auto;
+
+    @media (max-width: 743px) {
+      max-width: 100%;
+    }
   }
 `;
