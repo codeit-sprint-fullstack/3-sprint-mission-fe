@@ -3,6 +3,6 @@
     "concurrently": "^9.0.1"
   },
   "scripts": {
-    "start": "concurrently \"cd express-psh-sprint6 && npm run dev\" \"cd react-psh-sprint5 && npm run dev\""
+    "start": "concurrently \"cd express-psh-sprint-6 && npm run dev\" \"cd react-psh-sprint-5 && npm run dev\""
   }
 }
