@@ -7,7 +7,6 @@ const ItemsPage = () => {
     <>
       <Nav />
       <Main />
-      <Footer />
     </>
   );
 };
