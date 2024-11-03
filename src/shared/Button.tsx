@@ -21,4 +21,5 @@ const ButtonS = styled.button`
   font-size: 1.6rem;
   font-weight: 500;
   white-space: nowrap;
+  cursor: pointer;
 `;
