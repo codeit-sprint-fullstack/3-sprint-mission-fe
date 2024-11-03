@@ -1,9 +1,13 @@
+import { useLocation } from 'react-router-dom';
 import PANDA_MARKET_LOGO_IMAGE from '../../assets/images/logo/panda-market-logo.svg';
 import styled from 'styled-components';
 
 // layouts에 넣어야할지 shared 폴더에 넣어야할지 고민이 되는 컴포넌트
 
-const Navbar = ({ currentPath = '' }) => {
+const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <header>
       <Nav aria-label="메인 내비게이션">
@@ -12,7 +16,7 @@ const Navbar = ({ currentPath = '' }) => {
             <a href="/">
               <img src={PANDA_MARKET_LOGO_IMAGE} alt="판다마켓 로고 아이콘" />
             </a>
-            {currentPath === '/items' && (
+            {currentPath !== '/' && (
               <>
                 <a href="/">자유게시판</a>
                 <a href="/">중고마켓</a>
