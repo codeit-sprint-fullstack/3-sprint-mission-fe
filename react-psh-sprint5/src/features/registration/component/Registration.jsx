@@ -1,6 +1,6 @@
 import HeaderItem from "../../item/components/HeaderItem";
 import Footer from "../../../../shared/components/Footer";
-import '../css/Registr.css';
+import '../css/Registration.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import RegistrationList from "../../api/RegistrationList";

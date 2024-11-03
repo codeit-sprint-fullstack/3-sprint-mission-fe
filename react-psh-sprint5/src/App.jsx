@@ -3,7 +3,7 @@ import RendingPage from "./features/rendingPage/components/RendingPage"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Item from "./features/item/Items";
 import Registration from "./features/registration/component/Registration";
-import ProductDetails from "./features/productdetails/components/ProductDetails";
+import ProductDetails from "./features/productDetails/components/ProductDetails";
 
 function App() {
   return (

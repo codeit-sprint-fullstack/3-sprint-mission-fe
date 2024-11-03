@@ -14,7 +14,7 @@ function AllItem() {
     const [option, setOption] = useState(options.recent);
 
     // 사용자가 검색어를 입력할때 keyword를 onchange를 이용하여 searchInput에 담게 하고,
-    // 검색하기 버튼을 누를때 useEffect로 searchQuery를 전달하였습니다.
+    // 검색하기 버튼을 누를때 useEffect로 searchQuery를 전달하였습니다.(검색 버튼을 눌렀을때만 렌더링이 되게 하기위해)
     // 변수명 수정
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
@@ -24,6 +24,7 @@ function AllItem() {
 
     const totalPages = Math.ceil(products.totalCount / pageSize);
     //Math 객체의 method를 사용
+    //화면에 보여지는 버튼의 최대 개수를 상수로 선언하여 사용
     const pageNationMax = 5;
     const startPage = Math.floor((page - 1) / pageNationMax) * pageNationMax + 1;
 
