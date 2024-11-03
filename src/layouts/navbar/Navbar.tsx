@@ -1,4 +1,3 @@
-import React from 'react';
 import PANDA_MARKET_LOGO_IMAGE from '../../assets/images/logo/panda-market-logo.svg';
 import styled from 'styled-components';
 

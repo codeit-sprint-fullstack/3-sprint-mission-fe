@@ -1,8 +1,6 @@
-import React from 'react';
 import Navbar from '../layouts/navbar/Navbar';
 import Banner from '../layouts/banner/Banner';
 import IntroSection from '../layouts/main/IntroSection';
-import FooterBanner from '../layouts/banner/FooterBanner';
 import topBannerImage from '../assets/images/home/hero-image.png';
 import bottomBannerImage from '../assets/images/home/bottom-banner-image.png';
 
