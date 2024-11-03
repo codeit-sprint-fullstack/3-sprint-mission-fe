@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PANDA_MARKET_LOGO_IMAGE from '../../assets/images/logo/panda-market-logo.svg';
 import styled from 'styled-components';
 
@@ -13,13 +13,13 @@ const Navbar = () => {
       <Nav aria-label="메인 내비게이션">
         <NavContainer>
           <MenuContainer>
-            <a href="/">
+            <Link to="/">
               <img src={PANDA_MARKET_LOGO_IMAGE} alt="판다마켓 로고 아이콘" />
-            </a>
+            </Link>
             {currentPath !== '/' && (
               <>
-                <a href="/">자유게시판</a>
-                <a href="/">중고마켓</a>
+                <Link to="/">자유게시판 </Link>
+                <Link to="/">중고마켓 </Link>
               </>
             )}
           </MenuContainer>
@@ -79,4 +79,5 @@ const LoginButton = styled.button`
   font-weight: 600;
   font-size: 1.6rem;
   white-space: nowrap;
+  cursor: pointer;
 `;

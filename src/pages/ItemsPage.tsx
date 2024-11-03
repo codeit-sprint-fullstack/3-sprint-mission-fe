@@ -1,10 +1,10 @@
-import Nav from '../layouts/navbar/Navbar';
 import Main from '../layouts/main/Main';
+import Navbar from '../layouts/navbar/Navbar';
 
 const ItemsPage = () => {
   return (
     <>
-      <Nav currentPath={'/items'} />
+      <Navbar />
       <Main />
     </>
   );
