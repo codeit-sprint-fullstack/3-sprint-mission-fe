@@ -1,11 +1,21 @@
-import React from "react";
+import { useState }  from "react"
 import "./index.css";
 import "../../styles/global.css";
 import Header from "./components/Header/index.jsx";
 import Footer from "../../components/Footer/index.jsx";
 import Ximg from "../../img/icons/ic_X.png";
 
-function AddItemPage() {
+function RegisterItemPage() {
+  const [productTitleInputValue, setProductTitleInputValue] = useState();
+  const [priceInputValue, setPriceInputValue] = useState();
+  
+  const handleProductTitleOnChange = (e) => setProductTitleInputValue(e.target.value)
+  const handleProductPriceValue = (e) => setPriceInputValue(e.target.value)
+
+  /*
+  api를 쏴서, 현재 있는 input들을 백엔드쪽으로 보내는 것.
+  */
+
   return (
     <>
       <Header />
@@ -16,15 +26,12 @@ function AddItemPage() {
             <button>등록</button>
           </div>
 
-          <div id="prodNmaeBox" className="mainWidth">
-            <h1>상품명</h1>
-            <input className='inputBox' type="text" placeholder="상품명을 입력해주세요" />
-          </div>
+          <ProdNameInputBox
+            inputValue={productTitleInputValue}
+            onChange={handleProductTitleOnChange}
+          />
 
-          <div id="prodIntroBox" className="mainWidth">
-            <h1>상품 소개</h1>
-            <input className='inputBox' type="text" placeholder="상품 소개를 입력해주세요" />
-          </div>
+          <ProdDescriptionInputBox />
 
           <div id="prodPriceBox" className="mainWidth">
             <h1>판매가격</h1>
@@ -52,4 +59,29 @@ function AddItemPage() {
   );
 }
 
-export default AddItemPage;
+const ProdDescriptionInputBox = () => {
+  return (
+    <div id="prodIntroBox" className="mainWidth">
+    <h1>상품 소개</h1>
+    <input className='inputBox' type="text" placeholder="상품 소개를 입력해주세요" />
+  </div>
+  )
+}
+
+
+const ProdNameInputBox = ({
+  inputValue,
+  onChange
+}) => {
+  return (
+    <div id="prodNmaeBox" className="mainWidth">
+    <h1>상품명</h1>
+    <input
+    value={inputValue}
+    onChange={onChange}
+    className='inputBox' type="text" placeholder="상품명을 입력해주세요" />
+  </div>
+  )
+}
+
+export default RegisterItemPage;
