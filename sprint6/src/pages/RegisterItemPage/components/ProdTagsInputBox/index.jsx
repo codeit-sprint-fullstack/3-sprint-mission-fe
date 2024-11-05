@@ -5,6 +5,7 @@ const ProdTagsInputBox = ({ inputValue, onChange }) => {
     <div id="prodTagsBox" className="mainWidth">
       <h1>태그</h1>
       <input
+        name="tags"
         inputValue={inputValue}
         onChange={onChange}
         className="inputBox"

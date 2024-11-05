@@ -3,6 +3,7 @@ const ProdDescriptionInputBox = ({ inputValue, onChange }) => {
     <div id="prodIntroBox" className="mainWidth">
       <h1>상품 소개</h1>
       <input
+        name="description"
         inputValue={inputValue}
         onChange={onChange}
         className="inputBox"

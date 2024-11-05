@@ -3,6 +3,7 @@ import ItemsPage from './pages/ItemsPage/index.jsx';
 import HomePage from './pages/HomePage/index.jsx';
 import LoginPage from './pages/LoginPage/index.jsx';
 import RegisterItemPage from './pages/RegisterItemPage/index.jsx';
+import ItemDetailPage from './pages/ItemDetailPage/index.jsx';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/items' element={<ItemsPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterItemPage />} />
+        <Route path='/itemDetail' element={<ItemDetailPage />} />
         {/* <Route path='/community' element={<CommunityFeedPage />} /> */}
       </Routes>
     </BrowserRouter>
