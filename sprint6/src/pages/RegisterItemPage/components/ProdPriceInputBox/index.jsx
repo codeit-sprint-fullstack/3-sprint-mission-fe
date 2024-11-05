@@ -5,7 +5,7 @@ const ProdPriceInputBox = ({ inputValue, onChange }) => {
       <input
         inputValue={inputValue}
         onChange={onChange}
-        className='inputBox' placeholder="판매 가격을 입력해주세요" />
+        className='inputBox' placeholder="판매 가격을 입력해주세요" type="number" />
   </div>
   )
 }

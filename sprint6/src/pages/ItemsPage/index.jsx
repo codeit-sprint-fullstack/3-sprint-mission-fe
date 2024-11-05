@@ -11,8 +11,8 @@ import Header from "./component/Header/index.jsx";
 import Footer from "../../components/Footer/index.jsx";
 import Prods from "./component/Prods/index.jsx";
 import EmptyBox from "./component/EmptyBox/index.jsx";
-// js
-import getProducts from "../../api/api.js";
+//api
+import getProducts from "../../api/getProductsApi.js";
 // import getPageSize from "./common/getPageSize.js";
 
 const PRODS_LIST = "page=1&pageSize=10&orderBy=recent";

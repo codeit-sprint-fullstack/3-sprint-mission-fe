@@ -5,7 +5,7 @@ async function getProducts(params = []) {
   // 파라미터를 자동으로 정리해서 인코딩
 
   try {
-    const response = await fetch(`${url}${query}`);
+    const response = await fetch(`${url}?${query}`);
     const data = await response.json();
     return data
   } catch (err) {
