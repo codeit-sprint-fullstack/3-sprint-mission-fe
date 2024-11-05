@@ -1,4 +1,4 @@
-.productNameValidation {
+.productDescriptionValidation {
   color: #F74747;
   font-size: 14px;
   font-weight: 600;
@@ -6,5 +6,4 @@
   display: block;
   margin-top: 8px;
   margin-left: 16px;
-  margin-bottom: 0px;
 }
