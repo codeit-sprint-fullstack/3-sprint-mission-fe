@@ -79,6 +79,10 @@ input:focus {
   padding-bottom: 24rem;
 }
 
+.done{
+  background-color: #3692FF !important;
+}
+
 /* Tag */
 
 #tagBox {

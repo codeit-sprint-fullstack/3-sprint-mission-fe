@@ -15,12 +15,12 @@ import { Link } from "react-router-dom";
 // import defaultImg from "../../img/default/FE_default_Img.png";
 
 function RegisterItemPage() {
-
+  const [registerButtonDone, setRegisterButtonDone] = useState(false);
   const [values, setValues] = useState({
-    naem: "",
+    name: "",
     description: "",
     price: 0,
-    tags: "",
+    tags: `${""}`,
   });
 
   const handleInputChange = (e) => {
@@ -29,11 +29,22 @@ function RegisterItemPage() {
       ...preValues,
       [name]: value,
     }));
+    console.log("values", values);
+    console.log("name", values.name.length);
+    console.log("description", values.description.length);
+    console.log("price", typeof(parseInt(values.price)));
+
+    if (
+      values.name.length <= 5 &&
+      values.description.length >= 10
+    ) {
+      setRegisterButtonDone(true);
+    } else setRegisterButtonDone(false);
   };
 
-  const handleProductSubmit = async () => {
-    console.log("등록 버튼 작동 중");
-    
+  const handleProductSubmit = async (e) => {
+    e.preventDefault();
+
     const surveyDataPost = {
       name: values.name, // String
       description: values.description, // String
@@ -41,8 +52,9 @@ function RegisterItemPage() {
       tags: values.tags, // String
       isComplete: true,
     };
-
     console.log("surveyDataPost 값 나오는 중", surveyDataPost);
+    console.log("typeof(surveyDataPost.price)", typeof surveyDataPost.price);
+
     try {
       console.log("Post 요청 시작");
       const postSurveyData = await postProduct(surveyDataPost);
@@ -57,6 +69,11 @@ function RegisterItemPage() {
     }
   };
 
+  // const handleRegisterButton = async (e) => {
+  //   e.preventDefault()
+  //  await handleProductSubmit;
+  // }
+
   return (
     <>
       <Header />
@@ -64,7 +81,16 @@ function RegisterItemPage() {
         <form id="addItemBox">
           <div id="registerBox" className="mainWidth">
             <h1>상품 등록하기</h1>
-            <button onClick={handleProductSubmit}><Link to="/itemDetail">등록</Link></button>
+            {registerButtonDone ? (
+              <button
+                onClick={handleProductSubmit}
+                className={registerButtonDone ? "done" : ""}
+              >
+                <Link to="/itemDetail">등록</Link>
+              </button>
+            ) : (
+              <button onClick={handleProductSubmit}>등록</button>
+            )}
           </div>
 
           <ProdNameInputBox
