@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 import HashtagList from '../../shared/HashtagList';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useValidation from '../../hooks/useValidation';
 
 type FormDataProps = {
   name: string;
   description: string;
   price: number;
   hashtagList?: string[];
-};
-
-type ErrorProps = {
-  name: boolean;
-  description: boolean;
-  // price: boolean;
-  hashtag: boolean;
 };
 
 const defaultFormData: FormDataProps = {
@@ -23,37 +17,11 @@ const defaultFormData: FormDataProps = {
   hashtagList: [],
 };
 
-const isFormChanged = (formData: FormDataProps, defaultData: FormDataProps) => {
-  return (
-    formData.name !== defaultData.name ||
-    formData.description !== defaultData.description ||
-    formData.price !== defaultData.price ||
-    JSON.stringify(formData.hashtagList) !==
-      JSON.stringify(defaultData.hashtagList)
-  );
-};
-
 const ProductRegistration = () => {
-  const [formData, setFormData] = useState<FormDataProps>({
-    name: '',
-    description: '',
-    price: 0,
-    hashtagList: [],
-  });
-
-  const [error, setError] = useState<ErrorProps>({
-    name: false,
-    description: false,
-    // price: false, -> 숫자로만 입력받으면 되니 굳이 에러가 필요없다고 생각하여 제거함
-    hashtag: false,
-  });
-  const [isActiveButton, setIsActiveButton] = useState<boolean>(false);
+  const [formData, setFormData] = useState<FormDataProps>(defaultFormData);
   const [hashtag, setHashtag] = useState<string>('');
 
-  // formData가 변경될 때마다 기본 상태와 비교하여 isActiveButton 업데이트
-  useEffect(() => {
-    setIsActiveButton(isFormChanged(formData, defaultFormData));
-  }, [formData]);
+  const { error, isActiveButton } = useValidation(formData, hashtag);
 
   const onHashTagRemove = (hashtag: string) => {
     if (formData.hashtagList === undefined) return;
@@ -67,21 +35,8 @@ const ProductRegistration = () => {
 
   const handleFormButtonSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const { name, description } = formData;
 
-    // 에러 메시지를 어떻게 하면 좋을까?
-    // 1. 유효한 조건에 맞게 할 시 에러 메시지를 띄우지 않는다. -> true, false로 관리할까?
-    const newError = {
-      name: !(1 <= name.length && name.length <= 10),
-      description: !(10 <= description.length),
-      hashtag: !(hashtag.length <= 5),
-    };
-
-    setError(newError);
-
-    if (newError.name || newError.description || newError.hashtag) {
-      return;
-    }
+    if (error.name || error.description || error.hashtag) return;
 
     // 서버로 데이터 전송
   };
@@ -98,12 +53,7 @@ const ProductRegistration = () => {
   const handleHashTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.key === 'Enter') {
-      if (hashtag.length > 5 || hashtag.length === 0) {
-        setError({ ...error, hashtag: true });
-        return;
-      }
-
-      setError({ ...error, hashtag: false });
+      if (hashtag.length > 5 || hashtag.length === 0) return;
 
       // 이미 해시태그 목록에 없다면 추가
       if (!formData.hashtagList?.includes(hashtag)) {
