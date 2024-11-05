@@ -46,6 +46,10 @@ input:focus {
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
 }
 
+#redBorder {
+  border: 1px solid #F74747;
+}
+
 #prodTagsBox #prodPriceBox #prodIntroBox {
   margin-top: 3.2rem;
 }
