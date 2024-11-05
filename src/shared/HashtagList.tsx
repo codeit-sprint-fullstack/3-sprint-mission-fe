@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import X_Icon from '../assets/images/icons/close/ic-X.svg';
 
 type HashtagListProps = {
-  hashtags: string[];
+  hashtags?: string[];
   onRemove: (hashtag: string) => void;
 };
 
 const HashtagList = ({ hashtags, onRemove }: HashtagListProps) => {
   return (
     <Ul>
-      {hashtags.map((hashtag) => (
+      {hashtags?.map((hashtag) => (
         <li key={hashtag}>
           #{hashtag} <RemoveTagButton onClick={() => onRemove(hashtag)} />
         </li>

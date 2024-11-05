@@ -1,31 +1,103 @@
 import styled from 'styled-components';
-import Button from '../../shared/Button';
 import HashtagList from '../../shared/HashtagList';
 import { useState } from 'react';
 
+type FormDataProps = {
+  name: string;
+  description: string;
+  price: number;
+  hashtagList?: string[];
+};
+
+type ErrorProps = {
+  name: boolean;
+  description: boolean;
+  // price: boolean;
+  hashtag: boolean;
+};
+
 const ProductRegistration = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataProps>({
     name: '',
     description: '',
     price: 0,
-    tag: '',
+    hashtagList: [],
   });
 
-  const [error, setError] = useState({
-    name: '',
-    description: '',
-    price: '',
-    tag: '',
+  const [error, setError] = useState<ErrorProps>({
+    name: false,
+    description: false,
+    // price: false, -> 숫자로만 입력받으면 되니 굳이 에러가 필요없다고 생각하여 제거함
+    hashtag: false,
   });
 
-  const [hashtags, setHashtags] = useState<string[]>([]);
+  // 해시태그
+
+  const [hashtag, setHashtag] = useState<string>('');
 
   const onRemove = (hashtag: string) => {
-    console.log(hashtag);
+    if (formData.hashtagList === undefined) return;
+    setFormData((prevData) => ({
+      ...prevData,
+      hashtagList: (prevData.hashtagList ?? []).filter(
+        (tag) => tag !== hashtag
+      ),
+    }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    const { name, description } = formData;
+
+    // 에러 메시지를 어떻게 하면 좋을까?
+    // 1. 유효한 조건에 맞게 할 시 에러 메시지를 띄우지 않는다. -> true, false로 관리할까?
+    const newError = {
+      name: !(1 <= name.length && name.length <= 10),
+      description: !(10 <= description.length),
+      hashtag: !(hashtag.length <= 5),
+    };
+
+    setError(newError);
+
+    if (newError.name || newError.description || newError.hashtag) {
+      return;
+    }
+
+    // 서버로 데이터 전송
+  };
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setFormData({ ...formData, price: Number(value) });
+  };
+
+  const handleHashTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHashtag(e.target.value); // 입력 값이 변경될 때마다 상태 업데이트
+  };
+
+  const handleHashTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    if (e.key === 'Enter') {
+      console.log(hashtag.length);
+      if (hashtag.length > 5 || hashtag.length === 0) {
+        setError({ ...error, hashtag: true });
+        return;
+      }
+
+      setError({ ...error, hashtag: false });
+      console.log('enter');
+
+      // setFormData({ ...formData, hashtagList: [...formData.hashtagList, hashtag] });
+
+      // 이미 해시태그 목록에 없다면 추가
+      if (!formData.hashtagList?.includes(hashtag)) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          hashtagList: [...(prevFormData.hashtagList ?? []), hashtag],
+        }));
+      }
+      setHashtag(''); // 추가 후 입력 필드 비우기
+    }
   };
 
   return (
@@ -44,8 +116,10 @@ const ProductRegistration = () => {
             id="name"
             name="name"
             placeholder="상품명을 입력해주세요"
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            value={formData.name}
           />
-          <ErrorMessage>10자 이내로 입력해주세요</ErrorMessage>
+          {error.name && <ErrorMessage>10자 이내로 입력해주세요</ErrorMessage>}
         </FormField>
         <FormField>
           <Label htmlFor="description">상품 소개</Label>
@@ -54,19 +128,29 @@ const ProductRegistration = () => {
             id="description"
             placeholder="상품 소개를 입력해주세요"
             minLength={10}
+            onChange={(e) =>
+              setFormData({ ...formData, description: e.target.value })
+            }
+            value={formData.description}
           />
-          <ErrorMessage>10자 이상 입력해주세요</ErrorMessage>
+          {error.description && (
+            <ErrorMessage>10자 이상 입력해주세요</ErrorMessage>
+          )}
         </FormField>
         <FormField>
           <Label htmlFor="price">판매가격</Label>
           <Input
-            type="number"
+            type="text"
             id="price"
             name="price"
             placeholder="판매 가격을 입력해주세요"
+            value={formData.price.toLocaleString()}
+            onChange={handlePriceChange}
           />
-          <ErrorMessage>숫자로 입력해주세요</ErrorMessage>
+          {/* {error.price && <ErrorMessage>숫자로 입력해주세요</ErrorMessage>} */}
         </FormField>
+
+        {/* 엔터를 치면 hashtags 배열에 추가됨 */}
         <FormField>
           <Label htmlFor="tag">태그</Label>
           <Input
@@ -74,9 +158,14 @@ const ProductRegistration = () => {
             id="tag"
             name="tag"
             placeholder="태그를 입력해주세요"
+            onChange={handleHashTagChange}
+            onKeyDown={handleHashTagKeyDown}
+            value={hashtag}
           />
-          <ErrorMessage>5자 이내로 입력해주세요</ErrorMessage>
-          <HashtagList hashtags={hashtags} onRemove={onRemove} />
+          {error.hashtag && (
+            <ErrorMessage>5자 이내로 입력해주세요</ErrorMessage>
+          )}
+          <HashtagList hashtags={formData.hashtagList} onRemove={onRemove} />
         </FormField>
       </Form>
     </Main>
