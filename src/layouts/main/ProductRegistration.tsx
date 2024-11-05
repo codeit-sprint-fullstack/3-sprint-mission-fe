@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import HashtagList from '../../shared/HashtagList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type FormDataProps = {
   name: string;
@@ -14,6 +14,23 @@ type ErrorProps = {
   description: boolean;
   // price: boolean;
   hashtag: boolean;
+};
+
+const defaultFormData: FormDataProps = {
+  name: '',
+  description: '',
+  price: 0,
+  hashtagList: [],
+};
+
+const isFormChanged = (formData: FormDataProps, defaultData: FormDataProps) => {
+  return (
+    formData.name !== defaultData.name ||
+    formData.description !== defaultData.description ||
+    formData.price !== defaultData.price ||
+    JSON.stringify(formData.hashtagList) !==
+      JSON.stringify(defaultData.hashtagList)
+  );
 };
 
 const ProductRegistration = () => {
@@ -30,12 +47,15 @@ const ProductRegistration = () => {
     // price: false, -> 숫자로만 입력받으면 되니 굳이 에러가 필요없다고 생각하여 제거함
     hashtag: false,
   });
-
-  // 해시태그
-
+  const [isActiveButton, setIsActiveButton] = useState<boolean>(false);
   const [hashtag, setHashtag] = useState<string>('');
 
-  const onRemove = (hashtag: string) => {
+  // formData가 변경될 때마다 기본 상태와 비교하여 isActiveButton 업데이트
+  useEffect(() => {
+    setIsActiveButton(isFormChanged(formData, defaultFormData));
+  }, [formData]);
+
+  const onHashTagRemove = (hashtag: string) => {
     if (formData.hashtagList === undefined) return;
     setFormData((prevData) => ({
       ...prevData,
@@ -45,7 +65,7 @@ const ProductRegistration = () => {
     }));
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFormButtonSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const { name, description } = formData;
 
@@ -72,22 +92,18 @@ const ProductRegistration = () => {
   };
 
   const handleHashTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHashtag(e.target.value); // 입력 값이 변경될 때마다 상태 업데이트
+    setHashtag(e.target.value);
   };
 
   const handleHashTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.key === 'Enter') {
-      console.log(hashtag.length);
       if (hashtag.length > 5 || hashtag.length === 0) {
         setError({ ...error, hashtag: true });
         return;
       }
 
       setError({ ...error, hashtag: false });
-      console.log('enter');
-
-      // setFormData({ ...formData, hashtagList: [...formData.hashtagList, hashtag] });
 
       // 이미 해시태그 목록에 없다면 추가
       if (!formData.hashtagList?.includes(hashtag)) {
@@ -105,8 +121,14 @@ const ProductRegistration = () => {
       <Form>
         <FormHeader>
           <Title>상품 등록하기</Title>
-          <FormButton onClick={handleSubmit}>등록</FormButton>
-          {/* 색상 적용 */}
+          {/* 버튼 컴포넌트를 활용해서 색상, 이벤트를 전달하면서 활용하고 싶은데 타입에서 이벤트의 종류가 많아서 오류가 많이뜨는데 어떻게 해소하지? */}
+          <FormButton
+            $isActive={isActiveButton}
+            disabled={!isActiveButton}
+            onClick={handleFormButtonSubmit}
+          >
+            등록
+          </FormButton>
         </FormHeader>
 
         <FormField>
@@ -165,7 +187,10 @@ const ProductRegistration = () => {
           {error.hashtag && (
             <ErrorMessage>5자 이내로 입력해주세요</ErrorMessage>
           )}
-          <HashtagList hashtags={formData.hashtagList} onRemove={onRemove} />
+          <HashtagList
+            hashtags={formData.hashtagList}
+            onRemove={onHashTagRemove}
+          />
         </FormField>
       </Form>
     </Main>
@@ -186,8 +211,12 @@ const Form = styled.form`
   margin: 0 auto;
 `;
 
-const FormButton = styled.button`
-  background-color: var(--primary-blue-color);
+const FormButton = styled.button<{ $isActive: boolean }>`
+  background-color: ${({ $isActive }) =>
+    $isActive
+      ? 'var(--button-active-bg-color)'
+      : 'var(--button-inactive-bg-color)'};
+
   color: white;
   border-radius: 0.8rem;
   border: none;
@@ -196,7 +225,7 @@ const FormButton = styled.button`
   font-size: 1.6rem;
   font-weight: 500;
   white-space: nowrap;
-  cursor: pointer;
+  cursor: ${({ $isActive }) => ($isActive ? 'pointer' : 'not-allowed')};
 `;
 
 const FormHeader = styled.div`
