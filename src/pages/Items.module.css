@@ -32,7 +32,8 @@
 }
 
 .onSales {
-  margin-top: 40px;
+  /* margin-top: 40px; 베스트 상품 같이 있을 때 값 */
+  margin-top: 0;
 }
 
 .topBar {
@@ -72,6 +73,11 @@
   @media (min-width: 375px) and (max-width: 743.98px) {
     max-width: 288px;
   }
+}
+
+.search:focus {
+  outline: none;
+  border: 2px solid #3692ff;
 }
 
 .searchLogo {

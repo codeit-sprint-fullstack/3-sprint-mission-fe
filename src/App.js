@@ -8,6 +8,7 @@ import Items from './pages/Items';
 import Community from './pages/Community';
 import Faq from './pages/Faq';
 import Privacy from './pages/Privacy';
+import Registration from './pages/Registration';
 import './App.css';
 
 function AppContent() {
@@ -27,6 +28,7 @@ function AppContent() {
         <Route path="/community" element={<Community />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/registration" element={<Registration />} />
       </Routes>
       {!hideHeaderFooterPaths.includes(location.pathname) && <Footer />}
     </>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Items.module.css'
-import BestProductList from '../components/ProductList/BestProductList';
+// import BestProductList from '../components/ProductList/BestProductList';
 import OnSalesProductList from '../components/ProductList/onSalesProductList';
 
 function Items() {
@@ -30,12 +31,12 @@ function Items() {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.bestItem}>
+        {/* <div className={styles.bestItem}>
           <div className={styles.title}>베스트 상품</div>
           <div>
             <BestProductList />
           </div>
-        </div>
+        </div> */}
         <div className={styles.onSales}>
           <div className={styles.topBar}>
             <div className={styles.title}>판매 중인 상품</div>
@@ -45,7 +46,7 @@ function Items() {
                   onKeyDown={handleKeyDown} />
                 <img className={styles.searchLogo} src='static/images/search.png' alt='search' onClick={handleSearchSubmit} />
               </div>
-              <div className={styles.regist}>상품 등록하기</div>
+              <Link to="/registration"><div className={styles.regist}>상품 등록하기</div></Link>
               <div>
                 <label htmlFor="order"></label>
                 <select className={styles.select} name="order" id="order" value={orderBy} onChange={handleOrderChange}>
