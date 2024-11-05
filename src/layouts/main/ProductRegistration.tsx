@@ -51,7 +51,12 @@ const ProductRegistration = () => {
   };
 
   const handleHashTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Backspace') {
+      setHashtag((prev) => prev.slice(0, prev.length - 1));
+    }
+
     e.preventDefault();
+
     if (e.key === 'Enter') {
       if (hashtag.length > 5 || hashtag.length === 0) return;
 
