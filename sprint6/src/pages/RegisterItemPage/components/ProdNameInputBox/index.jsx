@@ -1,6 +1,3 @@
-import "./index.css";
-import "../../../../styles/global.css";
-
 const ProdNameInputBox = ({ inputValue, onChange }) => {
   return (
     <div id="prodNmaeBox" className="mainWidth">
