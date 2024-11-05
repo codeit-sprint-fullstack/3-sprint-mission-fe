@@ -54,6 +54,7 @@
   color: #f3f4f6;
   background: #9ca3af;
   border-radius: 8px;
+  border: none;
   cursor: pointer;
 }
 
@@ -94,8 +95,7 @@
   position: relative;
 }
 
-.chip:after {
-  content: "";
+.chip_close {
   display: inline-block;
   width: 22px;
   height: 24px;
