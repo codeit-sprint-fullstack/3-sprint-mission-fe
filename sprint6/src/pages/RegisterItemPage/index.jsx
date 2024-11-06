@@ -20,7 +20,7 @@ function RegisterItemPage() {
     name: "",
     description: "",
     price: 0,
-    tags: `${""}`,
+    tags: "",
   });
 
   const handleInputChange = (e) => {
@@ -32,14 +32,17 @@ function RegisterItemPage() {
     console.log("values", values);
     console.log("name", values.name.length);
     console.log("description", values.description.length);
-    console.log("price", typeof(parseInt(values.price)));
+    console.log("price", values.price);
+    console.log("tags length", values.tags.length);
 
     if (
       values.name.length <= 5 &&
-      values.description.length >= 10
+      values.description.length >= 10 &&
+      values.price >= 1 &&
+      values.tags.length !== 0 && values.tags.length <= 5
     ) {
       setRegisterButtonDone(true);
-    } else setRegisterButtonDone(false);
+    } else { setRegisterButtonDone(false) };
   };
 
   const handleProductSubmit = async (e) => {
@@ -53,7 +56,6 @@ function RegisterItemPage() {
       isComplete: true,
     };
     console.log("surveyDataPost 값 나오는 중", surveyDataPost);
-    console.log("typeof(surveyDataPost.price)", typeof surveyDataPost.price);
 
     try {
       console.log("Post 요청 시작");
@@ -69,10 +71,9 @@ function RegisterItemPage() {
     }
   };
 
-  // const handleRegisterButton = async (e) => {
-  //   e.preventDefault()
-  //  await handleProductSubmit;
-  // }
+  const registerButton = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <>
@@ -89,7 +90,7 @@ function RegisterItemPage() {
                 <Link to="/itemDetail">등록</Link>
               </button>
             ) : (
-              <button onClick={handleProductSubmit}>등록</button>
+              <button onClick={registerButton}>등록</button>
             )}
           </div>
 

@@ -12,18 +12,18 @@ const ProdTagsInputBox = ({ inputValue, onChange }) => {
   console.log("tagsValue", tagsValue);
 
   const handleTagsInputBlur = (e) => {
-    
-    if (e.target.value.length === 0) {
+    console.log("tags.value.length", e.target.value.length);
+    if (e.target.value.length === 0 || e.target.value.length >= 5) {
       setEmptyTagsInput("5글자 이내로 입력해주세요");
       setTagsValidation(!tagsValidation);
     }
-
     if (e.target.value.length >= 5) {
       setEmptyTagsInput("5글자 이내로 입력해주세요");
+      setTagsValidation(true);
     }
 
-    if (e.target.value.length < 5) {
-      setTagsValue(e.target.value);
+    if (e.target.value.length <= 5 && e.target.value.length > 0) {
+      setTagsValidation(false);
     }
   };
 
