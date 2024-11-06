@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import HashtagList from '../../shared/HashtagList';
 import { useState } from 'react';
 import useValidation from '../../hooks/useValidation';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 type FormDataProps = {
   name: string;
@@ -23,6 +25,8 @@ const ProductRegistration = () => {
 
   const { error, isActiveButton } = useValidation(formData, hashtag);
 
+  const navigate = useNavigate();
+
   const onHashTagRemove = (hashtag: string) => {
     if (formData.hashtagList === undefined) return;
     setFormData((prevData) => ({
@@ -39,6 +43,33 @@ const ProductRegistration = () => {
     if (error.name || error.description || error.hashtag) return;
 
     // 서버로 데이터 전송
+    const data = {
+      name: formData.name,
+      description: formData.description,
+      price: formData.price,
+      tags: formData.hashtagList,
+    };
+
+    const postRegisterProduct = async (data: FormDataProps) => {
+      try {
+        const response = await axios.post(
+          'http://localhost:8000/products ',
+          data
+        );
+
+        const id = response.data._id;
+
+        if (response.status === 201) {
+          alert('상품이 등록되었습니다');
+          setFormData(defaultFormData);
+          setHashtag('');
+          navigate(`/products/${id}`);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    postRegisterProduct(data);
   };
 
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,11 +84,9 @@ const ProductRegistration = () => {
   const handleHashTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Backspace') {
       setHashtag((prev) => prev.slice(0, prev.length - 1));
-    }
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
 
-    e.preventDefault();
-
-    if (e.key === 'Enter') {
       if (hashtag.length > 5 || hashtag.length === 0) return;
 
       // 이미 해시태그 목록에 없다면 추가
