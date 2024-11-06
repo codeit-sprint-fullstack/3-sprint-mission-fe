@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './ProductCard.module.css';
-import placeholderImage from '../../assets/images/placeholder.png';
+// import placeholderImage from '../../assets/images/placeholder.png';
+
+const placeholderImage = 'https://picsum.photos/215/215';
 
 const ProductCard = ({ product, size }) => {
   const formattedPrice = new Intl.NumberFormat('ko-KR').format(product.price);
