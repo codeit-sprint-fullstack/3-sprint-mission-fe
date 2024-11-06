@@ -25,3 +25,4 @@ yarn-error.log*
 # reference files
 src/pages/MeetingRoomFive.js
 src/pages/Registration(TaejinLiveShare).js
+src/pages/ApiComparisonTest.js

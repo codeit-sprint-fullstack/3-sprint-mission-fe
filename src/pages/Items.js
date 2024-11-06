@@ -11,7 +11,13 @@ function Items() {
 
   const handleSearchChange = (e) => {
     setSearchKeyword(e.target.value);
+    // 검색어가 비어 있을 경우 전체 목록을 보여줌.
+    if (e.target.value === '') {
+      setFinalKeyword(''); // 전체 목록 렌더링
+    }
   };
+
+
 
   const handleOrderChange = (e) => {
     setOrderBy(e.target.value);

@@ -9,6 +9,7 @@ import Community from './pages/Community';
 import Faq from './pages/Faq';
 import Privacy from './pages/Privacy';
 import Registration from './pages/Registration';
+// import ApiComparisonTest from './pages/ApiComparisonTest';
 import './App.css';
 
 function AppContent() {
@@ -29,6 +30,7 @@ function AppContent() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/registration" element={<Registration />} />
+        {/* <Route path="/test" element={<ApiComparisonTest />} /> */}
       </Routes>
       {!hideHeaderFooterPaths.includes(location.pathname) && <Footer />}
     </>
