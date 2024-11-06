@@ -28,6 +28,7 @@ const OnSalesProductList = ({ orderBy = 'recent', keyword }) => {
   const limit = columns * 2; // limit 설정
 
   useEffect(() => {
+    console.log(`Fetching products with offset: ${offset} and limit: ${limit}`);
     getProductList(offset, limit, orderBy, keyword)
       .then(data => {
         setProducts(data.products); // API 응답이 'products'로 되어 있음
@@ -39,9 +40,11 @@ const OnSalesProductList = ({ orderBy = 'recent', keyword }) => {
   }, [offset, limit, orderBy, keyword]);
 
   // 페이지 변경 함수
-  const handlePageChange = (newPage) => {
-    const newOffset = (newPage - 1) * limit;
-    setOffset(newOffset);
+  const handlePageChange = (newOffset) => {
+    if (newOffset !== offset) { // 기존 offset과 다를 때만 업데이트
+      console.log(`Updating offset to ${newOffset}`);
+      setOffset(newOffset);
+    }
   };
 
   return (
@@ -55,6 +58,7 @@ const OnSalesProductList = ({ orderBy = 'recent', keyword }) => {
         currentPage={Math.floor(offset / limit) + 1}
         totalPages={totalPages}
         onPageChange={handlePageChange}
+        itemsPerPage={limit} // itemsPerPage로 limit 전달
       />
     </>
   );

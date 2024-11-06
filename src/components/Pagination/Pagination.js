@@ -24,9 +24,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange, itemsPerPage }) => 
   };
 
   const handlePageClick = (pageNumber) => {
-    const offset = (pageNumber - 1) * itemsPerPage;
-    onPageChange(offset); // 클릭한 페이지의 offset으로 이동
+    console.log(`Current Page: ${currentPage}, Clicked Page: ${pageNumber}, itemsPerPage: ${itemsPerPage}`);
+    if (pageNumber !== currentPage) { // 현재 페이지와 다른 경우에만 실행
+      const newOffset = (pageNumber - 1) * itemsPerPage;
+      console.log(`Page clicked: ${pageNumber}, New offset: ${newOffset}`);
+      onPageChange(newOffset);
+    }
   };
+
 
   const renderPageNumbers = () => {
     const startPage = currentGroup * pagesPerGroup + 1;
