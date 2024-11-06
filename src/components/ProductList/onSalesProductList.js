@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
-import { getProductList } from '../../apis/ProductService';
+// import { getProductList } from '../../apis/ProductService';
+import { getProductList } from '../../apis/ProductService(MongoDB)';
 import Pagination from '../Pagination/Pagination';
 import styles from './onSalesProductList.module.css';
 import useMediaQuery from '../../hooks/useMediaQuery';
@@ -44,7 +45,7 @@ const OnSalesProductList = ({ orderBy = 'recent', keyword }) => {
     <>
       <div className={styles.productList}>
         {products.map(product => (
-          <ProductCard key={product.id} product={product} size="small" />
+          <ProductCard key={product._id} product={product} size="small" />
         ))}
       </div>
       <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
