@@ -1,14 +1,14 @@
-const BASE_URL = 'http://localhost:8000/api/products'
+const BASE_URL = 'http://localhost:8000/api/products';
 
-export async function getProductList(page, pageSize, orderBy, keyword) {
+export async function getProductList(offset, limit, orderBy, keyword) {
   const params = new URLSearchParams({
-    page,
-    pageSize,
+    offset,
+    limit,
     orderBy,
-    keyword
+    keyword,
   });
 
-  const url = `${BASE_URL}?${params}`
+  const url = `${BASE_URL}?${params}`;
 
   try {
     const response = await fetch(url);
@@ -18,7 +18,6 @@ export async function getProductList(page, pageSize, orderBy, keyword) {
     }
 
     const data = await response.json();
-    // console.log(data);
     return data;
 
   } catch (error) {
