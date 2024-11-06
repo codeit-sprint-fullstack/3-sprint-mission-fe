@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Registration.module.css';
+import { registerProduct } from '../apis/ProductService(MongoDB)';
 
 function Registration() {
   const [name, setName] = useState('');
@@ -7,17 +8,34 @@ function Registration() {
   const [price, setPrice] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [showErrors, setShowErrors] = useState(false);
+  const [isPriceValid, setIsPriceValid] = useState(true);
+
+  useEffect(() => {
+    setIsFormValid(name.trim() && description.trim() && price.trim() && isPriceValid);
+  }, [name, description, price, isPriceValid]);
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleDescriptionChange = (e) => setDescription(e.target.value);
 
   const formatPrice = (value) => {
-    const number = value.replace(/,/g, ''); // 콤마 제거
-    return number.replace(/\B(?=(\d{3})+(?!\d))/g, ','); // 세 자리마다 콤마 추가
+    const number = value.replace(/,/g, '');
+    return number.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   const handlePriceChange = (e) => {
-    const formattedPrice = formatPrice(e.target.value);
+    const inputValue = e.target.value;
+    const numericPrice = parseFloat(inputValue.replace(/,/g, ''));
+
+    // 가격 유효성 검사: 숫자 여부와 양수 여부 확인
+    if (!isNaN(numericPrice) && numericPrice > 0) {
+      setIsPriceValid(true);
+    } else {
+      setIsPriceValid(false);
+    }
+
+    const formattedPrice = formatPrice(inputValue);
     setPrice(formattedPrice);
   };
 
@@ -25,7 +43,7 @@ function Registration() {
 
   const handleTagInputKeyPress = (e) => {
     if (e.key === 'Enter' && tagInput.trim()) {
-      setTags((prevTags) => [...prevTags, `#${tagInput.trim()}`]);
+      setTags((prevTags) => [...prevTags, tagInput.trim()]);
       setTagInput('');
       e.preventDefault();
     }
@@ -35,32 +53,57 @@ function Registration() {
     setTags(tags.filter((_, index) => index !== indexToRemove));
   };
 
-  const handleSubmit = () => {
-    const formattedTags = tags.map(tag => tag.replace(/^#/, '')); // #을 제거
+  const handleSubmit = async () => {
+    setShowErrors(true);
+
+    if (!isFormValid) return;
+
+    const formattedTags = tags.map(tag => tag.replace(/^#/, ''));
     const productData = {
       name,
       description,
-      price: price.replace(/,/g, ''), // 콤마 제거된 값으로 설정
-      tags: formattedTags // # 없는 태그들로 설정
+      price: price.replace(/,/g, ''),
+      tags: formattedTags,
     };
 
-    console.log('등록할 상품 데이터:', productData);
-    // 서버로 productData 전송
+    try {
+      const result = await registerProduct(productData);
+      console.log('등록된 상품:', result);
+      alert('상품이 성공적으로 등록되었습니다!');
+      setName('');
+      setDescription('');
+      setPrice('');
+      setTags([]);
+      setShowErrors(false);
+      setIsPriceValid(true);
+    } catch (error) {
+      console.error("상품 등록 중 오류:", error);
+      alert('상품 등록 중 문제가 발생했습니다.');
+    }
   };
 
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <div className={styles.maintitle}>상품등록하기</div>
-        <button onClick={handleSubmit} className={styles.button}>등록</button>
+        <button
+          onClick={handleSubmit}
+          className={`${styles.button} ${isFormValid ? styles.active : ''}`}
+        >
+          등록
+        </button>
 
         <div className={styles.title}>상품명</div>
+        {showErrors && !name && <span className={styles.error}>필수 항목입니다</span>}
         <input type="text" className={styles.input} value={name} onChange={handleNameChange} placeholder='상품명을 입력해주세요' />
 
         <div className={styles.title}>상품소개</div>
+        {showErrors && !description && <span className={styles.error}>필수 항목입니다</span>}
         <textarea className={`${styles.input} ${styles.description}`} value={description} onChange={handleDescriptionChange} placeholder='상품 소개를 입력해주세요' />
 
         <div className={styles.title}>판매가격</div>
+        {showErrors && !price && <span className={styles.error}>필수 항목입니다</span>}
+        {!isPriceValid && <span className={styles.error}>판매가격은 양수로 입력해야 합니다</span>}
         <input
           type='text'
           className={styles.input}
@@ -83,10 +126,7 @@ function Registration() {
           {tags.map((tag, index) => (
             <span key={index} className={styles.chip}>
               {tag}
-              <span
-                className={styles.chip_close}
-                onClick={() => handleRemoveTag(index)}
-              ></span>
+              <span className={styles.chip_close} onClick={() => handleRemoveTag(index)}></span>
             </span>
           ))}
         </div>

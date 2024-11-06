@@ -39,6 +39,15 @@
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 2.6rem;
+  display: inline-block;
+}
+
+.error {
+  padding-left: 15px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.6rem;
+  color: #f74747;
 }
 
 .button {
@@ -55,7 +64,11 @@
   background: #9ca3af;
   border-radius: 8px;
   border: none;
+}
+
+.button.active {
   cursor: pointer;
+  background-color: #3692ff;
 }
 
 .input {
