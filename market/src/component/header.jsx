@@ -1,17 +1,18 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header({}) {
   useEffect(() => {}, []);
   return (
     <header>
       <div className="gnb">
-        <a className="logo" href="/">
+        <Link className="logo" to="/">
           <img src="./img/logo.png" alt="로고" />
-        </a>
+        </Link>
         <nav>
           <ul>
             <NavLi href="#">자유게시판</NavLi>
-            <NavLi href="#">중고마켓</NavLi>
+            <NavLi href="/items">중고마켓</NavLi>
           </ul>
         </nav>
         <a href="./login.html" className="loginBtn">
@@ -25,7 +26,7 @@ export default function Header({}) {
 function NavLi({ href, children }) {
   return (
     <li>
-      <a href={href}>{children}</a>
+      <Link to={href}>{children}</Link>
     </li>
   );
 }

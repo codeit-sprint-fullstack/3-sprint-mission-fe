@@ -24,10 +24,10 @@ export default function MarketSection({
               <MarketList
                 width={itemMaxWidth}
                 key={`${el}_${i}`}
-                img={el.images[0]}
+                img={!!el.images ? el.images[0] : null}
                 name={el.name}
                 price={el.price}
-                favorite={el.favoriteCount}
+                favorite={el.favorite}
               />
             );
           })
@@ -41,8 +41,8 @@ export default function MarketSection({
 function MarketList({ img, name, price, favorite, width }) {
   const imgRef = useRef(null);
   const [imgStyle, setImgStyle] = useState({});
-  const notFound =
-    "https://png.pngtree.com/png-vector/20210221/ourmid/pngtree-error-404-not-found-neon-effect-png-image_2928214.jpg";
+  const notFound = "./img/img_default.png";
+  // "https://png.pngtree.com/png-vector/20210221/ourmid/pngtree-error-404-not-found-neon-effect-png-image_2928214.jpg";
   let style = {
     width,
   };
@@ -60,6 +60,7 @@ function MarketList({ img, name, price, favorite, width }) {
       }, 50);
     }
   }, [img]);
+
   return (
     <li style={style}>
       <a href="#">
@@ -99,9 +100,8 @@ export function MarketPageNavi({
   const arr = [];
   // if (total < 1) total = Math.ceil(total);
   for (let i = start; i <= last; i++) {
-    if (i <= total) arr.push(i);
+    if (i <= Math.ceil(total)) arr.push(i);
   }
-  if (total < 1) arr.push(1);
   return (
     <div className="pageNavi">
       {target === 1 ? null : (
@@ -122,7 +122,7 @@ export function MarketPageNavi({
           );
         })}
       </div>
-      {target === total || arr < 5 ? null : (
+      {target === Math.ceil(total) ? null : (
         <button className="next" onClick={onNext}>
           <img src="./img/arrow_right.svg" alt="오른쪽" />
         </button>

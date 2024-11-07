@@ -1,46 +1,3 @@
-/*  ---------------- CSS ---------------- */
-body {
-  margin-top: 7rem;
-}
-
-header {
-  width: 100%;
-  height: 70px;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-bottom: 1px solid #dfdfdf;
-  z-index: 999;
-  background: #fff;
-}
-header .gnb {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  max-width: 1920px;
-  justify-content: space-between;
-  padding: 9px 200px;
-  margin: auto;
-}
-header .loginBtn {
-  border: 0;
-  display: block;
-  text-align: center;
-  width: 128px;
-  height: 48px;
-  border-radius: 8px;
-  padding: 12px 24px;
-  background-color: var(--primary100);
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 120%;
-  color: var(--gray50);
-}
-header .logo img {
-  width: 15.3rem;
-}
-
 .visual {
   height: 540px;
   width: 100%;
@@ -57,30 +14,30 @@ header .logo img {
   width: 40vw;
 }
 .visual .txtBox {
-  height: 34rem;
+  height: 340px;
   margin-right: 10px;
 }
 .visual .txtBox h2 {
-  height: 11.2rem;
-  font-size: 4rem;
-  line-height: 5.6rem;
+  height: 112px;
+  font-size: 40px;
+  line-height: 56px;
   font-weight: 700;
   color: #374151;
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 }
 .visual .txtBox a {
   width: 100%;
   display: block;
-  max-width: 35.7rem;
-  max-height: 5.6rem;
-  font-size: 2.3rem;
+  max-width: 357px;
+  max-height: 56px;
+  font-size: 23px;
   line-height: 120%;
   font-weight: 600;
   color: var(--gray50);
   background-color: var(--primary100);
   text-align: center;
-  padding: 1.6rem 0;
-  border-radius: 4rem;
+  padding: 16px 0;
+  border-radius: 40px;
 }
 
 .section {
@@ -88,117 +45,68 @@ header .logo img {
   align-items: cneter;
   justify-content: center;
   width: 100%;
-  height: 72rem;
-  padding: 13.8rem 34.4rem;
+  height: 720px;
+  padding: 138px 344px;
 }
 .section .content {
-  width: 100rem;
+  width: 1000px;
   background-color: #fcfcfc;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 0 10px;
 }
 .section .content img {
-  max-width: 58.8rem;
+  max-width: 588px;
   /* width: 100%; */
 }
 .section .content .left {
   text-align: right;
 }
 .section .content .left.txtBox {
-  margin-right: 6.4rem;
+  margin-right: 64px;
 }
 .section .content .txtBox {
   position: relative;
-  margin-left: 6.4rem;
+  margin-left: 64px;
   width: 100%;
 }
 .section .content .txtBox .abs {
-  width: 32rem;
+  width: 320px;
 }
 .section .content .txtBox h4 {
   color: var(--primary100);
-  font-size: 1.8rem;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 2.6rem;
-  margin-bottom: 1.5rem;
+  line-height: 26px;
+  margin-bottom: 15px;
 }
 .section .content .txtBox h2 {
-  font-size: 4rem;
-  line-height: 5.6rem;
+  font-size: 40px;
+  line-height: 56px;
   font-weight: 700;
   letter-spacing: 2%;
   color: #374151;
-  margin-bottom: 3.5rem;
+  margin-bottom: 35px;
 }
 .section .content .txtBox p {
-  font-size: 2.4rem;
-  line-height: 2.8rem;
+  font-size: 24px;
+  line-height: 28px;
   font-weight: 500;
   color: #374151;
 }
 
 .bottomVisual {
-  margin-top: 13.8rem;
+  margin-top: 138px;
 }
 .bottomVisual img {
-  width: 64.9rem;
+  width: 649px;
 }
 .bottomVisual .txtBox {
-  margin-right: 6.9rem;
-}
-
-footer {
-  width: 100%;
-  height: 16rem;
-  padding: 3.2rem 20rem;
-  background: #111827;
-}
-footer .content {
-  max-width: 1920px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.6rem;
-}
-footer .content p {
-  color: #9ca3af;
-  line-height: 1.8rem;
-  font-weight: 400;
-}
-footer .content .link {
-  width: 15.9rem;
-  display: flex;
-  justify-content: space-between;
-}
-footer .content .link a {
-  color: #e5e7eb;
-}
-footer .content .icon {
-  width: 11.6rem;
-  display: flex;
-  justify-content: space-between;
-}
-footer .content .icon img {
-  width: 2rem;
+  margin-right: 69px;
 }
 
 @media screen and (max-width: 1199px) {
-  header {
-  }
-  header .gnb {
-    max-width: 1199px;
-    padding: 9px 16px;
-    margin: auto;
-  }
-  header .loginBtn {
-  }
-  header .logo img {
-    width: 100%;
-    max-width: 153px;
-  }
-
   .visual {
     margin-top: 70px;
     height: 771px;
@@ -239,7 +147,7 @@ footer .content .icon img {
     align-items: cneter;
     justify-content: center;
     width: 100%;
-    height: 72rem;
+    height: 720px;
     padding: 24px;
   }
   .section .content {
@@ -269,28 +177,27 @@ footer .content .icon img {
   }
   .section .content .txtBox h4 {
     color: var(--primary100);
-    font-size: 1.8rem;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 2.6rem;
-    margin-bottom: 1.5rem;
+    line-height: 26px;
+    margin-bottom: 15px;
   }
   .section .content .txtBox h2 {
-    font-size: 4rem;
-    line-height: 5.6rem;
+    font-size: 40px;
+    line-height: 56px;
     font-weight: 700;
     letter-spacing: 2%;
-    color: #374151;
-    margin-bottom: 3.5rem;
+    margin-bottom: 35px;
   }
   .section .content .txtBox p {
-    font-size: 2.4rem;
-    line-height: 2.8rem;
+    font-size: 24px;
+    line-height: 28px;
     font-weight: 500;
     color: #374151;
   }
 
   .bottomVisual {
-    margin-top: 13.8rem;
+    margin-top: 138px;
   }
   .bottomVisual img {
     width: 64.9rem;
@@ -301,41 +208,6 @@ footer .content .icon img {
   }
   .bottomVisual .txtBox h2 br {
     display: block;
-  }
-
-  footer {
-    width: 100%;
-    height: 16rem;
-    padding: 3.2rem 20rem;
-    background: #111827;
-  }
-  footer .content {
-    max-width: 1920px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.6rem;
-  }
-  footer .content p {
-    color: #9ca3af;
-    line-height: 1.8rem;
-    font-weight: 400;
-  }
-  footer .content .link {
-    width: 15.9rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  footer .content .link a {
-    color: #e5e7eb;
-  }
-  footer .content .icon {
-    width: 11.6rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  footer .content .icon img {
-    width: 2rem;
   }
 }
 

@@ -1,19 +1,15 @@
-import "./css/app.css";
-import Header from "./component/header";
+import "../css/app.css";
 import { useEffect, useRef, useState } from "react";
-import { productsGet } from "./api/product";
-import MarketSection, { MarketPageNavi } from "./component/marketSection";
-import Footer from "./component/footer";
+import { productsGet } from "../api/product";
+import MarketSection, { MarketPageNavi } from "../component/marketSection";
 import {
   useChange,
   useItmeList,
   usePageNavi,
   useScreenSize,
-} from "./hook/hook";
-let init = {
-  paddingTop: "70px",
-};
-function App() {
+} from "../hook/hook";
+
+export default function Market() {
   const [sellLimit, setSellLimit] = useState(10);
   const naviLimit = 5;
   const bestProduct = useItmeList([], 4);
@@ -143,8 +139,7 @@ function App() {
         .catch((err) => console.error(err));
   };
   return (
-    <div className="App" style={init}>
-      <Header />
+    <div className="App">
       <div className="container">
         <MarketSection
           className={"best"}
@@ -193,9 +188,6 @@ function App() {
           total={total}
         />
       </div>
-      <Footer />
     </div>
   );
 }
-
-export default App;
