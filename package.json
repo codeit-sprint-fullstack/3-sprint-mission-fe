@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "concurrently": "^9.0.1",
+    "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "start": "concurrently \"cd express-psh-sprint-6 && npm run dev\" \"cd react-psh-sprint-5 && npm run dev\""
+  }
+}

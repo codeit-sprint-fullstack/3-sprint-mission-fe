@@ -1,0 +1,37 @@
+
+
+###
+//상품 목록 조회
+GET http://localhost:8000/items 
+
+###
+//상품 상세조회
+GET http://localhost:8000/items/6720375bb9705208f65cc9f4
+
+###
+//상품 등록
+POST http://localhost:8000/registration
+Content-Type: application/json
+
+{
+    "name" : "갤럭시271",
+    "description" : "갤럭시271 사전예약",
+    "price" : 3000000,
+    "tags": ["갤럭시", "사전예약"]
+}
+
+###
+//상품 수정
+PATCH http://localhost:8000/edit/672755d2721c0517a3f4e22f
+Content-Type: application/json
+
+{
+    "name" : "갤럭시29",
+    "description" : "갤럭시29 사전예약!",
+    "price" : 2900000,
+    "tags": ["갤럭시29", "29!!"]
+}
+
+###
+//상품 삭제
+DELETE http://localhost:8000/delete/672755d2721c0517a3f4e22f
