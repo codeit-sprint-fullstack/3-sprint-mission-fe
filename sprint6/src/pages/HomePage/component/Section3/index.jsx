@@ -3,7 +3,7 @@ import "./index.css";
 import "../common/common.css";
 import section3Img from "../../../../img/home/feature3-image.png";
 
-const Section2 = () => {
+const Section3 = () => {
   return (
     <section class="whiteColorSection">
       <div class="content3">
@@ -30,4 +30,4 @@ const Section2 = () => {
   );
 };
 
-export default Section2;
+export default Section3;

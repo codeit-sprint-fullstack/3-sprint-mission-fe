@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import "../../styles/global.css";
 // jsx
-import Header from "./components/Header/index.jsx";
+import Header from "../../components/Header/index.jsx";
 import Footer from "../../components/Footer/index.jsx";
 import ProdNameInputBox from "./components/ProdNameInputBox/index.jsx";
 import ProdDescriptionInputBox from "./components/ProdDescriptionInputBox/index.jsx";
@@ -39,10 +39,13 @@ function RegisterItemPage() {
       values.name.length <= 5 &&
       values.description.length >= 10 &&
       values.price >= 1 &&
-      values.tags.length !== 0 && values.tags.length <= 5
+      values.tags.length !== 0 &&
+      values.tags.length <= 5
     ) {
       setRegisterButtonDone(true);
-    } else { setRegisterButtonDone(false) };
+    } else {
+      setRegisterButtonDone(false);
+    }
   };
 
   const handleProductSubmit = async (e) => {
@@ -72,8 +75,8 @@ function RegisterItemPage() {
   };
 
   const registerButton = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -95,22 +98,22 @@ function RegisterItemPage() {
           </div>
 
           <ProdNameInputBox
-            inputValue={values.name}
+            inputvalue={values.name}
             onChange={handleInputChange}
           />
 
           <ProdDescriptionInputBox
-            inputValue={values.description}
+            inputvalue={values.description}
             onChange={handleInputChange}
           />
 
           <ProdPriceInputBox
-            inputValue={values.price}
+            inputvalue={values.price}
             onChange={handleInputChange}
           />
 
           <ProdTagsInputBox
-            inputValue={values.tags}
+            inputvalue={values.tags}
             onChange={handleInputChange}
           />
         </form>

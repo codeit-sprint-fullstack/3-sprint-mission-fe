@@ -7,7 +7,7 @@ import leftArrow from "../../img/icons/left.png";
 import rightArrow from "../../img/icons/right.png";
 import defaultImg from "../../img/default/FE_default_Img.png";
 // jsx
-import Header from "./component/Header/index.jsx";
+import Header from "../../components/Header/index.jsx";
 import Footer from "../../components/Footer/index.jsx";
 import Prods from "./component/Prods/index.jsx";
 import EmptyBox from "./component/EmptyBox/index.jsx";

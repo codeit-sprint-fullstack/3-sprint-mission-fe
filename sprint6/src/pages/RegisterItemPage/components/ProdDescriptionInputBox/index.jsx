@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
 
-const ProdDescriptionInputBox = ({ inputValue, onChange }) => {
+const ProdDescriptionInputBox = ({ inputvalue, onChange }) => {
   const [descriptionValidation, setDescriptionValidation] = useState(false);
   const [emptyDescriptionInput, setEmptyDescriptionInput] =
     useState("10자 이상 입력해주세요");
@@ -24,7 +24,7 @@ const ProdDescriptionInputBox = ({ inputValue, onChange }) => {
       <h1>상품 소개</h1>
       <input
         name="description"
-        inputValue={inputValue}
+        inputvalue={inputvalue}
         onChange={onChange}
         className="inputBox"
         type="text"

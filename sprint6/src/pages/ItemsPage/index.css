@@ -66,7 +66,7 @@ input::placeholder {
 }
 
 #addProdButton {
-  background-color: var(--mainColor);
+  background-color: #3692FF;
   width: 13.3rem;
   height: 4.2rem;
   margin-left: 1.2rem;

@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import "./index.css";
 
-const ProdPriceInputBox = ({ inputValue, onChange }) => {
-
+const ProdPriceInputBox = ({ inputvalue, onChange }) => {
   const [priceValidation, setPriceValidation] = useState(false);
-  const [emptyPriceInput, setEmptyPriceInput] =
-    useState("숫자로 입력해주세요");
+  const [emptyPriceInput, setEmptyPriceInput] = useState("숫자로 입력해주세요");
 
   const handlePriceInputBlur = (e) => {
-
     if (isNaN(e.target.value)) {
-      setPriceValidation(true)
+      setPriceValidation(true);
       setEmptyPriceInput("숫자로 입력해주세요");
     } else {
-      setPriceValidation(false)
+      setPriceValidation(false);
       setEmptyPriceInput("숫자로 입력해주세요");
     }
 
@@ -28,7 +25,7 @@ const ProdPriceInputBox = ({ inputValue, onChange }) => {
       <h1>판매가격</h1>
       <input
         name="price"
-        inputValue={inputValue}
+        inputvalue={inputvalue}
         onChange={onChange}
         className="inputBox"
         placeholder="판매 가격을 입력해주세요"

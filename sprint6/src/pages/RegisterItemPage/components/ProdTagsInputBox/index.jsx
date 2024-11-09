@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import Ximg from "../../../../img/icons/ic_X.png";
 
-const ProdTagsInputBox = ({ inputValue, onChange }) => {
-
+const ProdTagsInputBox = ({ inputvalue, onChange }) => {
   const [tagsValidation, setTagsValidation] = useState(false);
   const [emptyTagsInput, setEmptyTagsInput] =
     useState("5글자 이내로 입력해주세요");
@@ -28,11 +27,11 @@ const ProdTagsInputBox = ({ inputValue, onChange }) => {
   };
 
   const handleTagsInputKeyDown = (e) => {
-    if (e.target.value.length < 5 && e.key === 'enter') {
+    if (e.target.value.length < 5 && e.key === "enter") {
       setTagsValue(e.target.value);
-      setTagsValue("")
+      setTagsValue("");
     }
-  }
+  };
 
   return (
     <div id="prodTagsBox" className="mainWidth">
@@ -42,7 +41,7 @@ const ProdTagsInputBox = ({ inputValue, onChange }) => {
         className="inputBox"
         placeholder="태그를 입력해주세요"
         type="text"
-        inputValue={inputValue}
+        inputvalue={inputvalue}
         onChange={onChange}
         onBlur={handleTagsInputBlur}
         onKeyDown={handleTagsInputKeyDown}

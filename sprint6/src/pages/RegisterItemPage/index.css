@@ -3,10 +3,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --mainColor: #3692FF;
-}
-
 html {
   font-size: 10px;
   font-family: 'Pretendard-Regular';

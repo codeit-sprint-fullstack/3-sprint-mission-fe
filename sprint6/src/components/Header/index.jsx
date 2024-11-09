@@ -3,7 +3,7 @@ import "./index.css";
 import pandaLogoImg from "../../img/logo/panda-market-logo.png";
 import pandaLogoTextImg from '../../img/logo/panda-text-log.png';
 
-const getLinkStyle = (isActive) => {
+const getLinkStyle = ({isActive}) => {
   return {
     color: isActive ? "#3692FF" : undefined,
   };

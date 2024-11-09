@@ -1,9 +1,9 @@
 import "../../../../styles/global.css";
 import "./index.css";
 import "../common/common.css";
-import bottomBannerImg from "../../../../img/home/bottom-banner-image.png";
+import UnderBannerImg from "../../../../img/home/bottom-banner-image.png";
 
-const BottomBanner = () => {
+const UnderBanner = () => {
   return (
     <div class="skyColorSection">
     <div class="skyColorContent">
@@ -12,11 +12,11 @@ const BottomBanner = () => {
         <div class="text1">판다마켓 중고 거래</div>
       </div>
       <div class="imgBox">
-        <img src={bottomBannerImg} alt="bottomBannerImg" />
+        <img src={UnderBannerImg} alt="UnderBannerImg" />
       </div>
     </div>
   </div>
   );
 };
 
-export default BottomBanner;
+export default UnderBanner;

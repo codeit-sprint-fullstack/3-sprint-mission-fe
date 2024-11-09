@@ -1,6 +1,6 @@
 import { url } from './endpoint.js';
 
-async function getProducts(params = []) {
+async function getProducts(params = "") {
   const query = new URLSearchParams(params).toString();
   // 파라미터를 자동으로 정리해서 인코딩
 
