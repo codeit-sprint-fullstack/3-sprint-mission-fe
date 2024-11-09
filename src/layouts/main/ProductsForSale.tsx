@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ProductSearchBar from './ProductSearchBar';
 import AddProductButton from './AddProductButton';
-import SortByDropdown from './SortByDropdown';
 import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 import { getProductsForSale } from '../../services/ProductService';
+import SortByDropdown from './../../shared/SortByDropdown';
 
 export type Items = {
   list: {
@@ -67,14 +67,20 @@ const ProductsForSale = () => {
 
   return (
     <section>
+      {/* 데스크탑 버전 */}
       <Header>
         <ProductTitle>판매 중인 상품</ProductTitle>
         <ProductActionsContainer>
           <ProductSearchBar setSearchKeyword={setSearchKeyword} />
           <AddProductButton />
-          <SortByDropdown setOrderBy={setOrderBy} />
+          <SortByDropdown setOrderBy={setOrderBy}>
+            <option value="recent">최신순</option>
+            <option value="favorite">좋아요순</option>
+          </SortByDropdown>
         </ProductActionsContainer>
       </Header>
+
+      {/* 모바일 버전 */}
       <MobileHeader>
         <MobileTitleAndAddButton>
           <ProductTitle>판매 중인 상품</ProductTitle>
@@ -82,7 +88,10 @@ const ProductsForSale = () => {
         </MobileTitleAndAddButton>
         <MobileSearchAndDropDown>
           <ProductSearchBar setSearchKeyword={setSearchKeyword} />
-          <SortByDropdown setOrderBy={setOrderBy} />
+          <SortByDropdown setOrderBy={setOrderBy}>
+            <option value="recent">최신순</option>
+            <option value="favorite">좋아요순</option>
+          </SortByDropdown>
         </MobileSearchAndDropDown>
       </MobileHeader>
       <Ul>

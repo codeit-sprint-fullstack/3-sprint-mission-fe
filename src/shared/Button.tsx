@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const AddProductButton = () => {
-  return <Button>상품 등록하기</Button>;
+type ButtonProps = {
+  children: React.ReactNode;
 };
 
-export default AddProductButton;
+const Button = ({ children }: ButtonProps) => {
+  return <ButtonS>{children}</ButtonS>;
+};
 
-const Button = styled.button`
+export default Button;
+
+const ButtonS = styled.button`
   background-color: var(--primary-blue-color);
   color: white;
   border-radius: 0.8rem;
@@ -17,4 +21,5 @@ const Button = styled.button`
   font-size: 1.6rem;
   font-weight: 500;
   white-space: nowrap;
+  cursor: pointer;
 `;

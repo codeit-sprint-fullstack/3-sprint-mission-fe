@@ -1,18 +1,29 @@
-import React from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import PANDA_MARKET_LOGO_IMAGE from '../../assets/images/logo/panda-market-logo.svg';
 import styled from 'styled-components';
 
+// layouts에 넣어야할지 shared 폴더에 넣어야할지 고민이 되는 컴포넌트
+
 const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <header>
       <Nav aria-label="메인 내비게이션">
         <NavContainer>
           <MenuContainer>
-            <a href="/">
+            <Link to="/">
               <img src={PANDA_MARKET_LOGO_IMAGE} alt="판다마켓 로고 아이콘" />
-            </a>
-            <a href="/">자유게시판</a>
-            <a href="/">중고마켓</a>
+            </Link>
+            {currentPath !== '/' && (
+              <>
+                <NavLink to="/">자유게시판 </NavLink>
+                <NavLink to="/items" style={getLinkStyle}>
+                  중고마켓
+                </NavLink>
+              </>
+            )}
           </MenuContainer>
           <LoginButton aria-label="로그인 버튼">로그인</LoginButton>
         </NavContainer>
@@ -22,6 +33,18 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+type LinkStyleProps = {
+  isActive: boolean;
+};
+
+const getLinkStyle = ({ isActive }: LinkStyleProps) => {
+  return {
+    color: isActive
+      ? 'var(--primary-blue-color)'
+      : 'var(--nav-menu-gray-font-color)',
+  };
+};
 
 const Nav = styled.nav`
   width: 100%;
@@ -33,6 +56,10 @@ const Nav = styled.nav`
   z-index: 1;
   max-height: 70px;
   border-bottom: 1px solid var(--navbar-border-color);
+  padding: 1rem 2.4rem;
+  @media (max-width: 743px) {
+    padding: 1rem 1.6rem;
+  }
 `;
 
 const NavContainer = styled.div`
@@ -40,15 +67,7 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 20rem;
-
-  @media (min-width: 744px) and (max-width: 1199px) {
-    padding: 1rem 2.4rem;
-  }
-
-  @media (max-width: 743px) {
-    padding: 1rem 1.6rem;
-  }
+  max-width: 170rem;
 `;
 
 const MenuContainer = styled.div`
@@ -74,4 +93,5 @@ const LoginButton = styled.button`
   font-weight: 600;
   font-size: 1.6rem;
   white-space: nowrap;
+  cursor: pointer;
 `;

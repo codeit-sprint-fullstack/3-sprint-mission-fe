@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import FaceBook_LOGO_IMAGE from '../../assets/images/social/facebook-logo.svg';
 import Twitter_LOGO_IMAGE from '../../assets/images/social/twitter-logo.svg';

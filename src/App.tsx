@@ -1,13 +1,14 @@
 import './App.css';
-import Footer from './features/footer/Footer';
-import Main from './features/main/Main';
-import Nav from './features/navbar/Navbar';
+import Footer from './layouts/footer/Footer';
 
-function App() {
+type AppProps = {
+  children: React.ReactNode;
+};
+
+function App({ children }: AppProps) {
   return (
     <>
-      <Nav />
-      <Main />
+      {children}
       <Footer />
     </>
   );

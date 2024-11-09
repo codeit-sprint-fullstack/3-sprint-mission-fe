@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styled from 'styled-components';
 import heartInactive from '../../assets/images/icons/heart/heart-inactive.svg';
 import heartActive from '../../assets/images/icons/heart/heart-active.svg';

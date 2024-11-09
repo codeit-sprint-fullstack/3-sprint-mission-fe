@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import LikeButtonWithCount from './LikeButtonWithCount';
 import styled from 'styled-components';
 import Default_Image from '../../assets/images/default/img_default.png';
