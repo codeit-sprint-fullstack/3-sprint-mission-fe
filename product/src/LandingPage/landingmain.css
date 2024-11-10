@@ -1,0 +1,121 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+.hero{
+    background-color: #cfe5ff;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 80% bottom;
+    background-size: 55%;
+    background-image: url('../image/home/hero-image.png');
+    margin-top: 32px;
+}
+
+.bottom {
+    background-color: #cfe5ff;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 80% bottom;
+    background-size: 55%;
+    background-image: url('../image/home/bottom-banner-image.png');
+    margin-top: 32px;
+}
+
+.features {
+    padding-bottom: 138px;
+    word-break: keep-all;
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.feature {
+    padding: 138px 0;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+.feature:nth-child(2){
+    text-align: right;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-tag{
+    color: #3692ff;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature-description{
+    font-family: pretendard;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.08em;
+    margin-top: 24px;
+}
+
+.wrapper {
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.feature-title{
+    font-family: pretendard;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 5.6rem;
+    letter-spacing: 0.02em;
+}
+
+.see-button{
+    background-color: #3692ff;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 99.9rem;
+    padding: 1.6rem 12.4rem;
+    border: none;
+}
+
+.button:hover {
+    background-color: #1967d6;
+}
+
+.button:focus{
+    background-color: #1251aa;
+}
+
+.button:disabled{
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+}
+
+.imgSize{
+    width: 50%;
+}
+
+.description{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.08em;
+    margin-top: 24px;
+}
+
+

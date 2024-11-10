@@ -1,20 +1,24 @@
 import './App.css';
-import HeaderPart from './component/header.js';
-import MainPart from './component/mainPart.js';
-import FooterPart from './component/footer.js';
-import Pagination from './component/pagination.js';
+import LandingPage from './Landing.js';
+import ProductPage from './ProductDefault.js';
+import Registration from './Register.js';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 
 function App() {
 
  
   return (
-    <div>
-      <HeaderPart/>
-      <MainPart/>
-      <Pagination/>
-      <FooterPart/>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<LandingPage/>}/>
+          <Route path="items" element={<ProductPage/>} />
+          <Route path="registration" element={<Registration/>} />
+          <Route path="items/registration" element={<Registration/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
