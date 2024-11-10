@@ -26,7 +26,6 @@ export async function getProducts(params = {}) {
     return body;
     }catch (error){
         console.error("Failed to fetch products:", error);
-        throw error;
     }
     
 }
