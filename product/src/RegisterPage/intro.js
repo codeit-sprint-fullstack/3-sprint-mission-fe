@@ -23,7 +23,7 @@ function IntroPart () {
              <div>
                 <h2 className="registertitle">상품 소개</h2>
                 <textarea placeholder="상품 소개를 입력해주세요" 
-                style={{border: isIntro === false ? "1px solid #F74747" : "none"}}
+                style={{border: isIntro ? "none" : "1px solid #f74747"}}
                 type="string" className="introInput" onChange={onChangeIntro}/>
                 <p className="msg">{introMessage}</p>
             </div>

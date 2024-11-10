@@ -4,23 +4,23 @@
     font-size: 10px;
   }
 
-.logoPart{
+.logoSection{
     margin-left: 5%;
     display: flex;
     justify-content:space-around;
     align-items: center;
   }
   
-  .headerPart{
+  .headerSection{
     display: flex;
     justify-content: space-between;
   }
   
-  .img{
+  .imgSize{
     width: 25%;
   }
   
-  .text{
+  .textSection{
     color: #4B5563;
     text-align: center;
     font-family: pretendard;
@@ -29,7 +29,7 @@
     text-decoration: none;
   }
   
-  .login{
+  .loginBtn{
     margin-right: 8rem;
     background-color: #3692FF;
     border-radius: 8px;
