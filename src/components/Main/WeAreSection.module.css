@@ -1,0 +1,74 @@
+/* PC 스타일: 1200px 이상 */
+@media (min-width: 1200px) and (max-width: 1440px) {
+  section.we_are {
+    height: calc(540px - 108px);
+  }
+  div.we_are_box {
+    transform: scale(0.75);
+    transform-origin: center bottom;
+  }
+}
+
+/* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+@media (min-width: 744px) and (max-width: 1199.98px) {
+  section.we_are {
+    height: calc(540px - 40%);
+    margin-top: 0;
+  }
+  div.we_are_box {
+    transform: scale(0.6);
+    transform-origin: center bottom;
+  }
+}
+
+/* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+@media (min-width: 375px) and (max-width: 743.98px) {
+  section.we_are {
+    position: relative;
+    height: calc(540px - 180px);
+    margin-top: 0;
+  }
+  div.we_are_box {
+    height: 600px;
+    width: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    transform: scale(0.5);
+    transform-origin: center bottom;
+  }
+}
+
+.we_are {
+  margin-top: 138px;
+  background-color: #cfe5ff;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+}
+
+.we_are_box {
+  width: 1110px;
+  height: 397px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0px;
+}
+
+.we_are_p {
+  width: 313px;
+  height: 172px;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 56px;
+  color: #374151;
+}
+
+.sc5_img5 {
+  width: 746px;
+}

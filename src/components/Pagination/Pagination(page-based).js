@@ -8,13 +8,17 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   const handlePreviousGroup = () => {
     if (currentGroup > 0) {
+      const newGroup = currentGroup - 1;
       setCurrentGroup(currentGroup - 1);
+      onPageChange((newGroup + 1) * pagesPerGroup); // 이전 그룹의 마지막 페이지로 이동
     }
   };
 
   const handleNextGroup = () => {
     if ((currentGroup + 1) * pagesPerGroup < totalPages) {
-      setCurrentGroup(currentGroup + 1);
+      const newGroup = currentGroup + 1;
+      setCurrentGroup(newGroup);
+      onPageChange(newGroup * pagesPerGroup + 1); // 다음 그룹의 첫 번째 페이지로 이동
     }
   };
 

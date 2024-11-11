@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import styles from './Main.module.css'
-import BestProductList from './../ProductList/BestProductList';
-import OnSalesProductList from './../ProductList/onSalesProductList';
-import searchLogo from '../../assets/images/search.png'
+import { Link } from 'react-router-dom';
+import styles from './Items.module.css'
+// import BestProductList from '../components/ProductList/BestProductList';
+import OnSalesProductList from '../components/ProductList/onSalesProductList';
 
-function Main() {
+function Items() {
   const [searchKeyword, setSearchKeyword] = useState('');
   const [orderBy, setOrderBy] = useState('recent');
   const [finalKeyword, setFinalKeyword] = useState('');
 
   const handleSearchChange = (e) => {
     setSearchKeyword(e.target.value);
+    // 검색어가 비어 있을 경우 전체 목록을 보여줌.
+    if (e.target.value === '') {
+      setFinalKeyword(''); // 전체 목록 렌더링
+    }
   };
+
+
 
   const handleOrderChange = (e) => {
     setOrderBy(e.target.value);
@@ -31,12 +37,12 @@ function Main() {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.bestItem}>
+        {/* <div className={styles.bestItem}>
           <div className={styles.title}>베스트 상품</div>
           <div>
             <BestProductList />
           </div>
-        </div>
+        </div> */}
         <div className={styles.onSales}>
           <div className={styles.topBar}>
             <div className={styles.title}>판매 중인 상품</div>
@@ -44,11 +50,11 @@ function Main() {
               <div className={styles.searchBox}>
                 <input className={styles.search} type='search' placeholder='검색할 상품을 입력해주세요' value={searchKeyword} onChange={handleSearchChange}
                   onKeyDown={handleKeyDown} />
-                <img className={styles.searchLogo} src={searchLogo} alt='search' onClick={handleSearchSubmit} />
+                <img className={styles.searchLogo} src='static/images/search.png' alt='search' onClick={handleSearchSubmit} />
               </div>
-              <div className={styles.regist}>상품 등록하기</div>
+              <Link to="/registration"><div className={styles.regist}>상품 등록하기</div></Link>
               <div>
-                <label for="order"></label>
+                <label htmlFor="order"></label>
                 <select className={styles.select} name="order" id="order" value={orderBy} onChange={handleOrderChange}>
                   <option value="recent">최신순</option>
                   <option value="favorite">좋아요순</option>
@@ -65,4 +71,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Items;

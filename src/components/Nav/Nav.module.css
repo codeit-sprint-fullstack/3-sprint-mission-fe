@@ -1,11 +1,43 @@
+/* PC 스타일: 1200px 이상 */
+@media (min-width: 1200px) {
+}
+
+/* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+@media (min-width: 744px) and (max-width: 1199.98px) {
+}
+
+/* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+@media (min-width: 375px) and (max-width: 743.98px) {
+}
+
 .nav {
-  height: 70px;
   background: #fff;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.gnb {
+  height: 70px;
   padding: 0 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #dfdfdf;
+  /* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+  @media (min-width: 744px) and (max-width: 1199.98px) {
+    margin: 0 auto;
+    /* max-width: 696px; */
+    width: 100%;
+    padding: 0 15px;
+  }
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    margin: 0 auto;
+    /* max-width: 344px; */
+    width: 100%;
+    padding: 0 15px;
+  }
 }
 
 .logo {
@@ -19,6 +51,10 @@
   width: 40px;
   position: relative;
   margin-right: 8px;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    display: none;
+  }
 }
 
 .logoTitle {
@@ -28,6 +64,10 @@
   font-size: 2.56rem;
   color: #3692ff;
   display: inline-block;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    font-size: 2rem;
+  }
 }
 
 .ul {
@@ -48,6 +88,16 @@
   color: #4b5563;
   padding: 0 15px;
   cursor: pointer;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    padding: 0;
+    width: 74px;
+    font-size: 1.6rem;
+  }
+}
+
+.active {
+  color: #3692ff;
 }
 
 .li:hover {
@@ -66,4 +116,18 @@
   border-radius: 8px;
   font-size: 1.6rem;
   cursor: pointer;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    width: 88px;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar img {
+  width: 40px;
+  object-fit: cover;
 }

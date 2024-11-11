@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('./assets/font/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard-Regular";
+  src: url("/public/static/font/Pretendard-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'rokaf';
-  src: url('./assets/font/ROKAF_Sans_Medium.ttf') format('truetype');
+  font-family: "rokaf";
+  src: url("/public/static/font/ROKAF_Sans_Medium.ttf") format("truetype");
 }
 
 * {
@@ -24,4 +24,14 @@ html {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.coming_soon {
+  height: calc(100vh - 230px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #3692ff;
 }

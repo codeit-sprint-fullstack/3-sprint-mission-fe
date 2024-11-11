@@ -1,0 +1,96 @@
+/* PC 스타일: 1200px 이상 */
+@media (min-width: 1200px) and (max-width: 1440px) {
+  section.popular_products {
+    height: calc(540px - 108px);
+  }
+  div.popular_box {
+    transform: scale(0.75);
+    transform-origin: center;
+  }
+}
+
+/* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+@media (min-width: 744px) and (max-width: 1199.98px) {
+  section.popular_products {
+    height: calc(540px - 216px);
+  }
+  div.popular_box {
+    transform: scale(0.6);
+    transform-origin: center;
+  }
+  div.popular_p {
+    min-width: 275px;
+  }
+  div.popular_p > span {
+    font-size: 2.4rem;
+  }
+}
+
+/* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+@media (min-width: 375px) and (max-width: 743.98px) {
+  section.popular_products {
+    height: calc(540px - 100px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  div.popular_box {
+    height: 800px;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    transform: scale(0.5);
+    transform-origin: center;
+  }
+  div.popular_p > span {
+    font-size: 3rem;
+  }
+}
+
+.popular_products {
+  background-color: #ffffff;
+  height: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.popular_box {
+  width: 988px;
+  padding: 0 31px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 0 5%;
+}
+
+.popular_box > img {
+  width: 588px;
+}
+
+.popular_p {
+  width: 275px;
+}
+
+.popular_p > span {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #3692ff;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.popular_p > p {
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 56px;
+  margin-bottom: 24px;
+  color: #374151;
+}
+
+.popular_p > div {
+  width: 287px;
+  font-size: 2.4rem;
+  line-height: 32px;
+  color: #374151;
+  font-weight: 500;
+}

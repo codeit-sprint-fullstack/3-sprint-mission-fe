@@ -1,0 +1,128 @@
+.main {
+  /* padding: 26px 200px; */
+  padding: 26px 0;
+  color: #111827;
+  min-height: calc(100vh - 230px);
+}
+
+.container {
+  margin: 0 auto;
+
+  /* PC 스타일: 1200px 이상 */
+  @media (min-width: 1200px) {
+    width: 1118px;
+  }
+
+  /* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+  @media (min-width: 744px) and (max-width: 1199.98px) {
+    width: 696px;
+  }
+
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    width: 100%;
+    max-width: 344px;
+  }
+}
+
+.title {
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.onSales {
+  /* margin-top: 40px; 베스트 상품 같이 있을 때 값 */
+  margin-top: 0;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.toolBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.search {
+  width: 310px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  border: none;
+  font-weight: 400;
+  font-size: 1.6rem;
+  padding: 0 39px 0 13px;
+  /* Tablet 스타일: 744px 이상 ~ 1199px 이하 */
+  @media (min-width: 744px) and (max-width: 1199.98px) {
+    width: 242px;
+    font-size: 1.4rem;
+  }
+
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    max-width: 288px;
+  }
+}
+
+.search:focus {
+  outline: none;
+  border: 2px solid #3692ff;
+}
+
+.searchLogo {
+  width: 15px;
+  height: 14.5px;
+  position: absolute;
+  right: 13px;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+.regist {
+  width: 133px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 600;
+  color: #f3f4f6;
+  background-color: #3692ff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    position: absolute;
+    top: 0;
+    right: 45px;
+  }
+}
+
+.select {
+  width: 130px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 1.6rem;
+
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    width: 42px;
+    border-radius: 12px;
+    -webkit-appearance: none; /* Safari와 Chrome */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* 나머지 브라우저 */
+    background: url("/public/static/images/ic_sort.png") no-repeat center / 24px;
+  }
+}
