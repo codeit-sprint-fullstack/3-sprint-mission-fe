@@ -12,12 +12,12 @@ body {
 
 .header {
   height: 68px;
-  width: 100%;
   border-bottom: 1px solid #dfdfdf;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .header_inner {
-  margin: 0 200px;
   height: 68px;
   display: flex;
   align-items: center;
