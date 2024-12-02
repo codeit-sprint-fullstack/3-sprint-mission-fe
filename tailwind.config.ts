@@ -11,9 +11,7 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-
         primary: 'var(--primary-blue)',
-
         text: {
           black: {
             primary: 'var(--text-primary-black)',
@@ -24,6 +22,7 @@ const config: Config = {
             secondary: 'var(--text-secondary-gray)',
           },
           white: 'var(--text-primary-white)',
+          blue: 'var(--text-primary-blue)',
         },
         bg: {
           input: 'var(--input-background)',
@@ -45,6 +44,14 @@ const config: Config = {
           normalArticle: 'var(--normal-article-border)',
         },
       },
+    },
+    screens: {
+      sm: '375px',
+      md: '744px',
+      xl: '1200px',
+    },
+    fontFamily: {
+      sans: ['var(--font-pretendard-variable)', 'sans-serif'],
     },
   },
   plugins: [],
