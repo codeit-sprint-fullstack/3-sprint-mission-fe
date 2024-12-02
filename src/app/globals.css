@@ -5,6 +5,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand Colors */
+  --primary-blue: #3692ff;
+
+  /* Text Colors */
+  --text-primary-black: #1f2937;
+  --text-secondary-black: #4b5563;
+  --text-primary-gray: #9ca3af;
+  --text-secondary-gray: #e5e7eb;
+  --text-primary-white: #ffffff;
+
+  /* UI Element Colors */
+  --input-background: #f9fafb;
+  --best-article-background: #f9fafb;
+  --best-badge-background: #3692ff;
+  --normal-article-background: #fcfcfc;
+  --normal-article-border: #e5e7eb;
+  --gnb-border: #dfdfdf;
+  --button-active-background: #3692ff;
+  --button-disabled-background: #9ca3af;
 }
 
 @media (prefers-color-scheme: dark) {
