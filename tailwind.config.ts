@@ -1,16 +1,33 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        blue: {
+          DEFAULT: 'var(--blue)',
+          text: 'var(--blue-text)',
+        },
+        gray: {
+          DEFAULT: 'var(--gray)',
+          light: 'var(--gray-light)',
+          dart: 'var(--gray-dark)',
+          border: 'var(--gray-border)',
+          bg_card: 'var(--gray-bg-card)',
+          bg_list: 'var(--gray-bg-list)',
+          heart_number: 'var(--gray-heart-number)',
+          footer_text: 'var(--gray-footer-text)',
+        },
+        black: {
+          DEFAULT: 'var(--black)',
+        },
       },
     },
   },
