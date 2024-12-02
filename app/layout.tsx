@@ -4,15 +4,11 @@ import './globals.css';
 import Nav from '@/components/common/nav/Nav';
 import Footer from '@/components/common/footer/Footer';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+const pretendard = localFont({
+  src: './fonts/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+  variable: '--font-pretendard',
 });
 
 export const metadata: Metadata = {
@@ -27,10 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <html lang="ko">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+      <html lang="ko" className={`${pretendard.variable} antialiased`}>
+        <body className={pretendard.className}>
           <Nav />
           {children}
           <Footer />
