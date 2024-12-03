@@ -29,6 +29,7 @@ const config: Config = {
         },
         bg: {
           input: 'var(--input-background)',
+          inputGlass: 'var(--input-glass)',
           article: {
             best: 'var(--best-article-background)',
             normal: 'var(--normal-article-background)',
@@ -47,6 +48,7 @@ const config: Config = {
           gnb: 'var(--gnb-border)',
           normalArticle: 'var(--normal-article-border)',
           image: 'var(--card-image-border)',
+          select: 'var(--select-border)',
         },
       },
     },

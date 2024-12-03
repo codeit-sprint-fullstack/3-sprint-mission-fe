@@ -29,6 +29,8 @@
   --button-active-background: #3692ff;
   --button-disabled-background: #9ca3af;
   --footer-background: #111827;
+  --select-border: #e5e7eb;
+  --input-glass: #9ca3af;
 }
 
 @media (prefers-color-scheme: dark) {
