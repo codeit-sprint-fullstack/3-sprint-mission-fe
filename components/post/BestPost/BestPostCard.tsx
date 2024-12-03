@@ -9,7 +9,7 @@ const BestPostCard = () => {
   const name = "총명한판다";
   const heartCount = "9999+";
   return (
-    <div className="box-border min-w-[340px] rounded-lg bg-gray-bg_card px-6 pb-4">
+    <div className="box-border min-w-[340px] max-w-[384px] rounded-lg bg-gray-bg_card px-6 pb-4">
       {/* 카드 헤더 */}
       <Image
         src={bestBadgeImage}
@@ -19,11 +19,11 @@ const BestPostCard = () => {
         className="mb-4"
       />
       {/* 카드 본문 */}
-      <div className="mb-5 flex gap-8">
-        <p className="text-lg xl:text-xl">
+      <div className="mb-5 flex">
+        <p className="grow text-lg font-semibold xl:text-xl">
           맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
         </p>
-        <div>
+        <div className="h-[72px] w-[72px] shrink-0 rounded-lg border border-gray-light bg-white p-3">
           <Image
             src={laptopImage}
             height={48}
