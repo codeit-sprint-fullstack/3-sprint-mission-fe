@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.communityFeedMain{
+.communityFeedMain {
   width: 1200px;
   height: 1013px;
   margin: 94px auto 293px;
@@ -36,4 +36,18 @@
   font-size: 16px;
   font-weight: 600;
   background-color: var(--mainColor);
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
 }

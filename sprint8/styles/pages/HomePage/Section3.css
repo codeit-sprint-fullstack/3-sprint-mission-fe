@@ -27,6 +27,11 @@
 .content3 .imgBox img {
   width: 100%;
   height: auto;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
 }
 
 .content3 .textBox .register {
@@ -71,15 +76,15 @@
 
 @media (max-width: 750px) {
   .whiteColorSection .content3 {
-      height: 76.4rem;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-direction: column;
-      background-color: #FCFCFC;
+    height: 76.4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FCFCFC;
   }
 
   .content3 .textBox {
     margin-left: 0rem;
-}
+  }
 }

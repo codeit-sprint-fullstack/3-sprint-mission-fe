@@ -5,7 +5,7 @@
 }
 
 .bestArticle {
-  background-color: #F9FAFB;
+  background-color: #f9fafb17;
   width: 384px;
   height: 169px;
   display: flex;
@@ -13,6 +13,21 @@
   justify-content: space-between;
   padding: 0 24px 16px 24px;
   border-radius: 8px;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  /* filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%)); */
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.1);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
 }
 
 .bestMark {
