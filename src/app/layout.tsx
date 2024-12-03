@@ -3,6 +3,9 @@ import localFont from 'next/font/local';
 import './globals.css';
 import GNB from '@/components/layout/GNB';
 import Footer from '@/components/layout/Footer';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
