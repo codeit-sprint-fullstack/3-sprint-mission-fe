@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/styles/pages/BestArticles.module.css"
+import styles from "@/styles/components/CommunityFeed/BestArticles.module.css";
 
 function BestArticles() {
   return (
