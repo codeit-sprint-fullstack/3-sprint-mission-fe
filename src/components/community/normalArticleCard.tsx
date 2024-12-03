@@ -2,8 +2,7 @@ import Image from 'next/image';
 import { ArticleProps } from './types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import profileIcon from '@/public/icons/profile_icon.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import LikeCounter from './likeCounter';
 
 export default function NormalArticleCard({
   content,
@@ -36,10 +35,7 @@ export default function NormalArticleCard({
           <span className='text-text-black-secondary'>{nickname}</span>
           <span className='text-text-gray-primary'>{createdAt}</span>
         </div>
-        <div className='text-text-charcoal-primary flex gap-[5px] items-center'>
-          <FontAwesomeIcon icon={faHeart} />
-          <span>{likes}</span>
-        </div>
+        <LikeCounter likes={likes} />
       </div>
     </div>
   );

@@ -2,8 +2,7 @@ import Image from 'next/image';
 import { BestBadge } from './bestBadge';
 import { ArticleProps } from './types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons/faHeart';
+import LikeCounter from './likeCounter';
 
 export default function BestArticleCard({
   content,
@@ -21,7 +20,7 @@ export default function BestArticleCard({
           </div>
           <Image
             src={mockImage}
-            alt='베스트 상품 이미지'
+            alt='게시글 이미지'
             width={72}
             height={72}
             className='border border-border-image rounded-[6px]'
@@ -30,10 +29,7 @@ export default function BestArticleCard({
         <div className='flex justify-between w-full text-[14px] font-normal'>
           <div className='flex gap-2'>
             <span className='text-text-black-secondary'>{nickname}</span>
-            <div className='text-text-charcoal-primary flex gap-[5px] items-center'>
-              <FontAwesomeIcon icon={faHeart} />
-              <span>{likes}</span>
-            </div>
+            <LikeCounter likes={likes} />
           </div>
           <span className='text-text-gray-primary'>{createdAt}</span>
         </div>
