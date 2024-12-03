@@ -5,7 +5,7 @@ import styles from "@/styles/components/CommunityFeed/BestArticles.module.css";
 function BestArticles() {
   return (
     <Link
-      href="/ItemDetail/1"
+      href="/ArticleDetail/1"
     >
       <div className={styles.bestArticlesBody}>
         <div className={styles.bestArticle}>
