@@ -1,0 +1,79 @@
+.searchSortBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.articlesListBody {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.article {
+  background-color: #FCFCFC;
+  width: 100%;
+  height: 138px;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 10px 10px 0;
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.02);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
+}
+
+.articleContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.articleTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.articleInfoBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.articleInfoLeft {
+  display: flex;
+  align-items: center;
+}
+
+.nickname {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4B5563;
+  margin: 0 8px 0;
+}
+
+.articleCreateDate {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.articleInfoRight {
+  display: flex;
+  align-items: center;
+}
+
+.articleLikeNum {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 4px;
+  margin-bottom: 3px;
+  color: #6B7280;
+}
