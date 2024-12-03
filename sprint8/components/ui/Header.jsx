@@ -13,7 +13,7 @@ function Header() {
     <header>
       <nav className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/index">
+          <Link href="/">
             <div
               className={styles.pandaLogoImg}
               style={{
