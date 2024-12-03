@@ -1,5 +1,6 @@
 import Link from "next/link";
-import styles from "@/styles/ui/Nav.module.css";
+import Image from "next/image";
+import styles from "@/styles/ui/Header.module.css";
 
 const getLinkStyle = ({ isActive }) => {
   return {
@@ -13,19 +14,31 @@ function Header() {
     <header>
     <nav className={styles.header}>
       <div className={styles.headerContent}>
-        <Link href="/index">
-          <img className={styles.pandaLogoImg} src={pandaLogoImg} alt='pandaMarketLogo' />
-          <img className={styles.pandaLogoText} src={pandaLogoTextImg} alt='pandaMarketLogo' />
+          <Link href="/index">
+            <div className={styles.pandaLogoImg} >
+              <Image
+                src="/images/logo/panda-market-logo.png"
+                width={153}
+                height={51}
+                alt='판다마켓 로고' />
+            </div>
+            <div className={styles.pandaLogoText}>
+              <Image
+                src="/images/logo/panda-text-logo.png"
+                width={113}
+                height={41}
+                alt='판다마켓 로고(글씨)' />
+            </div>
         </Link>
 
         <div className={styles.headerTextBox}>
           <div className={styles.headerText}>
-            <Link href="/CommunityFeed" style={getLinkStyle}>
+            <Link href="/CommunityFeed" style={{getLinkStyle}}>
               자유게시판
             </Link>
           </div>
           <div className={styles.headerText}>
-            <Link href="/Items" style={getLinkStyle}>
+            <Link href="/Items" style={{getLinkStyle}}>
               중고마켓
             </Link>
           </div>

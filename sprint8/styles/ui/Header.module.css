@@ -38,7 +38,7 @@
   min-width: 27.1rem;
 }
 
-.headerTex {
+.headerText {
   font-weight: 700;
   font-size: 1.8rem;
   text-align: center;
@@ -108,7 +108,7 @@
 }
 
 @media (max-width: 600px) {
-  .headerTex {
+  .headerText {
     font-weight: 680;
     font-size: 18px;
   }
