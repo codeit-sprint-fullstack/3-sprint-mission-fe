@@ -4,10 +4,10 @@ import styles from "@/styles/components/CommunityFeed/BestArticles.module.css";
 
 function BestArticles() {
   return (
-    <Link
-      href="/ArticleDetail/1"
-    >
-      <div className={styles.bestArticlesBody}>
+    <div className={styles.bestArticlesBody}>
+      <Link
+        href="/ArticleDetail/1"
+      >
         <div className={styles.bestArticle}>
           <div className={styles.bestMark}>
             <Image
@@ -41,8 +41,8 @@ function BestArticles() {
             <div className={styles.articleCreateDate}>2024. 12. 16</div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   )
 }
 
