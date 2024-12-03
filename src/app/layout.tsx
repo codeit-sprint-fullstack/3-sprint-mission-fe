@@ -22,11 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className={`${pretendard.variable} antialiased`}>
-        <main>
-          <GNB />
-          {children}
-        </main>
+      <body
+        className={`${pretendard.variable} antialiased flex flex-col min-h-screen`}
+      >
+        <GNB />
+        <main className='flex-1'>{children}</main>
+        <Footer />
       </body>
     </html>
   );
