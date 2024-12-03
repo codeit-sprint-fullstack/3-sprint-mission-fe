@@ -13,10 +13,12 @@ const Hero = () => {
               거래해 보세요
             </span>
           </div>
-          <div className="button">
-            <Link href="/CommunityFeed">구경하러 가기</Link>
-            {/* 일단 CommunityFeed 페이지로 이동*/}
-          </div>
+          <Link href="/CommunityFeed">
+            <div className="button">
+              구경하러 가기
+            </div>
+              {/* 일단 CommunityFeed 페이지로 이동*/}
+          </Link>
         </div>
         <div
           className="imgBox"
