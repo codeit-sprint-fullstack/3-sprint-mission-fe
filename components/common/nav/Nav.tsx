@@ -9,13 +9,13 @@ import MobileLogo from "@/public/images/logo/logo_mobile.png";
 import CommonBtn from "@/components/common/button/CommonBtn";
 
 const menuList = [
-  { id: 1, name: "자유게시판", url: "post" },
-  { id: 2, name: "중고마켓", url: "market" },
+  { id: 1, name: "자유게시판", url: "/post" },
+  { id: 2, name: "중고마켓", url: "/market" },
 ];
 
 const Nav = () => {
   const pathname = usePathname();
-  const urlPath = pathname.split("/")[1];
+  const urlPath = "/" + pathname.split("/")[1];
 
   return (
     <nav className="min-w-[375px] border-b-[1px] border-gray-border px-4 py-2 md:px-6">
