@@ -8,6 +8,7 @@ import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import useScreenWidth from '@/hooks/useScreenWidth';
+import CommonBtn from '../common/commonBtn/commonBtn';
 
 const imageWidth = {
   [MEDIA_QUERY.value.large]: 153,
@@ -63,9 +64,7 @@ export default function GNB() {
               );
             })}
         </div>
-        <button className='w-[88px] h-[42px] bg-bg-button-active disabled:bg-bg-button-disabled text-white rounded-lg font-semibold'>
-          로그인
-        </button>
+        <CommonBtn>로그인</CommonBtn>
       </div>
     </div>
   );
