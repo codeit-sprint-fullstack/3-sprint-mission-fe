@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/components/CommunityFeed/Articles.module.css";
+import ArticleSearchInput from "@/components/CommunityFeed/ArticleSearchInput";
+import DropdownList from "@/components/CommunityFeed/DropdownList"
 
 function ArticlesList() {
   const ArticlesArr = [1, 2, 3, 4]
@@ -10,8 +12,8 @@ function ArticlesList() {
       width: "1200px",
     }}>
       <div className={styles.searchSortBox}>
-        {/* input 검색창 컴포넌트*/}
-        {/* dropDown 정렬 컴포넌트*/}
+        <ArticleSearchInput />
+        <DropdownList />
       </div>
       <div className={styles.articlesListBody}>
         {ArticlesArr.map((article, index) => {
