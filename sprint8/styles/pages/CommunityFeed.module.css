@@ -8,8 +8,9 @@
 }
 
 .communityFeedMain{
-  width: 1200px;
+  width: 100%;
   height: 1013px;
+  margin: 94px auto 293px;
   margin-top: 94px;
   margin-bottom: 293px;
 }
