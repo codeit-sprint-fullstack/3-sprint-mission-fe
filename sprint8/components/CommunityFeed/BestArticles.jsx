@@ -33,8 +33,8 @@ function BestArticles() {
               <Image
                 src="/images/icons/heart.png"
                 alt="하트 이미지"
-                width={10}
-                height={10}
+                width={12.75}
+                height={12}
               />
               <div className={styles.articleLikeNum}>9999+</div>
             </div>
