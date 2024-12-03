@@ -22,7 +22,7 @@ const PostList = () => {
           <Image src={searchIcon} alt="search icon" height={24} width={24} />
           <input
             type="text"
-            className="bg-gray-light text-base focus:outline-none"
+            className="w-full bg-gray-light text-base focus:outline-none"
             placeholder="검색할 상품을 입력해주세요"
           />
         </label>
