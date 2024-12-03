@@ -35,9 +35,7 @@ export default function BestArticleCard({
               <span>{likes}</span>
             </div>
           </div>
-          <span className='text-text-gray-primary'>
-            {createdAt.toDateString()}
-          </span>
+          <span className='text-text-gray-primary'>{createdAt}</span>
         </div>
       </div>
     </div>
