@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${pretendard.variable} antialiased flex flex-col min-h-screen items-center`}
       >
         <GNB />
-        <main className='flex-1'>{children}</main>
+        <main className='flex flex-col w-full items-center'>{children}</main>
         <Footer />
       </body>
     </html>
