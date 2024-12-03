@@ -1,4 +1,4 @@
-import Nav from "@/components/ui/Nav.jsx";
+import Nav from "@/components/ui/Header.jsx";
 import "@/styles/globals.css";
 
 /**파라미터 Component, pageProps
