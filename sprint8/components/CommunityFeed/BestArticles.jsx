@@ -5,14 +5,17 @@ function BestArticles() {
   return (
     <div className={styles.bestArticlesBody}>
       <div className={styles.bestArticle}>
-        <Image
-          src="/images/logo/best_article_logo.png"
-          alt="베스트 게시글 메달 이미지"
-          width={102}
-          height={30}
-        />
-        <div className={styles.articleContent}>
-          <h2 className={styles.articleTitle}></h2>
+        <div className={styles.bestMark}>
+          <Image
+            src="/images/icons/ic_medal.png"
+            alt="베스트 게시글 메달 이미지"
+            width={16}
+            height={16}
+          />
+          <span className={styles.bestMarkText}>Best</span>
+        </div>
+        <div className={styles.bestArticleContent}>
+          <h2 className={styles.bestArticleTitle}>맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?</h2>
           <Image
             src="/images/default/FE_default_Img.png"
             alt="베스트 게시글 이미지"
@@ -22,12 +25,12 @@ function BestArticles() {
         </div>
         <div className={styles.articleInfoBox}>
           <div className={styles.articleInfoLeft}>
-            <span className={styles.nickname}>총명한판다</span>\
+            <span className={styles.nickname}>총명한판다</span>
             <Image
               src="/images/icons/heart.png"
               alt="하트 이미지"
-              width={16}
-              height={16}
+              width={10}
+              height={10}
             />
             <div className={styles.articleLikeNum}>9999+</div>
           </div>
