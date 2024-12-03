@@ -9,7 +9,7 @@ import MobileLogo from "@/public/images/logo/logo_mobile.png";
 import CommonBtn from "@/components/common/button/CommonBtn";
 
 const menuList = [
-  { id: 1, name: "자유게시판", url: "/board" },
+  { id: 1, name: "자유게시판", url: "/post" },
   { id: 2, name: "중고마켓", url: "/market" },
 ];
 
@@ -17,8 +17,8 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="border-b-[1px] border-gray-border px-4 py-2 md:px-6">
-      <div className="mx-auto flex min-w-[375px] max-w-[1400px] items-center justify-between">
+    <nav className="min-w-[375px] border-b-[1px] border-gray-border px-4 py-2 md:px-6">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between">
         <div className="flex items-center gap-3 text-base font-bold md:gap-10 md:text-lg">
           <Image
             src={Logo}
