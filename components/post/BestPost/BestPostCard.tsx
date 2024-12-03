@@ -2,9 +2,9 @@ import Image from "next/image";
 
 import bestBadgeImage from "@/public/images/badge/img_badge.png";
 import laptopImage from "@/public/images/laptop.png";
-import heartImage from "@/public/images/ic_heart.svg";
+import heartImage from "@/public/icons/ic_heart.svg";
 
-const BestBoardCard = () => {
+const BestPostCard = () => {
   const updateAt = "2024. 04. 16";
   const name = "총명한판다";
   const heartCount = "9999+";
@@ -49,4 +49,4 @@ const BestBoardCard = () => {
   );
 };
 
-export default BestBoardCard;
+export default BestPostCard;
