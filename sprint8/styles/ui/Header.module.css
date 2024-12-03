@@ -81,7 +81,7 @@
 
   .headerTextBox {
     position: absolute;
-      left: 18rem;
+    left: 18rem;
   }
 }
 
@@ -103,7 +103,7 @@
   .headerTextBox {
     position: absolute;
     left: 15rem;
-    bottom: 22px;
+    bottom: 7px;
   }
 }
 
@@ -114,15 +114,16 @@
   }
 
   .headerTextBox {
+    justify-content: start;
     position: absolute;
-    left: 16rem;
-    bottom: 22px;
-    min-width: 20.1rem;
-}
+    left: 15rem;
+    bottom: 6px;
+    margin-left: 30px;
+  }
 
-.loginButtn {
-  min-width: 9.8rem;
-}
+  .loginButtn {
+    min-width: 9.8rem;
+  }
 }
 
 @media (max-width: 474px) {
@@ -136,7 +137,7 @@
 
   .headerTextBox {
     position: absolute;
-    left: 12rem;
+    left: 10rem;
   }
 
   .loginButtn {
