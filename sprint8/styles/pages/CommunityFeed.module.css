@@ -24,6 +24,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+  margin-top: 40px;
 }
 
 .toArticlePostButton {
