@@ -1,4 +1,5 @@
-import Header from "@/components/ui/Header.jsx";
+import Footer from "@/components/ui/Footer";
+import Header from "@/components/ui/Header";
 import "@/styles/globals.css";
 
 /**파라미터 Component, pageProps
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Header />
       <Component {...pageProps} />;
+      <Footer />
     </>
   )
 }
