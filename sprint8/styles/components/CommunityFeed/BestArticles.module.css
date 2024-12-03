@@ -5,7 +5,6 @@
 }
 
 .bestArticle {
-  background-color: #f9fafb17;
   width: 384px;
   height: 169px;
   display: flex;
@@ -13,6 +12,7 @@
   justify-content: space-between;
   padding: 0 24px 16px 24px;
   border-radius: 8px;
+  background-color: #f9fafb17;
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
 
   &:hover {
@@ -55,6 +55,7 @@
   font-size: 17px;
   font-weight: 600;
   line-height: 32px;
+  color: #1F2937;
 }
 
 .articleInfoBox {
