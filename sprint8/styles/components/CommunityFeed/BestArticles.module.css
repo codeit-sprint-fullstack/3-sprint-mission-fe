@@ -14,7 +14,6 @@
   padding: 0 24px 16px 24px;
   border-radius: 8px;
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
-  /* filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%)); */
 
   &:hover {
     background-color: #00000005;
