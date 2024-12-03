@@ -1,16 +1,50 @@
-import Image from 'next/image';
-import Logo from '@/public/images/logo/logo.svg';
-import Link from 'next/link';
+"use client";
+
+import Image from "next/image";
+import Logo from "@/public/images/logo/logo.svg";
+import MobileLogo from "@/public/images/logo/logo_mobile.png";
+import Link from "next/link";
+import CommonBtn from "./../button/CommonBtn";
+import { usePathname } from "next/navigation";
+
+const menuList = [
+  { id: 1, name: "자유게시판", url: "/board" },
+  { id: 2, name: "중고마켓", url: "/market" },
+];
 
 const Nav = () => {
+  const pathname = usePathname();
+
   return (
-    <nav>
-      <div>
-        <Image src={Logo} alt="로고 이미지" width={153} height={51} />
-        <Link href={'/board'}>자유 게시판</Link>
-        <Link href={'/market'}>중고마켓</Link>
+    <nav className="border-b-[1px] border-gray-border px-4 py-2 md:px-6">
+      <div className="mx-auto flex min-w-[375px] max-w-[1400px] items-center justify-between">
+        <div className="flex items-center gap-3 text-base font-bold md:gap-10 md:text-lg">
+          <Image
+            src={Logo}
+            alt="로고 이미지"
+            width={153}
+            height={51}
+            className="hidden md:block"
+          />
+          <Image
+            src={MobileLogo}
+            alt="모바일 로고 이미지"
+            width={81}
+            height={40}
+            className="block md:hidden"
+          />
+          {menuList.map((menu) => (
+            <Link
+              key={menu.id}
+              href={menu.url}
+              className={`${pathname === menu.url && "text-blue"}`}
+            >
+              {menu.name}
+            </Link>
+          ))}
+        </div>
+        <CommonBtn>로그인</CommonBtn>
       </div>
-      <button></button>
     </nav>
   );
 };
