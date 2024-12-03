@@ -19,7 +19,7 @@ const LINKS = [
   { path: 'community', text: '자유게시판' },
   { path: 'market', text: '중고마켓' },
 ];
-const navLinkStyle = 'text-2xl leading-10 font-bold sm:text-xl';
+const navLinkStyle = 'text-lg leading-10 font-bold sm:text-base';
 const activeStyle = (active: boolean) => {
   return active ? 'text-text-blue' : 'text-text-black-secondary';
 };
