@@ -17,6 +17,9 @@ const config: Config = {
             primary: 'var(--text-primary-black)',
             secondary: 'var(--text-secondary-black)',
           },
+          charcoal: {
+            primary: 'var(--text-primary-charcoal)',
+          },
           gray: {
             primary: 'var(--text-primary-gray)',
             secondary: 'var(--text-secondary-gray)',
@@ -43,6 +46,7 @@ const config: Config = {
         border: {
           gnb: 'var(--gnb-border)',
           normalArticle: 'var(--normal-article-border)',
+          image: 'var(--card-image-border)',
         },
       },
     },

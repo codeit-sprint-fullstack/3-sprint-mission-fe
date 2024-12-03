@@ -12,6 +12,7 @@
   /* Text Colors */
   --text-primary-black: #1f2937;
   --text-secondary-black: #4b5563;
+  --text-primary-charcoal: #6b7280;
   --text-primary-gray: #9ca3af;
   --text-secondary-gray: #e5e7eb;
   --text-primary-white: #ffffff;
@@ -23,6 +24,7 @@
   --best-badge-background: #3692ff;
   --normal-article-background: #fcfcfc;
   --normal-article-border: #e5e7eb;
+  --card-image-border: #e5e7eb;
   --gnb-border: #dfdfdf;
   --button-active-background: #3692ff;
   --button-disabled-background: #9ca3af;
@@ -37,7 +39,7 @@
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text-primary-black);
   background: var(--background);
   font-family: var(--font-pretendard-variable);
 }
