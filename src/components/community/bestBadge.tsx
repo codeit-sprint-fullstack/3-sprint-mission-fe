@@ -8,6 +8,8 @@ export function BestBadge() {
         <Image
           src={bestBadgeIcon}
           alt='베스트 게시글 아이콘'
+          width={12}
+          height={12}
         />
         <span className='font-semibold text-text-white'>Best</span>
       </div>
