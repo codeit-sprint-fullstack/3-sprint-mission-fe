@@ -27,9 +27,7 @@ export default function RootLayout({
         <body className={pretendard.className}>
           <div className="flex min-h-screen flex-col">
             <Nav />
-            <main className="mx-auto max-w-[1200px] flex-grow p-4 md:p-6">
-              {children}
-            </main>
+            <main className="flex-grow p-4 md:p-6">{children}</main>
 
             <Footer />
           </div>

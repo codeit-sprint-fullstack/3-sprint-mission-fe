@@ -3,7 +3,7 @@ import PostList from "@/components/post/PostList/PostList";
 
 const PostPage = () => {
   return (
-    <article>
+    <article className="mx-auto max-w-[1200px]">
       <BestPost />
       <PostList />
     </article>
