@@ -1,6 +1,15 @@
-// 사이트 전체에 css를 적용 시킬 때(className을 사용하지 않기 때문에 일반적인 방법으로 import함)
+import Nav from "@/components/ui/Nav.jsx";
 import "@/styles/globals.css";
 
+/**파라미터 Component, pageProps
+ * Component: 각각의 페이지에 대한 컴포넌트, 페이지라고 보면 됨
+ * pageProps: 컴포넌트에서 전달할 데이터를 담는 객체
+ *  */ 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Nav />
+    <Component {...pageProps} />;
+    </>
+  )
 }
