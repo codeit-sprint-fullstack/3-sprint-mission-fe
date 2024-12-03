@@ -26,6 +26,7 @@
   --gnb-border: #dfdfdf;
   --button-active-background: #3692ff;
   --button-disabled-background: #9ca3af;
+  --footer-background: #111827;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,7 +39,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-pretendard-variable);
 }
 
 @layer utilities {

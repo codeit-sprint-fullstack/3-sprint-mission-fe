@@ -37,6 +37,7 @@ const config: Config = {
             active: 'var(--button-active-background)',
             disabled: 'var(--button-disabled-background)',
           },
+          footer: 'var(--footer-background)',
         },
 
         border: {

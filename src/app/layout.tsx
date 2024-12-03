@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import GNB from '@/components/layout/GNB';
+import Footer from '@/components/layout/Footer';
 
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
-  variable: '--font-pretendard-varable',
+  variable: '--font-pretendard-variable',
   weight: '100 900',
 });
 
