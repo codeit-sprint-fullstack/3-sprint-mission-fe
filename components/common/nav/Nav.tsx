@@ -1,11 +1,12 @@
 "use client";
-
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
+
 import Logo from "@/public/images/logo/logo.svg";
 import MobileLogo from "@/public/images/logo/logo_mobile.png";
-import Link from "next/link";
-import CommonBtn from "./../button/CommonBtn";
-import { usePathname } from "next/navigation";
+
+import CommonBtn from "@/components/common/button/CommonBtn";
 
 const menuList = [
   { id: 1, name: "자유게시판", url: "/board" },

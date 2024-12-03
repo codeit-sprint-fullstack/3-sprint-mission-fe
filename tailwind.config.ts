@@ -23,7 +23,7 @@ export default {
         gray: {
           DEFAULT: "var(--gray)",
           light: "var(--gray-light)",
-          dart: "var(--gray-dark)",
+          dark: "var(--gray-dark)",
           border: "var(--gray-border)",
           bg_card: "var(--gray-bg-card)",
           bg_list: "var(--gray-bg-list)",
