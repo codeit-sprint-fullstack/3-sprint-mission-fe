@@ -45,3 +45,12 @@ button {
   cursor: pointer;
   border-style: none;
 }
+
+input {
+  border: none;
+}
+
+select {
+  cursor: pointer;
+  outline: none;
+}
