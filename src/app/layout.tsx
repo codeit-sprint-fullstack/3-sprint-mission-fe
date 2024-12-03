@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body
-        className={`${pretendard.variable} antialiased flex flex-col min-h-screen`}
+        className={`${pretendard.variable} antialiased flex flex-col min-h-screen items-center`}
       >
         <GNB />
         <main className='flex-1'>{children}</main>
