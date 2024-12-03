@@ -1,5 +1,6 @@
-import styles from "@/styles/pages/CommunityFeed.module.css"
-import BestArticles from "@/components/CommunityFeed/BestArticles"
+import styles from "@/styles/pages/CommunityFeed.module.css";
+import BestArticles from "@/components/CommunityFeed/BestArticles";
+import ArticlesList from "@/components/CommunityFeed/ArticlesList"
 
 function CommunityFeed() {
   return (
@@ -11,7 +12,7 @@ function CommunityFeed() {
         <h1 className={styles.communityFeedTitle}>게시글</h1>
         <button className={styles.toArticlePostButton}>글쓰기</button>
       </div>
-        {/* 게시글 컴포넌트 */}
+        <ArticlesList />
         </div>
     </div>
   )
