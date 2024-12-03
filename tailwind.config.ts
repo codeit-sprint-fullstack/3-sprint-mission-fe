@@ -30,8 +30,11 @@ export default {
           heart_number: "var(--gray-heart-number)",
           footer_text: "var(--gray-footer-text)",
         },
-        black: {
+        "custom-black": {
           DEFAULT: "var(--black)",
+        },
+        "custom-white": {
+          DEFAULT: "var(--white)",
         },
       },
     },
