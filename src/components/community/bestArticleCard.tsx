@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { BestBadge } from './bestBadge';
-import { BestArticleCardProps } from './types';
+import { ArticleProps } from './types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons/faHeart';
@@ -10,7 +10,7 @@ export default function BestArticleCard({
   nickname,
   likes,
   createdAt,
-}: BestArticleCardProps) {
+}: ArticleProps) {
   return (
     <div className='px-6 pb-4 bg-bg-article-best w-fit rounded-lg'>
       <div className='w-[295px] md:w-[292px] xl:w-[336px] h-[182px] md:h-[182px] xl:h-[153px] flex flex-col items-start justify-between'>
