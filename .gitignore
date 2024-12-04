@@ -1,0 +1,8 @@
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+pandamarket/
+.vscode/
+next_sprint/node_modules/
