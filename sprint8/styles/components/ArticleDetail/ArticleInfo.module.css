@@ -1,0 +1,132 @@
+.articleInfoBox {
+  width: 1200px;
+  height: 154px;
+  margin-bottom: 32px;
+}
+
+.articleInfoHeader {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.articleInfoTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+.togleMenuMark {
+  width: 24px;
+  height: 24px;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+  color: #9CA3AF;
+  cursor: pointer;
+}
+
+.articleMetaDataBox {
+  width: 354px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metaDataBoxLeft {
+  display: flex;
+  align-items: center;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.nickname {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4B5563;
+  margin-left: 16px;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+  margin-left: 8px;
+}
+
+.MetaDataBoxRight {
+  width: 119px;
+  height: 40px;
+  padding-left: 32px;
+  border-left: 2px solid #E5E7EB;
+}
+
+.likeButtonBox {
+  width: 87px;
+  height: 40px;
+  border-radius: 35px;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.088888);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+
+    .heartImage {
+      display: none;
+      transition: display 0.2s ease-in-out, 
+    }
+    .redHeartImage{
+      display: block;
+    }
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
+}
+
+.redHeartImage{
+  font-size: 26px;
+  display: none;
+}
+
+.heartImage {
+  width: 26.8px;
+  height: 23.3px;
+  cursor: pointer;
+}
+
+.likeNum {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-left: 4px;
+}
+
+.articleInfoContentBox {
+  border-top: 2px solid #E5E7EB;
+  margin-top: 16px;
+  padding-top: 24px;
+}
+
+.articleInfoContentText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1F2937;
+}
