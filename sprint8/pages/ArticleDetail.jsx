@@ -7,16 +7,22 @@ import Comments from "@/components/ArticleDetail/Comments";
 import NoneComments from "@/components/ArticleDetail/NoneComments";
 
 function ArticleDetail() {
+  const testArr = [1, 2, 3];
+
   return (
     <div className={styles.ArticleDetailBox}>
       <ArticleInfo />
       <CommentPost />
-      <Comments />
-      <NoneComments />
+      {testArr.map((comment, index) => {
+        return (
+          <Comments key={index}/>
+        )
+      }) }
+      {/* <NoneComments /> */}
       <Link href="/CommunityFeed">
-        <button className={styles.toArticlePostButton}>
+        <button className={styles.toCommunityFeedButton}>
           목록으로 돌아가기
-          <div className={styles.toArticlePostButtonImage}>
+          <div className={styles.toCommunityFeedButtonImage}>
             <Image
               src="/images/icons/backArrow.png"
               alt="목록으로 돌아가기 이미지"
