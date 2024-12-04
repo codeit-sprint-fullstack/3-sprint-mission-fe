@@ -14,11 +14,21 @@ function ArticlePost() {
         </div>
         <div className={styles.articlePostTitleBox}>
           <h2 className={styles.articlePostInputName}>*제목</h2>
-          {/* 제목 input 자리 */}
+
+          <input className={styles.inputTitle} type="text" name="title" placeholder="제목을 입력해주세요"/>
+
         </div>
         <div className={styles.articlePostContentBox}>
           <h2 className={styles.articlePostInputName}>*내용</h2>
-          {/* 내용 textarea 자리 */}
+
+          <textarea
+            className={styles.textareaContent}
+            placeholder="내용을 입력해주세요"
+            id="message"
+            name="message"
+            rows="4"
+            cols="50" />
+
         </div>
       </div>
     </div>

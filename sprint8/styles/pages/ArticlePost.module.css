@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 90px;
+  margin-bottom: 794px;
 }
 
 .articlePostBox {
@@ -48,7 +49,68 @@
   font-weight: 700;
 }
 
+.inputTitle {
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px 16px 24px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  margin-top: 12px;
+  outline: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+
+  ;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+}
+
+.inputTitle::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  color: #9CA3AF;
+}
+
 .articlePostContentBox {
   width: 100%;
   height: 320px;
+}
+
+.textareaContent {
+  width: 100%;
+  height: 282px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 12px;
+  outline: none;
+  resize: none;
+  border-style: none;
+  border-radius: 12px;
+  padding: 16px 24px 16px;
+  background-color: #F3F4F6;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+
+  ;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+}
+
+.textareaContent::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
 }
