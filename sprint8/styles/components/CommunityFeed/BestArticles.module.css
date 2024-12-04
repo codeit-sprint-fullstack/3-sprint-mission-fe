@@ -75,6 +75,11 @@
   color: #4B5563;
 }
 
+.heartImage{
+  width: 12.75px;
+  height: 12px;
+}
+
 .articleLikeNum {
   font-size: 14px;
   font-weight: 400;

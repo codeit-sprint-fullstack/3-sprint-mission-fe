@@ -10,7 +10,7 @@ function BestArticles() {
       {BestArticlesArr.map((article, index) => (
         <Link
           key={index}
-          href="/ArticleDetail/1"
+          href="/ArticleDetail"
           passHref
         >
           <div className={styles.bestArticle}>
@@ -35,12 +35,18 @@ function BestArticles() {
             <div className={styles.articleInfoBox}>
               <div className={styles.articleInfoLeft}>
                 <span className={styles.nickname}>총명한판다</span>
-                <Image
-                  src="/images/icons/heart.png"
-                  alt="하트 이미지"
-                  width={12.75}
-                  height={12}
-                />
+                <div
+                  className={styles.heartImage}
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    fill
+                    src="/images/icons/heart.png"
+                    alt="하트 이미지"
+                  />
+                </div>
                 <div className={styles.articleLikeNum}>9999+</div>
               </div>
               <div className={styles.articleCreateDate}>2024. 12. 16</div>
