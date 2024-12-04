@@ -4,6 +4,7 @@ import styles from "@/styles/pages/ArticleDetail.module.css";
 import ArticleInfo from "@/components/ArticleDetail/ArticleInfo";
 import CommentPost from "@/components/ArticleDetail/CommentPost";
 import Comments from "@/components/ArticleDetail/Comments";
+import NoneComments from "@/components/ArticleDetail/NoneComments";
 
 function ArticleDetail() {
   return (
@@ -11,7 +12,7 @@ function ArticleDetail() {
       <ArticleInfo />
       <CommentPost />
       <Comments />
-
+      <NoneComments />
       <Link href="/CommunityFeed">
         <button className={styles.toArticlePostButton}>
           목록으로 돌아가기
