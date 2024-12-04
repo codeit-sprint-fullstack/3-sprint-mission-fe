@@ -1,12 +1,14 @@
 import styles from "@/styles/pages/ArticleDetail.module.css";
 import ArticleInfo from "@/components/ArticleDetail/ArticleInfo";
+import CommentPost from "@/components/ArticleDetail/CommentPost";
+import Comments from "@/components/ArticleDetail/Comments";
 
 function ArticleDetail() {
   return (
     <div className={styles.ArticleDetailBox}>
       <ArticleInfo />
-      {/* CommentPost댓글달기와 등록 버튼 자리 */}
-      {/* Comments댓글 컴포넌트 */}
+      <CommentPost />
+      <Comments />
     </div>
   )
 }
