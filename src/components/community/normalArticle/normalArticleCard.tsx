@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { ArticleProps } from './types';
+import { ArticleProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import profileIcon from '@/public/icons/profile_icon.png';
-import LikeCounter from './likeCounter';
+import LikeCounter from '../likeCounter';
 
 export default function NormalArticleCard({
   content,

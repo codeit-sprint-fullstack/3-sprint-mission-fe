@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { BestBadge } from './bestBadge';
-import { ArticleProps } from './types';
+import { BestBadge } from '../bestBadge';
+import { ArticleProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
-import LikeCounter from './likeCounter';
+import LikeCounter from '../likeCounter';
 
 export default function BestArticleCard({
   content,
