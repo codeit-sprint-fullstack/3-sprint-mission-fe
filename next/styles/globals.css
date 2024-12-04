@@ -1,0 +1,24 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+:root{
+  font-size: 10px;
+}
+
+html {
+  font-size: 18px;
+  font-family: pretend;
+}
+
+a {
+  text-decoration: none;
+}
+
+Link:hover {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

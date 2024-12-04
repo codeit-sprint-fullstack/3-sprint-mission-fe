@@ -1,0 +1,40 @@
+.dropdownMenu{
+  font-weight: 400;
+  font-size: 16px;
+  color: #6b7280;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.editMenu{
+  width: 100px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px 14px;
+  border: 0.5px solid #d1d5db;
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  cursor: pointer;
+  text-align: center;
+}
+
+.deleteMenu{
+  width: 100px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 10px 14px;
+  border: 0.5px solid #d1d5db;
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  cursor: pointer;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}

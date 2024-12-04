@@ -1,0 +1,17 @@
+.sortBtn{
+  border-radius: 12px;
+  padding: 1.2rem 3rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7Eb;
+  font-size: 1.6rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.option{
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #1F2937;
+}
