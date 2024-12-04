@@ -2,9 +2,9 @@ import "../css/home.css";
 export default function Home() {
   return (
     <div className="home">
-      <div class="visual">
-        <div class="content">
-          <div class="txtBox">
+      <div className="visual">
+        <div className="content">
+          <div className="txtBox">
             <h2>
               일상의 모든 물건을 <br />
               거래해 보세요
@@ -33,9 +33,9 @@ export default function Home() {
         p={["어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요"]}
         img={"./img/Img_home_03.png"}
       />
-      <div class="visual bottomVisual">
-        <div class="content">
-          <div class="txtBox">
+      <div className="visual bottomVisual">
+        <div className="content">
+          <div className="txtBox">
             <h2>
               믿을 수 있는 <br />
               판다마켓 중고 거래
@@ -51,10 +51,10 @@ export default function Home() {
 function HomeSection({ h4, h2, p, img, left }) {
   left = left ? "left" : "";
   return (
-    <div class="section">
-      <div class="content">
+    <div className="section">
+      <div className="content">
         {!!!left ? <img src={img} alt={h4} /> : null}
-        <div class={`txtBox ${left}`}>
+        <div className={`txtBox ${left}`}>
           <div class="abs">
             <h4>{h4}</h4>
             <h2>

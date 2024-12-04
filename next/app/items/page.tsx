@@ -1,15 +1,16 @@
-import "../css/app.css";
+"use client"
+// import "../css/app.css";
 import { useEffect, useRef, useState } from "react";
-import MarketSection, { MarketPageNavi } from "../component/marketSection";
+import MarketSection, { MarketPageNavi } from "../shared/components/marketSection";
 import {
   useChange,
   useItmeList,
   usePageNavi,
   useScreenSize,
-} from "../hook/hook";
-import Layout from "../component/layout";
-import { Link } from "react-router-dom";
-import { productsGet } from "../api/product";
+} from "../shared/hook/hook";
+import Layout from '../shared/components/layout'
+import Link from "next/link";
+import { productsGet } from "../shared/api/product";
 
 export default function UsedMarket() {
   const naviLimit = 5;
@@ -23,69 +24,22 @@ export default function UsedMarket() {
   const pageNavi = usePageNavi(1, 5);
   const searchHandle = useChange();
   const searchRef = useRef(null);
-  const windowSize = useScreenSize();
 
-  function GetItems(page, pageSize, orderBy, keyword) {
+  function GetItems(page:any, pageSize:any, orderBy:any, keyword:any) {
     productsGet(page, pageSize, orderBy, keyword)
-      .then((res) => {
+      .then((res:any) => {
         if (res.success) {
           sellProduct.setValue(res.data);
           setTotal(res.totalCount / sellLimit);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err:any) => console.error(err));
   }
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      switch (true) {
-        case window.innerWidth < 1200 && window.innerWidth >= 744:
-          setTimeout(() => {
-            GetItems(1, 6, arrType, keyword);
-            setSellItemSize("221px");
-            setSellLimit(6);
-          }, 50);
-          break;
-        case window.innerWidth < 744:
-          setTimeout(() => {
-            GetItems(1, 4, arrType, keyword);
-            setSellItemSize("168px");
-            setSellLimit(4);
-          }, 50);
-          break;
-        default:
-          setTimeout(() => {
-            setSellItemSize("220px");
-          }, 50);
-          break;
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    switch (true) {
-      case windowSize < 1200 && windowSize >= 744:
-        sellProduct.setLength(6);
-        setSellLimit(6);
-        setSellItemSize("221px");
-        break;
-      case windowSize < 744:
-        sellProduct.setLength(4);
-        setSellItemSize("168px");
-        setSellLimit(4);
-        break;
-      default:
-        sellProduct.setLength(10);
-        setSellLimit(10);
-        setSellItemSize("220px");
-        break;
-    }
-  }, [windowSize]);
-
   useEffect(() => {
     GetItems(onTarget, sellLimit, arrType, searchHandle.value);
   }, [onTarget]);
 
-  const searchKewordHandle = (e) => {
+  const searchKewordHandle = (e:any) => {
     if (e.keyCode === 13 || e.type.toString() === "click") {
       setOnTarget(1);
       pageNavi.setStart(1);
@@ -93,14 +47,14 @@ export default function UsedMarket() {
       GetItems(1, sellLimit, arrType, searchHandle.value);
     }
   };
-  const selectHandle = (e) => {
+  const selectHandle = (e:any) => {
     e.preventDefault();
     setArrType(e.target.value);
   };
-  const pageNaviEvent = (e) => {
+  const pageNaviEvent = (e:any) => {
     setOnTarget(Number(e.target.textContent));
   };
-  const nextEvent = (e) => {
+  const nextEvent = (e:any) => {
     e.preventDefault();
     const pageNum = Math.floor(onTarget / naviLimit);
     if (onTarget % naviLimit === 0) {
@@ -109,7 +63,7 @@ export default function UsedMarket() {
     }
     setOnTarget(onTarget + 1);
   };
-  const privousEvent = (e) => {
+  const privousEvent = (e:any) => {
     e.preventDefault();
     if (onTarget % naviLimit === 1) {
       pageNavi.setStart(onTarget - naviLimit);
@@ -124,7 +78,6 @@ export default function UsedMarket() {
         title={"판매 중인 상품"}
         data={sellProduct.value}
         itemMaxWidth={sellItmeSize}
-        skeletonLength={sellProduct.length}
       >
         <div className="marketEtc">
           <div className="searchBox">
@@ -140,16 +93,13 @@ export default function UsedMarket() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Link to="/registration">상품등록하기</Link>
-          <div className="sortIcon">
-            <select onChange={selectHandle}>
-              <option value="recent" defaultChecked>
-                최신순
-              </option>
-              <option value="favorite">좋아요순</option>
-            </select>
-            <img src="./img/ic_sort.png" alt="" />
-          </div>
+          <Link href="/registration">상품등록하기</Link>
+          <select onChange={selectHandle}>
+            <option value="recent" defaultChecked>
+              최신순
+            </option>
+            <option value="favorite">좋아요순</option>
+          </select>
         </div>
       </MarketSection>
       <MarketPageNavi

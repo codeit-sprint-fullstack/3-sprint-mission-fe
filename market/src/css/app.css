@@ -255,6 +255,16 @@ footer .content .icon {
 footer .content .icon img {
   width: 20px;
 }
+.sortIcon {
+  position: relative;
+}
+.sortIcon img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
 
 @media screen and (max-width: 1199px) {
   header {
@@ -288,6 +298,15 @@ footer .content .icon img {
 }
 
 @media screen and (max-width: 743px) {
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .sortIcon img {
+    display: block;
+    z-index: -1;
+  }
   header .gnb {
     max-width: 743x;
   }
@@ -321,6 +340,12 @@ footer .content .icon img {
     width: 42px;
     border-radius: 12px;
     border: 1px solid #e5e7eb;
+    background-color: transparent;
+    color: transparent;
+    padding: 0;
+  }
+  .marketSection .titleLine .marketEtc select option {
+    color: black;
   }
   .marketSection ul li,
   .marketSection ul li:nth-of-type(5n) {
@@ -328,5 +353,18 @@ footer .content .icon img {
   }
   .marketSection ul li:nth-of-type(2n) {
     margin-right: 0;
+  }
+  footer .content {
+    flex-wrap: wrap;
+  }
+  footer .content .link {
+    width: 50%;
+  }
+  footer .content .icon {
+    width: 116px;
+  }
+  footer p {
+    width: 100%;
+    order: 3;
   }
 }
