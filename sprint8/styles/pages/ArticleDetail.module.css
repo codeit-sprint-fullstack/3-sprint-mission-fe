@@ -8,7 +8,7 @@
   margin-bottom: 463px;
 }
 
-.toArticlePostButton {
+.toCommunityFeedButton {
   font-size: 18px;
   font-weight: 600;
   color: #F3F4F6;
@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 64px;
   border-radius: 40px;
   background-color: #3692FF;
 
@@ -34,7 +35,7 @@
   }
 }
 
-.toArticlePostButtonImage {
+.toCommunityFeedButtonImage {
   position: relative;
   top: 5px;
   margin-left: 8px;
