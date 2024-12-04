@@ -1,4 +1,4 @@
-import "../css/app.css";
+import "../css/items.css";
 import { useEffect, useRef, useState } from "react";
 import { productsGet } from "../api/product";
 import MarketSection, { MarketPageNavi } from "../component/marketSection";

@@ -7,11 +7,11 @@ export default function Header({}) {
     <header>
       <div className="gnb">
         <Link className="logo" to="/">
-          <img src="./img/logo.png" alt="로고" />
+          <img src="/img/logo.png" alt="로고" />
         </Link>
         <nav>
           <ul>
-            <NavLi href="#">자유게시판</NavLi>
+            <NavLi href="/board">자유게시판</NavLi>
             <NavLi href="/items">중고마켓</NavLi>
           </ul>
         </nav>

@@ -68,3 +68,24 @@ export function LayoutInput({
     </div>
   );
 }
+
+export function TitleLine({ text, children }) {
+  return (
+    <div className="titleLine">
+      <h2>{text}</h2>
+      {children}
+    </div>
+  );
+}
+
+export function ImgBox({ src, alt, width, height }) {
+  const imgStyle = {
+    width,
+    height,
+  };
+  return (
+    <div className="imgBox" style={imgStyle}>
+      <img src={src} alt={alt} />
+    </div>
+  );
+}

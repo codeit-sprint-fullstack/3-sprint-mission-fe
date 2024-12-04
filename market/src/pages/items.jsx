@@ -1,4 +1,4 @@
-import "../css/app.css";
+import "../css/items.css";
 import { useEffect, useRef, useState } from "react";
 import MarketSection, { MarketPageNavi } from "../component/marketSection";
 import {

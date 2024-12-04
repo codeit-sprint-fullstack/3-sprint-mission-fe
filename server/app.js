@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import dotenv from "dotenv";
 import router from "./routes/index.js";
 import cors from "cors";
@@ -12,10 +12,10 @@ app.use(
     origin: "*",
   })
 );
-mongoose
-  .connect(process.env.MONGO)
-  .then(() => console.log("MONGO Connect"))
-  .catch((err) => console.error(err));
+// mongoose
+//   .connect(process.env.MONGO)
+//   .then(() => console.log("MONGO Connect"))
+//   .catch((err) => console.error(err));
 app.use(express.json());
 app.use("/", router);
 

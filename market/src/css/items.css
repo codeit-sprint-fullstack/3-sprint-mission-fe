@@ -266,6 +266,18 @@ footer .content .icon img {
   display: none;
 }
 
+.imgBox {
+  position: relative;
+  overflow: hidden;
+}
+.imgBox img {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 1199px) {
   header {
   }
