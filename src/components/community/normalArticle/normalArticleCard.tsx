@@ -3,6 +3,7 @@ import { ArticleProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import profileIcon from '@/public/icons/profile_icon.png';
 import LikeCounter from '../likeCounter';
+import Profile from '../profile/profile';
 
 export default function NormalArticleCard({
   content,
@@ -25,16 +26,12 @@ export default function NormalArticleCard({
         />
       </div>
       <div className='flex justify-between w-full mt-4'>
-        <div className='flex gap-2 text-[14px] font-normal'>
-          <Image
-            src={profileIcon}
-            alt='회원 프로필 사진'
-            width={24}
-            height={24}
-          />
-          <span className='text-text-black-secondary'>{nickname}</span>
-          <span className='text-text-gray-primary'>{createdAt}</span>
-        </div>
+        <Profile
+          nickname={nickname}
+          createdAt={createdAt}
+          profileIcon={profileIcon}
+          iconSize={24}
+        />
         <LikeCounter likes={likes} />
       </div>
     </div>
