@@ -20,7 +20,7 @@ function ArticlesList() {
           return (
             <Link
               key={index}
-              href="/ArticleDetail"
+              href={`/ArticleDetail/${article.id}`}
               passHref
             >
               <div className={styles.article}>

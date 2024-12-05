@@ -10,7 +10,7 @@ function BestArticles() {
       {BestArticlesArr.map((article, index) => (
         <Link
           key={index}
-          href="/ArticleDetail"
+          href={`/ArticleDetail/${article.id}`}
           passHref
         >
           <div className={styles.bestArticle}>
