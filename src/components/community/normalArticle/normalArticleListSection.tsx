@@ -23,6 +23,7 @@ export default async function NormalArticleListSection({
           content={article.content}
           likes={99}
           createdAt={article.createdAt}
+          articleId={article.id}
         />
       ))}
     </>

@@ -18,6 +18,7 @@ export default async function BestArticleListSection() {
             content={article.content}
             likes={999}
             createdAt={article.createdAt}
+            articleId={article.id}
           />
         );
       })}

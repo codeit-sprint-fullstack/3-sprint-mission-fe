@@ -3,4 +3,5 @@ export interface ArticleProps {
   nickname: string;
   likes: number;
   createdAt: string;
+  articleId: string;
 }
