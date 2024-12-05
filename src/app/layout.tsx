@@ -5,6 +5,8 @@ import GNB from '@/components/layout/GNB';
 import Footer from '@/components/layout/Footer';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Provider } from 'jotai';
+import { ScreenWidthObserver } from './screenWidthObserver';
 config.autoAddCss = false;
 
 const pretendard = localFont({
@@ -28,9 +30,14 @@ export default function RootLayout({
       <body
         className={`${pretendard.variable} antialiased flex flex-col min-h-screen items-center`}
       >
-        <GNB />
-        <main className='flex flex-col w-full items-center'>{children}</main>
-        <Footer />
+        <Provider>
+          <ScreenWidthObserver />
+          <GNB />
+          <main className='flex-1 w-full flex flex-col items-center'>
+            {children}
+          </main>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
