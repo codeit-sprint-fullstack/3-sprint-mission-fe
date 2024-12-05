@@ -7,8 +7,10 @@ import mobileLogo from '@/public/images/common/mobileLogo.png';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import useScreenWidth from '@/hooks/useScreenWidth';
 import CommonBtn from '../common/commonBtn/commonBtn';
+import { useAtom } from 'jotai';
+import { screenWidthAtom } from '@/lib/store/atoms';
+import { ScreenWidth } from '@/lib/types/options';
 
 const imageWidth = {
   [MEDIA_QUERY.value.large]: 153,
@@ -29,15 +31,15 @@ export default function GNB() {
   const path = usePathname();
   const pathname = path.split('/')[1];
   const isNotHomePage = path !== '/';
-  const screenWidth = useScreenWidth();
+  const [screenWidth] = useAtom<ScreenWidth>(screenWidthAtom);
 
   const logoImage = {
     src: screenWidth === MEDIA_QUERY.value.small ? mobileLogo : logo,
-    width: imageWidth[screenWidth],
+    width: imageWidth[screenWidth!],
   };
 
   return (
-    <div className='w-full h-[70px] flex justify-center sticky border-b border-solid border-border-gnb border-[1px]'>
+    <div className='w-full h-[70px] flex justify-center sticky border-b-solid border-b-border-gnb border-b-[1px]'>
       <div className='w-full max-w-full md:max-w-full xl:max-w-[1520px] my-0 mx-4 md:mx-6 xl:mx-[200px] flex items-center justify-between'>
         <div className='h-full flex items-center gap-2 md:gap-[30px] xl:gap-[30px]'>
           <Link href='/'>
@@ -53,7 +55,7 @@ export default function GNB() {
               return (
                 <Link
                   key={text}
-                  href={path}
+                  href={`/${path}`}
                 >
                   <span
                     className={cn(navLinkStyle, activeStyle(pathname === path))}
