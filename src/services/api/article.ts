@@ -1,11 +1,11 @@
 import axiosInstance from '@/lib/axios/axiosInstance';
 import {
   Article,
+  ArticleCommentResponse,
   CreateArticleRequest,
   GetArticleListParams,
   GetArticleListResponse,
 } from '../types/article';
-import { formatDate } from '@/lib/formatDate';
 
 export const getArticleList = async ({
   skip = 0,
@@ -20,15 +20,11 @@ export const getArticleList = async ({
     ...(word && { word }),
   });
   try {
-    const { data: result } = await axiosInstance.get<GetArticleListResponse>(
+    const { data } = await axiosInstance.get<GetArticleListResponse>(
       `/articles?${queryParams.toString()}`,
     );
-    const dataWithFormattedDate = result.data.map((el) => ({
-      ...el,
-      createdAt: formatDate(el.createdAt),
-    }));
 
-    return { ...result, data: dataWithFormattedDate };
+    return data;
   } catch (e) {
     console.error('게시글 불러오기 실패', e);
     throw e;
@@ -64,14 +60,39 @@ export const updateArticle = async (
 export const getArticle = async (articleId: string) => {
   try {
     const { data } = await axiosInstance.get<Article>(`/articles/${articleId}`);
-    const articleWithFormattedDate = {
-      ...data,
-      createdAt: formatDate(data.createdAt),
-    };
-
-    return articleWithFormattedDate;
+    return data;
   } catch (e) {
     console.error('게시물 조회 실패', e);
+    throw e;
+  }
+};
+
+export const getArticleComments = async (articleId: string) => {
+  try {
+    const { data } = await axiosInstance.get<ArticleCommentResponse>(
+      `/articles/${articleId}/comments`,
+    );
+    return data;
+  } catch (e) {
+    console.error('댓글 조회 실패', e);
+    throw e;
+  }
+};
+
+export const createArticleComments = async (
+  articleId: string,
+  content: string,
+) => {
+  try {
+    const comment = await axiosInstance.post(
+      `/articles/${articleId}/comments`,
+      {
+        content,
+      },
+    );
+    return comment;
+  } catch (e) {
+    console.error('댓글 등록 실패', e);
     throw e;
   }
 };

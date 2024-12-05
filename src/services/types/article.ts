@@ -6,7 +6,7 @@ export interface GetArticleListParams {
 }
 
 export interface Article {
-  id: number;
+  id: string;
   title: string;
   content: string;
   createdAt: string;
@@ -20,5 +20,22 @@ export interface GetArticleListResponse {
 
 export interface CreateArticleRequest {
   title: string;
+  content: string;
+}
+
+export interface ArticleCommentResponse {
+  data: CommentResponse[];
+  hasNext: boolean;
+  nextCursor: string | null;
+}
+
+export interface CommentResponse {
+  id: string;
+  content: string;
+  articleId: string;
+  createdAt: string;
+}
+
+export interface ArticleCommentRequest {
   content: string;
 }
