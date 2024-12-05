@@ -17,3 +17,8 @@ export interface GetArticleListResponse {
   count: number;
   data: Article[];
 }
+
+export interface CreateArticleRequest {
+  title: string;
+  content: string;
+}
