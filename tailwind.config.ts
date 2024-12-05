@@ -49,6 +49,7 @@ const config: Config = {
           normalArticle: 'var(--normal-article-border)',
           image: 'var(--card-image-border)',
           select: 'var(--select-border)',
+          'like-button': 'var(--like-button-border)',
         },
       },
     },

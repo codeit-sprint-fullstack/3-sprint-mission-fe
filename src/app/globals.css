@@ -19,7 +19,7 @@
   --text-primary-blue: #3692ff;
 
   /* UI Element Colors */
-  --input-background: #f9fafb;
+  --input-background: #f3f4f6;
   --best-article-background: #f9fafb;
   --best-badge-background: #3692ff;
   --normal-article-background: #fcfcfc;
@@ -31,6 +31,7 @@
   --footer-background: #111827;
   --select-border: #e5e7eb;
   --input-glass: #9ca3af;
+  --like-button-border: #e5e7eb;
 }
 
 @media (prefers-color-scheme: dark) {
