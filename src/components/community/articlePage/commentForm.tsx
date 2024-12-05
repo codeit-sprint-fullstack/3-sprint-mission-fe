@@ -1,19 +1,32 @@
 'use client';
 
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
+import { createArticleComments } from '@/services/api/article';
 import { useMemo, useState } from 'react';
 
-export default function CommentForm() {
+export default function CommentForm({ articleId }: { articleId: string }) {
   const [comment, setComment] = useState('');
   const submitable = useMemo(() => {
     return comment.length <= 0;
   }, [comment]);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const comment = formData.get('content') as string;
+    const newArticleComment = await createArticleComments(articleId, comment);
+  };
+
   return (
-    <form className='flex flex-col items-end gap-4'>
+    <form
+      onSubmit={handleSubmit}
+      className='flex flex-col items-end gap-4 mb-10'
+    >
       <div className='flex flex-col w-full gap-[9px]'>
-        <label>댓글달기</label>
+        <label className='font-semibold'>댓글달기</label>
         <textarea
+          name='content'
+          id='content'
           onChange={(e) => setComment(e.target.value)}
           value={comment}
           className='bg-bg-input rounded-[12px] px-6 py-4'
