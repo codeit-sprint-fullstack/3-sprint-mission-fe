@@ -78,7 +78,6 @@
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
-  padding: 11.5px 23px;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
 
   &:hover {
@@ -148,7 +147,7 @@
   }
 }
 
-@media (max-width: 474px) {
+@media (max-width: 486px) {
   .headerContent {
     height: 5.1rem;
     width: 100%;
@@ -160,12 +159,23 @@
   .headerTextBox {
     position: absolute;
     left: 10rem;
+    margin-left: 0px;
+    min-width: 0px;
+  }
+
+  .headerText {
+    font-size: 16px;
+    left: 10px;
+ 
   }
 
   .loginButtn {
-    min-width: 9rem;
+    min-width: 70px;
     position: relative;
     left: -8px;
+    font-size: 15px;
+    max-height: 41px;
+    margin-top: 5px;
   }
 
   .pandaLogoImg {
@@ -173,10 +183,18 @@
   }
 
   .pandaLogoText {
-    display: block !important;
+    /* display: block !important; */
     position: relative;
     bottom: -7px;
     width: 11.3rem;
     height: 4.1rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .pandaLogoText>img {
+    max-width: 8.3rem;
+    max-height: 3.1rem;
   }
 }
