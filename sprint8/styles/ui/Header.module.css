@@ -135,7 +135,7 @@
   }
 
   .headerTextBox {
-    justify-content: start;
+    justify-content: flex-start;
     position: absolute;
     left: 15rem;
     bottom: 6px;
@@ -189,7 +189,7 @@
     width: 11.3rem;
     height: 4.1rem;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
   }
 
