@@ -1,15 +1,31 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/components/CommunityFeed/BestArticles.module.css";
+import { getArticles } from "@/lib/pandaMarketApiService";
+import formatDate from "@/lib/formatDate";
 
 function BestArticles() {
-  const BestArticlesArr = [1, 2, 3];
+  const [bestArticles, setBestArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const bestArticlesList = await getArticles(0, 3, 'best');
+        setBestArticles(bestArticlesList);
+      } catch (error) {
+        console.error("Error fetching best articles:", error);
+      }
+    }; fetchArticles();
+  }, []);
+
+  const BestArticles = bestArticles.article || [];
 
   return (
     <div className={styles.bestArticlesBody}>
-      {BestArticlesArr.map((article, index) => (
+      {BestArticles.map((article, index) => (
         <Link
-          key={index}
+          key={index || article.id}
           href={`/ArticleDetail/${article.id}`}
           passHref
         >
@@ -24,7 +40,7 @@ function BestArticles() {
               <span className={styles.bestMarkText}>Best</span>
             </div>
             <div className={styles.bestArticleContent}>
-              <h2 className={styles.bestArticleTitle}>맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?</h2>
+              <h2 className={styles.bestArticleTitle}>{article.title}</h2>
               <Image
                 src="/images/default/FE_default_Img.png"
                 alt="베스트 게시글 이미지"
@@ -47,9 +63,9 @@ function BestArticles() {
                     alt="하트 이미지"
                   />
                 </div>
-                <div className={styles.articleLikeNum}>9999+</div>
+                <div className={styles.articleLikeNum}>{article.likes}</div>
               </div>
-              <div className={styles.articleCreateDate}>2024. 12. 16</div>
+              <div className={styles.articleCreateDate}>{formatDate(article.createdAt)}</div>
             </div>
           </div>
         </Link>
