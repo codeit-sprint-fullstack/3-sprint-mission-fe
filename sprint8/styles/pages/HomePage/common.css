@@ -69,6 +69,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
   }
+}
+
+@media (max-width: 486px) {
+  .whiteColorSection .textBox {
+    margin-left: 0px;
+}
 }
