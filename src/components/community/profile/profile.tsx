@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { ProfileProps } from './profile.types';
 import cn from '@/lib/cn';
+import { formatDate } from '@/lib/formatDate';
+import { formatTime } from '@/lib/formatTime';
 
 const FLEX_STYLE = {
   horizontal: 'flex',
@@ -25,7 +27,9 @@ export default function Profile({
       />
       <div className={cn(FLEX_STYLE[layout], 'gap-2')}>
         <span className='text-text-black-secondary'>{nickname}</span>
-        <span className='text-text-gray-primary'>{createdAt}</span>
+        <span className='text-text-gray-primary'>
+          {variant === 'date' ? formatDate(createdAt) : formatTime(createdAt)}
+        </span>
       </div>
     </div>
   );
