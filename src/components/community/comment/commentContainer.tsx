@@ -11,6 +11,7 @@ export default function CommentContainer({
     <div className='mb-10'>
       {data.map((comment) => (
         <Comment
+          id={comment.id}
           nickname='똑똑한판다'
           createdAt={comment.createdAt}
           content={comment.content}

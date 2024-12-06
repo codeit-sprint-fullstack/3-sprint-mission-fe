@@ -14,7 +14,12 @@ export default function CommentForm({ articleId }: { articleId: string }) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const comment = formData.get('content') as string;
-    const newArticleComment = await createArticleComments(articleId, comment);
+    try {
+      const newArticleComment = await createArticleComments(articleId, comment);
+      setComment('');
+    } catch (e) {
+      throw e;
+    }
   };
 
   return (
