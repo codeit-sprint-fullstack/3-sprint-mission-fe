@@ -16,6 +16,15 @@ export default function IdPost(){
   const router = useRouter();
   const id = router.query['id'];
 
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}.${month}.${day}`;
+  };
+
+
   async function loadPost(targetId) {
     const res = await axios.get(`/board/${targetId}`);
     const nextPost = res.data;
@@ -23,9 +32,14 @@ export default function IdPost(){
   }
 
   async function loadPostComment(targetId) {
-    const res = await axios.get(`/board/${targetId}/comments`);
-    const nextPostComment = res.data.results ?? [];
-    setPostComment(nextPostComment);
+    try {
+      const res = await axios.get(`/board/${targetId}/comment`);
+      console.log("Post Comments Response:", res.data); // 응답 확인
+      const nextPostComment = Array.isArray(res.data) ? res.data : []; // 배열 확인
+      setPostComment(nextPostComment);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
   }
 
   useEffect(() => {
@@ -81,7 +95,7 @@ export default function IdPost(){
             className={styles.userImage}
             />
             <span className={styles.userName}>총명한판다</span>
-            <span className={styles.postDate}>{post.createdAt}</span>
+            <span className={styles.postDate}>{formatDate(post.createdAt)}</span>
           </div>
             <div className={styles.heartWrapper}>
               <Image

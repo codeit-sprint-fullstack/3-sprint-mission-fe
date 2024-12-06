@@ -1,5 +1,5 @@
-import BestPost from "@/components/bestPost"
-import Post from "@/components/Post"
+import BestPost from "@/components/bestArticle"
+import Post from "@/components/Article"
 
 export default function Board(){
   return(

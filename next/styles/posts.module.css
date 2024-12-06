@@ -35,6 +35,8 @@
 }
 
 .heartWrapper{
+  display: flex;
+  align-items: center;
   width: 87px;
   border-radius: 35px;
   padding: 4px 12px;

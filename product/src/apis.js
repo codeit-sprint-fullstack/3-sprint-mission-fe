@@ -18,7 +18,7 @@ export async function getProducts(params = {}) {
     const query = new URLSearchParams(params).toString();
 
     try {
-        const response = await fetch(`https://product-panda.onrender.com/product?${query}`);
+        const response = await fetch(`https://viewmystatup-db.onrender.com/startups?searchKeyword={query}`);
     if ( !response.ok){
         throw new Error(`HTTP error: ${response.status}`);
     }

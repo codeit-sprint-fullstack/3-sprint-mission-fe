@@ -3,7 +3,7 @@ import Image from "next/image";
 import axios from "@/lib/axios"
 import { useState } from "react";
 
-export default function DropdownMenu({ commentId, onEdit, onDelete }) {
+export default function CommentDropdownMenu({ commentId, onEdit, onDelete }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -17,7 +17,7 @@ export default function DropdownMenu({ commentId, onEdit, onDelete }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/comments/${commentId}`); // 삭제 요청
+      await axios.delete(`/board/comment/${commentId}`); // 삭제 요청
       onDelete(postId); // 삭제 후 콜백 실행
     } catch (err) {
       console.error("Failed to delete post:", err);
