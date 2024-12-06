@@ -1,22 +1,28 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+'use client';
+
 import { ArticleHeaderProps } from './types';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import Profile from '../profile/profile';
 import profileIcon from '@/public/icons/profile_icon.png';
 import LikeButton from '@/components/common/likeButton/likeButton';
+import ActionMenu from '../actionMenu/actionMenu';
+import { useRouter } from 'next/navigation';
 
 export default function ArticleHeader({
+  id,
   nickname,
   title,
   createdAt,
 }: ArticleHeaderProps) {
+  const router = useRouter();
+
   return (
     <div className='flex flex-col mb-4 md:mb-4 xl:mb-6 w-full'>
       <div className='flex w-full mb-4 items-center justify-between'>
         <h2 className='font-bold text-xl'>{title}</h2>
-        <FontAwesomeIcon
-          icon={faEllipsisV}
-          className='px-[10px] py-[5px] text-text-gray-primary'
+        <ActionMenu
+          id={id}
+          onEditButtonClick={() => router.push(`/community/${id}/edit`)}
+          onDeleteButtonClick={() => console.log(id)}
         />
       </div>
       <div className='flex items-center gap-8 pb-4 border-b border-b-border-normalArticle'>
