@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArticleProps } from '../types';
+import { ArticleCardProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import profileIcon from '@/public/icons/profile_icon.png';
 import LikeCounter from '../likeCounter';
@@ -7,18 +7,18 @@ import Profile from '../profile/profile';
 import Link from 'next/link';
 
 export default function NormalArticleCard({
-  content,
+  title,
   nickname,
   likes,
   createdAt,
   articleId,
-}: ArticleProps) {
+}: ArticleCardProps) {
   return (
     <Link href={`/community/${articleId}`}>
       <div className='w-full h-[138px] flex flex-col items-start bg-bg-article-normal border-b border-b-border-normalArticle'>
         <div className='w-full flex justify-between'>
-          <div className='font-semibold text-[18px] md:text-[18px] xl:text-[20px]'>
-            {content}
+          <div className='font-semibold text-[18px] md:text-[18px] xl:text-[20px] line-clamp-2'>
+            {title}
           </div>
           <Image
             src={mockImage}

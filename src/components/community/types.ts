@@ -1,5 +1,5 @@
-export interface ArticleProps {
-  content: string;
+export interface ArticleCardProps {
+  title: string;
   nickname: string;
   likes: number;
   createdAt: string;

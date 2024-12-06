@@ -1,25 +1,25 @@
 import Image from 'next/image';
 import { BestBadge } from '../bestBadge';
-import { ArticleProps } from '../types';
+import { ArticleCardProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import LikeCounter from '../likeCounter';
 import Link from 'next/link';
 
 export default function BestArticleCard({
-  content,
+  title,
   nickname,
   likes,
   createdAt,
   articleId,
-}: ArticleProps) {
+}: ArticleCardProps) {
   return (
     <Link href={`/community/${articleId}`}>
       <div className='px-6 pb-4 bg-bg-article-best w-fit rounded-lg'>
         <div className='w-[295px] md:w-[292px] xl:w-[336px] h-[182px] md:h-[182px] xl:h-[153px] flex flex-col items-start justify-between'>
           <BestBadge />
           <div className='h-[72px] w-full flex justify-between items-start'>
-            <div className='font-semibold text-[18px] md:text-[18px] xl:text-[20px]'>
-              {content}
+            <div className='font-semibold text-[18px] md:text-[18px] xl:text-[20px] line-clamp-2'>
+              {title}
             </div>
             <Image
               src={mockImage}

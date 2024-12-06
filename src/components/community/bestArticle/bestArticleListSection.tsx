@@ -15,7 +15,7 @@ export default async function BestArticleListSection() {
           <BestArticleCard
             key={article.id}
             nickname='총명한 판다'
-            content={article.content}
+            title={article.title}
             likes={999}
             createdAt={article.createdAt}
             articleId={article.id}

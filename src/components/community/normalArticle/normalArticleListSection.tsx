@@ -20,7 +20,7 @@ export default async function NormalArticleListSection({
         <NormalArticleCard
           key={article.id}
           nickname='총명한 판다'
-          content={article.content}
+          title={article.title}
           likes={99}
           createdAt={article.createdAt}
           articleId={article.id}
