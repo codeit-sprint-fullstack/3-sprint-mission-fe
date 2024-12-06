@@ -2,7 +2,7 @@ import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import BestArticleListSection from '@/components/community/bestArticle/bestArticleListSection';
 import NormalArticleListSection from '@/components/community/normalArticle/normalArticleListSection';
 import SearchSection from '@/components/community/searchSection/searchSection';
-import { SearchParams } from '@/lib/types/searchParams';
+import { SearchParams } from '@/lib/types/searchParams.types';
 import Link from 'next/link';
 
 export default function Page({ searchParams }: { searchParams: SearchParams }) {

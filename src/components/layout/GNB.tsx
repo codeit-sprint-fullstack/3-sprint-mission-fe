@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import CommonBtn from '../common/commonBtn/commonBtn';
 import { useAtom } from 'jotai';
 import { screenWidthAtom } from '@/lib/store/atoms';
-import { ScreenWidth } from '@/lib/types/options';
+import { ScreenWidth } from '@/lib/types/options.types';
 
 const imageWidth = {
   [MEDIA_QUERY.value.large]: 153,

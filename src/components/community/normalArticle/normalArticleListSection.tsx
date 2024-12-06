@@ -1,4 +1,4 @@
-import { SearchParams } from '@/lib/types/searchParams';
+import { SearchParams } from '@/lib/types/searchParams.types';
 import { getArticleList } from '@/services/api/article';
 import NormalArticleCard from './normalArticleCard';
 
