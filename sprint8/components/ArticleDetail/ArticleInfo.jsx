@@ -1,11 +1,12 @@
 import Image from "next/image";
 import styles from "@/styles/components/ArticleDetail/ArticleInfo.module.css";
+import formatDate from '@/lib/formatDate';
 
-function ArticleInfo() {
+function ArticleInfo({ article }) {
   return (
     <div className={styles.articleInfoBox}>
       <div className={styles.articleInfoHeader}>
-        <h1 className={styles.articleInfoTitle}>맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?</h1>
+        <h1 className={styles.articleInfoTitle}>{article.title}</h1>
         <div className={styles.togleMenuMark}>⋮</div>
       </div>
       <div className={styles.articleMetaDataBox}>
@@ -23,7 +24,9 @@ function ArticleInfo() {
             />
           </div>
           <div className={styles.nickname}>총명한판다</div>
-          <div className={styles.date}>2024. 12. 16</div>
+          <div className={styles.date}>
+            {formatDate(article.createdAt)}
+          </div>
         </div>
         <div className={styles.MetaDataBoxRight}>
           <div className={styles.likeButtonBox}>
@@ -45,13 +48,13 @@ function ArticleInfo() {
             <p className={styles.redHeartImage}>
               &#x2764;&#xFE0F;
             </p>
-            <div className={styles.likeNum}>123</div>
+            <div className={styles.likeNum}>{article.likes}</div>
           </div>
         </div>
       </div>
       <div className={styles.articleInfoContentBox}>
         <h2 className={styles.articleInfoContentText}>
-          맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
+          {article.content}
         </h2>
       </div>
     </div>
