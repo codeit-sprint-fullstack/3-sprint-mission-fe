@@ -4,6 +4,7 @@ import { ArticleCardProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import LikeCounter from '../likeCounter';
 import Link from 'next/link';
+import { formatDate } from '@/lib/formatDate';
 
 export default function BestArticleCard({
   title,
@@ -34,7 +35,9 @@ export default function BestArticleCard({
               <span className='text-text-black-secondary'>{nickname}</span>
               <LikeCounter likes={likes} />
             </div>
-            <span className='text-text-gray-primary'>{createdAt}</span>
+            <span className='text-text-gray-primary'>
+              {formatDate(createdAt)}
+            </span>
           </div>
         </div>
       </div>
