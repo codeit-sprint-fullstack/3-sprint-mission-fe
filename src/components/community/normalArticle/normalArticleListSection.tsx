@@ -1,6 +1,5 @@
 import { SearchParams } from '@/lib/types/searchParams.types';
 import { getArticleList } from '@/services/api/article';
-import NormalArticleCard from './normalArticleCard';
 import NormalArticleListClient from './normalArticleListClient';
 
 export default async function NormalArticleListSection({
