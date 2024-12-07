@@ -64,7 +64,6 @@ export default function IdPost(){
           <h1 className={styles.postTitle}>{post.title}</h1>
              <DropdownMenu
               postId={post.id}
-              onEdit={handleEdit}
               onDelete={handleDelete}
             />
         </div>

@@ -11,11 +11,6 @@ export default function DropdownMenu({ postId, onEdit, onDelete }) {
     setIsOpen(!isOpen);
   };
 
-  const handleEdit = () => {
-    onEdit(postId); // 수정 로직 실행
-    setIsOpen(false);
-  };
-
   const handleDelete = async () => {
     try {
       await axios.delete(`/board/${postId}`); // 삭제 요청
@@ -38,7 +33,7 @@ export default function DropdownMenu({ postId, onEdit, onDelete }) {
           />
       {isOpen && (
         <ul className={styles.dropdownmenu}>
-          <li onClick={handleEdit} className={styles.editMenu}>
+          <li className={styles.editMenu}>
             <Link href="/post">
               수정하기
             </Link>
