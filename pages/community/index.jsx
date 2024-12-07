@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "@/styles/Community.module.css";
 import ArticleList from "@/components/ArticleList";
+import BestArticleList from "@/components/BestArticleList";
 
 function Community() {
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -34,13 +35,13 @@ function Community() {
       <div className={styles.container}>
         <div className={styles.bestArticle}>
           <div className={styles.title}>베스트 게시글</div>
-          <div>{/* <BestProductList /> */}</div>
+          <BestArticleList />
         </div>
         <div className={styles.articles}>
           <div className={styles.topBar}>
             <div className={styles.title}>게시글</div>
-            <Link href="/">
-              <div className={styles.post}>글쓰기</div>
+            <Link href="/community/write">
+              <div className={styles.write}>글쓰기</div>
             </Link>
           </div>
           <div className={styles.toolBox}>
