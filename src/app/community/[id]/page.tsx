@@ -1,7 +1,7 @@
 import { getArticle, getArticleComments } from '@/services/api/article';
 import { ParamsProps } from '@/lib/types/paramsProps.types';
-import ReturnButton from '@/components/community/articlePage/returnButton';
-import ArticleClient from '@/components/community/articlePage/articleClient';
+import ReturnButton from '@/components/articlePage/returnButton';
+import ArticleClient from '@/components/articlePage/articleClient';
 import CommentListClient from '@/components/community/comment/commentListClient';
 
 export default async function Page({ params }: ParamsProps) {

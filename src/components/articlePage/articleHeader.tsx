@@ -1,10 +1,10 @@
 'use client';
 
 import { ArticleHeaderProps } from './types';
-import Profile from '../profile/profile';
+import Profile from '../community/profile/profile';
 import profileIcon from '@/public/icons/profile_icon.png';
 import LikeButton from '@/components/common/likeButton/likeButton';
-import ActionMenu from '../actionMenu/actionMenu';
+import ActionMenu from '../community/actionMenu/actionMenu';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteArticle } from '@/services/api/article';
