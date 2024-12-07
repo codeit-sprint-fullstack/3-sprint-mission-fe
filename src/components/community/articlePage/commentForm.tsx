@@ -2,24 +2,29 @@
 
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import { createArticleComments } from '@/services/api/article';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 
 export default function CommentForm({ articleId }: { articleId: string }) {
+  const queryClient = useQueryClient();
   const [comment, setComment] = useState('');
   const submitable = useMemo(() => {
     return comment.length <= 0;
   }, [comment]);
 
+  const createCommentMutation = useMutation({
+    mutationFn: (comment: string) => createArticleComments(articleId, comment),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
+      setComment('');
+    },
+  });
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const comment = formData.get('content') as string;
-    try {
-      const newArticleComment = await createArticleComments(articleId, comment);
-      setComment('');
-    } catch (e) {
-      throw e;
-    }
+    createCommentMutation.mutate(comment);
   };
 
   return (
