@@ -8,26 +8,37 @@ import { editingCommentIdAtom } from '@/lib/store/atoms';
 import { useState } from 'react';
 import { deleteComment, editComment } from '@/services/api/comment';
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function Comment({
   id,
+  articleId,
   nickname,
   createdAt,
   profileIcon,
   content,
 }: CommentProps) {
+  const queryClient = useQueryClient();
   const [editingCommentId, setEditingCommentId] = useAtom(editingCommentIdAtom);
   const [comment, setComment] = useState(content);
   const isEditing = editingCommentId === id;
-  const handleEdit = async () => {
-    const { data: editedComment } = await editComment(id, comment);
-    setEditingCommentId(null);
-    setComment(editedComment.content);
-  };
 
-  const handleDelete = async () => {
-    await deleteComment(id);
-  };
+  const editCommentMutation = useMutation({
+    mutationFn: () => editComment(id, comment),
+    onSuccess: (response) => {
+      setEditingCommentId(null);
+      queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
+      setComment(response.data.content);
+    },
+  });
+
+  const deleteCommentMutation = useMutation({
+    mutationFn: () => deleteComment(id),
+    onSuccess: () => {
+      setEditingCommentId(null);
+      queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
+    },
+  });
 
   const onEditButtonClick = () => {
     setEditingCommentId(id);
@@ -45,7 +56,7 @@ export default function Comment({
             />
             <CommonBtn
               className='w-[120px]'
-              onClick={handleEdit}
+              onClick={() => editCommentMutation.mutate()}
             >
               수정하기
             </CommonBtn>
@@ -56,7 +67,7 @@ export default function Comment({
         <ActionMenu
           id={id}
           onEditButtonClick={onEditButtonClick}
-          onDeleteButtonClick={handleDelete}
+          onDeleteButtonClick={() => deleteCommentMutation.mutate()}
         />
       </div>
       <Profile
