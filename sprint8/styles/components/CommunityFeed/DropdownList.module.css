@@ -1,0 +1,112 @@
+.dropdownMenu {
+  font-size: 16px;
+  font-weight: 500;
+  width: 130px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  margin-left: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('/images/icons/menu.png') no-repeat right 10px center;
+  background-size: 15.7px 8px;
+  background-position: 80px;
+  padding: 0 20px 0;
+
+  &:hover {
+    background-color: #00000005;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1.1);
+    transition: background-color 0.2s ease-in-out,
+  }
+}
+
+.dropdownCurrent {
+  font-size: 16px;
+  font-weight: 400;
+  height: 26px;
+  width: 130px;
+  border-radius: 12px 12px 0px 0px;
+  border: 1px;
+  color: #1F2937;
+  cursor: pointer;
+}
+
+.dropdownLike {
+  font-size: 16px;
+  font-weight: 400;
+  height: 26px;
+  width: 130px;
+  border-radius: 0px 0px 12px 12px;
+  border: 1px;
+  color: #1F2937;
+  cursor: pointer;
+}
+
+/**/
+
+
+.filterMenu {
+  background-color: #FFFFFF;
+  width: 13.3rem;
+  height: 4.2rem;
+  border-radius: 1.2rem;
+  border: 0.1rem solid #E5E7EB;
+  cursor: pointer;
+  padding-right: 6rem;
+  margin-left: 1.2rem;
+  position: relative;
+}
+
+.filterMenu:hover {
+  background-color: #ffffffc7;
+  filter: drop-shadow(0 0 0.55rem rgba(0, 0, 0, 15%));
+}
+
+#filterMenuRecent {
+  padding-right: 0;
+  margin-left: 0;
+  border-radius: 1.2rem 1.2rem 0 0;
+  background-color: rgba(255, 255, 255, 0.975);
+}
+
+#filterMenuList{
+width: 210px;
+}
+
+#filterMenuLike {
+  border-radius: 0 0 1.2rem 1.2rem;
+  padding-right: 0;
+  margin-left: 0;
+  position: relative;
+  right: 13.3rem;
+  bottom: -4.0rem;
+  background-color: rgba(255, 255, 255, 0.975);
+}
+
+#filterMenuBox {
+  position: relative;
+  right: -84.9566666rem;
+  bottom: -5rem;
+  z-index: 1;
+}
+
+#arrowImg {
+  width: 1.57rem;
+  height: 0.802rem;
+  position: absolute;
+  right: 2.7rem;
+  top: 1.7rem;
+}
+
+#arrowImg:hover {
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+}
