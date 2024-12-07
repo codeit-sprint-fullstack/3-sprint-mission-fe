@@ -23,7 +23,7 @@ export default function ActionMenu({
       <FontAwesomeIcon
         onClick={handleClick}
         icon={faEllipsisV}
-        className='p-[10px] text-text-gray-primary'
+        className='p-[10px] text-text-gray-primary cursor-pointer'
       />
       {openMenuId === id && (
         <div className='rounded-lg flex flex-col items-center border border-x-border-select absolute bg-white w-[102px] md:w-[139px] xl:w-[139px] z-10 right-0'>
