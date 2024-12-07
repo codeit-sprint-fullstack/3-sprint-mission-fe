@@ -19,4 +19,9 @@ export const MEDIA_QUERY = Object.freeze({
     medium: 6,
     small: 4,
   }),
+  bestArticlePageSize: Object.freeze({
+    large: 3,
+    medium: 2,
+    small: 1,
+  }),
 });
