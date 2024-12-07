@@ -11,7 +11,7 @@ export default function Page({ searchParams }: { searchParams: SearchParams }) {
       <span className='text-[18px] md:text-[24px] xl:text-[24px] font-extrabold mb-4 md:mb-6 xl:mb-6'>
         베스트 게시글
       </span>
-      <div className='flex gap-6 mb-10 overflow-auto'>
+      <div className='flex gap-6 mb-10'>
         <BestArticleListSection />
       </div>
       <div className='w-full flex justify-between items-center mb-4 md:mb-12 xl:mb-6'>
