@@ -7,6 +7,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Provider } from 'jotai';
 import { ScreenWidthObserver } from './screenWidthObserver';
+import QueryProvider from './queryProvider';
 config.autoAddCss = false;
 
 const pretendard = localFont({
@@ -30,14 +31,16 @@ export default function RootLayout({
       <body
         className={`${pretendard.variable} antialiased flex flex-col min-h-screen items-center`}
       >
-        <Provider>
-          <ScreenWidthObserver />
-          <GNB />
-          <main className='flex-1 w-full flex flex-col items-center'>
-            {children}
-          </main>
-          <Footer />
-        </Provider>
+        <QueryProvider>
+          <Provider>
+            <ScreenWidthObserver />
+            <GNB />
+            <main className='flex-1 w-full flex flex-col items-center'>
+              {children}
+            </main>
+            <Footer />
+          </Provider>
+        </QueryProvider>
       </body>
     </html>
   );
