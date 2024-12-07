@@ -8,11 +8,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="box-border h-[160px] bg-[#111827] px-4 pt-8 sm:px-6">
-      <div className="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between text-nowrap sm:flex-nowrap">
+      <div className="mx-auto flex min-w-[325px] max-w-[1120px] flex-wrap items-center justify-between text-nowrap sm:flex-nowrap">
         <div className="order-1 mt-6 text-gray sm:order-none sm:mt-0">
           ©codeit - {currentYear}
         </div>
-        <div className="text-custom-white order-none flex gap-7">
+        <div className="order-none flex gap-7 text-custom-white">
           <span>Privacy Policy</span>
           <span>FAQ</span>
         </div>
