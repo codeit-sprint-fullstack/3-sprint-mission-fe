@@ -1,8 +1,8 @@
 'use client';
 
-import { CommentProps } from './comment.types';
-import Profile from '../profile/profile';
-import ActionMenu from '../actionMenu/actionMenu';
+import { CommentProps } from './types';
+import Profile from '../../community/profile/profile';
+import ActionMenu from '../../community/actionMenu/actionMenu';
 import { useAtom } from 'jotai';
 import { editingCommentIdAtom } from '@/lib/store/atoms';
 import { useState } from 'react';

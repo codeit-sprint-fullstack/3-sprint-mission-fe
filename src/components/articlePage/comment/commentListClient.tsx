@@ -1,7 +1,7 @@
 'use client';
 
 import { ArticleCommentResponse } from '@/services/types/article';
-import CommentForm from '@/components/articlePage/commentForm';
+import CommentForm from '@/components/articlePage/commentForm/commentForm';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleComments } from '@/services/api/article';
 import CommentContainer from './commentContainer';
