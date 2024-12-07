@@ -30,6 +30,19 @@ const getArticles = async (offset = 0, limit = 3, order = 'recent') => {
   }
 };
 
+const postArticle = async (title, content) => {
+  try {
+    const { data } = await axios.post('/articles', {
+      title,
+      content,
+    });
+    return data;
+  } catch (error) {
+    console.error('Error posting article:', error.response?.data || error.message);
+    throw error;
+  }
+};
 
 
-export { getProducts, getProductId, getArticles };
+
+export { getProducts, getProductId, getArticles, postArticle };
