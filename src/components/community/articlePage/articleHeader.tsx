@@ -6,6 +6,8 @@ import profileIcon from '@/public/icons/profile_icon.png';
 import LikeButton from '@/components/common/likeButton/likeButton';
 import ActionMenu from '../actionMenu/actionMenu';
 import { useRouter } from 'next/navigation';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deleteArticle } from '@/services/api/article';
 
 export default function ArticleHeader({
   id,
@@ -13,7 +15,17 @@ export default function ArticleHeader({
   title,
   createdAt,
 }: ArticleHeaderProps) {
+  const queryClient = useQueryClient();
   const router = useRouter();
+
+  const deleteArticleMutation = useMutation({
+    mutationFn: () => deleteArticle(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bestArticles'] });
+      queryClient.invalidateQueries({ queryKey: ['normalArticles'] });
+      router.push('/community');
+    },
+  });
 
   return (
     <div className='flex flex-col mb-4 md:mb-4 xl:mb-6 w-full'>
@@ -22,7 +34,7 @@ export default function ArticleHeader({
         <ActionMenu
           id={id}
           onEditButtonClick={() => router.push(`/community/${id}/edit`)}
-          onDeleteButtonClick={() => console.log(id)}
+          onDeleteButtonClick={() => deleteArticleMutation.mutate()}
         />
       </div>
       <div className='flex items-center gap-8 pb-4 border-b border-b-border-normalArticle'>
