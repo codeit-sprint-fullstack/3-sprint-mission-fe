@@ -67,6 +67,15 @@ export const getArticle = async (articleId: string) => {
   }
 };
 
+export const deleteArticle = async (articleId: string) => {
+  try {
+    await axiosInstance.delete<Article>(`/articles/${articleId}`);
+  } catch (e) {
+    console.error('게시물 삭제 실패', e);
+    throw e;
+  }
+};
+
 export const getArticleComments = async (articleId: string) => {
   try {
     const { data } = await axiosInstance.get<ArticleCommentResponse>(
