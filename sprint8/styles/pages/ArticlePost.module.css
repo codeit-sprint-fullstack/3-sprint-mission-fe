@@ -38,10 +38,28 @@
   background-color: #9CA3AF;
 }
 
+.postBouttonBlue{
+  background-color: #3692FF;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
+}
+
 .articlePostTitleBox {
   width: 100%;
   height: 94px;
-  margin-bottom: 24px;
+  margin-bottom: 48px;
 }
 
 .articlePostInputName {
@@ -77,6 +95,17 @@
   font-weight: 400;
   text-align: left;
   color: #9CA3AF;
+}
+
+.inputValidBox {
+  border: 1px solid #F74747 !important;
+}
+
+.inputValidText {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 16px 24px;
+  color: #F74747;
 }
 
 .articlePostContentBox {
