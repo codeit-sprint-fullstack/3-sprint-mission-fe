@@ -11,7 +11,6 @@ import axios from '@/lib/axios';
 export default function IdPost(){
   const [post, setPost] = useState();
   const [postComment, setPostComment]= useState([]); 
-  const [editingPost, setEditingPost] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
   const id = router.query['id'];
@@ -49,26 +48,10 @@ export default function IdPost(){
     }
   }, [id]);
 
-   const handleEdit = (postId) => {
-    const postToEdit = post.find((post) => post.id === postId);
-    setEditingPost(postToEdit);
-  };
+
 
   const handleDelete = (postId) => {
     setPost((prevPosts) => prevPosts.filter((post) => post.id !== postId));
-  };
-
-  const handleUpdatePost = async (postId, updatedData) => {
-    try {
-      await axios.patch(`/board/${postId}`, updatedData);
-      setPost((prevPosts) =>
-        prevPosts.map((post) =>
-          post.id === postId ? { ...post, ...updatedData } : post
-        )
-      );
-    } catch (err) {
-      console.error("Failed to update post:", err);
-    }
   };
 
 

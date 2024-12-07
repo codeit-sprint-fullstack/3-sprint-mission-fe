@@ -1,5 +1,6 @@
 import styles from "@/components/Dropdown/DropdownBox.module.css"
 import Image from "next/image";
+import Link from "next/link";
 import axios from "@/lib/axios"
 import { useState } from "react";
 
@@ -37,7 +38,11 @@ export default function DropdownMenu({ postId, onEdit, onDelete }) {
           />
       {isOpen && (
         <ul className={styles.dropdownmenu}>
-          <li onClick={handleEdit} className={styles.editMenu}>수정하기</li>
+          <li onClick={handleEdit} className={styles.editMenu}>
+            <Link href="/post">
+              수정하기
+            </Link>
+          </li>
           <li onClick={handleDelete} className={styles.deleteMenu}>삭제하기</li>
         </ul>
       )}

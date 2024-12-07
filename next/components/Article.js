@@ -37,7 +37,7 @@ export default function Post() {
     <div className={styles.wrapper}>
       <div className={styles.textContainer}>
         <h1 className={styles.boardText}> 게시글</h1>
-        <Link href ="/writePost">
+        <Link href ="/post">
         <button className={styles.postBtn}>글쓰기</button>
         </Link>
       </div>

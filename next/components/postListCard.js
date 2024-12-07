@@ -15,7 +15,7 @@ export default function PostListCard({ posts }) {
   return (
     <div className={styles.postWrapper}>
       <div className={styles.titleContainer}>
-        {posts.slice(0, 5).map((post) => (
+        {posts.map((post) => (
           <li key={post.id} className={styles.contentWrapper}>
             <div className={styles.firstSection}>
               <Link href={`/posts/${post.id}`}>
