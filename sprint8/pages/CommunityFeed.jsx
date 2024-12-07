@@ -1,9 +1,11 @@
+// pages/CommunityFeed.js
+
 import Link from "next/link";
 import styles from "@/styles/pages/CommunityFeed.module.css";
 import BestArticles from "@/components/CommunityFeed/BestArticles";
-import ArticlesList from "@/components/CommunityFeed/ArticlesList"
+import ArticlesList from "@/components/CommunityFeed/ArticlesList";
 
-function CommunityFeed() {
+function CommunityFeed({ articles }) {
   return (
     <div className={styles.communityFeedBody}>
       <div className={styles.communityFeedMain}>
@@ -17,10 +19,10 @@ function CommunityFeed() {
             </button>
           </Link>
         </div>
-        <ArticlesList />
+        <ArticlesList articles={articles} />
       </div>
     </div>
-  )
+  );
 }
 
 export default CommunityFeed;
