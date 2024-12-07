@@ -3,7 +3,7 @@ import { ArticleCardProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import profileIcon from '@/public/icons/profile_icon.png';
 import LikeCounter from '../likeCounter';
-import Profile from '../profile/profile';
+import Profile from '../../common/profile/profile';
 import Link from 'next/link';
 
 export default function NormalArticleCard({

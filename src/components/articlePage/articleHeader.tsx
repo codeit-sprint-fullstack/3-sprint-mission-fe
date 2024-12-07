@@ -1,7 +1,7 @@
 'use client';
 
 import { ArticleHeaderProps } from './types';
-import Profile from '../community/profile/profile';
+import Profile from '../common/profile/profile';
 import profileIcon from '@/public/icons/profile_icon.png';
 import LikeButton from '@/components/common/likeButton/likeButton';
 import ActionMenu from '../community/actionMenu/actionMenu';
