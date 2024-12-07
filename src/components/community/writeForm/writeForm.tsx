@@ -10,7 +10,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function WriteForm({ initialData, articleId }: WriteFormProps) {
   const pathname = usePathname();
-  const isEditMode = pathname.includes('/edit');
+  const isEditMode = pathname.split('/').includes('/edit');
   const [title, setTitle] = useState(initialData?.title || '');
   const [content, setContent] = useState(initialData?.content || '');
   const queryClient = useQueryClient();
@@ -52,7 +52,7 @@ export default function WriteForm({ initialData, articleId }: WriteFormProps) {
     >
       <div className='flex justify-between items-center mb-8'>
         <h2 className='text-xl font-bold'>
-          {isEditMode ? '게시글 쓰기' : '게시글 수정하기'}
+          {isEditMode ? '게시글 수정하기' : '게시글 쓰기'}
         </h2>
         <CommonBtn
           disabled={!formComplete}
