@@ -6,12 +6,28 @@ import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { createArticle, updateArticle } from '@/services/api/article';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function WriteForm({ initialData, articleId }: WriteFormProps) {
   const pathname = usePathname();
   const isEditMode = pathname.includes('/edit');
   const [title, setTitle] = useState(initialData?.title || '');
   const [content, setContent] = useState(initialData?.content || '');
+  const queryClient = useQueryClient();
+
+  const createArticleMutation = useMutation({
+    mutationFn: (articleRequest: { title: string; content: string }) => {
+      if (articleId) {
+        return updateArticle(articleId, articleRequest);
+      }
+      return createArticle(articleRequest);
+    },
+    onSuccess: (result) => {
+      queryClient.invalidateQueries({ queryKey: ['normalArticles'] });
+      queryClient.invalidateQueries({ queryKey: ['bestArticles'] });
+      router.push(`/community/${articleId || result.id}`);
+    },
+  });
 
   const formComplete = useMemo(() => {
     return title.length > 0 && content.length > 0;
@@ -24,18 +40,7 @@ export default function WriteForm({ initialData, articleId }: WriteFormProps) {
       title: formData.get('title') as string,
       content: formData.get('content') as string,
     };
-
-    try {
-      if (articleId) {
-        await updateArticle(articleId, articleRequest);
-        router.push(`/community/${articleId}`);
-      } else {
-        const result = await createArticle(articleRequest);
-        router.push(`/community/${result.id}`);
-      }
-    } catch (e) {
-      console.error(e);
-    }
+    createArticleMutation.mutate(articleRequest);
   };
 
   const router = useRouter();
