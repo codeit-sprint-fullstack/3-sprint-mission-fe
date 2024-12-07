@@ -1,4 +1,4 @@
-import WriteForm from '@/components/community/writeForm/writeForm';
+import WriteForm from '@/components/writeArticle/writeForm';
 
 export default async function Page() {
   return <WriteForm />;

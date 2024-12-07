@@ -69,6 +69,7 @@ export default function WriteForm({ initialData, articleId }: WriteFormProps) {
           *제목
         </label>
         <input
+          placeholder='제목을 입력해주세요'
           className='bg-bg-input rounded-xl px-6 py-4'
           id='title'
           name='title'
@@ -85,6 +86,7 @@ export default function WriteForm({ initialData, articleId }: WriteFormProps) {
           *내용
         </label>
         <textarea
+          placeholder='내용을 입력해주세요'
           className='bg-bg-input rounded-xl px-6 py-4 h-[282px]'
           name='content'
           id='content'

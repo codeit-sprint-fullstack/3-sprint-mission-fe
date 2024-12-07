@@ -1,4 +1,4 @@
-import WriteForm from '@/components/community/writeForm/writeForm';
+import WriteForm from '@/components/writeArticle/writeForm';
 import { ParamsProps } from '@/lib/types/paramsProps.types';
 import { getArticle } from '@/services/api/article';
 
