@@ -1,26 +1,82 @@
-.post-list {
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
+.postList {
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
-.posts-container {
+.controls {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.writeButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.writeButton:hover {
+  background-color: #0056b3;
+}
+
+.sortDropdown {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column; /* 세로로 나열 */
   gap: 15px;
 }
 
-.post-card {
+.postCard {
+  display: flex;
+  align-items: center;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-  font-size: 20px;
+.postImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.postContent {
+  flex: 1;
+}
+
+.postTitle {
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+
+.postInfo {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
 }
