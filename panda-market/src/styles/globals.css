@@ -1,24 +1,21 @@
-body {
+html, body {
+  height: 100%; /* 전체 화면 높이 */
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
 }
 
-header {
-  background-color: #fff;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* 전체 화면을 채우기 */
 }
 
-footer {
-  background-color: #222;
+main {
+  flex: 1; /* 내용이 푸터를 밀어내도록 설정 */
+}
+
+.footer {
+  background-color: #1a1a2e;
   color: #fff;
+  padding: 20px 0;
   text-align: center;
-  padding: 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
 }
