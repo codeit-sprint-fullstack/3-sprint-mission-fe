@@ -75,6 +75,17 @@ const postComment = async (articleId, content) => {
   }
 };
 
+// 게시글 삭제
+const deleteArticle = async (articleId) => {
+  try {
+    const { data } = await axios.delete(`/articles/${articleId}`);
+    return data;
+  } catch (error) {
+    console.error('Error deleting article:', error.response?.data || error.message);
+    throw error;
+  }
+};
+
 // 댓글 삭제
 const deleteComment = async (commentId) => {
   try {
@@ -86,4 +97,4 @@ const deleteComment = async (commentId) => {
   }
 };
 
-export { getProducts, getProductId, getArticles, postArticle, getArticleId, getComments, postComment, deleteComment };
+export { getProducts, getProductId, getArticles, postArticle, getArticleId, getComments, postComment, deleteArticle, deleteComment };
