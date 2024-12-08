@@ -11,8 +11,31 @@ export const articleAPI = {
 };
 
 export const commentAPI = {
-  getComments: (articleId) => instance.get(`/comment?articleId=${articleId}`),
-  createComment: (data) => instance.post("/comment", data),
+  // Article
+  getArticleComments: (articleId) =>
+    instance.get(`/comment/article/${articleId}`),
+
+  postArticleComment: (articleId, content) =>
+    instance.post(`/comment/article/${articleId}`, { content }),
+
+  modifyArticleComment: (commentId, content) =>
+    instance.patch(`/comment/article/${commentId}`, { content }),
+
+  deleteArticleComment: (commentId) =>
+    instance.delete(`/comment/article/${commentId}`),
+
+  // Product
+  getProductComments: (productId) =>
+    instance.get(`/comment/product/${productId}`),
+
+  postProductComment: (productId, content) =>
+    instance.post(`/comment/product/${productId}`, { content }),
+
+  modifyProductComment: (commentId, content) =>
+    instance.patch(`/comment/product/${commentId}`, { content }),
+
+  deleteProductComment: (commentId) =>
+    instance.delete(`/comment/product/${commentId}`),
 };
 
 export const productAPI = {
