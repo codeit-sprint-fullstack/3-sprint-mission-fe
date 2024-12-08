@@ -12,6 +12,7 @@
 .textareaContent {
   width: 100%;
   height: 104px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
@@ -19,8 +20,7 @@
   outline: none;
   resize: none;
   border-style: none;
-  border-radius: 12px;
-  padding: 10px 24px 16px;
+  padding: 1px 24px 16px;
   background-color: #F3F4F6;
 
   &:focus {

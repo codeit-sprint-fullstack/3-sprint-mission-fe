@@ -21,13 +21,26 @@
 }
 
 .togleMenuMark {
-  width: 24px;
-  height: 24px;
+  width: 35px;
+  height: 34px;
+  border-radius: 12px;
   font-size: 23px;
   font-weight: 600;
   text-align: center;
   color: #9CA3AF;
   cursor: pointer;
+  
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1.1)
+  }
 }
 
 .commentsMetaData {
