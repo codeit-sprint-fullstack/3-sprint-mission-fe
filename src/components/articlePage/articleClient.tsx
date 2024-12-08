@@ -1,6 +1,6 @@
 'use client';
 
-import { Article } from '@/services/types/article';
+import { Article } from '@/services/api/types/article';
 import ArticleHeader from './articleHeader';
 import { useQuery } from '@tanstack/react-query';
 import { getArticle } from '@/services/api/article';

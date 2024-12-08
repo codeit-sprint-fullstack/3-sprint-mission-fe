@@ -4,7 +4,7 @@ import { getArticleList } from '@/services/api/article';
 import {
   GetArticleListParams,
   GetArticleListResponse,
-} from '@/services/types/article';
+} from '@/services/api/types/article';
 import { useQuery } from '@tanstack/react-query';
 import NormalArticleCard from './normalArticleCard';
 

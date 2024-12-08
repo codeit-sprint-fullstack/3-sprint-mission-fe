@@ -1,4 +1,4 @@
-import { CommentResponse } from '@/services/types/article';
+import { CommentResponse } from '@/services/api/types/article';
 import Comment from './comment';
 import profileIcon from '@/public/icons/profile_icon.png';
 
