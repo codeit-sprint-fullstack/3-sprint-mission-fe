@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styles from "@/styles/pages/ArticlePost.module.css";
-import { postArticle } from "@/lib/pandaMarketApiService";
-import { set } from "date-fns";
+import { getArticles, postArticle } from "@/lib/pandaMarketApiService";
+import { useRouter } from "next/router";
 
 function ArticlePost() {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [titleValid, setTitleValid] = useState(false);
@@ -15,12 +16,14 @@ function ArticlePost() {
         const response = await postArticle(title, content);
         console.log("response : ", response);
 
-        if (response.ok) { // 요청이 성공한 후 입력 필드 초기화 
-          setInputValue('');
-          setTextareaValue('');
-        }
+        setTitle('');
+        setContent('');
       }
-      return;
+      // 게시물 등록하면서 이동위해 최신 게시글 id를 받아오기
+      const toMoveArticle = await getArticles(0, 1, 'recent');
+      const toMoveArticleID = toMoveArticle.article[0].id;
+
+      router.push(`/ArticleDetail/${toMoveArticleID}`);
     } catch (error) {
       console.error("Error posting article:", error);
     }
@@ -42,7 +45,6 @@ function ArticlePost() {
     }
   };
 
-
   return (
     <div className={styles.ArticlePostContent}>
       <div className={styles.articlePostBox}>
@@ -50,13 +52,13 @@ function ArticlePost() {
           <h1 className={styles.articlePostHeaderTitle}>
             게시글 쓰기
           </h1>
-          <button
-            onClick={postHandler}
-            className={
-              `${styles.articlePostBoutton} ${title !== "" && content !== "" ? styles.postBouttonBlue : ""}`}
-          >
-            등록
-          </button>
+            <button
+              onClick={postHandler}
+              className={
+                `${styles.articlePostBoutton} ${title !== "" && content !== "" ? styles.postBouttonBlue : ""}`}
+            >
+              등록
+            </button>
         </div>
         <div className={styles.articlePostTitleBox}>
           <h2 className={styles.articlePostInputName}>*제목</h2>
