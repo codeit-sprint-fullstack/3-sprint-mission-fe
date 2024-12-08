@@ -21,20 +21,22 @@ const Nav = () => {
     <nav className="min-w-[375px] border-b-[1px] border-gray-border px-4 py-2 md:px-6">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between">
         <div className="flex items-center gap-3 text-base font-bold md:gap-10 md:text-lg">
-          <Image
-            src={Logo}
-            alt="로고 이미지"
-            width={153}
-            height={51}
-            className="hidden md:block"
-          />
-          <Image
-            src={MobileLogo}
-            alt="모바일 로고 이미지"
-            width={81}
-            height={40}
-            className="block md:hidden"
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="로고 이미지"
+              width={153}
+              height={51}
+              className="hidden md:block"
+            />
+            <Image
+              src={MobileLogo}
+              alt="모바일 로고 이미지"
+              width={81}
+              height={40}
+              className="block md:hidden"
+            />
+          </Link>
           {menuList.map((menu) => (
             <Link
               key={menu.id}
