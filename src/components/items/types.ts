@@ -17,10 +17,4 @@ export interface BestProductListClientProps {
 
 export interface NormalProductListClientProps {
   searchParams: GetProductListParams;
-  initialData: GetProductListResponse;
 }
-
-export type NormalProductListSectionProps = Omit<
-  NormalProductListClientProps,
-  'initialData'
->;
