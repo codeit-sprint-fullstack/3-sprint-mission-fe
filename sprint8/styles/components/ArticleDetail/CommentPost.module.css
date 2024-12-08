@@ -14,12 +14,13 @@
   height: 104px;
   font-size: 16px;
   font-weight: 500;
+  line-height: 30px;
   margin-top: 12px;
   outline: none;
   resize: none;
   border-style: none;
   border-radius: 12px;
-  padding: 16px 24px 16px;
+  padding: 10px 24px 16px;
   background-color: #F3F4F6;
 
   &:focus {
@@ -54,4 +55,22 @@
   border-radius: 8px;
   color: #F3F4F6;
   background-color: #9CA3AF;
+}
+
+.postButtonBlue {
+  background-color: var(--mainColor);
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
 }
