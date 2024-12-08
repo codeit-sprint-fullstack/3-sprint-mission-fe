@@ -1,0 +1,79 @@
+
+@font-face {
+  font-family:'ROKAF';
+  src: url("/fonts/ROKAFSansBold") format("truetype");
+}
+
+
+
+.header {
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  border-bottom: 1px solid #DFDFDF;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoText {
+  font-family:'ROKAF';
+  font-weight: 700;
+  font-size: 25.63px;
+  line-height: 34.6px;
+  font-weight: bold;
+  color: #3692FF;
+}
+
+.nav {
+  display: flex;
+  gap: 39px;
+  margin-right: 700px;
+}
+
+.navLink {
+  font-family: 'Pretendard';
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 21.48px;
+  font-weight: 700;
+  color: #4B5563;
+}
+
+.navLink:hover {
+  color: #3692FF;
+  text-decoration: none;
+}
+
+.loginButton {
+  width: 88px;
+  height: 42px;
+  font-family: 'Pretendard';
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.loginButton:hover {
+  background-color: #0056b3;
+}

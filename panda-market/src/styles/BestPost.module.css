@@ -1,0 +1,68 @@
+.bestPosts {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.postContainer {
+  display: flex;
+  flex-wrap: wrap; /* 화면 크기에 따라 줄바꿈 */
+  gap: 20px; /* 카드 간격 */
+  justify-content: space-between; /* 카드 간격 균등 */
+}
+
+.postCard {
+  width: calc(25% - 20px); /* 한 줄에 4개 배치 */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* 이미지와 텍스트 세로 정렬 */
+  align-items: center; /* 가운데 정렬 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.postCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.badge {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.postImage {
+  width: 100px; /* 이미지 크기 */
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.postTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+.postInfo {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
