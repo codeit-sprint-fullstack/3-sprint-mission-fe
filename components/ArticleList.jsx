@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { articleAPI } from "@/lib/axios";
 import Article from "./Article";
+import Link from "next/link";
 import styles from "./ArticleList.module.css";
 
 function ArticleList({ orderBy = "recent", keyword }) {
@@ -53,7 +54,12 @@ function ArticleList({ orderBy = "recent", keyword }) {
   return (
     <div className={styles.articleList}>
       {articles.slice(0, DISPLAY_LIMIT).map((article) => (
-        <Article key={article.id} article={article} />
+        <Link href={`/article/${article.id}`} key={article.id}>
+          <Article
+            // key={article.id}
+            article={article}
+          />
+        </Link>
       ))}
     </div>
   );
