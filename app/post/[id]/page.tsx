@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 
-import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
-
 import BackButton from "@/components/common/button/BackButton";
 import CommentInput from "@/components/post/PostDetail/CommentInput";
 import CommentList from "@/components/post/PostDetail/CommentList";

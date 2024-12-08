@@ -1,15 +1,26 @@
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 import bestBadgeImage from "@/public/images/badge/img_badge.png";
-import laptopImage from "@/public/images/laptop.png";
 import heartImage from "@/public/icons/ic_heart.svg";
 
-const BestPostCard = () => {
-  const updateAt = "2024. 04. 16";
-  const name = "총명한판다";
-  const heartCount = "9999+";
+type BestPostCardProps = {
+  content: string;
+  userNickname: string;
+  heartCount: string;
+  updatedAt: string;
+  thumbnailImage: StaticImageData;
+};
+
+const BestPostCard = ({
+  content,
+  userNickname,
+  heartCount,
+  updatedAt,
+  thumbnailImage,
+}: BestPostCardProps) => {
   return (
-    <div className="box-border min-w-[340px] max-w-[384px] rounded-lg bg-gray-bg_card px-6 pb-4">
+    <li className="box-border min-w-[340px] max-w-[384px] rounded-lg bg-gray-bg_card px-6 pb-4">
       {/* 카드 헤더 */}
       <Image
         src={bestBadgeImage}
@@ -20,12 +31,10 @@ const BestPostCard = () => {
       />
       {/* 카드 본문 */}
       <div className="mb-5 flex">
-        <p className="grow text-lg font-semibold xl:text-xl">
-          맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
-        </p>
+        <p className="grow text-lg font-semibold xl:text-xl">{content}</p>
         <div className="h-[72px] w-[72px] shrink-0 rounded-lg border border-gray-light bg-white p-3">
           <Image
-            src={laptopImage}
+            src={thumbnailImage}
             height={48}
             width={48}
             alt="best-board-thumbnail-image"
@@ -36,16 +45,16 @@ const BestPostCard = () => {
       {/* 카드 푸터 */}
       <div className="flex items-center justify-between text-sm">
         <div className="flex gap-2">
-          <span className="text-gray-dark">{name}</span>
+          <span className="text-gray-dark">{userNickname}</span>
           <div className="flex gap-1">
             <Image src={heartImage} width={16} height={16} alt="heart" />
 
             <span className="text-gray-heart_number">{heartCount}</span>
           </div>
         </div>
-        <div className="text-gray">{updateAt}</div>
+        <div className="text-gray">{updatedAt}</div>
       </div>
-    </div>
+    </li>
   );
 };
 
