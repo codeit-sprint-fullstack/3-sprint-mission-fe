@@ -1,8 +1,10 @@
 'use client';
 
-import { SearchParams } from '@/lib/types/searchParams.types';
 import { getArticleList } from '@/services/api/article';
-import { GetArticleListResponse } from '@/services/types/article';
+import {
+  GetArticleListParams,
+  GetArticleListResponse,
+} from '@/services/types/article';
 import { useQuery } from '@tanstack/react-query';
 import NormalArticleCard from './normalArticleCard';
 
@@ -10,7 +12,7 @@ export default function NormalArticleListClient({
   searchParams,
   initialData,
 }: {
-  searchParams: SearchParams;
+  searchParams: GetArticleListParams;
   initialData: GetArticleListResponse;
 }) {
   const { data } = useQuery({

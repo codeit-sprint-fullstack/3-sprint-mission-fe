@@ -1,11 +1,11 @@
-import { SearchParams } from '@/lib/types/searchParams.types';
 import { getArticleList } from '@/services/api/article';
 import NormalArticleListClient from './normalArticleListClient';
+import { GetArticleListParams } from '@/services/types/article';
 
 export default async function NormalArticleListSection({
   searchParams,
 }: {
-  searchParams: SearchParams;
+  searchParams: GetArticleListParams;
 }) {
   const articleList = await getArticleList({
     skip: Number(searchParams.skip) || 0,

@@ -1,7 +1,7 @@
 export interface GetArticleListParams {
   skip?: number;
   take?: number;
-  orderBy?: 'recent' | 'old';
+  orderBy?: 'recent' | 'likes';
   word?: string;
 }
 
