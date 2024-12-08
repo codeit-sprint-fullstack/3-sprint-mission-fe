@@ -37,7 +37,7 @@
 .content3 .textBox .register {
   width: 7.2rem;
   height: 2.6rem;
-  color: #3692FF;
+  color: var(--mainColor);
   font-weight: 700;
   font-size: 1.8rem;
   margin-bottom: 1.2rem;

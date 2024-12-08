@@ -39,7 +39,7 @@
 }
 
 .postBouttonBlue{
-  background-color: #3692FF;
+  background-color: var(--mainColor);
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
 
   &:hover {

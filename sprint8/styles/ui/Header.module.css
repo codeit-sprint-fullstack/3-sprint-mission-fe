@@ -70,7 +70,7 @@
   min-width: 12.8rem;
   height: 4.8rem;
   border-radius: 0.8rem;
-  background-color: #3692FF;
+  background-color: var(--mainColor);
   display: flex;
   justify-content: center;
   align-items: center;
