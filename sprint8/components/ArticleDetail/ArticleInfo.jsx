@@ -1,13 +1,25 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "@/styles/components/ArticleDetail/ArticleInfo.module.css";
 import formatDate from '@/lib/formatDate';
+import EditDeletMenu from "@/components/ArticleDetail/EditDeletMenu";
 
 function ArticleInfo({ article }) {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [articleEditDelete, setArticleEditDelete] = useState(false);
+
   return (
     <div className={styles.articleInfoBox}>
       <div className={styles.articleInfoHeader}>
         <h1 className={styles.articleInfoTitle}>{article.title}</h1>
-        <div className={styles.togleMenuMark}>⋮</div>
+        <div
+          onClick={() => {
+            setToggleMenu(!toggleMenu)
+            setArticleEditDelete(!articleEditDelete)
+          }}
+          className={styles.togleMenuMark}
+        >⋮</div>
+        {toggleMenu ? <EditDeletMenu articleId={article.id} article={articleEditDelete} setArticleEditDelete={setArticleEditDelete} /> : null}
       </div>
       <div className={styles.articleMetaDataBox}>
         <div className={styles.metaDataBoxLeft}>
