@@ -8,5 +8,14 @@ export default async function BestArticleListSection() {
     orderBy: 'recent',
   });
 
-  return <BestArticleListClient initialData={bestArticles} />;
+  return (
+    <>
+      <span className='text-[18px] md:text-[24px] xl:text-[24px] font-extrabold mb-4 md:mb-6 xl:mb-6'>
+        베스트 게시글
+      </span>
+      <div className='flex gap-6 mb-10'>
+        <BestArticleListClient initialData={bestArticles} />
+      </div>
+    </>
+  );
 }

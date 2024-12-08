@@ -15,9 +15,13 @@ export default async function NormalArticleListSection({
   });
 
   return (
-    <NormalArticleListClient
-      searchParams={searchParams}
-      initialData={articleList}
-    />
+    <>
+      <div className='flex flex-col gap-6'>
+        <NormalArticleListClient
+          searchParams={searchParams}
+          initialData={articleList}
+        />
+      </div>
+    </>
   );
 }
