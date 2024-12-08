@@ -7,6 +7,11 @@
   padding: 46px 24px 16px;
 }
 
+.article:hover {
+  background: linear-gradient(135deg, #ffffff, #3690ff36);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .label {
   position: absolute;
   top: 0;
