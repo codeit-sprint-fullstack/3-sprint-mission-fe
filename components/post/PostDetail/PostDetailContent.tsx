@@ -3,19 +3,25 @@ import Image from "next/image";
 import kebabIcon from "@/public/icons/ic_kebab.png";
 import profileImage from "@/public/icons/ic_profile.png";
 import heartIcon from "@/public/icons/ic_heart.svg";
+import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
+import { useState } from "react";
 
 const title = "맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?";
 const content = "맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?";
-const comment_content = "혹시 사용기간이 어떻게 되실까요?";
-
 const likeCount = 123;
 
 const PostDetailContent = () => {
+  const [isPostMenuOpen, setIsPostMenuOpen] = useState(false);
+
+  const togglePostMenu = () => {
+    setIsPostMenuOpen((prev) => !prev);
+  };
+
   return (
     <section>
       <div className="mb-4 flex justify-between">
         <h1 className="text-xl font-bold text-custom-black">{title}</h1>
-        <button>
+        <button onClick={togglePostMenu} className="relative">
           <Image
             src={kebabIcon}
             alt="더보기"
@@ -23,9 +29,14 @@ const PostDetailContent = () => {
             height={24}
             className=""
           />
+          {isPostMenuOpen && (
+            <div className="absolute right-1 top-6 z-10">
+              <PostAndCommentActionsDropdown />
+            </div>
+          )}
         </button>
       </div>
-      {/* 하단 정보 */}
+      {/* 게시글 하단 정보 */}
       <div className="relative flex items-center border-b-[1px] border-gray-footer_text pb-4">
         <Image
           src={profileImage}
