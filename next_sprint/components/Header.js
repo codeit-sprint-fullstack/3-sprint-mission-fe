@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex fixed w-full flex-wrap items-center px-4 lg:px-[200px] sm:px-6 h-[70px] border-b-[1px] bg-white">
+      <header className="flex fixed w-full flex-wrap items-center px-4 lg:px-[200px] sm:px-6 h-[70px] border-b-[1px] bg-white z-[1000]">
         <Link href="/" >
           <Image src="/img/panda_logo.png" alt="logo" width={153} height={51} />
         </Link>

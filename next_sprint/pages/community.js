@@ -3,6 +3,8 @@ import DropDown from "@/components/DropDown";
 import axios from "axios"
 import Image from "next/image";
 import { useState } from "react";
+import { useCallback } from "react";
+
 
 const BASE_URL = process.env.BASE_URL;
 
@@ -31,20 +33,27 @@ export default function Community({articles}) {
   const [filteredData, setFilteredData] = useState(articles);
   const [selectedOption, setSelectedOption] = useState('최신순');
   const [isOpen, setIsOpen] = useState(false);
+
+        
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
   }
-
-  const handleSearch = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL}/articles?word=${searchKeyWord}`);
-      setFilteredData(res.data.data);
-    } catch(error) {
-      console.error("서치 에러 발생", error);
+  
+  const handleKeyDown = async (e) => {
+    if (e.key === 'Enter') {
+      try {
+        const encodedQuery = encodeURIComponent(searchKeyWord);
+        const res = await axios.get(`${BASE_URL}/articles?word=${encodedQuery}`);
+        setFilteredData(res.data.data);
+        console.log("Enter 키로 검색된 API 요청 URL:", `${BASE_URL}/articles?word=${encodedQuery}`);
+      } catch (error) {
+        console.error("Enter 키 에러 발생", error);
+      }
     }
-  }
+  };
 
   return <div className="flex flex-col mt-24 lg:mx-[240px] md:mx-[20px] gap-10 ">    
     <h1 className="text-[20px] leading-6 text-custom_coolGray font-bold">베스트 게시글</h1>
@@ -58,7 +67,7 @@ export default function Community({articles}) {
                 {article.title}
               </h2>
               <span className="bg-white w-[72px] h-[72px] border border-gray-400 border-opacity-25 rounded-lg">
-                <Image src="/img/default_img.png" width={48} height={44} className="mt-3 ml-3" />
+                <Image src="/img/default_img.png" alt="default-img" width={48} height={44} className="mt-3 ml-3" />
               </span>
             </div>
           </li>
@@ -71,8 +80,8 @@ export default function Community({articles}) {
       <Button>글쓰기</Button>
     </div>
 
-    <div className="relative flex flex-col gap-10">
-      <div className="flex gap-5">
+    <div className="relative flex flex-col gap-10 z-0">
+      <div className="relative flex gap-5">
         <Image
           src="/img/search_icon.png"
           alt="Search Icon"
@@ -83,7 +92,10 @@ export default function Community({articles}) {
         <input
           type="text"
           value={searchKeyWord}
-          onChange={(e) => setSearchKeyWord(e.target.value)}
+          onChange={(e) => {
+            setSearchKeyWord(e.target.value);
+          }}
+          onKeyDown={handleKeyDown}
           placeholder="검색할 상품을 입력해주세요"
           className="w-5/6 h-[42px] bg-custom_coolGray50 rounded-xl focus:outline-none pl-9"
         />
@@ -99,7 +111,7 @@ export default function Community({articles}) {
                 {article.title}
               </h2>
               <span className="bg-white w-[72px] h-[72px] border border-gray-400 border-opacity-25 rounded-lg ml-auto">
-                <Image src="/img/default_img.png" width={48} height={44} className="mt-3 ml-3" />
+                <Image src="/img/default_img.png" alt="default-img" width={48} height={44} className="mt-3 ml-3" />
               </span>
             </div>
           </li>
