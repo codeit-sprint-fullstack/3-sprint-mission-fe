@@ -1,7 +1,6 @@
 import {
   GetProductListParams,
   GetProductListResponse,
-  GetProductResponse,
 } from '@/services/api/types/product';
 
 export interface ProductProps {

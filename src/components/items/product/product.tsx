@@ -22,7 +22,8 @@ const IMAGE_SIZE = {
 };
 
 export default function Product({
-  image,
+  // 이미지 기능 구현 후 사용
+  // image,
   title,
   price,
   likes,
