@@ -35,16 +35,18 @@ function ArticlesList() {
 
   const Articles = articles.article || [];
 
-  const handleSearchKeywordChange = (value) => {
-    setSearchKeyword(value);
-  };
+  // const handleSearchKeywordChange = (value) => {
+  //   setSearchKeyword(value);
+  // };
 
   if (!articles) return null;
 
   return (
     <div style={{ width: '1200px' }}>
       <div className={styles.searchSortBox}>
-        <ArticleSearchInput onChange={handleSearchKeywordChange} />
+        <ArticleSearchInput
+          // onChange={handleSearchKeywordChange}
+        />
         <DropdownList />
       </div>
       <div className={styles.articlesListBody}>
