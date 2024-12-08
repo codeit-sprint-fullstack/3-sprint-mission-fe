@@ -7,6 +7,7 @@ function CommentPost({ articleId, commentPost }) {
 
   const handlePostComment = async (e) => {
     e.preventDefault();
+    if(textareaValue === "") return;
     const response = await postComment(articleId, textareaValue);
     console.log("response : ", response);
     commentPost(response)
