@@ -34,8 +34,6 @@ function ArticlesList() {
   }, []);
 
   const Articles = articles.article || [];
-  console.log("articles : ", articles); 
-  console.log("Articles : ", Articles);
 
   const handleSearchKeywordChange = (value) => {
     setSearchKeyword(value);
