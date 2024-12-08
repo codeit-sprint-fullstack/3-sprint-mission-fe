@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { BestBadge } from '../bestBadge';
 import { ArticleCardProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
-import LikeCounter from '../likeCounter';
+import LikeCounter from '../../common/likeCounter/likeCounter';
 import Link from 'next/link';
 import { formatDate } from '@/lib/formatDate';
 
