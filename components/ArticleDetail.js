@@ -43,7 +43,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
         <div className={styles.articleDetailContain}>
             <div className={styles.ArticleDetailHead}>
                 <div className={styles.ArticleDetailText}>
-                    {article.content}
+                    {article.title}
                 </div>
                 <ArticleDropDown id={article.id} />
             </div>

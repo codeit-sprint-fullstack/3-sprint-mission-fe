@@ -8,7 +8,6 @@ export default function ArticleCommentDropDown({ id, onCommentAdded }) {
     const [selectedValue, setSelectedValue] = useState('최신순');
     const dropdownRef = useRef(null);
 
-    console.log('ArticleCommentDropDownid' + id);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);

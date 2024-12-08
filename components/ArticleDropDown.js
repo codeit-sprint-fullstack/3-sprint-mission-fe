@@ -23,6 +23,10 @@ export default function ArticleDropDown({ id }) {
             });
     };
 
+    const handlePatch = () => {
+        router.push(`/${id}/articleUpdate`);
+    };
+
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {

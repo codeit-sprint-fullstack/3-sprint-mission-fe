@@ -7,7 +7,7 @@ export default function PostListAll({ post }) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/${post.id}`); // 게시글 ID를 URL로 전달
+        router.push(`/${post.id}/article`);
     };
 
     return (

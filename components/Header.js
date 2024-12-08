@@ -16,7 +16,7 @@ export default function Header() {
                         src="/images/PandaLogo.png" alt="Panda Market Logo" /></Link>
 
                     <div className={styles.headerText}>
-                        <p><Link href="#" className={styles.headerText1}>자유게시판</Link></p>
+                        <p><Link href="/" className={styles.headerText1}>자유게시판</Link></p>
                         <p><Link href="#" className={styles.headerText2}>중고마켓</Link></p>
                     </div>
 
