@@ -27,7 +27,10 @@ a {
 }
 
 .coming_soon {
-  height: calc(100vh - 230px);
+  /* (gnb 70px) + (footer 160px) = 230px */
+  /* height: calc(100vh - 230px); */
+  /* (gnb 70px) + (footer 160px) + ( what? )= 282px */
+  height: calc(100vh - 282px);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -2,7 +2,7 @@ function NotFound() {
   return (
     <>
       <div className="coming_soon">
-        <div style={{ fontSize: "240px" }}>404</div>
+        <div style={{ fontSize: "130px" }}>404</div>
         <div>찾을 수 없는 페이지</div>
       </div>
     </>

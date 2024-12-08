@@ -32,36 +32,34 @@ function Write() {
   };
 
   return (
-    <div className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.topBar}>
-          <div className={styles.title}>게시글 쓰기</div>
-          <div
-            className={`${styles.write} ${
-              !isButtonEnabled || isSubmitting ? styles.disabled : ""
-            }`}
-            onClick={handleSubmit}
-          >
-            등록
-          </div>
+    <>
+      <div className={styles.topBar}>
+        <div className={styles.title}>게시글 쓰기</div>
+        <div
+          className={`${styles.write} ${
+            !isButtonEnabled || isSubmitting ? styles.disabled : ""
+          }`}
+          onClick={handleSubmit}
+        >
+          등록
         </div>
-        <div className={styles.subTitle}>제목</div>
-        <input
-          type="text"
-          className={styles.input}
-          placeholder="제목을 입력해주세요"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)} // 제목 입력
-        />
-        <div className={styles.subTitle}>내용</div>
-        <textarea
-          className={`${styles.input} ${styles.description}`}
-          placeholder="내용을 입력해주세요"
-          value={content}
-          onChange={(e) => setContent(e.target.value)} // 내용 입력
-        />
       </div>
-    </div>
+      <div className={styles.subTitle}>제목</div>
+      <input
+        type="text"
+        className={styles.input}
+        placeholder="제목을 입력해주세요"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)} // 제목 입력
+      />
+      <div className={styles.subTitle}>내용</div>
+      <textarea
+        className={`${styles.input} ${styles.description}`}
+        placeholder="내용을 입력해주세요"
+        value={content}
+        onChange={(e) => setContent(e.target.value)} // 내용 입력
+      />
+    </>
   );
 }
 

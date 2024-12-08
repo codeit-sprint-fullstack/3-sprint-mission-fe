@@ -31,55 +31,54 @@ function Community() {
   };
 
   return (
-    <div className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.bestArticle}>
-          <div className={styles.title}>베스트 게시글</div>
-          <BestArticleList />
+    <>
+      <div className={styles.bestArticle}>
+        <div className={styles.title}>베스트 게시글</div>
+        <BestArticleList />
+      </div>
+      <div className={styles.articles}>
+        <div className={styles.topBar}>
+          <div className={styles.title}>게시글</div>
+          <Link href="/community/write">
+            <div className={styles.write}>글쓰기</div>
+          </Link>
         </div>
-        <div className={styles.articles}>
-          <div className={styles.topBar}>
-            <div className={styles.title}>게시글</div>
-            <Link href="/community/write">
-              <div className={styles.write}>글쓰기</div>
-            </Link>
-          </div>
-          <div className={styles.toolBox}>
-            <div className={styles.searchBox}>
-              <input
-                className={styles.search}
-                type="search"
-                placeholder="검색할 키워드를 입력해주세요"
-                value={searchKeyword}
-                onChange={handleSearchChange}
-                onKeyDown={handleKeyDown}
-              />
-              <img
-                className={styles.searchLogo}
-                src="search.png"
-                alt="search"
-              />
-            </div>
-            <div>
-              <label htmlFor="order"></label>
-              <select
-                className={styles.select}
-                name="order"
-                id="order"
-                value={orderBy}
-                onChange={handleOrderChange}
-              >
-                <option value="recent">최신순</option>
-                <option value="likes">좋아요순</option>
-              </select>
-            </div>
+        <div className={styles.toolBox}>
+          <div className={styles.searchBox}>
+            <input
+              className={styles.search}
+              type="search"
+              placeholder="검색할 키워드를 입력해주세요"
+              value={searchKeyword}
+              onChange={handleSearchChange}
+              onKeyDown={handleKeyDown}
+            />
+            <img
+              className={styles.searchLogo}
+              src="search.png"
+              alt="search"
+              onClick={handleSearchSubmit}
+            />
           </div>
           <div>
-            <ArticleList keyword={finalKeyword} orderBy={orderBy} />
+            <label htmlFor="order"></label>
+            <select
+              className={styles.select}
+              name="order"
+              id="order"
+              value={orderBy}
+              onChange={handleOrderChange}
+            >
+              <option value="recent">최신순</option>
+              <option value="likes">좋아요순</option>
+            </select>
           </div>
         </div>
+        <div>
+          <ArticleList keyword={finalKeyword} orderBy={orderBy} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
