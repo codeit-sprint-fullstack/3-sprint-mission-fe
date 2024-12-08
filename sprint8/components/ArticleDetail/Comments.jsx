@@ -5,7 +5,7 @@ import formatDate from "@/lib/formatDate";
 import EditDeletMenu from "@/components/ArticleDetail/EditDeletMenu";
 
 
-function Comments({ comment }) {
+function Comments({ comment, commentLoadHandler}) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ function Comments({ comment }) {
         >
           ⋮
         </div>
-        {toggleMenu ? <EditDeletMenu onToggleMenu={setToggleMenu} /> : null}
+        {toggleMenu ? <EditDeletMenu onToggleMenu={setToggleMenu} commentId={comment.id} commentLoadHandler={commentLoadHandler} /> : null}
       </div>
       <div className={styles.commentsMetaData}>
         <div

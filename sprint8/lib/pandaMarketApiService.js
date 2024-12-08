@@ -63,8 +63,6 @@ const getComments = async (articleId) => {
   }
 };
 
-// 게시글 댓글 등록
-// app.post('/articles/:articleId/comments',
 const postComment = async (articleId, content) => {
   try {
     const { data } = await axios.post(`/articles/${articleId}/comments`, {
@@ -77,5 +75,15 @@ const postComment = async (articleId, content) => {
   }
 };
 
+// 댓글 삭제
+const deleteComment = async (commentId) => {
+  try {
+    const { data } = await axios.delete(`/comments/${commentId}`);
+    return data;
+  } catch (error) {
+    console.error('Error deleting article:', error.response?.data || error.message);
+    throw error;
+  }
+};
 
-export { getProducts, getProductId, getArticles, postArticle, getArticleId, getComments, postComment };
+export { getProducts, getProductId, getArticles, postArticle, getArticleId, getComments, postComment, deleteComment };

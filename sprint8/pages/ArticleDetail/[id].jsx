@@ -16,23 +16,25 @@ function ArticleDetail() {
   const [comments, setComments] = useState([]); // 초기값을 빈 배열로 설정
   const [commentPost, setCommentPost] = useState(false);
 
+  const articleLoadHandler = async () => {
+    if (!articleId) return;
+      const articleDetail = await getArticleId(articleId);
+      setArticle(articleDetail);
+  };
+
+  const commentLoadHandler = async () => {
+    if (!articleId) return;
+    const articleComments = await getComments(articleId);
+    setComments(articleComments.comments || []); // comments 배열만 추출
+    console.log("Fetched comments:", articleComments.comments);
+  };
+
+
   useEffect(() => {
     if (!articleId) return;
 
-    const loadHandler = async () => {
-      try {
-        const articleDetail = await getArticleId(articleId);
-        setArticle(articleDetail);
-
-        const articleComments = await getComments(articleId);
-        setComments(articleComments.comments || []); // comments 배열만 추출
-        console.log("Fetched comments:", articleComments.comments);
-      } catch (error) {
-        console.error("Error fetching article:", error);
-      }
-    };
-
-    loadHandler();
+    articleLoadHandler();
+    commentLoadHandler();
   }, [articleId, commentPost]);
 
   if (!article) return <p>Loading article...</p>;
@@ -43,7 +45,7 @@ function ArticleDetail() {
       <CommentPost articleId={articleId} commentPost={setCommentPost} />
 
       {comments.map((comment, index) => (
-        <Comments key={index} comment={comment} />
+        <Comments key={index} comment={comment} commentLoadHandler={commentLoadHandler} />
       ))}
       {comments.length ? null : <NoneComments />}
       <Link href="/CommunityFeed">
