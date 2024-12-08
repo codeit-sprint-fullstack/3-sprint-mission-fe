@@ -11,7 +11,7 @@ const options = [
 ];
 
 export default function SearchSection() {
-  const [orderBy, setOrderBy] = useState(options[0].value);
+  const [orderBy] = useState(options[0].value);
 
   const router = useRouter();
 
