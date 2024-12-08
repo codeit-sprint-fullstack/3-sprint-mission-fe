@@ -54,7 +54,7 @@ function NotFound() {
           </div>
           <div className={styles.notFoundTextBox}>
             <h1>Welcome to 404 Panda World!</h1>
-            <p className={styles.pandaPresidentTextSmall}>You are looking for a page you can't find.
+            <p className={styles.pandaPresidentTextSmall}>You are looking for a page you can&apos;t find.
               Please follow me.</p>
             <Link href="/">
               <button className={styles.toHomePageButton}>
