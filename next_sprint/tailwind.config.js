@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        sans: ['Pretendard', 'sans-serif'], 
       },
+      colors : {
+        custom_blue: '#3692FF',
+        primary: '#4B5563',
+        custom_coolGray900: '#111827',
+        custom_coolGray50: '#F9FAFB',
+      }
     },
   },
   plugins: [],
