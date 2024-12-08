@@ -14,7 +14,7 @@ export default function NormalArticleListClient({
   initialData: GetArticleListResponse;
 }) {
   const { data } = useQuery({
-    queryKey: ['normalArticles'],
+    queryKey: ['normalArticles', searchParams.word],
     queryFn: () =>
       getArticleList({
         skip: Number(searchParams.skip) || 0,
