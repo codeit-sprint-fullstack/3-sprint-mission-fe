@@ -7,7 +7,7 @@
   justify-content: center;
   position: absolute;
   right: 6px;
-  top: 26px;
+  top: 30px;
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
 
   &:hover {
