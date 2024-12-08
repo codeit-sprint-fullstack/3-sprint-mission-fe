@@ -5,7 +5,7 @@ import styles from "./Nav.module.css";
 function Nav() {
   const router = useRouter();
 
-  const isLoggedIn = false; // true 또는 false로 각각 바꿔보며 확인
+  const isLoggedIn = true; // true 또는 false로 각각 바꿔보며 확인
 
   return (
     <>

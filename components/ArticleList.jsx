@@ -44,7 +44,7 @@ function ArticleList({ orderBy = "recent", keyword }) {
   }, [keyword, orderBy]); // keyword와 orderBy 변경 시 재실행
 
   if (loading) {
-    return <div className="coming_soon">로딩중...</div>;
+    return <div className={styles.noResult}>로딩중...</div>;
   }
 
   if (articles.length === 0) {

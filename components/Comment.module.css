@@ -1,0 +1,64 @@
+.comment {
+  width: 100%;
+  height: 104px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+
+.infoBox {
+  height: 40px;
+  display: flex;
+  gap: 8px;
+}
+
+.userImg {
+  width: 32px;
+  height: 32px;
+}
+
+.columnBox {
+  width: 95px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.columnBox > div:last-child {
+  color: #9ca3af;
+}
+
+/* 메뉴 오버레이 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
+}
+
+/* 옵션 버튼 */
+.optionButton {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url("/public/img/ic_kebab.png") no-repeat center / 24px 24px;
+  z-index: 3; /* 메뉴 위에 버튼 위치 */
+}
