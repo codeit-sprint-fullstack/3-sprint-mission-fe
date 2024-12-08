@@ -25,8 +25,8 @@ export function ItemsPage() {
   // const [resize, setResize] = useState(window.innerWidth <= 1200);
 
   useEffect(() => {
+    // resize 핸들러
     const handleResize = () => {
-      // setResize(window.innerWidth <= 1200);
       if (window.innerWidth < 1200 && window.innerWidth > 744) {
         setSellCount(6);
       }

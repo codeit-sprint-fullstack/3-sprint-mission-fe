@@ -14,12 +14,15 @@ function RegistrationPage() {
   });
 
   console.log("formData", formData);
+  console.log("description", formData.description);
 
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target; //=== e.target.name
+    // console.log("타겟", e.target);
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+    // console.log("이름", e.target.name);
   };
 
   const handleDeleteTag = (tagToDelete) => {

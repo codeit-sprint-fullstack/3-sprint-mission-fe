@@ -1,13 +1,15 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000";
+//try {} catch(err) {console.error(err);}
 
+const baseUrl = "http://localhost:8000";
 const axiosInstance = axios.create({
   baseUrl,
   headers: {
     "Content-Type": "application/json",
   },
 });
+
 //지금 다 오류
 export async function getProductsApi(params) {
   const response = await axios.get(
@@ -36,5 +38,37 @@ export async function postProductsApi({ id, name, description, price, tags }) {
   } catch (err) {
     console.log("postProductsApi catch", err);
     throw err;
+  }
+}
+
+export async function PostReApi(title, content) {
+  try {
+    const response = await axios.post(baseUrl + "/api/postregistration", {
+      title,
+      content,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function ListAllApi() {
+  try {
+    const response = await axios.get(baseUrl + "/api/articleList");
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function searchApi(title) {
+  try {
+    const response = await axios.post(baseUrl + "/api/postget", {
+      title,
+    });
+    return response.data;
+  } catch (err) {
+    console.error(err);
   }
 }

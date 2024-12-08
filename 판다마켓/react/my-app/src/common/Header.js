@@ -23,7 +23,14 @@ export function Header() {
             </div>
           </Link>
           <ul>
-            <li>자유게시판</li>
+            <NavLink
+              to="noticeboard"
+              style={({ isActive }) => {
+                return isActive ? activeStyle : defaultColor;
+              }}
+            >
+              <li>자유게시판</li>
+            </NavLink>
 
             <NavLink
               to="items"

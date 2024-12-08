@@ -5,17 +5,20 @@
 }
 
 .inner {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 26px auto 800px;
   max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .top_inner {
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 }
 
 .top_inner > button {
@@ -49,12 +52,19 @@ h3 {
   border-radius: 12px;
   line-height: 26px;
   padding-left: 24px;
-  padding-top: 16px;
+  /* padding-top: 16px; */
   color: #9ca3af;
+  border: none;
 }
 
 .box.big {
   height: 282px;
+  position: relative;
+}
+
+.box.big::placeholder {
+  position: absolute;
+  top: 16px;
 }
 
 span {
@@ -102,6 +112,40 @@ span {
   content: "\00d7";
   font-size: 19px;
   color: #f9fafb;
+}
+
+.input_img {
+  width: 282px;
+  height: 282px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  position: relative;
+}
+
+.input_img > input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.aa::placeholder {
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plus_button {
+  position: absolute;
+  width: 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plus_button img {
+  width: 100%;
 }
 
 @media (max-wdith: 744px) {

@@ -13,7 +13,7 @@ export function Main() {
   // 3. 그거를 map돌려서 렌더링
   const [totalLength, setTotalLength] = useState(0);
   const [sellCount, setSellCount] = useState(10);
-  const [winSize, setWinSize] = useState(1920);
+  const [winSize, setWinSize] = useState(1920); //미디어쿼리 하려고
 
   const arr = [];
   useEffect(() => {
