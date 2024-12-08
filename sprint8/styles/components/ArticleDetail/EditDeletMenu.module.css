@@ -8,6 +8,20 @@
   position: absolute;
   right: 6px;
   top: 26px;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.1);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
 }
 
 .editMenu {
