@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Pretendard-Regular", sans-serif;
+}
+
+.header {
+  height: 68px;
+  border-bottom: 1px solid #dfdfdf;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.header_inner {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  width: 150px;
+  height: 50px;
+  /* background-color: black; ?????? 코딩안하시는디 */
+  margin-right: 24px;
+}
+
+.logo_img {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+li {
+  margin: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.login {
+  width: 88px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: #3692ff;
+  color: #f3f4f6;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 42px;
+  position: absolute;
+  right: 0;
+}
