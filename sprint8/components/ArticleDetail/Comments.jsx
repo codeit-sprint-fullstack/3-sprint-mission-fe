@@ -1,16 +1,26 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "@/styles/components/ArticleDetail/Comments.module.css";
 import formatDate from "@/lib/formatDate";
+import EditDeletMenu from "@/components/ArticleDetail/EditDeletMenu";
 
 
-function Comments({comment}) {
+function Comments({ comment }) {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
     <div className={styles.commentsBox}>
       <div className={styles.commentsHeader}>
         <h2 className={styles.comments}>
           {comment.content}
         </h2>
-        <div className={styles.togleMenuMark}>⋮</div>
+        <div
+          onClick={() => { setToggleMenu(!toggleMenu) }}
+          className={styles.togleMenuMark}
+        >
+          ⋮
+        </div>
+        {toggleMenu ? <EditDeletMenu onToggleMenu={setToggleMenu} /> : null}
       </div>
       <div className={styles.commentsMetaData}>
         <div

@@ -3,6 +3,7 @@
   height: 100px;
   border-bottom: 1px solid #E5E7EB;
   margin-bottom: 24px;
+  position: relative;
 }
 
 .commentsHeader {
@@ -31,14 +32,13 @@
   cursor: pointer;
   
   &:hover {
-    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
     filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
   }
 
   ;
 
   &:active {
-    background-color: #f9fafb17;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
     transform: scale(1.1)
   }
 }
