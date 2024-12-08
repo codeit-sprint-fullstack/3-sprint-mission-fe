@@ -1,0 +1,61 @@
+.BestItemListContain {
+    display: flex;
+    width: 384px;
+    cursor: pointer;
+}
+
+.BestItemList {
+    width: 384px;
+    height: 169px;
+    padding: 0px 24px;
+    background-color: #F9FAFB;
+}
+
+.BestItemListText11 {
+    width: 256px;
+    height: 64px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+
+.BestItemListText1 {
+    display: flex;
+    width: 336px;
+    height: 72px;
+    margin: 0 auto;
+}
+
+.BestItemListText2 {
+    display: flex;
+    height: 24px;
+    justify-content: space-between;
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #4B5563;
+
+}
+
+.BestItemListText22 {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.BestItemImageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    padding: 13.71px 12px;
+    border-radius: 6px;
+    border: 1px solid #E5E7EB;
+}

@@ -1,0 +1,69 @@
+.WriteMainContain {
+    display: flex;
+    width: 1200px;
+    justify-content: space-between;
+    padding-top: 94px;
+    margin: 0 auto;
+}
+
+.WriteMainTitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.WriteMainButton {
+    width: 35px;
+    height: 21px;
+    padding: 12px 23px;
+    border-radius: 8px;
+    background-color: #9CA3AF;
+    color: white;
+    cursor: pointer;
+}
+
+.WriteMainText {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 1200px;
+    height: 438px;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+.WriteMainTitleInput {
+    width: 100%;
+    height: 56px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    border: none;
+    outline: none;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.WriteMainDes {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.WriteMainDetailInput {
+    width: 100%;
+    height: 282px;
+    padding: 16px 24px 230px 24px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    border: none;
+    outline: none;
+    white-space: pre-wrap;
+    resize: none;
+    word-wrap: break-word;
+    overflow-y: auto;
+    box-sizing: border-box;
+}

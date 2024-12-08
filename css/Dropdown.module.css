@@ -1,0 +1,84 @@
+.dropdownContainer {
+    width: 130px;
+    height: 42px;
+    margin: 0;
+}
+
+.dropdownButton {
+    width: 130px;
+    height: 42px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    cursor: pointer;
+}
+
+.dropdownButton1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 80px;
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 130px;
+    z-index: 1000;
+    display: block;
+    border: 1px solid #D1D5DB;
+}
+
+.menuItem {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.menuItem:hover {
+    background-color: #f0f0f0;
+}
+
+.menuItem1 {
+    width: 139px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menuItem2 {
+    width: 139px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdownButton2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 80px;
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}

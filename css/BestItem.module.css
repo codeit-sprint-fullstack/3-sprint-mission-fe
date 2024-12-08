@@ -1,0 +1,27 @@
+.BestItemContain {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 1200px;
+    height: 169px;
+    gap: 24px;
+    padding-top: 94px;
+}
+
+
+.BestItemHeader {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23.87px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.test123 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 1200px;
+    gap : 24px;
+}
