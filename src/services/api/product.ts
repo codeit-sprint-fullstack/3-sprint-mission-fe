@@ -4,7 +4,7 @@ import {
   GetProductListParams,
   GetProductListResponse,
   GetProductResponse,
-} from '../types/product';
+} from './types/product';
 
 export const getProductList = async ({
   skip = 0,

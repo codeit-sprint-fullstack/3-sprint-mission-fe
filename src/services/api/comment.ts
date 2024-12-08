@@ -1,5 +1,5 @@
 import axiosInstance from '@/lib/axios/axiosInstance';
-import { CommentResponse } from '../types/article';
+import { CommentResponse } from './types/article';
 
 export const editComment = async (id: string, content: string) => {
   const editedComment = await axiosInstance.patch<CommentResponse>(

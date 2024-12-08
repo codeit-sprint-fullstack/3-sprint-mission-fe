@@ -5,7 +5,7 @@ import {
   CreateArticleRequest,
   GetArticleListParams,
   GetArticleListResponse,
-} from '../types/article';
+} from './types/article';
 
 export const getArticleList = async ({
   skip = 0,
