@@ -7,7 +7,9 @@ const instance = axios.create({
 export const articleAPI = {
   getArticles: () => instance.get("/article"),
   getArticleById: (id) => instance.get(`/article/${id}`),
-  createArticle: (data) => instance.post("/article", data),
+  postArticle: (data) => instance.post("/article", data),
+  modifyArticle: (id, data) => instance.patch(`/article/${id}`, data),
+  deleteArticle: (id) => instance.delete(`/article/${id}`),
 };
 
 export const commentAPI = {

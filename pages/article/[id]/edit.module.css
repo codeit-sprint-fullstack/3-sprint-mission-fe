@@ -11,7 +11,26 @@
   font-size: 2rem;
 }
 
-.write {
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.cancelButton {
+  width: 68px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 600;
+  color: #737373;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  background: #f3f4f6;
+}
+
+.saveButton {
   width: 74px;
   height: 42px;
   line-height: 42px;
@@ -19,18 +38,13 @@
   font-weight: 600;
   color: #f3f4f6;
   background-color: #3692ff;
+  border: none;
   border-radius: 8px;
   font-size: 1.6rem;
   cursor: pointer;
-  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
-  @media (min-width: 375px) and (max-width: 743.98px) {
-    position: absolute;
-    top: 0;
-    right: 45px;
-  }
 }
 
-.write.disabled {
+.saveButton.disabled {
   background-color: #9ca3af;
   cursor: default;
 }

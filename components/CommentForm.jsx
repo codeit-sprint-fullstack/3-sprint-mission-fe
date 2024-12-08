@@ -21,6 +21,7 @@ export default function CommentForm({ onAddComment }) {
 
   return (
     <div>
+      <div className={styles.title}>댓글달기</div>
       <textarea
         className={styles.commentInput}
         placeholder="댓글을 입력해주세요."

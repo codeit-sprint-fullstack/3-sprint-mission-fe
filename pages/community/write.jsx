@@ -17,11 +17,11 @@ function Write() {
 
     try {
       // API 요청
-      await articleAPI.createArticle({
+      await articleAPI.postArticle({
         title,
         content,
       });
-      alert("게시글이 성공적으로 등록되었습니다!");
+      // alert("게시글이 성공적으로 등록되었습니다!");
       router.push("/community"); // 등록 후 community 페이지로 이동
     } catch (error) {
       console.error("등록 실패:", error);

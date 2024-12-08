@@ -58,12 +58,72 @@
   height: 18px;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  background: transparent;
+  z-index: 2;
+}
+
+.optionButton {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  background: url("/ic_kebab.png") no-repeat center / 24px 24px;
+  z-index: 3; /* 메뉴 위에 버튼 위치 */
+}
+
+.menu {
+  width: 139px;
+  height: 92px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #6b7280;
+  border-radius: 8px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu p {
+  width: 100%;
+  height: 46px;
+  line-height: 46px;
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+}
+
+.menu p:nth-child(1) {
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+}
+
+.menu p:nth-child(2) {
+  border-radius: 0 0 8px 8px;
+}
+
+.menu p:hover {
+  background-color: #f3f4f6;
+}
+
 .content {
-  /* min-height: 104px; */
   font-size: 18px;
   font-weight: 400;
   line-height: 26px;
   margin-bottom: 32px;
+  padding-bottom: 50px;
 }
 
 .return {
