@@ -5,13 +5,28 @@ import instance from '@/lib/axios';
 
 export default function ArticleCommentDropDown({ id, onCommentAdded }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedValue, setSelectedValue] = useState('최신순');
+    const [isEditing, setIsEditing] = useState(false);
+    const [editContent, setEditContent] = useState('댓글 수정');
     const dropdownRef = useRef(null);
 
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
+
+    const handlePatch = () => {
+        try {
+            instance.patch(`/articleComment/${id}`, {
+                content: editContent,
+            });
+            alert('댓글이 수정되었습니다!');
+            setIsEditing(!isEditing);
+            setIsOpen(!isOpen);
+            onCommentAdded();
+        } catch (error) {
+            console.error('댓글 수정 중 오류 발생:', error);
+        }
+    }
 
     const handleDelete = () => {
         instance.delete(`/articleComment/${id}`)

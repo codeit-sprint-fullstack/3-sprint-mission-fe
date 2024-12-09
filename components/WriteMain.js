@@ -14,10 +14,11 @@ export default function WriteMain() {
             content,
         }).then((response) => {
             alert("게시글이 등록되었습니다!");
+            const id = response.data.id;
+            router.push(`/${id}/article`);
         }).catch((error) => {
             console.error(error);
         });
-        router.push(`/`);
     };
 
     return (
