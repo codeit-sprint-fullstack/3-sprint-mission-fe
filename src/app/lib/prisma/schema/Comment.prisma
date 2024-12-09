@@ -1,0 +1,11 @@
+model Comment {
+  id          String  @id @default(uuid())
+  content     String
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+  article     Article? @relation(fields: [articleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  articleId   String?
+  product     Product? @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId   String?
+  deletedAt   DateTime? @db.Timestamptz(6)
+}

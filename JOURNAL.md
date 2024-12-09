@@ -16,3 +16,37 @@ pagination: true
 - 프로젝트 디렉터리 설정
 
 ## TIL-241202
+
+Where is the best practice to locate prisma in a nextjs app router project? Below is the directory structure.
+```
+- public
+- src
+    - app
+        - api
+        - features
+        - fonts
+        - hooks
+        - lib
+        - pages
+        - styles
+        - types
+        layout.tsx
+        page.tsx
+    - assets
+        - icons
+        - images
+    - components
+        - common
+        - layout
+        - ui
+    - pages
+        - home
+            - ui
+.env
+.eslintrc.json
+.gitignore
+.prettierrc
+next.config.ts
+tailwind.config.ts
+tsconfig.json
+```
