@@ -4,3 +4,9 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+ [[redirects]]
+  from = "/proxy/*"
+  to = "https://incredible-conkies-2bfde0.netlify.app/:splat"
+  status = 200
+  force = true
