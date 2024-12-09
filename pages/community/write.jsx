@@ -16,13 +16,19 @@ function Write() {
     setIsSubmitting(true); // 등록 중으로 변경
 
     try {
-      // API 요청
-      await articleAPI.postArticle({
+      // API 요청 및 응답에서 ID 추출
+      const response = await articleAPI.postArticle({
         title,
         content,
       });
-      // alert("게시글이 성공적으로 등록되었습니다!");
-      router.push("/community"); // 등록 후 community 페이지로 이동
+
+      const { id } = response.data; // 서버에서 반환된 article ID
+      if (id) {
+        // alert("게시글이 성공적으로 등록되었습니다!"); // 성공 메시지
+        router.push(`/article/${id}`); // ID로 이동
+      } else {
+        throw new Error("게시글 ID를 가져올 수 없습니다.");
+      }
     } catch (error) {
       console.error("등록 실패:", error);
       // alert("게시글 등록에 실패했습니다. 다시 시도해주세요.");
