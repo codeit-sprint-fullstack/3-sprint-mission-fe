@@ -24,7 +24,10 @@ const config: Config = {
             primary: 'var(--text-primary-gray)',
             secondary: 'var(--text-secondary-gray)',
           },
-          white: 'var(--text-primary-white)',
+          white: {
+            DEFAULT: 'var(--text-primary-white)',
+            secondary: 'var(--text-secondary-white)',
+          },
           blue: 'var(--text-primary-blue)',
         },
         bg: {
@@ -50,6 +53,7 @@ const config: Config = {
           image: 'var(--card-image-border)',
           select: 'var(--select-border)',
           'like-button': 'var(--like-button-border)',
+          'index-button': 'var(--index-button-border)',
         },
       },
     },

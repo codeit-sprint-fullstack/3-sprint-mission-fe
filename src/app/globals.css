@@ -16,6 +16,7 @@
   --text-primary-gray: #9ca3af;
   --text-secondary-gray: #e5e7eb;
   --text-primary-white: #ffffff;
+  --text-secondary-white: #f9fafb;
   --text-primary-blue: #3692ff;
 
   /* UI Element Colors */
@@ -32,6 +33,7 @@
   --select-border: #e5e7eb;
   --input-glass: #9ca3af;
   --like-button-border: #e5e7eb;
+  --index-button-border: #e5e7eb;
 }
 
 @media (prefers-color-scheme: dark) {
