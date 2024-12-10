@@ -22,17 +22,18 @@ export default function ProductListHeader() {
   };
 
   return (
-    <div className='flex justify-between items-center mb-6'>
+    <div className='flex justify-between items-center flex-wrap gap-y-2'>
       <h2 className='font-bold text-xl'>판매 중인 상품</h2>
-      <div className='flex gap-3'>
+      <div className='flex gap-3 flex-wrap md:flex-nowrap xl:flex-nowrap items-center'>
         <SearchInput
-          className='w-[325px]'
+          className='w-[288px] md:w-[242px] xl:w-[325px] pl-10 pr-0'
           onSearch={onSearch}
           placeholder='검색할 상품을 입력해주세요'
         />
         <CommonBtn className='whitespace-nowrap'>상품 등록하기</CommonBtn>
         <CustomSelect
           options={options}
+          // 구현 예정
           onChange={() => console.log('')}
         />
       </div>

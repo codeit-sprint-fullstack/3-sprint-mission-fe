@@ -12,7 +12,7 @@ export default async function BestProductListSection() {
   return (
     <>
       <h2 className='text-xl font-bold mb-4'>베스트 상품</h2>
-      <div className='flex gap-6 justify-between items-center mb-10'>
+      <div className='flex gap-6 justify-center items-center mb-10'>
         <BestProductListClient initialData={productList} />
       </div>
     </>
