@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { articleAPI } from "@/lib/axios";
+import { getFormattedDate } from "@/lib/dateUtils";
 import CommentList from "@/components/CommentList";
 import styles from "./index.module.css";
 
@@ -32,6 +33,8 @@ export async function getServerSideProps(context) {
 export default function ArticleDetail({ article, error }) {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const formattedDate = getFormattedDate(article.createdAt);
 
   const onMenuToggle = () => {
     setIsMenuOpen((prev) => !prev);
@@ -86,7 +89,7 @@ export default function ArticleDetail({ article, error }) {
               className={styles.userImg}
             />
             <div>총명한판다</div>
-            <div>2024.04.16</div>
+            <div>{formattedDate}</div>
           </div>
           <div className={styles.likeBox}>
             <img src="/ic_heart.png" alt="like" className={styles.likeImg} />

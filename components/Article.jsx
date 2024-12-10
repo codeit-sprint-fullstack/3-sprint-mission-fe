@@ -1,3 +1,4 @@
+import { getFormattedDate } from "@/lib/dateUtils";
 import styles from "./Article.module.css";
 
 function Article({ article }) {
@@ -6,6 +7,8 @@ function Article({ article }) {
   const handleImageError = (e) => {
     e.target.src = placeholderImage; // 이미지 로드 실패 시 대체 이미지 설정
   };
+
+  const formattedDate = getFormattedDate(article.createdAt);
 
   return (
     <div className={styles.article}>
@@ -25,7 +28,7 @@ function Article({ article }) {
           className={styles.userImg}
         />
         <div>총명한판다</div>
-        <div>2024.04.16</div>
+        <div>{formattedDate}</div>
       </div>
       <div className={styles.likeBox}>
         <img src="/ic_heart.png" alt="like" className={styles.likeImg} />

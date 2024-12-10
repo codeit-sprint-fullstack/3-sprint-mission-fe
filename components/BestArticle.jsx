@@ -1,3 +1,4 @@
+import { getFormattedDate } from "@/lib/dateUtils";
 import styles from "./BestArticle.module.css";
 
 function BestArticle({ article }) {
@@ -6,6 +7,8 @@ function BestArticle({ article }) {
   const handleImageError = (e) => {
     e.target.src = placeholderImage; // 이미지 로드 실패 시 대체 이미지 설정
   };
+
+  const formattedDate = getFormattedDate(article.createdAt);
 
   return (
     <div className={styles.article}>
@@ -25,7 +28,7 @@ function BestArticle({ article }) {
           <img src="/ic_heart.png" alt="like" className={styles.likeImg} />
           <div>{article.likes}</div>
         </div>
-        <div className={styles.date}>2024.04.16</div>
+        <div className={styles.date}>{formattedDate}</div>
       </div>
     </div>
   );
