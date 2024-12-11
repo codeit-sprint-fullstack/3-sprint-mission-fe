@@ -15,6 +15,7 @@ module.exports = {
         primary: '#4B5563',
         custom_coolGray900: '#111827',
         custom_coolGray50: '#F9FAFB',
+        custom_coolGray100: '#F3F4F6',
       }
     },
   },

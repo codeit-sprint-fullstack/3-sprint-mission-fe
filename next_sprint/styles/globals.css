@@ -19,3 +19,7 @@
 html {
   @apply font-sans;
 }
+
+.inputStyle {
+  @apply outline-none bg-custom_coolGray100 py-4 px-6 rounded-xl;
+}

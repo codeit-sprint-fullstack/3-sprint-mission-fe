@@ -2,8 +2,9 @@ import Button from "@/components/Button";
 import DropDown from "@/components/DropDown";
 import axios from "axios"
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState } from "react";
-import { useCallback } from "react";
+
 
 
 const BASE_URL = process.env.BASE_URL;
@@ -36,6 +37,7 @@ export default function Community({articles}) {
 
         
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+  const router = useRouter();
   
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -45,15 +47,21 @@ export default function Community({articles}) {
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
       try {
+        if(!searchKeyWord) return;
         const encodedQuery = encodeURIComponent(searchKeyWord);
         const res = await axios.get(`${BASE_URL}/articles?word=${encodedQuery}`);
         setFilteredData(res.data.data);
-        console.log("Enter 키로 검색된 API 요청 URL:", `${BASE_URL}/articles?word=${encodedQuery}`);
       } catch (error) {
         console.error("Enter 키 에러 발생", error);
       }
     }
   };
+
+  const handlePostClick = () => {
+    console.log("Button clicked");
+
+    router.push('/community/posting');
+  }
 
   return <div className="flex flex-col mt-24 lg:mx-[240px] md:mx-[20px] gap-10 ">    
     <h1 className="text-[20px] leading-6 text-custom_coolGray font-bold">베스트 게시글</h1>
@@ -77,7 +85,7 @@ export default function Community({articles}) {
 
     <div className="flex justify-between items-center">
       <h1 className="text-[20px] leading-6 text-custom_coolGray font-bold">게시글</h1>
-      <Button>글쓰기</Button>
+      <Button handleClick={handlePostClick}>글쓰기</Button>
     </div>
 
     <div className="relative flex flex-col gap-10 z-0">

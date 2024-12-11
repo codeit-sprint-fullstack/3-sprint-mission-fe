@@ -19,7 +19,7 @@ export default function Header() {
         </Link>
 
         <div className="flex space-x-8 ml-[60px]" >
-          <Link href="/community" className={`${router.pathname==='/community'?'text-custom_blue':'text-primary'} 
+          <Link href="/community/community" className={`${router.pathname.includes('/community')?'text-custom_blue':'text-primary'} 
                 font-bold text-lg`}>
             자유게시판
           </Link>
