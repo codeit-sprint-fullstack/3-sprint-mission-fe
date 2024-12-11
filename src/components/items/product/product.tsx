@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ProductProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
 import LikeCounter from '../../common/likeCounter/likeCounter';
+import Link from 'next/link';
 
 const IMAGE_SIZE = {
   big: {
@@ -24,6 +25,7 @@ const IMAGE_SIZE = {
 export default function Product({
   // 이미지 기능 구현 후 사용
   // image,
+  id,
   title,
   price,
   likes,
@@ -32,25 +34,27 @@ export default function Product({
   const [screenWidth] = useAtom(screenWidthAtom);
 
   return (
-    <div className='flex flex-col gap-4 items-center'>
-      {/* 이후 이미지 대체 예정 */}
-      <div>
-        <Image
-          src={mockImage}
-          alt='상품 이미지'
-          width={IMAGE_SIZE[size][screenWidth!]}
-          height={IMAGE_SIZE[size][screenWidth!]}
-          className='rounded-2xl'
-        />
-        <div className='flex flex-col gap-[6px]'>
-          <span className='text-sm font-medium'>{title}</span>
-          <span className='font-bold'>{`${price.toLocaleString()}원`}</span>
-          <LikeCounter
-            likes={likes}
-            className='text-xs text-text-black-secondary font-medium'
+    <Link href={`/items/${id}`}>
+      <div className='flex flex-col gap-4 items-center'>
+        {/* 이후 이미지 대체 예정 */}
+        <div>
+          <Image
+            src={mockImage}
+            alt='상품 이미지'
+            width={IMAGE_SIZE[size][screenWidth!]}
+            height={IMAGE_SIZE[size][screenWidth!]}
+            className='rounded-2xl'
           />
+          <div className='flex flex-col gap-[6px]'>
+            <span className='text-sm font-medium'>{title}</span>
+            <span className='font-bold'>{`${price.toLocaleString()}원`}</span>
+            <LikeCounter
+              likes={likes}
+              className='text-xs text-text-black-secondary font-medium'
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

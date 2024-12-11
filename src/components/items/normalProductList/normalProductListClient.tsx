@@ -48,6 +48,7 @@ export default function NormalProductListClient({
           {data.data.map((product) => (
             <Product
               key={product.id}
+              id={product.id}
               image='mockImage'
               title={product.name}
               price={product.price}

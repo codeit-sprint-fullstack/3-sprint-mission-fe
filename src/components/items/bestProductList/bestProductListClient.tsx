@@ -37,6 +37,7 @@ export default function BestProductListClient({
       {data.data.slice(0, sliceValue).map((product) => (
         <Product
           key={product.id}
+          id={product.id}
           size='big'
           title={product.name}
           price={product.price}
