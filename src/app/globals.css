@@ -18,6 +18,7 @@
   --text-primary-white: #ffffff;
   --text-secondary-white: #f9fafb;
   --text-primary-blue: #3692ff;
+  --text-error-red: #f74747;
 
   /* UI Element Colors */
   --input-background: #f3f4f6;
@@ -34,6 +35,9 @@
   --input-glass: #9ca3af;
   --like-button-border: #e5e7eb;
   --index-button-border: #e5e7eb;
+  --input-error-border: #f74747;
+  --tag-background: #f3f4f6;
+  --close-background: #9ca3af;
 }
 
 @media (prefers-color-scheme: dark) {

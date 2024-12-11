@@ -29,6 +29,7 @@ const config: Config = {
             secondary: 'var(--text-secondary-white)',
           },
           blue: 'var(--text-primary-blue)',
+          red: 'var(--text-error-red)',
         },
         bg: {
           input: 'var(--input-background)',
@@ -45,6 +46,8 @@ const config: Config = {
             disabled: 'var(--button-disabled-background)',
           },
           footer: 'var(--footer-background)',
+          tag: 'var(--tag-background)',
+          'close-button': 'var(--close-background)',
         },
 
         border: {
@@ -54,6 +57,7 @@ const config: Config = {
           select: 'var(--select-border)',
           'like-button': 'var(--like-button-border)',
           'index-button': 'var(--index-button-border)',
+          'input-error': 'var(--input-error-border)',
         },
       },
     },
