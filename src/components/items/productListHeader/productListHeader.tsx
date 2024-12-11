@@ -3,6 +3,7 @@
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import CustomSelect from '@/components/common/customSelect/customSelect';
 import SearchInput from '@/components/common/searchInput/searchInput';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -30,7 +31,9 @@ export default function ProductListHeader() {
           onSearch={onSearch}
           placeholder='검색할 상품을 입력해주세요'
         />
-        <CommonBtn className='whitespace-nowrap'>상품 등록하기</CommonBtn>
+        <Link href='/items/registration'>
+          <CommonBtn className='whitespace-nowrap'>상품 등록하기</CommonBtn>
+        </Link>
         <CustomSelect
           options={options}
           // 구현 예정
