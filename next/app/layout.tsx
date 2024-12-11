@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 // import localFont from "next/font/local";
-import "./globals.css";
-import Header from "./shared/components/header";
+import './globals.css';
+import Header from './shared/components/header';
+import Footer from './shared/components/footer';
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -15,8 +16,8 @@ import Header from "./shared/components/header";
 // });
 
 export const metadata: Metadata = {
-  title: "판다마켓",
-  description: "판다마켓",
+  title: '판다마켓',
+  description: '판다마켓',
 };
 
 export default function RootLayout({
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={``}>
         <Header></Header>
         {children}
+        <Footer />
       </body>
     </html>
   );

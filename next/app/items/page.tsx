@@ -15,7 +15,7 @@ import { productsGet } from "../shared/api/product";
 export default function UsedMarket() {
   const naviLimit = 5;
   const [sellLimit, setSellLimit] = useState(10);
-  const sellProduct = useItmeList([], sellLimit);
+  const sellProduct = useItmeList([{}], sellLimit);
   const [sellItmeSize, setSellItemSize] = useState("220px");
   const [arrType, setArrType] = useState("recent");
   const [onTarget, setOnTarget] = useState(1);

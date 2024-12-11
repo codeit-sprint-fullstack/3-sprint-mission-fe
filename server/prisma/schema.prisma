@@ -26,10 +26,36 @@ model Product {
   updatedAt   DateTime @updatedAt
 }
 
-model Board {
-  id        String   @id @default(uuid())
-  title     String
-  content   String
+model User {
+  uuid      String   @id @default(uuid())
+  id        String   @unique
+  password  String
+  image     String   @default("/img/ic_profile.png")
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
+  board     Board[]
+  coment    Coment[]
+}
+
+model Board {
+  id          String    @id @default(uuid())
+  boardNumber Int       @unique @default(autoincrement())
+  user        User      @relation(fields: [userUuid], references: [uuid])
+  userUuid    String
+  title       String
+  content     String
+  favorite    Int       @default(0)
+  images      String[]  @default([])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+  coment      Coment[]
+}
+
+model Coment {
+  id       String @id @default(uuid())
+  user     User   @relation(fields: [userUuid], references: [uuid])
+  coment   String @default("")
+  board    Board  @relation(fields: [boardId], references: [id])
+  boardId  String
+  userUuid String
 }

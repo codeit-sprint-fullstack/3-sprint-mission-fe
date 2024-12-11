@@ -29,6 +29,9 @@
   word-break: keep-all;
 }
 .bestContent .item .medal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 16px;
   background: #3692ff;
   width: 102px;
@@ -41,10 +44,13 @@
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
-.bestContent .item .medal img {
+.bestContent .item .medal .imgBox {
   margin-right: 4px;
+  margin-bottom: 5px;
 }
-
+.bestContent .item .medal p {
+  line-height: 2em;
+}
 .infoLine {
   display: flex;
   justify-content: space-between;
@@ -78,10 +84,12 @@
 .boardLine {
   margin-bottom: 78px;
 }
-.boardLine .titleLine {
+.titleLine {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
 }
-.boardLine .titleLine a {
-  background: #3692ff;
+.writeBoard {
   width: 88px;
   height: 42px;
   display: flex;
@@ -91,6 +99,11 @@
   color: #fff;
   font-weight: 600;
   font-size: 16px;
+  background: #999;
+  transition: 0.5s;
+}
+.writeBoard.on {
+  background: #3692ff;
 }
 .boardLine .item {
   background: #fcfcfc;
@@ -243,7 +256,7 @@
 }
 .addImg .content .plus::after,
 .addImg .content .plus::before {
-  content: "";
+  content: '';
   display: block;
   width: 28px;
   height: 3px;

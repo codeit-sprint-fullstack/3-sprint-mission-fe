@@ -1,0 +1,32 @@
+[
+  {
+    "id": "user1",
+    "password": "password123",
+    "image": "/img/ic_profile.png"
+  },
+  {
+    "id": "user2",
+    "password": "securepass456",
+    "image": "/img/ic_profile.png"
+  },
+  {
+    "id": "user3",
+    "password": "mypassword789",
+    "image": "/img/custom_image1.png"
+  },
+  {
+    "id": "user4",
+    "password": "password321",
+    "image": "/img/custom_image2.png"
+  },
+  {
+    "id": "user5",
+    "password": "securepassword654",
+    "image": "/img/ic_profile.png"
+  },
+  {
+    "id": "user6",
+    "password": "anotherpass987",
+    "image": "/img/custom_image3.png"
+  }
+]
