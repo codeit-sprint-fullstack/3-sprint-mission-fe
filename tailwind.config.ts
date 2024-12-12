@@ -48,6 +48,8 @@ const config: Config = {
           footer: 'var(--footer-background)',
           tag: 'var(--tag-background)',
           'close-button': 'var(--close-background)',
+          banner: 'var(--banner-background)',
+          'content-section': 'var(--content-section-background)',
         },
 
         border: {

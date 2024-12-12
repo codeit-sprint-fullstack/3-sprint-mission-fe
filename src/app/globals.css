@@ -38,6 +38,8 @@
   --input-error-border: #f74747;
   --tag-background: #f3f4f6;
   --close-background: #9ca3af;
+  --banner-background: #cfe5ff;
+  --content-section-background: #fcfcfc;
 }
 
 @media (prefers-color-scheme: dark) {
