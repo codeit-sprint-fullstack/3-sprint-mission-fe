@@ -1,5 +1,5 @@
-import Footer from "@/components/ui/Footer";
-import Header from "@/components/ui/Header";
+import Footer from "@/layouts/Footer";
+import Header from "@/layouts/Header";
 import "@/styles/globals.css";
 // HomePage 관련 css 어쩔 수 없이 전역 css로 대체 함
 import "@/styles/pages/HomePage/common.css";
