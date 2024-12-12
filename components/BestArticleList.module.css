@@ -1,0 +1,5 @@
+.BestArticleList {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0 40px;
+}

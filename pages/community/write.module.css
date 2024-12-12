@@ -1,0 +1,67 @@
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.write {
+  width: 74px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 600;
+  color: #f3f4f6;
+  background-color: #3692ff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* Mobile 스타일: 375px 이상 ~ 743px 이하 */
+  @media (min-width: 375px) and (max-width: 743.98px) {
+    position: absolute;
+    top: 0;
+    right: 45px;
+  }
+}
+
+.write.disabled {
+  background-color: #9ca3af;
+  cursor: default;
+}
+
+.subTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.input {
+  height: 56px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  padding: 16px 24px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  width: 100%;
+  margin: 16px 0 32px;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid #3692ff;
+  padding: 14px 22px;
+}
+
+.input.description {
+  height: 282px;
+  resize: none;
+  margin-bottom: 130px;
+}

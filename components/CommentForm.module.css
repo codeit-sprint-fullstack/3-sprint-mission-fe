@@ -1,0 +1,48 @@
+.title {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: #111827;
+  margin-bottom: 9px;
+}
+
+.commentInput {
+  width: 100%;
+  height: 104px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  border: none;
+  font-size: 1.6rem;
+  padding: 16px 24px;
+  resize: none;
+}
+
+.commentInput:focus {
+  outline: none;
+  padding: 14px 22px;
+  border: 2px solid #3692ff;
+}
+
+.buttonContainer {
+  display: flex;
+  margin: 16px 0 40px;
+  justify-content: flex-end;
+}
+
+.submitButton {
+  width: 74px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 600;
+  color: #f3f4f6;
+  background-color: #3692ff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.submitButton.disabled {
+  background-color: #9ca3af;
+  cursor: default;
+}

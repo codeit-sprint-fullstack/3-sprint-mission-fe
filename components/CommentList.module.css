@@ -1,0 +1,29 @@
+.loading {
+  font-size: 1.6rem;
+  color: #4b5563;
+  margin: 24px 0 130px;
+}
+
+.noResult {
+  margin: 0 auto;
+  width: 162px;
+  height: 208px;
+  background: url("/img_reply_empty.png") no-repeat top center / 140px;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  text-align: center;
+  padding-top: 156px;
+  color: #9ca3af;
+}
+
+/* 메뉴 오버레이 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  background: transparent;
+  z-index: 2;
+}

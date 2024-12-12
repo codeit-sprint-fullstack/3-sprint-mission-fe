@@ -1,0 +1,6 @@
+.main {
+  /* padding: 26px 200px; */
+  padding: 26px 0;
+  color: #111827;
+  min-height: calc(100vh - 230px);
+}
