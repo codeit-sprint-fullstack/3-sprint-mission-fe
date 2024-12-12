@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Brand Colors */
+  --primary-blue: #3692ff;
+
+  /* Text Colors */
+  --text-primary-black: #1f2937;
+  --text-secondary-black: #4b5563;
+  --text-primary-charcoal: #6b7280;
+  --text-primary-gray: #9ca3af;
+  --text-secondary-gray: #e5e7eb;
+  --text-primary-white: #ffffff;
+  --text-secondary-white: #f9fafb;
+  --text-primary-blue: #3692ff;
+  --text-error-red: #f74747;
+
+  /* UI Element Colors */
+  --input-background: #f3f4f6;
+  --best-article-background: #f9fafb;
+  --best-badge-background: #3692ff;
+  --normal-article-background: #fcfcfc;
+  --normal-article-border: #e5e7eb;
+  --card-image-border: #e5e7eb;
+  --gnb-border: #dfdfdf;
+  --button-active-background: #3692ff;
+  --button-disabled-background: #9ca3af;
+  --footer-background: #111827;
+  --select-border: #e5e7eb;
+  --input-glass: #9ca3af;
+  --like-button-border: #e5e7eb;
+  --index-button-border: #e5e7eb;
+  --input-error-border: #f74747;
+  --tag-background: #f3f4f6;
+  --close-background: #9ca3af;
+  --banner-background: #cfe5ff;
+  --content-section-background: #fcfcfc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--text-primary-black);
+  background: var(--background);
+  font-family: var(--font-pretendard-variable);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .input-section {
+    @apply flex flex-col gap-4 mb-8;
+  }
+
+  .input-base {
+    @apply bg-bg-input px-6 py-4 rounded-[12px];
+  }
+
+  .input-label {
+    @apply text-[18px] font-bold;
+  }
+
+  .error-message {
+    @apply text-text-red font-semibold text-[14px];
+  }
+
+  .error-input {
+    @apply border border-border-input-error;
+  }
+}
