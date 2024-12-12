@@ -45,6 +45,7 @@ export default function PageIndex({ maxPage }: { maxPage: number }) {
   };
 
   useEffect(() => {
+    if (skip === '0') return;
     const params = new URLSearchParams(searchParams);
     params.set('skip', skip);
     router.push(`?${params.toString()}`);
