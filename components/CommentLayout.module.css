@@ -1,0 +1,40 @@
+.commentBox {
+  display: flex;
+  gap: 4px;
+  width: 1200px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.commentContent {
+  width: 1172px;
+}
+.userInfo {
+  display: flex;
+  gap: 8px;
+}
+.userProfileImgBox {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.commentChangeBtBox {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.nameAndDate {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}

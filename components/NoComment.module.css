@@ -1,0 +1,16 @@
+.noComment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.imgBox {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+.textCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

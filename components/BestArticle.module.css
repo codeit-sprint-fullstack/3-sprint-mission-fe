@@ -1,0 +1,68 @@
+.bestArticleLayout {
+  width: 384px;
+  height: 169px;
+  padding: 0px 24px 0px 24px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.bestArticleMain {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 336px;
+  height: 153px;
+}
+
+.bestBanner {
+  width: 70px;
+  background-color: #3692ff;
+  color: #ffffff;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border: none;
+  padding: 2px 24px 2px 24px;
+}
+
+.bestArticleContentsBox {
+  display: flex;
+  gap: 8px;
+}
+
+.bestArticleTitle {
+  width: 256px;
+  height: 64px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.articleImgBox {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.bestArticleInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.bestArticleUserInfo {
+  display: flex;
+  gap: 8px;
+}
+
+.nameText {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.likeText {
+  color: #6b7280;
+}
+
+.dateText {
+  color: #9ca3af;
+}

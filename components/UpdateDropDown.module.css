@@ -1,0 +1,27 @@
+.articleChangeBt {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.dropdownMenu {
+  position: absolute;
+  margin-top: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: white;
+  right: 220px;
+  width: 139px;
+  z-index: 1;
+}
+
+.dropdownItem {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.dropdownItem:hover {
+  background-color: #f5f5f5;
+}
