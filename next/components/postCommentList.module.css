@@ -1,0 +1,83 @@
+.commentListWrapper{
+  height: 100px;
+  width: 1200px;
+  margin-left: 360px;
+  margin-bottom: 600px;
+}
+
+.commentContent{
+  font-size: 14px;
+  font-weight: 400;
+  color: #1f2937;
+}
+
+.commentWrapper{
+ list-style-type: none;
+}
+
+.userImage{
+  background-color:#9Ca3af;
+  border-radius: 50px;
+}
+
+.userName{
+  font-size: 12px;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.hour{
+  font-weight: 400;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.aboutWrapper{
+  display: flex;
+  margin-top: 20px;
+}
+
+.backButton{
+  border-radius: 40px;
+  padding: 12px 64px;
+  gap: 8px;
+  background-color: #3692ff;
+  color: #f3f4f6;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-left: 450px;
+  margin-top: 20px;
+  border: none;
+}
+
+.upperSection{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.userWrapper{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.noComments{
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #9ca3af;
+  line-height: 26px;
+}
+
+.none{
+  display: flex;
+}
+
+.emptyReply{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

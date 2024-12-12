@@ -1,0 +1,69 @@
+.postWrapper{
+  width: 1200px;
+  margin-left: 360px;
+}
+
+.postTitle{
+  font-size: 20px;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+.titleWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.userImage{
+  background-color: #9ca3af;
+  border-radius: 50px;
+}
+
+.userName{
+  font-weight: 500;
+  font-size: 14px;
+  color: #4b5563;
+  margin-left: 5px;
+}
+
+.postDate{
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+  margin-left: 5px;
+}
+
+.heartWrapper{
+  display: flex;
+  align-items: center;
+  width: 87px;
+  border-radius: 35px;
+  padding: 4px 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.favoriteCount{
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.postContent{
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.aboutPost{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.contentWrapper{
+  margin-top: 35px;
+}

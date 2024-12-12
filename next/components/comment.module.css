@@ -1,0 +1,44 @@
+.postComment{
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.enterComment{
+  width: 1200px;
+  border-radius: 12px;
+  resize: none;
+  background-color: #F3F4F6;
+  padding: 24px 16px;
+  border: none;
+}
+
+.enterComment::placeholder{
+  font-weight: 400;
+  font-size: 16px;
+  font-family: pretendard;
+  color: #9CA3AF;
+}
+
+.commentBtn{
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color: #9CA3AF;
+  font-weight: 600;
+  font-size: 16px;
+  color: #F3F4F6;
+  border: none;
+}
+
+.commentWrapper{
+  width: 1200px;
+  height: 197px;
+  margin-left: 360px;
+  margin-top: 35px;
+}
+
+.btnWrapper{
+  margin-left: 1122px;
+  margin-top: 5px;
+}

@@ -1,0 +1,114 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+:root{
+    font-size: 10px;
+  }
+
+.productRegister{ 
+    font-family: pretendard;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    color: #1F2937;
+}
+
+.registertitle{
+    font-family: pretendard;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.6rem;
+    color: #1F2937;
+}
+
+.input{
+    border-radius: 12px;
+    padding: 16px 24px;
+    gap: 10px;
+    width: 120rem;
+    height: 56px;
+    border: none;
+    background-color: #F3F4F6;
+}
+
+.introInput {
+    border-radius: 12px;
+    padding: 16px 24px;
+    gap: 10px;
+    width: 120rem;
+    height: 28.2rem;
+    border: none;
+    background-color: #F3F4F6;
+}
+
+.registerBtn{
+    border-radius: 8px;
+    padding: 12px 23px;
+    background-color: #9CA3AF;
+    color: #F3F4F6;
+    bottom: 4rem;
+    border: none;
+}
+
+input::placeholder{
+    font-family: pretendard;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #9CA3AF;
+}
+
+.part1{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.wrapper {
+    top: 94px;
+    left: 360px;
+    gap: 24px;
+}
+
+textarea::placeholder{
+    font-family: pretendard;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #9CA3AF;
+}
+
+textarea {
+    resize: none;
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 24px;
+}
+
+.tag-content{
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 26px;
+    padding: 6px 12px;
+    background-color: #F3F4F6;
+    font-family: pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #1F2937;
+}
+
+.tagimg{
+    margin-top: 5px;
+}
+
+.msg{
+    padding-left: 16px;
+    gap: 10px;
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #F74747;
+}

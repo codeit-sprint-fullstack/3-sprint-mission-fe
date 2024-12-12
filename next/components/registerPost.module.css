@@ -1,0 +1,81 @@
+.wrapper{
+  width: 1200px;
+  margin-top: 70px;
+  margin-left: 360px;
+  margin-right: 360px;
+}
+
+.writeWrapper{
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleWrapper{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.write{
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.registerBtn{
+  height: 42px;
+  padding: 12px 23px;
+  border-radius: 8px;
+  background-color: #9CA3AF;
+  color: #F3F4F6;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.title{
+  font-weight: 700;
+  font-size: 18px;
+  color: #1F2937;
+}
+
+.titleInput{
+  width: 1200px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  border: none;
+}
+
+.titleInput::placeholder{
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.content{
+  font-weight: 700;
+  font-size: 18px;
+  color: #1F2937;
+}
+
+.contentInput{
+  width: 1200px;
+  height: 282px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  resize: none;
+  border: none;
+}
+
+.contentInput::placeholder{
+  font-family: pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9CA2AF;
+}
+
+.contentWrapper{
+  margin-top: 50px;
+  margin-bottom: 198px;
+}
