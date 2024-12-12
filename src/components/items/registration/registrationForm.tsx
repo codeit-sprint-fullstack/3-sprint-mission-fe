@@ -2,7 +2,6 @@
 
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import cn from '@/lib/cn';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ProductRegistrationFormData } from './types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +9,7 @@ import { faX } from '@fortawesome/free-solid-svg-icons/faX';
 import { createProduct } from '@/services/api/product';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
+import useTagInput from '@/hooks/useTagInput';
 
 const InputSectionStyle = 'flex flex-col gap-4 mb-8';
 const InputStyle = 'bg-bg-input px-6 py-4 rounded-[12px]';
@@ -22,7 +22,6 @@ export default function ProductRegistrationForm({
 }: {
   defaultValue?: ProductRegistrationFormData;
 }) {
-  const [tagInput, setTagInput] = useState('');
   const router = useRouter();
   const {
     register,
@@ -40,7 +39,15 @@ export default function ProductRegistrationForm({
       ...defaultValue,
     },
   });
-  const [tagError, setTagError] = useState<string>('');
+  const {
+    tagInput,
+    setTagInput,
+    tagError,
+    tags,
+    handleAddTag,
+    handleRemoveTag,
+  } = useTagInput({ setValue, watch });
+
   const createProductMutation = useMutation({
     mutationFn: createProduct,
     onSuccess: (product) => {
@@ -51,37 +58,9 @@ export default function ProductRegistrationForm({
   const name = watch('name');
   const description = watch('description');
   const price = watch('price');
-  const tags = watch('tags');
 
   const buttonActive =
     name && description && !Number.isNaN(price) && tags.length > 0 && isValid;
-
-  const handleAddTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      setTagError('');
-      if (e.nativeEvent.isComposing) return;
-      const newTag = tagInput.trim();
-
-      if (newTag.length > 5 || newTag.length < 1) {
-        return setTagError('5글자 이내로 입력해주세요');
-      }
-
-      if (newTag !== '' && !tags.includes(newTag)) {
-        setValue('tags', [...tags, newTag]);
-        return setTagInput('');
-      }
-
-      setTagError('이미 등록된 태그입니다.');
-    }
-  };
-
-  const handleRemoveTag = (indexToRemove: number) => {
-    setValue(
-      'tags',
-      tags.filter((_, index) => indexToRemove !== index),
-    );
-  };
 
   const onSubmit = async (data: ProductRegistrationFormData) => {
     createProductMutation.mutate(data);
