@@ -9,6 +9,7 @@ export default async function Page({ params }: ParamsProps) {
     <WriteForm
       initialData={article}
       articleId={params.id}
+      variant='edit'
     />
   );
 }

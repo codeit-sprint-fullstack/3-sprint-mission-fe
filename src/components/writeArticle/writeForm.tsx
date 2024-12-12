@@ -3,14 +3,16 @@
 import { useMemo, useState } from 'react';
 import { WriteFormProps } from './writeForm.types';
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
-import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { createArticle, updateArticle } from '@/services/api/article';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-export default function WriteForm({ initialData, articleId }: WriteFormProps) {
-  const pathname = usePathname();
-  const isEditMode = pathname.split('/').includes('/edit');
+export default function WriteForm({
+  initialData,
+  articleId,
+  variant,
+}: WriteFormProps) {
+  const isEditMode = variant === 'edit';
   const [title, setTitle] = useState(initialData?.title || '');
   const [content, setContent] = useState(initialData?.content || '');
   const queryClient = useQueryClient();

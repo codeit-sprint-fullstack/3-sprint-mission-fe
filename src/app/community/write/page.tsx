@@ -1,5 +1,5 @@
 import WriteForm from '@/components/writeArticle/writeForm';
 
 export default async function Page() {
-  return <WriteForm />;
+  return <WriteForm variant='write' />;
 }

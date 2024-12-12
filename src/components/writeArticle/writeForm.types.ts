@@ -4,4 +4,5 @@ export interface WriteFormProps {
     content: string;
   };
   articleId?: string;
+  variant: 'write' | 'edit';
 }
