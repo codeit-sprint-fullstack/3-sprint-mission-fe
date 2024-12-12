@@ -1,0 +1,123 @@
+.headerContain {
+    width: 100%;
+    height: 81px;
+    background: #FFFFFF;
+    display: flex;
+    position: fixed;
+    z-index: 11;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.header1 {
+    width: calc(100% - 400px);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 9.5px 200px;
+    box-sizing: border-box;
+    top: 0px;
+    background: #FFFFFF;
+}
+
+.header2 {
+    width: calc(100%);
+    min-width: 300px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header1 img {
+    width: 153px;
+}
+
+.headerText {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    padding-left: 24px;
+}
+
+.headerText1,
+.headerText2 {
+    width: 109px;
+    height: 69px;
+    padding: 21px 15px;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 35px;
+    color: black;
+    /* 텍스트 색상 */
+    text-decoration: none;
+    /* 밑줄 제거 */
+}
+
+.headerText1{
+    color:#3692FF;
+}
+
+.headerText1:hover,
+.headerText2:hover {
+    color: #F74747;
+    transition: 0.5s;
+}
+
+
+
+.button {
+    background: #3692FF;
+    gap: 10px;
+    border-radius: 8px;
+    opacity: 1;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 48px;
+    cursor: pointer;
+    min-width: 88px;
+    min-height: 42px;
+}
+
+.button-def {
+    min-width: 88px;
+    min-height: 42px;
+}
+
+.button-alt {
+    border-radius: 40px;
+    opacity: 0px;
+    line-height: 56px;
+    margin-top: 32px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1230px) {
+    .header1 {
+        width: calc(100% - 48px);
+        min-width: 750px;
+        margin: 9.5px 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header1 {
+        min-width: 376px;
+    }
+}

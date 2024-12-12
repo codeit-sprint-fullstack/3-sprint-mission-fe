@@ -1,0 +1,129 @@
+.PostListContain {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.PostList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 1200px;
+    height: 138px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.PostListTop {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 72px;
+}
+
+.PostListTitle {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.PostListImageBox {
+    display: flex;
+    width: 72px;
+    height: 72px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #F3F4F6;
+}
+
+.PostListBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 26px;
+}
+
+.PostListButton1 {
+    display: flex;
+    gap: 8px;
+}
+
+.PostListUserImage {
+    width: 24px;
+    height: 24px;
+}
+
+.PostListUserName {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.PostListDate {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #9CA3AF;
+}
+
+.PostListHeartIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.PostListLikeCount {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.PostListButton2 {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    gap: 4px;
+}
+
+.PostListMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    margin: 30px auto;
+    background-color: #E5E7EB;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.PostHeader {
+    display: flex;
+    width: 1240px;
+    height: 47px;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    padding: 0 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
