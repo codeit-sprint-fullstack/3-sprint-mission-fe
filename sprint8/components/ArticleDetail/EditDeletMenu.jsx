@@ -30,12 +30,10 @@ function EditDeletMenu({ onToggleMenu, commentId, commentLoadHandler, articleId,
       <button
         onClick={(e) => {
           if (article) {
-            e.preventDefault()
             handleDeleteArticle();
             setArticleEditDelete(false);
             return;
           }
-          e.preventDefault()
           handleDeleteComment();
         }}
         className={styles.deletMenu}>
