@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue: #3692ff;
+  --blue-text: #ffffff;
+
+  --gray: #9ca3af;
+  --gray-light: #f3f4f6;
+  --gray-dark: #4b5563;
+  --gray-border: #dfdfdf;
+  --gray-bg-card: #f9fafb;
+  --gray-bg-list: #fcfcfc;
+  --gray-heart-number: #6b7280;
+  --gray-footer-text: #e5e7eb;
+
+  --white: #e5e7eb;
+
+  --black: #1f2937;
+}
