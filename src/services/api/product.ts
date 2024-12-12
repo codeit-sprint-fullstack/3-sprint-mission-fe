@@ -12,16 +12,17 @@ export const getProductList = async ({
   orderBy = 'recent',
   word,
 }: GetProductListParams = {}) => {
-  const queryParams = new URLSearchParams({
-    skip: skip.toString(),
-    take: take.toString(),
-    orderBy,
-    ...(word && { word }),
-  });
-
   try {
     const { data } = await axiosInstance.get<GetProductListResponse>(
-      `/products?${queryParams.toString()}`,
+      '/products',
+      {
+        params: {
+          skip,
+          take,
+          orderBy,
+          ...(word && { word }),
+        },
+      },
     );
 
     return data;

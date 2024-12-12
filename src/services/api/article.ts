@@ -13,15 +13,17 @@ export const getArticleList = async ({
   orderBy = 'recent',
   word,
 }: GetArticleListParams = {}): Promise<GetArticleListResponse> => {
-  const queryParams = new URLSearchParams({
-    skip: skip.toString(),
-    take: take.toString(),
-    orderBy,
-    ...(word && { word }),
-  });
   try {
     const { data } = await axiosInstance.get<GetArticleListResponse>(
-      `/articles?${queryParams.toString()}`,
+      '/articles',
+      {
+        params: {
+          skip,
+          take,
+          orderBy,
+          ...(word && { word }),
+        },
+      },
     );
 
     return data;
