@@ -44,7 +44,7 @@ function Header() {
 
           <div className={styles.headerTextBox}>
             <div className={styles.headerText}>
-              <Link href="/CommunityFeed" style={getLinkStyle("/CommunityFeed")}>
+              <Link href="/community-feed" style={getLinkStyle("/community-feed")}>
                 자유게시판
               </Link>
             </div>

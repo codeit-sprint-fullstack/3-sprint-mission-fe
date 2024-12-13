@@ -13,7 +13,7 @@ const Hero = () => {
               거래해 보세요
             </span>
           </div>
-          <Link href="/CommunityFeed">
+          <Link href="/community-feed">
             <div className="button">
               구경하러 가기
             </div>
