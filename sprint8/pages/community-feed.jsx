@@ -1,5 +1,3 @@
-// pages/CommunityFeed.js
-
 import Link from "next/link";
 import styles from "@/styles/pages/CommunityFeed.module.css";
 import BestArticles from "@/components/CommunityFeed/BestArticles";

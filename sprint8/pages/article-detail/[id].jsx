@@ -48,7 +48,7 @@ function ArticleDetail() {
         <Comments key={index} comment={comment} commentLoadHandler={commentLoadHandler} />
       ))}
       {comments.length ? null : <NoneComments />}
-      <Link href="/CommunityFeed">
+      <Link href="/community-feed">
         <button className={styles.toCommunityFeedButton}>
           목록으로 돌아가기
           <div className={styles.toCommunityFeedButtonImage}>
