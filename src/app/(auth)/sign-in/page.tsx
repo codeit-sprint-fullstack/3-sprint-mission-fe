@@ -1,3 +1,5 @@
+import SignInForm from '@/components/sign/signInForm';
+
 export default function Page() {
-  return <></>;
+  return <SignInForm />;
 }
