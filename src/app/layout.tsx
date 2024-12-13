@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import GNB from '@/components/layout/GNB';
-import Footer from '@/components/layout/Footer';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Provider } from 'jotai';
@@ -34,11 +32,7 @@ export default function RootLayout({
         <QueryProvider>
           <Provider>
             <ScreenWidthObserver />
-            <GNB />
-            <main className='flex-1 w-full flex flex-col items-center'>
-              {children}
-            </main>
-            <Footer />
+            {children}
           </Provider>
         </QueryProvider>
       </body>
