@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import kakao from '@/public/images/sign/kakaotalk.png';
 import google from '@/public/images/sign/google.png';
 
@@ -25,15 +24,6 @@ export default function SocialLogin() {
           />
         </div>
       </div>
-      <span>
-        이미 회원이신가요?
-        <Link
-          href='/sign-in'
-          className='underline text-text-blue font-medium'
-        >
-          로그인하기
-        </Link>
-      </span>
     </>
   );
 }
