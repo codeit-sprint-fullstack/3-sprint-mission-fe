@@ -1,57 +1,27 @@
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/components/CommunityFeed/Articles.module.css';
 import ArticleSearchInput from '@/components/CommunityFeed/ArticleSearchInput';
 import DropdownList from '@/components/CommunityFeed/DropdownList';
-import { getArticles } from '@/lib/pandaMarketApiService';
 import formatDate from '@/lib/formatDate';
+import useArticle from '@/hooks/useArticle';
 
 function ArticlesList() {
-  const [articles, setArticles] = useState([]);
-  // const [searchKeyword, setSearchKeyword] = useState("");
-  // console.log("searchKeyword : ", searchKeyword);
+  
+  const articlesList = useArticle(4, 'recent');
+  const Articles = articlesList.article || [];
 
-  useEffect(() => {
-    const loadHandler = async () => {
-      try {
-        //   if (searchKeyword !== "") {
-        //     const articlesList = await getArticles(searchKeyword, 0, 4, 'recent');
-        //     setArticles(articlesList);
-        //     return;
-
-        //   } else if (searchKeyword === "")
-
-        const articlesList = await getArticles(0, 4, 'recent');
-        setArticles(articlesList);
-
-      } catch (error) {
-        console.error('Error fetching best articles:', error);
-      }
-    };
-
-    loadHandler();
-  }, []);
-
-  const Articles = articles.article || [];
-
-  // const handleSearchKeywordChange = (value) => {
-  //   setSearchKeyword(value);
-  // };
-
-  if (!articles) return null;
+  if (!articlesList) return null;
 
   return (
     <div style={{ width: '1200px' }}>
       <div className={styles.searchSortBox}>
-        <ArticleSearchInput
-          // onChange={handleSearchKeywordChange}
-        />
+        <ArticleSearchInput />
         <DropdownList />
       </div>
       <div className={styles.articlesListBody}>
         {Articles.map((article, index) => (
-          <Link key={index} href={`/ArticleDetail/${article.id}`} passHref>
+          <Link key={index} href={`/article-detail/${article.id}`} passHref>
             <div className={styles.article}>
               <div className={styles.articleContent}>
                 <h2 className={styles.articleTitle}>{article.title}</h2>

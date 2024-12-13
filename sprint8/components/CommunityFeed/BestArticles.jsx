@@ -1,32 +1,22 @@
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/components/CommunityFeed/BestArticles.module.css";
-import { getArticles } from "@/lib/pandaMarketApiService";
 import formatDate from "@/lib/formatDate";
+import useArticle from "@/hooks/useArticle";
 
 function BestArticles() {
-  const [bestArticles, setBestArticles] = useState([]);
+  
+  const bestArticlesList = useArticle(3, 'best');
+  const BsetArticles = bestArticlesList.article || [];
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const bestArticlesList = await getArticles(0, 3, 'best');
-        setBestArticles(bestArticlesList);
-      } catch (error) {
-        console.error("Error fetching best articles:", error);
-      }
-    }; fetchArticles();
-  }, []);
-
-  const BestArticles = bestArticles.article || [];
+  if (!bestArticlesList) return null;
 
   return (
     <div className={styles.bestArticlesBody}>
-      {BestArticles.map((article, index) => (
+      {BsetArticles.map((article, index) => (
         <Link
           key={index || article.id}
-          href={`/ArticleDetail/${article.id}`}
+          href={`/article-detail/${article.id}`}
           passHref
         >
           <div className={styles.bestArticle}>

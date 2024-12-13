@@ -23,7 +23,7 @@ function ArticlePost() {
       const toMoveArticle = await getArticles(0, 1, 'recent');
       const toMoveArticleID = toMoveArticle.article[0].id;
 
-      router.push(`/ArticleDetail/${toMoveArticleID}`);
+      router.push(`/article-detail/${toMoveArticleID}`);
     } catch (error) {
       console.error("Error posting article:", error);
     }
