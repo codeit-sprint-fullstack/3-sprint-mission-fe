@@ -7,6 +7,7 @@ import Image from 'next/image';
 import logo from '@/public/images/common/logo.png';
 import SocialLogin from './socialLogin';
 import LoginLink from './loginLink';
+import CommonBtn from '../common/commonBtn/commonBtn';
 
 export default function SignUpForm() {
   const {
@@ -91,6 +92,12 @@ export default function SignUpForm() {
             value === password || '비밀번호가 일치하지 않습니다',
         }}
       />
+      <CommonBtn
+        type='submit'
+        className='w-full rounded-full mb-6 h-[56px]'
+      >
+        로그인
+      </CommonBtn>
       <SocialLogin />
       <LoginLink variant='signUp' />
     </form>
