@@ -17,7 +17,6 @@ export default function CommonInputSection<T extends FieldValues>({
 }: CommonInputSectionProps<T>) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name === 'password' || name === 'passwordCheck';
-  console.log(errors[name]);
 
   return (
     <div className='input-section'>
