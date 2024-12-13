@@ -35,7 +35,7 @@ export default function SignInForm() {
       <Image
         src={logo}
         alt='로고 이미지'
-        width={396}
+        className='w-[198px] md:w-[396px] xl:w-[396px] mb-6 md:mb-10 xl:mb-10'
       />
       <CommonInputSection<SignInFormData>
         register={register}
