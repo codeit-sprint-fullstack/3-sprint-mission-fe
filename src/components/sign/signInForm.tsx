@@ -13,10 +13,15 @@ export default function SignInForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    watch,
+    formState: { errors, isValid },
   } = useForm<SignInFormData>({
     mode: 'onBlur',
   });
+
+  const email = watch('email');
+  const password = watch('password');
+  const buttonActive = email && password && isValid;
 
   const onSubmit = (data: SignInFormData) => {
     console.log(data);
@@ -62,8 +67,11 @@ export default function SignInForm() {
           },
         }}
       />
-      <CommonBtn className='w-full rounded-full mb-6 h-[56px]'>
-        회원가입
+      <CommonBtn
+        disabled={!buttonActive}
+        className='w-full rounded-full mb-6 h-[56px]'
+      >
+        로그인
       </CommonBtn>
       <SocialLogin />
       <LoginLink variant='signIn' />

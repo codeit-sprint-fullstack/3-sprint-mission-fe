@@ -13,13 +13,18 @@ export default function SignUpForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
   } = useForm<SignUpFormData>({
     mode: 'onBlur',
   });
 
+  const email = watch('email');
+  const nickname = watch('nickname');
   const password = watch('password');
+  const passwordCheck = watch('passwordCheck');
+  const buttonActive =
+    email && nickname && password && passwordCheck && isValid;
 
   const onSubmit = (data: SignUpFormData) => {
     console.log(data);
@@ -94,6 +99,7 @@ export default function SignUpForm() {
       />
       <CommonBtn
         type='submit'
+        disabled={!buttonActive}
         className='w-full rounded-full mb-6 h-[56px]'
       >
         로그인
