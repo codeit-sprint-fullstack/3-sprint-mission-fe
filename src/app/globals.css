@@ -72,7 +72,7 @@ body {
   }
 
   .input-label {
-    @apply text-[18px] font-bold;
+    @apply text-[16px] md:text-[18px] xl:text-[18px] font-bold;
   }
 
   .error-message {
