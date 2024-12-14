@@ -27,7 +27,6 @@ function useComment(articleId) {
   const handlePostComment = async (e) => {
     if (textareaValue === "") return;
     const response = await postComment(articleId, textareaValue);
-    console.log("response : ", response);
     setTextareaValue('');
     handleLoadComments();
   }

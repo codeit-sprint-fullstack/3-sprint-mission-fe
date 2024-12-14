@@ -8,7 +8,6 @@ function EditDeletMenu({ onToggleMenu, commentId, handleDeleteComment, articleId
 
   const handleDeleteArticle = async () => {
     const response = await deleteArticle(articleId);
-    console.log("deleteArticleresponse : ", response);
     router.push('/community-feed');
   }
 

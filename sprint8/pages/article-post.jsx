@@ -1,7 +1,5 @@
 import { useState } from "react";
 import styles from "@/styles/pages/ArticlePost.module.css";
-import { getArticles, postArticle } from "@/lib/pandaMarketApiService";
-import { useRouter } from "next/router";
 import useArticlePost from "@/hooks/useArticlePost";
 
 function ArticlePost() {
@@ -15,6 +13,9 @@ function ArticlePost() {
   const titleValidHandler = () => {
     if (title === "") {
       setTitleValid(true);
+      setTimeout(() => {
+        setTitleValid(false);
+      }, 3000);
     } else {
       setTitleValid(false);
     }
@@ -23,6 +24,9 @@ function ArticlePost() {
   const contentValidHandler = () => {
     if (content === "") {
       setContentValid(true);
+      setTimeout(() => {
+        setContentValid(false);
+      }, 3000);
     } else {
       setContentValid(false);
     }

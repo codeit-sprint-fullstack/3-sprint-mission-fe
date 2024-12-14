@@ -8,7 +8,6 @@ function useArticlePost(title, content, setTitle, setContent) {
     try {
       if (title !== "" && content !== "") {
         const response = await postArticle(title, content);
-        console.log("response : ", response);
 
         setTitle('');
         setContent('');

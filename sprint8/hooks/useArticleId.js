@@ -17,7 +17,6 @@ export default function useArticleId(articleId) {
         const articleDetail = await getArticleId(articleId);
         if (!articleDetail) return;
         setArticle(articleDetail);
-        console.log("articleDetail: ", articleDetail);
       } catch (error) {
         console.error("Error fetching article:", error);
         setHasError(true);
@@ -29,6 +28,5 @@ export default function useArticleId(articleId) {
     fetchArticle();
   }, [articleId]);
 
-  console.log("article: ", article);
   return { article, isLoading, hasError };
 }
