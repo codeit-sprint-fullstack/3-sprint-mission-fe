@@ -11,7 +11,7 @@ function CommunityFeed({ articles }) {
         <BestArticles />
         <div className={styles.articlePostHeader}>
           <h1 className={styles.communityFeedTitle}>게시글</h1>
-          <Link href="/ArticlePost">
+          <Link href="/article-post">
             <button className={styles.toArticlePostButton}>
               글쓰기
             </button>
