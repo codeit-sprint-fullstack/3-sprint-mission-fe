@@ -4,14 +4,14 @@ import styles from "@/styles/components/ArticleDetail/ArticleInfo.module.css";
 import formatDate from '@/lib/formatDate';
 import EditDeletMenu from "@/components/ArticleDetail/EditDeletMenu";
 
-function ArticleInfo({ articles }) {
+function ArticleInfo({ article }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [articleEditDelete, setArticleEditDelete] = useState(false);
 
   return (
     <div className={styles.articleInfoBox}>
       <div className={styles.articleInfoHeader}>
-        <h1 className={styles.articleInfoTitle}>{articles.title}</h1>
+        <h1 className={styles.articleInfoTitle}>{article.title}</h1>
         <div
           onClick={() => {
             setToggleMenu(!toggleMenu)
@@ -19,7 +19,7 @@ function ArticleInfo({ articles }) {
           }}
           className={styles.togleMenuMark}
         >⋮</div>
-        {toggleMenu ? <EditDeletMenu articleId={articles.id} article={articleEditDelete} setArticleEditDelete={setArticleEditDelete} /> : null}
+        {toggleMenu ? <EditDeletMenu articleId={article.id} article={articleEditDelete} setArticleEditDelete={setArticleEditDelete} /> : null}
       </div>
       <div className={styles.articleMetaDataBox}>
         <div className={styles.metaDataBoxLeft}>
@@ -37,7 +37,7 @@ function ArticleInfo({ articles }) {
           </div>
           <div className={styles.nickname}>총명한판다</div>
           <div className={styles.date}>
-            {/* {formatDate(articles.createdAt)} */}
+            {formatDate(article.createdAt)}
           </div>
         </div>
         <div className={styles.MetaDataBoxRight}>
@@ -60,13 +60,13 @@ function ArticleInfo({ articles }) {
             <p className={styles.redHeartImage}>
               &#x2764;&#xFE0F;
             </p>
-            <div className={styles.likeNum}>{articles.likes}</div>
+            <div className={styles.likeNum}>{article.likes}</div>
           </div>
         </div>
       </div>
       <div className={styles.articleInfoContentBox}>
         <h2 className={styles.articleInfoContentText}>
-          {articles.content}
+          {article.content}
         </h2>
       </div>
     </div>
