@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { deleteComment, getComments, postComment } from "@/lib/pandaMarketApiService";
 
-export default function useComment(articleId) {
+function useComment(articleId) {
   const [comments, setComments] = useState([]);
   const [textareaValue, setTextareaValue] = useState("");
 
@@ -24,13 +24,15 @@ export default function useComment(articleId) {
     handleLoadComments();
   }, [handleLoadComments]);
 
-const handlePostComment = async (e) => {
-  if(textareaValue === "") return;
-  const response = await postComment(articleId, textareaValue);
-  console.log("response : ", response);
-  setTextareaValue('');
-  handleLoadComments();
-}
+  const handlePostComment = async (e) => {
+    if (textareaValue === "") return;
+    const response = await postComment(articleId, textareaValue);
+    console.log("response : ", response);
+    setTextareaValue('');
+    handleLoadComments();
+  }
 
   return { comments, handleDeleteComment, handlePostComment, setTextareaValue, textareaValue };
 }
+
+export default useComment;
