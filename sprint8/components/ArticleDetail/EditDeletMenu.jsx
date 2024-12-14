@@ -1,16 +1,10 @@
 import { deleteComment, deleteArticle } from "@/lib/pandaMarketApiService";
 import { useRouter } from "next/router";
 import styles from "@/styles/components/ArticleDetail/EditDeletMenu.module.css";
+import useComment from "@/hooks/useComment";
 
-function EditDeletMenu({ onToggleMenu, commentId, commentLoadHandler, articleId, article, setArticleEditDelete }) {
+function EditDeletMenu({ onToggleMenu, commentId, handleDeleteComment, articleId, article, setArticleEditDelete }) {
   const router = useRouter();
-
-  const handleDeleteComment = async () => {
-    const response = await deleteComment(commentId);
-    console.log("response : ", response);
-    onToggleMenu(false);
-    commentLoadHandler();
-  }
 
   const handleDeleteArticle = async () => {
     const response = await deleteArticle(articleId);
@@ -34,7 +28,8 @@ function EditDeletMenu({ onToggleMenu, commentId, commentLoadHandler, articleId,
             setArticleEditDelete(false);
             return;
           }
-          handleDeleteComment();
+          handleDeleteComment(commentId);
+          onToggleMenu(false);
         }}
         className={styles.deletMenu}>
         삭제하기

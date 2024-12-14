@@ -1,17 +1,10 @@
 import { useState } from "react";
 import styles from "@/styles/components/ArticleDetail/CommentPost.module.css";
 import { postComment } from "@/lib/pandaMarketApiService";
+import useComment from "@/hooks/useComment";
 
-function CommentPost({ articleId, commentPost }) {
-  const [textareaValue, setTextareaValue] = useState("");
+function CommentPost({ handlePostComment, setTextareaValue, textareaValue }) {
 
-  const handlePostComment = async (e) => {
-    if(textareaValue === "") return;
-    const response = await postComment(articleId, textareaValue);
-    console.log("response : ", response);
-    commentPost(response)
-    setTextareaValue('');
-  }
 
   return (
     <div className={styles.commentPostBox}>

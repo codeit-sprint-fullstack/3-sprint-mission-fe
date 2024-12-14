@@ -8,44 +8,25 @@ import ArticleInfo from "@/components/ArticleDetail/ArticleInfo";
 import CommentPost from "@/components/ArticleDetail/CommentPost";
 import Comments from "@/components/ArticleDetail/Comments";
 import NoneComments from "@/components/ArticleDetail/NoneComments";
+import useArticleId from "@/hooks/useArticleId";
+import useComment from "@/hooks/useComment";
 
 function ArticleDetail() {
   const router = useRouter();
   const articleId = router.query.id;
-  const [article, setArticle] = useState(null);
-  const [comments, setComments] = useState([]); // 초기값을 빈 배열로 설정
-  const [commentPost, setCommentPost] = useState(false);
 
-  const articleLoadHandler = async () => {
-    if (!articleId) return;
-      const articleDetail = await getArticleId(articleId);
-      setArticle(articleDetail);
-  };
+  const articles = useArticleId(articleId) || [];
+  const { comments, handleDeleteComment, handlePostComment, setTextareaValue, textareaValue } = useComment(articleId) || [];
 
-  const commentLoadHandler = async () => {
-    if (!articleId) return;
-    const articleComments = await getComments(articleId);
-    setComments(articleComments.comments || []); // comments 배열만 추출
-    console.log("Fetched comments:", articleComments.comments);
-  };
-
-
-  useEffect(() => {
-    if (!articleId) return;
-
-    articleLoadHandler();
-    commentLoadHandler();
-  }, [articleId, commentPost]);
-
-  if (!article) return <p>Loading article...</p>;
+  if (!articles) return <p>Loading article...</p>;
 
   return (
     <div className={styles.ArticleDetailBox}>
-      <ArticleInfo article={article} />
-      <CommentPost articleId={articleId} commentPost={setCommentPost} />
+      <ArticleInfo articles={articles} />
+      <CommentPost handlePostComment={handlePostComment} setTextareaValue={setTextareaValue} textareaValue={textareaValue} />
 
       {comments.map((comment, index) => (
-        <Comments key={index} comment={comment} commentLoadHandler={commentLoadHandler} />
+        <Comments key={index} comment={comment} handleDeleteComment={handleDeleteComment} />
       ))}
       {comments.length ? null : <NoneComments />}
       <Link href="/community-feed">
