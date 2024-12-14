@@ -15,14 +15,21 @@ function ArticleDetail() {
   const router = useRouter();
   const articleId = router.query.id;
 
-  const articles = useArticleId(articleId) || [];
+  const { article, isLoading, hasError } = useArticleId(articleId) || [];
   const { comments, handleDeleteComment, handlePostComment, setTextareaValue, textareaValue } = useComment(articleId) || [];
 
-  if (!articles) return <p>Loading article...</p>;
+// loading, error 일 때의 화면 처리 디자인 필요(다음에)
+  if (isLoading) { return <div style={{ marginTop: "100px" }}>Loading...</div>; }
+  if (hasError) {
+    return <div>Error loading article. Please try again later.</div>;
+  }
+  if (!article || article.length === 0) {
+    return <div>No article found.</div>;
+  }
 
   return (
     <div className={styles.ArticleDetailBox}>
-      <ArticleInfo articles={articles} />
+      <ArticleInfo article={article} />
       <CommentPost handlePostComment={handlePostComment} setTextareaValue={setTextareaValue} textareaValue={textareaValue} />
 
       {comments.map((comment, index) => (
