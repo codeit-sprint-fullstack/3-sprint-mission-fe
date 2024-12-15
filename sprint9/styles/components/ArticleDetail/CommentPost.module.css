@@ -1,0 +1,76 @@
+.commentPostBox {
+  width: 1200px;
+  margin-bottom: 40px;
+}
+
+.commentPostTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.textareaContent {
+  width: 100%;
+  height: 104px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-top: 12px;
+  outline: none;
+  resize: none;
+  border-style: none;
+  padding: 1px 24px 16px;
+  background-color: #F3F4F6;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+
+  ;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+}
+
+.textareaContent::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.commentPostButtonBox {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentPostButton {
+  font-size: 16px;
+  font-weight: 600;
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+  color: #F3F4F6;
+  background-color: #9CA3AF;
+}
+
+.postButtonBlue {
+  background-color: var(--mainColor);
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
+}
