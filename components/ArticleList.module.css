@@ -1,0 +1,6 @@
+.articleList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1200px, 1fr));
+  background-color: #ffffff;
+  gap: 24px;
+}

@@ -1,0 +1,79 @@
+.articleContentsBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contentsGap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.articleTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.bigText {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #1f2937;
+}
+.articleInfo {
+  display: flex;
+  gap: 32px;
+}
+
+.userInfo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.userProfileImgBox {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.nameAndDate {
+  display: flex;
+  gap: 8px;
+}
+
+.likeBtBox {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.verticalLine {
+  height: 34px;
+  border: 1px solid #e5e7eb;
+  border-radius: 2px;
+}
+
+.likeBt {
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+  padding: 4px 12px 4px 12px;
+}
+
+.btContents {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.likeImgBox {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}

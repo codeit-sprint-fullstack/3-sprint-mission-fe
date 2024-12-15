@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 34px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.contents {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.returnToArticlesBt {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 240px;
+  height: 48px;
+  border-radius: 40px;
+  padding: 12px 0px 12px 64px;
+  border: none;
+  font-size: 12px;
+  background-color: #3692ff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.returnImgBox {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
