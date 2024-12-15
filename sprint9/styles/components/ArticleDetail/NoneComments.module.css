@@ -1,0 +1,23 @@
+.noneCommentsBox {
+  width: 100%;
+  height: 208px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
+
+.noneCommentsImage {
+  width: 200px;
+  height: 200px;
+}
+
+.noneCommentsText {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+  margin-top: 37px;
+  text-align: center;
+}

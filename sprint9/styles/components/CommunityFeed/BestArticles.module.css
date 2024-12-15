@@ -1,0 +1,96 @@
+.bestArticlesBody {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.bestArticle {
+  width: 384px;
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 24px 16px 24px;
+  border-radius: 8px;
+  background-color: #f9fafb17;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.1);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
+}
+
+.bestMark {
+  background-color: var(--mainColor);
+  width: 102px;
+  height: 30px;
+  padding: 2px 24px 2px 24px;
+  border-radius: 0px 0px 16px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.bestMarkText {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.bestArticleContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bestArticleTitle {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1F2937;
+}
+
+.articleInfoBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.articleInfoLeft {
+  display: flex;
+  align-items: center;
+}
+
+.nickname {
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 8px;
+  color: #4B5563;
+}
+
+.heartImage{
+  width: 12.75px;
+  height: 12px;
+}
+
+.articleLikeNum {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 4px;
+  margin-bottom: 2px;
+  color: #6B7280;
+}
+
+.articleCreateDate {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+}

@@ -1,0 +1,200 @@
+.header {
+  position: fixed;
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.1rem solid #DFDFDF;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 0;
+  padding-left: 18rem;
+  padding-right: 18rem;
+  z-index: 1;
+}
+
+.headerContent {
+  height: 5.1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pandaLogoImg {
+  width: 15.3rem;
+  height: 5.1rem;
+}
+
+.pandaLogoText {
+  display: none;
+}
+
+.headerTextBox {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  left: 34rem;
+  min-width: 27.1rem;
+}
+
+.headerText {
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+  list-style-type: none;
+  margin: 1.5rem 0;
+  margin-right: 1.5rem;
+  color: #4B5563;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    color: #000000fb;
+  }
+
+  ;
+
+  &:active {
+    transform: scale(1)
+  }
+}
+
+.headerTex>a {
+  text-decoration: none;
+  color: #4B5563;
+}
+
+.loginButtn {
+  text-decoration: none;
+  min-width: 12.8rem;
+  height: 4.8rem;
+  border-radius: 0.8rem;
+  background-color: var(--mainColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F3F4F6;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
+}
+
+@media (max-width: 1300px) {
+  .header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .headerTextBox {
+    position: absolute;
+    left: 18rem;
+  }
+}
+
+/* 태블릿 스타일 */
+@media (max-width: 750px) {
+  .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .headerContent {
+    height: 5.1rem;
+    width: 100%;
+    min-width: 39.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headerTextBox {
+    position: absolute;
+    left: 15rem;
+    bottom: 7px;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerText {
+    font-weight: 680;
+    font-size: 18px;
+  }
+
+  .headerTextBox {
+    justify-content: flex-start;
+    position: absolute;
+    left: 15rem;
+    bottom: 6px;
+    margin-left: 30px;
+  }
+
+  .loginButtn {
+    min-width: 9.8rem;
+  }
+}
+
+@media (max-width: 486px) {
+  .headerContent {
+    height: 5.1rem;
+    width: 100%;
+    min-width: 37.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headerTextBox {
+    position: absolute;
+    left: 10rem;
+    margin-left: 0px;
+    min-width: 0px;
+  }
+
+  .headerText {
+    font-size: 16px;
+    left: 10px;
+ 
+  }
+
+  .loginButtn {
+    min-width: 70px;
+    position: relative;
+    left: -8px;
+    font-size: 15px;
+    max-height: 41px;
+    margin-top: 5px;
+  }
+
+  .pandaLogoImg {
+    display: none;
+  }
+
+  .pandaLogoText {
+    /* display: block !important; */
+    position: relative;
+    bottom: -7px;
+    width: 11.3rem;
+    height: 4.1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .pandaLogoText>img {
+    max-width: 8.3rem;
+    max-height: 3.1rem;
+  }
+}

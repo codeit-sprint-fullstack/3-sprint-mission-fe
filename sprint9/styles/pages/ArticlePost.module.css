@@ -1,0 +1,148 @@
+.ArticlePostContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  margin-bottom: 794px;
+}
+
+.articlePostBox {
+  width: 1200px;
+  height: 512px;
+}
+
+.articlePostHeader {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.articlePostHeaderTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.articlePostBoutton {
+  width: 74px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #F3F4F6;
+  border-radius: 8px;
+  background-color: #9CA3AF;
+}
+
+.postBouttonBlue{
+  background-color: var(--mainColor);
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
+}
+
+.articlePostTitleBox {
+  width: 100%;
+  height: 94px;
+  margin-bottom: 48px;
+}
+
+.articlePostInputName {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.inputTitle {
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px 16px 24px;
+  border-radius: 12px;
+  color: #1F2937;
+  background-color: #F3F4F6;
+  margin-top: 12px;
+  outline: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+
+  ;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+}
+
+.inputTitle::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  color: #9CA3AF;
+}
+
+.inputValidBox {
+  border: 1px solid #F74747 !important;
+}
+
+.inputValidText {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 16px 24px;
+  color: #F74747;
+}
+
+.articlePostContentBox {
+  width: 100%;
+  height: 320px;
+}
+
+.textareaContent {
+  width: 100%;
+  height: 282px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-top: 12px;
+  outline: none;
+  resize: none;
+  border-style: none;
+  border-radius: 12px;
+  padding: 16px 24px 16px;
+  color: #1F2937;
+  background-color: #F3F4F6;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+
+  ;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+  }
+}
+
+.textareaContent::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
