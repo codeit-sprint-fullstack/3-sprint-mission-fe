@@ -1,0 +1,256 @@
+.visual {
+  height: 540px;
+  width: 100%;
+}
+.visual .content {
+  height: 100%;
+  width: 100%;
+  background-color: #cfe5ff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.visual .content img {
+  width: 40vw;
+}
+.visual .txtBox {
+  height: 340px;
+  margin-right: 10px;
+}
+.visual .txtBox h2 {
+  height: 112px;
+  font-size: 40px;
+  line-height: 56px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 30px;
+}
+.visual .txtBox a {
+  width: 100%;
+  display: block;
+  max-width: 357px;
+  max-height: 56px;
+  font-size: 23px;
+  line-height: 120%;
+  font-weight: 600;
+  color: var(--gray50);
+  background-color: var(--primary100);
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 40px;
+}
+
+.section {
+  display: flex;
+  align-items: cneter;
+  justify-content: center;
+  width: 100%;
+  height: 720px;
+  padding: 138px 344px;
+}
+.section .content {
+  width: 1000px;
+  background-color: #fcfcfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+.section .content img {
+  max-width: 588px;
+  /* width: 100%; */
+}
+.section .content .left {
+  text-align: right;
+}
+.section .content .left.txtBox {
+  margin-right: 64px;
+}
+.section .content .txtBox {
+  position: relative;
+  margin-left: 64px;
+  width: 100%;
+}
+.section .content .txtBox .abs {
+  width: 320px;
+}
+.section .content .txtBox h4 {
+  color: var(--primary100);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  margin-bottom: 15px;
+}
+.section .content .txtBox h2 {
+  font-size: 40px;
+  line-height: 56px;
+  font-weight: 700;
+  letter-spacing: 2%;
+  color: #374151;
+  margin-bottom: 35px;
+}
+.section .content .txtBox p {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.bottomVisual {
+  margin-top: 138px;
+}
+.bottomVisual img {
+  width: 649px;
+}
+.bottomVisual .txtBox {
+  margin-right: 69px;
+}
+
+@media screen and (max-width: 1199px) {
+  .visual {
+    margin-top: 70px;
+    height: 771px;
+  }
+  .visual .content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .visual .content img {
+    width: 100%;
+    max-width: 740px;
+  }
+  .visual .txtBox {
+    width: 100%;
+  }
+  .visual .txtBox br {
+    display: none;
+  }
+  .visual .txtBox h2 {
+    height: auto;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .visual .txtBox a {
+    margin: auto;
+  }
+
+  .section {
+    display: flex;
+    align-items: cneter;
+    justify-content: center;
+    width: 100%;
+    height: 720px;
+    padding: 24px;
+  }
+  .section .content {
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 588px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+  .section .content img {
+    width: 100%;
+  }
+  .section .content .left {
+  }
+  .section .content .left.txtBox {
+    margin-right: 0;
+    order: 1;
+  }
+  .section .content .txtBox {
+    margin-left: 0;
+    width: 100%;
+  }
+  .section .content .txtBox .abs {
+    width: 100%;
+  }
+  .section .content .txtBox h4 {
+    color: var(--primary100);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 15px;
+  }
+  .section .content .txtBox h2 {
+    font-size: 40px;
+    line-height: 56px;
+    font-weight: 700;
+    letter-spacing: 2%;
+    margin-bottom: 35px;
+  }
+  .section .content .txtBox p {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .bottomVisual {
+    margin-top: 138px;
+  }
+  .bottomVisual img {
+    width: 64.9rem;
+  }
+  .bottomVisual .txtBox {
+    margin-right: 0;
+    height: auto;
+  }
+  .bottomVisual .txtBox h2 br {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 743px) {
+  br {
+    display: none;
+  }
+  .visual {
+    height: 540px;
+  }
+  .visual .content {
+    height: auto;
+    padding: 0 16px;
+  }
+  .visual .content h2 br {
+    display: block;
+  }
+  .visual .content .txtBox h2 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+    font-size: 32px;
+    line-height: 140%;
+  }
+  .visual .txtBox {
+    margin-right: 0;
+  }
+  .visual .txtBox a {
+    max-width: 240px;
+    width: 100%;
+  }
+  .section {
+    height: auto;
+  }
+  .section .content {
+    flex-wrap: wrap;
+  }
+  .section .content .txtBox {
+    padding: 16px 0;
+  }
+  .section .content .left {
+    order: 3;
+  }
+  .sectipn .content img {
+    width: 100%;
+  }
+}
