@@ -8,6 +8,8 @@ import logo from '@/public/images/common/logo.png';
 import SocialLogin from './socialLogin';
 import LoginLink from './loginLink';
 import CommonBtn from '../common/commonBtn/commonBtn';
+import { signUp } from '@/services/api/auth';
+import { useAuthMutation } from '@/hooks/useAuthMutation';
 
 export default function SignUpForm() {
   const {
@@ -22,12 +24,14 @@ export default function SignUpForm() {
   const email = watch('email');
   const nickname = watch('nickname');
   const password = watch('password');
-  const passwordCheck = watch('passwordCheck');
+  const passwordConfirmation = watch('passwordConfirmation');
   const buttonActive =
-    email && nickname && password && passwordCheck && isValid;
+    email && nickname && password && passwordConfirmation && isValid;
+
+  const signUpMutation = useAuthMutation<SignUpFormData>(signUp);
 
   const onSubmit = (data: SignUpFormData) => {
-    console.log(data);
+    signUpMutation.mutate(data);
   };
 
   return (
@@ -85,7 +89,7 @@ export default function SignUpForm() {
         errors={errors}
         label='비밀번호 확인'
         type='password'
-        name='passwordCheck'
+        name='passwordConfirmation'
         placeholder='비밀번호를 다시 한 번 입력해주세요'
         validation={{
           required: '비밀번호를 다시 한 번 입력해주세요',
@@ -102,7 +106,7 @@ export default function SignUpForm() {
         disabled={!buttonActive}
         className='w-full rounded-full mb-6 h-[56px]'
       >
-        로그인
+        회원가입
       </CommonBtn>
       <SocialLogin />
       <LoginLink variant='signUp' />

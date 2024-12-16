@@ -8,6 +8,8 @@ import CommonInputSection from './commonInputSection';
 import CommonBtn from '../common/commonBtn/commonBtn';
 import SocialLogin from './socialLogin';
 import LoginLink from './loginLink';
+import { signIn } from '@/services/api/auth';
+import { useAuthMutation } from '@/hooks/useAuthMutation';
 
 export default function SignInForm() {
   const {
@@ -22,9 +24,10 @@ export default function SignInForm() {
   const email = watch('email');
   const password = watch('password');
   const buttonActive = email && password && isValid;
+  const signInMutation = useAuthMutation<SignInFormData>(signIn);
 
   const onSubmit = (data: SignInFormData) => {
-    console.log(data);
+    signInMutation.mutate(data);
   };
 
   return (
