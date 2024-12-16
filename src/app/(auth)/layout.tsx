@@ -1,3 +1,5 @@
+import AuthRedirect from '@/components/auth/authRedirect';
+
 export default function Layout({
   children,
 }: Readonly<{
@@ -5,6 +7,7 @@ export default function Layout({
 }>) {
   return (
     <>
+      <AuthRedirect />
       <main className='flex-1 w-full flex flex-col items-center'>
         <div className='w-full md:w-[692px] xl:w-[692px] p-4 md:p-[52px] xl:p-[52px] xl:py-6 flex flex-col'>
           {children}
