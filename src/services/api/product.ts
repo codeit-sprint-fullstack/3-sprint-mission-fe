@@ -7,20 +7,20 @@ import {
 } from './types/product';
 
 export const getProductList = async ({
-  skip = 0,
-  take = 10,
+  page = 0,
+  pageSize = 10,
   orderBy = 'recent',
-  word,
+  keyword,
 }: GetProductListParams = {}) => {
   try {
     const { data } = await axiosInstance.get<GetProductListResponse>(
       '/products',
       {
         params: {
-          skip,
-          take,
+          page,
+          pageSize,
           orderBy,
-          ...(word && { word }),
+          ...(keyword && { keyword }),
         },
       },
     );

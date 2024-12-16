@@ -20,17 +20,17 @@ export default function NormalProductListClient({
   searchParams,
 }: NormalProductListClientProps) {
   const [screenWidth] = useAtom(screenWidthAtom);
-  const take = Number(
+  const pageSize = Number(
     MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large],
   );
 
   const { data } = useQuery({
-    queryKey: ['products', searchParams.word, searchParams.skip, take],
+    queryKey: ['products', searchParams.page, searchParams.pageSize, pageSize],
     queryFn: () =>
       getProductList({
-        skip: Number(searchParams.skip) || 0,
-        take,
-        word: searchParams.word,
+        page: Number(searchParams.page) || 1,
+        pageSize,
+        keyword: searchParams.keyword,
         orderBy: searchParams.orderBy || 'recent',
       }),
     enabled: !!screenWidth,
@@ -45,19 +45,19 @@ export default function NormalProductListClient({
             GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
           )}
         >
-          {data.data.map((product) => (
+          {data.list.map((product) => (
             <Product
               key={product.id}
               id={product.id}
-              image='mockImage'
+              images={product.images}
               title={product.name}
               price={product.price}
-              likes={99}
+              likes={product.favoriteCount}
               size='small'
             />
           ))}
         </div>
-        <PageIndex maxPage={data.count / (searchParams.take ?? 10) + 1} />
+        <PageIndex maxPage={data.totalCount / (searchParams.pageSize ?? 10)} />
       </div>
     );
 }

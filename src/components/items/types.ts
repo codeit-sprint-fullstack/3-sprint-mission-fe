@@ -4,8 +4,8 @@ import {
 } from '@/services/api/types/product';
 
 export interface ProductProps {
-  id: string;
-  image: string;
+  id: number;
+  images: string[];
   title: string;
   price: number;
   likes: number;
