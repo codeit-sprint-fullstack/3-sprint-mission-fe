@@ -11,7 +11,7 @@ export default function Page({
   return (
     <div className='w-full md:w-full xl:w-[1200px] p-4 md:p-6 xl:p-0 xl:py-6 flex flex-col'>
       <BestProductListSection />
-      <ProductListHeader />
+      <ProductListHeader searchParams={searchParams} />
       <NormalProductListClient searchParams={searchParams} />
     </div>
   );
