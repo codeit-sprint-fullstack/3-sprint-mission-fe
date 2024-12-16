@@ -20,23 +20,30 @@ export default function NormalProductListClient({
   searchParams,
 }: NormalProductListClientProps) {
   const [screenWidth] = useAtom(screenWidthAtom);
-  const pageSize = Number(
+  const productsPerPage = Number(
     MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large],
   );
 
-  const { data } = useQuery({
-    queryKey: ['products', searchParams.page, searchParams.pageSize, pageSize],
+  const { data: products } = useQuery({
+    queryKey: [
+      'products',
+      searchParams.page,
+      searchParams.pageSize,
+      searchParams.orderBy,
+      searchParams.keyword,
+      productsPerPage,
+    ],
     queryFn: () =>
       getProductList({
         page: Number(searchParams.page) || 1,
-        pageSize,
+        pageSize: productsPerPage,
         keyword: searchParams.keyword,
         orderBy: searchParams.orderBy || 'recent',
       }),
     enabled: !!screenWidth,
   });
 
-  if (data)
+  if (products)
     return (
       <div className='flex flex-col items-center mb-[165px]'>
         <div
@@ -45,7 +52,7 @@ export default function NormalProductListClient({
             GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
           )}
         >
-          {data.list.map((product) => (
+          {products.list.map((product) => (
             <Product
               key={product.id}
               id={product.id}
@@ -57,7 +64,11 @@ export default function NormalProductListClient({
             />
           ))}
         </div>
-        <PageIndex maxPage={data.totalCount / (searchParams.pageSize ?? 10)} />
+        <PageIndex
+          maxPage={Math.ceil(
+            products.totalCount / (searchParams.pageSize ?? 10),
+          )}
+        />
       </div>
     );
 }
