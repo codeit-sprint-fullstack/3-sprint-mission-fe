@@ -20,7 +20,7 @@ export interface SignUpFormData {
   email: string;
   nickname: string;
   password: string;
-  passwordCheck: string;
+  passwordConfirmation: string;
 }
 
 export type SignInFormData = Omit<SignUpFormData, 'nickname' | 'passwordCheck'>;
