@@ -32,8 +32,6 @@ export default function BestProductListClient({
     initialData,
   });
 
-  console.log(data);
-
   return (
     <>
       {data.list.slice(0, sliceValue).map((product) => (
