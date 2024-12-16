@@ -10,6 +10,8 @@ import SocialLogin from './socialLogin';
 import LoginLink from './loginLink';
 import { signIn } from '@/services/api/auth';
 import { useAuthMutation } from '@/hooks/useAuthMutation';
+import Modal from '../modal/modal';
+import { useErrorHandling } from '@/hooks/useErrorHandling';
 
 export default function SignInForm() {
   const {
@@ -18,66 +20,77 @@ export default function SignInForm() {
     watch,
     formState: { errors, isValid },
   } = useForm<SignInFormData>({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const email = watch('email');
   const password = watch('password');
   const buttonActive = email && password && isValid;
-  const signInMutation = useAuthMutation<SignInFormData>(signIn);
+
+  const { modalOpen, setModalOpen, errorMessage, handleError } =
+    useErrorHandling();
+
+  const { mutate } = useAuthMutation<SignInFormData>(signIn, handleError);
 
   const onSubmit = (data: SignInFormData) => {
-    signInMutation.mutate(data);
+    mutate(data);
   };
 
   return (
-    <form
-      className='w-full flex flex-col items-center mt-[56px] md:mt-[158px] xl:mt-[170px]'
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <Image
-        src={logo}
-        alt='로고 이미지'
-        className='w-[198px] md:w-[396px] xl:w-[396px] mb-6 md:mb-10 xl:mb-10'
-      />
-      <CommonInputSection<SignInFormData>
-        register={register}
-        errors={errors}
-        label='이메일'
-        type='email'
-        name='email'
-        placeholder='이메일을 입력해주세요'
-        validation={{
-          required: '이메일을 입력해주세요',
-          pattern: {
-            value: /^\S+@\S+$/i,
-            message: '잘못된 이메일입니다',
-          },
-        }}
-      />
-      <CommonInputSection<SignInFormData>
-        register={register}
-        errors={errors}
-        label='비밀번호'
-        type='password'
-        name='password'
-        placeholder='비밀번호를 입력해주세요'
-        validation={{
-          required: '비밀번호를 입력해주세요',
-          minLength: {
-            value: 8,
-            message: '비밀번호를 8자 이상 입력해주세요',
-          },
-        }}
-      />
-      <CommonBtn
-        disabled={!buttonActive}
-        className='w-full rounded-full mb-6 h-[56px]'
+    <>
+      <form
+        className='w-full flex flex-col items-center mt-[56px] md:mt-[158px] xl:mt-[170px]'
+        onSubmit={handleSubmit(onSubmit)}
       >
-        로그인
-      </CommonBtn>
-      <SocialLogin />
-      <LoginLink variant='signIn' />
-    </form>
+        <Image
+          src={logo}
+          alt='로고 이미지'
+          className='w-[198px] md:w-[396px] xl:w-[396px] mb-6 md:mb-10 xl:mb-10'
+        />
+        <CommonInputSection<SignInFormData>
+          register={register}
+          errors={errors}
+          label='이메일'
+          type='email'
+          name='email'
+          placeholder='이메일을 입력해주세요'
+          validation={{
+            required: '이메일을 입력해주세요',
+            pattern: {
+              value: /^\S+@\S+$/i,
+              message: '잘못된 이메일입니다',
+            },
+          }}
+        />
+        <CommonInputSection<SignInFormData>
+          register={register}
+          errors={errors}
+          label='비밀번호'
+          type='password'
+          name='password'
+          placeholder='비밀번호를 입력해주세요'
+          validation={{
+            required: '비밀번호를 입력해주세요',
+            minLength: {
+              value: 8,
+              message: '비밀번호를 8자 이상 입력해주세요',
+            },
+          }}
+        />
+        <CommonBtn
+          disabled={!buttonActive}
+          className='w-full rounded-full mb-6 h-[56px]'
+        >
+          로그인
+        </CommonBtn>
+        <SocialLogin />
+        <LoginLink variant='signIn' />
+      </form>
+      <Modal
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        message={errorMessage}
+      />
+    </>
   );
 }
