@@ -3,47 +3,43 @@ import { screenWidthAtom } from '@/lib/store/atoms';
 import { useAtom } from 'jotai';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function usePageSize(maxPage: number) {
-  const PAGE_SIZE = 5;
+  const SIZE_PER_GROUP = 5;
   const [screenWidth] = useAtom(screenWidthAtom);
   const searchParams = useSearchParams();
   const router = useRouter();
-  const initialPage = useMemo(() => {
-    const skip = Number(searchParams.get('skip')) || 0;
-    const productsPerPage =
-      MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large];
-    return Math.floor(skip / productsPerPage) + 1;
-  }, [searchParams, screenWidth]);
+  const pageSize =
+    MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large];
+  const initialPage = Number(searchParams.get('page')) || 1;
   const [page, setPage] = useState(initialPage);
   const [pageGroup, setPageGroup] = useState(
-    Math.floor((initialPage - 1) / PAGE_SIZE),
+    Math.floor((initialPage - 1) / SIZE_PER_GROUP),
   );
 
-  const start = pageGroup * PAGE_SIZE + 1;
+  const start = pageGroup * SIZE_PER_GROUP + 1;
   const pageArray = Array.from(
-    { length: Math.min(PAGE_SIZE, maxPage) },
+    { length: SIZE_PER_GROUP },
     (_, index) => start + index,
-  );
+  ).filter((number) => number <= maxPage);
 
   const handlePreviousPage = () => {
     setPageGroup((prevValue) => Math.max(prevValue - 1, 0));
-    setPage((prev) => Math.max(prev - PAGE_SIZE, 1));
+    setPage((prev) => Math.max(prev - SIZE_PER_GROUP, 1));
   };
 
   const handleNextPage = () => {
-    setPageGroup((prevValue) => prevValue + 1);
-    setPage((prev) => prev + PAGE_SIZE);
+    setPageGroup((prevValue) =>
+      Math.min(prevValue + 1, Math.floor(maxPage / SIZE_PER_GROUP)),
+    );
+    setPage((prev) => Math.min(prev + SIZE_PER_GROUP, maxPage));
   };
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
-    const skip = (
-      (page - 1) *
-      MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large]
-    ).toString();
-    params.set('skip', skip);
+    params.set('page', page.toString());
+    params.set('pageSize', pageSize.toString());
     router.push(`?${params.toString()}`);
   }, [page]);
 
