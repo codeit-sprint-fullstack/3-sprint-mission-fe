@@ -1,8 +1,9 @@
 import { getMe } from '@/services/api/auth';
+import { User } from '@/services/api/types/auth';
 import { useQuery } from '@tanstack/react-query';
 
 export const useMe = () => {
-  return useQuery({
+  return useQuery<User>({
     queryKey: ['me'],
     queryFn: async () => {
       const accessKey = localStorage.getItem('accessToken');
