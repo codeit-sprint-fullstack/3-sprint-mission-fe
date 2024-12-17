@@ -6,7 +6,6 @@ import {
   useChange,
   useItmeList,
   usePageNavi,
-  useScreenSize,
 } from "../shared/hook/hook";
 import Layout from '../shared/components/layout'
 import Link from "next/link";

@@ -28,7 +28,7 @@ model Product {
 
 model User {
   uuid      String   @id @default(uuid())
-  id        String   @unique
+  email     String   @unique
   password  String
   image     String   @default("/img/ic_profile.png")
   createdAt DateTime @default(now())
