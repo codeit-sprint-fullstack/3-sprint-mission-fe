@@ -1,25 +1,26 @@
-import { CommentResponse } from '@/services/api/types/article';
-import Comment from './comment';
-import profileIcon from '@/public/icons/profile_icon.png';
+import { getArticleComments } from '@/services/api/article';
+import { getProductComments } from '@/services/api/product';
+import CommentListClient from './commentListClient';
 
-export default function CommentContainer({
-  data,
+export default async function CommentContainer({
+  id,
+  variant,
 }: {
-  data: CommentResponse[];
+  id: string;
+  variant: 'article' | 'product';
 }) {
+  const commentFn = {
+    article: getArticleComments,
+    product: getProductComments,
+  };
+
+  const comments = await commentFn[variant](id);
+
   return (
-    <div className='mb-10'>
-      {data.map((comment) => (
-        <Comment
-          key={comment.id}
-          id={comment.id}
-          articleId={comment.articleId}
-          nickname='똑똑한판다'
-          createdAt={comment.createdAt}
-          content={comment.content}
-          profileIcon={profileIcon}
-        />
-      ))}
-    </div>
+    <CommentListClient
+      id={id}
+      initialData={comments}
+      variant={variant}
+    />
   );
 }

@@ -6,5 +6,5 @@ export interface CommentProps {
   nickname: string;
   content: string;
   createdAt: string;
-  profileIcon: StaticImport;
+  profileIcon: StaticImport | string;
 }
