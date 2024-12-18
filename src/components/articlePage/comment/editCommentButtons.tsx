@@ -1,6 +1,6 @@
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
 
-export default function EditCommentButton({
+export default function EditCommentButtons({
   onCancel,
   onSubmit,
 }: {
