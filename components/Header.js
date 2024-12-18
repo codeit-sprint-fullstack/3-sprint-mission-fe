@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import styles from '@/css/Header.module.css';
 
 export default function Header() {
-
-
     return (
         <div className={styles.headerContain}>
             <div className={styles.header1}>
@@ -20,7 +18,7 @@ export default function Header() {
                         <p><Link href="#" className={styles.headerText2}>중고마켓</Link></p>
                     </div>
 
-                    <Link href='#' className={styles.button}>로그인</Link>
+                    <Link href='/login' className={styles.button}>로그인</Link>
                 </div>
             </div>
         </div >
