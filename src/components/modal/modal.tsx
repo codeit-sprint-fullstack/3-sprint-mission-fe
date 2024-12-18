@@ -17,7 +17,7 @@ export default function Modal({
   if (!mounted || !modalOpen) return null;
 
   return createPortal(
-    <div className='absolute inset-0 bg-black/70 z-10'>
+    <div className='fixed inset-0 bg-black/70 z-10'>
       <div
         className={
           'px-[67.5px] md:px-[162px] xl:px-[162px] py-[52px] md:py-[68px] xl:py-[68px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg z-20'
