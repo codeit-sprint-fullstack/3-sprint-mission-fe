@@ -102,6 +102,7 @@ export default function ProductRegistrationForm({
           tagError={tagError}
         />
         <TagsContainer
+          variant='registration'
           tags={tags}
           handleRemoveTag={handleRemoveTag}
         />

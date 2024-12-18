@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TagsContainerProps } from './types';
 
 export default function TagsContainer({
+  variant,
   tags,
   handleRemoveTag,
 }: TagsContainerProps) {
@@ -14,16 +15,18 @@ export default function TagsContainer({
           key={tag}
         >
           #{tag}
-          <button
-            type='button'
-            className='w-5 h-5 bg-bg-close-button rounded-full flex items-center justify-center text-text-white-secondary'
-            onClick={() => handleRemoveTag(index)}
-          >
-            <FontAwesomeIcon
-              icon={faX}
-              className='w-2'
-            />
-          </button>
+          {variant === 'registration' && handleRemoveTag && (
+            <button
+              type='button'
+              className='w-5 h-5 bg-bg-close-button rounded-full flex items-center justify-center text-text-white-secondary'
+              onClick={() => handleRemoveTag(index)}
+            >
+              <FontAwesomeIcon
+                icon={faX}
+                className='w-2'
+              />
+            </button>
+          )}
         </span>
       ))}
     </div>

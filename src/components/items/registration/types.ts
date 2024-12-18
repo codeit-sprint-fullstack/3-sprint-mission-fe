@@ -20,6 +20,7 @@ export interface ProductTagInputProps {
 }
 
 export interface TagsContainerProps {
+  variant: 'registration' | 'display';
   tags: string[];
-  handleRemoveTag: (index: number) => void;
+  handleRemoveTag?: (index: number) => void;
 }
