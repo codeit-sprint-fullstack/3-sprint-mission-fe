@@ -27,7 +27,7 @@ export default function BestArticleListClient({
 
   return (
     <>
-      {data.data
+      {data.list
         .slice(0, MEDIA_QUERY.bestArticlePageSize[screenWidth!])
         .map((article) => {
           return (

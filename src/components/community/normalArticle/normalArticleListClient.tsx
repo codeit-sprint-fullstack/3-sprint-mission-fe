@@ -29,7 +29,7 @@ export default function NormalArticleListClient({
 
   return (
     <>
-      {data.data.map((article) => (
+      {data.list.map((article) => (
         <NormalArticleCard
           key={article.id}
           nickname='총명한 판다'
