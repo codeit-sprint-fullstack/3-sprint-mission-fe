@@ -5,6 +5,11 @@ import {
   GetProductListResponse,
   GetProductResponse,
 } from './types/product';
+import {
+  CommentListResponse,
+  CommentRequest,
+  CommentResponse,
+} from './types/comment';
 
 export const getProductList = async ({
   page = 0,
@@ -81,6 +86,41 @@ export const deleteProduct = async (id: string) => {
     await axiosInstance.delete(`products/${id}`);
   } catch (e) {
     console.error('상품 삭제 실패', e);
+    throw e;
+  }
+};
+
+export const getProductComments = async (id: string, limit: string = '100') => {
+  try {
+    const { data } = await axiosInstance.get<CommentListResponse>(
+      `products/${id}/comments`,
+      {
+        params: {
+          limit,
+        },
+      },
+    );
+    return data;
+  } catch (e) {
+    console.error('상품 댓글 불러오기 실패', e);
+    throw e;
+  }
+};
+
+export const createProductComments = async ({
+  id: productId,
+  content,
+}: CommentRequest) => {
+  try {
+    const { data: comment } = await axiosInstance.post<CommentResponse>(
+      `/products/${productId}/comments`,
+      {
+        content,
+      },
+    );
+    return comment;
+  } catch (e) {
+    console.error('댓글 등록 실패', e);
     throw e;
   }
 };

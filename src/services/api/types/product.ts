@@ -14,10 +14,11 @@ export interface GetProductResponse {
   price: number;
   tags: string[];
   createdAt: string;
-  updatedAt: string;
   images: string[];
   ownerId: number;
+  ownerNickname: string;
   favoriteCount: number;
+  isFavorite: boolean;
 }
 
 export interface GetProductListResponse {
