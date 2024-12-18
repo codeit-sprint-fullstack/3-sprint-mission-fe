@@ -5,6 +5,6 @@ export interface ProfileProps {
   variant: 'time' | 'date';
   nickname: string;
   createdAt: string;
-  profileIcon: StaticImport;
+  profileIcon: StaticImport | string;
   iconSize: number;
 }
