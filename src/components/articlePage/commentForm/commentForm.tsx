@@ -1,49 +1,54 @@
 'use client';
 
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
-import { createArticleComments } from '@/services/api/article';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useMemo, useState } from 'react';
+import { useCreateCommentMutation } from '@/hooks/comments/useCreateCommentMutation';
+import { useState } from 'react';
+import { CommentFormProps } from './types';
 
-export default function CommentForm({ articleId }: { articleId: string }) {
-  const queryClient = useQueryClient();
+const BUTTON_TEXT = {
+  product: '문의하기',
+  article: '댓글달기',
+};
+
+const PLACEHOLDER_TEXT = {
+  product:
+    '개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.',
+  article: '댓글을 입력해주세요.',
+};
+
+export default function CommentForm({ id, variant }: CommentFormProps) {
   const [comment, setComment] = useState('');
-  const submitable = useMemo(() => {
-    return comment.length <= 0;
-  }, [comment]);
+  const commentIsBlank = comment.length <= 0;
 
-  const createCommentMutation = useMutation({
-    mutationFn: (comment: string) => createArticleComments(articleId, comment),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
-      setComment('');
-    },
-  });
+  const commentMutation = useCreateCommentMutation({ variant, id });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const comment = formData.get('content') as string;
-    createCommentMutation.mutate(comment);
+    commentMutation.mutate(
+      { content: comment, id },
+      { onSuccess: () => setComment('') },
+    );
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex flex-col items-end gap-4 mb-10'
+      className='flex flex-col items-end gap-4 my-10'
     >
       <div className='flex flex-col w-full gap-[9px]'>
-        <label className='font-semibold'>댓글달기</label>
+        <label className='font-semibold'>{BUTTON_TEXT[variant]}</label>
         <textarea
           name='content'
           id='content'
           onChange={(e) => setComment(e.target.value)}
           value={comment}
           className='bg-bg-input rounded-[12px] px-6 py-4'
-          placeholder='댓글을 입력해주세요.'
+          placeholder={PLACEHOLDER_TEXT[variant]}
         />
       </div>
-      <CommonBtn disabled={submitable}>등록</CommonBtn>
+      <CommonBtn disabled={commentIsBlank}>등록</CommonBtn>
     </form>
   );
 }

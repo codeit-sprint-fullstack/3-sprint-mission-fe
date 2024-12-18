@@ -4,7 +4,7 @@ import CommentForm from '@/components/articlePage/commentForm/commentForm';
 import NoComment from './noComment';
 import Comment from './comment';
 import profileIcon from '@/public/icons/profile_icon.png';
-import { useCommentsQuery } from '@/hooks/useCommentsQuery';
+import { useCommentsQuery } from '@/hooks/comments/useCommentsQuery';
 import { WithInitialData } from '@/lib/types/params.types';
 
 export default function CommentListClient(props: WithInitialData) {
@@ -20,9 +20,10 @@ export default function CommentListClient(props: WithInitialData) {
         <div className='mb-10'>
           {comments.list.map((comment) => (
             <Comment
+              variant={props.variant}
               key={comment.id}
               id={comment.id}
-              articleId={comment.articleId}
+              pageId={props.id}
               nickname={comment.writer.nickname}
               createdAt={comment.createdAt}
               content={comment.content}
@@ -31,7 +32,7 @@ export default function CommentListClient(props: WithInitialData) {
           ))}
         </div>
       ) : (
-        <NoComment />
+        <NoComment variant={props.variant} />
       )}
     </>
   );
