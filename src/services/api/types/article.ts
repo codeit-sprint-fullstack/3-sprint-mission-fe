@@ -14,8 +14,8 @@ export interface Article {
 }
 
 export interface GetArticleListResponse {
-  count: number;
-  data: Article[];
+  totalCount: number;
+  list: Article[];
 }
 
 export interface CreateArticleRequest {
@@ -24,8 +24,7 @@ export interface CreateArticleRequest {
 }
 
 export interface ArticleCommentResponse {
-  data: CommentResponse[];
-  hasNext: boolean;
+  list: CommentResponse[];
   nextCursor: string | null;
 }
 
@@ -34,6 +33,13 @@ export interface CommentResponse {
   content: string;
   articleId: string;
   createdAt: string;
+  writer: Writer;
+}
+
+interface Writer {
+  image: string;
+  nickname: string;
+  id: string;
 }
 
 export interface ArticleCommentRequest {

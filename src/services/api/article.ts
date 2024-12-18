@@ -1,11 +1,15 @@
 import axiosInstance from '@/lib/axios/axiosInstance';
 import {
   Article,
-  ArticleCommentResponse,
   CreateArticleRequest,
   GetArticleListParams,
   GetArticleListResponse,
 } from './types/article';
+import {
+  CommentListResponse,
+  CommentRequest,
+  CommentResponse,
+} from './types/comment';
 
 export const getArticleList = async ({
   skip = 0,
@@ -78,10 +82,18 @@ export const deleteArticle = async (articleId: string) => {
   }
 };
 
-export const getArticleComments = async (articleId: string) => {
+export const getArticleComments = async (
+  articleId: string,
+  limit: string = '100',
+) => {
   try {
-    const { data } = await axiosInstance.get<ArticleCommentResponse>(
+    const { data } = await axiosInstance.get<CommentListResponse>(
       `/articles/${articleId}/comments`,
+      {
+        params: {
+          limit,
+        },
+      },
     );
     return data;
   } catch (e) {
@@ -90,18 +102,18 @@ export const getArticleComments = async (articleId: string) => {
   }
 };
 
-export const createArticleComments = async (
-  articleId: string,
-  content: string,
-) => {
+export const createArticleComments = async ({
+  id: articleId,
+  content,
+}: CommentRequest) => {
   try {
-    const comment = await axiosInstance.post(
+    const { data } = await axiosInstance.post<CommentResponse>(
       `/articles/${articleId}/comments`,
       {
         content,
       },
     );
-    return comment;
+    return data;
   } catch (e) {
     console.error('댓글 등록 실패', e);
     throw e;
