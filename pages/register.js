@@ -5,16 +5,19 @@ import PwInputRegister from '@/components/registerPage/PwInputRegister';
 import RegisterButton from '@/components/registerPage/RegisterButton';
 import styles from '@/css/register.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function RegisterPage() {
     return (
         <div className={styles.registerMain}>
-            <Image
-                width={396}
-                height={132}
-                src="/images/PandaLogo.png"
-                alt="PandaLogo"
-            />
+            <Link href="/" >
+                <Image
+                    width={396}
+                    height={132}
+                    src="/images/PandaLogo.png"
+                    alt="PandaLogo"
+                />
+            </Link>
             <IdInputRegister />
             <NicknameInputRegister />
             <PwInputRegister />
