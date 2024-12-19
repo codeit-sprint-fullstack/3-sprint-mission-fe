@@ -1,0 +1,79 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@app": ["src/app"],
+      "@app/*": ["src/app/*"],
+      "@api": ["src/app/api"],
+      "@api/*": ["src/app/api/*"],
+      "@features": ["src/app/features"],
+      "@features/*": ["src/app/features/*"],
+      "@hooks": ["src/app/hooks"],
+      "@hooks/*": ["src/app/hooks/*"],
+      "@lib": ["src/app/lib"],
+      "@lib/*": ["src/app/lib/*"],
+      "@constants": ["src/app/lib/constants"],
+      "@constants/*": ["src/app/lib/constants/*"],
+      "@swr": ["src/app/lib/swr"],
+      "@swr/*": ["src/app/lib/swr/*"],
+      "@prisma": ["src/app/lib/prisma"],
+      "@prisma/*": ["src/app/lib/prisma/*"],
+      "@utils": ["src/app/lib/utils"],
+      "@utils/*": ["src/app/lib/utils/*"],
+      "@styles": ["src/app/styles"],
+      "@styles/*": ["src/app/styles/*"],
+      "@types": ["src/app/types"],
+      "@types/*": ["src/app/types/*"],
+      "@shared": ["src/shared"],
+      "@shared/*": ["src/shared/*"],
+      "@config": ["src/shared/config"],
+      "@config/*": ["src/shared/config/*"],
+      "@assets": ["src/assets"],
+      "@assets/*": ["src/assets/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@commonui": ["src/components/common"],
+      "@commonui/*": ["src/components/common/*"],
+      "@layout": ["src/components/layout"],
+      "@layout/*": ["src/components/layout/*"],
+      "@ui": ["src/components/ui"],
+      "@ui/*": ["src/components/ui/*"],
+      "@pages": ["src/pages"],
+      "@pages/*": ["src/pages/*"],
+      "@public": ["./public"],
+      "@public/*": ["./public/*"],
+    },
+    "target": "ES2017"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

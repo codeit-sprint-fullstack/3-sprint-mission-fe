@@ -1,0 +1,21 @@
+enum Status {
+  FORSALE
+  SOLD
+  RESERVED
+}
+
+model Product {
+  id          String  @id @default(uuid())
+  name        String
+  description String
+  price       Int
+  tag         String[]
+  category    String?   @default("미분류")
+  imageUrl    String?
+  status      Status?   @default(FORSALE)
+  like        Int?      @default(0)
+  comments    Comment[]
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+  deletedAt   DateTime? @db.Timestamptz(6)
+}
