@@ -1,4 +1,5 @@
 import FeaturedSection from '@/components/layout/Article/FeaturedSection';
+import ArticleSearch from '@/components/ui/Article/ArticleSearch';
 
 type Article = {
   id: number;
@@ -49,6 +50,10 @@ const HomePage = async () => {
           />
         ))}
       </div>
+      <h2 className='font-title text-xl font-bold text-gray-900 mt-10 mb-6'>
+        게시글
+      </h2>
+      <ArticleSearch />
     </div>
   );
 };
