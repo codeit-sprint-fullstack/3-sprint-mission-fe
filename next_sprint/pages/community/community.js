@@ -1,17 +1,15 @@
 import Button from "@/components/Button";
 import DropDown from "@/components/DropDown";
-import axios from "axios"
+// import axios from "axios"
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-
-
-const BASE_URL = process.env.BASE_URL;
+import axios from '../api/api';
+import Link from "next/link";
 
 export async function getStaticProps() {
   try {
-    const res = await axios.get(`${BASE_URL}/articles`);
+    const res = await axios.get(`/articles`);
     const articles = res.data.data ;
 
     return {
@@ -35,8 +33,6 @@ export default function Community({articles}) {
   const [selectedOption, setSelectedOption] = useState('최신순');
   const [isOpen, setIsOpen] = useState(false);
 
-        
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const router = useRouter();
   
   const handleOptionClick = (option) => {
@@ -47,9 +43,13 @@ export default function Community({articles}) {
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
       try {
-        if(!searchKeyWord) return;
+        if(!searchKeyWord.trim()) {
+          setFilteredData(articles);
+          return;
+        }
+          
         const encodedQuery = encodeURIComponent(searchKeyWord);
-        const res = await axios.get(`${BASE_URL}/articles?word=${encodedQuery}`);
+        const res = await axios.get(`/articles?word=${encodedQuery}`);
         setFilteredData(res.data.data);
       } catch (error) {
         console.error("Enter 키 에러 발생", error);
@@ -107,21 +107,23 @@ export default function Community({articles}) {
           placeholder="검색할 상품을 입력해주세요"
           className="w-5/6 h-[42px] bg-custom_coolGray50 rounded-xl focus:outline-none pl-9"
         />
-        <DropDown handleOptionClick={handleOptionClick} selectedOption={selectedOption} isOpen={isOpen} setIsOpen={setIsOpen} />
+        <DropDown handleOptionClick={handleOptionClick} sortOption={['최신순','좋아요순']} selectedOption={selectedOption} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
 
       <ul className="flex flex-col gap-6">
       { 
         filteredData.map((article) => (
           <li key={article.id} className="flex flex-col bg-custom_coolGray50 w-full h-[70px] gap-4 rounded-lg">
-            <div className="flex">
-              <h2 className="font-semibold text-xl leading-8">
-                {article.title}
-              </h2>
-              <span className="bg-white w-[72px] h-[72px] border border-gray-400 border-opacity-25 rounded-lg ml-auto">
-                <Image src="/img/default_img.png" alt="default-img" width={48} height={44} className="mt-3 ml-3" />
-              </span>
-            </div>
+            <Link href={`/details/${article.id}`} passHref>
+              <div className="flex">
+                <h2 className="font-semibold text-xl leading-8">
+                  {article.title}
+                </h2>
+                <span className="bg-white w-[72px] h-[72px] border border-gray-400 border-opacity-25 rounded-lg ml-auto">
+                  <Image src="/img/default_img.png" alt="default-img" width={48} height={44} className="mt-3 ml-3" />
+                </span>
+              </div>
+            </Link>
           </li>
         ))
       }

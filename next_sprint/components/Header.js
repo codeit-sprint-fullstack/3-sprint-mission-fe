@@ -18,7 +18,7 @@ export default function Header() {
           <Image src="/img/panda_logo.png" alt="logo" width={153} height={51} />
         </Link>
 
-        <div className="flex space-x-8 ml-[60px]" >
+        <div className="flex space-x-8 ml-[8%]" >
           <Link href="/community/community" className={`${router.pathname.includes('/community')?'text-custom_blue':'text-primary'} 
                 font-bold text-lg`}>
             자유게시판
