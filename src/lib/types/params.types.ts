@@ -9,9 +9,10 @@ export interface WithInitialData extends CommentListParams {
   initialData: CommentListResponse;
 }
 
-export interface CommentMutationParams {
+export interface EditOrDeleteCommentMutationParams {
   pageId: string;
   variant: 'product' | 'article';
+  onErrorFn: (errorMessage: string) => void;
 }
 
 export interface EditCommentParams {

@@ -9,6 +9,7 @@ import { useErrorHandling } from '@/hooks/useErrorHandling';
 import { useEditCommentMutation } from '@/hooks/comments/useEditCommentMutation';
 import { useEditCommentClient } from '@/hooks/comments/useEditCommentClient';
 import EditCommentButtons from './editCommentButtons';
+import { useState } from 'react';
 
 export default function Comment({
   id,
@@ -22,6 +23,8 @@ export default function Comment({
   const { modalOpen, setModalOpen, errorMessage, handleError } =
     useErrorHandling();
 
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+
   const {
     isEditing,
     comment,
@@ -33,11 +36,13 @@ export default function Comment({
   const deleteCommentMutation = useDeleteCommentMutation({
     pageId,
     variant,
+    onErrorFn: handleError,
   });
 
   const editCommentMutation = useEditCommentMutation({
     pageId,
     variant,
+    onErrorFn: handleError,
   });
 
   return (
@@ -56,15 +61,7 @@ export default function Comment({
               <ActionMenu
                 id={id}
                 onEditButtonClick={onEditButtonClick}
-                onDeleteButtonClick={() =>
-                  deleteCommentMutation.mutate(
-                    { id },
-                    {
-                      onError: (error) =>
-                        handleError(error.response?.data?.message || ''),
-                    },
-                  )
-                }
+                onDeleteButtonClick={() => setConfirmModalOpen(true)}
               />
             </>
           )}
@@ -84,11 +81,8 @@ export default function Comment({
               onSubmit={() =>
                 editCommentMutation.mutate(
                   { id, content: comment },
-
                   {
                     onSuccess: () => setEditingCommentId(null),
-                    onError: (error) =>
-                      handleError(error.response?.data.message || ''),
                   },
                 )
               }
@@ -97,9 +91,20 @@ export default function Comment({
         </div>
       </div>
       <Modal
+        variant='error'
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
         message={errorMessage}
+      />
+      <Modal
+        variant='confirm'
+        modalOpen={confirmModalOpen}
+        setModalOpen={setConfirmModalOpen}
+        onConfirm={() => {
+          setConfirmModalOpen(false);
+          deleteCommentMutation.mutate({ id });
+        }}
+        message='정말로 댓글을 삭제하시겠어요?'
       />
     </>
   );

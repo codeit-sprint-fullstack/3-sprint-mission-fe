@@ -1,5 +1,5 @@
 import {
-  CommentMutationParams,
+  EditOrDeleteCommentMutationParams,
   EditCommentParams,
 } from '@/lib/types/params.types';
 import { editComment } from '@/services/api/comment';
@@ -10,7 +10,8 @@ import { AxiosError } from 'axios';
 export const useEditCommentMutation = ({
   pageId,
   variant,
-}: CommentMutationParams) => {
+  onErrorFn,
+}: EditOrDeleteCommentMutationParams) => {
   const queryClient = useQueryClient();
 
   return useMutation<
@@ -24,5 +25,9 @@ export const useEditCommentMutation = ({
       queryClient.invalidateQueries({
         queryKey: ['comments', variant, pageId],
       }),
+    onError: (error) =>
+      onErrorFn(
+        error.response?.data.message || `에러가 발생했습니다. ${error.message}`,
+      ),
   });
 };

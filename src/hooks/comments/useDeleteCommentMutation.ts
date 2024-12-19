@@ -1,5 +1,5 @@
 import {
-  CommentMutationParams,
+  EditOrDeleteCommentMutationParams,
   DeleteCommentParams,
 } from '@/lib/types/params.types';
 import { deleteComment } from '@/services/api/comment';
@@ -9,7 +9,8 @@ import { AxiosError } from 'axios';
 export const useDeleteCommentMutation = ({
   pageId,
   variant,
-}: CommentMutationParams) => {
+  onErrorFn,
+}: EditOrDeleteCommentMutationParams) => {
   const queryClient = useQueryClient();
 
   return useMutation<
@@ -23,5 +24,10 @@ export const useDeleteCommentMutation = ({
         queryKey: ['comments', variant, pageId],
       });
     },
+    onError: (error) =>
+      onErrorFn(
+        error?.response?.data?.message ||
+          `에러가 발생했습니다. ${error.message}`,
+      ),
   });
 };
