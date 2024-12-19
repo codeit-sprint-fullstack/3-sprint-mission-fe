@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.social_box {
+  @apply w-5 h-5 flex items-center;
+}
+
+.social_box img {
+  @apply w-full object-contain;
+}
+
+html {
+  @apply font-sans;
+}
+
+.inputStyle {
+  @apply outline-none bg-custom_coolGray100 py-4 px-6 rounded-xl;
+}
