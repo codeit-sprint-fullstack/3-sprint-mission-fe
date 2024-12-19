@@ -1,6 +1,5 @@
 .loginMain {
     width: 640px;
-    height: 618px;
     margin: 130px auto;
     padding-bottom: 150px;
     text-align: center;
@@ -24,6 +23,7 @@
     padding: 16px 24px;
     border-radius: 12px;
     margin-top: 16px;
+    outline: none;
 }
 
 .PwInputMain {
@@ -44,6 +44,7 @@
     padding: 16px 24px;
     border-radius: 12px;
     margin-top: 16px;
+    outline: none;
 }
 
 .loginButton {
@@ -102,4 +103,13 @@
 .registerText {
     font-weight: bold;
     color: #3692FF;
+}
+
+.inputErr {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: red;
+    display: none;
 }

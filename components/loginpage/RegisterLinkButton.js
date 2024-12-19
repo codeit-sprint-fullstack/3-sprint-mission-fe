@@ -5,7 +5,7 @@ export default function RegisterLinkButton() {
     const router = useRouter();
 
     const handleRegisterClick = () => {
-        router.push('/register');
+        router.push('/signin');
     };
 
     return (

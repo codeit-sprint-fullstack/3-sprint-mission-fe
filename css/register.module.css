@@ -1,6 +1,5 @@
 .registerMain {
     width: 640px;
-    height: 618px;
     margin: 130px auto;
     padding-bottom: 150px;
     text-align: center;
@@ -84,4 +83,13 @@
     margin-top: 24px;
     color: white;
     background-color: #9CA3AF;
+}
+
+.inputErr {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: red;
+    display: none;
 }
