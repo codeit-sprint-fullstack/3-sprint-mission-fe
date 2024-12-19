@@ -124,3 +124,23 @@ export const createProductComments = async ({
     throw e;
   }
 };
+
+export const setProductFavorite = async (id: string) => {
+  try {
+    const { data } = await axiosInstance.post(`/products/${id}/favorite`);
+    return data;
+  } catch (e) {
+    console.error('좋아요 실패', e);
+    throw e;
+  }
+};
+
+export const deleteProductFavorite = async (id: string) => {
+  try {
+    const { data } = await axiosInstance.delete(`/products/${id}/favorite`);
+    return data;
+  } catch (e) {
+    console.error('좋아요 취소 실패', e);
+    throw e;
+  }
+};
