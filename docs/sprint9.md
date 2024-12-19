@@ -45,25 +45,26 @@
 
 ### 상품 상세 페이지
 
-- [ ] PC, Tablet, Mobile 디자인에 해당하는 상품 상세 페이지를 만들어 주세요.
-- [ ] 상품 상세 페이지 url path는 "/items/{itemId)"로 설정하세요.
-- [ ] '목록으로 돌아가기' 버튼 클릭 시 중고마켓 페이지 "/items"로 이동합니다. -[ ] 상품 상세 데이터는 '/products/{productId}' GET 메서드 사용해 불러오세요. 이때, 상품 상세 조회는 인가된 사용자만 이용할 수 있도록 합니다.
-- [ ] 상품에 대한 댓글 조회도 가능합니다.
-- [ ] 상품 수정 및 삭제 기능을 API를 활용해 구현합니다. 이때, 인가된 사용자만 이용할 수 있도록 합니다.
-- [ ] 상품 수정은 '/products/{productId}' PATCH을 사용합니다.
-- [ ] 상품 삭제는 '/products/{productId}' DELETE를 사용합니다.
-- [ ] 상품 삭제 전, 확인 모달을 띄워주세요.
-- [ ] 상품에 대한 좋아요 및 좋아요 취소 기능을 https://panda-market-api.vercel.app/docs에 명세된 '/products/{productId}/favorite' POST & DELETE 활용해 구현합니다. 이때 인가된 사용자만 좋아요 기능을 이용할 수 있도록 합니다.
-- [ ] 댓글 생성 및 삭제 기능을 API를 활용해 구현합니다. 이때, 인가된 사용자만 이용할 수 있도록 합니다.
-- [ ] 댓글 수정은 https://panda-market-api.vercel.app/docs에 명세된 '/comments/{commentId}' PATCH을 사용합니다.
-- [ ] 댓글 삭제는 https://panda-market-api.vercel.app/docs에 명세된 '/comments/{commentId}' DELETE를 사용합니다.
+- [x] PC, Tablet, Mobile 디자인에 해당하는 상품 상세 페이지를 만들어 주세요.
+- [x] 상품 상세 페이지 url path는 "/items/{itemId)"로 설정하세요.
+- [x] '목록으로 돌아가기' 버튼 클릭 시 중고마켓 페이지 "/items"로 이동합니다.
+- [x] 상품 상세 데이터는 '/products/{productId}' GET 메서드 사용해 불러오세요. 이때, 상품 상세 조회는 인가된 사용자만 이용할 수 있도록 합니다.
+- [x] 상품에 대한 댓글 조회도 가능합니다.
+- [x] 상품 수정 및 삭제 기능을 API를 활용해 구현합니다. 이때, 인가된 사용자만 이용할 수 있도록 합니다.
+- [x] 상품 수정은 '/products/{productId}' PATCH을 사용합니다.
+- [x] 상품 삭제는 '/products/{productId}' DELETE를 사용합니다.
+- [x] 상품 삭제 전, 확인 모달을 띄워주세요.
+- [x] 상품에 대한 좋아요 및 좋아요 취소 기능을 https://panda-market-api.vercel.app/docs에 명세된 '/products/{productId}/favorite' POST & DELETE 활용해 구현합니다. 이때 인가된 사용자만 좋아요 기능을 이용할 수 있도록 합니다.
+- [x] 댓글 생성 및 삭제 기능을 API를 활용해 구현합니다. 이때, 인가된 사용자만 이용할 수 있도록 합니다.
+- [x] 댓글 수정은 https://panda-market-api.vercel.app/docs에 명세된 '/comments/{commentId}' PATCH을 사용합니다.
+- [x] 댓글 삭제는 https://panda-market-api.vercel.app/docs에 명세된 '/comments/{commentId}' DELETE를 사용합니다.
 
 ## 심화 요구사항
 
 ### 로그인 및 회원가입 페이지 공통
 
-- [ ] 로그인, 회원가입 기능에 react-hook-form을 활용해 주세요.
-- [ ] 브라우저에 현재 보이는 화면의 영역(viewport) 너비를 기준으로 분기되는 반응형 디자인을 적용합니다.
+- [x] 로그인, 회원가입 기능에 react-hook-form을 활용해 주세요.
+- [x] 브라우저에 현재 보이는 화면의 영역(viewport) 너비를 기준으로 분기되는 반응형 디자인을 적용합니다.
       PC: 1200px 이상
       Tablet: 744px 이상 ~ 1199px 이하
       Mobile: 375px 이상 ~ 743px 이하
@@ -71,11 +72,11 @@
 
 ### 유저 기능
 
-- [ ] 리퀘스트 헤더에 인증 토큰을 첨부할 때 axios interceptors를 활용해 주세요. (axios를 사용하지 않는다면 이와 유사한 기능을 활용해 주세요.)
+- [x] 리퀘스트 헤더에 인증 토큰을 첨부할 때 axios interceptors를 활용해 주세요. (axios를 사용하지 않는다면 이와 유사한 기능을 활용해 주세요.)
 
 ### React-Query로 마이그레이션
 
-- [ ] fetch 혹은 axios로 구현된 기존의 API 요청 코드를 React-Qeury로 마이그레이션 합니다.
+- [x] fetch 혹은 axios로 구현된 기존의 API 요청 코드를 React-Qeury로 마이그레이션 합니다.
 
 ### 로딩 및 에러 핸들링
 
@@ -84,5 +85,5 @@
 
 ### 상품 데이터 캐싱 및 업데이트
 
-- [ ] React Query의 캐싱 기능을 활용하여 데이터 로딩 시간을 최소화합니다.
-- [ ] 상품 목록 페이지에서 데이터의 실시간 업데이트를 위해 적절한 Query Refresh 설정을 적용합니다.
+- [x] React Query의 캐싱 기능을 활용하여 데이터 로딩 시간을 최소화합니다.
+- [x] 상품 목록 페이지에서 데이터의 실시간 업데이트를 위해 적절한 Query Refresh 설정을 적용합니다.
