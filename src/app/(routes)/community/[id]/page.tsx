@@ -14,7 +14,7 @@ export default async function Page({ params }: ParamsProps) {
         id={article.id}
         variant='article'
       />
-      <ReturnButton />
+      <ReturnButton variant='article' />
     </article>
   );
 }
