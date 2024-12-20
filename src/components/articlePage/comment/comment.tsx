@@ -4,12 +4,11 @@ import { CommentProps } from './types';
 import Profile from '../../common/profile/profile';
 import ActionMenu from '../../community/actionMenu/actionMenu';
 import { useDeleteCommentMutation } from '@/hooks/comments/useDeleteCommentMutation';
-import Modal from '@/components/modal/modal';
-import { useErrorHandling } from '@/hooks/useErrorHandling';
 import { useEditCommentMutation } from '@/hooks/comments/useEditCommentMutation';
 import { useEditCommentClient } from '@/hooks/comments/useEditCommentClient';
 import EditCommentButtons from './editCommentButtons';
-import { useState } from 'react';
+import { useSetAtom } from 'jotai';
+import { confirmModalAtom } from '@/lib/store/modalAtoms';
 
 export default function Comment({
   id,
@@ -20,10 +19,13 @@ export default function Comment({
   content,
   variant,
 }: CommentProps) {
-  const { modalOpen, setModalOpen, errorMessage, handleError } =
-    useErrorHandling();
-
-  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+  const setConfirmModalAtom = useSetAtom(confirmModalAtom);
+  const onDeleteButtonClick = () =>
+    setConfirmModalAtom({
+      isOpen: true,
+      message: '정말로 댓글을 삭제하시겠어요?',
+      onConfirmFunction: () => deleteCommentMutation.mutate({ id }),
+    });
 
   const {
     isEditing,
@@ -36,13 +38,11 @@ export default function Comment({
   const deleteCommentMutation = useDeleteCommentMutation({
     pageId,
     variant,
-    onErrorFn: handleError,
   });
 
   const editCommentMutation = useEditCommentMutation({
     pageId,
     variant,
-    onErrorFn: handleError,
   });
 
   return (
@@ -57,11 +57,11 @@ export default function Comment({
             />
           ) : (
             <>
-              <span>{comment}</span>
+              <span>{content}</span>
               <ActionMenu
                 id={id}
                 onEditButtonClick={onEditButtonClick}
-                onDeleteButtonClick={() => setConfirmModalOpen(true)}
+                onDeleteButtonClick={onDeleteButtonClick}
               />
             </>
           )}
@@ -79,33 +79,12 @@ export default function Comment({
             <EditCommentButtons
               onCancel={() => setEditingCommentId(null)}
               onSubmit={() =>
-                editCommentMutation.mutate(
-                  { id, content: comment },
-                  {
-                    onSuccess: () => setEditingCommentId(null),
-                  },
-                )
+                editCommentMutation.mutate({ id, content: comment })
               }
             />
           )}
         </div>
       </div>
-      <Modal
-        variant='error'
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        message={errorMessage}
-      />
-      <Modal
-        variant='confirm'
-        modalOpen={confirmModalOpen}
-        setModalOpen={setConfirmModalOpen}
-        onConfirm={() => {
-          setConfirmModalOpen(false);
-          deleteCommentMutation.mutate({ id });
-        }}
-        message='정말로 댓글을 삭제하시겠어요?'
-      />
     </>
   );
 }

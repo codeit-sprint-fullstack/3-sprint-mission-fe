@@ -5,13 +5,14 @@ import {
 import { deleteComment } from '@/services/api/comment';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
+import { useErrorModal } from '../modals/useErrorModal';
 
 export const useDeleteCommentMutation = ({
   pageId,
   variant,
-  onErrorFn,
 }: EditOrDeleteCommentMutationParams) => {
   const queryClient = useQueryClient();
+  const { setErrorMessage } = useErrorModal();
 
   return useMutation<
     void,
@@ -24,10 +25,11 @@ export const useDeleteCommentMutation = ({
         queryKey: ['comments', variant, pageId],
       });
     },
-    onError: (error) =>
-      onErrorFn(
+    onError: (error) => {
+      setErrorMessage(
         error?.response?.data?.message ||
           `에러가 발생했습니다. ${error.message}`,
-      ),
+      );
+    },
   });
 };
