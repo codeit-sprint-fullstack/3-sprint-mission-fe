@@ -55,7 +55,7 @@
 }
 
 .searchInput::-webkit-input-placeholder{
-  background-image: url("../public/images/ic_search.png");
+  background-image: url("../../public/images/ic_search.png");
   background-repeat: no-repeat;
   background-position:0.5px center;
   background-size: contain;

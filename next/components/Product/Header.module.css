@@ -1,0 +1,49 @@
+.boardText{
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #4B5563;
+  margin-left: 5px;
+}
+
+.marketText{
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #4B5563;
+  margin-left: 5px;
+}
+
+.loginBtn{
+  background-color: #3692FF;
+  border-radius: 8px;
+  width: 8.8rem;
+  height: 4.2rem;
+  color: #F3F4F6;
+  border:none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.headerContainer{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.headerWrapper{
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (min-width:768px){
+  .headerContainer{
+    width: 744px;
+  }
+}
+
+@media(min-width:375px) {
+  .headerContainer{
+    width: 375px;
+  }
+}

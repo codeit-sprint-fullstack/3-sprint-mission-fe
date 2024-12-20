@@ -1,18 +1,10 @@
-import styles from "@/components/bestArticleList.module.css"
+import FormatDate from "@/utils/Format"
+import styles from "@/components/board/bestArticleList.module.css"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function BestPostList({ posts }) {
+export default function BestArticleList({ posts }) {
   
-  const formatDate = (isoString) => {
-    const date = new Date(isoString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}.${month}.${day}`;
-  };
-
-
   return (
     <div className={styles.postWrapper}>
       {posts.slice(0, 3).map((post) => (
@@ -61,7 +53,7 @@ export default function BestPostList({ posts }) {
               </div>
               <div>
                 <span className={styles.postCreateAt}>
-                  {formatDate(post.createdAt)}
+                  {FormatDate(post.createdAt)}
                 </span>
               </div>
             </div>

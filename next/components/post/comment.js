@@ -1,28 +1,38 @@
-import styles from '@/components/comment.module.css';
+import styles from '@/components/post/comment.module.css';
 import axios from "@/lib/axios";
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Comment() {
   const [content, setContent] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false); // 수정: 초기값 false
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [id, setId] = useState(null);
   const router = useRouter();
-  const id = router.query['id'];
 
-  const isButtonDisabled = !content;
+  // useEffect로 id 값을 안정적으로 가져오기
+  useEffect(() => {
+    if (router.query.id) {
+      setId(router.query.id);
+    }
+  }, [router.query]);
 
-  const handleSubmit = async (targetId) => {
+  const isButtonDisabled = !content || isSubmitting;
+
+  const handleSubmit = async () => {
+    if (!id) {
+      alert('게시글 ID를 찾을 수 없습니다.');
+      return;
+    }
+
     setIsSubmitting(true);
-    
     try {
-      const response = await axios.post(`/board/${targetId}/comments`, {
+      const response = await axios.post(`/articles/${id}/comments`, {
         content,
       });
 
-      console.log(response);
-      if (response.status === 201) {
+      if (response.status === 200 || response.status === 201) {
         alert('댓글이 등록되었습니다!');
-        setContent('');
+        setContent(''); // 입력 필드 초기화
       } else {
         alert(`오류 발생: ${response.data.error || '알 수 없는 오류'}`);
       }
@@ -43,20 +53,19 @@ export default function Comment() {
     <div className={styles.commentWrapper}>
       <h1 className={styles.postComment}>댓글 달기</h1>
       <textarea 
-        placeholder='댓글을 입력해주세요.' 
+        placeholder="댓글을 입력해주세요." 
         className={styles.enterComment} 
-        type="text"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
+        value={content} // textarea에 현재 상태 반영
+        onChange={(e) => setContent(e.target.value)} // 상태 업데이트
       />
       <div className={styles.btnWrapper}>
         <button 
           className={styles.commentBtn}
-          type='submit'
-          onClick={() => handleSubmit(id)} // 수정: 화살표 함수 사용
-          disabled={isButtonDisabled || isSubmitting}
+          type="submit"
+          onClick={handleSubmit} // 직접 함수 참조
+          disabled={isButtonDisabled} // 비활성화 조건
         >
-          등록
+          {isSubmitting ? '등록 중...' : '등록'}
         </button>
       </div>
     </div>

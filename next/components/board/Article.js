@@ -1,11 +1,11 @@
-import styles from "@/components/Article.module.css"
+import styles from "@/components/board/Article.module.css"
 import Dropdown from "@/components/DropdownBox"
 import axios from "@/lib/axios";
 import Link from "next/link";
 import PostListCard from "./postListCard";
 import { useState, useEffect } from "react";
 
-export default function Post() {
+export default function Article() {
 
   const [order, setOrder] = useState("createdAt");
   const [post, setPost] = useState([]);
@@ -14,9 +14,9 @@ export default function Post() {
   ? [...post].sort((a, b) => b[order] - a[order])
   : [];
 
-  async function getPosts(order) {
+  async function getPosts() {
     try {
-      const res = await axios.get(`/board?${order}`);
+      const res = await axios.get('/articles');
       console.log("API Response:", res.data); // 응답 확인
       const posts = res.data.results || res.data || [];
       setPost(posts);

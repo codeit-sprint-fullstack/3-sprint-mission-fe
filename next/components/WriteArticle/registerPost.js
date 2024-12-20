@@ -1,4 +1,4 @@
-import styles from "@/components/registerPost.module.css";
+import styles from "@/components/WriteArticle/registerPost.module.css";
 import axios from "@/lib/axios";
 import { useState } from "react";
 

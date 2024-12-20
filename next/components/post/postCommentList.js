@@ -1,5 +1,5 @@
-import styles from "@/components/postCommentList.module.css";
-import CommentDropdownMenu from "./Dropdown/CommentDropdown";
+import styles from "@/components/post/postCommentList.module.css";
+import CommentDropdownMenu from "@/components/Dropdown/CommentDropdown"
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,7 +26,11 @@ export default function CommentList({ comments }) {
           <li key={comment.id} className={styles.commentWrapper}>
             <div className={styles.upperSection}>
               <div className={styles.commentContent}>{comment.content}</div>
-              <CommentDropdownMenu/>
+               <CommentDropdownMenu
+                  commentId={id}
+                  onEdit={(id) => console.log(`Edit comment ${id}`)}
+                  onDelete={(id) => console.log(`Delete comment ${id}`)}
+               />
             </div>
             <div className={styles.aboutWrapper}>
               <Image
