@@ -20,7 +20,7 @@ export default function LikeButton({ count, liked, id }: LikeButtonProps) {
     >
       <FontAwesomeIcon
         icon={liked ? fullHeart : emptyHeart}
-        className='text-text-red'
+        className={liked ? 'text-text-red' : ''}
       />
       {count}
     </button>

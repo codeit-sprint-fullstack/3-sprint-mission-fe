@@ -16,10 +16,7 @@ export default function LikeCounter({
         className,
       )}
     >
-      <FontAwesomeIcon
-        icon={emptyHeart}
-        className='text-text-red'
-      />
+      <FontAwesomeIcon icon={emptyHeart} />
       <span>{likes.toLocaleString()}</span>
     </div>
   );
