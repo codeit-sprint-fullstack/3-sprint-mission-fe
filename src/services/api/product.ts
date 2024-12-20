@@ -4,12 +4,12 @@ import {
   GetProductListParams,
   GetProductListResponse,
   GetProductResponse,
-} from './types/product';
+} from './types/product.types';
 import {
   CommentListResponse,
   CommentRequest,
   CommentResponse,
-} from './types/comment';
+} from './types/comment.types';
 
 export const getProductList = async ({
   page = 0,

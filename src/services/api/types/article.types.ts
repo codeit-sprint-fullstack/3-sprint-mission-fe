@@ -5,7 +5,7 @@ export interface GetArticleListParams {
   word?: string;
 }
 
-export interface Article {
+export interface GetArticleResponse {
   id: number;
   title: string;
   content: string;
@@ -19,7 +19,7 @@ export interface Article {
 
 export interface GetArticleListResponse {
   totalCount: number;
-  list: Article[];
+  list: GetArticleResponse[];
 }
 
 export interface CreateArticleRequest {

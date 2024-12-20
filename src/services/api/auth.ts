@@ -1,5 +1,6 @@
 import axiosInstance from '@/lib/axios/axiosInstance';
 import { SignInFormData, SignUpFormData } from '@/components/sign/types';
+import { SignInResponse } from './types/auth.types';
 
 export const signIn = async (signInData: SignInFormData) => {
   try {
@@ -13,7 +14,7 @@ export const signIn = async (signInData: SignInFormData) => {
 
 export const signUp = async (signUpData: SignUpFormData) => {
   try {
-    const { data } = await axiosInstance.post('/auth/signUp', {
+    const { data } = await axiosInstance.post<SignInResponse>('/auth/signUp', {
       email: signUpData.email,
       nickname: signUpData.nickname,
       password: signUpData.password,
