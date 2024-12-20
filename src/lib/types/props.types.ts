@@ -13,3 +13,5 @@ export interface NormalArticleListProps {
   searchParams: GetArticleListParams;
   initialData: GetArticleListResponse;
 }
+
+export type BestArticleListProps = Omit<NormalArticleListProps, 'searchParams'>;

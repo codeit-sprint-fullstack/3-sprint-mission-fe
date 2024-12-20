@@ -1,29 +1,17 @@
 'use client';
 
-import { getArticleList } from '@/services/api/article';
-import { GetArticleListResponse } from '@/services/api/types/article.types';
-import { useQuery } from '@tanstack/react-query';
 import BestArticleCard from './bestArticleCard';
 import { useAtom } from 'jotai';
 import { screenWidthAtom } from '@/lib/store/atoms';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
+import { useBestArticleListQuery } from '@/hooks/articles/useBestArticleListQuery';
+import { BestArticleListProps } from '@/lib/types/props.types';
 
 export default function BestArticleListClient({
   initialData,
-}: {
-  initialData: GetArticleListResponse;
-}) {
+}: BestArticleListProps) {
   const [screenWidth] = useAtom(screenWidthAtom);
-  const { data } = useQuery({
-    queryKey: ['bestArticles'],
-    queryFn: () =>
-      getArticleList({
-        skip: 0,
-        take: 3,
-        orderBy: 'recent',
-      }),
-    initialData,
-  });
+  const { data } = useBestArticleListQuery({ initialData });
 
   return (
     <>
