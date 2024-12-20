@@ -7,12 +7,12 @@ import Profile from '@/components/common/profile/profile';
 import ProfileIcon from '@/public/icons/profile_icon.png';
 import LikeButton from '@/components/common/likeButton/likeButton';
 import { useProductQuery } from '@/hooks/products/useProductQuery';
-import Modal from '@/components/modal/modal';
-import { useErrorHandling } from '@/hooks/useErrorHandling';
 import { useDeleteProductMutation } from '@/hooks/products/useDeleteProductMutation';
-import { useState } from 'react';
 import { useMe } from '@/hooks/useMe';
 import { useRouter } from 'next/navigation';
+import { useSetAtom } from 'jotai';
+import { confirmModalAtom } from '@/lib/store/modalAtoms';
+import { useErrorModal } from '@/hooks/modals/useErrorModal';
 
 export default function ProductInformationSection({ id }: { id: string }) {
   const { data: product } = useProductQuery({
@@ -21,26 +21,22 @@ export default function ProductInformationSection({ id }: { id: string }) {
   const router = useRouter();
   const { data: me } = useMe();
 
-  const { modalOpen, setModalOpen, errorMessage, handleError } =
-    useErrorHandling();
+  const setConfirmModalAtom = useSetAtom(confirmModalAtom);
 
-  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+  const { setErrorMessage } = useErrorModal();
 
-  const { mutate } = useDeleteProductMutation({
-    onMutateFn: () => setConfirmModalOpen(false),
-    onErrorFn: handleError,
-  });
+  const { mutate } = useDeleteProductMutation();
 
   const onEditFn = () => {
     if (me?.id !== product?.id)
-      return handleError('본인의 상품만 수정할 수 있습니다.');
+      return setErrorMessage('본인의 상품만 수정할 수 있습니다.');
     router.push(`/items/${product?.id}/edit`);
   };
 
   return (
     product && (
       <>
-        <section className='flex w-full gap-6'>
+        <section className='flex w-full gap-6 pb-10 border-b'>
           <div className='w-[343px] md:w-[343px] xl:w-[486px] aspect-square relative flex-shrink-0'>
             <Image
               src={product.images[0]}
@@ -49,14 +45,20 @@ export default function ProductInformationSection({ id }: { id: string }) {
               fill
             />
           </div>
-          <div className='w-full flex flex-col justify-between gap-4 border-b'>
+          <div className='w-full flex flex-col justify-between gap-4'>
             <div className='flex gap-4 flex-col'>
               <div className='flex flex-col border-b gap-4 pb-4'>
                 <div className='flex justify-between items-center'>
                   <span className='text-2xl font-semibold'>{product.name}</span>
                   <ActionMenu
                     id={product.id.toString()}
-                    onDeleteButtonClick={() => setConfirmModalOpen(true)}
+                    onDeleteButtonClick={() =>
+                      setConfirmModalAtom({
+                        isOpen: true,
+                        message: '정말로 상품을 삭제하시겠어요?',
+                        onConfirmFunction: () => mutate(product.id.toString()),
+                      })
+                    }
                     onEditButtonClick={onEditFn}
                   />
                 </div>
@@ -72,7 +74,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
                 tags={product.tags}
               />
             </div>
-            <div className='flex justify-between items-center '>
+            <div className='flex justify-between items-center'>
               <Profile
                 layout='vertical'
                 variant='date'
@@ -89,19 +91,6 @@ export default function ProductInformationSection({ id }: { id: string }) {
             </div>
           </div>
         </section>
-        <Modal
-          variant='error'
-          modalOpen={modalOpen}
-          setModalOpen={setModalOpen}
-          message={errorMessage}
-        />
-        <Modal
-          variant='confirm'
-          modalOpen={confirmModalOpen}
-          setModalOpen={setConfirmModalOpen}
-          message='정말로 상품을 삭제하시겠어요?'
-          onConfirm={() => mutate(product.id.toString())}
-        />
       </>
     )
   );
