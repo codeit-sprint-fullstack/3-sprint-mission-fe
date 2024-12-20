@@ -52,6 +52,7 @@ export default function ArticleHeader({
           |
         </span>
         <LikeButton
+          variant='article'
           id={id}
           count={likeCount}
           liked={isLiked}

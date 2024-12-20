@@ -84,6 +84,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
                 iconSize={40}
               />
               <LikeButton
+                variant='product'
                 count={product.favoriteCount}
                 liked={product.isFavorite}
                 id={product.id.toString()}

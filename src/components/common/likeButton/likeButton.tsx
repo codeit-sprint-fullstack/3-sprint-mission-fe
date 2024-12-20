@@ -6,10 +6,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LikeButtonProps } from './likeButton.types';
 import { useSetProductFavoriteMutation } from '@/hooks/products/useSetProductFavoriteMutation';
 import { useDeleteProductFavoriteMutation } from '@/hooks/products/useDeleteProductFavoriteMutation';
+import { useSetArticleFavoriteMutation } from '@/hooks/articles/useSetArticleFavoriteMutation';
+import { useDeleteArticleFavoriteMutation } from '@/hooks/articles/useDeleteArticleFavoriteMutation';
 
-export default function LikeButton({ count, liked, id }: LikeButtonProps) {
-  const { mutate: setFavoriteMutation } = useSetProductFavoriteMutation();
-  const { mutate: deleteFavoriteMutation } = useDeleteProductFavoriteMutation();
+const MUTATION_FUNCTION = {
+  product: [useSetProductFavoriteMutation, useDeleteProductFavoriteMutation],
+  article: [useSetArticleFavoriteMutation, useDeleteArticleFavoriteMutation],
+};
+
+export default function LikeButton({
+  variant,
+  count,
+  liked,
+  id,
+}: LikeButtonProps) {
+  const { mutate: setFavoriteMutation } = MUTATION_FUNCTION[variant][0]();
+  const { mutate: deleteFavoriteMutation } = MUTATION_FUNCTION[variant][1]();
 
   return (
     <button
