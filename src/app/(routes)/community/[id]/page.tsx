@@ -11,7 +11,7 @@ export default async function Page({ params }: ParamsProps) {
     <article className='w-full md:w-full xl:w-[1200px] p-4 md:p-6 xl:p-0 xl:py-6 flex flex-col'>
       <ArticleClient initialData={article} />
       <CommentContainer
-        id={article.id}
+        id={article.id.toString()}
         variant='article'
       />
       <ReturnButton variant='article' />

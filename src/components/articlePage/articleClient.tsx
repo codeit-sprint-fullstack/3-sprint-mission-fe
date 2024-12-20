@@ -12,18 +12,19 @@ export default function ArticleClient({
 }) {
   const { data: article } = useQuery({
     queryKey: ['article', initialData.id],
-    queryFn: () => getArticle(initialData.id),
+    queryFn: () => getArticle(initialData.id.toString()),
     initialData,
   });
 
   return (
     <>
       <ArticleHeader
-        id={article.id}
-        // 이후 닉네임 입력 예정
-        nickname='판다'
+        id={article.id.toString()}
+        nickname={article.writer.nickname}
         title={article.title}
         createdAt={article.createdAt}
+        likeCount={article.likeCount}
+        isLiked={article.isLiked}
       />
       <div className='mb-8'>{article.content}</div>
     </>

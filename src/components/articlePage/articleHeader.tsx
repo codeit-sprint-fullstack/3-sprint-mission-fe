@@ -14,6 +14,8 @@ export default function ArticleHeader({
   nickname,
   title,
   createdAt,
+  likeCount,
+  isLiked,
 }: ArticleHeaderProps) {
   const queryClient = useQueryClient();
   const router = useRouter();
@@ -51,8 +53,8 @@ export default function ArticleHeader({
         </span>
         <LikeButton
           id={id}
-          count={50}
-          liked={false}
+          count={likeCount}
+          liked={isLiked}
         />
       </div>
     </div>

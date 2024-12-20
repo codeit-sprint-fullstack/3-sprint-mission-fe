@@ -6,11 +6,15 @@ export interface GetArticleListParams {
 }
 
 export interface Article {
-  id: string;
+  id: number;
   title: string;
   content: string;
   createdAt: string;
   updatedAt: string;
+  likeCount: number;
+  isLiked: boolean;
+  image: string;
+  writer: ArticleWriter;
 }
 
 export interface GetArticleListResponse {
@@ -23,25 +27,11 @@ export interface CreateArticleRequest {
   content: string;
 }
 
-export interface ArticleCommentResponse {
-  list: CommentResponse[];
-  nextCursor: string | null;
-}
-
-export interface CommentResponse {
-  id: string;
-  content: string;
-  articleId: string;
-  createdAt: string;
-  writer: Writer;
-}
-
-interface Writer {
-  image: string;
-  nickname: string;
-  id: string;
-}
-
 export interface ArticleCommentRequest {
   content: string;
+}
+
+interface ArticleWriter {
+  nickname: string;
+  id: number;
 }

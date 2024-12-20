@@ -33,11 +33,11 @@ export default function BestArticleListClient({
           return (
             <BestArticleCard
               key={article.id}
-              nickname='총명한 판다'
+              nickname={article.writer.nickname}
               title={article.title}
-              likes={999}
+              likeCount={article.likeCount}
               createdAt={article.createdAt}
-              articleId={article.id}
+              articleId={article.id.toString()}
             />
           );
         })}

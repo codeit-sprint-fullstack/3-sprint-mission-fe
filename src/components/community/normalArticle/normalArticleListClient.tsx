@@ -32,11 +32,11 @@ export default function NormalArticleListClient({
       {data.list.map((article) => (
         <NormalArticleCard
           key={article.id}
-          nickname='총명한 판다'
+          nickname={article.writer.nickname}
           title={article.title}
-          likes={99}
+          likeCount={article.likeCount}
           createdAt={article.createdAt}
-          articleId={article.id}
+          articleId={article.id.toString()}
         />
       ))}
     </>
