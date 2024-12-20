@@ -1,7 +1,7 @@
 'use client';
 
 import { getArticleList } from '@/services/api/article';
-import { GetArticleListResponse } from '@/services/api/types/article';
+import { GetArticleListResponse } from '@/services/api/types/article.types';
 import { useQuery } from '@tanstack/react-query';
 import BestArticleCard from './bestArticleCard';
 import { useAtom } from 'jotai';

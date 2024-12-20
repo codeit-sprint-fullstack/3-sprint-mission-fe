@@ -1,7 +1,7 @@
 import BestProductListSection from '@/components/items/bestProductList/bestProductListSection';
 import NormalProductListClient from '@/components/items/normalProductList/normalProductListClient';
 import ProductListHeader from '@/components/items/productListHeader/productListHeader';
-import { GetProductListParams } from '@/services/api/types/product';
+import { GetProductListParams } from '@/services/api/types/product.types';
 
 export default function Page({
   searchParams,

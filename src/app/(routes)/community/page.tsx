@@ -2,7 +2,7 @@ import ArticleListHeader from '@/components/community/articleListHeader/articleL
 import BestArticleListSection from '@/components/community/bestArticle/bestArticleListSection';
 import NormalArticleListSection from '@/components/community/normalArticle/normalArticleListSection';
 import SearchSection from '@/components/community/searchSection/searchSection';
-import { GetArticleListParams } from '@/services/api/types/article';
+import { GetArticleListParams } from '@/services/api/types/article.types';
 
 export default function Page({
   searchParams,

@@ -1,5 +1,5 @@
 import { getArticle } from '@/services/api/article';
-import { ParamsProps } from '@/lib/types/paramsProps.types';
+import { ParamsProps } from '@/lib/types/props.types';
 import ReturnButton from '@/components/articlePage/returnButton/returnButton';
 import ArticleClient from '@/components/articlePage/articleClient';
 import CommentContainer from '@/components/articlePage/comment/commentContainer';

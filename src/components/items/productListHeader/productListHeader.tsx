@@ -4,7 +4,7 @@ import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import CustomSelect from '@/components/common/customSelect/customSelect';
 import { Option } from '@/components/common/customSelect/customSelect.types';
 import SearchInput from '@/components/common/searchInput/searchInput';
-import { GetProductListParams } from '@/services/api/types/product';
+import { GetProductListParams } from '@/services/api/types/product.types';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 

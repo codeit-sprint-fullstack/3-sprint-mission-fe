@@ -1,7 +1,7 @@
 import CommentContainer from '@/components/articlePage/comment/commentContainer';
 import ReturnButton from '@/components/articlePage/returnButton/returnButton';
 import ProductInformationSection from '@/components/items/itemPage/productInformationSection';
-import { ParamsProps } from '@/lib/types/paramsProps.types';
+import { ParamsProps } from '@/lib/types/props.types';
 
 export default function ProductPage({ params }: ParamsProps) {
   return (

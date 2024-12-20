@@ -1,7 +1,7 @@
 import {
   GetProductListParams,
   GetProductListResponse,
-} from '@/services/api/types/product';
+} from '@/services/api/types/product.types';
 
 export interface ProductProps {
   id: number;

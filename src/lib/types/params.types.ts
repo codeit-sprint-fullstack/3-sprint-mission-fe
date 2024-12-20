@@ -1,4 +1,4 @@
-import { CommentListResponse } from '@/services/api/types/comment';
+import { CommentListResponse } from '@/services/api/types/comment.types';
 
 export interface CommentListParams {
   id: string;
@@ -12,7 +12,6 @@ export interface WithInitialData extends CommentListParams {
 export interface EditOrDeleteCommentMutationParams {
   pageId: string;
   variant: 'product' | 'article';
-  onErrorFn: (errorMessage: string) => void;
 }
 
 export interface EditCommentParams {

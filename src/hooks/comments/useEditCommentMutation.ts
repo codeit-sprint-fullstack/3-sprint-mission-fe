@@ -3,7 +3,7 @@ import {
   EditCommentParams,
 } from '@/lib/types/params.types';
 import { editComment } from '@/services/api/comment';
-import { CommentListResponse } from '@/services/api/types/comment';
+import { CommentListResponse } from '@/services/api/types/comment.types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useErrorModal } from '../modals/useErrorModal';

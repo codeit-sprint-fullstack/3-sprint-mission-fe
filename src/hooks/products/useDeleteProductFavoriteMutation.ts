@@ -1,5 +1,5 @@
 import { deleteProductFavorite } from '@/services/api/product';
-import { GetProductResponse } from '@/services/api/types/product';
+import { GetProductResponse } from '@/services/api/types/product.types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { ProductContextType } from './types';

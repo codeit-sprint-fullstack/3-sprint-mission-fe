@@ -1,5 +1,5 @@
 import WriteForm from '@/components/writeArticle/writeForm';
-import { ParamsProps } from '@/lib/types/paramsProps.types';
+import { ParamsProps } from '@/lib/types/props.types';
 import { getArticle } from '@/services/api/article';
 
 export default async function Page({ params }: ParamsProps) {

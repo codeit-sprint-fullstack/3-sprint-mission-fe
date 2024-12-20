@@ -1,7 +1,10 @@
 import { CommentListParams } from '@/lib/types/params.types';
 import { createArticleComments } from '@/services/api/article';
 import { createProductComments } from '@/services/api/product';
-import { CommentRequest, CommentResponse } from '@/services/api/types/comment';
+import {
+  CommentRequest,
+  CommentResponse,
+} from '@/services/api/types/comment.types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
