@@ -1,8 +1,5 @@
 'use client';
 
-import { MEDIA_QUERY } from '@/constants/mediaQuery';
-import { screenWidthAtom } from '@/lib/store/atoms';
-import { useAtom } from 'jotai';
 import Image from 'next/image';
 import { ProductProps } from '../types';
 import mockImage from '@/public/images/mockImage/mock_image.png';
