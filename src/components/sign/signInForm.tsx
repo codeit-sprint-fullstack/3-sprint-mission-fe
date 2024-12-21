@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { SignInFormData } from './types';
 import Image from 'next/image';
 import logo from '@/public/images/common/logo.png';
-import CommonInputSection from './commonInputSection';
+import CommonInputSection from '../common/commonInputSection/commonInputSection';
 import CommonBtn from '../common/commonBtn/commonBtn';
 import SocialLogin from './socialLogin';
 import LoginLink from './loginLink';

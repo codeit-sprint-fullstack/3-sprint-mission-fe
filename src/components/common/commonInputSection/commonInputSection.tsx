@@ -1,5 +1,5 @@
 import { FieldValues } from 'react-hook-form';
-import { CommonInputSectionProps } from './types';
+import { CommonInputSectionProps } from '../../sign/types';
 import cn from '@/lib/cn';
 import { useState } from 'react';
 import { faEye } from '@fortawesome/free-regular-svg-icons';

@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { SignUpFormData } from './types';
-import CommonInputSection from './commonInputSection';
+import CommonInputSection from '../common/commonInputSection/commonInputSection';
 import Image from 'next/image';
 import logo from '@/public/images/common/logo.png';
 import SocialLogin from './socialLogin';

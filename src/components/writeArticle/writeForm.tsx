@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { ArticleFormData, ArticleFormProps } from './writeForm.types';
-import CommonInputSection from '../sign/commonInputSection';
+import CommonInputSection from '../common/commonInputSection/commonInputSection';
 import { useEditArticleMutation } from '@/hooks/articles/useEditArticleMutation';
 import { useCreateArticleMutation } from '@/hooks/articles/useCreateArticleMutation';
 import { CreateArticleRequest } from '@/services/api/types/article.types';
