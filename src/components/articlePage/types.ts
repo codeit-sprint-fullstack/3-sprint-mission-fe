@@ -5,4 +5,5 @@ export interface ArticleHeaderProps {
   createdAt: string;
   likeCount: number;
   isLiked: boolean;
+  ownerId: number;
 }
