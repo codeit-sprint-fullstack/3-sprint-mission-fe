@@ -28,7 +28,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
   const { mutate } = useDeleteProductMutation();
 
   const onEditFn = () => {
-    if (me?.id !== product?.id)
+    if (me?.id !== product?.ownerId)
       return setErrorMessage('본인의 상품만 수정할 수 있습니다.');
     router.push(`/items/${product?.id}/edit`);
   };
