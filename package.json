@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
     "axios": "^1.7.9",
     "next": "^14.0.4",
     "react": "^18.2.0",
