@@ -10,8 +10,6 @@ import SocialLogin from './socialLogin';
 import LoginLink from './loginLink';
 import { signIn } from '@/services/api/auth';
 import { useAuthMutation } from '@/hooks/useAuthMutation';
-import Modal from '../modal/modal';
-import { useErrorHandling } from '@/hooks/useErrorHandling';
 
 export default function SignInForm() {
   const {
@@ -27,20 +25,13 @@ export default function SignInForm() {
   const password = watch('password');
   const buttonActive = email && password && isValid;
 
-  const { modalOpen, setModalOpen, errorMessage, handleError } =
-    useErrorHandling();
-
-  const { mutate } = useAuthMutation<SignInFormData>(signIn, handleError);
-
-  const onSubmit = (data: SignInFormData) => {
-    mutate(data);
-  };
+  const { mutate } = useAuthMutation<SignInFormData>(signIn);
 
   return (
     <>
       <form
         className='w-full flex flex-col items-center mt-[56px] md:mt-[158px] xl:mt-[170px]'
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((data) => mutate(data))}
       >
         <Image
           src={logo}
@@ -86,11 +77,6 @@ export default function SignInForm() {
         <SocialLogin />
         <LoginLink variant='signIn' />
       </form>
-      <Modal
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        message={errorMessage}
-      />
     </>
   );
 }
