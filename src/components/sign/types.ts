@@ -14,6 +14,8 @@ export interface CommonInputSectionProps<T extends FieldValues> {
   placeholder: string;
   type?: string;
   validation?: RegisterOptions<T, Path<T>>;
+  inputType?: 'input' | 'textarea';
+  rows?: number;
 }
 
 export interface SignUpFormData {

@@ -14,20 +14,31 @@ export default function CommonInputSection<T extends FieldValues>({
   placeholder,
   type = 'text',
   validation,
+  inputType = 'input',
+  rows = 5,
 }: CommonInputSectionProps<T>) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = name === 'password' || name === 'passwordConfirmation';
+
+  const inputProps = {
+    type: isPassword ? (showPassword ? 'text' : 'password') : type,
+    className: cn('input-base', errors[name] && 'error-input'),
+    placeholder,
+    ...register(name, validation),
+  };
 
   return (
     <div className='input-section'>
       <label className='input-label'>{label}</label>
       <div className='relative'>
-        <input
-          type={isPassword ? (showPassword ? 'text' : 'password') : type}
-          className={cn('input-base', errors[name] && 'error-input')}
-          placeholder={placeholder}
-          {...register(name, validation)}
-        />
+        {inputType === 'textarea' ? (
+          <textarea
+            rows={rows}
+            {...inputProps}
+          />
+        ) : (
+          <input {...inputProps} />
+        )}
         {isPassword && (
           <FontAwesomeIcon
             icon={showPassword ? faEye : faEyeSlash}
