@@ -1,5 +1,5 @@
-import CommentContainer from '@/components/articlePage/comment/commentContainer';
-import ReturnButton from '@/components/articlePage/returnButton/returnButton';
+import CommentContainer from '@/components/common/comment/commentContainer';
+import ReturnButton from '@/components/common/returnButton/returnButton';
 import AuthRedirect from '@/components/auth/authRedirect';
 import ProductInformationSection from '@/components/items/itemPage/productInformationSection';
 import { ParamsProps } from '@/lib/types/props.types';

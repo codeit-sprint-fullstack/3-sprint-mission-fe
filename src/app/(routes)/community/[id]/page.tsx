@@ -1,7 +1,7 @@
 import { ParamsProps } from '@/lib/types/props.types';
-import ReturnButton from '@/components/articlePage/returnButton/returnButton';
+import ReturnButton from '@/components/common/returnButton/returnButton';
 import ArticleClient from '@/components/articlePage/articleClient';
-import CommentContainer from '@/components/articlePage/comment/commentContainer';
+import CommentContainer from '@/components/common/comment/commentContainer';
 import AuthRedirect from '@/components/auth/authRedirect';
 
 export default function Page({ params }: ParamsProps) {
