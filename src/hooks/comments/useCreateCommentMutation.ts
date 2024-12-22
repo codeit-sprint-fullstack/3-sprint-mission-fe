@@ -7,16 +7,19 @@ import {
 } from '@/services/api/types/comment.types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
+import { useMessageModal } from '../modals/useMessageModal';
+
+const mutationFn = {
+  product: createProductComments,
+  article: createArticleComments,
+};
 
 export const useCreateCommentMutation = ({
   variant,
   id,
 }: CommentListParams) => {
   const queryClient = useQueryClient();
-  const mutationFn = {
-    product: createProductComments,
-    article: createArticleComments,
-  };
+  const { setMessage } = useMessageModal();
 
   return useMutation<
     CommentResponse,
@@ -27,5 +30,6 @@ export const useCreateCommentMutation = ({
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments', variant, id] });
     },
+    onError: () => setMessage('로그인이 필요한 기능입니다.'),
   });
 };

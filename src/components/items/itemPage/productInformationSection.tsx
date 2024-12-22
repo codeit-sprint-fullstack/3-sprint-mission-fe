@@ -12,7 +12,7 @@ import { useMe } from '@/hooks/useMe';
 import { useRouter } from 'next/navigation';
 import { useSetAtom } from 'jotai';
 import { confirmModalAtom } from '@/lib/store/modalAtoms';
-import { useErrorModal } from '@/hooks/modals/useErrorModal';
+import { useMessageModal } from '@/hooks/modals/useMessageModal';
 
 export default function ProductInformationSection({ id }: { id: string }) {
   const { data: product } = useProductQuery({
@@ -23,14 +23,22 @@ export default function ProductInformationSection({ id }: { id: string }) {
 
   const setConfirmModalAtom = useSetAtom(confirmModalAtom);
 
-  const { setErrorMessage } = useErrorModal();
+  const { setMessage } = useMessageModal();
 
   const { mutate } = useDeleteProductMutation();
 
   const onEditFn = () => {
     if (me?.id !== product?.ownerId)
-      return setErrorMessage('본인의 상품만 수정할 수 있습니다.');
+      return setMessage('본인의 상품만 수정할 수 있습니다.');
     router.push(`/items/${product?.id}/edit`);
+  };
+
+  const onDeleteFn = () => {
+    setConfirmModalAtom({
+      isOpen: true,
+      message: '정말로 상품을 삭제하시겠어요?',
+      onConfirmFunction: () => product && mutate(product.id.toString()),
+    });
   };
 
   return (
@@ -52,13 +60,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
                   <span className='text-2xl font-semibold'>{product.name}</span>
                   <ActionMenu
                     id={product.id.toString()}
-                    onDeleteButtonClick={() =>
-                      setConfirmModalAtom({
-                        isOpen: true,
-                        message: '정말로 상품을 삭제하시겠어요?',
-                        onConfirmFunction: () => mutate(product.id.toString()),
-                      })
-                    }
+                    onDeleteButtonClick={onDeleteFn}
                     onEditButtonClick={onEditFn}
                   />
                 </div>

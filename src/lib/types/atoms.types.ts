@@ -4,7 +4,7 @@ export interface ConfirmModalState {
   onConfirmFunction: (() => void) | null;
 }
 
-export interface ErrorModalState {
+export interface MessageModalState {
   isOpen: boolean;
   message: string;
 }

@@ -3,12 +3,12 @@
 import { createPortal } from 'react-dom';
 import CommonBtn from '../common/commonBtn/commonBtn';
 import cn from '@/lib/cn';
-import { useErrorModal } from '@/hooks/modals/useErrorModal';
+import { useMessageModal } from '@/hooks/modals/useMessageModal';
 
-export default function ErrorModal() {
-  const { errorModalState, closeErrorModal } = useErrorModal();
+export default function MessageModal() {
+  const { messageModalState, closeMessageModal } = useMessageModal();
 
-  if (!errorModalState.isOpen) return null;
+  if (!messageModalState.isOpen) return null;
 
   return createPortal(
     <div className='fixed inset-0 bg-black/70 z-10'>
@@ -22,11 +22,11 @@ export default function ErrorModal() {
           className={'w-full flex flex-col items-center justify-center gap-10'}
         >
           <div className='flex flex-col justify-center items-center gap-6'>
-            <div>{errorModalState.message}</div>
+            <div>{messageModalState.message}</div>
           </div>
           <CommonBtn
             className='rounded-lg w-[120px] md:w-[165px] xl:w-[165px] h-[48px]'
-            onClick={closeErrorModal}
+            onClick={closeMessageModal}
           >
             확인
           </CommonBtn>

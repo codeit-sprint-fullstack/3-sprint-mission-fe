@@ -2,14 +2,14 @@ import { SignInResponse } from '@/services/api/types/auth.types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
-import { useErrorModal } from './modals/useErrorModal';
+import { useMessageModal } from './modals/useMessageModal';
 
 export const useAuthMutation = <T>(
   authFn: (data: T) => Promise<SignInResponse>,
 ) => {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { setErrorMessage } = useErrorModal();
+  const { setMessage } = useMessageModal();
 
   return useMutation<SignInResponse, AxiosError<{ message: string }>, T>({
     mutationFn: authFn,
@@ -20,7 +20,7 @@ export const useAuthMutation = <T>(
       router.push('/items');
     },
     onError: (error) => {
-      setErrorMessage(error?.response?.data.message || '오류가 발생했습니다.');
+      setMessage(error?.response?.data.message || '오류가 발생했습니다.');
     },
   });
 };

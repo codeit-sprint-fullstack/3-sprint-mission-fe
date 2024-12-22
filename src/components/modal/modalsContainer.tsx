@@ -1,15 +1,15 @@
 'use client';
 
-import { confirmModalAtom, errorModalAtom } from '@/lib/store/modalAtoms';
+import { confirmModalAtom, messageModalAtom } from '@/lib/store/modalAtoms';
 import { useSetAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import ErrorModal from './errorModal';
+import MessageModal from './messageModal';
 import ConfirmModal from './confirmModal';
 
 export default function ModalsContainer() {
   const pathname = usePathname();
-  const setErrorModalAtom = useSetAtom(errorModalAtom);
+  const setErrorModalAtom = useSetAtom(messageModalAtom);
   const setConfirmModalAtom = useSetAtom(confirmModalAtom);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function ModalsContainer() {
 
   return (
     <>
-      <ErrorModal />
+      <MessageModal />
       <ConfirmModal />
     </>
   );

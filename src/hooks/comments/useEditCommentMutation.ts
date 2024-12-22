@@ -6,7 +6,7 @@ import { editComment } from '@/services/api/comment';
 import { CommentListResponse } from '@/services/api/types/comment.types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { useErrorModal } from '../modals/useErrorModal';
+import { useMessageModal } from '../modals/useMessageModal';
 import { useSetAtom } from 'jotai';
 import { editingCommentIdAtom } from '@/lib/store/atoms';
 
@@ -15,7 +15,7 @@ export const useEditCommentMutation = ({
   variant,
 }: EditOrDeleteCommentMutationParams) => {
   const queryClient = useQueryClient();
-  const { setErrorMessage } = useErrorModal();
+  const { setMessage } = useMessageModal();
   const setEditingCommentId = useSetAtom(editingCommentIdAtom);
 
   return useMutation<
@@ -31,7 +31,7 @@ export const useEditCommentMutation = ({
         queryKey: ['comments', variant, pageId],
       }),
     onError: (error) =>
-      setErrorMessage(
+      setMessage(
         error?.response?.data?.message ||
           `에러가 발생했습니다. ${error.message}`,
       ),

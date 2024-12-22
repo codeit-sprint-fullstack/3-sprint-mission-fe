@@ -2,12 +2,12 @@ import { deleteProduct } from '@/services/api/product';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
-import { useErrorModal } from '../modals/useErrorModal';
+import { useMessageModal } from '../modals/useMessageModal';
 
 export const useDeleteProductMutation = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { setErrorMessage } = useErrorModal();
+  const { setMessage: setErrorMessage } = useMessageModal();
 
   return useMutation<void, AxiosError<{ message: string }>, string>({
     mutationFn: deleteProduct,

@@ -6,12 +6,12 @@ import {
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
-import { useErrorModal } from '../modals/useErrorModal';
+import { useMessageModal } from '../modals/useMessageModal';
 
 export const useCreateArticleMutation = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
-  const { setErrorMessage } = useErrorModal();
+  const { setMessage } = useMessageModal();
 
   return useMutation<
     GetArticleResponse,
@@ -28,7 +28,7 @@ export const useCreateArticleMutation = () => {
       router.push(`/community/${result.id}`);
     },
     onError: (error) => {
-      setErrorMessage(
+      setMessage(
         error?.response?.data.message ||
           `에러가 발생했습니다. ${error.message}`,
       );

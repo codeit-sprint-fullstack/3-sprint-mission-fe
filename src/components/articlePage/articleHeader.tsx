@@ -10,7 +10,7 @@ import { useDeleteArticleMutation } from '@/hooks/articles/useDeleteArticleMutat
 import { useSetAtom } from 'jotai';
 import { confirmModalAtom } from '@/lib/store/modalAtoms';
 import { useMe } from '@/hooks/useMe';
-import { useErrorModal } from '@/hooks/modals/useErrorModal';
+import { useMessageModal } from '@/hooks/modals/useMessageModal';
 
 export default function ArticleHeader({
   id,
@@ -23,13 +23,13 @@ export default function ArticleHeader({
 }: ArticleHeaderProps) {
   const deleteArticleMutation = useDeleteArticleMutation(id);
   const setConfirmModalState = useSetAtom(confirmModalAtom);
-  const { setErrorMessage } = useErrorModal();
+  const { setMessage } = useMessageModal();
   const router = useRouter();
 
   const { data: me } = useMe();
   const onEditButtonClick = () => {
     if (me?.id !== ownerId)
-      return setErrorMessage('본인의 게시물만 수정할 수 있습니다.');
+      return setMessage('본인의 게시물만 수정할 수 있습니다.');
     router.push(`/community/${id}/edit`);
   };
 

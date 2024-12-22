@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { ConfirmModalState, ErrorModalState } from '../types/atoms.types';
+import { ConfirmModalState, MessageModalState } from '../types/atoms.types';
 
 export const confirmModalAtom = atom<ConfirmModalState>({
   isOpen: false,
@@ -7,7 +7,7 @@ export const confirmModalAtom = atom<ConfirmModalState>({
   onConfirmFunction: null,
 });
 
-export const errorModalAtom = atom<ErrorModalState>({
+export const messageModalAtom = atom<MessageModalState>({
   isOpen: false,
   message: '',
 });
