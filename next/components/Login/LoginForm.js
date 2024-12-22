@@ -21,7 +21,7 @@ export default function LoginForm() {
   // 페이지 접근 시 accessToken 확인
   useEffect(() => {
     if (accessToken) {
-      router.push("/items");
+      router.push("/items"); // 이미 로그인된 경우 리디렉션
     }
   }, [accessToken, router]);
 
@@ -36,6 +36,7 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // 입력값 유효성 검증
     const isValid = validate();
     if (!isValid) {
       setModalMessage("로그인에 실패했습니다.");
@@ -50,7 +51,7 @@ export default function LoginForm() {
         "/auth/signIn",
         { email, password },
         {
-          withCredentials: true,
+          withCredentials: true, // JWT 쿠키 포함 요청
         }
       );
 
@@ -60,17 +61,11 @@ export default function LoginForm() {
       setModalMessage("로그인에 성공했습니다!");
       setIsModalVisible(true);
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        if (error.response.data.message.includes("password")) {
-          setModalMessage("비밀번호가 일치하지 않습니다.");
-        } else if (error.response.data.message.includes("email")) {
-          setModalMessage("로그인 정보가 일치하지 않습니다.");
-        } else {
-          setModalMessage("로그인에 실패했습니다. 다시 시도해주세요.");
-        }
-      } else {
-        setModalMessage("알 수 없는 오류가 발생했습니다.");
-      }
+      // 오류 처리
+      const errorMessage =
+        error.response?.data?.message ||
+        "로그인에 실패했습니다. 다시 시도해주세요.";
+      setModalMessage(errorMessage);
       setIsModalVisible(true);
     }
   };
@@ -79,15 +74,12 @@ export default function LoginForm() {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const closeModalAndRedirect = () => {
-    setIsModalVisible(false);
-    setModalMessage(""); // 모달 메시지 초기화
-    router.push("/items"); // 페이지 이동
-  };
-
-  const closeModal = () => {
+  const handleModalAction = () => {
     setIsModalVisible(false);
     setModalMessage("");
+    if (modalMessage.includes("성공")) {
+      router.push("/items"); // 성공 시 중고 마켓 페이지로 이동
+    }
   };
 
   return (
@@ -163,15 +155,10 @@ export default function LoginForm() {
 
       {/* 모달 컴포넌트 */}
       {isModalVisible && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
+        <div className={styles.modalOverlay} onClick={() => setIsModalVisible(false)}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <p className={styles.modalText}>{modalMessage}</p>
-            <button
-              onClick={
-                modalMessage.includes("성공") ? closeModalAndRedirect : closeModal
-              }
-              className={styles.closeModalBtn}
-            >
+            <button onClick={handleModalAction} className={styles.closeModalBtn}>
               닫기
             </button>
           </div>
