@@ -1,6 +1,6 @@
 'use client';
 
-import CommentForm from '@/components/articlePage/commentForm/commentForm';
+import CommentForm from '@/components/common/commentForm/commentForm';
 import NoComment from './noComment';
 import Comment from './comment';
 import profileIcon from '@/public/icons/profile_icon.png';

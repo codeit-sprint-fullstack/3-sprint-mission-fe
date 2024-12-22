@@ -1,7 +1,7 @@
 'use client';
 
 import { CommentProps } from './types';
-import Profile from '../../common/profile/profile';
+import Profile from '../profile/profile';
 import ActionMenu from '../../community/actionMenu/actionMenu';
 import { useDeleteCommentMutation } from '@/hooks/comments/useDeleteCommentMutation';
 import { useEditCommentMutation } from '@/hooks/comments/useEditCommentMutation';
