@@ -20,7 +20,8 @@ export const useAuthMutation = <T extends object>(
       }
       queryClient.setQueriesData({ queryKey: ['me'] }, response.user);
       if ('passwordConfirmation' in variable)
-        setMessage('가입 완료되었습니다', () => router.push('/items'));
+        return setMessage('가입 완료되었습니다', () => router.push('/items'));
+      router.push('/items');
     },
     onError: (error) => {
       setMessage(error?.response?.data.message || '오류가 발생했습니다.');
