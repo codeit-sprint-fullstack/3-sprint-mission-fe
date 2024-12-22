@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import axios from "@/lib/axios";
 import styles from "@/components/Signin/SigninFrom.module.css";
 import useValidate from "@/hooks/useValidate";
@@ -12,13 +13,55 @@ export default function SigninForm() {
   const [isRePasswordVisible, setIsRePasswordVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false); // 성공 여부 상태 추가
 
   const { values, setValues, errors, validate } = useValidate({
     email: "",
     nickname: "",
     password: "",
     passwordConfirmation: "",
+  });
+
+  const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // 클라이언트에서만 실행되도록 상태 업데이트
+  }, []);
+
+  const signUpMutation = useMutation({
+    mutationFn: async ({ email, nickname, password, passwordConfirmation }) => {
+      const response = await axios.post(
+        "/auth/signUp",
+        { email, nickname, password, passwordConfirmation },
+        { withCredentials: true }
+      );
+      return response.data;
+    },
+    onSuccess: (data) => {
+      if (data?.token) {
+        if (isClient) {
+          localStorage.setItem("authToken", data.token);
+        }
+        setModalMessage("회원가입이 성공적으로 완료되었습니다!");
+        setIsModalVisible(true);
+        setRedirectToLogin(true);
+      }
+    },
+    onError: (error) => {
+      if (error.response && error.response.data.message) {
+        const message = error.response.data.message;
+        if (message.includes("email")) {
+          setModalMessage("사용 중인 이메일입니다.");
+        } else if (message.includes("nickname")) {
+          setModalMessage("사용 중인 닉네임입니다.");
+        } else {
+          setModalMessage("회원가입에 실패했습니다.");
+        }
+      } else {
+        setModalMessage("알 수 없는 오류가 발생했습니다.");
+      }
+      setIsModalVisible(true);
+    },
   });
 
   const handleChange = (e) => {
@@ -40,19 +83,19 @@ export default function SigninForm() {
   const closeModal = () => {
     setIsModalVisible(false);
     setModalMessage("");
-    if (isSuccess) {
-      router.push("/login"); // 성공 시 로그인 페이지로 이동
+    if (redirectToLogin) {
+      router.push("/login");
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!validate()) {
       return;
     }
 
-    const { email, password, passwordConfirmation } = values;
+    const { email, nickname, password, passwordConfirmation } = values;
 
     if (password !== passwordConfirmation) {
       setModalMessage("비밀번호가 일치하지 않습니다.");
@@ -60,32 +103,14 @@ export default function SigninForm() {
       return;
     }
 
-    try {
-      await axios.post(
-        "/auth/signUp",
-        { email, password, passwordConfirmation },
-        {
-          withCredentials: true,
-        }
-      );
-      setModalMessage("회원가입이 성공적으로 완료되었습니다!");
-      setIsSuccess(true); // 성공 상태 업데이트
-      setIsModalVisible(true);
-    } catch (error) {
-      setIsSuccess(false); // 실패 상태로 초기화
-      if (error.response && error.response.data.message) {
-        if (error.response.data.message.includes("email")) {
-          setModalMessage("사용 중인 이메일입니다.");
-        } else {
-          setModalMessage("회원가입에 실패했습니다.");
-        }
-      } else {
-        setModalMessage("알 수 없는 오류가 발생했습니다.");
-      }
-      setIsModalVisible(true);
-    }
+    signUpMutation.mutate({ email, nickname, password, passwordConfirmation });
   };
-  
+
+  if (!isClient) {
+    // 서버 렌더링 중에는 빈 상태를 반환하여 불일치를 방지
+    return null;
+  }
+
   return (
     <div className={styles.signinContainer}>
       <div>
@@ -157,8 +182,8 @@ export default function SigninForm() {
               </button>
             </div>
             {errors.password && (
-                <div className={styles.error}>{errors.password}</div>
-              )}
+              <div className={styles.error}>{errors.password}</div>
+            )}
           </div>
           <div className={styles.inputForm}>
             <label htmlFor="passwordConfirmation">비밀번호 확인</label>
@@ -193,19 +218,27 @@ export default function SigninForm() {
                 />
               </button>
             </div>
-            {errors.password && (
-                <div className={styles.error}>{errors.passwordConfirmation}</div>
-              )}
+            {errors.passwordConfirmation && (
+              <div className={styles.error}>
+                {errors.passwordConfirmation}
+              </div>
+            )}
           </div>
-          <button type="submit" className={styles.signinBtn}>
-            회원가입
+          <button
+            type="submit"
+            className={styles.signinBtn}
+            disabled={signUpMutation.isLoading}
+          >
+            {signUpMutation.isLoading ? "처리 중..." : "회원가입"}
           </button>
         </form>
 
-        {/* 모달 컴포넌트 */}
         {isModalVisible && (
           <div className={styles.modalOverlay} onClick={closeModal}>
-            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div
+              className={styles.modalContent}
+              onClick={(e) => e.stopPropagation()}
+            >
               <p className={styles.modalText}>{modalMessage}</p>
               <button onClick={closeModal} className={styles.closeModalBtn}>
                 확인
@@ -213,7 +246,6 @@ export default function SigninForm() {
             </div>
           </div>
         )}
-
       </div>
     </div>
   );
