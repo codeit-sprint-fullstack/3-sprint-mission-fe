@@ -6,10 +6,13 @@ export const useMe = () => {
   return useQuery<User>({
     queryKey: ['me'],
     queryFn: async () => {
-      const accessKey = localStorage.getItem('accessToken');
-      if (!accessKey) return null;
-      const userData = await getMe();
-      return userData;
+      if (typeof window !== 'undefined') {
+        const accessKey = localStorage.getItem('accessToken');
+        if (!accessKey) return null;
+        const userData = await getMe();
+        return userData;
+      }
+      return null;
     },
   });
 };

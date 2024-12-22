@@ -1,3 +1,5 @@
+'use client';
+
 import AuthRedirect from '@/components/auth/authRedirect';
 
 export default function Layout({
