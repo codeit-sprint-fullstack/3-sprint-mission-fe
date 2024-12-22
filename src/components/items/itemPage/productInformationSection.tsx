@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useSetAtom } from 'jotai';
 import { confirmModalAtom } from '@/lib/store/modalAtoms';
 import { useMessageModal } from '@/hooks/modals/useMessageModal';
+import AuthRedirect from '@/components/auth/authRedirect';
 
 export default function ProductInformationSection({ id }: { id: string }) {
   const { data: product } = useProductQuery({

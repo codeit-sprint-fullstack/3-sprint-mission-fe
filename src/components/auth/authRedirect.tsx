@@ -3,7 +3,11 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-export default function AuthRedirect() {
+export default function AuthRedirect({
+  variant,
+}: {
+  variant: 'signedIn' | 'signedOut';
+}) {
   let accessToken = null;
 
   if (typeof window !== undefined)
@@ -11,7 +15,8 @@ export default function AuthRedirect() {
   const router = useRouter();
 
   useEffect(() => {
-    if (accessToken) router.replace('/items');
+    if (accessToken && variant === 'signedIn') router.replace('/items');
+    if (!accessToken && variant === 'signedOut') router.replace('/sign-in');
   }, [accessToken, router]);
 
   return null;
