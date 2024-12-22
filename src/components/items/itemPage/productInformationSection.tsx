@@ -13,10 +13,10 @@ import { useRouter } from 'next/navigation';
 import { useSetAtom } from 'jotai';
 import { confirmModalAtom } from '@/lib/store/modalAtoms';
 import { useMessageModal } from '@/hooks/modals/useMessageModal';
-import AuthRedirect from '@/components/auth/authRedirect';
+import ProductInformationSkeleton from './productInformationSkeleton';
 
 export default function ProductInformationSection({ id }: { id: string }) {
-  const { data: product } = useProductQuery({
+  const { data: product, isLoading } = useProductQuery({
     id,
   });
   const router = useRouter();
@@ -41,6 +41,8 @@ export default function ProductInformationSection({ id }: { id: string }) {
       onConfirmFunction: () => product && mutate(product.id.toString()),
     });
   };
+
+  if (isLoading) return <ProductInformationSkeleton />;
 
   return (
     product && (
