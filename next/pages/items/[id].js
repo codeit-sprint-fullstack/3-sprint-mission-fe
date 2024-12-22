@@ -23,21 +23,21 @@ export default function IdProduct() {
     "createdAt": "2024-12-07T15:44:02.782Z"
   });
 
-  // 상품 데이터 가져오기
-  // const {
-  //   data: product,
-  //   isLoading: isProductLoading,
-  //   isError: isProductError,
-  // } = useQuery(
-  //   ["product", id], // Query Key
-  //   async () => {
-  //     const res = await axios.get(`/products/${id}`);
-  //     return res.data;
-  //   },
-  //   {
-  //     enabled: !id, // id가 있을 때만 실행
-  //   }
-  // );
+  상품 데이터 가져오기
+  const {
+    data: product,
+    isLoading: isProductLoading,
+    isError: isProductError,
+  } = useQuery(
+    ["product", id], // Query Key
+    async () => {
+      const res = await axios.get(`/products/${id}`);
+      return res.data;
+    },
+    {
+      enabled: !id, // id가 있을 때만 실행
+    }
+  );
 
   // 상품 댓글 데이터 가져오기
   const {
