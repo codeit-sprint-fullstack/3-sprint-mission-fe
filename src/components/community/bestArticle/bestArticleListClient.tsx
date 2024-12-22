@@ -6,12 +6,19 @@ import { screenWidthAtom } from '@/lib/store/atoms';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import { useBestArticleListQuery } from '@/hooks/articles/useBestArticleListQuery';
 import { BestArticleListProps } from '@/lib/types/props.types';
+import BestArticleSkeleton from './bestArticleSkeleton';
 
 export default function BestArticleListClient({
   initialData,
 }: BestArticleListProps) {
   const [screenWidth] = useAtom(screenWidthAtom);
-  const { data } = useBestArticleListQuery({ initialData });
+  const { data, isLoading } = useBestArticleListQuery({ initialData });
+
+  if (isLoading) return;
+  Array.from(
+    { length: MEDIA_QUERY.bestArticlePageSize[screenWidth!] },
+    (el) => el,
+  ).map((_) => <BestArticleSkeleton />);
 
   return (
     <>

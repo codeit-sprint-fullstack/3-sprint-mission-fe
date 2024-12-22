@@ -3,12 +3,21 @@
 import NormalArticleCard from './normalArticleCard';
 import { useNormalArticleListQuery } from '@/hooks/articles/useNormalArticleListQuery';
 import { NormalArticleListProps } from '@/lib/types/props.types';
+import NormalArticleCardSkeleton from './normalArticleSkeleton';
 
 export default function NormalArticleListClient({
   searchParams,
   initialData,
 }: NormalArticleListProps) {
-  const { data } = useNormalArticleListQuery({ searchParams, initialData });
+  const { data, isLoading } = useNormalArticleListQuery({
+    searchParams,
+    initialData,
+  });
+
+  if (isLoading)
+    return Array.from({ length: 10 }, (_, index) => index).map((_) => (
+      <NormalArticleCardSkeleton />
+    ));
 
   return (
     <>

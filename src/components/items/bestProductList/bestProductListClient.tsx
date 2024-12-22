@@ -7,6 +7,7 @@ import Product from '../product/product';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import { useAtom } from 'jotai';
 import { screenWidthAtom } from '@/lib/store/atoms';
+import ProductSkeleton from '../product/productSkeleton';
 
 const SLICE_VALUE = {
   [MEDIA_QUERY.value.large]: 4,
@@ -20,7 +21,7 @@ export default function BestProductListClient({
   const [screenWidth] = useAtom(screenWidthAtom);
   const sliceValue = SLICE_VALUE[screenWidth || MEDIA_QUERY.value.large];
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['bestProducts'],
     queryFn: () =>
       getProductList({
@@ -31,6 +32,11 @@ export default function BestProductListClient({
       }),
     initialData,
   });
+
+  if (isLoading)
+    return Array.from({ length: sliceValue }, (el) => el).map((_) => (
+      <ProductSkeleton size='big' />
+    ));
 
   return (
     <>

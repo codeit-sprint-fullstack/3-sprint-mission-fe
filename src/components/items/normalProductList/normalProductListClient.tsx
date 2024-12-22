@@ -9,6 +9,7 @@ import { screenWidthAtom } from '@/lib/store/atoms';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import cn from '@/lib/cn';
 import PageIndex from '@/components/common/pageIndex/pageIndex';
+import ProductSkeleton from '../product/productSkeleton';
 
 const GRID_COLS = {
   [MEDIA_QUERY.value.large]: 'grid-cols-5',
@@ -24,7 +25,7 @@ export default function NormalProductListClient({
     MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large],
   );
 
-  const { data: products } = useQuery({
+  const { data: products, isLoading } = useQuery({
     queryKey: [
       'products',
       searchParams.page,
@@ -42,6 +43,22 @@ export default function NormalProductListClient({
       }),
     enabled: !!screenWidth,
   });
+
+  if (isLoading)
+    return (
+      <div className='flex flex-col items-center mb-[165px]'>
+        <div
+          className={cn(
+            'grid gap-1 items-center md:gap-4 xl:gap-5 mb-10',
+            GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
+          )}
+        >
+          {Array.from({ length: productsPerPage }, (el) => el).map((_) => (
+            <ProductSkeleton size='small' />
+          ))}
+        </div>
+      </div>
+    );
 
   if (products)
     return (
