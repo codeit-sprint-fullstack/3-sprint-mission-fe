@@ -14,8 +14,10 @@ export const useAuthMutation = <T extends object>(
   return useMutation<SignInResponse, AxiosError<{ message: string }>, T>({
     mutationFn: authFn,
     onSuccess: (response, variable) => {
-      localStorage.setItem('accessToken', response.accessToken);
-      localStorage.setItem('refreshToken', response.refreshToken);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('refreshToken', response.refreshToken);
+      }
       queryClient.setQueriesData({ queryKey: ['me'] }, response.user);
       if ('passwordConfirmation' in variable)
         setMessage('가입 완료되었습니다', () => router.push('/items'));
