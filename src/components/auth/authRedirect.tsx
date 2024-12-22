@@ -4,7 +4,10 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function AuthRedirect() {
-  const accessToken = localStorage.getItem('accessToken');
+  let accessToken = null;
+
+  if (typeof window !== undefined)
+    accessToken = localStorage.getItem('accessToken');
   const router = useRouter();
 
   useEffect(() => {
