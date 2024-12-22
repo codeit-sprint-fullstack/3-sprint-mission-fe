@@ -7,4 +7,5 @@ export interface ConfirmModalState {
 export interface MessageModalState {
   isOpen: boolean;
   message: string;
+  onCloseFunction: (() => void) | null;
 }

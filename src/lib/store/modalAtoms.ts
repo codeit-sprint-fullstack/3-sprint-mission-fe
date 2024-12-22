@@ -10,4 +10,5 @@ export const confirmModalAtom = atom<ConfirmModalState>({
 export const messageModalAtom = atom<MessageModalState>({
   isOpen: false,
   message: '',
+  onCloseFunction: null,
 });
