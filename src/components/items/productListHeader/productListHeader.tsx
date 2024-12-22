@@ -4,8 +4,8 @@ import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import CustomSelect from '@/components/common/customSelect/customSelect';
 import { Option } from '@/components/common/customSelect/customSelect.types';
 import SearchInput from '@/components/common/searchInput/searchInput';
+import { useAuthRedirect } from '@/hooks/auth/useAuthRedirect';
 import { GetProductListParams } from '@/services/api/types/product.types';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const options = [
@@ -19,6 +19,8 @@ export default function ProductListHeader({
   searchParams: GetProductListParams;
 }) {
   const router = useRouter();
+
+  const { authRedirect } = useAuthRedirect();
 
   const onSearch = (word: string) => {
     const params = new URLSearchParams();
@@ -43,9 +45,12 @@ export default function ProductListHeader({
           onSearch={onSearch}
           placeholder='검색할 상품을 입력해주세요'
         />
-        <Link href='/items/registration'>
-          <CommonBtn className='whitespace-nowrap'>상품 등록하기</CommonBtn>
-        </Link>
+        <CommonBtn
+          onClick={() => authRedirect('/items/registration')}
+          className='whitespace-nowrap'
+        >
+          상품 등록하기
+        </CommonBtn>
         <CustomSelect
           options={options}
           onChange={onSelect}
