@@ -3,12 +3,16 @@
 import { usePathname } from "next/navigation";
 import Nav from "@/components/common/nav/Nav";
 import Footer from "@/components/common/footer/Footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // 숨길 페이지를 객체로 관리
 const hiddenRoutes = {
   login: "/login",
-  signup: "/signup",
+  signup: "/signin",
 };
+
+const queryClient = new QueryClient();
 
 export default function ClientLayout({
   children,
@@ -20,10 +24,13 @@ export default function ClientLayout({
   const hideNavAndFooter = Object.values(hiddenRoutes).includes(pathname);
 
   return (
-    <div className="flex min-h-screen flex-col">
-      {!hideNavAndFooter && <Nav />}
-      <main className="flex-grow">{children}</main>
-      {!hideNavAndFooter && <Footer />}
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="flex min-h-screen flex-col">
+        {!hideNavAndFooter && <Nav />}
+        <main className="flex-grow">{children}</main>
+        {!hideNavAndFooter && <Footer />}
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }

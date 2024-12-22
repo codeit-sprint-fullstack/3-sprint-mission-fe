@@ -14,7 +14,7 @@ const PostDetailPage = () => {
       <PostDetailContent />
 
       {/* 댓글달기 */}
-      <CommentInput />
+      <CommentInput title="댓글달기" placeholder="댓글을 입력해주세요." />
 
       {/* 댓글창 */}
       <CommentList />
