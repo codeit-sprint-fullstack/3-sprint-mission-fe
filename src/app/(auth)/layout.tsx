@@ -1,6 +1,9 @@
 'use client';
 
-import AuthRedirect from '@/components/auth/authRedirect';
+import dynamic from 'next/dynamic';
+const AuthRedirect = dynamic(() => import('@/components/auth/authRedirect'), {
+  ssr: false,
+});
 
 export default function Layout({
   children,
