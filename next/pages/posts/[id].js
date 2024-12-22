@@ -1,7 +1,10 @@
 import styles from "@/styles/posts.module.css"
-import Comment from '@/components/comment';
-import CommentList from '@/components/postCommentList';
+import Comment from '@/components/post/comment';
+import CommentList from '@/components/post/postCommentList';
 import DropdownMenu from "@/components/Dropdown/DropdownBox";
+import FormatDate from "@/utils/Format";
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 import Image from 'next/image';
 import { useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
@@ -11,28 +14,18 @@ import axios from '@/lib/axios';
 export default function IdPost(){
   const [post, setPost] = useState();
   const [postComment, setPostComment]= useState([]); 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
   const id = router.query['id'];
 
-  const formatDate = (isoString) => {
-    const date = new Date(isoString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}.${month}.${day}`;
-  };
-
-
   async function loadPost(targetId) {
-    const res = await axios.get(`/board/${targetId}`);
+    const res = await axios.get(`/articles/${targetId}`);
     const nextPost = res.data;
     setPost(nextPost);
   }
 
   async function loadPostComment(targetId) {
     try {
-      const res = await axios.get(`/board/${targetId}/comment`);
+      const res = await axios.get(`/articles/${targetId}/comment`);
       console.log("Post Comments Response:", res.data); // 응답 확인
       const nextPostComment = Array.isArray(res.data) ? res.data : []; // 배열 확인
       setPostComment(nextPostComment);
@@ -59,6 +52,9 @@ export default function IdPost(){
 
   return(
     <div>
+      <div>
+        <Header/>
+      </div>
       <div className={styles.postWrapper}>
         <div className={styles.titleWrapper}>
           <h1 className={styles.postTitle}>{post.title}</h1>
@@ -77,7 +73,7 @@ export default function IdPost(){
             className={styles.userImage}
             />
             <span className={styles.userName}>총명한판다</span>
-            <span className={styles.postDate}>{formatDate(post.createdAt)}</span>
+            <span className={styles.postDate}>{FormatDate(post.createdAt)}</span>
           </div>
             <div className={styles.heartWrapper}>
               <Image
@@ -95,6 +91,9 @@ export default function IdPost(){
       </div>
       <Comment/>
       <CommentList comments={postComment}/>
+      <div>
+        <Footer/>
+      </div>
     </div>
   )
 }
