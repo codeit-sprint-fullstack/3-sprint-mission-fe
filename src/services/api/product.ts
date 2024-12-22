@@ -64,7 +64,7 @@ export const createProduct = async (body: CreateProductRequest) => {
   }
 };
 
-export const patchProduct = async (
+export const updateProduct = async (
   id: string,
   body: Partial<CreateProductRequest>,
 ) => {

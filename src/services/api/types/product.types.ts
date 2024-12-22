@@ -5,7 +5,13 @@ export interface GetProductListParams {
   keyword?: string;
 }
 
-export type CreateProductRequest = Omit<GetProductResponse, 'id' | 'createdAt'>;
+export interface CreateProductRequest {
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+}
 
 export interface GetProductResponse {
   id: number;
