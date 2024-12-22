@@ -1,17 +1,20 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { ArticleFormData, ArticleFormProps } from './writeForm.types';
+import {
+  ArticleFormData,
+  ArticleFormProps,
+  CreateMutation,
+  EditMutation,
+} from './writeForm.types';
 import CommonInputSection from '../common/commonInputSection/commonInputSection';
-import { useEditArticleMutation } from '@/hooks/articles/useEditArticleMutation';
-import { useCreateArticleMutation } from '@/hooks/articles/useCreateArticleMutation';
 import { CreateArticleRequest } from '@/services/api/types/article.types';
 import CommonBtn from '../common/commonBtn/commonBtn';
 
 export default function WriteForm({
   initialData,
-  articleId,
   variant,
+  mutation,
 }: ArticleFormProps) {
   const isEditMode = variant === 'edit';
   const {
@@ -27,24 +30,21 @@ export default function WriteForm({
     },
   });
 
-  const createMutation = useCreateArticleMutation();
-  const editMutation = articleId && useEditArticleMutation(articleId);
-
   const title = watch('title');
   const content = watch('content');
   const formComplete = title.trim() !== '' && content.trim() !== '' && isValid;
 
   const onSubmit = (data: ArticleFormData) => {
-    if (isEditMode && initialData && editMutation) {
+    if (isEditMode && initialData) {
       const changedFields: Partial<CreateArticleRequest> = {};
 
       if (data.title !== initialData.title) changedFields.title = data.title;
       if (data.content !== initialData.content)
         changedFields.content = data.content;
       if (Object.keys(changedFields).length > 0)
-        return editMutation.mutate(changedFields);
+        return (mutation as EditMutation).mutate(changedFields);
     }
-    return createMutation && createMutation.mutate(data);
+    return (mutation as CreateMutation).mutate(data);
   };
 
   return (
