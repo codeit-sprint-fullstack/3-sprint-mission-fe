@@ -55,7 +55,7 @@ export default function ProductCommentList({ comments = [] }) {
           </li>
         ))
       )}
-      <Link href="/market" className={styles.undo}>
+      <Link href="/item" className={styles.undo}>
         <button className={styles.backButton}>
           목록으로 돌아가기
           <Image
