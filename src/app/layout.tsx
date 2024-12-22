@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Provider } from 'jotai';
 import { ScreenWidthObserver } from './screenWidthObserver';
 import QueryProvider from './queryProvider';
+import ModalsContainer from '@/components/modal/modalsContainer';
 config.autoAddCss = false;
 
 const pretendard = localFont({
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           <Provider>
+            <ModalsContainer />
             <ScreenWidthObserver />
             {children}
           </Provider>
