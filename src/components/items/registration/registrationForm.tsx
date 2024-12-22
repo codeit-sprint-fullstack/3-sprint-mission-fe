@@ -5,15 +5,17 @@ import { useForm } from 'react-hook-form';
 import useTagInput from '@/hooks/useTagInput';
 import ProductTagInput from './productTagInput';
 import TagsContainer from './tagsContainer';
-import { useCreateProductMutation } from '@/hooks/products/useCreateProductMutation';
-import { useEditProductMutation } from '@/hooks/products/useEditProductMutation';
 import CommonInputSection from '@/components/common/commonInputSection/commonInputSection';
 import { CreateProductRequest } from '@/services/api/types/product.types';
-import { ProductRegistrationFormProps } from './types';
+import {
+  CreateMutation,
+  EditMutation,
+  ProductRegistrationFormProps,
+} from './types';
 
 export default function ProductRegistrationForm({
   initialValue,
-  productId,
+  mutation,
 }: ProductRegistrationFormProps) {
   const {
     register,
@@ -42,9 +44,6 @@ export default function ProductRegistrationForm({
     handleRemoveTag,
   } = useTagInput({ setValue, watch });
 
-  const createProductMutation = useCreateProductMutation();
-  const editProductMutation = productId && useEditProductMutation(productId);
-
   const name = watch('name');
   const description = watch('description');
   const price = watch('price');
@@ -53,16 +52,16 @@ export default function ProductRegistrationForm({
     name && description && !Number.isNaN(price) && tags.length > 0 && isValid;
 
   const onSubmit = async (data: CreateProductRequest) => {
-    if (initialValue && productId && editProductMutation) {
+    if (initialValue) {
       const changedFields: Partial<CreateProductRequest> = {};
       if (data.name !== initialValue.name) changedFields.name = data.name;
       if (data.description !== initialValue.description)
         changedFields.description = data.description;
       if (data.price !== initialValue.price) changedFields.price = data.price;
       if (Object.keys(changedFields).length > 0)
-        return editProductMutation.mutate(changedFields);
+        return (mutation as EditMutation).mutate(changedFields);
     }
-    return createProductMutation && createProductMutation.mutate(data);
+    return (mutation as CreateMutation).mutate(data);
   };
 
   return (
