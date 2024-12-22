@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 
 export default function Layout({
   title,
@@ -68,6 +68,14 @@ export function LayoutInput({
     onKeyDown: !!onkeypress ? onkeypress : () => {},
   };
   const [triger, setTriger] = useState(false);
+  const errMsgStyle = {
+    color: '#f74747',
+    position: 'absolute' as CSSProperties['position'],
+    top: '105%',
+    left: '1%',
+    fontSize: '14px',
+    fontWeight: '600',
+  };
   return (
     <div className="inputBox">
       <label htmlFor={id}>{title}</label>
@@ -81,7 +89,11 @@ export function LayoutInput({
             placeholder={placeholder}
             style={{ width: '100%', height: '282px' }}
           ></textarea>
-          {triger ? <p className="errMsg">{errMsg}</p> : null}
+          {triger ? (
+            <p className="errMsg" style={errMsgStyle}>
+              {errMsg}
+            </p>
+          ) : null}
         </div>
       ) : (
         <div
@@ -93,7 +105,11 @@ export function LayoutInput({
             {...inputAtt}
             maxLength={maxLength ?? 10}
           />
-          {triger ? <p className="errMsg">{errMsg}</p> : null}
+          {triger ? (
+            <p className="errMsg" style={errMsgStyle}>
+              {errMsg}
+            </p>
+          ) : null}
         </div>
       )}
       {id === 'tag' ? <div className="tagBox">{children}</div> : null}

@@ -27,14 +27,15 @@ model Product {
 }
 
 model User {
-  uuid      String   @id @default(uuid())
-  email     String   @unique
+  uuid      String    @id @default(uuid())
+  email     String    @unique
+  name      String
   password  String
-  image     String   @default("/img/ic_profile.png")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  image     String?   @default("/img/ic_profile.png")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
   board     Board[]
-  coment    Coment[]
+  comment   Comment[]
 }
 
 model Board {
@@ -48,10 +49,10 @@ model Board {
   images      String[]  @default([])
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
-  coment      Coment[]
+  comment     Comment[]
 }
 
-model Coment {
+model Comment {
   id       String @id @default(uuid())
   user     User   @relation(fields: [userUuid], references: [uuid])
   coment   String @default("")

@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import noHeader from './noHader';
 export default function Footer() {
   const pathname = usePathname();
-  if (noHeader.some((x) => x === pathname))
+  if (!noHeader.some((x) => x === pathname))
     return (
       <footer>
         <div className="content">

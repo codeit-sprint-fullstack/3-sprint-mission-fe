@@ -6,6 +6,7 @@ export default function UserFoot({
   submitText,
   footerText,
   footerLink,
+  btnClassName,
 }: {
   onSubmit: React.FormEventHandler<HTMLAnchorElement>;
   submitText: string | '로그인';
@@ -14,10 +15,11 @@ export default function UserFoot({
     text: string;
     href: string;
   };
+  btnClassName?: string;
 }) {
   return (
     <div className={styles.UserFoot}>
-      <Link href="#" onSubmit={onSubmit}>
+      <Link href="#" onClick={onSubmit} className={btnClassName}>
         {submitText}
       </Link>
       <div className={styles.SimpleLogin}>

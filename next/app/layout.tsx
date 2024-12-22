@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from './shared/components/header';
 import Footer from './shared/components/footer';
+import Provider from './shared/contexts/Provider';
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -28,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={``}>
-        <Header></Header>
-        {children}
-        <Footer />
+        <Provider>
+          <Header></Header>
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

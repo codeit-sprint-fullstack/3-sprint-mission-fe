@@ -18,6 +18,9 @@
   justify-content: center;
   margin-bottom: 24px;
 }
+.UserFoot > a.on {
+  background-color: var(--primary200);
+}
 .SimpleLogin {
   background-color: #e6f2ff;
   height: 74px;

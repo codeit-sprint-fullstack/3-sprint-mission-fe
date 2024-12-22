@@ -2,10 +2,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import noHeader from './noHader';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Header({}) {
+  const { user, logout } = useAuth();
   const pathname = usePathname();
-  if (noHeader.some((x) => x === pathname))
+  if (!noHeader.some((x) => x === pathname))
     return (
       <header>
         <div className="gnb">
@@ -18,8 +20,12 @@ export default function Header({}) {
               <NavLi href="/items">중고마켓</NavLi>
             </ul>
           </nav>
-          <Link href="/user/login" className="loginBtn">
-            로그인
+          <Link
+            href="/user/login"
+            className="loginBtn"
+            onClick={!!user ? logout : undefined}
+          >
+            {!!user ? '로그아웃' : '로그인'}
           </Link>
         </div>
       </header>
