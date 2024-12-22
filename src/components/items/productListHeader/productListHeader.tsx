@@ -22,14 +22,14 @@ export default function ProductListHeader({
 
   const onSearch = (word: string) => {
     const params = new URLSearchParams();
-    searchParams.orderBy && params.set('orderBy', searchParams.orderBy);
+    if (searchParams.orderBy) params.set('orderBy', searchParams.orderBy);
     params.set('keyword', word);
     router.push(`?${params.toString()}`);
   };
 
   const onSelect = (option: Option) => {
     const params = new URLSearchParams();
-    searchParams.keyword && params.set('keyword', searchParams.keyword);
+    if (searchParams.keyword) params.set('keyword', searchParams.keyword);
     params.set('orderBy', option.value);
     router.push(`?${params.toString()}`);
   };

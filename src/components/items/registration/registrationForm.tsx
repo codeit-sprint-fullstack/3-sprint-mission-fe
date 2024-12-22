@@ -42,11 +42,8 @@ export default function ProductRegistrationForm({
     handleRemoveTag,
   } = useTagInput({ setValue, watch });
 
-  const createProductMutation = initialValue
-    ? null
-    : useCreateProductMutation();
-  const editProductMutation =
-    initialValue && productId ? useEditProductMutation(productId) : null;
+  const createProductMutation = useCreateProductMutation();
+  const editProductMutation = productId && useEditProductMutation(productId);
 
   const name = watch('name');
   const description = watch('description');

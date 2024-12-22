@@ -16,7 +16,7 @@ export const useMessageModal = () => {
   };
 
   const closeMessageModal = () => {
-    messageModalState.onCloseFunction && messageModalState.onCloseFunction();
+    if (messageModalState.onCloseFunction) messageModalState.onCloseFunction();
     setMessageModalState({
       isOpen: false,
       message: '',

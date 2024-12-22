@@ -27,8 +27,8 @@ export default function WriteForm({
     },
   });
 
-  const createMutation = !isEditMode ? useCreateArticleMutation() : null;
-  const editMutation = articleId ? useEditArticleMutation(articleId) : null;
+  const createMutation = useCreateArticleMutation();
+  const editMutation = articleId && useEditArticleMutation(articleId);
 
   const title = watch('title');
   const content = watch('content');
