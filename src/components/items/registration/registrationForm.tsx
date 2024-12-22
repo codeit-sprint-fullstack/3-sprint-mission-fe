@@ -2,45 +2,37 @@
 
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import { useForm } from 'react-hook-form';
-import { ProductRegistrationFormData } from './types';
-import { createProduct } from '@/services/api/product';
-import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import useTagInput from '@/hooks/useTagInput';
-import ProductNameInput from './productNameInput';
-import ProductDescriptionInput from './productDescriptionInput';
-import ProductPriceInput from './productPriceInput';
 import ProductTagInput from './productTagInput';
 import TagsContainer from './tagsContainer';
-
-export const InputSectionStyle = 'flex flex-col gap-4 mb-8';
-export const InputStyle = 'bg-bg-input px-6 py-4 rounded-[12px]';
-export const LabelStyle = 'text-[18px] font-bold';
-export const errorMessageStyle = 'text-text-red font-semibold text-[14px]';
-export const errorInputStyle = 'border border-border-input-error';
+import { useCreateProductMutation } from '@/hooks/products/useCreateProductMutation';
+import { useEditProductMutation } from '@/hooks/products/useEditProductMutation';
+import CommonInputSection from '@/components/common/commonInputSection/commonInputSection';
+import { CreateProductRequest } from '@/services/api/types/product.types';
+import { ProductRegistrationFormProps } from './types';
 
 export default function ProductRegistrationForm({
-  defaultValue,
-}: {
-  defaultValue?: ProductRegistrationFormData;
-}) {
-  const router = useRouter();
+  initialValue,
+  productId,
+}: ProductRegistrationFormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
     watch,
     setValue,
-  } = useForm<ProductRegistrationFormData>({
-    mode: 'onBlur',
+  } = useForm<CreateProductRequest>({
+    mode: 'onChange',
     defaultValues: {
       name: '',
       description: '',
       price: 0,
       tags: [],
-      ...defaultValue,
+      images: [],
+      ...initialValue,
     },
   });
+
   const {
     tagInput,
     setTagInput,
@@ -50,12 +42,11 @@ export default function ProductRegistrationForm({
     handleRemoveTag,
   } = useTagInput({ setValue, watch });
 
-  const createProductMutation = useMutation({
-    mutationFn: createProduct,
-    onSuccess: (product) => {
-      router.push(`/items/${product.id}`);
-    },
-  });
+  const createProductMutation = initialValue
+    ? null
+    : useCreateProductMutation();
+  const editProductMutation =
+    initialValue && productId ? useEditProductMutation(productId) : null;
 
   const name = watch('name');
   const description = watch('description');
@@ -64,8 +55,17 @@ export default function ProductRegistrationForm({
   const buttonActive =
     name && description && !Number.isNaN(price) && tags.length > 0 && isValid;
 
-  const onSubmit = async (data: ProductRegistrationFormData) => {
-    createProductMutation.mutate(data);
+  const onSubmit = async (data: CreateProductRequest) => {
+    if (initialValue && productId && editProductMutation) {
+      const changedFields: Partial<CreateProductRequest> = {};
+      if (data.name !== initialValue.name) changedFields.name = data.name;
+      if (data.description !== initialValue.description)
+        changedFields.description = data.description;
+      if (data.price !== initialValue.price) changedFields.price = data.price;
+      if (Object.keys(changedFields).length > 0)
+        return editProductMutation.mutate(changedFields);
+    }
+    return createProductMutation && createProductMutation.mutate(data);
   };
 
   return (
@@ -83,17 +83,60 @@ export default function ProductRegistrationForm({
             등록
           </CommonBtn>
         </div>
-        <ProductNameInput
+        <CommonInputSection<CreateProductRequest>
           register={register}
+          name='name'
+          type='text'
+          label='상품명'
           errors={errors}
+          placeholder='상품명을 입력해주세요'
+          validation={{
+            required: '상품명을 입력해주세요',
+            maxLength: {
+              value: 10,
+              message: '10자 이내로 입력해주세요',
+            },
+          }}
         />
-        <ProductDescriptionInput
+        <CommonInputSection<CreateProductRequest>
           register={register}
+          name='description'
+          type='text'
+          inputType='textarea'
+          rows={5}
+          label='상품 소개'
           errors={errors}
+          placeholder='상품 소개를 입력해주세요'
+          validation={{
+            required: '상품 소개를 입력해주세요',
+            minLength: {
+              value: 10,
+              message: '10자 이상 입력해주세요',
+            },
+            maxLength: {
+              value: 100,
+              message: '100자 이하로 입력해주세요',
+            },
+          }}
         />
-        <ProductPriceInput
+        <CommonInputSection<CreateProductRequest>
           register={register}
+          name='price'
+          type='number'
+          label='판매가격'
           errors={errors}
+          placeholder='판매 가격을 입력해주세요'
+          validation={{
+            valueAsNumber: true,
+            validate: {
+              isNumber: (value) =>
+                !Number.isNaN(value) || '숫자로 입력해주세요',
+              isInteger: (value) =>
+                (Number.isInteger(value) && Number(value) >= 0) ||
+                '양의 정수를 입력해주세요',
+            },
+            required: '판매 가격을 입력해주세요',
+          }}
         />
         <ProductTagInput
           tagInput={tagInput}

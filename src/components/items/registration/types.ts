@@ -1,16 +1,4 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-
-export interface ProductRegistrationFormData {
-  name: string;
-  description: string;
-  price: number;
-  tags: string[];
-}
-
-export interface ProductInputProps {
-  register: UseFormRegister<ProductRegistrationFormData>;
-  errors: FieldErrors<ProductRegistrationFormData>;
-}
+import { CreateProductRequest } from '@/services/api/types/product.types';
 
 export interface ProductTagInputProps {
   tagInput: string;
@@ -23,4 +11,9 @@ export interface TagsContainerProps {
   variant: 'registration' | 'display';
   tags: string[];
   handleRemoveTag?: (index: number) => void;
+}
+
+export interface ProductRegistrationFormProps {
+  initialValue?: CreateProductRequest;
+  productId?: string;
 }
