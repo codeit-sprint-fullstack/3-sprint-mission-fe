@@ -9,7 +9,7 @@ import { formatDate } from '@/lib/formatDate';
 export default function BestArticleCard({
   title,
   nickname,
-  likes,
+  likeCount,
   createdAt,
   articleId,
 }: ArticleCardProps) {
@@ -33,7 +33,7 @@ export default function BestArticleCard({
           <div className='flex justify-between w-full text-[14px] font-normal'>
             <div className='flex gap-2'>
               <span className='text-text-black-secondary'>{nickname}</span>
-              <LikeCounter likes={likes} />
+              <LikeCounter likes={likeCount} />
             </div>
             <span className='text-text-gray-primary'>
               {formatDate(createdAt)}

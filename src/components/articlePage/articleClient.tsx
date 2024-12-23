@@ -1,31 +1,25 @@
 'use client';
 
-import { Article } from '@/services/api/types/article';
 import ArticleHeader from './articleHeader';
-import { useQuery } from '@tanstack/react-query';
-import { getArticle } from '@/services/api/article';
+import { useArticleQuery } from '@/hooks/articles/useArticleQuery';
 
-export default function ArticleClient({
-  initialData,
-}: {
-  initialData: Article;
-}) {
-  const { data: article } = useQuery({
-    queryKey: ['article', initialData.id],
-    queryFn: () => getArticle(initialData.id),
-    initialData,
-  });
+export default function ArticleClient({ id }: { id: string }) {
+  const { data: article } = useArticleQuery(id);
 
   return (
-    <>
-      <ArticleHeader
-        id={article.id}
-        // 이후 닉네임 입력 예정
-        nickname='판다'
-        title={article.title}
-        createdAt={article.createdAt}
-      />
-      <div className='mb-8'>{article.content}</div>
-    </>
+    article && (
+      <>
+        <ArticleHeader
+          ownerId={article.writer.id}
+          id={article.id.toString()}
+          nickname={article.writer.nickname}
+          title={article.title}
+          createdAt={article.createdAt}
+          likeCount={article.likeCount}
+          isLiked={article.isLiked}
+        />
+        <div className='mb-8'>{article.content}</div>
+      </>
+    )
   );
 }

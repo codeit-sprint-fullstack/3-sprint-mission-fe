@@ -40,6 +40,7 @@
   --close-background: #9ca3af;
   --banner-background: #cfe5ff;
   --content-section-background: #fcfcfc;
+  --social-login-background: #e6f2ff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -63,15 +64,15 @@ body {
 
 @layer components {
   .input-section {
-    @apply flex flex-col gap-4 mb-8;
+    @apply flex flex-col gap-4 mb-8 w-full;
   }
 
   .input-base {
-    @apply bg-bg-input px-6 py-4 rounded-[12px];
+    @apply bg-bg-input px-6 py-4 rounded-[12px] w-full;
   }
 
   .input-label {
-    @apply text-[18px] font-bold;
+    @apply text-[16px] md:text-[18px] xl:text-[18px] font-bold;
   }
 
   .error-message {

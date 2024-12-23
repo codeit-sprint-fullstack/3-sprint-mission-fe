@@ -1,7 +1,7 @@
 export interface ArticleCardProps {
   title: string;
   nickname: string;
-  likes: number;
+  likeCount: number;
   createdAt: string;
   articleId: string;
 }

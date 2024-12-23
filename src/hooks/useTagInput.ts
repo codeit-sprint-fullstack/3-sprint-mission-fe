@@ -1,10 +1,10 @@
-import { ProductRegistrationFormData } from '@/components/items/registration/types';
+import { CreateProductRequest } from '@/services/api/types/product.types';
 import { useState } from 'react';
 import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
 interface UseTagInputProps {
-  setValue: UseFormSetValue<ProductRegistrationFormData>;
-  watch: UseFormWatch<ProductRegistrationFormData>;
+  setValue: UseFormSetValue<CreateProductRequest>;
+  watch: UseFormWatch<CreateProductRequest>;
 }
 
 export default function useTagInput({ setValue, watch }: UseTagInputProps) {

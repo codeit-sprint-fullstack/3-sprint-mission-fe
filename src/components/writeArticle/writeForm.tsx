@@ -1,56 +1,56 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { WriteFormProps } from './writeForm.types';
-import CommonBtn from '@/components/common/commonBtn/commonBtn';
-import { useRouter } from 'next/navigation';
-import { createArticle, updateArticle } from '@/services/api/article';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import {
+  ArticleFormData,
+  ArticleFormProps,
+  CreateMutation,
+  EditMutation,
+} from './writeForm.types';
+import CommonInputSection from '../common/commonInputSection/commonInputSection';
+import { CreateArticleRequest } from '@/services/api/types/article.types';
+import CommonBtn from '../common/commonBtn/commonBtn';
 
 export default function WriteForm({
   initialData,
-  articleId,
   variant,
-}: WriteFormProps) {
+  mutation,
+}: ArticleFormProps) {
   const isEditMode = variant === 'edit';
-  const [title, setTitle] = useState(initialData?.title || '');
-  const [content, setContent] = useState(initialData?.content || '');
-  const queryClient = useQueryClient();
-
-  const createArticleMutation = useMutation({
-    mutationFn: (articleRequest: { title: string; content: string }) => {
-      if (articleId) {
-        return updateArticle(articleId, articleRequest);
-      }
-      return createArticle(articleRequest);
-    },
-    onSuccess: (result) => {
-      queryClient.invalidateQueries({ queryKey: ['normalArticles'] });
-      queryClient.invalidateQueries({ queryKey: ['bestArticles'] });
-      router.push(`/community/${articleId || result.id}`);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+  } = useForm<ArticleFormData>({
+    mode: 'onBlur',
+    defaultValues: {
+      title: initialData?.title || '',
+      content: initialData?.content || '',
     },
   });
 
-  const formComplete = useMemo(() => {
-    return title.length > 0 && content.length > 0;
-  }, [title, content]);
+  const title = watch('title');
+  const content = watch('content');
+  const formComplete = title.trim() !== '' && content.trim() !== '' && isValid;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const articleRequest = {
-      title: formData.get('title') as string,
-      content: formData.get('content') as string,
-    };
-    createArticleMutation.mutate(articleRequest);
+  const onSubmit = (data: ArticleFormData) => {
+    if (isEditMode && initialData) {
+      const changedFields: Partial<CreateArticleRequest> = {};
+
+      if (data.title !== initialData.title) changedFields.title = data.title;
+      if (data.content !== initialData.content)
+        changedFields.content = data.content;
+      if (Object.keys(changedFields).length > 0)
+        return (mutation as EditMutation).mutate(changedFields);
+    }
+    return (mutation as CreateMutation).mutate(data);
   };
-
-  const router = useRouter();
 
   return (
     <form
       className='w-full md:w-full xl:w-[1200px] p-4 md:p-6 xl:p-0 xl:py-6 flex flex-col'
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className='flex justify-between items-center mb-8'>
         <h2 className='text-xl font-bold'>
@@ -63,39 +63,23 @@ export default function WriteForm({
           {isEditMode ? '수정' : '등록'}
         </CommonBtn>
       </div>
-      <div className='flex flex-col gap-3 mb-4 md:mb-6 xl:mb-6'>
-        <label
-          className='font-bold text-[18px]'
-          htmlFor='title'
-        >
-          *제목
-        </label>
-        <input
-          placeholder='제목을 입력해주세요'
-          className='bg-bg-input rounded-xl px-6 py-4'
-          id='title'
-          name='title'
-          type='text'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-      <div className='flex flex-col gap-3'>
-        <label
-          className='font-bold text-[18px]'
-          htmlFor='content'
-        >
-          *내용
-        </label>
-        <textarea
-          placeholder='내용을 입력해주세요'
-          className='bg-bg-input rounded-xl px-6 py-4 h-[282px]'
-          name='content'
-          id='content'
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
+      <CommonInputSection<ArticleFormData>
+        register={register}
+        name='title'
+        type='text'
+        label='*제목'
+        errors={errors}
+        placeholder='제목을 입력해주세요'
+      />
+      <CommonInputSection<ArticleFormData>
+        register={register}
+        name='content'
+        type='text'
+        label='*내용'
+        errors={errors}
+        placeholder='내용을 입력해주세요'
+        inputType='textarea'
+      />
     </form>
   );
 }

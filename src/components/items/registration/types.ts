@@ -1,16 +1,9 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-
-export interface ProductRegistrationFormData {
-  name: string;
-  description: string;
-  price: number;
-  tags: string[];
-}
-
-export interface ProductInputProps {
-  register: UseFormRegister<ProductRegistrationFormData>;
-  errors: FieldErrors<ProductRegistrationFormData>;
-}
+import {
+  CreateProductRequest,
+  GetProductResponse,
+} from '@/services/api/types/product.types';
+import { UseMutationResult } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 
 export interface ProductTagInputProps {
   tagInput: string;
@@ -20,6 +13,23 @@ export interface ProductTagInputProps {
 }
 
 export interface TagsContainerProps {
+  variant: 'registration' | 'display';
   tags: string[];
-  handleRemoveTag: (index: number) => void;
+  handleRemoveTag?: (index: number) => void;
+}
+
+export type ProductMutation<T> = UseMutationResult<
+  GetProductResponse,
+  AxiosError<{ message: string }>,
+  T,
+  unknown
+>;
+
+export type CreateMutation = ProductMutation<CreateProductRequest>;
+
+export type EditMutation = ProductMutation<Partial<CreateProductRequest>>;
+
+export interface ProductRegistrationFormProps {
+  initialValue?: CreateProductRequest;
+  mutation: CreateMutation | EditMutation;
 }

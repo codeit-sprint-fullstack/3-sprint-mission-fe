@@ -50,6 +50,7 @@ const config: Config = {
           'close-button': 'var(--close-background)',
           banner: 'var(--banner-background)',
           'content-section': 'var(--content-section-background)',
+          'social-login': 'var(--social-login-background)',
         },
 
         border: {

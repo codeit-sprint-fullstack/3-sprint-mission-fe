@@ -1,14 +1,14 @@
 import axiosInstance from '@/lib/axios/axiosInstance';
-import { CommentResponse } from './types/article';
+import { CommentListResponse, CommentRequest } from './types/comment.types';
 
-export const editComment = async (id: string, content: string) => {
-  const editedComment = await axiosInstance.patch<CommentResponse>(
+export const editComment = async ({ id, content }: CommentRequest) => {
+  const { data } = await axiosInstance.patch<CommentListResponse>(
     `/comments/${id}`,
     {
       content,
     },
   );
-  return editedComment;
+  return data;
 };
 
 export const deleteComment = async (id: string) => {

@@ -1,42 +1,34 @@
 'use client';
 
-import { getArticleList } from '@/services/api/article';
-import {
-  GetArticleListParams,
-  GetArticleListResponse,
-} from '@/services/api/types/article';
-import { useQuery } from '@tanstack/react-query';
 import NormalArticleCard from './normalArticleCard';
+import { useNormalArticleListQuery } from '@/hooks/articles/useNormalArticleListQuery';
+import { NormalArticleListProps } from '@/lib/types/props.types';
+import NormalArticleCardSkeleton from './normalArticleSkeleton';
 
 export default function NormalArticleListClient({
   searchParams,
   initialData,
-}: {
-  searchParams: GetArticleListParams;
-  initialData: GetArticleListResponse;
-}) {
-  const { data } = useQuery({
-    queryKey: ['normalArticles', searchParams.word],
-    queryFn: () =>
-      getArticleList({
-        skip: Number(searchParams.skip) || 0,
-        take: Number(searchParams.take) || 10,
-        word: searchParams.word,
-        orderBy: searchParams.orderBy || 'recent',
-      }),
+}: NormalArticleListProps) {
+  const { data, isLoading } = useNormalArticleListQuery({
+    searchParams,
     initialData,
   });
 
+  if (isLoading)
+    return Array.from({ length: 10 }, (_, index) => index).map((_) => (
+      <NormalArticleCardSkeleton />
+    ));
+
   return (
     <>
-      {data.data.map((article) => (
+      {data.list.map((article) => (
         <NormalArticleCard
           key={article.id}
-          nickname='총명한 판다'
+          nickname={article.writer.nickname}
           title={article.title}
-          likes={99}
+          likeCount={article.likeCount}
           createdAt={article.createdAt}
-          articleId={article.id}
+          articleId={article.id.toString()}
         />
       ))}
     </>
