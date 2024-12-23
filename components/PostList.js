@@ -12,15 +12,15 @@ export default function PostList() {
     const [orderby, setOrderby] = useState("recent");
 
     useEffect(() => {
-        instance.get(`/article/articleList?pageSize=${pageSize}&keyword=${keyword}&orderBy=${orderby}`)
+        instance.get(`/articles?pageSize=${pageSize}&keyword=${keyword}&orderBy=${orderby}`)
             .then((response) => {
-                setPosts(response.data.Articles);
+                setPosts(response.data.list);
             })
             .catch((error) => console.error(error));
     }, [pageSize, keyword, orderby]);
 
     const handleClick = () => {
-        setPageSize(pageSize + 6);
+        setPageSize((prevSize) => prevSize + 6);
     };
 
     return (

@@ -35,7 +35,7 @@ export default function PostListAll({ post }) {
                                 alt="User"
                             />
                         </div>
-                        <div className={styles.PostListUserName}>{post.user}</div>
+                        <div className={styles.PostListUserName}>{post.writer.nickname}</div>
                         <div className={styles.PostListDate}>{dayjs(post.createdAt).format('YYYY. MM. DD')}</div>
                     </div>
                     <div className={styles.PostListButton2}>
@@ -47,7 +47,7 @@ export default function PostListAll({ post }) {
                                 alt="Heart"
                             />
                         </div>
-                        <div className={styles.PostListLikeCount}>{post.like}</div>
+                        <div className={styles.PostListLikeCount}>{post.likeCount}</div>
                     </div>
                 </div>
             </div>
