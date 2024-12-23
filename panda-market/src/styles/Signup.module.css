@@ -52,7 +52,7 @@
 .input {
   width: 640px;
   height: 56px;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 12px;
   font-size: 16px;
   background-color: #F3F4F6;
@@ -69,6 +69,7 @@
   width: 640px;
   height: 56px;
   padding: 16px 124px 16px 124px;
+  gap: 10px;
   border: none;
   background-color: #9CA3AF;
   color: #ffffff;
@@ -105,13 +106,24 @@
 }
  
 .icons {
+  position: relative;
   width: 42px;
   height: 42px;
   cursor: pointer;
   display: flex;
-  margin-right: 60px;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 5px;
+  right: 120px;
+}
+
+.googlekakao {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  margin-top: 8px; 
 }
 
 

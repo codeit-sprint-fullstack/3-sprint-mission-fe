@@ -68,10 +68,16 @@ export default function Signup() {
 
         <div className={styles.socialLogin}>
           <p>간편 로그인하기</p>
-          <div className={styles.icons}>
-            <img src="/ic_google.png" alt="Google 로그인" />
-            <img src="/ic_kakao.png" alt="Kakao 로그인" />
+        <div>
+          <div className={styles.googlekakao}>
+          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+            <img src="/ic_google.png" alt="Google 로그인" className={styles.icons} />
+          </a>
+          <a href="https://www.kakaocorp.com/page" target="_blank" rel="noopener noreferrer">
+            <img src="/ic_kakao.png" alt="Kakao 로그인" className={styles.icons} />
+          </a>
           </div>
+        </div>
         </div>
 
         <p className={styles.text}>
