@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PostListAll from "./PostListAll";
-import instance from "@/lib/axios";
+import instance from "@/lib/instance";
 import styles from "@/css/PostList.module.css";
 import SearchInput from "./SearchInput";
 import Dropdown from "./DropDown";

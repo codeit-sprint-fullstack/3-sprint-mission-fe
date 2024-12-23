@@ -1,6 +1,6 @@
 import styles from '@/css/WriteMain.module.css';
 import { useEffect, useState } from 'react';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 import { useRouter } from 'next/router';
 
 export default function UpdateMain() {

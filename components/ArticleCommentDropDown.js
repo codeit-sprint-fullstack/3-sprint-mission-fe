@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from '@/css/Dropdown.module.css';
 import Image from 'next/image';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 
 export default function ArticleCommentDropDown({ id, onCommentAdded }) {
     const [isOpen, setIsOpen] = useState(false);

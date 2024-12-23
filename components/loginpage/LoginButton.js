@@ -1,10 +1,12 @@
 import styles from '@/css/login.module.css';
 
-export default function LoginButton() {
+export default function LoginButton({ handleLogin }) {
 
     return (
         <div>
-            <div className={styles.loginButton}>
+            <div
+                onClick={handleLogin}
+                className={styles.loginButton}>
                 로그인
             </div>
         </div>

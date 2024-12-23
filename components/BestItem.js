@@ -1,7 +1,7 @@
 import BestItemList from './BestItemList';
 import { useState, useEffect } from "react";
 import styles from '@/css/BestItem.module.css'
-import instance from "@/lib/axios";
+import instance from "@/lib/instance";
 
 export default function BestItem({ }) {
 

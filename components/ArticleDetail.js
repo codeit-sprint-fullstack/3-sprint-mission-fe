@@ -3,7 +3,7 @@ import Image from 'next/image';
 import dayjs from "dayjs";
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 import ArticleDropDown from './ArticleDropDown';
 import ArticleCommentDropDown from './ArticleCommentDropDown';
 

@@ -2,7 +2,7 @@ import ArticleDetail from '@/components/ArticleDetail';
 import Header from '@/components/Header';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 
 
 export default function Product() {
