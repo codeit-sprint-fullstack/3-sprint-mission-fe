@@ -10,6 +10,7 @@ import './board.css';
 import { useEffect, useState } from 'react';
 import { boardCreateData, CreateBoard } from '@/app/shared/api/board';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/app/shared/contexts/AuthContext';
 interface T_Input {
   value: string;
   onchange: React.ReactEventHandler;
@@ -25,6 +26,7 @@ export default function WriteBoard({
   imagesValue?: string[];
   btnText?: string;
 }) {
+  const { user } = useAuth();
   const subject = useChange();
   const content = useChange();
   const [on, setOn] = useState('');
@@ -63,7 +65,7 @@ export default function WriteBoard({
         title: subject.value,
         content: content.value,
         images,
-        userUuid: '9cd3b725-e623-43a3-8ade-1f5a394fb43f',
+        userUuid: user.uuid,
       };
       boardCreateData(body)
         .then((res: any) => {

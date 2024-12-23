@@ -16,15 +16,7 @@ async function verifySessionLogin(req, res, next) {
       board: true,
       comment: true,
     });
-    req.user = {
-      uuid: user.uuid,
-      email: user.email,
-      name: user.name,
-      createdAt: user.createdAt,
-      updatedAt: user.updatedAt,
-      board: user.board,
-      comment: user.comment,
-    };
+
     next();
   } catch (err) {
     next(err);
