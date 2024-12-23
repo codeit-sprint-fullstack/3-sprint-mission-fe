@@ -23,7 +23,6 @@ const ProductDetailContent = ({ product, onDelete }) => {
       <div className={styles.productInfo}>
         <h2>{product.title}</h2>
         <p className={styles.price}>{product.price}원</p>
-        <h1>상품소개</h1>
         <p className={styles.description}>{product.description}</p>
         <div className={styles.actions}>
           <button onClick={handleFavorite}>

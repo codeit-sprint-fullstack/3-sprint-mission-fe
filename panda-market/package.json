@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@noonnu/rokaf-sans-medium": "^0.1.0",
-    "@tanstack/react-query": "^5.62.8",
+    "@tanstack/react-query": "^5.62.9",
     "axios": "^1.7.9",
     "next": "15.1.2",
     "react": "^19.0.0",
