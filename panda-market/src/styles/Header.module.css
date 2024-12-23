@@ -1,9 +1,4 @@
-
-@font-face {
-  font-family:'ROKAF';
-  src: url("/fonts/ROKAFSansBold") format("truetype");
-}
-
+@import url('~@noonnu/rokaf-sans-medium');
 
 
 .header {
@@ -30,7 +25,7 @@
 }
 
 .logoText {
-  font-family:'ROKAF';
+  font-family: ROKAFSansMedium;
   font-weight: 700;
   font-size: 25.63px;
   line-height: 34.6px;

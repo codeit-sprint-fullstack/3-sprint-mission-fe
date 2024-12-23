@@ -1,9 +1,11 @@
+@import url('~@noonnu/rokaf-sans-medium');
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 .card {
@@ -30,7 +32,7 @@
 }
 
 .logo h1 {
-  font-family: 'ROKAF';
+  font-family: ROKAFSansMedium;
   color: #3692FF;
   font-size: 66.34px;
   font-weight: 700;
@@ -130,7 +132,7 @@
 
 .text a {
   color: #4a90e2;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .text a:hover {

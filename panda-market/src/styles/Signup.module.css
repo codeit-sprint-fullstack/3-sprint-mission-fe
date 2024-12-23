@@ -1,23 +1,44 @@
-/* Signup.module.css */
+@import url('~@noonnu/rokaf-sans-medium');
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f9f9f9;
+  background-color:  #ffffff;
 }
 
 .card {
-  width: 400px;
+  width:  640px;
+  height: 842px;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   text-align: center;
 }
 
 .logo {
-  width: 50px;
+  display: flex;
+  text-align: center; 
+  gap: 22.24px;
+  align-items: center;
+  margin-left: 122px;
+}
+
+
+.logo h1 {
+  font-family: ROKAFSansMedium;
+  color: #3692FF;
+  font-size: 66.34px;
+  font-weight: 700;
+  line-height: 89.56px;
+  margin: 0;
+}
+
+
+.logo img{
+  width: 103.53px;
+  height: 103.88px;
   margin-bottom: 1rem;
 }
 
@@ -29,10 +50,13 @@
 }
 
 .input {
-  padding: 0.75rem;
+  width: 640px;
+  height: 56px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 16px;
+  background-color: #F3F4F6;
+  align-items: center;
 }
 
 .input:focus {
@@ -42,13 +66,19 @@
 }
 
 .button {
-  padding: 0.75rem;
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px 16px 124px;
   border: none;
-  background-color: #4a90e2;
+  background-color: #9CA3AF;
   color: #ffffff;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 40px;
+  font-size: 20px;
+  font-family: 'Pretendard';
+  line-height: 32px;
+  font-weight: 600;
   cursor: pointer;
+  text-align: center;
 }
 
 .button:disabled {
@@ -57,17 +87,33 @@
 }
 
 .socialLogin {
+  margin-top: 40px;
+  width: 640px;
+  height: 74px;
+  border-radius: 8px;
+  background-color: #E6F2FF;
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: space-between;
 }
 
-.socialLogin button {
-  background: none;
-  border: none;
-  cursor: pointer;
+.socialLogin p {
+  font-family: 'Pretendard';
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 23px;
+  margin-top: 24px;
 }
+ 
+.icons {
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  margin-right: 60px;
+  gap: 10px;
+  margin-top: 16px;
+}
+
 
 .p {
   font-size: 14px;
@@ -80,5 +126,44 @@
 }
 
 .p a:hover {
+  text-decoration: underline;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.form p {
+  font-size: 18px;
+  font-family: 'Pretendard';
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  margin-bottom: -5px;
+}
+
+
+.text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.text a {
+  color: #4a90e2;
+  text-decoration: underline;
+}
+
+.text a:hover {
   text-decoration: underline;
 }
