@@ -39,10 +39,6 @@ export default function RegisterPage() {
     });
 
     const handleSignUp = () => {
-        console.log(email);
-        console.log(nickname);
-        console.log(password);
-        console.log(passwordConfirmation);
         if (!email || !password || !nickname || !passwordConfirmation) {
             alert('모든 필드를 입력해주세요.');
             return;

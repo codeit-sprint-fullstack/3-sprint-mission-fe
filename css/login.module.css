@@ -29,6 +29,7 @@
 .PwInputMain {
     margin-top: 24px;
     text-align: left;
+    position: relative;
 }
 
 .PwInputTitle {
@@ -38,13 +39,14 @@
 }
 
 .PwInputArea {
-    width: 630px;
+    width: 680px;
     background-color: #F3F4F6;
     border: none;
     padding: 16px 24px;
     border-radius: 12px;
     margin-top: 16px;
     outline: none;
+    box-sizing: border-box;
 }
 
 .loginButton {
@@ -112,5 +114,21 @@
     line-height: 24px;
     text-align: left;
     color: red;
+    margin-top: 8px;
     display: none;
+}
+
+.passwordTypeChange {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: -20px;
+    top: 12px;
+}
+
+.passwordicon {
+    width: 24px;
+    height: 24px;
+    margin-top: 45px;
+    cursor: pointer;
 }

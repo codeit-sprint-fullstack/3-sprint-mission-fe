@@ -8,9 +8,9 @@ export default function BestItem({ }) {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        instance.get(`/article/articleList?pageSize=3&orderBy='like'`)
+        instance.get(`/articles?page=1&pageSize=3&orderBy=like`)
             .then((response) => {
-                setPosts(response.data.Articles);
+                setPosts(response.data.list);
             })
             .catch((error) => console.error(error));
     }, []);

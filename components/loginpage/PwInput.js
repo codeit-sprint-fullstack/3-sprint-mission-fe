@@ -1,6 +1,13 @@
 import styles from '@/css/login.module.css';
+import Image from 'next/image';
+import { useState } from 'react';
 
 export default function PwInput({ value, setValue }) {
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+    const handlePasswordToggle = () => {
+        setIsPasswordVisible(!isPasswordVisible);
+    };
 
     return (
         <div className={styles.PwInputMain}>
@@ -12,12 +19,29 @@ export default function PwInput({ value, setValue }) {
                     (value.length < 8) && value
                         ? "2px solid red" : "",
             }}
-                type="password"
                 className={styles.PwInputArea}
                 placeholder='비밀번호를 입력해주세요'
                 value={value}
+                type={isPasswordVisible ? "text" : "password"}
                 onChange={(e) => setValue(e.target.value)}
             />
+
+            <span
+                className={styles.passwordTypeChange}
+                onClick={handlePasswordToggle}
+            >
+                <Image
+                    width={24}
+                    height={24}
+                    src={
+                        isPasswordVisible
+                            ? `/images/passwordIcon2.svg`
+                            : `/images/passwordIcon1.svg`
+                    }
+                    alt="passwordChangeIcon"
+                    className={styles.passwordicon}
+                />
+            </span>
 
             <div
                 className={styles.inputErr}
