@@ -8,7 +8,7 @@ export default function ArticleList({ articles }) {
       {articles.map((article) => (
         <Link
           key={article.id}
-          href={`/article/${article.id}`}
+          href={`/articles/${article.id}`}
           style={{ textDecoration: "none" }}
         >
           <Article article={article} />

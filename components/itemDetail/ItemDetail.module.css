@@ -1,0 +1,40 @@
+/* 상품 정보 */
+.itemBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+}
+.item {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  align-items: center;
+}
+
+.aboutItem {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  width: 690px;
+}
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+}
+.userBox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.likeBtBox {
+  display: flex;
+  gap: 24px;
+}
+.verticalLine {
+  height: 34px;
+  border: 1px solid #e5e7eb;
+  border-radius: 2px;
+}

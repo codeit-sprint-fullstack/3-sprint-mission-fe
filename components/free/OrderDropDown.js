@@ -39,7 +39,7 @@ function Dropdown({ options, order, orderChange }) {
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
       <button className={styles.dropdownButton} onClick={toggleDropdown}>
-        {order}
+        {order.label}
         <span className="arrow">▼</span>
       </button>
       {/* 열린 상태(isOpen = true)이면 보이게 */}
@@ -52,7 +52,7 @@ function Dropdown({ options, order, orderChange }) {
               className={styles.dropdownItem}
               onClick={() => handleSelect(option)}
             >
-              {option}
+              {option.label}
             </div>
           ))}
         </div>

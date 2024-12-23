@@ -1,9 +1,8 @@
 .footerBanner {
   background-color: #111827;
-  width: 100%;
+  margin-top: 100px;
   height: 160px;
   padding: 32px 200px 32px 200px;
-  width: auto;
 }
 
 .footerBannerContent {
