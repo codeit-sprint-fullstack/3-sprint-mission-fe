@@ -1,17 +1,45 @@
-export default function FeatureCard() {
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+interface NextImageProps {
+  src: string;
+  alt?: string;
+  width: number;
+  height: number;
+}
+interface FeatureCardProps {
+  keyword: string;
+  title: string;
+  description: string;
+  imgInfo: NextImageProps;
+  classNames?: string;
+}
+
+export default function FeatureCard({
+  keyword,
+  title,
+  description,
+  imgInfo,
+  classNames,
+}: FeatureCardProps) {
   return (
-    <div className="container rounded-none card desktop:card-side">
+    <div
+      className={cn(
+        "container gap-6 rounded-none card desktop:card-side",
+        classNames
+      )}
+    >
       <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-          alt="Album"
+        <Image
+          src={imgInfo.src}
+          alt={imgInfo.alt}
+          width={imgInfo.width}
+          height={imgInfo.height}
         />
       </figure>
-      <div className="card-body">
-        <h2 className="font-bold desktop:text-5xl card-title text-balance break-keep ">
-          New album is released!
-        </h2>
-        <p>Click the button to listen on Spotiwhy app.</p>
+      <div className="card-body p-0 bg-[#FCFCFC] leading-[26px] *:text-balance *:break-keep">
+        <div className="font-bold text-primary">{keyword}</div>
+        <h2 className="block pb-2 text-2xl font-bold card-title">{title}</h2>
+        <p className="font-medium">{description}</p>
       </div>
     </div>
   );
