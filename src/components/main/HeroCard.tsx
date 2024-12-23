@@ -1,18 +1,44 @@
-export default function HeroCard() {
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+
+interface NextImageProps {
+  src: string;
+  alt?: string;
+  width: number;
+  height: number;
+}
+interface HeroCardProps {
+  title: string;
+  imgInfo: NextImageProps;
+  children?: React.ReactNode;
+  classNames?: string;
+}
+
+export default function HeroCard({
+  title,
+  imgInfo,
+  children,
+  classNames,
+}: HeroCardProps) {
   return (
-    <div className="card lg:card-side container rounded-none">
-      <div className="card-body">
-        <h2 className="card-title">New album is released!</h2>
-        <div className="card-actions">
-          <button className="btn btn-primary btn-wide rounded-full">
-            Watch
-          </button>
-        </div>
+    <div
+      className={cn(
+        "card desktop:card-side container rounded-none",
+        classNames
+      )}
+    >
+      <div className="card-body py-0 gap-[18px] px-16">
+        <h2 className="text-[32px]/[44px] block font-bold text-center card-title text-balance break-keep">
+          {title}
+        </h2>
+        <div className="card-actions">{children}</div>
       </div>
-      <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-          alt="Album"
+      <figure className="pt-[132px]">
+        <Image
+          src={imgInfo.src}
+          width={imgInfo.width}
+          height={imgInfo.height}
+          alt={imgInfo.alt ?? ""}
         />
       </figure>
     </div>

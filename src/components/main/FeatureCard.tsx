@@ -1,6 +1,6 @@
 export default function FeatureCard() {
   return (
-    <div className="card lg:card-side container rounded-none">
+    <div className="container rounded-none card desktop:card-side">
       <figure>
         <img
           src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
@@ -8,7 +8,9 @@ export default function FeatureCard() {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">New album is released!</h2>
+        <h2 className="font-bold desktop:text-5xl card-title text-balance break-keep ">
+          New album is released!
+        </h2>
         <p>Click the button to listen on Spotiwhy app.</p>
       </div>
     </div>

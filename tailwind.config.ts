@@ -9,69 +9,49 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          primary: "rgba(54, 146, 255, 1)",
-          "primary-content": "rgba(243, 244, 246, 1)",
-        },
-      },
-    ],
-  },
   theme: {
+    screens: {
+      mobile: "375px",
+      tablet: "744px",
+      desktop: "1920px",
+    },
     container: {
       center: true,
     },
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--primary-100",
+          50: "var(--primary-50)",
+          200: "var(--primary-200)",
+          300: "var(--primary-300)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--secondary-100)",
+          200: "var(--secondary-200)",
+          400: "var(--secondary-400)",
+          900: "var(--secondary-900)",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          color: "var(--secondary-700)",
+          primary: "#3692FF",
+          "primary-content": "#F9FAFB",
+          ".btn": {
+            "font-size": "1rem",
+          },
+          ".footer": {
+            "font-size": "1rem",
+            "font-weight": "400",
+          },
+        },
+      },
+    ],
   },
   plugins: [daisyui, tailwindcssAnimate],
 } satisfies Config;
