@@ -3,16 +3,21 @@ import InputComment from "./InputComment";
 import CommentList from "./CommentList";
 import NoComment from "./NoComment";
 import { useState, useEffect } from "react";
-import axios from "@/lib/axios";
+// import axios from "@/lib/axios";
+import codeitAxios from "@/lib/codeitAxios";
 
-export default function Comment({ id }) {
+export default function Comment({ id, isArticle }) {
   const [value, setValue] = useState("");
   const [comments, setComments] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function getComments() {
-    const response = await axios.get(`/article/${id}/comments`);
-    const comments = response.data ?? [];
+    const response = await codeitAxios.get(
+      isArticle
+        ? `/articles/${id}/comments?limit=5`
+        : `/products/${id}/comments?limit=5`
+    );
+    const comments = response.data.list ?? [];
     setComments(comments);
     return response.data;
   }
@@ -27,9 +32,12 @@ export default function Comment({ id }) {
   async function createComment() {
     try {
       setIsSubmitting(true);
-      const response = await axios.post(`/article/${id}/comment`, {
-        content: value,
-      });
+      const response = await codeitAxios.post(
+        isArticle ? `/articles/${id}/comments` : `/products/${id}/comments`,
+        {
+          content: value,
+        }
+      );
       return response.data;
     } catch (err) {
       console.log(err);
@@ -53,11 +61,12 @@ export default function Comment({ id }) {
         setValue={setValue}
         getComments={getComments}
         isSubmitting={isSubmitting}
+        isArticle={isArticle}
       />
       {comments.length > 0 ? (
         <CommentList comments={comments} />
       ) : (
-        <NoComment />
+        <NoComment isArticle />
       )}
     </div>
   );

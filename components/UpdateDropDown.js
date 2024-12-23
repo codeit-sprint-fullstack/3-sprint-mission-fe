@@ -40,7 +40,6 @@ export default function UpdateDropDown() {
     };
   }, [isOpen]);
 
-  const handleClick = () => {};
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
       <button className={styles.articleChangeBt} onClick={toggleDropdown}>
