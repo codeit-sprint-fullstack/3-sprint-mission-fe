@@ -7,7 +7,9 @@ export default function PostListAll({ post }) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/${post.id}/article`);
+        console.log(post.id);
+        const articleId = post.id;
+        router.push(`/articles/${articleId}`);
     };
 
     return (

@@ -20,8 +20,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
             alert('내용을 입력해주세요!');
         }
         if (content) {
-            instance.post(`/articleComment`, {
-                articleId: article.id,
+            instance.post(`/articles/${article.id}/comments`, {
                 content,
             }).then((response) => {
                 alert("댓글이 등록되었습니다!");

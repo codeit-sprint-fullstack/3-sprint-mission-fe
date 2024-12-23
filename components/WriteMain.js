@@ -9,12 +9,13 @@ export default function WriteMain() {
     const router = useRouter();
 
     const handlePostSubmit = () => {
-        instance.post(`/article`, {
-            title,
+        instance.post(`/articles`, {
+            image:
+                title,
             content,
         }).then((response) => {
             alert("게시글이 등록되었습니다!");
-            const id = response.data.id;
+            const id = response.data.list.id;
             router.push(`/${id}/article`);
         }).catch((error) => {
             console.error(error);

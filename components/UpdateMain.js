@@ -13,7 +13,7 @@ export default function UpdateMain() {
         if (!id) return;
 
         try {
-            const response = await instance.get(`/article/${id}`);
+            const response = await instance.get(`/articles/${id}`);
             const article = response.data[0];
             setTitle(article.title);
             setContent(article.content);
@@ -24,7 +24,7 @@ export default function UpdateMain() {
 
     const handlePostSubmit = async () => {
         try {
-            await instance.patch(`/article/${id}`, {
+            await instance.patch(`/articles/${id}`, {
                 title,
                 content,
             });

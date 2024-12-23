@@ -12,7 +12,7 @@ export default function PostList() {
     const [orderby, setOrderby] = useState("recent");
 
     useEffect(() => {
-        instance.get(`/articles?pageSize=${pageSize}&keyword=${keyword}&orderBy=${orderby}`)
+        instance.get(`/articles?&pageSize=${pageSize}&keyword=${keyword}&orderBy=${orderby}`)
             .then((response) => {
                 setPosts(response.data.list);
             })
