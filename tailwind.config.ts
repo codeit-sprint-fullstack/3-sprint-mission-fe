@@ -16,6 +16,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        red: {
+          DEFAULT: "var(--red)",
+        },
+        pink: {
+          DEFAULT: "var(--pink)",
+        },
         blue: {
           DEFAULT: "var(--blue)",
           text: "var(--blue-text)",

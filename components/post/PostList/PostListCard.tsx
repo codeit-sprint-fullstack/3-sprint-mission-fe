@@ -21,7 +21,7 @@ const PostListCard = ({ post }: PostListCardProps) => {
     post.createdAt instanceof Date && post.createdAt.toLocaleDateString();
 
   return (
-    <Link href="/post/123">
+    <Link href="/post/">
       <li
         key={post.id}
         className="mb-6 h-[140px] border-b-[1px] border-gray-footer_text bg-gray-bg_list pb-6"

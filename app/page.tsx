@@ -1,20 +1,21 @@
-"use client";
+import HomeBanner from "@/components/home/HomeBanner";
+import topBannerImage from "@/public/images/home/hero-image.png";
+import bottomBannerImage from "@/public/images/home/bottom-banner-image.png";
 
-import BestPost from "@/components/post/BestPost/BestPost";
-import PostList from "@/components/post/PostList/PostList";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
-export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/post");
-  }, [router]);
+export default function HomePage() {
   return (
-    <article className="mx-auto min-w-[325px] max-w-[1200px]">
-      <BestPost />
-      <PostList />
-    </article>
+    <>
+      <HomeBanner
+        title="일상의 모든 물건을 거래해 보세요"
+        buttonText="구경하러 가기"
+        buttonLink="/login"
+        imageSrc={topBannerImage}
+      />
+      <HomeBanner
+        title="믿을 수 있는 <br /> 판다마켓 중고 거래"
+        imageSrc={bottomBannerImage}
+        isFooter
+      />
+    </>
   );
 }
