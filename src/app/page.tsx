@@ -50,7 +50,7 @@ const FEATURE_CARD = [
       width: 588,
       height: 444,
     },
-    classNames: "",
+    classNames: "laptop:[&_.card-body]:pl-16",
   },
   {
     keyword: "Search",
@@ -62,7 +62,8 @@ const FEATURE_CARD = [
       width: 588,
       height: 444,
     },
-    classNames: "[&_.card-body]:text-right [&_.card-body]:items-end",
+    classNames:
+      "[&_.card-body]:text-right [&_.card-body]:items-end laptop:flex-row-reverse laptop:[&_.card-body]:pr-16",
   },
   {
     keyword: "Register",
@@ -74,7 +75,7 @@ const FEATURE_CARD = [
       width: 588,
       height: 444,
     },
-    classNames: "",
+    classNames: "laptop:[&_.card-body]:pl-16",
   },
 ];
 
@@ -84,7 +85,7 @@ export default function Home() {
       <section className="bg-primary-50">
         <HeroCard {...HERO_CARD[0]} />
       </section>
-      <section className="grid gap-10 px-4 pt-[52px] pb-[83px] tablet:pt-6 tablet:px-6 tablet:pb-14 tablet:gap-13">
+      <section className="grid gap-10 px-4 pt-[52px] pb-[83px] tablet:pt-6 tablet:px-6 tablet:pb-14 tablet:gap-13 laptop:p-0 laptop:gap-0 laptop:*:py-[138px] laptop:pb-[138px]">
         {FEATURE_CARD.map((feature) => (
           <FeatureCard key={feature.keyword} {...feature} />
         ))}

@@ -30,7 +30,7 @@ export default function HeroCard({
         <h2 className="text-[32px]/[44px] block font-bold text-center card-title text-balance break-keep tablet:text-[40px]/[56px] tablet:w-1/2 mx-auto laptop:text-left laptop:w-full">
           {title}
         </h2>
-        <div className="card-actions justify-center">{children}</div>
+        <div className="justify-center card-actions">{children}</div>
       </div>
 
       <figure className="pt-[132px] tablet:pt-[211px] laptop:pt-0">

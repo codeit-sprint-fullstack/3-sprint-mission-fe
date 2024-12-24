@@ -24,7 +24,7 @@ export default function FeatureCard({
   return (
     <div
       className={cn(
-        "container gap-6 rounded-none card laptop:card-side laptop:max-w-[988px]",
+        "container gap-6 rounded-none card laptop:card-side laptop:max-w-[988px] laptop:gap-0",
         classNames
       )}
     >
@@ -37,8 +37,8 @@ export default function FeatureCard({
         />
       </figure>
 
-      <div className="card-body p-0 bg-[#FCFCFC] leading-[26px] *:text-balance *:break-keep tablet:text-lg tablet:gap-4 laptop:flex-none laptop:basis-[369px]">
-        <div className="text-primary font-bold">{keyword}</div>
+      <div className="card-body p-0 bg-[#FCFCFC] laptop:p-2 leading-[26px] *:text-balance *:break-keep tablet:text-lg tablet:gap-4 laptop:flex-none laptop:basis-[369px] laptop:py-[103px]">
+        <div className="font-bold text-primary">{keyword}</div>
         <h2 className="font-bold block pb-2 text-2xl tablet:text-[32px]/[42px] card-title laptop:text-[40px]/[56px]">
           {title}
         </h2>
