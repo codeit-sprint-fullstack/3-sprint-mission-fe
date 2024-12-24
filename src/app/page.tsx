@@ -48,7 +48,7 @@ const FEATURE_CARD = [
       width: 588,
       height: 444,
     },
-    classNames: "[&_.card-body]:pr-8",
+    classNames: "",
   },
   {
     keyword: "Search",
@@ -60,7 +60,7 @@ const FEATURE_CARD = [
       width: 588,
       height: 444,
     },
-    classNames: "[&_.card-body]:text-right [&_.card-body]:pl-8",
+    classNames: "[&_.card-body]:text-right [&_.card-body]:items-end",
   },
   {
     keyword: "Register",
@@ -72,7 +72,7 @@ const FEATURE_CARD = [
       width: 588,
       height: 444,
     },
-    classNames: "[&_.card-body]:pr-8",
+    classNames: "",
   },
 ];
 
@@ -82,7 +82,7 @@ export default function Home() {
       <section className="bg-primary-50">
         <HeroCard {...HERO_CARD[0]} />
       </section>
-      <section className="grid gap-10 px-4 pt-[52px] pb-[83px] tablet:p-6">
+      <section className="grid gap-10 px-4 pt-[52px] pb-[83px] tablet:pt-6 tablet:px-6 tablet:pb-14 tablet:gap-13">
         {FEATURE_CARD.map((feature) => (
           <FeatureCard key={feature.keyword} {...feature} />
         ))}

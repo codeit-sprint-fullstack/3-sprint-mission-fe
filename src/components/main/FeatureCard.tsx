@@ -36,12 +36,12 @@ export default function FeatureCard({
           height={imgInfo.height}
         />
       </figure>
-      <div className="card-body p-0 bg-[#FCFCFC] leading-[26px] *:text-balance *:break-keep tablet:text-lg">
+      <div className="card-body p-0 bg-[#FCFCFC] leading-[26px] *:text-balance *:break-keep tablet:text-lg tablet:gap-4">
         <div className="font-bold text-primary">{keyword}</div>
         <h2 className="font-bold block pb-2 text-2xl tablet:text-[32px]/[42px] card-title">
           {title}
         </h2>
-        <p className="font-medium">{description}</p>
+        <p className="font-medium w-[86%] tablet:w-[47%]">{description}</p>
       </div>
     </div>
   );

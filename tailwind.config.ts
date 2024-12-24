@@ -33,6 +33,13 @@ export default {
           900: "var(--secondary-900)",
         },
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", "sans-serif"],
+      },
+      spacing: {
+        "13": "52px",
+      },
+      // borderRadius: {},
     },
   },
   daisyui: {
