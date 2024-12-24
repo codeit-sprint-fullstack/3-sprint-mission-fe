@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { getUser, LoginApi, Logout } from '../api/user';
 import { LoginForm } from '@/app/user/login/page';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 type Auth = PropsWithChildren<{
   user: any | null;
@@ -20,29 +20,40 @@ type Auth = PropsWithChildren<{
 const AuthContext = createContext<Auth>(null);
 
 export function AuthProvider({ children }: PropsWithChildren) {
-  const [token, setToken] = useState(0);
-  // const router = useRouter();
-  useEffect(() => {}, [token]);
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const router = useRouter();
+
   const { data: user } = useQuery({
     queryKey: ['user', token],
     queryFn: getUser,
     staleTime: 60 * 60 * 1000,
     enabled: !!token,
+    refetchOnMount: 'always',
   });
-
+  useEffect(() => {
+    if (!!!user) {
+      localStorage.removeItem('token');
+    }
+  }, [user]);
   async function login({ email, password }: LoginForm) {
-    const res = await LoginApi({ email, password });
-    if (res.accessToken) {
-      localStorage.setItem('token', res.accessToken);
-      setToken(!!res.accessToken ? 1 : 0);
-    } else alert('id or password를 확인해주세요');
+    console.log('login');
+    try {
+      const res = await LoginApi({ email, password });
+      if (!!res.accessToken) {
+        localStorage.setItem('token', res.accessToken);
+        setToken(localStorage.getItem('token'));
+        router.push('/');
+      } else alert('id or password를 확인해주세요');
+    } catch (err) {
+      console.error('AuthLogin Error', err);
+    }
   }
+
   async function logout(e: React.MouseEvent) {
     e.preventDefault();
     await Logout();
     localStorage.removeItem('token');
-    setToken(0);
-    // router.push('/login');
+    router.push('/user/login');
   }
 
   return (

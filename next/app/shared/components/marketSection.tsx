@@ -62,7 +62,7 @@ function MarketList({
   const [imgStyle, setImgStyle] = useState({});
   const notFound = './img/img_default.png';
   // "https://png.pngtree.com/png-vector/20210221/ourmid/pngtree-error-404-not-found-neon-effect-png-image_2928214.jpg";
-  let style = {
+  const style = {
     width,
   };
 
@@ -108,8 +108,8 @@ function MarketList({
               alt="favorite"
               width={16}
               height={16}
+              style={{ width: 'inherit' }}
             />
-            <img src="./img/ic_heart.svg" alt="favorite" />
             {favorite}
           </p>
         </div>

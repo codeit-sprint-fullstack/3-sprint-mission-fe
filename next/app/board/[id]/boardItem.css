@@ -139,7 +139,9 @@
   color: #9ca3af;
 }
 .backBtn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 240px;
   height: 48px;
   background: #3692ff;

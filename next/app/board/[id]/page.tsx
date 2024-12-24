@@ -1,12 +1,18 @@
 'use client';
 import Layout, { LayoutInput } from '@/app/shared/components/layout';
-import { UserId, CreatedAt, ItemTitle, Favorite } from '@/app/board/_components';
+import {
+  UserId,
+  CreatedAt,
+  ItemTitle,
+  Favorite,
+} from '@/app/board/_components';
 import './boardItem.css';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { boardGetItem, ReturnData } from '@/app/shared/api/board';
 import { useRouter } from 'next/navigation';
 import EtcBox from '../_components/etcBox';
+import Link from 'next/link';
 
 export default function BoardItem() {
   const params = useParams();
@@ -16,6 +22,7 @@ export default function BoardItem() {
     content: '',
     createdAt: new Date(),
     user: {
+      name: '',
       id: '',
     },
     favorite: 0,
@@ -40,7 +47,7 @@ export default function BoardItem() {
         <ItemTitle title={item.title} />
         <div className="infoLine2">
           <div className="box">
-            <UserId userId={item.user.id} img={'/img/ic_big_profile.png'} />
+            <UserId userId={item.user.name} img={'/img/ic_big_profile.png'} />
             <CreatedAt date={item.createdAt} />
           </div>
           <div className="box">
@@ -52,7 +59,9 @@ export default function BoardItem() {
       </div>
       <Coment />
       <ComentList coment={[1, 2, 3, 4, 6, 7, 8]} />
-      <button className="backBtn">목록으로 돌아가기</button>
+      <Link href="/board" className="backBtn">
+        목록으로 돌아가기
+      </Link>
     </Layout>
   );
 }

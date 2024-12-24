@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { QueryClient } from '@tanstack/react-query';
 import instance from './instance';
-
+const queryClient = new QueryClient();
 type Register = {
   email: string;
   name?: string;
@@ -29,12 +30,8 @@ export async function LoginApi(body: Login) {
     return await response.data;
   } catch (err: any) {
     if (err.response.status === 401) {
-      return {
-        status: err.response.status,
-        message: err.reponse.data,
-      };
+      return err;
     }
-    // console.error(err);
   }
 }
 
@@ -43,7 +40,7 @@ export async function getUser() {
     const response = await instance.get('/api/user');
     return await response.data;
   } catch (err) {
-    // console.error(err);
+    console.error(err);
   }
 }
 export async function Logout() {

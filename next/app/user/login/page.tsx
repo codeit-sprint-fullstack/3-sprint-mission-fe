@@ -3,7 +3,6 @@ import { LayoutInput } from '@/app/shared/components/layout';
 import UserFoot from '@/app/shared/components/userFoot';
 import { useAuth } from '@/app/shared/contexts/AuthContext';
 import { isEmail } from '@/app/shared/hook/hook';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 export type LoginForm = {
   email: string;
@@ -11,7 +10,6 @@ export type LoginForm = {
 };
 export default function Login() {
   const { login } = useAuth();
-  const router = useRouter();
   const [form, setForm] = useState<LoginForm>({
     email: '',
     password: '',
@@ -28,7 +26,6 @@ export default function Login() {
       .some((x) => x);
     if (!triger) {
       await login(form);
-      router.push('/');
     } else {
       alert('값을 제대로 입력해주세요');
       return;

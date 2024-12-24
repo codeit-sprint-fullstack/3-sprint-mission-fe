@@ -3,10 +3,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import noHeader from './noHader';
 import { useAuth } from '../contexts/AuthContext';
+import { useEffect } from 'react';
 
 export default function Header({}) {
   const { user, logout } = useAuth();
   const pathname = usePathname();
+  useEffect(() => {
+  }, [user]);
   if (!noHeader.some((x) => x === pathname))
     return (
       <header>

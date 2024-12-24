@@ -24,7 +24,7 @@ export default function UsedMarket() {
   const searchRef = useRef(null);
 
   function GetItems(page: any, pageSize: any, orderBy: any, keyword: any) {
-    productsGet(page, pageSize, orderBy, keyword)
+    productsGet({ page, pageSize, orderBy, keyword })
       .then((res: any) => {
         if (res.success) {
           sellProduct.setValue(res.data);
@@ -96,7 +96,7 @@ export default function UsedMarket() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Link href="/registration">상품등록하기</Link>
+          <Link href="/items/write">상품등록하기</Link>
           <select onChange={selectHandle}>
             <option value="recent" defaultChecked>
               최신순
