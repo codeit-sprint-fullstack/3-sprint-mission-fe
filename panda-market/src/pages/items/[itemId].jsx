@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import ProductDetailContent from "../../components/ProductDetailContent";
 import CommentSection from "../../components/Commentsection";
+import ConfirmationModal from "../../components/ConfirmationModal";
 import styles from "../../styles/ProductDetail.module.css";
 import Link from "next/link";
 
@@ -54,25 +55,25 @@ const ProductDetailPage = () => {
   const { itemId } = router.query;
   const queryClient = useQueryClient();
 
-  const { data: product, error: productError, isLoading: isProductLoading } = useQuery(
-    ["product", itemId],
-    () => fetchProduct(itemId),
-    {
-      enabled: !!itemId, // itemId가 존재할 때만 실행
-    }
-  );
+  // 상품 데이터 쿼리
+  const { data: product, error: productError, isLoading: isProductLoading } = useQuery({
+    queryKey: ["product", itemId], // 객체 형식 사용
+    queryFn: () => fetchProduct(itemId),
+    enabled: !!itemId, // itemId가 존재할 때만 실행
+  });
 
-  const { data: comments, error: commentsError, isLoading: isCommentsLoading } = useQuery(
-    ["comments", itemId],
-    () => fetchComments(itemId),
-    {
-      enabled: !!itemId,
-    }
-  );
+  // 댓글 데이터 쿼리
+  const { data: comments, error: commentsError, isLoading: isCommentsLoading } = useQuery({
+    queryKey: ["comments", itemId], // 객체 형식 사용
+    queryFn: () => fetchComments(itemId),
+    enabled: !!itemId,
+  });
 
-  const deleteMutation = useMutation(() => deleteProduct(itemId), {
+  // 상품 삭제 뮤테이션
+  const deleteMutation = useMutation({
+    mutationFn: () => deleteProduct(itemId),
     onSuccess: () => {
-      queryClient.invalidateQueries(["product"]);
+      queryClient.invalidateQueries({ queryKey: ["product"] });
       router.push("/items");
     },
     onError: (error) => {
@@ -80,6 +81,7 @@ const ProductDetailPage = () => {
       alert("상품 삭제에 실패했습니다.");
     },
   });
+  
 
   if (isProductLoading || isCommentsLoading) {
     return <div>로딩 중...</div>;

@@ -53,20 +53,21 @@ const deleteComment = async (commentId) => {
 const CommentSection = ({ productId }) => {
   const queryClient = useQueryClient();
 
-  const { data: comments = [], error, isLoading } = useQuery([
-    "comments",
-    productId,
-  ], () => fetchComments(productId), {
+  const { data: comments = [], error, isLoading } = useQuery({
+    queryKey: ["comments", productId],
+    queryFn: () => fetchComments(productId),
     enabled: !!productId, // productId가 있을 때만 실행
   });
 
-  const addCommentMutation = useMutation(addComment, {
+  const addCommentMutation = useMutation({
+    mutationFn: addComment,
     onSuccess: () => {
       queryClient.invalidateQueries(["comments", productId]); // 데이터 새로고침
     },
   });
 
-  const deleteCommentMutation = useMutation(deleteComment, {
+  const deleteCommentMutation = useMutation({
+    mutationFn: deleteComment,
     onSuccess: () => {
       queryClient.invalidateQueries(["comments", productId]); // 데이터 새로고침
     },
