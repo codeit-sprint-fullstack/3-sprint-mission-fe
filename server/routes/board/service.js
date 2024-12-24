@@ -55,7 +55,7 @@ const GetItem = async (req, res) => {
       },
       include: {
         user: true,
-        coment: true,
+        comment: true,
       },
     });
     res.status(200).send(item);

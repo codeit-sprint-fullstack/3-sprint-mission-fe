@@ -6,14 +6,18 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { getData } from './_hook/hook';
 import { BestItem, Item } from './_components';
+import { useAuth } from '../shared/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
 
 export default function Board() {
+  const { user } = useAuth();
   const searchHandle = useChange();
   const [data, setData] = useState([]);
   const [bestData, setBestData] = useState([]);
   const [pageSize, setPageSize] = useState(6);
   const [keyword, setKeyword] = useState('');
   const [orderBy, setOrderBy] = useState<'recent' | 'favorite'>('recent');
+  const router = useRouter();
   const searchKewordHandle = (e: any) => {
     if (e.keyCode === 13 || e.type.toString() === 'click') {
       setPageSize(6);
@@ -23,6 +27,12 @@ export default function Board() {
   const selectHandle = (e: any) => {
     e.preventDefault();
     setOrderBy(e.target.value);
+  };
+  const writeHandle = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const { href } = e.currentTarget;
+    if (!!user) router.push(href);
+    else alert('로그인해주세요');
   };
   useEffect(() => {
     getData({ setFn: setData, pageSize, orderBy, keyword });
@@ -40,7 +50,7 @@ export default function Board() {
                 title={v.title}
                 content={v.content}
                 createdAt={v.createdAt}
-                userId={v.user.id}
+                userId={v.user.name}
                 favorite={v.favorite}
                 boardNumber={v.boardNumber}
               />
@@ -50,7 +60,11 @@ export default function Board() {
       </div>
       <div className="boardLine">
         <TitleLine text={'베스트 게시글'}>
-          <Link className="writeBoard" href={'/board/write'}>
+          <Link
+            className="writeBoard"
+            href={'/board/write'}
+            onClick={writeHandle}
+          >
             글쓰기
           </Link>
         </TitleLine>
@@ -87,7 +101,7 @@ export default function Board() {
                 title={v.title}
                 content={v.content}
                 createdAt={v.createdAt}
-                userId={v.user.id}
+                userId={v.user.name}
                 favorite={v.favorite}
                 boardNumber={v.boardNumber}
               />

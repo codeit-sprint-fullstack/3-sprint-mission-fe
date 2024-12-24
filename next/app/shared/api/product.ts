@@ -1,4 +1,4 @@
-import instance from "./instance";
+import instance from './instance';
 // const url = "/products";
 // export async function productsGet(
 //   page = 1,
@@ -15,14 +15,19 @@ import instance from "./instance";
 //     console.error(error);
 //   }
 // }
-const url = "/product";
+const url = '/product';
 
-export async function productsGet(
+export async function productsGet({
   page = 1,
   pageSize = 10,
-  orderBy = "recet",
-  keyword
-) {
+  orderBy = 'recent',
+  keyword = '',
+}: {
+  page?: number;
+  pageSize?: number;
+  orderBy?: 'recent' | 'favorte';
+  keyword?: '';
+}) {
   try {
     let path = `${url}?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
     if (!!keyword) path += `&keyword=${keyword}`;
