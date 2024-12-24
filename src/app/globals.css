@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-50: #CFE5FF;
+    --primary-100: #3692FF;
+    --primary-200: #1967D6;
+    --primary-300: #1251AA;
+
+    --secondary-50: #F9FAFB;
+    --secondary-100: #F3F4F6;
+    --secondary-200: #E5E7EB;
+    --secondary-400: #9CA3AF;
+    --secondary-500: #6B7280;
+    --secondary-600: #4B5563;
+    --secondary-700: #374151;
+    --secondary-900: #111827;
+  }
+  body {
+    min-width: 375px;
+  }
+}
