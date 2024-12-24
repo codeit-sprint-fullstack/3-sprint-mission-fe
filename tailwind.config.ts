@@ -13,7 +13,7 @@ export default {
     screens: {
       mobile: "375px",
       tablet: "744px",
-      desktop: "1920px",
+      laptop: "1200px",
     },
     container: {
       center: true,

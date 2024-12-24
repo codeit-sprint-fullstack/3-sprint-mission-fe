@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="navbar desktop:px-50 px-4 py-2">
+    <div className="navbar laptop:px-50 px-4 py-2">
       <div className="flex-1">
         <div className="flex gap-2 py-2.5">
           <Image
