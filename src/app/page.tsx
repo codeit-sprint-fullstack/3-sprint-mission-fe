@@ -6,7 +6,7 @@ function CTA() {
   return (
     <Link
       href="/"
-      className="!text-lg tablet:!text-xl rounded-full btn btn-primary btn-block max-w-[357px]"
+      className="inline-block !text-lg tablet:!text-xl rounded-full btn btn-primary btn-block max-w-[357px] py-3"
     >
       구경하러 가기
     </Link>
