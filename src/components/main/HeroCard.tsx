@@ -22,17 +22,18 @@ export default function HeroCard({
   return (
     <div
       className={cn(
-        "card desktop:card-side container rounded-none",
+        "card desktop:card-side container rounded-none desktop:max-w-[1110px]",
         classNames
       )}
     >
-      <div className="card-body py-0 gap-[18px] px-16 tablet:gap-6">
-        <h2 className="text-[32px]/[44px] block font-bold text-center card-title text-balance break-keep tablet:text-[40px]/[56px] tablet:w-1/2 mx-auto">
+      <div className="card-body py-0 gap-[18px] px-16 tablet:gap-6 desktop:px-0 desktop:gap-8 desktop:flex-1">
+        <h2 className="text-[32px]/[44px] block font-bold text-center card-title text-balance break-keep tablet:text-[40px]/[56px] tablet:w-1/2 mx-auto desktop:text-left desktop:w-full">
           {title}
         </h2>
-        <div className="justify-center card-actions">{children}</div>
+        <div className="card-actions justify-center">{children}</div>
       </div>
-      <figure className="pt-[132px] tablet:pt-[211px]">
+
+      <figure className="pt-[132px] tablet:pt-[211px] desktop:pt-0">
         <Image
           src={imgInfo.src}
           width={imgInfo.width}

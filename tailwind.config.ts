@@ -39,6 +39,7 @@ export default {
       spacing: {
         "13": "52px",
         "27": "108px",
+        "50": "200px",
       },
       // borderRadius: {},
     },

@@ -23,7 +23,8 @@ const HERO_CARD = [
       height: 340,
     },
     children: <CTA />,
-    classNames: "pt-12 tablet:pt-[84px] max-tablet:[&_img]:scale-[1.2]",
+    classNames:
+      "pt-12 tablet:pt-[84px] max-tablet:[&_img]:scale-[1.2] desktop:pt-50 desktop:[&_h2]:pt-10",
   },
   {
     title: "믿을 수 있는 판다마켓 중고 거래",
@@ -33,7 +34,8 @@ const HERO_CARD = [
       width: 746,
       height: 397,
     },
-    classNames: "pt-[120px] tablet:pt-[201px]",
+    classNames:
+      "pt-[120px] tablet:pt-[201px] desktop:pt-[143px] desktop:[&_h2]:pt-[112px]",
   },
 ];
 
