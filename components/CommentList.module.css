@@ -16,6 +16,21 @@
   color: #9ca3af;
 }
 
+.loadMoreButton {
+  border: none;
+  width: 240px;
+  height: 48px;
+  text-align: center;
+  line-height: 48px;
+  border-radius: 40px;
+  font-weight: 600;
+  background: #9ca3af;
+  color: #f3f4f6;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin: 64px auto;
+}
+
 /* 메뉴 오버레이 */
 .overlay {
   position: fixed;

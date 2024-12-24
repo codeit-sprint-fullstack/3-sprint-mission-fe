@@ -88,12 +88,12 @@ export default function ArticleDetail({ article, error }) {
               alt="user_profile"
               className={styles.userImg}
             />
-            <div>총명한판다</div>
+            <div>{article.writer.nickname}</div>
             <div>{formattedDate}</div>
           </div>
           <div className={styles.likeBox}>
             <img src="/ic_heart.png" alt="like" className={styles.likeImg} />
-            <div>{article.likes}</div>
+            <div>{article.likeCount}</div>
           </div>
         </div>
         <span

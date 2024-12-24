@@ -2,6 +2,21 @@
   margin: 24px 0 130px;
 }
 
+.loadMoreButton {
+  border: none;
+  width: 240px;
+  height: 48px;
+  text-align: center;
+  line-height: 48px;
+  border-radius: 40px;
+  font-weight: 600;
+  background: #9ca3af;
+  color: #f3f4f6;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin: 64px auto;
+}
+
 .noResult {
   font-size: 1.6rem;
   color: #4b5563;

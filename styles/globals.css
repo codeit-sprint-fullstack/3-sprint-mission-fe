@@ -39,3 +39,23 @@ a {
   font-weight: 700;
   color: #3692ff;
 }
+
+:root {
+  --input-bg: #f3f4f6;
+  --input-ph: #9ca3af;
+  --input-focus-border: #3692ff;
+  --text-label: #1f2937;
+  --button-color: #f3f4f6;
+  --button-bg: #9ca3af;
+  --button-active-bg: #3692ff;
+  --clear-button: #1f2937;
+  --clear-button-bg: #1f2937;
+  --sns-login-bg: #e6f2ff;
+  --sign-up: #3692ff;
+  --wrong-pw: #ff3636;
+  --right-pw: #2bb31c;
+  --validate-alert: #f74747;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --modal-content-bg: #ffffff;
+  --modal-button: #3692ff;
+}

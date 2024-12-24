@@ -1,0 +1,250 @@
+.signupHeader {
+  margin-bottom: 40px;
+}
+
+.headerInner {
+  width: 396px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  display: inline-block;
+  width: 396px;
+  height: 142px;
+  background: url(/login-logo.png) no-repeat center / 396px auto;
+  margin-top: 40px;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.signupWrap {
+  /* width: 640px; */
+  max-width: 640px;
+  /* min-width: 396px; */
+  min-width: 350px;
+  margin: 0 auto 50px;
+  width: 60%;
+}
+
+.signupBox {
+  /* height: 542px; */
+  height: 602px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inputItem {
+  height: 98px;
+  position: relative;
+}
+
+.textLabel {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--text-label);
+}
+
+.wrongPw {
+  padding-left: 1rem;
+  color: var(--wrong-pw);
+  font-size: 1.6rem;
+}
+
+.right-pw {
+  padding-left: 1rem;
+  color: var(--right-pw);
+  font-size: 1.6rem;
+}
+
+.inputId,
+.inputPw {
+  padding: 16px 24px;
+  width: 100%;
+  font-size: 1.6rem;
+  border-radius: 12px;
+  margin: 16px 0 24px;
+  background-color: var(--input-bg);
+  height: 56px;
+  border: none;
+}
+
+.inputId::placeholder,
+.inputPw::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--input-ph);
+  text-align: left;
+}
+
+.inputId:focus,
+.inputPw:focus {
+  outline: none;
+  border: 2px solid var(--input-focus-border);
+}
+
+.inputId.alert,
+.inputPw.alert {
+  border: 2px solid var(--validate-alert);
+}
+
+.labelAlert {
+  color: var(--validate-alert);
+  font-size: 1.5rem;
+  line-height: 1.79rem;
+  font-weight: 600;
+  position: absolute;
+  bottom: -23px;
+  left: 16px;
+}
+
+.clearBtn {
+  position: absolute;
+  bottom: 17px;
+  right: 18px;
+  width: 22px;
+  height: 22px;
+  border-radius: 22px;
+  color: var(--input-bg);
+  background: var(--button-bg);
+  border: none;
+  font-weight: 600;
+}
+
+.showPw {
+  position: absolute;
+  bottom: 15px;
+  right: 53px;
+  width: 22px;
+  height: 22px;
+  background: url(/hide-pw.png) no-repeat center / 100%;
+  border: none;
+}
+
+.btnSignup {
+  display: inline-block;
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  color: var(--button-color);
+  font-weight: 600;
+  font-size: 2rem;
+  border: none;
+  cursor: default;
+  background-color: var(--button-bg);
+}
+
+.btnSignup.active {
+  cursor: pointer;
+  background-color: var(--button-active-bg);
+}
+
+.snsLogin {
+  background: var(--sns-login-bg);
+  width: 100%;
+  height: 74px;
+  border-radius: 8px;
+  padding: 16px 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.snsLogin > p {
+  width: 110px;
+  height: 26px;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.snsLink {
+  width: 100px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.google {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background: url(/google.png) no-repeat center / 42px auto;
+}
+
+.kakao {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background: url(/kakao.png) no-repeat center / 100%;
+}
+
+.login {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.login > a {
+  text-decoration: underline;
+  color: var(--sign-up);
+}
+
+/* 모달 콘텐츠 */
+.modalContent {
+  width: 540px;
+  height: 250px;
+  background-color: var(--modal-content-bg);
+  border-radius: 8px;
+  z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalBackdrop {
+  background-color: var(--modal-overlay);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.modalContent > p {
+  position: absolute;
+  width: 250px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: 1.6rem;
+}
+
+.modalButton {
+  font-size: 1.6rem;
+  background-color: var(--modal-button);
+  color: var(--modal-content-bg);
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 120px;
+  height: 48px;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}

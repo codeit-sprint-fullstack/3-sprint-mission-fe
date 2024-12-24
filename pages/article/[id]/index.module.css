@@ -19,7 +19,7 @@
 }
 
 .user {
-  width: 225px;
+  /* width: 225px; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -37,6 +37,7 @@
 .user > div:last-child {
   font-weight: 400;
   color: #9ca3af;
+  padding-right: 22px;
 }
 
 .likeBox {

@@ -3,6 +3,12 @@ import { getRelativeTime } from "@/lib/dateUtils";
 import styles from "./Comment.module.css";
 
 function Comment({ comment, isMenuOpen, onMenuToggle, onModify, onDelete }) {
+  const placeholderImage = `/user_profile.png`;
+
+  const handleImageError = (e) => {
+    e.target.src = placeholderImage; // 이미지 로드 실패 시 대체 이미지 설정
+  };
+
   const [isEditing, setIsEditing] = useState(false); // 수정 모드 여부
   const [editedContent, setEditedContent] = useState(comment.content); // 수정 내용
 
@@ -51,12 +57,14 @@ function Comment({ comment, isMenuOpen, onMenuToggle, onModify, onDelete }) {
       <div>
         <div className={styles.infoBox}>
           <img
-            src="/user_profile.png"
+            // src="/user_profile.png"
+            src={comment.writer.image || placeholderImage}
             alt="user_profile"
             className={styles.userImg}
+            onError={handleImageError}
           />
           <div className={styles.columnBox}>
-            <div>똑똑한판다</div>
+            <div>{comment.writer.nickname}</div>
             <div>
               {relativeTime} {isEdited && "(수정됨)"}
             </div>

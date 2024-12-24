@@ -15,7 +15,7 @@ function Article({ article }) {
       <div className={styles.title}>{article.title}</div>
       <div className={styles.imgBack}>
         <img
-          src={article.images || placeholderImage}
+          src={article.image || placeholderImage}
           alt="상품이미지"
           className={styles.productImg}
           onError={handleImageError}
@@ -27,12 +27,12 @@ function Article({ article }) {
           alt="user_profile"
           className={styles.userImg}
         />
-        <div>총명한판다</div>
+        <div>{article.writer.nickname}</div>
         <div>{formattedDate}</div>
       </div>
       <div className={styles.likeBox}>
         <img src="/ic_heart.png" alt="like" className={styles.likeImg} />
-        <div>{article.likes}</div>
+        <div>{article.likeCount}</div>
       </div>
     </div>
   );
