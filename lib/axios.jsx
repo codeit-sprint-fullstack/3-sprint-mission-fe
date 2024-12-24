@@ -5,6 +5,14 @@ const instance = axios.create({
   baseURL: "https://panda-market-api.vercel.app/",
 });
 
+export const authAPI = {
+  signUp: (data) => instance.post("/auth/signUp", data),
+
+  signIn: (data) => instance.post("/auth/signIn", data),
+
+  refreshToken: (data) => instance.post("/auth/refresh-token", data),
+};
+
 export const articleAPI = {
   getArticles: (
     params = { page: 1, pageSize: 10, orderBy: "recent", keyword: "" }

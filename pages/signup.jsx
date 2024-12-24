@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { authAPI } from "../lib/axios";
+import { useRouter } from "next/router";
 import styles from "../styles/Signup.module.css";
 
 const Signup = () => {
@@ -13,16 +15,10 @@ const Signup = () => {
   const [confirmPasswordAlert, setConfirmPasswordAlert] = useState("");
   const [isSignupActive, setIsSignupActive] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const USER_DATA = [
-    { email: "codeit1@codeit.com", password: "codeit101!" },
-    { email: "codeit2@codeit.com", password: "codeit202!" },
-    { email: "codeit3@codeit.com", password: "codeit303!" },
-    { email: "codeit4@codeit.com", password: "codeit404!" },
-    { email: "codeit5@codeit.com", password: "codeit505!" },
-    { email: "codeit6@codeit.com", password: "codeit606!" },
-  ];
+  const [signupError, setSignupError] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const router = useRouter();
 
   const validateEmail = (email) => {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
@@ -37,14 +33,9 @@ const Signup = () => {
     const isNicknameValid = nickname.length > 0;
     const isPasswordValid = validatePassword(password);
     const doPasswordsMatch = password === confirmPassword;
-    const isEmailAvailable = !USER_DATA.some((data) => data.email === email);
 
     setIsSignupActive(
-      isEmailValid &&
-        isNicknameValid &&
-        isPasswordValid &&
-        doPasswordsMatch &&
-        isEmailAvailable
+      isEmailValid && isNicknameValid && isPasswordValid && doPasswordsMatch
     );
   }, [email, nickname, password, confirmPassword]);
 
@@ -55,114 +46,54 @@ const Signup = () => {
     if (field === "confirmPassword") setConfirmPassword("");
   };
 
-  const handleEmailChange = (e) => {
-    const newEmail = e.target.value;
-    setEmail(newEmail);
+  const signupMessage = "회원가입 성공!\n로그인 페이지로 이동합니다.";
 
-    if (emailAlert === "이메일을 입력해주세요." && newEmail !== "") {
-      setEmailAlert("");
-    }
-    if (emailAlert === "잘못된 이메일 형식입니다." && validateEmail(newEmail)) {
-      setEmailAlert("");
-    }
-  };
-
-  const handleEmailBlur = () => {
-    if (email === "") {
-      setEmailAlert("이메일을 입력해주세요.");
-    } else if (!validateEmail(email)) {
-      setEmailAlert("잘못된 이메일 형식입니다.");
-    } else {
-      setEmailAlert("");
-    }
-  };
-
-  const handleNicknameChange = (e) => {
-    const newNickname = e.target.value;
-    setNickname(newNickname);
-
-    if (nicknameAlert === "닉네임을 입력해주세요." && newNickname !== "") {
-      setNicknameAlert("");
-    }
-  };
-
-  const handleNicknameBlur = () => {
-    if (nickname === "") {
-      setNicknameAlert("닉네임을 입력해주세요.");
-    } else {
-      setNicknameAlert("");
-    }
-  };
-
-  const handlePasswordChange = (e) => {
-    const newPassword = e.target.value;
-    setPassword(newPassword);
-
-    if (passwordAlert === "비밀번호를 입력해주세요." && newPassword !== "") {
-      setPasswordAlert("");
-    }
-    if (
-      passwordAlert === "비밀번호를 8자 이상 입력해주세요." &&
-      validatePassword(newPassword)
-    ) {
-      setPasswordAlert("");
-    }
-  };
-
-  const handlePasswordBlur = () => {
-    if (password === "") {
-      setPasswordAlert("비밀번호를 입력해주세요.");
-    } else if (!validatePassword(password)) {
-      setPasswordAlert("비밀번호를 8자 이상 입력해주세요.");
-    } else {
-      setPasswordAlert("");
-    }
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    const newConfirmPassword = e.target.value;
-    setConfirmPassword(newConfirmPassword);
-
-    if (
-      confirmPasswordAlert === "비밀번호를 입력해주세요." &&
-      newConfirmPassword !== ""
-    ) {
-      setConfirmPasswordAlert("");
-    }
-    if (
-      confirmPasswordAlert === "비밀번호가 일치하지 않습니다." &&
-      newConfirmPassword === password
-    ) {
-      setConfirmPasswordAlert("");
-    }
-  };
-
-  const handleConfirmPasswordBlur = () => {
-    if (confirmPassword === "") {
-      setConfirmPasswordAlert("비밀번호를 입력해주세요.");
-    } else if (confirmPassword !== password) {
-      setConfirmPasswordAlert("비밀번호가 일치하지 않습니다.");
-    } else {
-      setConfirmPasswordAlert("");
-    }
-  };
-
-  const toggleShowPassword = () => {
-    setShowPassword((prev) => !prev);
-  };
-
-  const toggleShowConfirmPassword = () => {
-    setShowConfirmPassword((prev) => !prev);
-  };
-
-  const handleSignupSubmit = (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
 
     if (isSignupActive) {
-      console.log("회원가입 성공!");
-      window.location.href = "/login";
+      const signupData = {
+        email,
+        nickname,
+        password,
+        passwordConfirmation: confirmPassword,
+      };
+
+      try {
+        const response = await authAPI.signUp(signupData);
+
+        if (response.status === 201) {
+          setModalMessage(signupMessage);
+          setIsModalOpen(true);
+        }
+      } catch (error) {
+        if (error.response) {
+          const { status, data } = error.response;
+
+          // 서버 메시지 활용
+          const errorMessage =
+            data?.message || "알 수 없는 오류가 발생했습니다.";
+          setModalMessage(errorMessage);
+
+          // 상태 코드 로깅 (디버깅 용도)
+          console.log(`Error ${status}: ${errorMessage}`);
+        } else {
+          // 네트워크 오류 처리
+          setModalMessage("네트워크 오류가 발생했습니다.\n다시 시도해주세요.");
+        }
+        setIsModalOpen(true);
+      }
     }
   };
+
+  const closeModal = () => setIsModalOpen(false); // 모달 닫기
+
+  // 모달이 닫힐 때 로그인 페이지로 이동
+  useEffect(() => {
+    if (!isModalOpen && modalMessage === signupMessage) {
+      router.push("/login");
+    }
+  }, [isModalOpen, modalMessage, router]);
 
   return (
     <div className={styles.container}>
@@ -182,8 +113,13 @@ const Signup = () => {
               <input
                 type="text"
                 value={email}
-                onChange={handleEmailChange}
-                onBlur={handleEmailBlur}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => {
+                  if (!email) setEmailAlert("이메일을 입력해주세요.");
+                  else if (!validateEmail(email))
+                    setEmailAlert("잘못된 이메일 형식입니다.");
+                  else setEmailAlert("");
+                }}
                 placeholder="이메일을 입력해주세요"
                 className={styles.inputId}
                 tabIndex={1}
@@ -208,8 +144,10 @@ const Signup = () => {
               <input
                 type="text"
                 value={nickname}
-                onChange={handleNicknameChange}
-                onBlur={handleNicknameBlur}
+                onChange={(e) => setNickname(e.target.value)}
+                onBlur={() =>
+                  setNicknameAlert(nickname ? "" : "닉네임을 입력해주세요.")
+                }
                 placeholder="닉네임을 입력해주세요"
                 className={styles.inputId}
                 tabIndex={2}
@@ -234,8 +172,16 @@ const Signup = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
-                onChange={handlePasswordChange}
-                onBlur={handlePasswordBlur}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={() =>
+                  setPasswordAlert(
+                    !password
+                      ? "비밀번호를 입력해주세요."
+                      : !validatePassword(password)
+                      ? "비밀번호를 8자 이상 입력해주세요."
+                      : ""
+                  )
+                }
                 placeholder="비밀번호를 입력해주세요"
                 className={styles.inputPw}
                 tabIndex={3}
@@ -244,7 +190,7 @@ const Signup = () => {
                 <>
                   <button
                     type="button"
-                    onClick={toggleShowPassword}
+                    onClick={() => setShowPassword(!showPassword)}
                     className={styles.showPw}
                     style={{
                       backgroundImage: `url(/${
@@ -270,10 +216,18 @@ const Signup = () => {
             <div className={styles.inputItem}>
               <label className={styles.textLabel}>비밀번호 확인</label>
               <input
-                type={showConfirmPassword ? "text" : "password"}
+                type={showPassword ? "text" : "password"}
                 value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                onBlur={handleConfirmPasswordBlur}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                onBlur={() =>
+                  setConfirmPasswordAlert(
+                    !confirmPassword
+                      ? "비밀번호를 입력해주세요."
+                      : confirmPassword !== password
+                      ? "비밀번호가 일치하지 않습니다."
+                      : ""
+                  )
+                }
                 placeholder="비밀번호를 다시 입력해주세요"
                 className={styles.inputPw}
                 tabIndex={4}
@@ -282,11 +236,11 @@ const Signup = () => {
                 <>
                   <button
                     type="button"
-                    onClick={toggleShowConfirmPassword}
+                    onClick={() => setShowPassword(!showPassword)}
                     className={styles.showPw}
                     style={{
                       backgroundImage: `url(/${
-                        showConfirmPassword ? "show-pw" : "hide-pw"
+                        showPassword ? "show-pw" : "hide-pw"
                       }.png)`,
                     }}
                   ></button>
@@ -305,6 +259,10 @@ const Signup = () => {
                 </span>
               )}
             </div>
+
+            {signupError && (
+              <div className={styles.errorMessage}>{signupError}</div>
+            )}
 
             <button
               type="submit"
@@ -339,6 +297,26 @@ const Signup = () => {
           이미 회원이신가요? <Link href="/login">로그인</Link>
         </div>
       </div>
+
+      {/* 모달 */}
+      {isModalOpen && (
+        <div className={styles.modalBackdrop} onClick={closeModal}>
+          <dialog
+            className={styles.modalContent}
+            open
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p style={{ whiteSpace: "pre-line" }}>{modalMessage}</p>
+            <button
+              onClick={closeModal}
+              className={styles.modalButton}
+              autoFocus
+            >
+              확인
+            </button>
+          </dialog>
+        </div>
+      )}
     </div>
   );
 };

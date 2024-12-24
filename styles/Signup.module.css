@@ -200,3 +200,51 @@
   text-decoration: underline;
   color: var(--sign-up);
 }
+
+/* 모달 콘텐츠 */
+.modalContent {
+  width: 540px;
+  height: 250px;
+  background-color: var(--modal-content-bg);
+  border-radius: 8px;
+  z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalBackdrop {
+  background-color: var(--modal-overlay);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.modalContent > p {
+  position: absolute;
+  width: 250px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: 1.6rem;
+}
+
+.modalButton {
+  font-size: 1.6rem;
+  background-color: var(--modal-button);
+  color: var(--modal-content-bg);
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 120px;
+  height: 48px;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
