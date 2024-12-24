@@ -4,7 +4,10 @@ import Link from "next/link";
 
 function CTA() {
   return (
-    <Link href="/" className="!text-lg rounded-full btn btn-primary btn-block">
+    <Link
+      href="/"
+      className="!text-lg tablet:!text-xl rounded-full btn btn-primary btn-block max-w-[357px]"
+    >
       구경하러 가기
     </Link>
   );
@@ -20,7 +23,7 @@ const HERO_CARD = [
       height: 340,
     },
     children: <CTA />,
-    classNames: "pt-12 [&_img]:scale-[1.2]",
+    classNames: "pt-12 tablet:pt-[84px] max-tablet:[&_img]:scale-[1.2]",
   },
   {
     title: "믿을 수 있는 판다마켓 중고 거래",
@@ -30,7 +33,7 @@ const HERO_CARD = [
       width: 746,
       height: 397,
     },
-    classNames: "pt-[120px]",
+    classNames: "pt-[120px] tablet:pt-[201px]",
   },
 ];
 
@@ -42,8 +45,8 @@ const FEATURE_CARD = [
     imgInfo: {
       src: "/images/Img_feature_01.png",
       alt: "",
-      width: 344,
-      height: 259,
+      width: 588,
+      height: 444,
     },
     classNames: "[&_.card-body]:pr-8",
   },
@@ -54,8 +57,8 @@ const FEATURE_CARD = [
     imgInfo: {
       src: "/images/img_feature_02.svg",
       alt: "",
-      width: 344,
-      height: 259,
+      width: 588,
+      height: 444,
     },
     classNames: "[&_.card-body]:text-right [&_.card-body]:pl-8",
   },
@@ -66,8 +69,8 @@ const FEATURE_CARD = [
     imgInfo: {
       src: "/images/img_feature_03.png",
       alt: "",
-      width: 344,
-      height: 259,
+      width: 588,
+      height: 444,
     },
     classNames: "[&_.card-body]:pr-8",
   },
@@ -79,7 +82,7 @@ export default function Home() {
       <section className="bg-primary-50">
         <HeroCard {...HERO_CARD[0]} />
       </section>
-      <section className="grid gap-10 px-4 pt-[52px] pb-[83px]">
+      <section className="grid gap-10 px-4 pt-[52px] pb-[83px] tablet:p-6">
         {FEATURE_CARD.map((feature) => (
           <FeatureCard key={feature.keyword} {...feature} />
         ))}
