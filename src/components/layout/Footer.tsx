@@ -23,7 +23,7 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="footer bg-secondary-900 tablet:pb-27 tablet:px-6 laptop:px-50 px-4 pt-8 pb-16">
+    <footer className="footer bg-secondary-900 tablet:pb-27 tablet:px-6 laptop:px-50 whitespace-nowrap px-4 pt-8 pb-16">
       <nav className="justify-items-stretch text-secondary-200 tablet:grid-cols-4 w-full grid-cols-3 gap-y-6 tablet:gap-[30px]">
         <a className="link link-hover tablet:text-right">Privacy Policy</a>
         <a className="link link-hover tablet:text-left text-center">FAQ</a>
