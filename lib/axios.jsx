@@ -1,21 +1,32 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8000",
+  // baseURL: "http://localhost:8000",
+  baseURL: "https://panda-market-api.vercel.app/",
 });
 
 export const articleAPI = {
-  getArticles: () => instance.get("/article"),
-  getArticleById: (id) => instance.get(`/article/${id}`),
-  postArticle: (data) => instance.post("/article", data),
-  modifyArticle: (id, data) => instance.patch(`/article/${id}`, data),
+  getArticles: (
+    params = { page: 1, pageSize: 10, orderBy: "recent", keyword: "" }
+  ) => instance.get("/articles", { params }),
+
+  getArticleById: (id) => instance.get(`/articles/${id}`),
+
+  postArticle: (data) => instance.post("/articles", data),
+
+  modifyArticle: (id, data) => instance.patch(`/articles/${id}`, data),
+
   deleteArticle: (id) => instance.delete(`/article/${id}`),
+
+  likeArticle: (id) => instance.post(`/article/${id}/like`),
+
+  unlikeArticle: (id) => instance.delete(`/article/${id}/like`),
 };
 
 export const commentAPI = {
   // Article
-  getArticleComments: (articleId) =>
-    instance.get(`/comment/article/${articleId}`),
+  getArticleComments: (articleId, params = { limit: 5, cursor: null }) =>
+    instance.get(`/articles/${articleId}/comments`, { params }),
 
   postArticleComment: (articleId, content) =>
     instance.post(`/comment/article/${articleId}`, { content }),
@@ -42,8 +53,18 @@ export const commentAPI = {
 
 export const productAPI = {
   getProducts: () => instance.get("/product"),
+
   getProductById: (id) => instance.get(`/product/${id}`),
+
   createProduct: (data) => instance.post("/product", data),
+
+  modifyProduct: (id, data) => instance.patch(`/product/${id}`, data),
+
+  deleteProduct: (id) => instance.delete(`/product/${id}`),
+
+  favoriteProduct: (id) => instance.post(`/product/${id}/favorite`),
+
+  unfavoriteProduct: (id) => instance.delete(`/product/${id}/favorite`),
 };
 
 export default instance;
