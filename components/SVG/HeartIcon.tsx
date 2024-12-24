@@ -2,18 +2,20 @@
 import React from "react";
 
 type HeartIconProps = {
+  size: number; // 크기
   fillColor?: string; // 색상을 동적으로 변경할 수 있는 옵션
   strokeColor?: string; // 테두리 색상을 동적으로 변경할 수 있는 옵션
 };
 
 const HeartIcon = ({
+  size = 16,
   fillColor = "none",
   strokeColor = "#6B7280",
 }: HeartIconProps) => {
   return (
     <svg
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 16 16"
       fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"

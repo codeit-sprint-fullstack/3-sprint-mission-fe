@@ -5,7 +5,7 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // 에러 타입 정의
-interface ApiError {
+export interface ApiError {
   status: number;
   message: string;
   code?: string;
@@ -61,6 +61,7 @@ api.interceptors.response.use(
 
         // 새 액세스 토큰 요청
         const newAccessToken = await postRefreshToken(refreshToken);
+        console.log("[Token Refreshed]", newAccessToken);
 
         // 새 토큰 저장
         localStorage.setItem("accessToken", newAccessToken);

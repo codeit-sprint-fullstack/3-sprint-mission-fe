@@ -1,6 +1,4 @@
 import BackButton from "@/components/common/button/BackButton";
-import Link from "next/link";
-import React from "react";
 
 const NotFound = () => {
   return (
@@ -8,9 +6,7 @@ const NotFound = () => {
       <div className="h-full text-center text-3xl font-bold">
         404-Page not found
       </div>
-      <Link href={"/"}>
-        <BackButton>홈으로 돌아가기</BackButton>
-      </Link>
+      <BackButton backPath="/">홈으로 돌아가기</BackButton>
     </div>
   );
 };

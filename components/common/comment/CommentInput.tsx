@@ -1,32 +1,39 @@
 import { useState } from "react";
 import CommonBtn from "@/components/common/button/CommonBtn";
 import { createComment } from "@/services/commentApi";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type CommentInputProps = {
   title: string;
   placeholder: string;
-  productId: number;
+  productId: string | number;
 };
 
 const CommentInput = ({ title, placeholder, productId }: CommentInputProps) => {
   const [commentContent, setCommentContent] = useState("");
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (content: string) => createComment(Number(productId), content),
+    onSuccess: () => {
+      // 댓글 등록 성공 시, 해당 제품의 댓글 리스트를 다시 불러옴
+      queryClient.invalidateQueries({
+        queryKey: ["comments", String(productId)],
+      });
+      setCommentContent(""); // 입력 필드 초기화
+    },
+    onError: (error) => {
+      console.error("댓글 등록 실패:", error);
+    },
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCommentContent(e.target.value);
   };
 
-  const handleCommentSubmit = async () => {
+  const handleCommentSubmit = () => {
     if (commentContent.trim() === "") return;
-    // 댓글 등록 API 호출
-
-    try {
-      await createComment(productId, commentContent);
-      setCommentContent("");
-    } catch (error) {
-      console.error("댓글 등록 실패:", error);
-    }
-
-    // 댓글 등록 후 내용 초기화
+    mutation.mutate(commentContent);
   };
 
   return (

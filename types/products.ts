@@ -1,6 +1,6 @@
 /* POST /products */
 export type ProductCreateRequest = {
-  image: string[];
+  images: string[];
   tags: string[];
   price: number;
   description: string;
@@ -22,7 +22,7 @@ export type ProductCreateResponse = {
 
 /* GET /products */
 export type ProductListResponse = {
-  totalPage: number;
+  totalCount: number;
   list: ProductCreateResponse[];
 };
 

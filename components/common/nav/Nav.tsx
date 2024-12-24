@@ -17,7 +17,7 @@ const menuList = [
 
 const Nav = () => {
   const pathname = usePathname();
-  const urlPath = "/" + pathname.split("/")[1];
+  const urlPath = "/" + pathname.split("/")[1]; // 이것보단 includes를 사용하는게 더 좋을 것 같은 생각이 듬. 가독성도 좋아보이고
 
   const { isLogin, userInfo, logout } = useAuthStore();
 

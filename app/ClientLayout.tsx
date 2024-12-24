@@ -25,7 +25,7 @@ export default function ClientLayout({
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col pt-[75px]">
         {!hideNavAndFooter && <Nav />}
         <main className="flex-grow">{children}</main>
         {!hideNavAndFooter && <Footer />}
