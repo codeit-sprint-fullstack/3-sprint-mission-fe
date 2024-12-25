@@ -1,0 +1,140 @@
+.box_inner {
+  display: flex;
+  gap: 24px;
+}
+
+.post_box {
+  width: 384px;
+  height: 170px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  padding: 0 24px;
+}
+
+.best_box {
+  width: 102px;
+  height: 30px;
+  background-color: #3692ff;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.medal_box {
+  width: 13px;
+  height: 15px;
+}
+
+.medal_box > img {
+  width: 100%;
+}
+
+.content_text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  justify-content: space-between;
+}
+
+.content_text > p {
+  width: 256px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.content_img_box {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+}
+
+.text_bottom {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text_bottom span {
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.text_left {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.like_num_img {
+  display: flex;
+  align-items: center;
+}
+
+.like_num img {
+  width: 16px;
+  height: 16px;
+}
+
+.blue_bt {
+  background-color: #3692ff;
+  width: 88px;
+  height: 42px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.big_input {
+  width: 100%;
+}
+
+.post_box_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.postbox {
+  background-color: #fcfcfc;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  /* border: 1px solid green; */
+}
+
+.nickname_box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.img_background {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: #9ca3af;
+}
+
+.img_background > img {
+  width: 100%;
+}
+
+.nickname_box + span {
+  margin-left: 4px;
+}
+
+.width_none {
+  width: 100% !important;
+}

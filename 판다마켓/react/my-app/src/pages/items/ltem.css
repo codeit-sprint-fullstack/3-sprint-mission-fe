@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.item_box {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 24px; */
+}
+
+.item {
+  margin-right: 24px;
+}
+
+.item_box.big .item:nth-child(4n) {
+  margin: 0;
+}
+
+.item_box.small .item:nth-child(5n) {
+  margin: 0;
+}
+
+.img_box {
+  /* border: 1px solid; */
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  /* background-color: #e2e2e2; */
+}
+
+.img_box > img {
+  /* width: 100%; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* .img_box:nth-of-type(1) img {
+  width: 100%;
+} */
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  gap: 6px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.like {
+  display: flex;
+  gap: 4px;
+}
+
+.like img {
+  width: 16px;
+}
+
+.like_num {
+  font-size: 12px;
+  font-weight: 500;
+}
