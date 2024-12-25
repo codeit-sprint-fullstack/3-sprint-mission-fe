@@ -1,0 +1,166 @@
+@import url('~@noonnu/rokaf-sans-medium');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.card {
+  width: 640px;
+  height: 618px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: none;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  text-align: center; 
+  gap: 22.24px;
+  align-items: center;
+  margin-left: 122px;
+}
+
+.logo img {
+  width: 103.53px;
+  height: 103.88px;
+}
+
+.logo h1 {
+  font-family: ROKAFSansMedium;
+  color: #3692FF;
+  font-size: 66.34px;
+  font-weight: 700;
+  line-height: 89.56px;
+  margin: 0;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form p {
+  font-size: 18px;
+  font-family: 'Pretendard';
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  margin-bottom: -5px;
+}
+
+.input {
+  width: 640px;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #F3F4F6;
+  align-items: center;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+}
+
+.button {
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px 16px 124px;
+  border: none;
+  background-color: #9CA3AF;
+  color: #ffffff;
+  border-radius: 40px;
+  font-size: 20px;
+  font-family: 'Pretendard';
+  line-height: 32px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.socialLogin {
+  margin-top: 40px;
+  width: 640px;
+  height: 74px;
+  border-radius: 8px;
+  background-color: #E6F2FF;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialLogin p {
+  font-family: 'Pretendard';
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 23px;
+  margin-top: 24px;
+}
+ 
+
+.icons {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  right: 40px;
+}
+
+.googlekakao {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+
+.text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.text a {
+  color: #4a90e2;
+  text-decoration: underline;
+}
+
+.text a:hover {
+  text-decoration: underline;
+}
+
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
