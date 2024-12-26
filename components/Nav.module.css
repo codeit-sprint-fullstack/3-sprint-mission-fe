@@ -123,13 +123,13 @@
   }
 }
 
-.avatar {
+.userProfile {
   margin-left: 88px;
   width: 40px;
   height: 40px;
 }
 
-.avatar img {
+.avatar {
   width: 40px;
   object-fit: cover;
 }
