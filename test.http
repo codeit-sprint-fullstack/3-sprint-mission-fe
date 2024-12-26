@@ -27,3 +27,7 @@ Content-Type: application/json
   "content": "test",
   "title": "test"
 }
+
+###
+
+GET https://panda-market-api.vercel.app/articles/356/comments?limit=11

@@ -14,8 +14,6 @@ export default function ArticleDropDown({ id, authorId }) {
         const accessToken = localStorage.getItem('accessToken');
         if (accessToken) {
             const user = JSON.parse(localStorage.getItem('user'));
-            console.log('currentUser:', user);
-            console.log('authorId: ' + authorId);
             setCurrentUser(user);
         } else {
             console.log('Access token or user data not found');

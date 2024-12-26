@@ -13,10 +13,18 @@ export default function Product() {
         if (!articleId) return;
         try {
             const response = await instance.get(`/articles/${articleId}`);
-            setArticle(response.data);
+            const commentsResponse = await instance.get(`/articles/${articleId}/comments?limit=10`);
+            setArticle({
+                ...response.data,
+                comments: commentsResponse.data.list,
+            });
         } catch (error) {
             console.error(error);
         }
+    };
+
+    const handleCommentAdded = () => {
+        fetchArticle();
     };
 
     useEffect(() => {
@@ -30,7 +38,7 @@ export default function Product() {
     return (
         <>
             <Header />
-            <ArticleDetail article={article} />
+            <ArticleDetail article={article} onCommentAdded={handleCommentAdded} />
         </>
     );
 }
