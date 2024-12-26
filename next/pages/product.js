@@ -1,10 +1,10 @@
-import MarketHeader from "@/components/MarketHeader"
+import Header from "@/components/header"
 import Footer from "@/components/footer"
 
 export default function Market(){
    return(
       <div>
-         <MarketHeader/>
+         <Header/>
          <h1>마켓 페이지</h1>
          <Footer/>
       </div>

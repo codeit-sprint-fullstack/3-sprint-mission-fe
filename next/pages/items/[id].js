@@ -1,7 +1,7 @@
 import styles from "@/styles/Product.module.css"
 import Header from "@/components/Product/Header";
-import AskInput from "@/components/Product/AskInput";
-import ProductCommentList from "@/components/Product/ProductComment";
+import AskInput from "@/components/ProductDetail/AskInput";
+import ProductCommentList from "@/components/ProductDetail/ProductComment";
 import Footer from "@/components/footer";
 import FormatDate from "@/utils/Format";
 import FormatCurrencty from "@/utils/FormatCurrency"
@@ -13,17 +13,7 @@ import Image from "next/image";
 export default function IdProduct() {
   const router = useRouter();
   const id = router.query["id"];
-  const product = ({
-    "name": "abc",
-    "images": '/images/img_default.png',
-    "price": 10000,
-    "description": "abc",
-    "tags": ["a", "b"],
-    "favoriteCount": 3,
-    "createdAt": "2024-12-07T15:44:02.782Z"
-  });
-
-  상품 데이터 가져오기
+  
   const {
     data: product,
     isLoading: isProductLoading,

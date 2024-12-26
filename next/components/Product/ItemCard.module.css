@@ -1,0 +1,43 @@
+.itemCard{
+  color: #1f2937;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.itemCardThumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin-bottom: 16px;
+}
+
+.itemSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.itemName{
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemPrice{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.favoriteCount{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 12px;
+}

@@ -1,4 +1,4 @@
-import Product from "@/components/Product/Product"
+import Product from "@/components/ProductDetail/Product"
 import { useQuery } from "@tanstack/react-query"
 import { getProducts } from "@/api/api"
 

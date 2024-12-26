@@ -41,8 +41,8 @@ export default function Header() {
           자유게시판
         </Link>
         <Link 
-          href="/market" 
-          className={`${styles.marketText} ${pathname === '/market' ? styles.active : ''}`}>
+          href="/product" 
+          className={`${styles.marketText} ${pathname === '/product' ? styles.active : ''}`}>
           중고마켓
         </Link>
       </div>
