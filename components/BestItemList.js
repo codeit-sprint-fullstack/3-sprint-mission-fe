@@ -7,7 +7,7 @@ export default function BestItemList({ post }) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/${post.id}/article`);
+        router.push(`/articles/${post.id}`);
     };
 
     return (

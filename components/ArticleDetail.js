@@ -54,7 +54,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                             height={40}
                             src="/images/userIcon.png" alt="User" />
                     </div>
-                    <div className={styles.ArticleDetailUserName}>{article.user}</div>
+                    <div className={styles.ArticleDetailUserName}>{article.writer.nickname}</div>
                     <div className={styles.ArticleDetailDate}>{dayjs(article.createdAt).format('YYYY. MM. DD')}</div>
                 </div>
                 <div className={styles.ArticleDetailLikeContain}>
@@ -64,7 +64,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                             height={36}
                             src="/images/heart.png" alt="heart" />
                     </div>
-                    <div className={styles.ArticleDetailLikeCount}>{article.like}</div>
+                    <div className={styles.ArticleDetailLikeCount}>{article.likeCount}</div>
                 </div>
             </div>
 

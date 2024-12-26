@@ -10,13 +10,18 @@ export default function WriteMain() {
 
     const handlePostSubmit = () => {
         instance.post(`/articles`, {
-            image:
-                title,
+            image: "image.png",
+            title,
             content,
         }).then((response) => {
+            console.log(response);
             alert("게시글이 등록되었습니다!");
-            const id = response.data.list.id;
-            router.push(`/${id}/article`);
+            const articleId = response.data?.id; // id가 있는지 확인
+            if (articleId) {
+                router.push(`/articles/${articleId}`);
+            } else {
+                console.error("응답에 ID가 없습니다.");
+            }
         }).catch((error) => {
             console.error(error);
         });

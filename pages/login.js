@@ -15,30 +15,41 @@ import instance from '@/lib/instance';
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isAlertVisible, setAlertVisible] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
     const router = useRouter();
 
     const mutation = useMutation({
         mutationFn: async ({ email, password }) => {
-            const response = await instance.post('/auth/signIn', { email, password });
-            return response.data;
+            try {
+                const response = await instance.post('/auth/signIn', {
+                    email: email.trim(),
+                    password: password.trim(),
+                });
+                return response.data;
+            } catch (error) {
+                console.error('Axios 요청 실패:', error.response?.data || error.message);
+                throw error;
+            }
         },
         onSuccess: (data) => {
-            console.log('로그인 성공:', data);
-            alert('로그인 성공!');
-            router.push('/');
+            setAlertMessage('로그인 성공!');
+            setAlertVisible(true);
         },
         onError: (error) => {
-            console.error('로그인 실패:', error);
-            alert('로그인 실패. 다시 시도해주세요.');
+            setAlertMessage('로그인 실패. 다시 시도해주세요.');
+            setAlertVisible(true);
         },
     });
 
     const handleLogin = () => {
         if (!email || !password) {
             alert('이메일과 비밀번호를 입력해주세요.');
+            setAlertVisible(true);
             return;
         }
+        console.log('email:', email, 'password:', password);
         mutation.mutate({ email, password });
     };
 
@@ -54,7 +65,11 @@ export default function LoginPage() {
             </Link>
             <IdInput value={email} setValue={setEmail} />
             <PwInput value={password} setValue={setPassword} />
-            <LoginButton handleLogin={handleLogin} />
+            <LoginButton
+                handleLogin={handleLogin}
+                isAlertVisible={isAlertVisible}
+                alertMessage={alertMessage}
+                setAlertVisible={setAlertVisible} />
             <WebLogin />
             <RegisterLinkButton />
         </div>
