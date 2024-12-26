@@ -56,9 +56,7 @@
     font-weight: bold;
     line-height: 35px;
     color: black;
-    /* 텍스트 색상 */
     text-decoration: none;
-    /* 밑줄 제거 */
 }
 
 .headerText1 {

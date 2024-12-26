@@ -44,7 +44,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                 <div className={styles.ArticleDetailText}>
                     {article.title}
                 </div>
-                <ArticleDropDown id={article.id} />
+                <ArticleDropDown id={article.id} authorId={article.writer.id} />
             </div>
             <div className={styles.ArticleDetailMain}>
                 <div className={styles.ArticleDetailUser}>

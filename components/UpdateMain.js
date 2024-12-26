@@ -14,7 +14,7 @@ export default function UpdateMain() {
 
         try {
             const response = await instance.get(`/articles/${id}`);
-            const article = response.data[0];
+            const article = response.data;
             setTitle(article.title);
             setContent(article.content);
         } catch (error) {
@@ -23,13 +23,19 @@ export default function UpdateMain() {
     };
 
     const handlePostSubmit = async () => {
+        const accessToken = localStorage.getItem('accessToken');
+
         try {
             await instance.patch(`/articles/${id}`, {
                 title,
                 content,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                }
             });
             alert("게시글이 수정되었습니다!");
-            router.push(`/${id}/article`);
+            router.push(`/articles/${id}`);
         } catch (error) {
             console.error('게시글 수정 중 오류 발생:', error);
         }
