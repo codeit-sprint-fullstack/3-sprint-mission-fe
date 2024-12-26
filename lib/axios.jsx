@@ -3,7 +3,21 @@ import axios from "axios";
 const instance = axios.create({
   // baseURL: "http://localhost:8000",
   baseURL: "https://panda-market-api.vercel.app/",
+  // withCredentials: true,
 });
+
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("accessToken"); // localStorage에서 토큰 가져오기
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`; // 헤더에 토큰 추가
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error); // 오류 처리
+  }
+);
 
 export const authAPI = {
   signUp: (data) => instance.post("/auth/signUp", data),
@@ -11,6 +25,18 @@ export const authAPI = {
   signIn: (data) => instance.post("/auth/signIn", data),
 
   refreshToken: (data) => instance.post("/auth/refresh-token", data),
+};
+
+export const userAPI = {
+  getMyInfo: () => instance.get("/users/me"),
+
+  updateMyInfo: (data) => instance.patch("/users/me", data),
+
+  changePassword: (data) => instance.patch("/users/me/password", data),
+
+  getMyProducts: () => instance.get("/users/me/products"),
+
+  getMyFavorites: () => instance.get("/users/me/favorites"),
 };
 
 export const articleAPI = {
@@ -24,7 +50,7 @@ export const articleAPI = {
 
   modifyArticle: (id, data) => instance.patch(`/articles/${id}`, data),
 
-  deleteArticle: (id) => instance.delete(`/article/${id}`),
+  deleteArticle: (id) => instance.delete(`/articles/${id}`),
 
   likeArticle: (id) => instance.post(`/article/${id}/like`),
 

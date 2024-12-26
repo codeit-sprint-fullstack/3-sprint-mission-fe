@@ -15,7 +15,13 @@ const Login = () => {
   const [modalMessage, setModalMessage] = useState("");
   const router = useRouter();
 
-  const loginSuccessMessage = "로그인 성공!\n마켓 페이지로 이동합니다.";
+  // 페이지 접근 시 로컬 스토리지에서 토큰 확인
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      router.push("/market");
+    }
+  }, [router]);
 
   const validateEmail = (email) => {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
@@ -80,14 +86,18 @@ const Login = () => {
     setShowPassword((prev) => !prev);
   };
 
+  const loginSuccessMessage = "로그인 성공!\n중고마켓 페이지로 이동합니다.";
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (!isLoginActive) return;
 
     try {
       const response = await authAPI.signIn({ email, password });
-      // console.log(response);
       if (response.status === 200) {
+        const { accessToken } = response.data;
+        localStorage.setItem("accessToken", accessToken); // JWT 저장
+
         setModalMessage(loginSuccessMessage); // 성공 메시지 설정
         setIsModalOpen(true); // 모달 열기
       }

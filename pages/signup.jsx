@@ -15,10 +15,17 @@ const Signup = () => {
   const [confirmPasswordAlert, setConfirmPasswordAlert] = useState("");
   const [isSignupActive, setIsSignupActive] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [signupError, setSignupError] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const router = useRouter();
+
+  // 페이지 접근 시 로컬 스토리지에서 토큰 확인
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      router.push("/market");
+    }
+  }, [router]);
 
   const validateEmail = (email) => {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
@@ -39,14 +46,7 @@ const Signup = () => {
     );
   }, [email, nickname, password, confirmPassword]);
 
-  const handleClear = (field) => {
-    if (field === "email") setEmail("");
-    if (field === "nickname") setNickname("");
-    if (field === "password") setPassword("");
-    if (field === "confirmPassword") setConfirmPassword("");
-  };
-
-  const signupMessage = "회원가입 성공!\n로그인 페이지로 이동합니다.";
+  const signupSuccessMessage = "회원가입 성공!\n중고마켓 페이지로 이동합니다.";
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
@@ -61,9 +61,12 @@ const Signup = () => {
 
       try {
         const response = await authAPI.signUp(signupData);
-
+        // console.log(response);
         if (response.status === 201) {
-          setModalMessage(signupMessage);
+          const { accessToken } = response.data;
+          localStorage.setItem("accessToken", accessToken); // JWT 저장
+
+          setModalMessage(signupSuccessMessage);
           setIsModalOpen(true);
         }
       } catch (error) {
@@ -90,8 +93,8 @@ const Signup = () => {
 
   // 모달이 닫힐 때 로그인 페이지로 이동
   useEffect(() => {
-    if (!isModalOpen && modalMessage === signupMessage) {
-      router.push("/login");
+    if (!isModalOpen && modalMessage === signupSuccessMessage) {
+      router.push("/market");
     }
   }, [isModalOpen, modalMessage, router]);
 
@@ -127,7 +130,7 @@ const Signup = () => {
               {email && (
                 <button
                   type="button"
-                  onClick={() => handleClear("email")}
+                  onClick={() => setEmail("")}
                   className={styles.clearBtn}
                 >
                   X
@@ -155,7 +158,7 @@ const Signup = () => {
               {nickname && (
                 <button
                   type="button"
-                  onClick={() => handleClear("nickname")}
+                  onClick={() => setNickname("")}
                   className={styles.clearBtn}
                 >
                   X
@@ -200,7 +203,7 @@ const Signup = () => {
                   ></button>
                   <button
                     type="button"
-                    onClick={() => handleClear("password")}
+                    onClick={() => setPassword("")}
                     className={styles.clearBtn}
                   >
                     X
@@ -246,7 +249,7 @@ const Signup = () => {
                   ></button>
                   <button
                     type="button"
-                    onClick={() => handleClear("confirmPassword")}
+                    onClick={() => setConfirmPassword("")}
                     className={styles.clearBtn}
                   >
                     X
@@ -259,10 +262,6 @@ const Signup = () => {
                 </span>
               )}
             </div>
-
-            {signupError && (
-              <div className={styles.errorMessage}>{signupError}</div>
-            )}
 
             <button
               type="submit"
