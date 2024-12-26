@@ -41,9 +41,6 @@ export default function LoginPage() {
         onSuccess: (data) => {
             setAlertMessage('로그인 성공!');
             setAlertVisible(true);
-
-            // 로그인 성공 후, 원하는 페이지로 리다이렉션
-            router.push('/');  // 예시로 홈 페이지로 리다이렉션
         },
         onError: (error) => {
             setAlertMessage('로그인 실패. 다시 시도해주세요.');
@@ -53,7 +50,7 @@ export default function LoginPage() {
 
     const handleLogin = () => {
         if (!email || !password) {
-            alert('이메일과 비밀번호를 입력해주세요.');
+            setAlertMessage('이메일과 비밀번호를 입력해주세요.');
             setAlertVisible(true);
             return;
         }

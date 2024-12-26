@@ -17,30 +17,37 @@ export default function RegisterPage() {
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [isAlertVisible, setAlertVisible] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
     const router = useRouter();
 
     const mutation = useMutation({
         mutationFn: async ({ email, nickname, password, passwordConfirmation }) => {
-            const response = await instance.post('/auth/signUp',
-                { email, nickname, password, passwordConfirmation }
-            );
-            return response.data;
+            try {
+                const response = await instance.post('/auth/signUp',
+                    { email, nickname, password, passwordConfirmation }
+                );
+            } catch (error) {
+                console.error('Axios 요청 실패:', error.response?.data || error.message);
+                throw error;
+            }
+
         },
         onSuccess: (data) => {
-            console.log('회원가입 성공:', data);
-            alert('회원가입 성공!');
-            router.push('/');
+            setAlertMessage('회원가입 성공!');
+            setAlertVisible(true);
         },
         onError: (error) => {
-            console.error('회원가입 실패:', error);
-            alert('회원가입 실패. 다시 시도해주세요.');
+            setAlertMessage('회원가입 실패. 다시 시도해주세요.');
+            setAlertVisible(true);
         },
     });
 
     const handleSignUp = () => {
         if (!email || !password || !nickname || !passwordConfirmation) {
-            alert('모든 필드를 입력해주세요.');
+            setAlertMessage('모든 필드를 입력해주세요.');
+            setAlertVisible(true);
             return;
         }
         mutation.mutate({ email, nickname, password, passwordConfirmation });
@@ -60,7 +67,11 @@ export default function RegisterPage() {
             <NicknameInputRegister value={nickname} setValue={setNickname} />
             <PwInputRegister value={password} setValue={setPassword}
                 confirmValue={passwordConfirmation} setConfirmValue={setPasswordConfirmation} />
-            <RegisterButton handleSignUp={handleSignUp} />
+            <RegisterButton
+                handleSignUp={handleSignUp}
+                isAlertVisible={isAlertVisible}
+                alertMessage={alertMessage}
+                setAlertVisible={setAlertVisible} />
             <WebLogin />
         </div>
     );
