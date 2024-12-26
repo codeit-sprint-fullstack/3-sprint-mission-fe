@@ -9,10 +9,21 @@ export default function WriteMain() {
     const router = useRouter();
 
     const handlePostSubmit = () => {
+        const accessToken = localStorage.getItem('accessToken');
+
+        if (!accessToken) {
+            alert("로그인된 상태가 아닙니다.");
+            return;
+        }
+
         instance.post(`/articles`, {
-            image: "image.png",
+            image: "https://example.com/your-image.png",
             title,
             content,
+        }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
         }).then((response) => {
             console.log(response);
             alert("게시글이 등록되었습니다!");

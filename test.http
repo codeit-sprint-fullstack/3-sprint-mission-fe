@@ -14,8 +14,8 @@ POST https://panda-market-api.vercel.app/auth/signIn
 Content-Type: application/json
 
 {
-  "email": "250102@example.com",
-  "password": "25010202",
+  "email": "250103@example.com",
+  "password": "25010303"
 }
 
 ###

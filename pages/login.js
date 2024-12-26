@@ -8,8 +8,7 @@ import WebLogin from '@/components/loginpage/webLogin';
 import styles from '@/css/login.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useQuery, useMutation } from '@tanstack/react-query';
-import { getPost } from '@/lib/api';
+import { useMutation } from '@tanstack/react-query';
 import instance from '@/lib/instance';
 
 export default function LoginPage() {
@@ -24,9 +23,15 @@ export default function LoginPage() {
         mutationFn: async ({ email, password }) => {
             try {
                 const response = await instance.post('/auth/signIn', {
-                    email: email.trim(),
-                    password: password.trim(),
+                    email,
+                    password,
                 });
+
+                // 토큰과 사용자 정보를 localStorage에 저장
+                localStorage.setItem('accessToken', response.data.accessToken);
+                localStorage.setItem('refreshToken', response.data.refreshToken);
+                localStorage.setItem('user', JSON.stringify(response.data.user));  // 사용자 정보 저장
+
                 return response.data;
             } catch (error) {
                 console.error('Axios 요청 실패:', error.response?.data || error.message);
@@ -36,6 +41,9 @@ export default function LoginPage() {
         onSuccess: (data) => {
             setAlertMessage('로그인 성공!');
             setAlertVisible(true);
+
+            // 로그인 성공 후, 원하는 페이지로 리다이렉션
+            router.push('/');  // 예시로 홈 페이지로 리다이렉션
         },
         onError: (error) => {
             setAlertMessage('로그인 실패. 다시 시도해주세요.');
@@ -49,13 +57,12 @@ export default function LoginPage() {
             setAlertVisible(true);
             return;
         }
-        console.log('email:', email, 'password:', password);
         mutation.mutate({ email, password });
     };
 
     return (
         <div className={styles.loginMain}>
-            <Link href="/" >
+            <Link href="/">
                 <Image
                     width={396}
                     height={132}
