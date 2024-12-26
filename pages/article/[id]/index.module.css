@@ -140,3 +140,9 @@
   cursor: pointer;
   margin: 64px auto 130px;
 }
+
+.loading {
+  font-size: 1.6rem;
+  color: #4b5563;
+  margin: 24px 0 130px;
+}
