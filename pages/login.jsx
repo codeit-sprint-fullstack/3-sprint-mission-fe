@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { authAPI } from "../lib/axios";
+import { useRouter } from "next/router";
 import styles from "../styles/Login.module.css";
 
 const Login = () => {
@@ -8,19 +10,12 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [emailAlert, setEmailAlert] = useState("");
   const [passwordAlert, setPasswordAlert] = useState("");
-  const [isEmailTouched, setIsEmailTouched] = useState(false);
-  const [isPasswordTouched, setIsPasswordTouched] = useState(false); // 비밀번호 포커스 여부 추가
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const router = useRouter();
 
-  const USER_DATA = [
-    { email: "codeit1@codeit.com", password: "codeit101!" },
-    { email: "codeit2@codeit.com", password: "codeit202!" },
-    { email: "codeit3@codeit.com", password: "codeit303!" },
-    { email: "codeit4@codeit.com", password: "codeit404!" },
-    { email: "codeit5@codeit.com", password: "codeit505!" },
-    { email: "codeit6@codeit.com", password: "codeit606!" },
-  ];
+  const loginSuccessMessage = "로그인 성공!\n마켓 페이지로 이동합니다.";
 
   const validateEmail = (email) => {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
@@ -47,7 +42,6 @@ const Login = () => {
   };
 
   const handleEmailBlur = () => {
-    setIsEmailTouched(true); // 이메일 포커스 아웃 상태 설정
     if (email === "") {
       setEmailAlert("이메일을 입력해주세요.");
     } else if (!validateEmail(email)) {
@@ -73,7 +67,6 @@ const Login = () => {
   };
 
   const handlePasswordBlur = () => {
-    setIsPasswordTouched(true); // 비밀번호 포커스 아웃 상태 설정
     if (password === "") {
       setPasswordAlert("비밀번호를 입력해주세요.");
     } else if (!validatePassword(password)) {
@@ -87,31 +80,44 @@ const Login = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const handleClearEmail = () => {
-    setEmail("");
-    setEmailAlert(""); // 이메일 경고 메시지 초기화
-    setIsEmailTouched(false); // 이메일 터치 상태 초기화
-  };
-
-  const handleClearPassword = () => {
-    setPassword("");
-    setPasswordAlert(""); // 비밀번호 경고 메시지 초기화
-    setIsPasswordTouched(false); // 비밀번호 터치 상태 초기화
-  };
-
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (!isLoginActive) return;
 
-    const user = USER_DATA.find((data) => data.email === email);
-    if (user && user.password === password) {
-      window.location.href = "/market";
-    } else {
-      setIsModalOpen(true); // 모달 열기
+    try {
+      const response = await authAPI.signIn({ email, password });
+      // console.log(response);
+      if (response.status === 200) {
+        setModalMessage(loginSuccessMessage); // 성공 메시지 설정
+        setIsModalOpen(true); // 모달 열기
+      }
+    } catch (error) {
+      if (error.response) {
+        const { status, data } = error.response;
+
+        // 서버 메시지 활용
+        const errorMessage = data?.message || "알 수 없는 오류가 발생했습니다.";
+        setModalMessage(errorMessage);
+
+        // 상태 코드 로깅 (디버깅 용도)
+        console.log(`Error ${status}: ${errorMessage}`);
+      } else {
+        setModalMessage("네트워크 오류가 발생했습니다.\n다시 시도해주세요.");
+      }
+      setIsModalOpen(true);
     }
   };
 
-  const closeModal = () => setIsModalOpen(false); // 모달 닫기
+  const closeModal = () => {
+    setIsModalOpen(false); // 모달 닫기
+  };
+
+  // 모달이 닫힐 때 성공 메시지에 따라 페이지 이동
+  useEffect(() => {
+    if (!isModalOpen && modalMessage === loginSuccessMessage) {
+      router.push("/market");
+    }
+  }, [isModalOpen, modalMessage, router]);
 
   return (
     <div className={styles.container}>
@@ -125,7 +131,6 @@ const Login = () => {
       <div className={styles.loginWrap}>
         <form onSubmit={handleLoginSubmit} className={styles.loginForm}>
           <div className={styles.loginBox}>
-            {/* 이메일 입력 */}
             <div className={styles.inputItem}>
               <label className={styles.textLabel}>이메일</label>
               <input
@@ -140,7 +145,7 @@ const Login = () => {
               {email && (
                 <button
                   type="button"
-                  onClick={handleClearEmail}
+                  onClick={() => setEmail("")}
                   className={styles.clearBtn}
                 >
                   X
@@ -151,7 +156,6 @@ const Login = () => {
               )}
             </div>
 
-            {/* 비밀번호 입력 */}
             <div className={styles.inputItem}>
               <label className={styles.textLabel}>비밀번호</label>
               <input
@@ -177,7 +181,7 @@ const Login = () => {
                   ></button>
                   <button
                     type="button"
-                    onClick={handleClearPassword}
+                    onClick={() => setPassword("")}
                     className={styles.clearBtn}
                   >
                     X
@@ -189,7 +193,6 @@ const Login = () => {
               )}
             </div>
 
-            {/* 로그인 버튼 */}
             <button
               type="submit"
               className={`${styles.btnLogin} ${
@@ -202,7 +205,7 @@ const Login = () => {
             </button>
           </div>
         </form>
-        {/* 간편 로그인 */}
+
         <div className={styles.snsLogin}>
           <p>간편 로그인하기</p>
           <div className={styles.snsLink}>
@@ -220,13 +223,12 @@ const Login = () => {
             ></a>
           </div>
         </div>
-        {/* 회원가입 링크 */}
+
         <div className={styles.signup}>
           판다마켓이 처음이신가요? <Link href="/signup">회원가입</Link>
         </div>
       </div>
 
-      {/* 모달 */}
       {isModalOpen && (
         <div className={styles.modalBackdrop} onClick={closeModal}>
           <dialog
@@ -234,7 +236,7 @@ const Login = () => {
             open
             onClick={(e) => e.stopPropagation()}
           >
-            <p>비밀번호가 일치하지 않습니다.</p>
+            <p style={{ whiteSpace: "pre-line" }}>{modalMessage}</p>
             <button
               onClick={closeModal}
               className={styles.modalButton}
