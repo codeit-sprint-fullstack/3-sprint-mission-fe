@@ -1,0 +1,76 @@
+.patchCommentBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.patchCommentInput {
+  width: 100%;
+  height: 80px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: #F3F4F6;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1F2937;
+  overflow: hidden;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s ease;
+}
+
+.patchCommentBouttonBox {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  bottom: -65px;
+}
+
+.patchCancelButton {
+  width: 68px;
+  height: 47px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #737373;
+  background-color: inherit;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    transform: scale(1)
+  }
+}
+
+.patchSubmitButton {
+  width: 106px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #F3F4F6;
+  background-color: #3692FF;
+  border: none;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 15%));
+
+  &:hover {
+    background-color: #3ee4d7;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: rgba(4, 194, 178, 0.861);
+    transform: scale(1)
+  }
+}

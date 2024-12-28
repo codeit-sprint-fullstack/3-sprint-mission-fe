@@ -1,0 +1,52 @@
+.likeButtonBox {
+  width: 87px;
+  height: 40px;
+  border-radius: 35px;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.188888);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+
+    .heartImage {
+      display: none;
+      transition: display 0.2s ease-in-out,
+    }
+
+    .redHeartImage {
+      display: block;
+      margin-bottom: 6px;
+    }
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
+}
+
+.redHeartImage {
+  font-size: 26px;
+  display: none;
+}
+
+.heartImage {
+  width: 26.8px;
+  height: 23.3px;
+  cursor: pointer;
+}
+
+.likeNum {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-left: 4px;
+}

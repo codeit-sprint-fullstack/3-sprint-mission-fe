@@ -1,0 +1,43 @@
+.simpleLoginBox {
+  width: 100%;
+  height: 74px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 23px;
+  margin-bottom: 24px;
+  background-color: #E6F2FF;
+}
+
+.simpleLogintTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1F2937;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.socialLogoImgBox {
+  display: flex;
+}
+
+.socialLogoImg {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin-left: 16px;
+
+  &:hover {
+    filter: drop-shadow(0 0 0.45rem rgba(0, 0, 0, 15%));
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  ;
+
+  &:active {
+    transform: scale(1.0);
+    transition: all 0.3s ease-in-out;
+  }
+}
