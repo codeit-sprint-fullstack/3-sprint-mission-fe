@@ -42,15 +42,6 @@ export default function IdProduct() {
     },
     enabled: !!id, // id가 있을 때만 실행
   });
-  
-
-  // if (isProductLoading || isCommentsLoading) {
-  //   return <div>Loading...</div>; // 로딩 상태 처리
-  // }
-
-  // if (isProductError || isCommentsError) {
-  //   return <div>Failed to load data.</div>; // 에러 상태 처리
-  // }
 
   return (
     <div>

@@ -5,7 +5,7 @@ export default function BestItemCard({ item }) {
   return (
     <div className={styles.itemCard}>
       <Image
-        src="/images/img_default.png"
+        src={item.image}
         width={282} height={282}
         alt="default Image"
         className={styles.itemCardThumbnail}

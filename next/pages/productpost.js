@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios"; // axios를 추가합니다.
+import axios from "@/lib/axios";
+import { useRouter } from 'next/router'; // useRouter 훅을 import
 import Header from "@/components/header";
 import ProductHeader from "@/components/ItemsPost/ProductHeader";
 import ImageForm from "@/components/ItemsPost/ImageForm";
@@ -17,6 +18,8 @@ export default function ProductPost(){
     price: 0,
     tags: [],
   });
+
+  const router = useRouter(); // useRouter 훅을 사용하여 router 객체 가져오기
 
   const updateFormData = (field, value) => {
     setFormData((prevData) => ({ ...prevData, [field]: value }));
@@ -41,6 +44,7 @@ export default function ProductPost(){
       });
       alert('상품이 성공적으로 등록되었습니다!');
       console.log(response.data);
+      router.push('/product'); // 성공 시 /product 페이지로 이동
     } catch (error) {
       alert('상품 등록 중 오류가 발생했습니다.');
       console.error(error);
