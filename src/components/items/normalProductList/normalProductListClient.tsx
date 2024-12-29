@@ -53,8 +53,14 @@ export default function NormalProductListClient({
             GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
           )}
         >
-          {Array.from({ length: productsPerPage }, (el) => el).map((_) => (
-            <ProductSkeleton size='small' />
+          {Array.from(
+            { length: productsPerPage },
+            (el, index) => index + 1,
+          ).map((num) => (
+            <ProductSkeleton
+              key={num}
+              size='small'
+            />
           ))}
         </div>
       </div>

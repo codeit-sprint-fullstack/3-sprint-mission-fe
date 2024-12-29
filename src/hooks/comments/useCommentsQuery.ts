@@ -1,13 +1,9 @@
-import { WithInitialData } from '@/lib/types/params.types';
+import { CommentListParams } from '@/lib/types/params.types';
 import { getArticleComments } from '@/services/api/article';
 import { getProductComments } from '@/services/api/product';
 import { useQuery } from '@tanstack/react-query';
 
-export const useCommentsQuery = ({
-  variant,
-  id,
-  initialData,
-}: WithInitialData) => {
+export const useCommentsQuery = ({ variant, id }: CommentListParams) => {
   const queryFn = {
     product: getProductComments,
     article: getArticleComments,
@@ -15,7 +11,6 @@ export const useCommentsQuery = ({
 
   return useQuery({
     queryKey: ['comments', variant, id],
-    queryFn: () => queryFn[variant](id.toString()),
-    initialData,
+    queryFn: () => queryFn[variant](parseInt(id)),
   });
 };
