@@ -60,9 +60,10 @@ export default function ProductRegistrationForm({
     name && description && !Number.isNaN(price) && tags.length > 0 && isValid;
 
   const onSubmit = async (data: CreateProductRequest) => {
-    let imageURL = '';
+    const imageURLS = [];
     if (imageFile) {
-      imageURL = await mutateAsync(imageFile);
+      const imageURL = await mutateAsync(imageFile);
+      imageURLS.push(...imageURL);
     }
     if (initialValue) {
       const changedFields: Partial<CreateProductRequest> = {};
@@ -75,7 +76,7 @@ export default function ProductRegistrationForm({
     }
     return (mutation as CreateMutation).mutate({
       ...data,
-      images: imageURL ? [imageURL] : [],
+      images: imageURLS,
     });
   };
 

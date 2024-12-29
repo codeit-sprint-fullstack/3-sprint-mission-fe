@@ -1,6 +1,6 @@
 import axiosInstance from '@/lib/axios/axiosInstance';
 
-export const uploadImage = async (file: File): Promise<string> => {
+export const uploadImage = async (file: File): Promise<string[]> => {
   try {
     const formData = new FormData();
     formData.append('image', file);

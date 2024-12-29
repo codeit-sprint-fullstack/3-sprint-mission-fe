@@ -52,7 +52,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
             <Image
               src={product.images[0]}
               alt={`${product.name} 이미지`}
-              className='object-cover'
+              className='object-cover rounded-2xl'
               fill
             />
           </div>
