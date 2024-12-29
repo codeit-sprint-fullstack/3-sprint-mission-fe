@@ -1,0 +1,169 @@
+.itemDetailInfoBox {
+  height: 536px;
+  margin: 94px 0px 40px;
+  border-bottom: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: center;
+}
+
+.itemImg {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+  margin-right: 24px;
+}
+
+.itemInfoContainer {
+  width: 690px;
+  height: 496px;
+}
+
+.itemMainInfoContainer {
+  width: 100%;
+  height: 112px;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 24px;
+}
+
+.itemMainInfoBox {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.itemName {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.togleMenuMark {
+  font-size: 24px;
+  font-weight: 600;
+  color: #9CA3AF;
+  cursor: pointer;
+}
+
+.itemPrice {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 47.73px;
+}
+
+.itemDescriptionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4B5563;
+  margin-bottom: 16px;
+}
+
+.itemDescription {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4B5563;
+  margin-bottom: 24px;
+}
+
+.itemTagBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.itemTag {
+  width: 125px;
+  height: 36px;
+  border-radius: 26px;
+  background-color: #F3F4F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.itemMetaDataBox {
+  margin-top: 62px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfoBox {
+  display: flex;
+  align-items: center;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.nickname {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4B5563;
+  margin-bottom: 2px;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.itemLikeBox {
+  padding-left: 24px;
+  border-left: 1px solid #E5E7EB;
+}
+
+.likeButtonBox {
+  width: 87px;
+  height: 40px;
+  border-radius: 35px;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+
+  &:hover {
+    background-color: #00000005;
+    transform: scale(1.188888);
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 15%);
+
+    .heartImage {
+      display: none;
+      transition: display 0.2s ease-in-out, 
+    }
+    .redHeartImage{
+      display: block;
+      margin-bottom: 6px;
+    }
+  }
+
+  ;
+
+  &:active {
+    background-color: #f9fafb17;
+    transform: scale(1)
+  }
+}
+
+.heartImage {
+  width: 22.8px;
+  height: 19.3px;
+}
+
+.redHeartImage {
+  font-size: 21px;
+}
+
+.likeNum {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6B7280;
+  margin-left: 4px;
+}

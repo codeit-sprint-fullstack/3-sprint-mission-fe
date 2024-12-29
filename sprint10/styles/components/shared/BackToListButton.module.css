@@ -1,0 +1,32 @@
+.toCommunityFeedButton {
+  font-size: 18px;
+  font-weight: 600;
+  color: #F3F4F6;
+  width: 240px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+  border-radius: 40px;
+  background-color: var(--mainColor);
+
+  &:hover {
+    background-color: #3ee4d7;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  ;
+
+  &:active {
+    background-color: #3ee4d6db;
+    transform: scale(1)
+  }
+}
+
+.toCommunityFeedButtonImage {
+  position: relative;
+  top: 5px;
+  margin-left: 8px;
+}

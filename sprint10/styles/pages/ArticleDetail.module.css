@@ -1,0 +1,9 @@
+.ArticleDetailBox {
+  width: 100%;
+  height: 883px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 110px;
+  margin-bottom: 463px;
+}
