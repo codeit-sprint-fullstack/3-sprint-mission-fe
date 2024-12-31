@@ -2,12 +2,16 @@ import styles from "./Header.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/AuthProvider";
 
 function Header() {
   const router = useRouter();
-  const pathname = router;
+  const pathname = router.pathname;
   const isItemPage = pathname === "/items";
   const isFreePage = pathname === "/free";
+
+  const { user, logout } = useAuth();
 
   return (
     <section className={styles.topNav}>
@@ -38,10 +42,13 @@ function Header() {
           </Link>
         </div>
 
-        {/* 글씨 만이 아닌 여백을 클릭해도 링크 이동하기 위함 */}
-        <Link href="/login" className={styles.topNavLoginBt}>
-          로그인
-        </Link>
+        {user ? (
+          <div onClick={logout}>{user?.nickname}</div>
+        ) : (
+          <Link href="/login" className={styles.topNavLoginBt}>
+            로그인
+          </Link>
+        )}
       </div>
     </section>
   );

@@ -1,0 +1,45 @@
+/* 소개 */
+.itemDescriptionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.itemDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.descriptionText p {
+  margin: 0; /* 기본 여백 제거 */
+}
+.descriptionText {
+  font-size: 16;
+  line-height: 26px;
+  color: #4b5563;
+}
+.smallWeight {
+  font-weight: 400;
+}
+.middleWeight {
+  font-weight: 600;
+}
+
+/* 태그그 */
+.itemTagBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.itemTagList {
+  display: flex;
+  gap: 8px;
+}
+.itemTag {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0px 16px 0px 16px;
+  border-radius: 26px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+}

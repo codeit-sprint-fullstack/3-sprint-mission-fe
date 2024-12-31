@@ -1,0 +1,24 @@
+/* 제목 & 가격 */
+.itemMainInfoBox {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.itemMainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 199px;
+}
+.itemTitle {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.itemPrice {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 47.73px;
+}

@@ -1,6 +1,6 @@
 import styles from "./ArticleDetail.module.css";
 import Image from "next/image";
-import UpdateDropDown from "./UpdateDropDown";
+import UpdateDropDown from "../UpdateDropDown";
 
 export default function ArticleDetail({ article }) {
   return (
@@ -28,7 +28,7 @@ export default function ArticleDetail({ article }) {
                 <div className={styles.likeImgBox}>
                   <Image fill alt="heart" src="/imgs/ic_heart.png" />
                 </div>
-                <div>123</div>
+                <div className={styles.likeCount}>123</div>
               </div>
             </button>
           </div>

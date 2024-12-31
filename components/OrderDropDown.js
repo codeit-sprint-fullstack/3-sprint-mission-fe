@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./OrderDropDown.module.css";
 
-function Dropdown({ options, order, orderChange }) {
+function OrderDropdown({ options, order, orderChange }) {
   // 드롭다운 열려있는지 상태
   const [isOpen, setIsOpen] = useState(false);
   // 외부 클릭 감지를 위한 ref 사용(기본값 null 랜더링 되면 해당 요소 할당)
@@ -39,7 +39,7 @@ function Dropdown({ options, order, orderChange }) {
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
       <button className={styles.dropdownButton} onClick={toggleDropdown}>
-        {order}
+        {order.label}
         <span className="arrow">▼</span>
       </button>
       {/* 열린 상태(isOpen = true)이면 보이게 */}
@@ -52,7 +52,7 @@ function Dropdown({ options, order, orderChange }) {
               className={styles.dropdownItem}
               onClick={() => handleSelect(option)}
             >
-              {option}
+              {option.label}
             </div>
           ))}
         </div>
@@ -61,4 +61,4 @@ function Dropdown({ options, order, orderChange }) {
   );
 }
 
-export default Dropdown;
+export default OrderDropdown;

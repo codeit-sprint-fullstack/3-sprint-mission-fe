@@ -7,7 +7,7 @@ function BestArticleList({ bestArticles }) {
     <div className={styles.bestArticleList}>
       {bestArticles.map((article) => (
         <Link
-          href={`/article/${article.id}`}
+          href={`/articles/${article.id}`}
           style={{ textDecoration: "none" }}
           key={article.id}
         >
