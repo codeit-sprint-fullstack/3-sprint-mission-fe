@@ -16,12 +16,19 @@ export default function ItemDetail({ product }) {
     updatedAt,
     favoriteCount,
   } = product;
+
+  const imageUrl =
+  !images ||
+  images.length === 0 ||
+  images[0].startsWith("https://example.com")
+    ? "/imgs/img_default.png" // 기본 이미지
+    : images[0];
   console.log("images", images);
   return (
     <div className={styles.itemBox}>
       <div className={styles.item}>
         {/* 상품 사진 */}
-        <ItemImg images={images} />
+        <ItemImg images={imageUrl} />
         {/* 상품 정보 + 글쓴이 정보*/}
         <div className={styles.aboutItem}>
           {/* 상품 정보 */}

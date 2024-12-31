@@ -2,11 +2,12 @@ import styles from "@/styles/loginPage.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import codeitAxios from "@/lib/codeitAxios";
 import { useRouter } from "next/router";
+import { useAuth } from "@/contexts/AuthProvider";
 
 export default function Login() {
   const router = useRouter();
+  const { login } = useAuth();
 
   const [form, setForm] = useState({
     email: "",
@@ -31,11 +32,8 @@ export default function Login() {
     e.preventDefault();
     const { email, password } = form;
     try {
-      const res = await codeitAxios.post("/auth/signIn", {
-        email,
-        password,
-      });
-      // 성공 시 로컬 스토리지에 토큰 저장장
+      const res = await login(email, password);
+      // 성공 시 로컬 스토리지에 토큰 저장
       localStorage.setItem("accessToken", res.data.accessToken);
       localStorage.setItem("refreshToken", res.data.refreshToken);
       //저장 후 중고마켓 이동
@@ -151,7 +149,7 @@ export default function Login() {
           </section>
           <section className={styles.signUpQuestion}>
             판다 마켓이 처음이신가요?
-            <Link href="/signin"> 회원가입</Link>
+            <Link href="/signUp"> 회원가입</Link>
           </section>
         </div>
       </div>

@@ -1,0 +1,21 @@
+.productInfo{
+    color: #1F2937;
+}
+
+.onSaleProductImg{
+    position: relative;
+    width: 221px;
+    height: 221px;
+    border-radius: 16px;
+}
+.bestImg{
+    position: relative;
+    width: 282px;
+    height: 282px;
+    border-radius: 16px;
+}
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

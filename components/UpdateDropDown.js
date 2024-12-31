@@ -19,6 +19,7 @@ export default function UpdateDropDown() {
 
   // 드롭다운 옵션 삭제하기 눌렀을 때 이벤트
   const handleSelectDelete = () => {
+    
     // 드롭다운 닫기
     setIsOpen(false);
   };

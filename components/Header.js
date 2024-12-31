@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/AuthProvider";
 
 function Header() {
   const router = useRouter();
@@ -10,20 +11,7 @@ function Header() {
   const isItemPage = pathname === "/items";
   const isFreePage = pathname === "/free";
 
-  const [accessToken, setAccessToken] = useState(null);
-
-  useEffect(() => {
-    // 클라이언트에서만 localStorage를 확인
-    const token = localStorage.getItem("accessToken");
-    setAccessToken(token);
-  }, []);
-
-  const handleLogout = () => {
-    if (accessToken) {
-      localStorage.removeItem("accessToken");
-      setAccessToken(null);
-    }
-  };
+  const { user, logout } = useAuth();
 
   return (
     <section className={styles.topNav}>
@@ -54,8 +42,8 @@ function Header() {
           </Link>
         </div>
 
-        {accessToken ? (
-          <div onClick={handleLogout}>테스트</div>
+        {user ? (
+          <div onClick={logout}>{user?.nickname}</div>
         ) : (
           <Link href="/login" className={styles.topNavLoginBt}>
             로그인

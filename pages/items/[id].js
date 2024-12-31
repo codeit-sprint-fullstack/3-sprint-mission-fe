@@ -1,8 +1,6 @@
-import styles from "@/styles/items.module.css";
+import styles from "@/styles/itemDetail.module.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import UpdateDropDown from "@/components/UpdateDropDown";
 import Comment from "@/components/comment/Comment";
 import { useRouter } from "next/router";
 import codeitAxios from "@/lib/codeitAxios";

@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import styles from "@/styles/free.module.css";
 import BestArticleList from "@/components/free/BestArticleList.js";
 import ArticleList from "@/components/free/ArticleList";
-import OrderDropDown from "@/components/free/OrderDropDown";
+import OrderDropDown from "@/components/OrderDropDown";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 // import axios from "@/lib/axios";

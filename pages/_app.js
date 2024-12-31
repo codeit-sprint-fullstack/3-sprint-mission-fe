@@ -2,6 +2,8 @@ import "@/styles/global.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { AuthProvider } from "@/contexts/AuthProvider";
+
 
 export default function App({ Component, pageProps }) {
   const [queryClient] = React.useState(
@@ -19,7 +21,11 @@ export default function App({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+   
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
+     
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
