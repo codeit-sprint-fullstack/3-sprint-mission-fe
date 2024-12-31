@@ -7,7 +7,7 @@ import Link from "next/link";
 type ProductCardProps = {
   item: {
     id: number;
-    images: string[]; // 이미지 URL 배열로 되어있는 의도가 무엇이지?
+    images: string[]; // 이미지 URL 배열로 되어있는 의도가 무엇이지? -> 미디어 쿼리에 따라 다른 이미지를 보여주기 위함(크기에 따른 이미지 변경)
     description: string;
     favoriteCount: number;
     name: string;
