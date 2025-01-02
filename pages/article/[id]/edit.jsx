@@ -1,30 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { articleAPI } from "@/lib/axios";
 import styles from "./edit.module.css";
 
-export async function getServerSideProps(context) {
-  const { id } = context.params;
+export default function ModifyArticle() {
+  const [article, setArticle] = useState(null); // 기사 데이터 상태
+  const [title, setTitle] = useState(""); // 제목 상태
+  const [content, setContent] = useState(""); // 내용 상태
+  const [isLoading, setIsLoading] = useState(true); // 로딩 상태
+  const [isSubmitting, setIsSubmitting] = useState(false); // 제출 상태
+  const [error, setError] = useState(null); // 에러 상태
 
-  try {
-    const response = await articleAPI.getArticleById(id);
-    if (!response.data) {
-      return { notFound: true };
-    }
-
-    return {
-      props: { article: response.data },
-    };
-  } catch (error) {
-    return { notFound: true };
-  }
-}
-
-export default function ModifyArticle({ article }) {
   const router = useRouter();
-  const [title, setTitle] = useState(article.title);
-  const [content, setContent] = useState(article.content);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { id } = router.query; // URL에서 ID 가져오기
+
+  // 데이터 로드
+  useEffect(() => {
+    if (!id) return; // ID가 없으면 아무 작업도 하지 않음
+
+    const fetchData = async () => {
+      try {
+        setIsLoading(true); // 로딩 시작
+        const response = await articleAPI.getArticleById(id);
+
+        // JWT에서 userId 추출
+        const token = localStorage.getItem("accessToken");
+        const payload = JSON.parse(atob(token.split(".")[1])); // JWT 디코딩
+        const loggedInUserId = payload.id;
+
+        // 작성자 확인
+        if (response.data.writer.id !== loggedInUserId) {
+          router.push("/404"); // 작성자가 아니면 404로 이동
+          return;
+        }
+
+        setArticle(response.data); // 데이터 설정
+        setTitle(response.data.title); // 제목 설정
+        setContent(response.data.content); // 내용 설정
+      } catch (error) {
+        console.error("Error fetching article:", error);
+        setError("데이터를 불러오는 중 오류가 발생했습니다."); // 에러 설정
+      } finally {
+        setIsLoading(false); // 로딩 끝
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   const handleSave = async () => {
     if (isSubmitting) return;
@@ -36,6 +58,7 @@ export default function ModifyArticle({ article }) {
       router.push(`/article/${article.id}`); // 수정 후 상세 페이지로 이동
     } catch (error) {
       console.error("수정 실패:", error);
+      alert("수정 중 오류가 발생했습니다.");
     } finally {
       setIsSubmitting(false);
     }
@@ -47,6 +70,16 @@ export default function ModifyArticle({ article }) {
 
   const isSaveDisabled =
     isSubmitting || title.trim() === "" || content.trim() === "";
+
+  // 로딩 중 상태 처리
+  if (isLoading) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
+
+  // 에러 처리
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>

@@ -16,17 +16,17 @@ function BestArticle({ article }) {
       <div className={styles.title}>{article.title}</div>
       <div className={styles.imgBack}>
         <img
-          src={article.images || placeholderImage}
+          src={article.image || placeholderImage}
           alt="상품이미지"
           className={styles.productImg}
           onError={handleImageError}
         />
       </div>
       <div className={styles.infoBar}>
-        <div>총명한판다</div>
+        <div>{article.writer.nickname}</div>
         <div className={styles.likeBox}>
           <img src="/ic_heart.png" alt="like" className={styles.likeImg} />
-          <div>{article.likes}</div>
+          <div>{article.likeCount}</div>
         </div>
         <div className={styles.date}>{formattedDate}</div>
       </div>

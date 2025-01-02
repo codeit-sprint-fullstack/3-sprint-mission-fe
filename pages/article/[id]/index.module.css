@@ -19,7 +19,7 @@
 }
 
 .user {
-  width: 225px;
+  /* width: 225px; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -37,6 +37,7 @@
 .user > div:last-child {
   font-weight: 400;
   color: #9ca3af;
+  padding-right: 22px;
 }
 
 .likeBox {
@@ -138,4 +139,10 @@
   background: #3692ff url("/ic_back.png") no-repeat right 35px top 13px / 24px;
   cursor: pointer;
   margin: 64px auto 130px;
+}
+
+.loading {
+  font-size: 1.6rem;
+  color: #4b5563;
+  margin: 24px 0 130px;
 }

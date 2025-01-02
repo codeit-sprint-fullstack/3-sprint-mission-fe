@@ -7,16 +7,15 @@ import styles from "./BestArticleList.module.css";
 function BestArticleList() {
   const [bestArticles, setBestArticles] = useState([]);
 
-  const DISPLAY_LIMIT = 3;
-
   useEffect(() => {
     async function fetchBestArticles() {
       try {
-        const response = await articleAPI.getArticles();
-        const sortedArticles = [...response.data]
-          .sort((a, b) => b.likes - a.likes)
-          .slice(0, DISPLAY_LIMIT);
-        setBestArticles(sortedArticles);
+        const response = await articleAPI.getArticles({
+          page: 1, // 첫 페이지 가져오기
+          pageSize: 3, // 한 페이지에 n개의 게시글
+          orderBy: "like", // recent: 최신순, like: 인기순
+        });
+        setBestArticles(response.data.list); // 백엔드에서 가져온 데이터를 그대로 사용
       } catch (error) {
         console.error("Error fetching best articles:", error);
       }

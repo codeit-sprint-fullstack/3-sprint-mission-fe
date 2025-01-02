@@ -26,7 +26,7 @@
 }
 
 .columnBox {
-  width: 95px;
+  width: 100px;
   height: 40px;
   display: flex;
   flex-direction: column;
