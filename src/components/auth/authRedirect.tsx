@@ -17,7 +17,7 @@ export default function AuthRedirect({
   useEffect(() => {
     if (accessToken && variant === 'signedIn') router.replace('/items');
     if (!accessToken && variant === 'signedOut') router.replace('/sign-in');
-  }, [accessToken, router]);
+  }, [accessToken, router, variant]);
 
   return null;
 }

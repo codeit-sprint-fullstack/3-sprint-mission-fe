@@ -12,6 +12,10 @@ import {
   EditMutation,
   ProductRegistrationFormProps,
 } from './types';
+import { ImageUploadInput } from '@/components/common/imageInputSection/imageInputSection';
+import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { uploadImage } from '@/services/api/image';
 
 export default function ProductRegistrationForm({
   initialValue,
@@ -44,6 +48,10 @@ export default function ProductRegistrationForm({
     handleRemoveTag,
   } = useTagInput({ setValue, watch });
 
+  const [imageFile, setImageFile] = useState<File | null>(null);
+
+  const { mutateAsync } = useMutation({ mutationFn: uploadImage });
+
   const name = watch('name');
   const description = watch('description');
   const price = watch('price');
@@ -52,6 +60,11 @@ export default function ProductRegistrationForm({
     name && description && !Number.isNaN(price) && tags.length > 0 && isValid;
 
   const onSubmit = async (data: CreateProductRequest) => {
+    const imageURLS = [];
+    if (imageFile) {
+      const imageURL = await mutateAsync(imageFile);
+      imageURLS.push(...imageURL);
+    }
     if (initialValue) {
       const changedFields: Partial<CreateProductRequest> = {};
       if (data.name !== initialValue.name) changedFields.name = data.name;
@@ -61,7 +74,10 @@ export default function ProductRegistrationForm({
       if (Object.keys(changedFields).length > 0)
         return (mutation as EditMutation).mutate(changedFields);
     }
-    return (mutation as CreateMutation).mutate(data);
+    return (mutation as CreateMutation).mutate({
+      ...data,
+      images: imageURLS,
+    });
   };
 
   return (
@@ -79,6 +95,10 @@ export default function ProductRegistrationForm({
             등록
           </CommonBtn>
         </div>
+        <ImageUploadInput
+          label='상품이미지'
+          onFileChange={setImageFile}
+        />
         <CommonInputSection<CreateProductRequest>
           register={register}
           name='name'

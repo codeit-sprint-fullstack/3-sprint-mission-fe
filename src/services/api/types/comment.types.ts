@@ -8,7 +8,7 @@ export interface CommentResponse {
   content: string;
   createdAt: string;
   updatedAt: string;
-  writer: Writer;
+  user: user;
 }
 
 export interface CommentRequest {
@@ -16,7 +16,7 @@ export interface CommentRequest {
   content: string;
 }
 
-interface Writer {
+interface user {
   image: string;
   nickname: string;
   id: string;
