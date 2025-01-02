@@ -1,7 +1,7 @@
 import styles from "@/components/DropdownBox.module.css";
 // import axios from "@/lib/axios";
 // import PostListCard from "./postListCard";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 export default function Dropdown() {
   const [currentValue, setCurrentValue] = useState("최신순");
