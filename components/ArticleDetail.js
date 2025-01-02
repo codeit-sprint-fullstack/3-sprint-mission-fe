@@ -3,7 +3,7 @@ import Image from 'next/image';
 import dayjs from "dayjs";
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 import ArticleDropDown from './ArticleDropDown';
 import ArticleCommentDropDown from './ArticleCommentDropDown';
 
@@ -20,9 +20,13 @@ export default function ArticleDetail({ article, onCommentAdded }) {
             alert('내용을 입력해주세요!');
         }
         if (content) {
-            instance.post(`/articleComment`, {
-                articleId: article.id,
+            const accessToken = localStorage.getItem('accessToken');
+            instance.post(`/articles/${article.id}/comments`, {
                 content,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                }
             }).then((response) => {
                 alert("댓글이 등록되었습니다!");
                 onCommentAdded();
@@ -45,7 +49,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                 <div className={styles.ArticleDetailText}>
                     {article.title}
                 </div>
-                <ArticleDropDown id={article.id} />
+                <ArticleDropDown id={article.id} authorId={article.writer.id} />
             </div>
             <div className={styles.ArticleDetailMain}>
                 <div className={styles.ArticleDetailUser}>
@@ -55,7 +59,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                             height={40}
                             src="/images/userIcon.png" alt="User" />
                     </div>
-                    <div className={styles.ArticleDetailUserName}>{article.user}</div>
+                    <div className={styles.ArticleDetailUserName}>{article.writer.nickname}</div>
                     <div className={styles.ArticleDetailDate}>{dayjs(article.createdAt).format('YYYY. MM. DD')}</div>
                 </div>
                 <div className={styles.ArticleDetailLikeContain}>
@@ -65,7 +69,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                             height={36}
                             src="/images/heart.png" alt="heart" />
                     </div>
-                    <div className={styles.ArticleDetailLikeCount}>{article.like}</div>
+                    <div className={styles.ArticleDetailLikeCount}>{article.likeCount}</div>
                 </div>
             </div>
 
@@ -86,9 +90,8 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                     className={styles.ArticleDetailCommentReg}>등록</div>
             </div>
 
-
-            {article.ArticleComment && article.ArticleComment.length > 0 ? (
-                article.ArticleComment.map((comment, index) => (
+            {article.comments && article.comments.length > 0 ? (
+                article.comments.map((comment, index) => (
                     <div key={index} className={styles.ArticleDetailCommentBoxContain}>
                         <div className={styles.ArticleDetailCommentBox}>
                             <div>
@@ -100,15 +103,15 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                         <div className={styles.ArticleDetailCommentUserAll}>
                             <div>
                                 <Image
-                                    width={40}
-                                    height={40}
+                                    width={32}
+                                    height={32}
                                     src="/images/userIcon.png"
                                     alt="User"
                                 />
                             </div>
                             <div className={styles.ArticleDetailCommentUser}>
                                 <div className={styles.ArticleDetailCommentUserName}>
-                                    {comment.user}
+                                    {comment.writer ? comment.writer.nickname : "익명"}
                                 </div>
                                 <div className={styles.ArticleDetailCommentUserTime}>
                                     {dayjs(comment.createdAt).format('YYYY. MM. DD')}
@@ -123,7 +126,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                         width={1200}
                         height={208}
                         src="/images/noComment.png"
-                        alt="User"
+                        alt="No Comments"
                     />
                 </div>
             )}
@@ -134,7 +137,7 @@ export default function ArticleDetail({ article, onCommentAdded }) {
                     width={240}
                     height={48}
                     src="/images/return.png"
-                    alt="User"
+                    alt="Return"
                 />
             </div>
         </div>

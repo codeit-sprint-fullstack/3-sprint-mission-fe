@@ -7,8 +7,9 @@ export default function BestItemList({ post }) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/${post.id}/article`);
+        router.push(`/articles/${post.id}`);
     };
+
     return (
         <>
             <div className={styles.BestItemListContain} onClick={handleClick}>
@@ -16,28 +17,33 @@ export default function BestItemList({ post }) {
                     <Image
                         width={102}
                         height={30}
-                        src="/images/BestImage.png" alt="Best" />
+                        src="/images/BestImage.png"
+                        alt="Best"
+                    />
                     <div className={styles.BestItemListText1}>
-                        <div className={styles.BestItemListText11}>{post.content}</div>
+                        <div className={styles.BestItemListText11}>
+                            {post.title}
+                        </div>
                         <div className={styles.BestItemImageBox}>
                             <Image
                                 width={48}
                                 height={45}
-                                src="/images/bestitemimage.png" alt="Best" />
+                                src={'/images/bestitemimage.png'}
+                                alt="Post Image"
+                            />
                         </div>
                     </div>
                     <div className={styles.BestItemListText2}>
                         <div className={styles.BestItemListText22}>
-                            <div>{post.user}</div>
+                            <div>{post.writer.nickname}</div>
                             <div>♡</div>
-                            <div>{post.like}</div>
+                            <div>{post.likeCount}</div>
                         </div>
                         <div>
                             <div>{dayjs(post.createdAt).format('YYYY. MM. DD')}</div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     );

@@ -1,16 +1,16 @@
 import BestItemList from './BestItemList';
 import { useState, useEffect } from "react";
 import styles from '@/css/BestItem.module.css'
-import instance from "@/lib/axios";
+import instance from "@/lib/instance";
 
 export default function BestItem({ }) {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        instance.get(`/article/articleList?pageSize=3&orderBy='like'`)
+        instance.get(`/articles?page=1&pageSize=3&orderBy=like`)
             .then((response) => {
-                setPosts(response.data.Articles);
+                setPosts(response.data.list);
             })
             .catch((error) => console.error(error));
     }, []);

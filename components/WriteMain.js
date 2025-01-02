@@ -1,6 +1,6 @@
 import styles from '@/css/WriteMain.module.css';
 import { useState } from 'react';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 import { useRouter } from 'next/router';
 
 export default function WriteMain() {
@@ -9,13 +9,30 @@ export default function WriteMain() {
     const router = useRouter();
 
     const handlePostSubmit = () => {
-        instance.post(`/article`, {
+        const accessToken = localStorage.getItem('accessToken');
+
+        if (!accessToken) {
+            alert("로그인된 상태가 아닙니다.");
+            return;
+        }
+
+        instance.post(`/articles`, {
+            image: "https://example.com/your-image.png",
             title,
             content,
+        }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
         }).then((response) => {
+            console.log(response);
             alert("게시글이 등록되었습니다!");
-            const id = response.data.id;
-            router.push(`/${id}/article`);
+            const articleId = response.data?.id; // id가 있는지 확인
+            if (articleId) {
+                router.push(`/articles/${articleId}`);
+            } else {
+                console.error("응답에 ID가 없습니다.");
+            }
         }).catch((error) => {
             console.error(error);
         });

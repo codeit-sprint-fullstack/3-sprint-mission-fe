@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from '@/css/Dropdown.module.css';
 import Image from 'next/image';
-import instance from '@/lib/axios';
+import instance from '@/lib/instance';
 
 export default function ArticleCommentDropDown({ id, onCommentAdded }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +15,15 @@ export default function ArticleCommentDropDown({ id, onCommentAdded }) {
     };
 
     const handlePatch = () => {
+        const accessToken = localStorage.getItem('accessToken');
+
         try {
-            instance.patch(`/articleComment/${id}`, {
+            instance.patch(`/comments/${id}`, {
                 content: editContent,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                }
             });
             alert('댓글이 수정되었습니다!');
             setIsEditing(!isEditing);
@@ -29,7 +35,13 @@ export default function ArticleCommentDropDown({ id, onCommentAdded }) {
     }
 
     const handleDelete = () => {
-        instance.delete(`/articleComment/${id}`)
+        const accessToken = localStorage.getItem('accessToken');
+
+        instance.delete(`/comments/${id}`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
+        })
             .then((response) => {
                 alert("댓글이 삭제되었습니다!");
                 onCommentAdded();
