@@ -2,6 +2,7 @@
   "name": "3-sprint-mission-fe",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,17 +10,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
+    "@tanstack/react-query": "^5.62.8",
+    "@tanstack/react-query-devtools": "^5.62.8",
     "axios": "^1.7.9",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.54.1",
+    "sharp": "^0.33.5",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "^14.0.4",
     "postcss": "^8",
     "prettier": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
