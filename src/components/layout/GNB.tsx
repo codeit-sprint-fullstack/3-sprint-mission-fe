@@ -11,6 +11,8 @@ import CommonBtn from '../common/commonBtn/commonBtn';
 import { useAtom } from 'jotai';
 import { screenWidthAtom } from '@/lib/store/atoms';
 import { ScreenWidth } from '@/lib/types/options.types';
+import { useMe } from '@/hooks/useMe';
+import Avatar from '../common/avatar/avatar';
 
 const imageWidth = {
   [MEDIA_QUERY.value.large]: 153,
@@ -38,6 +40,8 @@ export default function GNB() {
     src: screenWidth === MEDIA_QUERY.value.small ? mobileLogo : logo,
     width: imageWidth[screenWidth!],
   };
+
+  const { data: me } = useMe();
 
   return (
     <div className='w-full h-[70px] flex justify-center sticky border-b-solid border-b-border-gnb border-b-[1px]'>
@@ -67,7 +71,16 @@ export default function GNB() {
               );
             })}
         </div>
-        <CommonBtn>로그인</CommonBtn>
+        {me ? (
+          <Avatar
+            nickname={me.nickname}
+            image={me.image}
+          />
+        ) : (
+          <Link href='/sign-in'>
+            <CommonBtn>로그인</CommonBtn>
+          </Link>
+        )}
       </div>
     </div>
   );

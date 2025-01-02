@@ -9,6 +9,7 @@ import { screenWidthAtom } from '@/lib/store/atoms';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import cn from '@/lib/cn';
 import PageIndex from '@/components/common/pageIndex/pageIndex';
+import ProductSkeleton from '../product/productSkeleton';
 
 const GRID_COLS = {
   [MEDIA_QUERY.value.large]: 'grid-cols-5',
@@ -20,23 +21,30 @@ export default function NormalProductListClient({
   searchParams,
 }: NormalProductListClientProps) {
   const [screenWidth] = useAtom(screenWidthAtom);
-  const take = Number(
+  const productsPerPage = Number(
     MEDIA_QUERY.productsPageSize[screenWidth || MEDIA_QUERY.value.large],
   );
 
-  const { data } = useQuery({
-    queryKey: ['products', searchParams.word, searchParams.skip, take],
+  const { data: products, isLoading } = useQuery({
+    queryKey: [
+      'products',
+      searchParams.page,
+      searchParams.pageSize,
+      searchParams.orderBy,
+      searchParams.keyword,
+      productsPerPage,
+    ],
     queryFn: () =>
       getProductList({
-        skip: Number(searchParams.skip) || 0,
-        take,
-        word: searchParams.word,
+        page: Number(searchParams.page) || 1,
+        pageSize: productsPerPage,
+        keyword: searchParams.keyword,
         orderBy: searchParams.orderBy || 'recent',
       }),
     enabled: !!screenWidth,
   });
 
-  if (data)
+  if (isLoading)
     return (
       <div className='flex flex-col items-center mb-[165px]'>
         <div
@@ -45,19 +53,39 @@ export default function NormalProductListClient({
             GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
           )}
         >
-          {data.data.map((product) => (
+          {Array.from({ length: productsPerPage }, (el) => el).map((_) => (
+            <ProductSkeleton size='small' />
+          ))}
+        </div>
+      </div>
+    );
+
+  if (products)
+    return (
+      <div className='flex flex-col items-center mb-[165px]'>
+        <div
+          className={cn(
+            'grid gap-1 items-center md:gap-4 xl:gap-5 mb-10',
+            GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
+          )}
+        >
+          {products.list.map((product) => (
             <Product
               key={product.id}
               id={product.id}
-              image='mockImage'
+              images={product.images}
               title={product.name}
               price={product.price}
-              likes={99}
+              likes={product.favoriteCount}
               size='small'
             />
           ))}
         </div>
-        <PageIndex maxPage={data.count / (searchParams.take ?? 10) + 1} />
+        <PageIndex
+          maxPage={Math.ceil(
+            products.totalCount / (searchParams.pageSize ?? 10),
+          )}
+        />
       </div>
     );
 }

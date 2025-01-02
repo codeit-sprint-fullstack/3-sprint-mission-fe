@@ -2,28 +2,42 @@
 
 import CommonBtn from '@/components/common/commonBtn/commonBtn';
 import CustomSelect from '@/components/common/customSelect/customSelect';
+import { Option } from '@/components/common/customSelect/customSelect.types';
 import SearchInput from '@/components/common/searchInput/searchInput';
-import Link from 'next/link';
+import { useAuthRedirect } from '@/hooks/auth/useAuthRedirect';
+import { GetProductListParams } from '@/services/api/types/product.types';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 const options = [
   { label: '최신순', value: 'recent' },
-  { label: '좋아요순', value: 'likes' },
+  { label: '좋아요순', value: 'favorite' },
 ];
 
-export default function ProductListHeader() {
+export default function ProductListHeader({
+  searchParams,
+}: {
+  searchParams: GetProductListParams;
+}) {
   const router = useRouter();
-  const [orderBy] = useState(options[0].value);
+
+  const { authRedirect } = useAuthRedirect();
 
   const onSearch = (word: string) => {
-    let queryParams = `?orderBy=${encodeURIComponent(orderBy)}`;
-    if (word) queryParams += `&word=${encodeURIComponent(word)}`;
-    router.push(queryParams);
+    const params = new URLSearchParams();
+    if (searchParams.orderBy) params.set('orderBy', searchParams.orderBy);
+    params.set('keyword', word);
+    router.push(`?${params.toString()}`);
+  };
+
+  const onSelect = (option: Option) => {
+    const params = new URLSearchParams();
+    if (searchParams.keyword) params.set('keyword', searchParams.keyword);
+    params.set('orderBy', option.value);
+    router.push(`?${params.toString()}`);
   };
 
   return (
-    <div className='flex justify-between items-center flex-wrap gap-y-2'>
+    <div className='flex justify-between items-center flex-wrap gap-y-2 mb-4 md:mb-6 xl:mb-6'>
       <h2 className='font-bold text-xl'>판매 중인 상품</h2>
       <div className='flex gap-3 flex-wrap md:flex-nowrap xl:flex-nowrap items-center'>
         <SearchInput
@@ -31,13 +45,15 @@ export default function ProductListHeader() {
           onSearch={onSearch}
           placeholder='검색할 상품을 입력해주세요'
         />
-        <Link href='/items/registration'>
-          <CommonBtn className='whitespace-nowrap'>상품 등록하기</CommonBtn>
-        </Link>
+        <CommonBtn
+          onClick={() => authRedirect('/items/registration')}
+          className='whitespace-nowrap'
+        >
+          상품 등록하기
+        </CommonBtn>
         <CustomSelect
           options={options}
-          // 구현 예정
-          onChange={() => console.log('')}
+          onChange={onSelect}
         />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import cn from '@/lib/cn';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function LikeCounter({
@@ -16,7 +16,7 @@ export default function LikeCounter({
         className,
       )}
     >
-      <FontAwesomeIcon icon={faHeart} />
+      <FontAwesomeIcon icon={emptyHeart} />
       <span>{likes.toLocaleString()}</span>
     </div>
   );

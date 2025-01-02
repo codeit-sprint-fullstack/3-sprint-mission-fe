@@ -1,43 +1,38 @@
 'use client';
 
-import { getArticleList } from '@/services/api/article';
-import { GetArticleListResponse } from '@/services/api/types/article';
-import { useQuery } from '@tanstack/react-query';
 import BestArticleCard from './bestArticleCard';
 import { useAtom } from 'jotai';
 import { screenWidthAtom } from '@/lib/store/atoms';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
+import { useBestArticleListQuery } from '@/hooks/articles/useBestArticleListQuery';
+import { BestArticleListProps } from '@/lib/types/props.types';
+import BestArticleSkeleton from './bestArticleSkeleton';
 
 export default function BestArticleListClient({
   initialData,
-}: {
-  initialData: GetArticleListResponse;
-}) {
+}: BestArticleListProps) {
   const [screenWidth] = useAtom(screenWidthAtom);
-  const { data } = useQuery({
-    queryKey: ['bestArticles'],
-    queryFn: () =>
-      getArticleList({
-        skip: 0,
-        take: 3,
-        orderBy: 'recent',
-      }),
-    initialData,
-  });
+  const { data, isLoading } = useBestArticleListQuery({ initialData });
+
+  if (isLoading) return;
+  Array.from(
+    { length: MEDIA_QUERY.bestArticlePageSize[screenWidth!] },
+    (el) => el,
+  ).map((_) => <BestArticleSkeleton />);
 
   return (
     <>
-      {data.data
+      {data.list
         .slice(0, MEDIA_QUERY.bestArticlePageSize[screenWidth!])
         .map((article) => {
           return (
             <BestArticleCard
               key={article.id}
-              nickname='총명한 판다'
+              nickname={article.writer.nickname}
               title={article.title}
-              likes={999}
+              likeCount={article.likeCount}
               createdAt={article.createdAt}
-              articleId={article.id}
+              articleId={article.id.toString()}
             />
           );
         })}

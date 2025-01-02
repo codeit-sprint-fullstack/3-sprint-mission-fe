@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function NormalArticleCard({
   title,
   nickname,
-  likes,
+  likeCount,
   createdAt,
   articleId,
 }: ArticleCardProps) {
@@ -37,7 +37,7 @@ export default function NormalArticleCard({
             layout='horizontal'
             variant='date'
           />
-          <LikeCounter likes={likes} />
+          <LikeCounter likes={likeCount} />
         </div>
       </div>
     </Link>

@@ -1,11 +1,11 @@
 import {
   GetProductListParams,
   GetProductListResponse,
-} from '@/services/api/types/product';
+} from '@/services/api/types/product.types';
 
 export interface ProductProps {
-  id: string;
-  image: string;
+  id: number;
+  images: string[];
   title: string;
   price: number;
   likes: number;

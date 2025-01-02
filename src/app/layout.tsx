@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import GNB from '@/components/layout/GNB';
-import Footer from '@/components/layout/Footer';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Provider } from 'jotai';
 import { ScreenWidthObserver } from './screenWidthObserver';
 import QueryProvider from './queryProvider';
+import ModalsContainer from '@/components/modal/modalsContainer';
 config.autoAddCss = false;
 
 const pretendard = localFont({
@@ -33,12 +32,9 @@ export default function RootLayout({
       >
         <QueryProvider>
           <Provider>
+            <ModalsContainer />
             <ScreenWidthObserver />
-            <GNB />
-            <main className='flex-1 w-full flex flex-col items-center'>
-              {children}
-            </main>
-            <Footer />
+            {children}
           </Provider>
         </QueryProvider>
       </body>
