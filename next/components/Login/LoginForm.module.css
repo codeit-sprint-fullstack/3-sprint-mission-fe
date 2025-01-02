@@ -1,0 +1,164 @@
+.loginContainer{
+  padding: 24px 16px;
+  max-width: 432px;
+  margin: 0 auto;
+}
+
+.logoLink {
+  display: block;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.logoLink Image{
+  width: 198px;
+}
+
+.inputSection{
+  margin-bottom: 24px;
+}
+
+.inputSection input{
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+}
+
+.inputSection input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.inputSection input:focus {
+  outline-color: #3692ff;
+}
+
+.errorWrapper{
+  display: flex;
+}
+
+.inputWrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordToggleBtn{
+  position: absolute;
+  right: 24px;
+}
+
+.loginBtn{
+  background-color: #3692ff;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 14.5px 33.5px;
+  width: 100%;
+}
+
+.loginBtn:hover{
+  background-color: #1967d6;
+}
+
+.loginBtn:focus{
+  background-color: #1251aa;
+}
+
+.loginBtn:disabled{
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+.error{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f74747;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* 어두운 반투명 배경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 모달이 다른 요소 위에 표시되도록 */
+}
+
+.modalContent {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  z-index: 1001; /* 오버레이보다 위에 표시 */
+}
+
+.modalText{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.closeModalBtn{
+  width: 165px;
+  height: 48px;
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color:#3692ff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  color: #f3f4f6;
+}
+
+@media (min-width: 744px) {
+  .loginContainer{
+    max-width: 640px;
+    padding: 48px 0;
+  }
+
+  .logoLink{
+    margin-bottom: 40px;
+  }
+
+  .logoLink Image {
+    width: 396px;
+  }
+
+  .inputSection label{
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .loginBtn{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px 126px;
+  }
+}
+
+@media(min-width:1200px) {
+  .loginContainer{
+    padding: 60px 0;
+  }
+}

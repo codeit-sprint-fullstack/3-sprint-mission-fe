@@ -1,0 +1,50 @@
+.loginContainer{
+  padding: 24px 16px;
+  max-width: 432px;
+  margin: 0 auto;
+}
+
+.simpleLoginContainer{
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 23px;
+  margin: 24px 0;
+}
+
+.simpleLoginContainer h3{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.socialLinkContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.moveToLogin{
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.signin{
+  color: #3182f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (min-width: 744px) {
+  .loginContainer{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .loginContainer{
+    padding: 60px 0;
+  }
+}

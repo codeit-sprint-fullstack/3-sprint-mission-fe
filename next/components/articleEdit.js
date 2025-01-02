@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "@/components/registerPost.module.css"
 
-export default function PostEditForm({ post, onUpdate, onCancel }) {
+export default function ArticleEditForm({ post, onUpdate, onCancel }) {
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
 

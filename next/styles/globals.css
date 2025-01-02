@@ -11,6 +11,55 @@ html {
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button{
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+Image{
+  vertical-align: bottom;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+footer{
+  background-color:#111827 ;
+  color: #9ca3af;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
 }
 
 Link:hover {
@@ -25,4 +74,24 @@ Link{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@media(min-width: 768px){
+  header {
+    padding: 0 24px;
+  }
+
+  footer{
+    padding: 32px 104px 108px 104px;
+  }
+}
+
+@media(min-width:1280px){
+  header {
+    padding: 0 200px;
+  }
+
+  footer{
+    padding: 32px 200px 108px 200px;
+  }
 }
