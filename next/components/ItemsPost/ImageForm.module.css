@@ -1,0 +1,97 @@
+
+.imageWrapper {
+  width: 282px;
+  margin-left: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageText {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+.customFileInput {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
+
+.fileInputContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 98px;
+}
+
+.registText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+.imageInput {
+  display: none;
+}
+
+.errorMsg {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f74747;
+}
+
+
+.container {
+  display: flex;
+  gap: 5px; 
+  flex-wrap: nowrap; 
+  align-items: flex-start; 
+  margin-bottom: 20px;
+}
+
+
+.imageWrapper {
+  flex-shrink: 0; 
+}
+
+
+.previewContainer {
+  display: flex;
+  margin-top: 27px;
+  flex-wrap: wrap; 
+  gap: 5px; 
+  margin-left: 5px; 
+}
+
+
+.previewItem {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.removeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

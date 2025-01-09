@@ -1,7 +1,7 @@
 .boardText{
   font-weight: 700;
   font-size: 1.8rem;
-  color: #3692FF;
+  color: #4b5563;
   margin-left: 5px;
 }
 
@@ -34,6 +34,10 @@
 .headerWrapper{
   display: flex;
   justify-content: space-around;
+}
+
+.active {
+  color: #3692ff; /* 선택된 경로의 글씨 색 */
 }
 
 @media (min-width:768px){
