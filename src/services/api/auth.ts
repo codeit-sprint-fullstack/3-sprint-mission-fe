@@ -4,7 +4,7 @@ import { SignInResponse } from './types/auth.types';
 
 export const signIn = async (signInData: SignInFormData) => {
   try {
-    const { data } = await axiosInstance.post('/auth/signIn', signInData);
+    const { data } = await axiosInstance.post('/auth/sign-in', signInData);
     return data;
   } catch (e) {
     console.error('로그인에 실패했습니다.', e);
@@ -14,7 +14,7 @@ export const signIn = async (signInData: SignInFormData) => {
 
 export const signUp = async (signUpData: SignUpFormData) => {
   try {
-    const { data } = await axiosInstance.post<SignInResponse>('/auth/signUp', {
+    const { data } = await axiosInstance.post<SignInResponse>('/auth/sign-up', {
       email: signUpData.email,
       nickname: signUpData.nickname,
       password: signUpData.password,

@@ -90,13 +90,13 @@ export const deleteProduct = async (id: string) => {
   }
 };
 
-export const getProductComments = async (id: string, limit: string = '100') => {
+export const getProductComments = async (id: number, take: number = 100) => {
   try {
     const { data } = await axiosInstance.get<CommentListResponse>(
       `products/${id}/comments`,
       {
         params: {
-          limit,
+          take,
         },
       },
     );

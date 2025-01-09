@@ -35,7 +35,7 @@ export default function Product({
             <Image
               src={images[0] || mockImage}
               alt='상품 이미지'
-              className='object-contain'
+              className='object-contain rounded-xl'
               fill
             />
           </div>

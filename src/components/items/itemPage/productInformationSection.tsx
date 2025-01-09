@@ -29,7 +29,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
   const { mutate } = useDeleteProductMutation();
 
   const onEditFn = () => {
-    if (me?.id !== product?.ownerId)
+    if (me?.id !== product?.user.id)
       return setMessage('본인의 상품만 수정할 수 있습니다.');
     router.push(`/items/${product?.id}/edit`);
   };
@@ -52,7 +52,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
             <Image
               src={product.images[0]}
               alt={`${product.name} 이미지`}
-              className='object-cover'
+              className='object-cover rounded-2xl'
               fill
             />
           </div>
@@ -83,7 +83,7 @@ export default function ProductInformationSection({ id }: { id: string }) {
               <Profile
                 layout='vertical'
                 variant='date'
-                nickname={product.ownerNickname}
+                nickname={product?.user.nickname}
                 createdAt={product.createdAt}
                 profileIcon={ProfileIcon}
                 iconSize={40}

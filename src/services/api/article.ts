@@ -85,7 +85,7 @@ export const deleteArticle = async (articleId: string) => {
 };
 
 export const getArticleComments = async (
-  articleId: string,
+  articleId: number,
   limit: string = '100',
 ) => {
   try {

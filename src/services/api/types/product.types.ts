@@ -13,6 +13,12 @@ export interface CreateProductRequest {
   name: string;
 }
 
+export interface User {
+  nickname: string;
+  image: string;
+  id: number;
+}
+
 export interface GetProductResponse {
   id: number;
   name: string;
@@ -21,8 +27,7 @@ export interface GetProductResponse {
   tags: string[];
   createdAt: string;
   images: string[];
-  ownerId: number;
-  ownerNickname: string;
+  user: User;
   favoriteCount: number;
   isFavorite: boolean;
 }
