@@ -2,6 +2,7 @@ import HomeBanner from "@/components/home/HomeBanner";
 import topBannerImage from "@/public/images/home/hero-image.png";
 import bottomBannerImage from "@/public/images/home/bottom-banner-image.png";
 
+// SSG 
 export default function HomePage() {
   return (
     <>
