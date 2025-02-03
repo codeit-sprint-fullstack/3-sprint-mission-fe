@@ -12,12 +12,12 @@ import { useAuthStore } from "@/store/useAuthStore";
 
 const menuList = [
   { id: 1, name: "자유게시판", url: "/post" },
-  { id: 2, name: "중고마켓", url: "/market" },
+  { id: 2, name: "중고마켓", url: "/items" },
 ];
 
 const Nav = () => {
   const pathname = usePathname();
-  const urlPath = "/" + pathname.split("/")[1];
+  const urlPath = "/" + pathname.split("/")[1]; // 이것보단 includes를 사용하는게 더 좋을 것 같은 생각이 듬. 가독성도 좋아보이고
 
   const { isLogin, userInfo, logout } = useAuthStore();
 
@@ -28,7 +28,7 @@ const Nav = () => {
   const isLoggedInAndHasInfo = isLogin && userInfo;
 
   return (
-    <nav className="min-w-[375px] border-b-[1px] border-gray-border px-4 py-2 md:px-6">
+    <nav className="fixed left-0 right-0 top-0 z-10 max-h-[75px] min-w-[375px] border-b-[1px] border-gray-border bg-white px-4 py-2 md:px-6 md:py-3">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between">
         <div className="flex items-center gap-3 text-base font-bold md:gap-10 md:text-lg">
           <Link href="/">
@@ -47,15 +47,16 @@ const Nav = () => {
               className="block md:hidden"
             />
           </Link>
-          {menuList.map((menu) => (
-            <Link
-              key={menu.id}
-              href={menu.url}
-              className={`${urlPath === menu.url && "text-blue"}`}
-            >
-              {menu.name}
-            </Link>
-          ))}
+          {pathname !== "/" &&
+            menuList.map((menu) => (
+              <Link
+                key={menu.id}
+                href={menu.url}
+                className={`${urlPath === menu.url && "text-blue"}`}
+              >
+                {menu.name}
+              </Link>
+            ))}
         </div>
 
         {isLoggedInAndHasInfo ? (

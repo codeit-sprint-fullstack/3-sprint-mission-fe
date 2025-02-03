@@ -3,22 +3,22 @@ import Image from "next/image";
 import kebabIcon from "@/public/icons/ic_kebab.png";
 import profileImage from "@/public/icons/ic_profile.png";
 import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
-import { useQuery } from "@tanstack/react-query";
-import { getComments } from "@/services/commentApi";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { deleteComment, getComments } from "@/services/commentApi";
 import { CommentListResponse, Comment } from "@/types/comments";
 import { useAuthStore } from "@/store/useAuthStore";
+import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
 
 type CommentListProps = {
-  id: string;
+  id: string | number;
 };
 
-const CommentList = ({ id }: CommentListProps) => {
+const PrevCommentList = ({ id }: CommentListProps) => {
   const { userInfo } = useAuthStore();
 
   const {
     data: commentsData,
     isLoading,
-    isError,
     error,
   } = useQuery<CommentListResponse>({
     queryKey: ["comments", id],
@@ -54,14 +54,18 @@ const CommentList = ({ id }: CommentListProps) => {
     }));
   };
 
-  if (isLoading) return <div>로딩 중...</div>;
-  if (isError)
-    return (
-      <div>
-        에러가 발생했습니다:{" "}
-        {error instanceof Error ? error.message : "알 수 없는 에러"}
-      </div>
-    );
+  const queryClient = useQueryClient();
+  const handleDeleteComment = async (commentId: number) => {
+    try {
+      await deleteComment(commentId); // 댓글 삭제 API 호출
+      queryClient.invalidateQueries({ queryKey: ["comments", String(id)] }); // 댓글 목록 새로고침
+    } catch (error) {
+      console.error("댓글 삭제 실패:", error);
+    }
+  };
+
+  if (isLoading) return <LoadingSpinner />;
+  if (error) return <div>댓글을 불러오지 못했습니다. 다시 시도해주세요.</div>;
   if (!commentsData || !commentsData.list.length)
     return <div>댓글이 없습니다.</div>;
 
@@ -100,7 +104,11 @@ const CommentList = ({ id }: CommentListProps) => {
                 <Image src={kebabIcon} alt="더보기" width={24} height={24} />
                 {dropdownStates[comment.id] && (
                   <div className="absolute right-0 top-6 z-10">
-                    <PostAndCommentActionsDropdown />
+                    <PostAndCommentActionsDropdown
+                      type="comment"
+                      id={comment.id}
+                      onDelete={() => handleDeleteComment(comment.id)}
+                    />
                   </div>
                 )}
               </button>
@@ -127,4 +135,4 @@ const CommentList = ({ id }: CommentListProps) => {
   );
 };
 
-export default CommentList;
+export default PrevCommentList;

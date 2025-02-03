@@ -43,11 +43,15 @@ const AuthSignupForm = () => {
       });
 
       push("/login");
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("[Signup Error]", error);
-      const errorMessage =
-        error.message || "회원가입에 실패했습니다. 다시 시도해주세요.";
-      setError(errorMessage);
+      if (error instanceof Error) {
+        const errorMessage =
+          error.message || "회원가입에 실패했습니다. 다시 시도해주세요.";
+        setError(errorMessage);
+      } else {
+        setError("알 수 없는 오류가 발생했습니다.");
+      }
       toggleModal(true);
     }
   };
@@ -62,7 +66,7 @@ const AuthSignupForm = () => {
         <AuthInput
           title="이메일"
           placeholder="이메일을 입력해주세요"
-          type="normal"
+          type="text"
           isError={!!errors.email}
           register={register("email", {
             required: "이메일을 입력해주세요.",
@@ -71,7 +75,6 @@ const AuthSignupForm = () => {
               message: "유효한 이메일 주소를 입력해주세요.",
             },
           })}
-          watch={watch("email")}
         />
         <ErrorMessage
           errors={errors}
@@ -87,7 +90,7 @@ const AuthSignupForm = () => {
         <AuthInput
           title="닉네임"
           placeholder="닉네임을 입력해주세요"
-          type="normal"
+          type="text"
           isError={!!errors.nickname}
           register={register("nickname", {
             required: "닉네임을 입력해주세요.",
@@ -104,7 +107,6 @@ const AuthSignupForm = () => {
               message: "한글, 영문, 숫자만 사용 가능합니다.",
             },
           })}
-          watch={watch("nickname")}
         />
         <ErrorMessage
           errors={errors}

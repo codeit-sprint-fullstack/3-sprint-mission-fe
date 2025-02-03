@@ -1,15 +1,15 @@
 import api from "@/lib/axios";
 import {
   Comment,
+  CommentCreateRequest,
   CommentDeleteResponse,
   CommentListResponse,
 } from "@/types/comments";
 
 export const createComment = async (productId: number, content: string) => {
-  const response = await api.post<Comment>(
-    `/products/${productId}/comments`,
+  const response = await api.post<Comment>(`/products/${productId}/comments`, {
     content,
-  );
+  });
   return response.data;
 };
 
@@ -25,7 +25,10 @@ export const getComments = async (
 };
 
 export const updateComment = async (commentId: number, content: string) => {
-  const response = await api.patch<Comment>(`/comments/${commentId}`, content);
+  const response = await api.patch<CommentCreateRequest>(
+    `/comments/${commentId}`,
+    { content },
+  );
   return response.data;
 };
 

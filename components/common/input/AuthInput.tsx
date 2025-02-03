@@ -11,10 +11,10 @@ import btn_visibility_off from "@/public/icons/btn_visibility_off.svg";
 type AuthInputProps = {
   title: string;
   placeholder: string;
-  type: "normal" | "password";
-  isError: boolean;
-  register: ReturnType<ReturnType<typeof useForm>["register"]>;
-  watch: string;
+  type: "text" | "password" | "number";
+  isError?: boolean;
+  register?: ReturnType<ReturnType<typeof useForm>["register"]>;
+  watch?: string | undefined;
 };
 
 const inputContainerBase =
@@ -29,13 +29,13 @@ const AuthInput = ({
   type,
   isError,
   register,
-  watch,
+  watch, // 현재 입력된 비밀번호 길이를 확인하기 위해 사용
 }: AuthInputProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
 
   const inputType =
-    type === "password" && !isPasswordVisible ? "password" : "text";
+    type === "password" ? (isPasswordVisible ? "text" : "password") : type;
 
   /* focus할때 input의 부모인 div에게 border 색상을 변경하는 것을 css 만으로는 못할까?  */
   return (
@@ -59,7 +59,7 @@ const AuthInput = ({
           onBlur={() => setIsFocus(false)}
         />
 
-        {type === "password" && watch?.length > 0 && (
+        {type === "password" && (watch?.length ?? 0) > 0 && (
           <button
             onClick={() => setIsPasswordVisible(!isPasswordVisible)}
             type="button"

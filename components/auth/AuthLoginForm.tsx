@@ -53,11 +53,12 @@ const AuthLoginForm = () => {
     } catch (error: any) {
       console.error("[Login Error]", error);
       const errorMessage =
-        error.message || "로그인에 실패했습니다. 다시 시도해주세요.";
+        error?.message || "로그인에 실패했습니다. 다시 시도해주세요.";
       setError(errorMessage); // 에러 메시지 설정
       toggleModal(true); // 모달 열기
     }
   };
+  // 타입스크립트 린트옵션을 빼버릴까했는데 바실리님은 어떻게 하나 궁금했었습니다
 
   return (
     <form
@@ -69,7 +70,7 @@ const AuthLoginForm = () => {
         <AuthInput
           title="이메일"
           placeholder="이메일을 입력해주세요"
-          type="normal"
+          type="text"
           isError={!!errors.email}
           register={register("email", {
             required: "이메일을 입력해주세요.",
@@ -78,7 +79,6 @@ const AuthLoginForm = () => {
               message: "유효한 이메일 주소를 입력해주세요.",
             },
           })}
-          watch={watch("email")}
         />
         <ErrorMessage
           errors={errors}
