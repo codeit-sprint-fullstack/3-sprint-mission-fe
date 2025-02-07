@@ -41,3 +41,5 @@ export type ProductFavoriteResponse = ProductDetailResponse;
 
 /* DELETE /products/:productId/favorite */
 export type ProductUnfavoriteResponse = ProductDetailResponse;
+
+export type Product = ProductCreateResponse;
