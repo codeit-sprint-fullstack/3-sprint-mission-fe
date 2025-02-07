@@ -63,6 +63,7 @@ const AuthInput = ({
           <button
             onClick={() => setIsPasswordVisible(!isPasswordVisible)}
             type="button"
+            tabIndex={-1} // 버튼을 tab으로 focus 했을 때, focus가 input으로 넘어가지 않도록 함
           >
             <Image
               src={isPasswordVisible ? btn_visibility_on : btn_visibility_off}
