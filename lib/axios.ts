@@ -2,7 +2,7 @@ import { postRefreshToken } from "@/services/authApi";
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 
 // 환경 변수 설정
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // 에러 타입 정의
 export interface ApiError {
