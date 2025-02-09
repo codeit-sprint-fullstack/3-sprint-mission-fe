@@ -1,2 +1,1 @@
-import image from "@/public/images/img_default.png";
-export const DEFAULT_IMAGE = image;
+export const DEFAULT_IMAGE_PATH = "/images/img_default.png";

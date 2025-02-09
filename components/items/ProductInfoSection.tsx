@@ -17,7 +17,7 @@ import {
   unfavoriteProduct,
 } from "@/services/productApi";
 import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
-import { DEFAULT_IMAGE } from "@/utils/defaultImage";
+import { DEFAULT_IMAGE_PATH } from "@/utils/defaultImage";
 
 type ProductInfoSectionProps = {
   productId: string;
@@ -82,7 +82,7 @@ const ProductInfoSection = ({
       <section className="flex h-full max-h-[486px] sm:gap-4 md:gap-6">
         <div className="max-h-[486px] max-w-[486px] flex-1 object-cover">
           <Image
-            src={product.images[0] ?? DEFAULT_IMAGE}
+            src={product.images[0] ?? DEFAULT_IMAGE_PATH}
             alt="상품 이미지"
             width={486}
             height={486}
