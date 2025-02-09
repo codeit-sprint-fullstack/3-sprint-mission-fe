@@ -26,7 +26,6 @@ const ItemsPage = async () => {
 async function getBestProducts(pageSize: number) {
   console.log(BASE_URL);
   const res = await fetch(
-    // `${BASE_URL}?page=1&pageSize=${pageSize}&orderBy=favorite`,
     `${BASE_URL}/products?page=1&pageSize=${pageSize}&orderBy=favorite`,
     { cache: "no-store" },
   );
