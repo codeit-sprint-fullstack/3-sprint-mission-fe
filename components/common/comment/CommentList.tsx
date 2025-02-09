@@ -19,6 +19,8 @@ type CommentListProps = {
   id: string;
 };
 
+type DropdownStates = { [key: string]: boolean };
+
 const CommentList = ({ id }: CommentListProps) => {
   const { userInfo } = useAuthStore();
   const queryClient = useQueryClient();
@@ -53,9 +55,7 @@ const CommentList = ({ id }: CommentListProps) => {
     },
   });
 
-  const [dropdownStates, setDropdownStates] = useState<{
-    [key: string]: boolean;
-  }>({});
+  const [dropdownStates, setDropdownStates] = useState<DropdownStates>({});
 
   const textareaRefs = useRef<{ [key: string]: HTMLTextAreaElement | null }>(
     {},
