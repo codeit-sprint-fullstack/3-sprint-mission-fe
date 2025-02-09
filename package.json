@@ -1,25 +1,63 @@
 {
-  "name": "sprint8",
+  "name": "3-best-photo-1team-fe",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "lint:strict": "next lint '*/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier . --write",
+      "eslint . --fix",
+      "next lint"
+    ]
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.62.8",
-    "@tanstack/react-query-devtools": "^5.62.8",
+    "@hookform/resolvers": "^3.10.0",
+    "@tanstack/react-query": "^5.66.0",
+    "@types/jsonwebtoken": "^9.0.7",
     "axios": "^1.7.9",
-    "dayjs": "^1.11.13",
-    "next": "15.0.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "clsx": "^2.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.17",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.54.2",
+    "tailwind-merge": "^2.5.4",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "autoprefixer": "^10.4.20",
+    "copy-to-clipboard": "^3.3.3",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3"
-  },
-  "proxy": "https://incredible-conkies-2bfde0.netlify.app"
+    "eslint-config-next": "14.2.17",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "eslint-plugin-storybook": "^0.11.1",
+    "eslint-plugin-tsc": "^2.0.0",
+    "lint-staged": "^15.3.0",
+    "postcss": "^8.5.1",
+    "prettier": "^3.4.2",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
 }
