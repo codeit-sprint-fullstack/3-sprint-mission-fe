@@ -12,6 +12,7 @@ import searchIcon from "@/public/icons/ic_search.svg";
 import sortButton from "@/public/images/btn_sort.png";
 import { getArticleList } from "@/services/articleApi";
 import { ArticleListResponse } from "@/types/articles";
+import ArticleListWrapper from "./ArticleListWrapper";
 
 const AllArticles = () => {
   const [sortOrder, setSortOrder] = useState<"recent" | "like">("recent");
@@ -73,11 +74,13 @@ const AllArticles = () => {
       </div>
 
       {/* 게시글 리스트 */}
-      <ul>
-        {articles?.list?.map((article) => (
-          <AllArticleCard key={article.id} article={article} />
-        ))}
-      </ul>
+      <ArticleListWrapper>
+        <ul>
+          {articles?.list?.map((article) => (
+            <AllArticleCard key={article.id} article={article} />
+          ))}
+        </ul>
+      </ArticleListWrapper>
     </section>
   );
 };
