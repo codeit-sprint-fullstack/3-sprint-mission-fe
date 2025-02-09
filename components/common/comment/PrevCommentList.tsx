@@ -2,18 +2,20 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import kebabIcon from "@/public/icons/ic_kebab.png";
 import profileImage from "@/public/icons/ic_profile.png";
-import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { deleteComment, getComments } from "@/services/commentApi";
 import { CommentListResponse, Comment } from "@/types/comments";
 import { useAuthStore } from "@/store/useAuthStore";
 import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
+import ActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
+import { useRouter } from "next/navigation";
 
 type CommentListProps = {
   id: string | number;
 };
 
 const PrevCommentList = ({ id }: CommentListProps) => {
+  const router = useRouter();
   const { userInfo } = useAuthStore();
 
   const {
@@ -22,7 +24,7 @@ const PrevCommentList = ({ id }: CommentListProps) => {
     error,
   } = useQuery<CommentListResponse>({
     queryKey: ["comments", id],
-    queryFn: () => getComments(Number(id), 10, 0),
+    queryFn: () => getComments({ productId: Number(id), limit: 10, cursor: 0 }),
   });
 
   // 각 댓글 내용 상태 관리
@@ -104,10 +106,12 @@ const PrevCommentList = ({ id }: CommentListProps) => {
                 <Image src={kebabIcon} alt="더보기" width={24} height={24} />
                 {dropdownStates[comment.id] && (
                   <div className="absolute right-0 top-6 z-10">
-                    <PostAndCommentActionsDropdown
-                      type="comment"
-                      id={comment.id}
+                    <ActionsDropdown
                       onDelete={() => handleDeleteComment(comment.id)}
+                      onEdit={() => {
+                        // 댓글 수정 페이지로 이동
+                        router.push(`/comments/${comment.id}/edit`);
+                      }}
                     />
                   </div>
                 )}
