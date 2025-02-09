@@ -1,0 +1,48 @@
+.askWrapper{
+  width: 1200px;
+  margin-left: 360px;
+  margin-right: 360px;
+  margin-top: 35px;
+}
+
+.ask{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111827;
+}
+
+.askInput{
+  width: 1200px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  resize: none;
+  border: none;
+}
+
+.askInput::placeholder{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+.askInput:focus{
+  outline-color: #3692ff;
+}
+
+.commentBtn{
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color: #9ca3af;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f3f4f6;
+  border: none;
+}
+
+.btnWrapper{
+  margin-left: 1122px;
+  margin-top: 5px;
+}

@@ -1,0 +1,75 @@
+.bestItemsContainer {
+  padding-top: 17px;
+  padding-bottom: 24px;
+}
+
+.allItemsCardSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 7px;
+}
+
+.allItemsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sorButtonWrapper {
+  position: relative;
+}
+
+.srotDropdownTriggerButton {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.searchBarWrapper {
+  display: flex;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 9px 16px;
+  flex: 1;
+  align-items: center;
+  width: 289px;
+}
+
+.searchBarInput{
+  border: none;
+  flex: 1;
+  background-color: inherit;
+  margin-left: 4px;
+}
+
+.searchBarInput::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.createItemButton {
+  margin: 0px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 11.5px 23px;
+}
+
+
+
+@media (min-width: 744px){
+  .bestItemsContainer{
+    margin-bottom: 40px;
+  }
+
+  .bestItemsSection{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media ( min-width: 1280px){
+  .bestItemsSection{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

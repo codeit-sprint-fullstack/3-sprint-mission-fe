@@ -1,0 +1,43 @@
+.priceWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin-left: 360px;
+  margin-right: 360px;
+  margin-bottom: 20px;
+}
+
+.priceText{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.priceInput{
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+.priceInput::placeholder{
+  font-size: 16px;
+  font-weight:  400;
+  line-height: 26px;
+  color: #9ca3af;
+}
+
+.priceInput:focus{
+  outline-color: #3692ff;
+}
+
+.errorMsg{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f74747;
+}

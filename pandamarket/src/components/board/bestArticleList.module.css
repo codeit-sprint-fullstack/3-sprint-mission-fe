@@ -1,0 +1,84 @@
+.postWrapper{
+  width: 1200px;
+  display: flex;
+  list-style-type: none;
+  height: 169px;
+}
+
+.postContainer{
+  width: 384px;
+  height: 169px;
+  border-radius: 8px;
+  padding: 24px;
+  margin-right: 16px;
+  background-color: #f9fafb; 
+}
+
+.heartPart{
+  margin-left: 10px;
+}
+
+.postTitle{
+  font-weight: 600;
+  font-size: 20px;
+  color: #1F2937;
+}
+
+.contentWrapper{
+  margin-top: 20px;
+}
+
+.postImage{
+  margin-left: 80px;
+  text-align: right;
+  border-radius: 6px;
+  border: 1px solid #E5E7EB;
+  background-color: #FFFFFF;
+}
+
+.userContainer{
+  display: flex;
+}
+
+.postNickname{
+  font-size: 14px;
+  font-weight: 400;
+  color: #4B5563;
+}
+
+.postCreateAt{
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.titleContainer{
+  display: flex;
+}
+
+.contentContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.bestWrapper{
+  width: 102px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding: 2px 24px;
+  background-color: #3692ff;
+}
+
+.bestText{
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+
+.favoriteCount{
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  margin-left: 5px;
+}

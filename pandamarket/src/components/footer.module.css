@@ -1,0 +1,30 @@
+.footer{
+  background-color: #111827;
+  color: #9ca3af;
+  font-size: 16px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.footermenu{
+  display: flex;
+  color: #e5e7eb;
+}
+
+.sns{
+  display: flex;
+  gap: 12px;
+}
+
+.footertext{
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  color: #e5e7eb;
+  margin-left: 20px;
+}
