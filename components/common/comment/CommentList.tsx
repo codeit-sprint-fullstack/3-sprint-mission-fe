@@ -13,9 +13,10 @@ import { CommentListResponse, Comment } from "@/types/comments";
 import { useAuthStore } from "@/store/useAuthStore";
 import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
 import CommonBtn from "@/components/common/button/CommonBtn";
+import { MINUTES } from "@/utils/constants";
 
 type CommentListProps = {
-  id: string | number;
+  id: string;
 };
 
 const CommentList = ({ id }: CommentListProps) => {
@@ -33,7 +34,7 @@ const CommentList = ({ id }: CommentListProps) => {
   } = useQuery<CommentListResponse>({
     queryKey: ["comments", id],
     queryFn: () => getComments(Number(id), 10, 0),
-    staleTime: 1000 * 60 * 5,
+    staleTime: 5 * MINUTES,
   });
 
   // 수정 mutation 추가
