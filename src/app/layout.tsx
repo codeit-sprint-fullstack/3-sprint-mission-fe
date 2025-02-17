@@ -18,6 +18,10 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: '판다마켓',
   description: '판다마켓에 오신 걸 환영합니다.',
+  openGraph: {
+    title: '판다마켓',
+    description: '판다마켓에 오신 걸 환영합니다.',
+  },
 };
 
 export default function RootLayout({

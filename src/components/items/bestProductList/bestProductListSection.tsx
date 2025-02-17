@@ -6,7 +6,7 @@ export default async function BestProductListSection() {
     page: 1,
     pageSize: 4,
     orderBy: 'favorite',
-    keyword: '',
+    word: '',
   });
 
   return (

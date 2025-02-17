@@ -7,10 +7,10 @@ import LikeButton from '@/components/common/likeButton/likeButton';
 import ActionMenu from '../community/actionMenu/actionMenu';
 import { useRouter } from 'next/navigation';
 import { useDeleteArticleMutation } from '@/hooks/articles/useDeleteArticleMutation';
-import { useSetAtom } from 'jotai';
-import { confirmModalAtom } from '@/lib/store/modalAtoms';
 import { useMe } from '@/hooks/useMe';
-import { useMessageModal } from '@/hooks/modals/useMessageModal';
+import { useSetArticleFavoriteMutation } from '@/hooks/articles/useSetArticleFavoriteMutation';
+import { useDeleteArticleFavoriteMutation } from '@/hooks/articles/useDeleteArticleFavoriteMutation';
+import { useModal } from '@/hooks/modals/useModal';
 
 export default function ArticleHeader({
   id,
@@ -22,16 +22,18 @@ export default function ArticleHeader({
   ownerId,
 }: ArticleHeaderProps) {
   const deleteArticleMutation = useDeleteArticleMutation(id);
-  const setConfirmModalState = useSetAtom(confirmModalAtom);
-  const { setMessage } = useMessageModal();
+  const { openConfirmModal, openMessageModal } = useModal();
   const router = useRouter();
 
   const { data: me } = useMe();
   const onEditButtonClick = () => {
     if (me?.id !== ownerId)
-      return setMessage('본인의 게시물만 수정할 수 있습니다.');
+      openMessageModal('본인의 게시물만 수정할 수 있습니다.');
     router.push(`/community/${id}/edit`);
   };
+
+  const { mutate: setLikeMutation } = useSetArticleFavoriteMutation();
+  const { mutate: deleteLikeMutation } = useDeleteArticleFavoriteMutation();
 
   return (
     <div className='flex flex-col mb-4 md:mb-4 xl:mb-6 w-full'>
@@ -39,13 +41,11 @@ export default function ArticleHeader({
         <h2 className='font-bold text-xl'>{title}</h2>
         <ActionMenu
           id={id}
-          onEditButtonClick={() => onEditButtonClick()}
+          onEditButtonClick={onEditButtonClick}
           onDeleteButtonClick={() =>
-            setConfirmModalState({
-              isOpen: true,
-              message: '정말로 게시물을 삭제하시겠어요?',
-              onConfirmFunction: () => deleteArticleMutation.mutate(id),
-            })
+            openConfirmModal('정말로 게시물을 삭제하시겠어요?', () =>
+              deleteArticleMutation.mutate(id),
+            )
           }
         />
       </div>
@@ -62,10 +62,11 @@ export default function ArticleHeader({
           |
         </span>
         <LikeButton
-          variant='article'
-          id={id}
           count={likeCount}
           liked={isLiked}
+          onClick={() =>
+            isLiked ? deleteLikeMutation(id) : setLikeMutation(id)
+          }
         />
       </div>
     </div>

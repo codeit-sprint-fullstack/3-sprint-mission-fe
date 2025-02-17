@@ -12,7 +12,7 @@ export default function Avatar({ image, nickname }: AvatarProps) {
   return (
     <div className='flex justify-between items-center gap-[6px] text-lg text-text-black-secondary'>
       <Image
-        src={image !== null ? image : defaultAvatar}
+        src={image ?? defaultAvatar}
         alt='프로필 이미지'
         width={40}
         height={40}

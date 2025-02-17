@@ -10,10 +10,10 @@ import { useProductQuery } from '@/hooks/products/useProductQuery';
 import { useDeleteProductMutation } from '@/hooks/products/useDeleteProductMutation';
 import { useMe } from '@/hooks/useMe';
 import { useRouter } from 'next/navigation';
-import { useSetAtom } from 'jotai';
-import { confirmModalAtom } from '@/lib/store/modalAtoms';
-import { useMessageModal } from '@/hooks/modals/useMessageModal';
 import ProductInformationSkeleton from './productInformationSkeleton';
+import { useSetProductFavoriteMutation } from '@/hooks/products/useSetProductFavoriteMutation';
+import { useDeleteProductFavoriteMutation } from '@/hooks/products/useDeleteProductFavoriteMutation';
+import { useModal } from '@/hooks/modals/useModal';
 
 export default function ProductInformationSection({ id }: { id: string }) {
   const { data: product, isLoading } = useProductQuery({
@@ -21,26 +21,25 @@ export default function ProductInformationSection({ id }: { id: string }) {
   });
   const router = useRouter();
   const { data: me } = useMe();
-
-  const setConfirmModalAtom = useSetAtom(confirmModalAtom);
-
-  const { setMessage } = useMessageModal();
-
+  const { openMessageModal, openConfirmModal } = useModal();
   const { mutate } = useDeleteProductMutation();
 
   const onEditFn = () => {
-    if (me?.id !== product?.user.id)
-      return setMessage('본인의 상품만 수정할 수 있습니다.');
+    if (me?.id !== product?.user.id) {
+      alert('hi');
+      return openMessageModal('본인의 상품만 수정할 수 있습니다.');
+    }
     router.push(`/items/${product?.id}/edit`);
   };
 
-  const onDeleteFn = () => {
-    setConfirmModalAtom({
-      isOpen: true,
-      message: '정말로 상품을 삭제하시겠어요?',
-      onConfirmFunction: () => product && mutate(product.id.toString()),
-    });
-  };
+  const onDeleteFn = () =>
+    openConfirmModal(
+      '정말로 상품을 삭제하시겠어요?',
+      () => product && mutate(product.id.toString()),
+    );
+
+  const { mutate: setFavorite } = useSetProductFavoriteMutation();
+  const { mutate: deleteFavorite } = useDeleteProductFavoriteMutation();
 
   if (isLoading) return <ProductInformationSkeleton />;
 
@@ -89,10 +88,11 @@ export default function ProductInformationSection({ id }: { id: string }) {
                 iconSize={40}
               />
               <LikeButton
-                variant='product'
                 count={product.favoriteCount}
                 liked={product.isFavorite}
-                id={product.id.toString()}
+                onClick={() =>
+                  product.isFavorite ? deleteFavorite(id) : setFavorite(id)
+                }
               />
             </div>
           </div>

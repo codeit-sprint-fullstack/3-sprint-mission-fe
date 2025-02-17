@@ -15,7 +15,7 @@ export const getProductList = async ({
   page = 0,
   pageSize = 10,
   orderBy = 'recent',
-  keyword,
+  word,
 }: GetProductListParams = {}) => {
   try {
     const { data } = await axiosInstance.get<GetProductListResponse>(
@@ -25,7 +25,7 @@ export const getProductList = async ({
           page,
           pageSize,
           orderBy,
-          ...(keyword && { keyword }),
+          ...(word && { word: word }),
         },
       },
     );

@@ -1,6 +1,5 @@
 export interface LikeButtonProps {
-  variant: 'product' | 'article';
+  onClick: () => void;
   count: number;
   liked: boolean;
-  id: string;
 }

@@ -36,3 +36,12 @@ export const getMe = async () => {
     throw e;
   }
 };
+
+export const refreshToken = async () => {
+  try {
+    await axiosInstance.post('/auth/refresh-token');
+  } catch (e) {
+    console.error('토큰 갱신에 실패했습니다.', e);
+    throw e;
+  }
+};

@@ -1,3 +1,4 @@
+import { HTMLInputTypeAttribute } from 'react';
 import {
   FieldErrors,
   FieldValues,
@@ -12,7 +13,7 @@ export interface CommonInputSectionProps<T extends FieldValues> {
   label: string;
   name: Path<T>;
   placeholder: string;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   validation?: RegisterOptions<T, Path<T>>;
   inputType?: 'input' | 'textarea';
   rows?: number;

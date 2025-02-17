@@ -1,26 +1,24 @@
 'use client';
 
-import { confirmModalAtom, messageModalAtom } from '@/lib/store/modalAtoms';
-import { useSetAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import MessageModal from './messageModal';
 import ConfirmModal from './confirmModal';
+import { useModal } from '@/hooks/modals/useModal';
+import { createPortal } from 'react-dom';
 
 export default function ModalsContainer() {
   const pathname = usePathname();
-  const setErrorModalAtom = useSetAtom(messageModalAtom);
-  const setConfirmModalAtom = useSetAtom(confirmModalAtom);
+  const { isOpen, modalType, closeModal } = useModal();
 
   useEffect(() => {
-    setErrorModalAtom((prev) => ({ ...prev, isOpen: false }));
-    setConfirmModalAtom((prev) => ({ ...prev, isOpen: false }));
-  }, [pathname, setErrorModalAtom, setConfirmModalAtom]);
+    closeModal();
+  }, [pathname]);
 
-  return (
-    <>
-      <MessageModal />
-      <ConfirmModal />
-    </>
+  if (!isOpen) return null;
+
+  return createPortal(
+    <>{modalType === 'confirm' ? <ConfirmModal /> : <MessageModal />}</>,
+    document.body,
   );
 }

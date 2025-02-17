@@ -28,14 +28,17 @@ export default function BestProductListClient({
         page: 1,
         pageSize: 4,
         orderBy: 'favorite',
-        keyword: '',
+        word: '',
       }),
     initialData,
   });
 
   if (isLoading)
-    return Array.from({ length: sliceValue }, (el) => el).map((_) => (
-      <ProductSkeleton size='big' />
+    return Array.from({ length: sliceValue }, () => 0).map((el, index) => (
+      <ProductSkeleton
+        size='big'
+        key={el + index}
+      />
     ));
 
   return (

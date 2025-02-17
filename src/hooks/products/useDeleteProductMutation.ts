@@ -2,12 +2,13 @@ import { deleteProduct } from '@/services/api/product';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
-import { useMessageModal } from '../modals/useMessageModal';
+import { useModal } from '../modals/useModal';
 
 export const useDeleteProductMutation = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { setMessage: setErrorMessage } = useMessageModal();
+
+  const { openMessageModal } = useModal();
 
   return useMutation<void, AxiosError<{ message: string }>, string>({
     mutationFn: deleteProduct,
@@ -16,7 +17,7 @@ export const useDeleteProductMutation = () => {
       router.push('/items');
     },
     onError: (error) =>
-      setErrorMessage(
+      openMessageModal(
         error?.response?.data.message ||
           `에러가 발생했습니다. ${error.message}`,
       ),

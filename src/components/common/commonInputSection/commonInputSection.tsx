@@ -18,7 +18,7 @@ export default function CommonInputSection<T extends FieldValues>({
   rows = 5,
 }: CommonInputSectionProps<T>) {
   const [showPassword, setShowPassword] = useState(false);
-  const isPassword = name === 'password' || name === 'passwordConfirmation';
+  const isPassword = type === 'password';
 
   const inputProps = {
     type: isPassword ? (showPassword ? 'text' : 'password') : type,

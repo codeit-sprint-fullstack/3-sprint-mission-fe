@@ -2,7 +2,7 @@ export interface GetProductListParams {
   page?: number;
   pageSize?: number;
   orderBy?: 'recent' | 'favorite';
-  keyword?: string;
+  word?: string;
 }
 
 export interface CreateProductRequest {

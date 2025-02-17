@@ -17,6 +17,7 @@
     "@tanstack/react-query": "^5.62.2",
     "axios": "^1.7.8",
     "clsx": "^2.1.1",
+    "jose": "^5.9.6",
     "jotai": "^2.10.3",
     "next": "14.2.17",
     "react": "^18",

@@ -5,15 +5,7 @@ const axiosInstance = axios.create({
   headers: {
     'Content-type': 'application/json',
   },
-});
-
-axiosInstance.interceptors.request.use((config) => {
-  if (typeof window === 'undefined') return config;
-  const token = localStorage.getItem('accessToken');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
+  withCredentials: true,
 });
 
 axiosInstance.interceptors.response.use(
@@ -24,22 +16,15 @@ axiosInstance.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        if (typeof window !== 'undefined') {
-          const refreshToken = localStorage.getItem('refreshToken');
-          const response = await axiosInstance.post('auth/refresh-token', {
-            refreshToken,
-          });
-          const { accessToken, refreshToken: newRefreshToken } = response.data;
-          localStorage.setItem('accessToken', accessToken);
-          localStorage.setItem('refreshToken', newRefreshToken);
-          originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-        }
+        await axiosInstance.post(
+          'auth/refresh-token',
+          {},
+          {
+            withCredentials: true,
+          },
+        );
         return axiosInstance(originalRequest);
       } catch (error) {
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem('accessToken');
-          localStorage.removeItem('refreshToken');
-        }
         return Promise.reject(error);
       }
     }

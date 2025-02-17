@@ -12,8 +12,8 @@ import {
 } from './types/comment.types';
 
 export const getArticleList = async ({
-  skip = 0,
-  take = 10,
+  page = 1,
+  pageSize = 10,
   orderBy = 'recent',
   word,
 }: GetArticleListParams = {}): Promise<GetArticleListResponse> => {
@@ -22,8 +22,8 @@ export const getArticleList = async ({
       '/articles',
       {
         params: {
-          skip,
-          take,
+          page,
+          pageSize,
           orderBy,
           ...(word && { word }),
         },
@@ -93,7 +93,7 @@ export const getArticleComments = async (
       `/articles/${articleId}/comments`,
       {
         params: {
-          limit,
+          take: limit,
         },
       },
     );

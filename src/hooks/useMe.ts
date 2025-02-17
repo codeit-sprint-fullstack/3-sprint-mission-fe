@@ -1,4 +1,4 @@
-import { getMe } from '@/services/api/auth';
+import { getMe, refreshToken } from '@/services/api/auth';
 import { User } from '@/services/api/types/auth.types';
 import { useQuery } from '@tanstack/react-query';
 
@@ -6,13 +6,14 @@ export const useMe = () => {
   return useQuery<User>({
     queryKey: ['me'],
     queryFn: async () => {
-      if (typeof window !== 'undefined') {
-        const accessKey = localStorage.getItem('accessToken');
-        if (!accessKey) return null;
-        const userData = await getMe();
-        return userData;
-      }
-      return null;
+      const userData = await getMe();
+      if (userData === null)
+        try {
+          await refreshToken();
+          const userData = await getMe();
+          return userData;
+        } catch {}
+      return userData;
     },
   });
 };

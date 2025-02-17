@@ -1,5 +1,5 @@
 import Footer from '@/components/layout/Footer';
-import GNB from '@/components/layout/GNB';
+import GNB from '@/components/layout/GNB/GNB';
 
 export default function Layout({
   children,

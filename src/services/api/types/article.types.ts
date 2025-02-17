@@ -1,6 +1,6 @@
 export interface GetArticleListParams {
-  skip?: number;
-  take?: number;
+  page?: number;
+  pageSize?: number;
   orderBy?: 'recent' | 'likes';
   word?: string;
 }
@@ -14,7 +14,7 @@ export interface GetArticleResponse {
   likeCount: number;
   isLiked: boolean;
   image: string;
-  writer: ArticleWriter;
+  user: ArticleWriter;
 }
 
 export interface GetArticleListResponse {

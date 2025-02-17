@@ -1,18 +1,17 @@
 'use client';
 
-import cn from '@/lib/cn';
 import Image from 'next/image';
 import logo from '@/public/images/common/logo.png';
 import mobileLogo from '@/public/images/common/mobileLogo.png';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import CommonBtn from '../common/commonBtn/commonBtn';
 import { useAtom } from 'jotai';
 import { screenWidthAtom } from '@/lib/store/atoms';
 import { ScreenWidth } from '@/lib/types/options.types';
 import { useMe } from '@/hooks/useMe';
-import Avatar from '../common/avatar/avatar';
+import Avatar from '../../common/avatar/avatar';
+import LoginButton from './loginButton';
+import LinkList from './linkList';
 
 const imageWidth = {
   [MEDIA_QUERY.value.large]: 153,
@@ -20,20 +19,7 @@ const imageWidth = {
   [MEDIA_QUERY.value.small]: 81,
 };
 
-const LINKS = [
-  { path: 'community', text: '자유게시판' },
-  { path: 'items', text: '중고마켓' },
-];
-const navLinkStyle =
-  'text-lg leading-10 font-bold sm:text-base md:text-[18px] xl:text-[18px]';
-const activeStyle = (active: boolean) => {
-  return active ? 'text-text-blue' : 'text-text-black-secondary';
-};
-
 export default function GNB() {
-  const path = usePathname();
-  const pathname = path.split('/')[1];
-  const isNotHomePage = path !== '/';
   const [screenWidth] = useAtom<ScreenWidth>(screenWidthAtom);
 
   const logoImage = {
@@ -55,21 +41,7 @@ export default function GNB() {
               className='h-auto'
             />
           </Link>
-          {isNotHomePage &&
-            LINKS.map(({ path, text }) => {
-              return (
-                <Link
-                  key={text}
-                  href={`/${path}`}
-                >
-                  <span
-                    className={cn(navLinkStyle, activeStyle(pathname === path))}
-                  >
-                    {text}
-                  </span>
-                </Link>
-              );
-            })}
+          <LinkList />
         </div>
         {me ? (
           <Avatar
@@ -77,9 +49,7 @@ export default function GNB() {
             image={me.image}
           />
         ) : (
-          <Link href='/sign-in'>
-            <CommonBtn>로그인</CommonBtn>
-          </Link>
+          <LoginButton />
         )}
       </div>
     </div>

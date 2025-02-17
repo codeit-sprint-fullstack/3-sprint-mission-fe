@@ -31,14 +31,13 @@ export default function NormalProductListClient({
       searchParams.page,
       searchParams.pageSize,
       searchParams.orderBy,
-      searchParams.keyword,
-      productsPerPage,
+      searchParams.word,
     ],
     queryFn: () =>
       getProductList({
         page: Number(searchParams.page) || 1,
-        pageSize: productsPerPage,
-        keyword: searchParams.keyword,
+        pageSize: searchParams.pageSize,
+        word: searchParams.word,
         orderBy: searchParams.orderBy || 'recent',
       }),
     enabled: !!screenWidth,
@@ -53,15 +52,14 @@ export default function NormalProductListClient({
             GRID_COLS[screenWidth || MEDIA_QUERY.value.large],
           )}
         >
-          {Array.from(
-            { length: productsPerPage },
-            (el, index) => index + 1,
-          ).map((num) => (
-            <ProductSkeleton
-              key={num}
-              size='small'
-            />
-          ))}
+          {Array.from({ length: productsPerPage }, () => 0).map(
+            (num, index) => (
+              <ProductSkeleton
+                key={num + index}
+                size='small'
+              />
+            ),
+          )}
         </div>
       </div>
     );

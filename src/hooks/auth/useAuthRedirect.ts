@@ -1,15 +1,15 @@
 import { useRouter } from 'next/navigation';
 import { useMe } from '../useMe';
-import { useMessageModal } from '../modals/useMessageModal';
+import { useModal } from '../modals/useModal';
 
 export const useAuthRedirect = () => {
   const me = useMe();
   const router = useRouter();
-  const { setMessage } = useMessageModal();
+  const { openMessageModal } = useModal();
 
   const authRedirect = (pathname: string) => {
     if (me) return router.push(pathname);
-    setMessage('로그인이 필요한 기능입니다.');
+    openMessageModal('로그인이 필요한 기능입니다.');
   };
 
   return { authRedirect };

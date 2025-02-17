@@ -1,13 +1,13 @@
 import { deleteArticle } from '@/services/api/article';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { useMessageModal } from '../modals/useMessageModal';
 import { AxiosError } from 'axios';
+import { useModal } from '../modals/useModal';
 
 export const useDeleteArticleMutation = (id: string) => {
   const queryClient = useQueryClient();
   const router = useRouter();
-  const { setMessage } = useMessageModal();
+  const { openMessageModal } = useModal();
 
   return useMutation<void, AxiosError<{ message: string }>, string>({
     mutationFn: () => deleteArticle(id),
@@ -18,7 +18,7 @@ export const useDeleteArticleMutation = (id: string) => {
       router.push('/community');
     },
     onError: (error) =>
-      setMessage(
+      openMessageModal(
         error?.response?.data.message ||
           `에러가 발생했습니다. ${error.message}`,
       ),

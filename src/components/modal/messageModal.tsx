@@ -1,16 +1,13 @@
 'use client';
 
-import { createPortal } from 'react-dom';
+import { useModal } from '@/hooks/modals/useModal';
 import CommonBtn from '../common/commonBtn/commonBtn';
 import cn from '@/lib/cn';
-import { useMessageModal } from '@/hooks/modals/useMessageModal';
 
 export default function MessageModal() {
-  const { messageModalState, closeMessageModal } = useMessageModal();
+  const { message, closeModal, onButtonClick } = useModal();
 
-  if (!messageModalState.isOpen) return null;
-
-  return createPortal(
+  return (
     <div className='fixed inset-0 bg-black/70 z-10'>
       <div
         className={cn(
@@ -22,17 +19,19 @@ export default function MessageModal() {
           className={'w-full flex flex-col items-center justify-center gap-10'}
         >
           <div className='flex flex-col justify-center items-center gap-6'>
-            <div>{messageModalState.message}</div>
+            <div>{message}</div>
           </div>
           <CommonBtn
             className='rounded-lg w-[120px] md:w-[165px] xl:w-[165px] h-[48px]'
-            onClick={closeMessageModal}
+            onClick={() => {
+              closeModal();
+              if (onButtonClick) onButtonClick();
+            }}
           >
             확인
           </CommonBtn>
         </div>
       </div>
-    </div>,
-    document.body,
+    </div>
   );
 }
