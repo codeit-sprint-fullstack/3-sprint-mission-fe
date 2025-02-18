@@ -103,12 +103,14 @@ const ProductForm = ({
     !!watch("name") && !!watch("description") && watch("price") >= 0;
 
   return (
-    <form className="max-w-1200 mx-auto" onSubmit={handleSubmit(onSubmit)}>
+    <form className="max-w-container mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-6 flex w-full items-center justify-between">
         <h1 className="text-xl font-bold">
           {isEdit ? "상품 수정하기" : "상품 등록하기"}
         </h1>
-        <CommonBtn disabled={!isFormValid}> {isEdit ? "수정" : "등록"}</CommonBtn>
+        <CommonBtn disabled={!isFormValid}>
+          {isEdit ? "수정" : "등록"}
+        </CommonBtn>
       </div>
 
       <div className="flex flex-col gap-8">

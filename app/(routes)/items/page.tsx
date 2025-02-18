@@ -14,7 +14,7 @@ const ItemsPage = async () => {
 
   return (
     <article className="px-6 py-7">
-      <section className="mx-auto flex max-w-[1200px] flex-col gap-10">
+      <section className="max-w-container mx-auto flex flex-col gap-10">
         <BestProducts items={bestProducts} />
         <AllProducts />
       </section>

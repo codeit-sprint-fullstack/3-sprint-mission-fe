@@ -12,7 +12,7 @@ const PostEditor = () => {
   const btnText = urlPath === "create" ? "등록" : "수정";
 
   return (
-    <article className="mx-auto max-w-[1200px]">
+    <article className="max-w-container mx-auto">
       <header className="mb-8 flex w-full items-center justify-between">
         <PostEditorTitle>{title}</PostEditorTitle>
         <CommonBtn disabled={true}>{btnText}</CommonBtn>

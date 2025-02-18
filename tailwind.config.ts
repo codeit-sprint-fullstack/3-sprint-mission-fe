@@ -13,6 +13,9 @@ export default {
       xl: "1280px",
     },
     extend: {
+      maxWidth: {
+        container: "1200px",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

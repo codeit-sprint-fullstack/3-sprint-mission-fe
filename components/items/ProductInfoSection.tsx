@@ -77,7 +77,7 @@ const ProductInfoSection = ({
   if (!product) return <div>상품을 찾을 수 없습니다.</div>;
 
   return (
-    <div className="mx-auto max-w-[1200px]">
+    <div className="max-w-container mx-auto">
       {/* 상품 소개 관련 */}
       <section className="flex h-full max-h-[486px] sm:gap-4 md:gap-6">
         <div className="max-h-[486px] max-w-[486px] flex-1 object-cover">
