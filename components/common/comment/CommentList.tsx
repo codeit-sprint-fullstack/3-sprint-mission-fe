@@ -12,7 +12,7 @@ import { CommentListResponse, Comment } from "@/types/comments";
 import { useAuthStore } from "@/store/useAuthStore";
 import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
 import CommonBtn from "@/components/common/button/CommonBtn";
-import { MINUTES } from "@/utils/constants";
+import { MINUTES } from "@/constants";
 import ActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 
 type CommentListProps = {

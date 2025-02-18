@@ -13,7 +13,7 @@ import sortButton from "@/public/images/btn_sort.png";
 import { getArticleList } from "@/services/articleApi";
 import { ArticleListResponse } from "@/types/articles";
 import ArticleListWrapper from "./ArticleListWrapper";
-import { MINUTES } from "@/utils/constants";
+import { MINUTES } from "@/constants";
 
 const AllArticles = () => {
   const [sortOrder, setSortOrder] = useState<"recent" | "like">("recent");
