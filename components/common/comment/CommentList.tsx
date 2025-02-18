@@ -19,7 +19,7 @@ type CommentListProps = {
   id: string;
 };
 
-type DropdownStates = { [key: string]: boolean };
+type DropdownStates = Record<string, boolean>;
 
 const CommentList = ({ id }: CommentListProps) => {
   const { userInfo } = useAuthStore();
