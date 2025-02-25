@@ -14,8 +14,7 @@ import {
 } from './types';
 import { ImageUploadInput } from '@/components/common/imageInputSection/imageInputSection';
 import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { uploadImage } from '@/services/api/image';
+import { useUploadUrl } from '@/hooks/image/useUploadUrl';
 
 export default function ProductRegistrationForm({
   initialValue,
@@ -50,34 +49,41 @@ export default function ProductRegistrationForm({
 
   const [imageFile, setImageFile] = useState<File | null>(null);
 
-  const { mutateAsync } = useMutation({ mutationFn: uploadImage });
-
   const name = watch('name');
   const description = watch('description');
   const price = watch('price');
 
+  const { mutate: uploadMutation, imageUrl } = useUploadUrl(imageFile?.name);
+
   const buttonActive =
-    name && description && !Number.isNaN(price) && tags.length > 0 && isValid;
+    name &&
+    description &&
+    !Number.isNaN(price) &&
+    tags.length > 0 &&
+    isValid &&
+    imageFile;
 
   const onSubmit = async (data: CreateProductRequest) => {
-    const imageURLS = [];
     if (imageFile) {
-      const imageURL = await mutateAsync(imageFile);
-      imageURLS.push(...imageURL);
+      uploadMutation.mutate(imageFile, {
+        onSuccess: () => {
+          if (initialValue) {
+            const changedFields: Partial<CreateProductRequest> = {};
+            if (data.name !== initialValue.name) changedFields.name = data.name;
+            if (data.description !== initialValue.description)
+              changedFields.description = data.description;
+            if (data.price !== initialValue.price)
+              changedFields.price = data.price;
+            if (Object.keys(changedFields).length > 0)
+              return (mutation as EditMutation).mutate(changedFields);
+          }
+          return (mutation as CreateMutation).mutate({
+            ...data,
+            images: [`https://${imageUrl}`],
+          });
+        },
+      });
     }
-    if (initialValue) {
-      const changedFields: Partial<CreateProductRequest> = {};
-      if (data.name !== initialValue.name) changedFields.name = data.name;
-      if (data.description !== initialValue.description)
-        changedFields.description = data.description;
-      if (data.price !== initialValue.price) changedFields.price = data.price;
-      if (Object.keys(changedFields).length > 0)
-        return (mutation as EditMutation).mutate(changedFields);
-    }
-    return (mutation as CreateMutation).mutate({
-      ...data,
-      images: imageURLS,
-    });
   };
 
   return (

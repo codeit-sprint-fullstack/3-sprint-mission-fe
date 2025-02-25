@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ImageUploadInputProps } from './types';
 import ImageInputBox from './imageInputBox';
 import ImageCard from './imageCard';
@@ -8,6 +8,7 @@ export function ImageUploadInput({
   onFileChange,
 }: ImageUploadInputProps) {
   const [previewUrl, setPreviewUrl] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -28,13 +29,19 @@ export function ImageUploadInput({
     }
     setPreviewUrl('');
     onFileChange(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   return (
     <div className='input-section'>
       <h2 className='input-label'>{label}</h2>
       <div className='flex gap-[10px] md:gap-[10px] xl:gap-6'>
-        <ImageInputBox onChange={handleFileChange} />
+        <ImageInputBox
+          onChange={handleFileChange}
+          inputRef={fileInputRef}
+        />
         {previewUrl.length > 0 && (
           <ImageCard
             imgSrc={previewUrl}

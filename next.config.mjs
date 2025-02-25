@@ -11,9 +11,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
+        hostname: 'd3bte49znzcuux.cloudfront.net',
         port: '',
-        pathname: '/Sprint_Mission/**',
+        pathname: '/uploads/**',
       },
       // 임시적으로 모든 이미지 출처 허용
       {
