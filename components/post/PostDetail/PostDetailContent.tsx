@@ -3,13 +3,11 @@ import Image from "next/image";
 import kebabIcon from "@/public/icons/ic_kebab.png";
 import profileImage from "@/public/icons/ic_profile.png";
 // import heartIcon from "@/public/icons/ic_heart.svg";
-// import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 import { useState } from "react";
 // import HeartButton from "@/components/common/button/HeartButton";
 
 const title = "맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?";
 const content = "맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?";
-// const likeCount = 123;
 
 const PostDetailContent = () => {
   const [isPostMenuOpen, setIsPostMenuOpen] = useState(false);

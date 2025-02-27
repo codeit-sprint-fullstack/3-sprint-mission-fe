@@ -9,7 +9,7 @@ const PostDetailPage = ({ params }: { params: { id: string } }) => {
   const { id: productId } = params;
 
   return (
-    <article className="mx-auto max-w-[1200px]">
+    <article className="max-w-container mx-auto">
       {/* 게시글 내용 */}
       <PostDetailContent />
 

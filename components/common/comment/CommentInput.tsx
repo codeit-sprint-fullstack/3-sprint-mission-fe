@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 type CommentInputProps = {
   title: string;
   placeholder: string;
-  productId: string | number;
+  productId: string;
 };
 
 const CommentInput = ({ title, placeholder, productId }: CommentInputProps) => {

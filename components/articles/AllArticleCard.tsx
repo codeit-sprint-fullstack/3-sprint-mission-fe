@@ -4,7 +4,7 @@ import Link from "next/link";
 import { formattedDate } from "@/utils/formattedDate";
 import HeartIcon from "@/components/SVG/HeartIcon";
 import profileIcon from "@/public/icons/ic_profile.png";
-import { DEFAULT_IMAGE } from "@/utils/defaultImage";
+import { DEFAULT_IMAGE_PATH } from "@/utils/defaultImage";
 
 type AllArticleCardProps = {
   article: ArticleCreateResponse;
@@ -24,7 +24,7 @@ const AllArticleCard = ({
           <p className="grow text-xl font-semibold text-black">{title}</p>
           <div className="h-[72px] w-[72px] shrink-0 rounded-lg border border-gray-light bg-white p-3">
             <Image
-              src={image ?? DEFAULT_IMAGE}
+              src={image ?? DEFAULT_IMAGE_PATH}
               alt="post thumbnail image"
               height={48}
               width={48}

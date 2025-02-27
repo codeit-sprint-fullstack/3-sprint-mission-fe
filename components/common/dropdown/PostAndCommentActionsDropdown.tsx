@@ -1,5 +1,3 @@
-import { useRouter } from "next/navigation";
-
 interface DropdownItem {
   title: string;
   action: "edit" | "delete";
@@ -16,34 +14,22 @@ const dropdownList: DropdownItem[] = [
   },
 ];
 
-type PostAndCommentActionsDropdownProps = {
-  id?: string | number; // 수정 시 필요한 id 값
-  basePath?: "/items" | "/articles"; // 경로 변경을 위한 추가 prop
+type ActionsDropdownProps = {
   onDelete: () => void;
-  onEdit?: () => void; // 댓글 수정 시 필요한 함수
-  type: "post" | "comment";
+  onEdit?: () => void; // 수정 액션 콜백
 };
 
-const PostAndCommentActionsDropdown = ({
-  id,
-  basePath,
-  onDelete,
-  onEdit,
-  type,
-}: PostAndCommentActionsDropdownProps) => {
-  const router = useRouter();
-
+const ActionsDropdown = ({ onDelete, onEdit }: ActionsDropdownProps) => {
   const onClick = (action: string): void => {
     switch (action) {
       case "edit":
-        if (type === "post" && basePath && id) {
-          router.push(`${basePath}/${id}/edit`); // 수정 페이지로 이동
-        } else if (type === "comment" && onEdit) {
+        console.log("수정하기");
+        if (onEdit) {
           onEdit();
         }
-
         break;
       case "delete":
+        console.log("삭제하기");
         onDelete();
         break;
       default:
@@ -70,4 +56,4 @@ const PostAndCommentActionsDropdown = ({
   );
 };
 
-export default PostAndCommentActionsDropdown;
+export default ActionsDropdown;

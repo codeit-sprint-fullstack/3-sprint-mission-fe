@@ -5,6 +5,12 @@ import ARROW_RIGHT_INACTIVE from "@/public/icons/arrow/arrow-right-inactive.svg"
 import ARROW_RIGHT_ACTIVE from "@/public/icons/arrow/arrow-right-active.svg";
 import Image from "next/image";
 
+// 페이지네이션 색상 상수
+const BORDER_COLOR = "#E5E7EB";
+const ACTIVE_BG_COLOR = "#2F80ED";
+const ACTIVE_TEXT_COLOR = "#F9FAFB";
+const INACTIVE_TEXT_COLOR = "#6B7280";
+
 type PaginationProps = {
   pageNo: number;
   setPageNo: (pageNo: number) => void;
@@ -42,8 +48,13 @@ const Pagination = ({ pageNo, setPageNo, totalPage }: PaginationProps) => {
       {paginationArr.map((value) => (
         <div
           key={value}
-          className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border ${value === pageNo ? "border-[#E5E7EB] bg-[#2F80ED] text-[#F9FAFB]" : "border-[#E5E7EB] text-[#6B7280]"}`}
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border"
           onClick={() => setPageNo(value)}
+          style={{
+            borderColor: BORDER_COLOR,
+            backgroundColor: value === pageNo ? ACTIVE_BG_COLOR : "transparent",
+            color: value === pageNo ? ACTIVE_TEXT_COLOR : INACTIVE_TEXT_COLOR,
+          }}
         >
           {value}
         </div>

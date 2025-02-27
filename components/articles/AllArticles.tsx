@@ -12,6 +12,8 @@ import searchIcon from "@/public/icons/ic_search.svg";
 import sortButton from "@/public/images/btn_sort.png";
 import { getArticleList } from "@/services/articleApi";
 import { ArticleListResponse } from "@/types/articles";
+import ArticleListWrapper from "./ArticleListWrapper";
+import { MINUTES } from "@/constants";
 
 const AllArticles = () => {
   const [sortOrder, setSortOrder] = useState<"recent" | "like">("recent");
@@ -19,10 +21,10 @@ const AllArticles = () => {
   const { data: articles, isLoading } = useQuery<ArticleListResponse>({
     queryKey: ["AllArticles"],
     queryFn: () => getArticleList(1, 10, sortOrder, ""),
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 30,
+    staleTime: 5 * MINUTES,
+    gcTime: 30 * MINUTES,
     refetchOnWindowFocus: false,
-    refetchInterval: 1000 * 60 * 10,
+    refetchInterval: 10 * MINUTES,
   });
 
   if (isLoading) {
@@ -73,11 +75,13 @@ const AllArticles = () => {
       </div>
 
       {/* 게시글 리스트 */}
-      <ul>
-        {articles?.list?.map((article) => (
-          <AllArticleCard key={article.id} article={article} />
-        ))}
-      </ul>
+      <ArticleListWrapper>
+        <ul>
+          {articles?.list?.map((article) => (
+            <AllArticleCard key={article.id} article={article} />
+          ))}
+        </ul>
+      </ArticleListWrapper>
     </section>
   );
 };

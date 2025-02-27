@@ -4,7 +4,6 @@ import Image from "next/image";
 import BackButton from "@/components/common/button/BackButton";
 import ic_profile from "@/public/icons/ic_profile.png";
 import kebabIcon from "@/public/icons/ic_kebab.png";
-import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 import { useState } from "react";
 import CommentList from "@/components/common/comment/CommentList";
 import CommentInput from "@/components/common/comment/CommentInput";
@@ -17,7 +16,8 @@ import {
   unfavoriteProduct,
 } from "@/services/productApi";
 import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
-import { DEFAULT_IMAGE } from "@/utils/defaultImage";
+import { DEFAULT_IMAGE_PATH } from "@/utils/defaultImage";
+import ActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 
 type ProductInfoSectionProps = {
   productId: string;
@@ -77,12 +77,12 @@ const ProductInfoSection = ({
   if (!product) return <div>상품을 찾을 수 없습니다.</div>;
 
   return (
-    <div className="mx-auto max-w-[1200px]">
+    <div className="max-w-container mx-auto">
       {/* 상품 소개 관련 */}
       <section className="flex h-full max-h-[486px] sm:gap-4 md:gap-6">
         <div className="max-h-[486px] max-w-[486px] flex-1 object-cover">
           <Image
-            src={product.images[0] ?? DEFAULT_IMAGE}
+            src={product.images[0] ?? DEFAULT_IMAGE_PATH}
             alt="상품 이미지"
             width={486}
             height={486}
@@ -98,14 +98,7 @@ const ProductInfoSection = ({
                 <Image src={kebabIcon} alt="더보기" width={24} height={24} />
               </button>
               <div className="absolute right-1 top-7">
-                {isKebabMenuOpen && (
-                  <PostAndCommentActionsDropdown
-                    type="post"
-                    basePath="/items"
-                    id={product.id}
-                    onDelete={handleDelete}
-                  />
-                )}
+                {isKebabMenuOpen && <ActionsDropdown onDelete={handleDelete} />}
               </div>
             </div>
             <p className="mt-6 text-5xl font-bold">
@@ -177,7 +170,7 @@ const ProductInfoSection = ({
         <CommentInput
           title="문의하기"
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-          productId={product.id}
+          productId={String(product.id)}
         />
         {/* 문의 댓글 리스트 */}
         <CommentList id={productId} />

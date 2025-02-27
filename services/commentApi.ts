@@ -13,13 +13,23 @@ export const createComment = async (productId: number, content: string) => {
   return response.data;
 };
 
-export const getComments = async (
-  productId: number,
-  limit: number,
-  cursor: number,
-) => {
+export const getComments = async ({
+  productId,
+  limit,
+  cursor,
+}: {
+  productId: number;
+  limit: number;
+  cursor: number;
+}) => {
   const response = await api.get<CommentListResponse>(
-    `/products/${productId}/comments?limit=${limit}&cursor=${cursor}`,
+    `/products/${productId}/comments`,
+    {
+      params: {
+        limit,
+        cursor,
+      },
+    },
   );
   return response.data;
 };

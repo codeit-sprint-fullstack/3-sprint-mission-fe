@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import kebabIcon from "@/public/icons/ic_kebab.png";
 import profileImage from "@/public/icons/ic_profile.png";
-import PostAndCommentActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import {
   deleteComment,
@@ -13,10 +12,14 @@ import { CommentListResponse, Comment } from "@/types/comments";
 import { useAuthStore } from "@/store/useAuthStore";
 import LoadingSpinner from "@/components/common/loading/LoadingSpinner";
 import CommonBtn from "@/components/common/button/CommonBtn";
+import { MINUTES } from "@/constants";
+import ActionsDropdown from "@/components/common/dropdown/PostAndCommentActionsDropdown";
 
 type CommentListProps = {
-  id: string | number;
+  id: string;
 };
+
+type DropdownStates = Record<string, boolean>;
 
 const CommentList = ({ id }: CommentListProps) => {
   const { userInfo } = useAuthStore();
@@ -32,8 +35,8 @@ const CommentList = ({ id }: CommentListProps) => {
     error,
   } = useQuery<CommentListResponse>({
     queryKey: ["comments", id],
-    queryFn: () => getComments(Number(id), 10, 0),
-    staleTime: 1000 * 60 * 5,
+    queryFn: () => getComments({ productId: Number(id), limit: 10, cursor: 0 }),
+    staleTime: 5 * MINUTES,
   });
 
   // 수정 mutation 추가
@@ -52,9 +55,7 @@ const CommentList = ({ id }: CommentListProps) => {
     },
   });
 
-  const [dropdownStates, setDropdownStates] = useState<{
-    [key: string]: boolean;
-  }>({});
+  const [dropdownStates, setDropdownStates] = useState<DropdownStates>({});
 
   const textareaRefs = useRef<{ [key: string]: HTMLTextAreaElement | null }>(
     {},
@@ -161,9 +162,7 @@ const CommentList = ({ id }: CommentListProps) => {
                     />
                     {dropdownStates[comment.id] && (
                       <div className="absolute right-0 top-6 z-10">
-                        <PostAndCommentActionsDropdown
-                          type="comment"
-                          id={comment.id}
+                        <ActionsDropdown
                           onDelete={() => handleDeleteComment(comment.id)}
                           onEdit={() => startEditing(comment)}
                         />

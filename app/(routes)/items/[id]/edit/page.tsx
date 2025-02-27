@@ -28,7 +28,7 @@ const ProductUpdatePage = ({ params }: { params: { id: string } }) => {
   };
 
   return (
-    <section className="mx-auto box-border max-w-[1200px] px-6 pb-40 pt-6">
+    <section className="max-w-container mx-auto box-border px-6 pb-40 pt-6">
       <ProductForm
         defaultValues={productData}
         productId={productId}
